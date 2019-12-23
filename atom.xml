@@ -1,47 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>BrighterEyer</title>
   
-  
+  <subtitle>用心看清世界，不要驻足停留</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2019-12-23T12:50:58.270Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="BrighterEyer2.github.io/"/>
+  <updated>2019-12-22T14:55:22.000Z</updated>
+  <id>BrighterEyer2.github.io/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>brightereyer</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2019/12/23/hello-world/"/>
-    <id>http://yoursite.com/2019/12/23/hello-world/</id>
-    <published>2019-12-23T12:50:58.270Z</published>
-    <updated>2019-12-23T12:50:58.270Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>[单片机] LCD12864液晶屏</title>
-    <link href="http://yoursite.com/2019/12/22/articles/2019/12/22/1577026522000.html/"/>
-    <id>http://yoursite.com/2019/12/22/articles/2019/12/22/1577026522000.html/</id>
+    <link href="2019/12/22//articles/2019/12/22/1577026522000.html/"/>
+    <id>2019/12/22//articles/2019/12/22/1577026522000.html/</id>
     <published>2019-12-22T14:55:22.000Z</published>
     <updated>2019-12-22T14:55:22.000Z</updated>
     
@@ -59,14 +37,14 @@
     
     
     
-      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>[单片机] DS1302电子时钟</title>
-    <link href="http://yoursite.com/2019/12/22/articles/2019/12/22/1577026521000.html/"/>
-    <id>http://yoursite.com/2019/12/22/articles/2019/12/22/1577026521000.html/</id>
+    <link href="2019/12/22//articles/2019/12/22/1577026521000.html/"/>
+    <id>2019/12/22//articles/2019/12/22/1577026521000.html/</id>
     <published>2019-12-22T14:55:21.000Z</published>
     <updated>2019-12-22T14:55:21.000Z</updated>
     
@@ -84,14 +62,14 @@
     
     
     
-      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>[单片机] AS608指纹模块</title>
-    <link href="http://yoursite.com/2019/12/22/articles/2019/12/22/1577026520000.html/"/>
-    <id>http://yoursite.com/2019/12/22/articles/2019/12/22/1577026520000.html/</id>
+    <link href="2019/12/22//articles/2019/12/22/1577026520000.html/"/>
+    <id>2019/12/22//articles/2019/12/22/1577026520000.html/</id>
     <published>2019-12-22T14:55:20.000Z</published>
     <updated>2019-12-22T14:55:20.000Z</updated>
     
@@ -109,14 +87,14 @@
     
     
     
-      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>[react-native] ios打包</title>
-    <link href="http://yoursite.com/2019/12/22/articles/2019/12/22/1577026519000.html/"/>
-    <id>http://yoursite.com/2019/12/22/articles/2019/12/22/1577026519000.html/</id>
+    <link href="2019/12/22//articles/2019/12/22/1577026519000.html/"/>
+    <id>2019/12/22//articles/2019/12/22/1577026519000.html/</id>
     <published>2019-12-22T14:55:19.000Z</published>
     <updated>2019-12-22T14:55:19.000Z</updated>
     
@@ -134,14 +112,14 @@
     
     
     
-      <category term="react-native" scheme="http://yoursite.com/tags/react-native/"/>
+      <category term="react-native" scheme="BrighterEyer2.github.io/tags/react-native/"/>
     
   </entry>
   
   <entry>
     <title>[react-native] mac环境配置</title>
-    <link href="http://yoursite.com/2019/12/22/articles/2019/12/22/1577026518000.html/"/>
-    <id>http://yoursite.com/2019/12/22/articles/2019/12/22/1577026518000.html/</id>
+    <link href="2019/12/22//articles/2019/12/22/1577026518000.html/"/>
+    <id>2019/12/22//articles/2019/12/22/1577026518000.html/</id>
     <published>2019-12-22T14:55:18.000Z</published>
     <updated>2019-12-22T14:55:18.000Z</updated>
     
@@ -159,14 +137,14 @@
     
     
     
-      <category term="react-native" scheme="http://yoursite.com/tags/react-native/"/>
+      <category term="react-native" scheme="BrighterEyer2.github.io/tags/react-native/"/>
     
   </entry>
   
   <entry>
     <title>[c4d] 破解版</title>
-    <link href="http://yoursite.com/2019/12/22/articles/2019/12/22/1577026517000.html/"/>
-    <id>http://yoursite.com/2019/12/22/articles/2019/12/22/1577026517000.html/</id>
+    <link href="2019/12/22//articles/2019/12/22/1577026517000.html/"/>
+    <id>2019/12/22//articles/2019/12/22/1577026517000.html/</id>
     <published>2019-12-22T14:55:17.000Z</published>
     <updated>2019-12-22T14:55:17.000Z</updated>
     
@@ -184,14 +162,14 @@
     
     
     
-      <category term="c4d" scheme="http://yoursite.com/tags/c4d/"/>
+      <category term="c4d" scheme="BrighterEyer2.github.io/tags/c4d/"/>
     
   </entry>
   
   <entry>
     <title>[51单片机] NFC芯片PN532的使用</title>
-    <link href="http://yoursite.com/2019/12/22/articles/2019/12/22/1577026516000.html/"/>
-    <id>http://yoursite.com/2019/12/22/articles/2019/12/22/1577026516000.html/</id>
+    <link href="2019/12/22//articles/2019/12/22/1577026516000.html/"/>
+    <id>2019/12/22//articles/2019/12/22/1577026516000.html/</id>
     <published>2019-12-22T14:55:16.000Z</published>
     <updated>2019-12-22T14:55:16.000Z</updated>
     
@@ -209,14 +187,14 @@
     
     
     
-      <category term="51单片机" scheme="http://yoursite.com/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="51单片机" scheme="BrighterEyer2.github.io/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>[蓝湖] 渐变简约卡片个人中心app界面</title>
-    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935913000.html/"/>
-    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935913000.html/</id>
+    <link href="2019/12/21//articles/2019/12/21/1576935913000.html/"/>
+    <id>2019/12/21//articles/2019/12/21/1576935913000.html/</id>
     <published>2019-12-21T13:45:13.000Z</published>
     <updated>2019-12-21T13:45:13.000Z</updated>
     
@@ -234,14 +212,14 @@
     
     
     
-      <category term="蓝湖" scheme="http://yoursite.com/tags/%E8%93%9D%E6%B9%96/"/>
+      <category term="蓝湖" scheme="BrighterEyer2.github.io/tags/%E8%93%9D%E6%B9%96/"/>
     
   </entry>
   
   <entry>
     <title>[单片机] 智能家居控制系统</title>
-    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935912000.html/"/>
-    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935912000.html/</id>
+    <link href="2019/12/21//articles/2019/12/21/1576935912000.html/"/>
+    <id>2019/12/21//articles/2019/12/21/1576935912000.html/</id>
     <published>2019-12-21T13:45:12.000Z</published>
     <updated>2019-12-21T13:45:12.000Z</updated>
     
@@ -259,14 +237,14 @@
     
     
     
-      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>[单片机] 通讯方式</title>
-    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935911000.html/"/>
-    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935911000.html/</id>
+    <link href="2019/12/21//articles/2019/12/21/1576935911000.html/"/>
+    <id>2019/12/21//articles/2019/12/21/1576935911000.html/</id>
     <published>2019-12-21T13:45:11.000Z</published>
     <updated>2019-12-21T13:45:11.000Z</updated>
     
@@ -284,14 +262,14 @@
     
     
     
-      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>[单片机] 使用HTTP+POST方式发送数据</title>
-    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935910000.html/"/>
-    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935910000.html/</id>
+    <link href="2019/12/21//articles/2019/12/21/1576935910000.html/"/>
+    <id>2019/12/21//articles/2019/12/21/1576935910000.html/</id>
     <published>2019-12-21T13:45:10.000Z</published>
     <updated>2019-12-21T13:45:10.000Z</updated>
     
@@ -309,14 +287,14 @@
     
     
     
-      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>[单片机] 射频卡读写系统</title>
-    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935909000.html/"/>
-    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935909000.html/</id>
+    <link href="2019/12/21//articles/2019/12/21/1576935909000.html/"/>
+    <id>2019/12/21//articles/2019/12/21/1576935909000.html/</id>
     <published>2019-12-21T13:45:09.000Z</published>
     <updated>2019-12-21T13:45:09.000Z</updated>
     
@@ -334,14 +312,14 @@
     
     
     
-      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>[单片机] 热敏电阻测温并且显示到数码管</title>
-    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935907000.html/"/>
-    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935907000.html/</id>
+    <link href="2019/12/21//articles/2019/12/21/1576935907000.html/"/>
+    <id>2019/12/21//articles/2019/12/21/1576935907000.html/</id>
     <published>2019-12-21T13:45:07.000Z</published>
     <updated>2019-12-21T13:45:07.000Z</updated>
     
@@ -359,14 +337,14 @@
     
     
     
-      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>[单片机] 普中单片机博客</title>
-    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935906000.html/"/>
-    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935906000.html/</id>
+    <link href="2019/12/21//articles/2019/12/21/1576935906000.html/"/>
+    <id>2019/12/21//articles/2019/12/21/1576935906000.html/</id>
     <published>2019-12-21T13:45:06.000Z</published>
     <updated>2019-12-21T13:45:06.000Z</updated>
     
@@ -384,14 +362,14 @@
     
     
     
-      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>[单片机] 继电器</title>
-    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935905000.html/"/>
-    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935905000.html/</id>
+    <link href="2019/12/21//articles/2019/12/21/1576935905000.html/"/>
+    <id>2019/12/21//articles/2019/12/21/1576935905000.html/</id>
     <published>2019-12-21T13:45:05.000Z</published>
     <updated>2019-12-21T13:45:05.000Z</updated>
     
@@ -409,14 +387,14 @@
     
     
     
-      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>[单片机] 基于51单片机红外线远程控制密码锁</title>
-    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935904000.html/"/>
-    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935904000.html/</id>
+    <link href="2019/12/21//articles/2019/12/21/1576935904000.html/"/>
+    <id>2019/12/21//articles/2019/12/21/1576935904000.html/</id>
     <published>2019-12-21T13:45:04.000Z</published>
     <updated>2019-12-21T13:45:04.000Z</updated>
     
@@ -435,14 +413,14 @@
     
     
     
-      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>[单片机] 单片机+电磁锁+AS608指纹锁设计源码与实物图分享 LCD12864显示</title>
-    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935903000.html/"/>
-    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935903000.html/</id>
+    <link href="2019/12/21//articles/2019/12/21/1576935903000.html/"/>
+    <id>2019/12/21//articles/2019/12/21/1576935903000.html/</id>
     <published>2019-12-21T13:45:03.000Z</published>
     <updated>2019-12-21T13:45:03.000Z</updated>
     
@@ -460,14 +438,14 @@
     
     
     
-      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>[单片机] zigbee智能家居+esp8266(wifi网关)+AndroidAPP</title>
-    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935902000.html/"/>
-    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935902000.html/</id>
+    <link href="2019/12/21//articles/2019/12/21/1576935902000.html/"/>
+    <id>2019/12/21//articles/2019/12/21/1576935902000.html/</id>
     <published>2019-12-21T13:45:02.000Z</published>
     <updated>2019-12-21T13:45:02.000Z</updated>
     
@@ -485,14 +463,14 @@
     
     
     
-      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>[单片机] W5500以太网网络模块</title>
-    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935901000.html/"/>
-    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935901000.html/</id>
+    <link href="2019/12/21//articles/2019/12/21/1576935901000.html/"/>
+    <id>2019/12/21//articles/2019/12/21/1576935901000.html/</id>
     <published>2019-12-21T13:45:01.000Z</published>
     <updated>2019-12-21T13:45:01.000Z</updated>
     
@@ -509,7 +487,32 @@
     
     
     
-      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] W5500+TCP服务器</title>
+    <link href="2019/12/21//articles/2019/12/21/1576935900000.html/"/>
+    <id>2019/12/21//articles/2019/12/21/1576935900000.html/</id>
+    <published>2019-12-21T13:45:00.000Z</published>
+    <updated>2019-12-21T13:45:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.bilibili.com/video/av71620078" target="_blank">51单片机试验箱W5500TCP服务器</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/av71620078&quot; target=&quot;_blank&quot;&gt;51单片机试验箱W5500TCP服务器&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="BrighterEyer2.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
