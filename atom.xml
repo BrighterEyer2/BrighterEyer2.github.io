@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-12-23T12:50:58.270Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/12/23/hello-world/"/>
+    <id>http://yoursite.com/2019/12/23/hello-world/</id>
+    <published>2019-12-23T12:50:58.270Z</published>
+    <updated>2019-12-23T12:50:58.270Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] LCD12864液晶屏</title>
+    <link href="http://yoursite.com/2019/12/22/articles/2019/12/22/1577026522000.html/"/>
+    <id>http://yoursite.com/2019/12/22/articles/2019/12/22/1577026522000.html/</id>
+    <published>2019-12-22T14:55:22.000Z</published>
+    <updated>2019-12-22T14:55:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="" target="_blank"></a></p><p><a href="https://blog.csdn.net/qq_43588817/article/details/89035996" target="_blank">51单片机-LCD12864液晶屏</a></p><p><a href="http://www.51hei.com/bbs/dpj-132665-1.html" target="_blank">液晶12864不知道为什么不能正常显示</a></p><p><a href="http://c.51hei.com/pro/down.php?h=7&e=661630&c=132720&host=forum/201808/23/215943sgw5wv0wfwf33anm.rar&name=%22%CA%B5%D1%E925%20%20LCD12864%CF%D4%CA%BE%C6%C1%CF%D4%CA%BE.rar%22" target="_blank">51黑论坛_实验25 LCD12864显示屏显示.rar</a></p><p><a href="https://blog.csdn.net/qq_43588817/article/details/89035996" target="_blank">51单片机-LCD12864液晶屏</a></p><p><a href="https://blog.csdn.net/u010411288/article/details/52786313" target="_blank">51单片机三线串行驱动12864液晶</a></p><p><a href="http://www.51hei.com/bbs/dpj-130628-1.html" target="_blank">用51单片机控制LCD12864显示屏源程序</a></p><p><a href="http://www.51hei.com/bbs/dpj-166131-1.html" target="_blank">基于51单片机的LCD12864B显示时钟源程序</a></p><p><a href="http://www.51hei.com/bbs/dpj-126033-1.html" target="_blank">51单片机+12864液晶屏贪吃蛇（完美版）</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_43588817/article/details/89035996&quot; target=&quot;_blank&quot;&gt;51单片机-LCD1286
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] DS1302电子时钟</title>
+    <link href="http://yoursite.com/2019/12/22/articles/2019/12/22/1577026521000.html/"/>
+    <id>http://yoursite.com/2019/12/22/articles/2019/12/22/1577026521000.html/</id>
+    <published>2019-12-22T14:55:21.000Z</published>
+    <updated>2019-12-22T14:55:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.51hei.com/bbs/dpj-159199-1.html" target="_blank">基于51单片机的DS1302时钟显示设计</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://www.51hei.com/bbs/dpj-159199-1.html&quot; target=&quot;_blank&quot;&gt;基于51单片机的DS1302时钟显示设计&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] AS608指纹模块</title>
+    <link href="http://yoursite.com/2019/12/22/articles/2019/12/22/1577026520000.html/"/>
+    <id>http://yoursite.com/2019/12/22/articles/2019/12/22/1577026520000.html/</id>
+    <published>2019-12-22T14:55:20.000Z</published>
+    <updated>2019-12-22T14:55:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.51hei.com/bbs/dpj-130803-1.html" target="_blank">AS608光学指纹模块程序源码与入门资料（51单片机版51hei首发）</a></p><p><a href="https://blog.csdn.net/lin5103151/article/details/86601672" target="_blank">基于51单片机的指纹密码锁</a></p><p><a href="https://blog.csdn.net/lin5103151/article/details/102882520" target="_blank">AS608指纹模块开发教程</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://www.51hei.com/bbs/dpj-130803-1.html&quot; target=&quot;_blank&quot;&gt;AS608光学指纹模块程序源码与入门资料（51单片机版51hei首发）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[react-native] ios打包</title>
+    <link href="http://yoursite.com/2019/12/22/articles/2019/12/22/1577026519000.html/"/>
+    <id>http://yoursite.com/2019/12/22/articles/2019/12/22/1577026519000.html/</id>
+    <published>2019-12-22T14:55:19.000Z</published>
+    <updated>2019-12-22T14:55:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/jkfaklfjal/article/details/82800324" target="_blank">react-native ios打包教程</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --entry-file .&#x2F;index.ios.js --bundle-output .&#x2F;ios&#x2F;bundle&#x2F;index.ios.jsbundle --platform ios --assets-dest .&#x2F;ios&#x2F;bundle --dev false</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/jkfaklfjal/article/details/82800324&quot; target=&quot;_blank&quot;&gt;react-native ios打包教程&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight
+      
+    
+    </summary>
+    
+    
+    
+      <category term="react-native" scheme="http://yoursite.com/tags/react-native/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[react-native] mac环境配置</title>
+    <link href="http://yoursite.com/2019/12/22/articles/2019/12/22/1577026518000.html/"/>
+    <id>http://yoursite.com/2019/12/22/articles/2019/12/22/1577026518000.html/</id>
+    <published>2019-12-22T14:55:18.000Z</published>
+    <updated>2019-12-22T14:55:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://reactnative.cn/docs/next/getting-started.html" target="_blank">环境</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install)&quot;</span><br></pre></td></tr></table></figure><p>安装Xcode Command Line Tool</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure><p><a href="https://www.jianshu.com/p/ab6411a05bc2" target="_blank">CocoaPods安装</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xcode-select --switch &#x2F;Applications&#x2F;Xcode.app</span><br></pre></td></tr></table></figure><p><a href="http://www.code4app.com/article/cocoapods-install-usage" target="_blank">安装CocosPods</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo gem install cocoapods</span><br><span class="line">gem sources --remove https:&#x2F;&#x2F;rubygems.org&#x2F;</span><br><span class="line">gem sources -a http:&#x2F;&#x2F;ruby.taobao.org&#x2F;</span><br><span class="line"></span><br><span class="line">sudo npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org --global</span><br><span class="line">sudo npm config set disturl https:&#x2F;&#x2F;npm.taobao.org&#x2F;dist --global</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/jkfaklfjal/article/details/82800324" target="_blank">react-native ios打包教程</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --entry-file .&#x2F;index.ios.js --bundle-output .&#x2F;ios&#x2F;bundle&#x2F;index.ios.jsbundle --platform ios --assets-dest .&#x2F;ios&#x2F;bundle --dev false</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;xwartz&#x2F;wechat-app-demo</span><br><span class="line">美团客户端</span><br><span class="line">Github: </span><br><span class="line">https:&#x2F;&#x2F;github.com&#x2F;huanxsd&#x2F;MeiTuan</span><br><span class="line">简书:</span><br><span class="line">http:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;9211f42d5c25</span><br></pre></td></tr></table></figure><p>高仿美团客户端 React-Native版，支持iOS、Android</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;huanxsd&#x2F;MeiTuan.git</span><br><span class="line">cd MeiTuan</span><br><span class="line"></span><br><span class="line">#Install dependencies (npm v3+)</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">#Running on iOS</span><br><span class="line">react-native run-ios</span><br><span class="line"></span><br><span class="line">#常见问题</span><br><span class="line">Could not connect to development server</span><br><span class="line"></span><br><span class="line">#打开新的terminal窗口，并执行:</span><br><span class="line">react-native start</span><br></pre></td></tr></table></figure><p>漂亮的示例</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># download repo</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;SmallStoneSK&#x2F;rn-components-kit.git</span><br><span class="line"># install dependencies</span><br><span class="line">npm install</span><br><span class="line"># for iOS</span><br><span class="line">react-native run-ios</span><br><span class="line"># for android</span><br><span class="line">react-native run-android</span><br></pre></td></tr></table></figure><p>运行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xcrun simctl list devices</span><br><span class="line">react-native run-ios --simulator&#x3D;&quot;iPhone 8 (12.0)&quot;</span><br></pre></td></tr></table></figure><p>打开iphone模拟器</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xcrun instruments -w &#39;iPhone 8 (12.0)&#39;</span><br><span class="line">xcrun instruments -w &#39;iPhone 6 Plus&#39; </span><br><span class="line">xcrun instruments -w &#39;iPhone 8 (13.3)&#39;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">【RN】运行ios后 报错Could not find iPhone X simulator</span><br><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;yangsen0927&#x2F;article&#x2F;details&#x2F;89880869</span><br><span class="line"></span><br><span class="line">1.找到项目中&#x2F;node_modules&#x2F;react-native&#x2F;local-cli&#x2F;runIOS&#x2F;findMatchingSimulator.js</span><br><span class="line">if (!version.startsWith(&#39;iOS&#39;) &amp;&amp; !version.startsWith(&#39;tvOS&#39;)) </span><br><span class="line">&#x2F;&#x2F;改为</span><br><span class="line"> if (!version.startsWith(&#39;com.apple.CoreSimulator.SimRuntime.iOS&#39;) &amp;&amp; !version.startsWith(&#39;com.apple.CoreSimulator.SimRuntime.tvOS&#39;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">react-native run-ios无法启动app</span><br><span class="line">https:&#x2F;&#x2F;segmentfault.com&#x2F;q&#x2F;1010000012225930</span><br><span class="line"></span><br><span class="line">react-native init MyApp --version 0.44.3</span><br><span class="line"></span><br><span class="line">https:&#x2F;&#x2F;www.cnblogs.com&#x2F;codechange&#x2F;p&#x2F;11415280.html</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://reactnative.cn/docs/next/getting-started.html&quot; target=&quot;_blank&quot;&gt;环境&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+      
+    
+    </summary>
+    
+    
+    
+      <category term="react-native" scheme="http://yoursite.com/tags/react-native/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[c4d] 破解版</title>
+    <link href="http://yoursite.com/2019/12/22/articles/2019/12/22/1577026517000.html/"/>
+    <id>http://yoursite.com/2019/12/22/articles/2019/12/22/1577026517000.html/</id>
+    <published>2019-12-22T14:55:17.000Z</published>
+    <updated>2019-12-22T14:55:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.newasp.net/soft/456966.html" target="_blank">C4D R20 中文破解版 20.030 含序列号</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.newasp.net/soft/456966.html&quot; target=&quot;_blank&quot;&gt;C4D R20 中文破解版 20.030 含序列号&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="c4d" scheme="http://yoursite.com/tags/c4d/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[51单片机] NFC芯片PN532的使用</title>
+    <link href="http://yoursite.com/2019/12/22/articles/2019/12/22/1577026516000.html/"/>
+    <id>http://yoursite.com/2019/12/22/articles/2019/12/22/1577026516000.html/</id>
+    <published>2019-12-22T14:55:16.000Z</published>
+    <updated>2019-12-22T14:55:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://bbs.21ic.com/icview-2825926-1-1.html" target="_blank">NFC芯片–PN532的使用</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://bbs.21ic.com/icview-2825926-1-1.html&quot; target=&quot;_blank&quot;&gt;NFC芯片–PN532的使用&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="51单片机" scheme="http://yoursite.com/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[蓝湖] 渐变简约卡片个人中心app界面</title>
+    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935913000.html/"/>
+    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935913000.html/</id>
+    <published>2019-12-21T13:45:13.000Z</published>
+    <updated>2019-12-21T13:45:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://ibaotu.com/sucai/870283.html" target="_blank">渐变简约卡片个人中心app界面</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://ibaotu.com/sucai/870283.html&quot; target=&quot;_blank&quot;&gt;渐变简约卡片个人中心app界面&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="蓝湖" scheme="http://yoursite.com/tags/%E8%93%9D%E6%B9%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] 智能家居控制系统</title>
+    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935912000.html/"/>
+    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935912000.html/</id>
+    <published>2019-12-21T13:45:12.000Z</published>
+    <updated>2019-12-21T13:45:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.bilibili.com/video/av49821066" target="_blank">【毕业设计】智能家居控制系统（手机APP、语音识别、触摸屏控制）</a></p><p>毕业设计：智能家居控制系统<br><a href="" target="_blank"></a><br><a href="https://blog.csdn.net/qq_42838431/article/details/8917980" target="_blank">设计流程</a><br><a href="https://blog.csdn.net/qq_42838431/article/details/89142660" target="_blank">串口复用实现</a><br><a href="https://pan.baidu.com/s/1kTZEqzS4JnNliPJXb9f5lQ" target="_blank">设计源代码</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">q8tg</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/av49821066&quot; target=&quot;_blank&quot;&gt;【毕业设计】智能家居控制系统（手机APP、语音识别、触摸屏控制）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;毕业设计：智能家居控制系统&lt;br&gt;&lt;a href=
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] 通讯方式</title>
+    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935911000.html/"/>
+    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935911000.html/</id>
+    <published>2019-12-21T13:45:11.000Z</published>
+    <updated>2019-12-21T13:45:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/xiaolongwoaini99/article/details/80349357" target="_blank">单片机通信方式</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">基本概念：</span><br><span class="line">串口、COM口是指的物理接口形式(硬件)。而TTL、RS-232、RS-485是指的电平标准(电信号)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/xiaolongwoaini99/article/details/80349357&quot; target=&quot;_blank&quot;&gt;单片机通信方式&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] 使用HTTP+POST方式发送数据</title>
+    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935910000.html/"/>
+    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935910000.html/</id>
+    <published>2019-12-21T13:45:10.000Z</published>
+    <updated>2019-12-21T13:45:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/cp1300/article/details/79686705" target="_blank">单片机使用HTTP POST方式发送数据</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/cp1300/article/details/79686705&quot; target=&quot;_blank&quot;&gt;单片机使用HTTP POST方式发送数据&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] 射频卡读写系统</title>
+    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935909000.html/"/>
+    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935909000.html/</id>
+    <published>2019-12-21T13:45:09.000Z</published>
+    <updated>2019-12-21T13:45:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://pan.baidu.com/s/15XJlcTSOjorAzB5OhCzcRw" target="_blank">MFRC-522 RC522 RFID射频 IC卡感应模块 送S50复旦卡PN532 PN5180</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">34u7</span><br></pre></td></tr></table></figure><p><a href="https://www.bilibili.com/video/av25915309" target="_blank">在Windows下用PN532复制M1卡数据，制作备份卡（低成本）</a><br><a href="https://www.bilibili.com/video/av64196965" target="_blank">小米手环模拟加密门禁卡（使用PN532读卡器）</a><br><a href="https://www.bilibili.com/video/av34229759" target="_blank">RFID 简介</a></p><p><a href="http://www.51hei.com/bbs/dpj-155318-1.html" target="_blank">基于51单片机的射频卡读写系统</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://pan.baidu.com/s/15XJlcTSOjorAzB5OhCzcRw&quot; target=&quot;_blank&quot;&gt;MFRC-522 RC522 RFID射频 IC卡感应模块 送S50复旦卡PN532 PN5180&lt;/a&gt;&lt;/p&gt;
+&lt;figu
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] 热敏电阻测温并且显示到数码管</title>
+    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935907000.html/"/>
+    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935907000.html/</id>
+    <published>2019-12-21T13:45:07.000Z</published>
+    <updated>2019-12-21T13:45:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/nk_test/article/details/50375196" target="_blank">单片机： 热敏电阻测温并且显示到数码管（温度计）</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/nk_test/article/details/50375196&quot; target=&quot;_blank&quot;&gt;单片机： 热敏电阻测温并且显示到数码管（温度计）&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] 普中单片机博客</title>
+    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935906000.html/"/>
+    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935906000.html/</id>
+    <published>2019-12-21T13:45:06.000Z</published>
+    <updated>2019-12-21T13:45:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/ludaoyi88/article/details/53380305" target="_blank">WIFI模块ESP8266的使用指南（客户端和服务器两种模式建立）</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/ludaoyi88/article/details/53380305&quot; target=&quot;_blank&quot;&gt;WIFI模块ESP8266的使用指南（客户端和服务器两种模式建立）&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] 继电器</title>
+    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935905000.html/"/>
+    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935905000.html/</id>
+    <published>2019-12-21T13:45:05.000Z</published>
+    <updated>2019-12-21T13:45:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/Lzinner/article/details/79619945" target="_blank">51单片机之继电器</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/Lzinner/article/details/79619945&quot; target=&quot;_blank&quot;&gt;51单片机之继电器&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] 基于51单片机红外线远程控制密码锁</title>
+    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935904000.html/"/>
+    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935904000.html/</id>
+    <published>2019-12-21T13:45:04.000Z</published>
+    <updated>2019-12-21T13:45:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_21792169/article/details/49255267" target="_blank">基于51单片机红外线远程控制密码锁</a></p><p>代码、仿真图、PCB图，论文下载地址</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;download.csdn.net&#x2F;download&#x2F;qq_21792169&#x2F;9248979</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_21792169/article/details/49255267&quot; target=&quot;_blank&quot;&gt;基于51单片机红外线远程控制密码锁&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;代码、仿真图、PCB图，论文下载地址&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] 单片机+电磁锁+AS608指纹锁设计源码与实物图分享 LCD12864显示</title>
+    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935903000.html/"/>
+    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935903000.html/</id>
+    <published>2019-12-21T13:45:03.000Z</published>
+    <updated>2019-12-21T13:45:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.51hei.com/bbs/dpj-143129-1.html" target="_blank">单片机+电磁锁+AS608指纹锁设计源码与实物图分享 LCD12864显示</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://www.51hei.com/bbs/dpj-143129-1.html&quot; target=&quot;_blank&quot;&gt;单片机+电磁锁+AS608指纹锁设计源码与实物图分享 LCD12864显示&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] zigbee智能家居+esp8266(wifi网关)+AndroidAPP</title>
+    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935902000.html/"/>
+    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935902000.html/</id>
+    <published>2019-12-21T13:45:02.000Z</published>
+    <updated>2019-12-21T13:45:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cirmall.com/circuit/13060" target="_blank">zigbee智能家居+esp8266(wifi网关)+Android APP</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cirmall.com/circuit/13060&quot; target=&quot;_blank&quot;&gt;zigbee智能家居+esp8266(wifi网关)+Android APP&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] W5500以太网网络模块</title>
+    <link href="http://yoursite.com/2019/12/21/articles/2019/12/21/1576935901000.html/"/>
+    <id>http://yoursite.com/2019/12/21/articles/2019/12/21/1576935901000.html/</id>
+    <published>2019-12-21T13:45:01.000Z</published>
+    <updated>2019-12-21T13:45:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.26.15a4d247AjJgE4&id=557172912320&skuId=4212068884849&user_id=2207691322&cat_id=2&is_b=1&rn=b1b1ed3e24e90dbb91f6f027db687bd3" target="_blank">W5500以太网网络模块W5100 TCP/IP协议51/STM32驱动开发板28J60</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">W5500以太网网络模块W5100 TCP&#x2F;IP协议51&#x2F;STM32驱动开发板28J60</span><br><span class="line"></span><br><span class="line">资料下载：</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1LIXMeWxRwuYrKiahX1VLkQ</span><br><span class="line">提取码：</span><br><span class="line">m73x</span><br></pre></td></tr></table></figure><p><a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.2.63e1357fnYKgsM&id=42262680322&user_id=1968962323&cat_id=2&is_b=1&rn=6a1688f5859c70704842b84d2e8eadd5" target="_blank">以太网络转TTL单片机联网模块RJ45转TTL串口以太网模块上海卓岚ZLSN3003S</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.26.15a4d247AjJgE4&amp;id=557172912320&amp;skuId=4212068884849&amp;user_id=220769
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://yoursite.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+</feed>
