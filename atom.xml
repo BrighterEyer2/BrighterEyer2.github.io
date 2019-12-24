@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2019-12-22T14:55:22.000Z</updated>
+  <updated>2019-12-24T10:33:53.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,181 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[设计] 包装盒</title>
+    <link href="http://brightereyer.xyz/2019/12/24/articles/2019/12/24/1577183653000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/24/articles/2019/12/24/1577183653000.html/</id>
+    <published>2019-12-24T10:33:53.000Z</published>
+    <updated>2019-12-24T10:33:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.hellorf.com/image/search?q=%E5%8C%85%E8%A3%85%E7%9B%92" target="_blank">站库海洛 设计 包装盒</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.hellorf.com/image/search?q=%E5%8C%85%E8%A3%85%E7%9B%92&quot; target=&quot;_blank&quot;&gt;站库海洛 设计 包装盒&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="设计" scheme="http://brightereyer.xyz/tags/%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[PyQt5] Python3.7+Pycharm+Opencv3</title>
+    <link href="http://brightereyer.xyz/2019/12/24/articles/2019/12/24/1577183652000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/24/articles/2019/12/24/1577183652000.html/</id>
+    <published>2019-12-24T10:33:52.000Z</published>
+    <updated>2019-12-24T10:33:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>【注意】</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">需要注意PyQt5的版本，5.11版的暂时没问题，5.14版有问题</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/zyngoo/article/details/85880572" target="_blank">PyQt5安装教程</a><br>Path追加变量</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">G:\python\python37</span><br><span class="line">G:\python\python37\Scripts</span><br><span class="line">G:\python\python37\lib\site-packages\pyqt5_tools</span><br><span class="line">G:\Python\Python37\Lib\site-packages\PyQt5\Qt\bin</span><br><span class="line">G:\Python\Python37\Lib\site-packages\pyqt5_tools\Qt\bin</span><br></pre></td></tr></table></figure><p>Scripts目录下执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pip3 install sip</span><br><span class="line"></span><br><span class="line">pip uninstall PyQt5</span><br><span class="line">pip uninstall pyqt5-tools</span><br><span class="line">pip uninstall pyqt5-stubs</span><br><span class="line"></span><br><span class="line">pip install PyQt5&#x3D;&#x3D;5.11.3 -i http:&#x2F;&#x2F;pypi.douban.com&#x2F;simple --trusted-host&#x3D;pypi.douban.com</span><br><span class="line">pip install pyqt5-tools&#x3D;&#x3D;5.11.3.1.4 -i http:&#x2F;&#x2F;pypi.douban.com&#x2F;simple --trusted-host&#x3D;pypi.douban.com</span><br><span class="line">pip install PyQt5-stubs&#x3D;&#x3D;5.11.3.0 -i http:&#x2F;&#x2F;pypi.douban.com&#x2F;simple --trusted-host&#x3D;pypi.douban.com</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/stormdony/article/details/80400032" target="_blank">pyqt5安装与pycharm配置</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">Name：</span><br><span class="line">QtDesigner</span><br><span class="line">Program：</span><br><span class="line">G:\Python\Python37\Lib\site-packages\pyqt5_tools\Qt\bin\designer.exe</span><br><span class="line">Work directory：</span><br><span class="line">$FileDir$</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Name：</span><br><span class="line">PyUIC</span><br><span class="line">Program：</span><br><span class="line">G:\Python\Python37\python.exe</span><br><span class="line">Arguments：</span><br><span class="line">-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py</span><br><span class="line">Work directory：</span><br><span class="line">$FileDir$</span><br><span class="line"></span><br><span class="line">Name：</span><br><span class="line">PyUIC</span><br><span class="line">Program：</span><br><span class="line">G:\Python\Python37\python.exe</span><br><span class="line">Arguments：</span><br><span class="line">-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py</span><br><span class="line">Work directory：</span><br><span class="line">$FileDir$</span><br><span class="line"></span><br><span class="line">Name：</span><br><span class="line">assistant</span><br><span class="line">Program：</span><br><span class="line">G:\Python\Python37\Lib\site-packages\pyqt5_tools\Qt\bin\assistant.exe</span><br><span class="line">Work directory：</span><br><span class="line">$FileDir$</span><br><span class="line"></span><br><span class="line">Name：</span><br><span class="line">linguist</span><br><span class="line">Program：</span><br><span class="line">G:\Python\Python37\Lib\site-packages\pyqt5_tools\Qt\bin\linguist.exe</span><br><span class="line">Work directory：</span><br><span class="line">$FileDir$</span><br><span class="line"></span><br><span class="line">Name：</span><br><span class="line">Pyrcc</span><br><span class="line">Program：</span><br><span class="line">G:\Python\Python37\Scripts\pyrcc5.exe</span><br><span class="line">Work directory：</span><br><span class="line">$FileDir$</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/qq_33485434/article/details/80606359" target="_blank">PyQt5安装及ModuleNotFoundError No module named ‘PyQt5’问题解决</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在已有项目的最后面找到External Libraries，然后找到venv目录，把pyvenv.cfg文件中的如下参数改成true</span><br><span class="line">include-system-site-packages &#x3D; true</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/The_Time_Runner/article/details/93761511" target="_blank">（已解决）ImportError: DLL load failed: 找不到指定的模块</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">G:\ProgramData\Anaconda3</span><br><span class="line">G:\ProgramData\Anaconda3\Scripts</span><br><span class="line">G:\ProgramData\Anaconda3\Library\bin</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;【注意】&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;p
+      
+    
+    </summary>
+    
+    
+    
+      <category term="PyQt5" scheme="http://brightereyer.xyz/tags/PyQt5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[pycharm] 破解</title>
+    <link href="http://brightereyer.xyz/2019/12/24/articles/2019/12/24/1577183631000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/24/articles/2019/12/24/1577183631000.html/</id>
+    <published>2019-12-24T10:33:51.000Z</published>
+    <updated>2019-12-24T10:33:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/fantasic_van/article/details/89282100" target="_blank">PyCharm专业版永久激活破解</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、下载破解jar包</span><br><span class="line">下载地址:</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1Ug644fHbvoXukoD93si4qg</span><br><span class="line">提取码：</span><br><span class="line">1m8d</span><br><span class="line"></span><br><span class="line">2、将jetbrains-agent.jar放置到Pycharm安装目录的bin目录下</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/fantasic_van/article/details/89282100&quot; target=&quot;_blank&quot;&gt;PyCharm专业版永久激活破解&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight p
+      
+    
+    </summary>
+    
+    
+    
+      <category term="pycharm" scheme="http://brightereyer.xyz/tags/pycharm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[ps] 转矢量蒙版</title>
+    <link href="http://brightereyer.xyz/2019/12/24/articles/2019/12/24/1577183630000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/24/articles/2019/12/24/1577183630000.html/</id>
+    <published>2019-12-24T10:33:50.000Z</published>
+    <updated>2019-12-24T10:33:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.360doc.com/content/19/0316/11/977769_821859490.shtml" target="_blank">利用ps将位图转换成矢量图的教程</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://www.360doc.com/content/19/0316/11/977769_821859490.shtml&quot; target=&quot;_blank&quot;&gt;利用ps将位图转换成矢量图的教程&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ps" scheme="http://brightereyer.xyz/tags/ps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[layui] 列表超宽显示横向滚动条</title>
+    <link href="http://brightereyer.xyz/2019/12/24/articles/2019/12/24/1577183629000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/24/articles/2019/12/24/1577183629000.html/</id>
+    <published>2019-12-24T10:33:49.000Z</published>
+    <updated>2019-12-24T10:33:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://fly.layui.com/jie/24418/" target="_blank">layui数据表格的横向滚动条问题</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.layui-table-body&#123;overflow-x: hidden;&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://fly.layui.com/jie/24418/&quot; target=&quot;_blank&quot;&gt;layui数据表格的横向滚动条问题&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class
+      
+    
+    </summary>
+    
+    
+    
+      <category term="layui" scheme="http://brightereyer.xyz/tags/layui/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[js] input检测汉字输入</title>
+    <link href="http://brightereyer.xyz/2019/12/24/articles/2019/12/24/1577183628000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/24/articles/2019/12/24/1577183628000.html/</id>
+    <published>2019-12-24T10:33:48.000Z</published>
+    <updated>2019-12-24T10:33:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/work-web/p/6639485.html" target="_blank">input输入框校验，字母，汉字，数字等</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 只允许输入汉字 --&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;text&quot; onkeyup&#x3D;&quot;value&#x3D;value.replace(&#x2F;[^\u4e00-\u9fa5]&#x2F;g,&#39;&#39;)&quot; onbeforepaste&#x3D;&quot;clipboardData.setData(&#39;text&#39;,clipboardData.getData(&#39;text&#39;).replace(&#x2F;[^\u4e00-\u9fa5]&#x2F;g,&#39;&#39;))&quot; &gt;</span><br><span class="line">&lt;input type&#x3D;&quot;text&quot; onkeyup&#x3D;&quot;this.value&#x3D;this.value.replace(&#x2F;[^\u4e00-\u9fa5]&#x2F;g,&#39;&#39;)&quot;&gt;</span><br><span class="line">&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/work-web/p/6639485.html&quot; target=&quot;_blank&quot;&gt;input输入框校验，字母，汉字，数字等&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;t
+      
+    
+    </summary>
+    
+    
+    
+      <category term="js" scheme="http://brightereyer.xyz/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[github] 企业官网</title>
+    <link href="http://brightereyer.xyz/2019/12/24/articles/2019/12/24/1577183627000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/24/articles/2019/12/24/1577183627000.html/</id>
+    <published>2019-12-24T10:33:47.000Z</published>
+    <updated>2019-12-24T10:33:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/search?q=%E4%BC%81%E4%B8%9A%E5%AE%98%E7%BD%91" target="_blank">github 企业官网</a></p><p><a href="https://github.com/ifzc/Shkjem" target="_blank">基于Vue&amp;ElementUI的企业官网</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">示例网站</span><br><span class="line">http:&#x2F;&#x2F;www.shkjem.com</span><br></pre></td></tr></table></figure><p><a href="https://github.com/Sandop/NuxtPC" target="_blank">基于Nuxt的企业官网</a><br><a href="https://github.com/Sandop/Nuxt-phone" target="_blank">基于Nuxt实现移动端的企业官网</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://github.com/search?q=%E4%BC%81%E4%B8%9A%E5%AE%98%E7%BD%91&quot; target=&quot;_blank&quot;&gt;github 企业官网&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github
+      
+    
+    </summary>
+    
+    
+    
+      <category term="github" scheme="http://brightereyer.xyz/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title>[单片机] LCD12864液晶屏</title>
@@ -73,14 +248,13 @@
     <published>2019-12-22T14:55:20.000Z</published>
     <updated>2019-12-22T14:55:20.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="http://www.51hei.com/bbs/dpj-130803-1.html" target="_blank">AS608光学指纹模块程序源码与入门资料（51单片机版51hei首发）</a></p><p><a href="https://blog.csdn.net/lin5103151/article/details/86601672" target="_blank">基于51单片机的指纹密码锁</a></p><p><a href="https://blog.csdn.net/lin5103151/article/details/102882520" target="_blank">AS608指纹模块开发教程</a></p>]]></content>
+    <content type="html"><![CDATA[<p><a href="http://www.51hei.com/bbs/dpj-167894-1.html" target="_blank">STC89C52单片机指纹识别程序1602显示</a><br><a href="http://c.51hei.com/pro/down.php?h=7&e=661630&c=167949&host=forum/201908/07/213106sox329oiv939vz7q.rar&name=%221602%20%D6%B8%CE%C6%CA%B6%B1%F0%20%B3%CC%D0%F2.rar%22" target="_blank">51黑论坛_1602 指纹识别 程序.rar</a></p><p><a href="http://www.51hei.com/bbs/dpj-130803-1.html" target="_blank">AS608光学指纹模块程序源码与入门资料（51单片机版51hei首发）</a></p><p><a href="https://blog.csdn.net/lin5103151/article/details/86601672" target="_blank">基于51单片机的指纹密码锁</a></p><p><a href="https://blog.csdn.net/lin5103151/article/details/102882520" target="_blank">AS608指纹模块开发教程</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;http://www.51hei.com/bbs/dpj-130803-1.html&quot; target=&quot;_blank&quot;&gt;AS608光学指纹模块程序源码与入门资料（51单片机版51hei首发）&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog
+        &lt;p&gt;&lt;a href=&quot;http://www.51hei.com/bbs/dpj-167894-1.html&quot; target=&quot;_blank&quot;&gt;STC89C52单片机指纹识别程序1602显示&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://c.51hei.com/pro/down.
       
     
     </summary>
@@ -330,181 +504,6 @@
       
       
         &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/nk_test/article/details/50375196&quot; target=&quot;_blank&quot;&gt;单片机： 热敏电阻测温并且显示到数码管（温度计）&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] 普中单片机博客</title>
-    <link href="http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935906000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935906000.html/</id>
-    <published>2019-12-21T13:45:06.000Z</published>
-    <updated>2019-12-21T13:45:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/ludaoyi88/article/details/53380305" target="_blank">WIFI模块ESP8266的使用指南（客户端和服务器两种模式建立）</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/ludaoyi88/article/details/53380305&quot; target=&quot;_blank&quot;&gt;WIFI模块ESP8266的使用指南（客户端和服务器两种模式建立）&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] 继电器</title>
-    <link href="http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935905000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935905000.html/</id>
-    <published>2019-12-21T13:45:05.000Z</published>
-    <updated>2019-12-21T13:45:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/Lzinner/article/details/79619945" target="_blank">51单片机之继电器</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/Lzinner/article/details/79619945&quot; target=&quot;_blank&quot;&gt;51单片机之继电器&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] 基于51单片机红外线远程控制密码锁</title>
-    <link href="http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935904000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935904000.html/</id>
-    <published>2019-12-21T13:45:04.000Z</published>
-    <updated>2019-12-21T13:45:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_21792169/article/details/49255267" target="_blank">基于51单片机红外线远程控制密码锁</a></p><p>代码、仿真图、PCB图，论文下载地址</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;download.csdn.net&#x2F;download&#x2F;qq_21792169&#x2F;9248979</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_21792169/article/details/49255267&quot; target=&quot;_blank&quot;&gt;基于51单片机红外线远程控制密码锁&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;代码、仿真图、PCB图，论文下载地址&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] 单片机+电磁锁+AS608指纹锁设计源码与实物图分享 LCD12864显示</title>
-    <link href="http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935903000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935903000.html/</id>
-    <published>2019-12-21T13:45:03.000Z</published>
-    <updated>2019-12-21T13:45:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://www.51hei.com/bbs/dpj-143129-1.html" target="_blank">单片机+电磁锁+AS608指纹锁设计源码与实物图分享 LCD12864显示</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;http://www.51hei.com/bbs/dpj-143129-1.html&quot; target=&quot;_blank&quot;&gt;单片机+电磁锁+AS608指纹锁设计源码与实物图分享 LCD12864显示&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] zigbee智能家居+esp8266(wifi网关)+AndroidAPP</title>
-    <link href="http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935902000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935902000.html/</id>
-    <published>2019-12-21T13:45:02.000Z</published>
-    <updated>2019-12-21T13:45:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.cirmall.com/circuit/13060" target="_blank">zigbee智能家居+esp8266(wifi网关)+Android APP</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.cirmall.com/circuit/13060&quot; target=&quot;_blank&quot;&gt;zigbee智能家居+esp8266(wifi网关)+Android APP&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] W5500以太网网络模块</title>
-    <link href="http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935901000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935901000.html/</id>
-    <published>2019-12-21T13:45:01.000Z</published>
-    <updated>2019-12-21T13:45:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.26.15a4d247AjJgE4&id=557172912320&skuId=4212068884849&user_id=2207691322&cat_id=2&is_b=1&rn=b1b1ed3e24e90dbb91f6f027db687bd3" target="_blank">W5500以太网网络模块W5100 TCP/IP协议51/STM32驱动开发板28J60</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">W5500以太网网络模块W5100 TCP&#x2F;IP协议51&#x2F;STM32驱动开发板28J60</span><br><span class="line"></span><br><span class="line">资料下载：</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1LIXMeWxRwuYrKiahX1VLkQ</span><br><span class="line">提取码：</span><br><span class="line">m73x</span><br></pre></td></tr></table></figure><p><a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.2.63e1357fnYKgsM&id=42262680322&user_id=1968962323&cat_id=2&is_b=1&rn=6a1688f5859c70704842b84d2e8eadd5" target="_blank">以太网络转TTL单片机联网模块RJ45转TTL串口以太网模块上海卓岚ZLSN3003S</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.26.15a4d247AjJgE4&amp;id=557172912320&amp;skuId=4212068884849&amp;user_id=220769
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] W5500+TCP服务器</title>
-    <link href="http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935900000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935900000.html/</id>
-    <published>2019-12-21T13:45:00.000Z</published>
-    <updated>2019-12-21T13:45:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.bilibili.com/video/av71620078" target="_blank">51单片机试验箱W5500TCP服务器</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/av71620078&quot; target=&quot;_blank&quot;&gt;51单片机试验箱W5500TCP服务器&lt;/a&gt;&lt;/p&gt;
 
       
     
