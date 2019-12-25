@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2019-12-24T10:33:53.000Z</updated>
+  <updated>2019-12-25T11:53:56.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,180 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[硬件] 示波器的使用</title>
+    <link href="http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274836000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274836000.html/</id>
+    <published>2019-12-25T11:53:56.000Z</published>
+    <updated>2019-12-25T11:53:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.bilibili.com/video/av65714411" target="_blank">示波器的使用</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/av65714411&quot; target=&quot;_blank&quot;&gt;示波器的使用&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="硬件" scheme="http://brightereyer.xyz/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] ESP8266作AP热点+AT命令表格</title>
+    <link href="http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274835000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274835000.html/</id>
+    <published>2019-12-25T11:53:55.000Z</published>
+    <updated>2019-12-25T11:53:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/lifan3a/articles/7070028.html" target="_blank">ESP8266 WiFi模块AT指令 表格</a></p><p><a href="http://blog.csdn.net/ludaoyi88/article/details/53380305" target="_blank"></a></p><p>作为AP热点</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#先在串口工具选择115200波特率</span><br><span class="line">AT</span><br><span class="line">AT+UART&#x3D;9600,8,1,0,0</span><br><span class="line">AT+CWMODE&#x3D;3</span><br><span class="line">AT+CWSAP&#x3D;&quot;PRECHIN&quot;,&quot;123456&quot;,11,0</span><br><span class="line">AT+CIPAP&#x3D;&quot;192.168.4.2&quot;</span><br><span class="line">AT+RST</span><br><span class="line">#查看分配的ip</span><br><span class="line">AT+CIFSR</span><br><span class="line">AT+CIPMUX&#x3D;1</span><br><span class="line">AT+CIPSERVER&#x3D;1,8080</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/qq_37707218/article/details/80614398" target="_blank">ESP8266 + 单片机c代码</a><br>基本配置命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;修改波特率为9600（模块初始波特率默认为115200，该命令通过串口助手发送，重新上电后有效）</span><br><span class="line">AT+CIOBAUD&#x3D;9600</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;设置模块为AP模式</span><br><span class="line">AT+CWMODE&#x3D;2</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;设置wifi名字为 ESP8266，密码是 123456，通道号是11，加密方式是OPEN（可以修改）</span><br><span class="line">&#x2F;&#x2F;加密方式</span><br><span class="line">&#x2F;&#x2F;0：OPEN</span><br><span class="line">&#x2F;&#x2F;1：WEP</span><br><span class="line">&#x2F;&#x2F;2：WPA_PSK</span><br><span class="line">&#x2F;&#x2F;3：WPA2_PSK</span><br><span class="line">&#x2F;&#x2F;4：WPA_WPA2_PSK </span><br><span class="line">AT+CWSAP&#x3D;&quot;ESP8266&quot;,&quot;123456&quot;,11,0</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;启动多路连接方式（可以修改）</span><br><span class="line">AT+CIPMUX&#x3D;1</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;开启server，端口号为5000（可以修改）</span><br><span class="line">AT+CIPSERVER&#x3D;1,5000</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;向id为0的链接发送5字节数据（可以修改）</span><br><span class="line">AT+CIPSEND&#x3D;0,5</span><br></pre></td></tr></table></figure><p>main.c</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;reg51.h&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;初始化程序（必须使用，否则无法收发）</span><br><span class="line">void Serial_Init();</span><br><span class="line">&#x2F;&#x2F;发送char型字符串</span><br><span class="line">void Uart_Sends(unsigned char *str);</span><br><span class="line">void Delay1ms(unsigned int t);&#x2F;&#x2F;1ms延时函数</span><br><span class="line">&#x2F;&#x2F;接收字符子函数</span><br><span class="line">unsigned char Uart_Receive();</span><br><span class="line">&#x2F;&#x2F;数据发送子函数</span><br><span class="line">void Uart_Dat(unsigned char dat);</span><br><span class="line">&#x2F;&#x2F;wifi模块初始化</span><br><span class="line">void Wifi_Init();</span><br><span class="line">&#x2F;&#x2F;字节发送子函数</span><br><span class="line">void Uart_Byte(char byte);</span><br><span class="line">&#x2F;&#x2F;t ms延时子函数</span><br><span class="line">void Delay1ms(unsigned int t);</span><br><span class="line"></span><br><span class="line">&#x2F;*串口初始化子函数*&#x2F;</span><br><span class="line">void Serial_Init()&#x2F;&#x2F;串口初始化,一定注意不要启动T1的串口中断</span><br><span class="line">&#123;</span><br><span class="line">TMOD &#x3D; 0x20;</span><br><span class="line">SCON &#x3D; 0x50;</span><br><span class="line">TH1 &#x3D; 0xFD;</span><br><span class="line">TL1 &#x3D; TH1;</span><br><span class="line">PCON &#x3D; 0x00;</span><br><span class="line">ES &#x3D; 0; &#x2F;&#x2F;关闭串口中断</span><br><span class="line">TR1 &#x3D; 1;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*字符串发送子函数(用于配置)*&#x2F;</span><br><span class="line">void Uart_Sends(unsigned char *str) &#123;</span><br><span class="line">while (*str !&#x3D; &#39;\0&#39;) &#123;</span><br><span class="line">SBUF &#x3D; *str;</span><br><span class="line">while (!TI); &#x2F;&#x2F;等待发送完成信号（TI&#x3D;1）出现</span><br><span class="line">TI &#x3D; 0; &#x2F;&#x2F;清除发送中断标志位以继续发送</span><br><span class="line">str++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*WIFI模块初始化*&#x2F;</span><br><span class="line">void Wifi_Init() &#123;</span><br><span class="line">Delay1ms(3000);</span><br><span class="line">Serial_Init();</span><br><span class="line">Uart_Sends(&quot;AT+CWMODE&#x3D;2\r\n&quot;);</span><br><span class="line">Delay1ms(2000);</span><br><span class="line">Uart_Sends(&quot;AT+CWSAP&#x3D;\&quot;******\&quot;,\&quot;*****\&quot;,11,0\r\n&quot;);&#x2F;&#x2F;wifi名称及密码设置</span><br><span class="line">Delay1ms(2000);</span><br><span class="line">Uart_Sends(&quot;AT+CIPMUX&#x3D;1\r\n&quot;);</span><br><span class="line">Delay1ms(2000);</span><br><span class="line">Uart_Sends(&quot;AT+CIPSERVER&#x3D;1,5000\r\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*字节发送子函数*&#x2F;</span><br><span class="line">void Uart_Byte(char byte) &#123;</span><br><span class="line">SBUF &#x3D; byte;</span><br><span class="line">while (!TI);</span><br><span class="line">TI &#x3D; 0;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*数据发送子函数*&#x2F;</span><br><span class="line">void Uart_Dat(unsigned char dat) &#123;</span><br><span class="line">Uart_Sends(&quot;AT+CIPSEND&#x3D;0,1\r\n&quot;);</span><br><span class="line">Delay1ms(1000);</span><br><span class="line">Uart_Byte(dat);</span><br><span class="line">Uart_Byte(&#39;\r&#39;);</span><br><span class="line">Uart_Byte(&#39;\n&#39;);</span><br><span class="line">Delay1ms(100);&#x2F;&#x2F;延时100ms防止出现循环发送现象</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*指令接收子函数*&#x2F;</span><br><span class="line">unsigned char Uart_Receive() &#123;</span><br><span class="line">unsigned char order;</span><br><span class="line">RI &#x3D; 0; &#x2F;&#x2F;先将接收表示位置0，防止wifi&#39;配置使的返回信息将其置1</span><br><span class="line">while (!RI); &#x2F;&#x2F;等待接收到信息后跳出循环</span><br><span class="line">order &#x3D; SBUF; &#x2F;&#x2F;当RI&#x3D;&#x3D;1时接收到数据</span><br><span class="line">RI &#x3D; 0; &#x2F;&#x2F;清除接收中断标志位以继续接收</span><br><span class="line">return order;</span><br><span class="line">&#125;</span><br><span class="line">void Delay1ms(unsigned int t)   &#x2F;&#x2F;误差 0us</span><br><span class="line">&#123;</span><br><span class="line">unsigned char a, b, c;</span><br><span class="line">for (t; t &gt; 0; t--)</span><br><span class="line">for (c &#x3D; 1; c &gt; 0; c--)</span><br><span class="line">for (b &#x3D; 142; b &gt; 0; b--)</span><br><span class="line">for (a &#x3D; 2; a &gt; 0; a--);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/ludaoyi88/article/details/53380305" target="_blank">WIFI模块ESP8266的使用指南（客户端和服务器两种模式建立）</a></p><p><a href="https://blog.csdn.net/lsalp/article/details/80592533" target="_blank">AT命令示例</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.1 模块 AP 模式下做 TCP serve</span><br><span class="line">1.2 模块 STA 模式下做 TCP serve</span><br><span class="line">1.3 模块 TCP  client 透传模式</span><br><span class="line">1.4 模块 UDP 多连接模式</span><br><span class="line">1.5 模块 UDP 透传模式</span><br><span class="line">1.6 两个模块 UDP 传输模式</span><br><span class="line">1.7 两个模组通过TCP透传</span><br><span class="line">1.8 模块通过数据外网透传</span><br></pre></td></tr></table></figure><p>其它指令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">恢复出厂设置（配网失败可以用这个指令）</span><br><span class="line">AT+RESTORE</span><br></pre></td></tr></table></figure><p>连接网络调试助手TCP服务器</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AT+CIPSTART&#x3D;&quot;TCP&quot;,&quot;192.168.4.2&quot;,9085</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/lifan3a/articles/7070028.html&quot; target=&quot;_blank&quot;&gt;ESP8266 WiFi模块AT指令 表格&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.csd
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[PyQt5] 视频播放</title>
+    <link href="http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274834000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274834000.html/</id>
+    <published>2019-12-25T11:53:54.000Z</published>
+    <updated>2019-12-25T11:53:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/taroshi/PyQt_Video_Demo" target="_blank">PyQt_Video_Demo</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://github.com/taroshi/PyQt_Video_Demo&quot; target=&quot;_blank&quot;&gt;PyQt_Video_Demo&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="PyQt5" scheme="http://brightereyer.xyz/tags/PyQt5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[PyQt5] 使用http请求获取天气</title>
+    <link href="http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274833000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274833000.html/</id>
+    <published>2019-12-25T11:53:53.000Z</published>
+    <updated>2019-12-25T11:53:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/ACPIE-liusiqi/p/10636594.html" target="_blank">PyQt5使用http请求获取天气</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/ACPIE-liusiqi/p/10636594.html&quot; target=&quot;_blank&quot;&gt;PyQt5使用http请求获取天气&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="PyQt5" scheme="http://brightereyer.xyz/tags/PyQt5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[nodejs] 仿微信扫码登录</title>
+    <link href="http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274832000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274832000.html/</id>
+    <published>2019-12-25T11:53:52.000Z</published>
+    <updated>2019-12-25T11:53:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/4b5e1b8c34a2" target="_blank">模仿微信授权二维码生成通过微信扫描登录</a></p><p><a href="https://github.com/Ryan4G/QRCodeLoginDemo" target="_blank">QRCodeLoginDemo</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/4b5e1b8c34a2&quot; target=&quot;_blank&quot;&gt;模仿微信授权二维码生成通过微信扫描登录&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Ryan4G/QRCode
+      
+    
+    </summary>
+    
+    
+    
+      <category term="nodejs" scheme="http://brightereyer.xyz/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[layui] 日期范围</title>
+    <link href="http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274831000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274831000.html/</id>
+    <published>2019-12-25T11:53:51.000Z</published>
+    <updated>2019-12-25T11:53:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">layui.use(<span class="string">'laydate'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> endDate = laydate.render(&#123;</span><br><span class="line">        elem: <span class="string">'#endTime'</span>,<span class="comment">//选择器结束时间</span></span><br><span class="line">        type: <span class="string">'datetime'</span>,</span><br><span class="line">        <span class="comment">// type: 'date',</span></span><br><span class="line">        <span class="comment">// min:"1970-1-1",//设置min默认最小值</span></span><br><span class="line">        done: <span class="function"><span class="keyword">function</span> (<span class="params">value, date</span>) </span>&#123;</span><br><span class="line">            startDate.config.max = &#123;</span><br><span class="line">                year: date.year,</span><br><span class="line">                month: date.month - <span class="number">1</span>,<span class="comment">//关键</span></span><br><span class="line">                date: date.date,</span><br><span class="line">                hours: date.hour,</span><br><span class="line">                minutes: <span class="number">0</span>,</span><br><span class="line">                seconds: <span class="number">0</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//日期范围</span></span><br><span class="line">    <span class="keyword">var</span> startDate = laydate.render(&#123;</span><br><span class="line">        elem: <span class="string">'#startTime'</span>,</span><br><span class="line">        type: <span class="string">'datetime'</span>,</span><br><span class="line">        <span class="comment">// max:"2099-12-31",//设置一个默认最大值</span></span><br><span class="line">        done: <span class="function"><span class="keyword">function</span> (<span class="params">value, date</span>) </span>&#123;</span><br><span class="line">            endDate.config.min = &#123;</span><br><span class="line">                year: date.year,</span><br><span class="line">                month: date.month - <span class="number">1</span>, <span class="comment">//关键</span></span><br><span class="line">                date: date.date,</span><br><span class="line">                hours: date.hour,</span><br><span class="line">                minutes: <span class="number">0</span>,</span><br><span class="line">                seconds: <span class="number">0</span></span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;l
+      
+    
+    </summary>
+    
+    
+    
+      <category term="layui" scheme="http://brightereyer.xyz/tags/layui/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[hexo] 文章数量限制</title>
+    <link href="http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274830000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274830000.html/</id>
+    <published>2019-12-25T11:53:50.000Z</published>
+    <updated>2019-12-25T11:53:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://hexo.io/docs/troubleshooting.html" target="_blank"></a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ulimit -n 10000</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter
+      
+    
+    </summary>
+    
+    
+    
+      <category term="hexo" scheme="http://brightereyer.xyz/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>[设计] 包装盒</title>
@@ -337,181 +511,6 @@
     
     
       <category term="c4d" scheme="http://brightereyer.xyz/tags/c4d/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[51单片机] NFC芯片PN532的使用</title>
-    <link href="http://brightereyer.xyz/2019/12/22/articles/2019/12/22/1577026516000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/22/articles/2019/12/22/1577026516000.html/</id>
-    <published>2019-12-22T14:55:16.000Z</published>
-    <updated>2019-12-22T14:55:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://bbs.21ic.com/icview-2825926-1-1.html" target="_blank">NFC芯片–PN532的使用</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;http://bbs.21ic.com/icview-2825926-1-1.html&quot; target=&quot;_blank&quot;&gt;NFC芯片–PN532的使用&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="51单片机" scheme="http://brightereyer.xyz/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[蓝湖] 渐变简约卡片个人中心app界面</title>
-    <link href="http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935913000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935913000.html/</id>
-    <published>2019-12-21T13:45:13.000Z</published>
-    <updated>2019-12-21T13:45:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://ibaotu.com/sucai/870283.html" target="_blank">渐变简约卡片个人中心app界面</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://ibaotu.com/sucai/870283.html&quot; target=&quot;_blank&quot;&gt;渐变简约卡片个人中心app界面&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="蓝湖" scheme="http://brightereyer.xyz/tags/%E8%93%9D%E6%B9%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] 智能家居控制系统</title>
-    <link href="http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935912000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935912000.html/</id>
-    <published>2019-12-21T13:45:12.000Z</published>
-    <updated>2019-12-21T13:45:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.bilibili.com/video/av49821066" target="_blank">【毕业设计】智能家居控制系统（手机APP、语音识别、触摸屏控制）</a></p><p>毕业设计：智能家居控制系统<br><a href="" target="_blank"></a><br><a href="https://blog.csdn.net/qq_42838431/article/details/8917980" target="_blank">设计流程</a><br><a href="https://blog.csdn.net/qq_42838431/article/details/89142660" target="_blank">串口复用实现</a><br><a href="https://pan.baidu.com/s/1kTZEqzS4JnNliPJXb9f5lQ" target="_blank">设计源代码</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">q8tg</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/av49821066&quot; target=&quot;_blank&quot;&gt;【毕业设计】智能家居控制系统（手机APP、语音识别、触摸屏控制）&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;毕业设计：智能家居控制系统&lt;br&gt;&lt;a href=
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] 通讯方式</title>
-    <link href="http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935911000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935911000.html/</id>
-    <published>2019-12-21T13:45:11.000Z</published>
-    <updated>2019-12-21T13:45:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/xiaolongwoaini99/article/details/80349357" target="_blank">单片机通信方式</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">基本概念：</span><br><span class="line">串口、COM口是指的物理接口形式(硬件)。而TTL、RS-232、RS-485是指的电平标准(电信号)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/xiaolongwoaini99/article/details/80349357&quot; target=&quot;_blank&quot;&gt;单片机通信方式&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] 使用HTTP+POST方式发送数据</title>
-    <link href="http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935910000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935910000.html/</id>
-    <published>2019-12-21T13:45:10.000Z</published>
-    <updated>2019-12-21T13:45:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/cp1300/article/details/79686705" target="_blank">单片机使用HTTP POST方式发送数据</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/cp1300/article/details/79686705&quot; target=&quot;_blank&quot;&gt;单片机使用HTTP POST方式发送数据&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] 射频卡读写系统</title>
-    <link href="http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935909000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935909000.html/</id>
-    <published>2019-12-21T13:45:09.000Z</published>
-    <updated>2019-12-21T13:45:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://pan.baidu.com/s/15XJlcTSOjorAzB5OhCzcRw" target="_blank">MFRC-522 RC522 RFID射频 IC卡感应模块 送S50复旦卡PN532 PN5180</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">34u7</span><br></pre></td></tr></table></figure><p><a href="https://www.bilibili.com/video/av25915309" target="_blank">在Windows下用PN532复制M1卡数据，制作备份卡（低成本）</a><br><a href="https://www.bilibili.com/video/av64196965" target="_blank">小米手环模拟加密门禁卡（使用PN532读卡器）</a><br><a href="https://www.bilibili.com/video/av34229759" target="_blank">RFID 简介</a></p><p><a href="http://www.51hei.com/bbs/dpj-155318-1.html" target="_blank">基于51单片机的射频卡读写系统</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://pan.baidu.com/s/15XJlcTSOjorAzB5OhCzcRw&quot; target=&quot;_blank&quot;&gt;MFRC-522 RC522 RFID射频 IC卡感应模块 送S50复旦卡PN532 PN5180&lt;/a&gt;&lt;/p&gt;
-&lt;figu
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] 热敏电阻测温并且显示到数码管</title>
-    <link href="http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935907000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/21/articles/2019/12/21/1576935907000.html/</id>
-    <published>2019-12-21T13:45:07.000Z</published>
-    <updated>2019-12-21T13:45:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/nk_test/article/details/50375196" target="_blank">单片机： 热敏电阻测温并且显示到数码管（温度计）</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/nk_test/article/details/50375196&quot; target=&quot;_blank&quot;&gt;单片机： 热敏电阻测温并且显示到数码管（温度计）&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
