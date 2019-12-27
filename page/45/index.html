@@ -283,79 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/10/29/1572350130000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/29/articles/2019/10/29/1572350130000.html/" class="article-date">
-      <time datetime="2019-10-29T11:55:30.000Z" itemprop="datePublished">2019-10-29</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350130000.html/">[qt] QPropertyAnimation几行代码快速制作流畅的动画效果</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.cnblogs.com/senior-engineer/p/8125300.html" target="_blank">QPropertyAnimation几行代码快速制作流畅的动画效果</a></p>
-<p>mainwindow.h</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#ifndef MAINWINDOW_H  </span><br><span class="line">#define MAINWINDOW_H  </span><br><span class="line">#include &lt;QMainWindow&gt;  </span><br><span class="line">namespace Ui &#123;  </span><br><span class="line">class MainWindow;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">class MainWindow : public QMainWindow  </span><br><span class="line">&#123;  </span><br><span class="line">    Q_OBJECT  </span><br><span class="line">public:  </span><br><span class="line">    explicit MainWindow(QWidget *parent &#x3D; 0);  </span><br><span class="line">    ~MainWindow();  </span><br><span class="line">private:  </span><br><span class="line">    Ui::MainWindow *ui;  </span><br><span class="line">&#125;;  </span><br><span class="line">#endif &#x2F;&#x2F; MAINWINDOW_H</span><br></pre></td></tr></table></figure>
-
-<p>mainwindow.cpp</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QPropertyAnimation&gt;  </span><br><span class="line">#include &quot;mainwindow.h&quot;  </span><br><span class="line">#include &quot;ui_mainwindow.h&quot;  </span><br><span class="line">  </span><br><span class="line">MainWindow::MainWindow(QWidget *parent) :  </span><br><span class="line">    QMainWindow(parent),  </span><br><span class="line">    ui(new Ui::MainWindow)  </span><br><span class="line">&#123;  </span><br><span class="line">    ui-&gt;setupUi(this);  </span><br><span class="line">  </span><br><span class="line">    &#x2F;*  声明动画类，并将控制对象 this (this一定是继承自QObject的窗口部件)  以及属性名 &quot;geometry&quot; 传入构造函数  *&#x2F;  </span><br><span class="line">    QPropertyAnimation* animation &#x3D; new QPropertyAnimation(this, &quot;geometry&quot;);  </span><br><span class="line">    &#x2F;*  设置动画持续时长为 2 秒钟  *&#x2F;  </span><br><span class="line">    animation-&gt;setDuration(2000);  </span><br><span class="line">    &#x2F;*  设置动画的起始状态 起始点 (1,2)  起始大小 (3,4)  *&#x2F;  </span><br><span class="line">    animation-&gt;setStartValue(QRect(1, 2, 3, 4));  </span><br><span class="line">    &#x2F;*  设置动画的结束状态 结束点 (100,200)  结束大小 (300,400)  *&#x2F;  </span><br><span class="line">    animation-&gt;setEndValue(QRect(100, 200, 300, 400));  </span><br><span class="line">    &#x2F;*  设置动画效果  *&#x2F;  </span><br><span class="line">    animation-&gt;setEasingCurve(QEasingCurve::OutInExpo);  </span><br><span class="line">    &#x2F;*  开始执行动画 QAbstractAnimation::DeleteWhenStopped 动画结束后进行自清理(效果就好像智能指针里的自动delete animation) *&#x2F;  </span><br><span class="line">    animation-&gt;start(QAbstractAnimation::DeleteWhenStopped);  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">MainWindow::~MainWindow()  </span><br><span class="line">&#123;  </span><br><span class="line">    delete ui;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>位置示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void OEasyWebNotice::onShow() &#123;  </span><br><span class="line">    QRect rect &#x3D; QApplication::desktop()-&gt;availableGeometry();  </span><br><span class="line">    const int &amp;endy &#x3D; rect.height() - height();  </span><br><span class="line">    QPropertyAnimation *animation&#x3D; new QPropertyAnimation(this,&quot;pos&quot;);  </span><br><span class="line">    animation-&gt;setDuration(2000);  </span><br><span class="line">    animation-&gt;setStartValue(QPoint(rect.width() - width(), rect.height()));  </span><br><span class="line">    animation-&gt;setEndValue(QPoint(rect.width() - width(), endy));  </span><br><span class="line">    animation-&gt;setEasingCurve(QEasingCurve::OutCubic);  </span><br><span class="line">  </span><br><span class="line">    connect(animation, SIGNAL(finished()),  </span><br><span class="line">            this, SLOT(animationFinished()));  </span><br><span class="line">    show();  </span><br><span class="line">    animation-&gt;start(QAbstractAnimation::DeleteWhenStopped);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>透明度示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void OEasyWebNotice::onClose(void) &#123;  </span><br><span class="line">    disconnect(closeButton_.get(),SIGNAL(clicked()),  </span><br><span class="line">            this, SLOT(onClose()));  </span><br><span class="line">  </span><br><span class="line">    QPropertyAnimation* animation &#x3D; new QPropertyAnimation(this, &quot;windowOpacity&quot;);  </span><br><span class="line">    animation-&gt;setDuration(1000);  </span><br><span class="line">    animation-&gt;setStartValue(1);  </span><br><span class="line">    animation-&gt;setEndValue(0);  </span><br><span class="line">    animation-&gt;setEasingCurve(QEasingCurve::InCirc);  </span><br><span class="line">    connect(animation, SIGNAL(finished()),  </span><br><span class="line">            this, SLOT(deleteLater()));  </span><br><span class="line">    show();  </span><br><span class="line">    animation-&gt;start(QAbstractAnimation::DeleteWhenStopped);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2019/10/29/1572350129000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -908,6 +835,71 @@
         <p><a href="" target="_blank"></a><br><a href="https://github.com/search?utf8=%E2%9C%93&q=qt+%E6%B8%B8%E6%88%8F&ref=simplesearch" target="_blank">github qt 游戏</a></p>
 <p><a href="https://github.com/tashaxing/QtWuziqi" target="_blank">Qt 写的五子棋小游戏，带AI和双人对战</a><br><a href="https://github.com/yeyinglong/MineSweep" target="_blank">Qt扫雷游戏</a><br><a href="https://github.com/tashaxing/QtLianliankan" target="_blank">一个Qt写的连连看小游戏</a><br><a href="https://github.com/xuchenqqq/SceneEditor" target="_blank">一款基于QT 5.3.2的游戏地图编辑器</a><br><a href="https://github.com/moranzcw/FlappyBird" target="_blank">Qt编写的Flappy Bird游戏</a><br><a href="https://github.com/2018YX-game/repo" target="_blank">使用MVVM框架开发的Qt小游戏</a><br><a href="https://github.com/moranzcw/2048" target="_blank">2048</a><br><a href="https://github.com/moranzcw/SuperHexagon" target="_blank">使用Qt编写的游戏SuperHexagon超级六边形</a><br><a href="https://github.com/zwdnet/QTsnake" target="_blank">QT编程的贪食蛇游戏</a><br><a href="https://github.com/zccrs/Aircraft-War" target="_blank">飞机大战</a><br><a href="https://github.com/tashaxing/QtTetris" target="_blank">俄罗斯方块</a><br><a href="https://github.com/Ji-Yuhang/maze" target="_blank">迷宫小游戏</a><br><a href="https://github.com/inkeast/tick-Qt-game" target="_blank">双人非对称竞技游戏</a><br><a href="https://github.com/ZaoHan415/GamePro" target="_blank">猫捉老鼠小游戏</a><br><a href="https://github.com/LeoHsiao1/whack_a_mole" target="_blank">打地鼠游戏</a><br><a href="https://github.com/CX1900/QTMap" target="_blank">RPG游戏</a><br><a href="https://github.com/maybe4271/squared" target="_blank">拼图小游戏</a><br><a href="https://github.com/justko/TankGame" target="_blank">坦克大战</a><br><a href="https://github.com/1m188/PlayBricks_Qt" target="_blank">打砖块</a><br><a href="https://github.com/3140102441/Chess-Game" target="_blank">翻转棋游戏</a><br><a href="https://github.com/SeanLiaoy/Qt_FreeCell" target="_blank">纸牌游戏-当空接龙</a><br><a href="https://github.com/LuoBingjun/Insaniquarium" target="_blank">怪怪水族馆游戏</a><br><a href="https://github.com/XINCGer/AoDaMiaoTetris" target="_blank">Phonon框架编写的嗷大喵版俄罗斯方块小游戏</a><br><a href="https://github.com/Ayle3125/SpongeBubble" target="_blank">2D射击类小游戏-实现了图像音乐等功能</a><br><a href="https://github.com/cainxumo/629nb" target="_blank">流浪地球</a></p>
 <p><a href="https://www.haolovej.com/post/2018-03-07-%E5%9F%BA%E4%BA%8EQt%E5%BC%80%E5%8F%91%E5%9D%A6%E5%85%8B%E5%8A%A8%E8%8D%A1%E6%B8%B8%E6%88%8F%EF%BC%88%E6%8C%96%E5%9D%91%EF%BC%89.html" target="_blank">博客-坦克动荡</a><br><a href="https://github.com/Bocity/tankwar" target="_blank">坦克动荡</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/26/1572099605000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/26/articles/2019/10/26/1572099605000.html/" class="article-date">
+      <time datetime="2019-10-26T14:20:05.000Z" itemprop="datePublished">2019-10-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/26/articles/2019/10/26/1572099605000.html/">[qt] 硬件编程</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/xiaodingqq/article/details/86018954" target="_blank">QT实验分析教程 Qt中的字符串类，QString（9）</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/qq_28877125/article/details/87400644#comments" target="_blank">Qt5–串口发送文件</a></p>
 
       
     </div>
