@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2019-12-27T23:39:49.000Z</updated>
+  <updated>2019-12-29T04:18:58.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,130 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[stm8] NRF24L01</title>
+    <link href="http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593138000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593138000.html/</id>
+    <published>2019-12-29T04:18:58.000Z</published>
+    <updated>2019-12-29T04:18:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.51hei.com/bbs/dpj-99783-1.html" target="_blank">众拳基于STM8的NRF24L01 2.4G无线模块实验详解 含程序</a><br><a href="http://c.51hei.com/pro/down.php?h=7&e=661630&c=99838&host=forum/201711/28/131758hxeiojzxxurejlp2.zip&name=%22%D6%DA%C8%AD%BD%A3%B3%DD%BB%A2NRF24L01%202.4G%CE%DE%CF%DF%C4%A3%BF%E9%CA%B5%D1%E9%B3%CC%D0%F2.zip%22" target="_blank">众拳剑齿虎NRF24L01 2.4G无线模块实验程序.zip</a></p><p><a href="https://blog.csdn.net/weixin_43314452/article/details/90316955" target="_blank">stm8s使用NRF24L01</a><br><a href="https://github.com/ARENIBDelta/rf24l01_stm8s" target="_blank">github rf24l01_stm8s</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://www.51hei.com/bbs/dpj-99783-1.html&quot; target=&quot;_blank&quot;&gt;众拳基于STM8的NRF24L01 2.4G无线模块实验详解 含程序&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://c.51hei.com
+      
+    
+    </summary>
+    
+    
+    
+      <category term="stm8" scheme="http://brightereyer.xyz/tags/stm8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[stm8] STM9基础学习</title>
+    <link href="http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593137000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593137000.html/</id>
+    <published>2019-12-29T04:18:57.000Z</published>
+    <updated>2019-12-29T04:18:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.strongerhuang.com/" target="_blank">www.strongerhuang.com一名90后嵌入式开发程序员</a><br><a href="https://blog.csdn.net/ybhuangfugui/article/details/52936636" target="_blank">IAR for STM8介绍、下载、安装与注册</a></p><p><a href="http://pan.baidu.com/s/1slF5kYx" target="_blank">度娘 - IAR for STM8软件安装包的下载链接</a><br><a href="http://pan.baidu.com/s/1c2EcRo0" target="_blank">度娘 - STM8S系列教程对应的源代码例程</a><br><a href="https://github.com/EmbeddedDevelop/STM8S_Demo" target="_blank">github STM8S_Demo</a></p><p><a href="https://www.bilibili.com/video/av45083743" target="_blank">STM8基础学习</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"> P1 STM8_2---初识STM8单片机家族</span><br><span class="line"> P2 STM8_3---IAR工程建立及使用</span><br><span class="line"> P3 STM8_4---STVD工程建立及使用</span><br><span class="line"> P4 STM8_5---STVP使用及串口下载</span><br><span class="line"> P5 STM8_6---初识GPIO及输入模式</span><br><span class="line"> P6 STM8_7---输出模式及特点</span><br><span class="line"> P7 STM8_8---引脚标识及方向配置</span><br><span class="line"> P8 STM8_9---GPIO输入输出配置</span><br><span class="line"> P9 STM8_10---神奇有趣的LED</span><br><span class="line">P10 STM8_11---数码管原理及驱动</span><br><span class="line">P11 STM8_12---初探字符型1602液晶</span><br><span class="line">P12 STM8_13---字符型1602液晶编程</span><br><span class="line">P13 STM8_14---初探图形点阵12864液晶</span><br><span class="line">P14 STM8_15---图形点阵12864液晶编程</span><br><span class="line">P15 STM8_16---独立按键与矩阵键盘</span><br><span class="line">P16 STM8_17---PS2接口及数据帧组成</span><br><span class="line">P17 STM8_18-PS2相关码值及通信流程</span><br><span class="line">P18 STM8_19---高楼大厦说存储器结构A</span><br><span class="line">P19 STM8_20---高楼大厦说存储器结构B</span><br><span class="line">P20 STM8_21---Flash编程方式简介</span><br><span class="line">P21 STM8_22---神秘的存储器保护机制</span><br><span class="line">P22 STM8_23---“外科手术”选项字节A</span><br><span class="line">P23 STM8_24---“外科手术”选项字节B</span><br><span class="line">P24 STM8_25---“唐僧的心”时钟源和时钟树</span><br><span class="line">P25 STM8_26---配置系统主时钟为HSI</span><br><span class="line">P26 STM8_27---配置系统主时钟为HSE</span><br><span class="line">P27 STM8_28-配置系统主时钟为LSI</span><br><span class="line">P28 STM8_29---时钟门控、时钟安全及时钟输出</span><br><span class="line">P29 STM8_30---中断概念及中断基础</span><br><span class="line">P30 STM8_31---中断向量、函数及模式</span><br><span class="line">P31 STM8_32---中断寄存器及处理方法讲解</span><br><span class="line">P32 STM8_33---定时计数器本质与基础</span><br><span class="line">P33 STM8_34---TIM4寄存器配置及应用</span><br><span class="line">P34 STM8_35-TIM1基础与定时功能</span><br><span class="line">P35 STM8_36---TIM1外模式1计数功能</span><br><span class="line">P36 STM8_37---TIM1外模式2计数功能</span><br><span class="line">P37 STM8_38---输入捕获之周期测量</span><br><span class="line">P38 STM8_39---输入捕获之占空比测量</span><br><span class="line">P39 STM8_40---输出比较PWM与对齐方式</span><br><span class="line">P40 STM8_41---PWM信号输出流程配置</span><br><span class="line">P41 STM8_42---电源模式管理及功耗控制</span><br><span class="line">P42 STM8_43---自动唤醒AWU结构及配置</span><br><span class="line">P43 STM8_44---神奇的电磁讯响器</span><br><span class="line">P44 STM8_45---独立看门狗IWDG配置</span><br><span class="line">P45 STM8_46---窗口看门狗WWDG配置</span><br><span class="line">P46 STM8_47-单片机数据通信基础A</span><br><span class="line">P47 STM8_48---单片机数据通信基础B</span><br><span class="line">P48 STM8_49---初识串口及数据帧配置</span><br><span class="line">P49 STM8_50---波特率配置及串口收发</span><br><span class="line">P50 STM8_51---“独木桥”之单总线通信</span><br><span class="line">P51 STM8_52---DS18B20数据格式及转换</span><br><span class="line">P52 STM8_53---DS18B20读写及时序编程</span><br><span class="line">P53 STM8_54---“击鼓传花”走进SPI通信</span><br><span class="line">P54 STM8_55---SPI寄存器功能及运用</span><br><span class="line">P55 STM8_56---主从机初始化流程及通信</span><br><span class="line">P56 STM8_57---华邦W25Qxx存储颗粒简介</span><br><span class="line">P57 STM8_58---华邦W25Qxx操作指令及时序</span><br><span class="line">P58 STM8_59---“升堂审案”说I2C基础</span><br><span class="line">P59 STM8_60---轻松搞定AT24Cxx读写时序</span><br><span class="line">P60 STM8_61---“翻译官”ADC原理及结构</span><br><span class="line">P61 STM8_62---ADC配置与系统可靠性</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.strongerhuang.com/&quot; target=&quot;_blank&quot;&gt;www.strongerhuang.com一名90后嵌入式开发程序员&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://blog.csdn.net/ybhuang
+      
+    
+    </summary>
+    
+    
+    
+      <category term="stm8" scheme="http://brightereyer.xyz/tags/stm8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springcloud] 启动顺序</title>
+    <link href="http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593136000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593136000.html/</id>
+    <published>2019-12-29T04:18:56.000Z</published>
+    <updated>2019-12-29T04:18:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="" target="_blank"></a></p><p>启动顺序</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">config-server</span><br><span class="line"></span><br><span class="line">eureka-server</span><br><span class="line"></span><br><span class="line">service-provider</span><br><span class="line"></span><br><span class="line">feign-consumer</span><br><span class="line"></span><br><span class="line">hystrix-turbine</span><br><span class="line"></span><br><span class="line">zuul-gateway</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">zuul-gateway</span><br><span class="line">service-provider</span><br><span class="line">hystrix-turbine</span><br><span class="line">feign-consumer</span><br><span class="line">eureka-server</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;启动顺序&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springcloud" scheme="http://brightereyer.xyz/tags/springcloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Dockerfile] springboot+打包命令</title>
+    <link href="http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593135000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593135000.html/</id>
+    <published>2019-12-29T04:18:55.000Z</published>
+    <updated>2019-12-29T04:18:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>windows上先打开 “Docker Quickstart Terminal”</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean package dockerfile:build -Dmaven.test.skip&#x3D;true</span><br></pre></td></tr></table></figure><p>查看windows访问ip</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-machine ip</span><br></pre></td></tr></table></figure><p>springboot使用dockerfile docker远程api端口打包上传镜像demo案例<br><a href="https://gitee.com/JavaLionLi/springboot-docker-demo" target="_blank">springboot-docker-demo</a></p><p><a href="https://github.com/yunTerry/Spring-Cloud-Docker" target="_blank">Docker Compose 轻量级容器编排</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mvn clean package</span><br><span class="line"></span><br><span class="line"># 构建Docker镜像</span><br><span class="line">docker-compose build</span><br><span class="line"></span><br><span class="line"># 运行所有容器</span><br><span class="line">docker-compose up -d</span><br><span class="line"></span><br><span class="line"># 停止所有微服务</span><br><span class="line">docker-compose stop</span><br><span class="line"></span><br><span class="line"># 删除所有容器</span><br><span class="line">docker-compose rm</span><br></pre></td></tr></table></figure><p><a href="https://github.com/zzzzbw/Fame" target="_blank">docker springboot vue前后端分离</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fame-admin</span><br><span class="line">fame-docker</span><br><span class="line">fame-front</span><br><span class="line">fame-server</span><br><span class="line">docker-compose.yml</span><br></pre></td></tr></table></figure><p><a href="https://gitee.com/catoop/springboot-docker" target="_blank">springboot-docker</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#打包</span><br><span class="line">mvn clean package -Dmaven.test.skip&#x3D;true</span><br><span class="line">#启动</span><br><span class="line">java -jar target&#x2F;spring-boot-docker-1.0.jar</span><br><span class="line">#访问</span><br><span class="line">http:&#x2F;&#x2F;192.168.99.101:8080</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;windows上先打开 “Docker Quickstart Terminal”&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/spa
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Dockerfile" scheme="http://brightereyer.xyz/tags/Dockerfile/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[nginx] nginx配置https+springboot</title>
+    <link href="http://brightereyer.xyz/2019/12/28/articles/2019/12/28/1577533870000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/28/articles/2019/12/28/1577533870000.html/</id>
+    <published>2019-12-28T11:51:10.000Z</published>
+    <updated>2019-12-28T11:51:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_18145031/article/details/83866287" target="_blank">Centos下Nginx安装与配置</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc-c++ pcre pcre-devel zlib zlib-devel openssl openssl--devel</span><br><span class="line">cd &#x2F;usr&#x2F;local  </span><br><span class="line"></span><br><span class="line">wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.7.4.tar.gz</span><br><span class="line">tar -zxvf nginx-1.7.4.tar.gz</span><br><span class="line">cd nginx-1.7.4</span><br><span class="line">.&#x2F;configure</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">whereis nginx</span><br><span class="line"></span><br><span class="line">#启动</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx</span><br><span class="line"></span><br><span class="line">ps aux | grep nginx</span><br><span class="line"></span><br><span class="line">vim &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;conf&#x2F;nginx.conf</span><br></pre></td></tr></table></figure><p><a href="https://www.jianshu.com/p/8373f97d7514" target="_blank">nginx配置https+springboot</a></p><p><a href="https://blog.csdn.net/fenglin0429/article/details/81347634" target="_blank">SpringBoot + Nginx 配置HTTPS的一次经历</a></p><p><a href="https://www.cnblogs.com/b516/p/10916522.html" target="_blank">upstream配置(127.0.0.1)</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_18145031/article/details/83866287&quot; target=&quot;_blank&quot;&gt;Centos下Nginx安装与配置&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight p
+      
+    
+    </summary>
+    
+    
+    
+      <category term="nginx" scheme="http://brightereyer.xyz/tags/nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>[小程序] 功能拆分</title>
@@ -123,7 +247,7 @@
     <published>2019-12-27T23:39:45.000Z</published>
     <updated>2019-12-27T23:39:45.000Z</updated>
     
-    <content type="html"><![CDATA[<p>测试连通</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install inetutils-ping</span><br><span class="line">ifconfig</span><br><span class="line">ping x.x.x.x</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/chaos-li/p/9779558.html" target="_blank">Linux查看当前使用的网卡 以及 查看某进程使用的网络带宽情况 以及 端口占用的情况</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#查看当前使用的网卡</span><br><span class="line">watch cat &#x2F;proc&#x2F;net&#x2F;dev</span><br><span class="line"></span><br><span class="line">#如查看80端口</span><br><span class="line">lsof -i :80</span><br><span class="line"></span><br><span class="line">netstat -tunlp |grep 80</span><br></pre></td></tr></table></figure><p>iptables查看、开放、删除端口、保存设置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.centos.bz&#x2F;2018&#x2F;01&#x2F;iptables%E6%9F%A5%E7%9C%8B%E3%80%81%E5%BC%80%E6%94%BE%E3%80%81%E5%88%A0%E9%99%A4%E7%AB%AF%E5%8F%A3%E3%80%81%E4%BF%9D%E5%AD%98%E8%AE%BE%E7%BD%AE&#x2F;</span><br></pre></td></tr></table></figure><p><a href="https://www.jianshu.com/p/dece534c011a" target="_blank">Linux配置网卡</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#手动指定IP地址</span><br><span class="line">vi &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0</span><br><span class="line"></span><br><span class="line">DEVICE&#x3D;eth0</span><br><span class="line">HWADDR&#x3D;00:0C:29:8E:0B:00</span><br><span class="line">TYPE&#x3D;Ethernet</span><br><span class="line">UUID&#x3D;f23f083d-89af-4951-a33d-496d4534beb1</span><br><span class="line">ONBOOT&#x3D;yes</span><br><span class="line">NM_CONTROLLED&#x3D;yes</span><br><span class="line">BOOTPROTO&#x3D;static</span><br><span class="line">IPADDR&#x3D;192.168.111.111</span><br><span class="line">NETMASK&#x3D;255.255.255.0</span><br><span class="line">GATEWAY&#x3D;192.168.111.2</span><br></pre></td></tr></table></figure><p><a href="https://help.aliyun.com/knowledge_detail/41319.html" target="_blank">CentOS7系统中使用iptables</a></p><p><a href="https://blog.csdn.net/baidu_36124158/article/details/90603496" target="_blank">firewall-cmd</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">18.在指定区域打开端口（记得重启防火墙）</span><br><span class="line">firewall-cmd --zone&#x3D;public --add-port&#x3D;80&#x2F;tcp</span><br><span class="line"></span><br><span class="line">10.查看指定接口所属区域信息</span><br><span class="line">firewall-cmd --get-zone-of-interface&#x3D;eth0</span><br><span class="line"></span><br><span class="line">14.将接口添加到区域(默认接口都在public)</span><br><span class="line">firewall-cmd --zone&#x3D;public --add-interface&#x3D;eth0</span><br><span class="line"></span><br><span class="line">16.更新防火墙规则</span><br><span class="line">firewall-cmd --complete-reload</span><br><span class="line"></span><br><span class="line">17.查看指定区域所有打开的端口</span><br><span class="line">firewall-cmd --zone&#x3D;public --list-ports</span><br></pre></td></tr></table></figure><p><a href="https://zhidao.baidu.com/question/144270449.html" target="_blank">双网卡 iptables设置问题</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -i eth0 -p tcp --dport 21 -j ACCEPT</span><br><span class="line">iptables -A INPUT -i eth0 -p tcp --dport 80 -j ACCEPT</span><br><span class="line">#iptables -A INPUT -i eth0 -p tcp -j REJECT</span><br><span class="line">#默认的，不需要用任何命令，在eth1上就已经是接受所有端口了。</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -i eno1 -p tcp --dport 9027 -j ACCEPT</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>测试连通</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install inetutils-ping</span><br><span class="line">ifconfig</span><br><span class="line">ping x.x.x.x</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#常用端口和系统端口</span><br><span class="line">0 – 1023</span><br><span class="line"></span><br><span class="line">#软件的注册端口</span><br><span class="line">1024 – 49151</span><br><span class="line"></span><br><span class="line">#动态端口或私有端口</span><br><span class="line">49152 – 65535</span><br></pre></td></tr></table></figure><p><a href="http://www.pianshen.com/article/1203445123/" target="_blank">linux网络及端口配置问题</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#查看当前所有tcp端口</span><br><span class="line">netstat -ntlp</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/chaos-li/p/9779558.html" target="_blank">Linux查看当前使用的网卡 以及 查看某进程使用的网络带宽情况 以及 端口占用的情况</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#查看当前使用的网卡</span><br><span class="line">watch cat &#x2F;proc&#x2F;net&#x2F;dev</span><br><span class="line"></span><br><span class="line">#如查看80端口</span><br><span class="line">lsof -i :80</span><br><span class="line"></span><br><span class="line">netstat -tunlp |grep 80</span><br></pre></td></tr></table></figure><p>iptables查看、开放、删除端口、保存设置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.centos.bz&#x2F;2018&#x2F;01&#x2F;iptables%E6%9F%A5%E7%9C%8B%E3%80%81%E5%BC%80%E6%94%BE%E3%80%81%E5%88%A0%E9%99%A4%E7%AB%AF%E5%8F%A3%E3%80%81%E4%BF%9D%E5%AD%98%E8%AE%BE%E7%BD%AE&#x2F;</span><br></pre></td></tr></table></figure><p><a href="https://www.jianshu.com/p/dece534c011a" target="_blank">Linux配置网卡</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#手动指定IP地址</span><br><span class="line">vi &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0</span><br><span class="line"></span><br><span class="line">DEVICE&#x3D;eth0</span><br><span class="line">HWADDR&#x3D;00:0C:29:8E:0B:00</span><br><span class="line">TYPE&#x3D;Ethernet</span><br><span class="line">UUID&#x3D;f23f083d-89af-4951-a33d-496d4534beb1</span><br><span class="line">ONBOOT&#x3D;yes</span><br><span class="line">NM_CONTROLLED&#x3D;yes</span><br><span class="line">BOOTPROTO&#x3D;static</span><br><span class="line">IPADDR&#x3D;192.168.111.111</span><br><span class="line">NETMASK&#x3D;255.255.255.0</span><br><span class="line">GATEWAY&#x3D;192.168.111.2</span><br></pre></td></tr></table></figure><p><a href="https://help.aliyun.com/knowledge_detail/41319.html" target="_blank">CentOS7系统中使用iptables</a></p><p><a href="https://blog.csdn.net/baidu_36124158/article/details/90603496" target="_blank">firewall-cmd</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">18.在指定区域打开端口（记得重启防火墙）</span><br><span class="line">firewall-cmd --zone&#x3D;public --add-port&#x3D;80&#x2F;tcp</span><br><span class="line"></span><br><span class="line">10.查看指定接口所属区域信息</span><br><span class="line">firewall-cmd --get-zone-of-interface&#x3D;eth0</span><br><span class="line"></span><br><span class="line">14.将接口添加到区域(默认接口都在public)</span><br><span class="line">firewall-cmd --zone&#x3D;public --add-interface&#x3D;eth0</span><br><span class="line"></span><br><span class="line">16.更新防火墙规则</span><br><span class="line">firewall-cmd --complete-reload</span><br><span class="line"></span><br><span class="line">17.查看指定区域所有打开的端口</span><br><span class="line">firewall-cmd --zone&#x3D;public --list-ports</span><br></pre></td></tr></table></figure><p><a href="https://zhidao.baidu.com/question/144270449.html" target="_blank">双网卡 iptables设置问题</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -i eth0 -p tcp --dport 21 -j ACCEPT</span><br><span class="line">iptables -A INPUT -i eth0 -p tcp --dport 80 -j ACCEPT</span><br><span class="line">#iptables -A INPUT -i eth0 -p tcp -j REJECT</span><br><span class="line">#默认的，不需要用任何命令，在eth1上就已经是接受所有端口了。</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -i eno1 -p tcp --dport 9027 -j ACCEPT</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -314,31 +438,6 @@
   </entry>
   
   <entry>
-    <title>[单片机] NRF24L01收发</title>
-    <link href="http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447583000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447583000.html/</id>
-    <published>2019-12-27T11:53:03.000Z</published>
-    <updated>2019-12-27T11:53:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/84258513" target="_blank">2.4G无线模块（NRF24L01）学习（1）——串口实现两个模块之间信息交互</a></p><p><a href="http://www.51hei.com/bbs/dpj-135749-1.html" target="_blank">51单片机应用之无线通讯模块NRF24L01+(含程序源码) </a></p><p><a href="http://www.51hei.com/bbs/dpj-92127-1.html" target="_blank">基于51单片机的nrf24l01无线的接受和发射程序</a><br><a href="http://c.51hei.com/pro/down.php?h=7&e=661630&c=92182&host=forum/201708/08/145030w81xkr1peqgrp29r.zip&name=%22%A1%BE%D0%A1%B3%C9%B9%FB%A1%BF2%A1%A2PC-%B5%A5%C6%AC%BB%FA-%B5%A5%C6%AC%BB%FA%CE%DE%CF%DF%B4%AE%BF%DA%BF%D8%D6%C6.zip%22" target="_blank">51黑论坛_【小成果】2、PC-单片机-单片机无线串口控制.zip</a></p><p><a href="https://blog.csdn.net/qq_43588817/category_8674324.html" target="_blank">叶子丶de花 - 51笔记</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/XiaoCaiDaYong/article/details/84258513&quot; target=&quot;_blank&quot;&gt;2.4G无线模块（NRF24L01）学习（1）——串口实现两个模块之间信息交互&lt;/a&gt;&lt;/p&gt;
-&lt;p
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
     <title>[单片机] MQTT服务器</title>
     <link href="http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447582000.html/"/>
     <id>http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447582000.html/</id>
@@ -410,104 +509,6 @@
     
     
       <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[windows] 打开设备管理器</title>
-    <link href="http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447578000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447578000.html/</id>
-    <published>2019-12-27T11:52:58.000Z</published>
-    <updated>2019-12-27T11:52:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">devmgmt.msc</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla
-      
-    
-    </summary>
-    
-    
-    
-      <category term="windows" scheme="http://brightereyer.xyz/tags/windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[PyQt5] 串口通信上位机</title>
-    <link href="http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447577000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447577000.html/</id>
-    <published>2019-12-27T11:52:57.000Z</published>
-    <updated>2019-12-27T11:52:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/windowsyun/article/details/80001488" target="_blank">Python3+PyQT5+Pyserial 实现简单的串口工具</a><br><a href="https://github.com/ColinFred/Pyserial-Demo" target="_blank">Pyserial-Demo</a></p><p><a href="https://www.cnblogs.com/geokai/articles/9537150.html" target="_blank">PyQt 开发采用串口通信的上位机软件（1）</a><br><a href="https://github.com/Oslomayor/PyQt5-SerialPort-Stable" target="_blank">PyQt5-SerialPort-Stable</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/windowsyun/article/details/80001488&quot; target=&quot;_blank&quot;&gt;Python3+PyQT5+Pyserial 实现简单的串口工具&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http
-      
-    
-    </summary>
-    
-    
-    
-      <category term="PyQt5" scheme="http://brightereyer.xyz/tags/PyQt5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] 直流电机正反转</title>
-    <link href="http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577275294000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577275294000.html/</id>
-    <published>2019-12-25T12:01:34.000Z</published>
-    <updated>2019-12-25T12:01:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用到芯片L293D，含接线<br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82354311" target="_blank">STC单片机简单控制直流电机正反转</a></p><p><a href="https://wenku.baidu.com/view/03d48a05f111f18583d05a9a.html" target="_blank">继电器控制直流电机正反转</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;reg51.h&gt;</span><br><span class="line"></span><br><span class="line">sbit zheng &#x3D; P1 ^ 0;    &#x2F;&#x2F;正转按钮</span><br><span class="line">sbit fan &#x3D; P1 ^ 1;      &#x2F;&#x2F;反转按钮</span><br><span class="line">sbit JD &#x3D; P3 ^ 0;       &#x2F;&#x2F;继电器控制引脚</span><br><span class="line">void delay1ms(int);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;*****************************主函数*********************************&#x2F;&#x2F;</span><br><span class="line">void main() &#123;</span><br><span class="line"></span><br><span class="line">        JD &#x3D; 0;</span><br><span class="line">        P1 &#x3D; 0xff;   </span><br><span class="line"></span><br><span class="line">        while (1) &#123;</span><br><span class="line">                if (zheng &#x3D;&#x3D; 0) &#123;                       &#x2F;&#x2F;如果正转按钮按下  </span><br><span class="line">                         delay1ms(10);                  &#x2F;&#x2F;延时去抖</span><br><span class="line">                         if (zheng &#x3D;&#x3D; 0) </span><br><span class="line">                                 while (zheng &#x3D;&#x3D; 0);    &#x2F;&#x2F;判按键松开</span><br><span class="line">                         delay1ms(10);</span><br><span class="line">                         while (zheng &#x3D;&#x3D; 0);  </span><br><span class="line">                         JD &#x3D; 1;    </span><br><span class="line">                &#125; </span><br><span class="line">                if (fan &#x3D;&#x3D; 0)  &#123;                        &#x2F;&#x2F;如果反转按钮按下 </span><br><span class="line">                        delay1ms(10);                   &#x2F;&#x2F;延时去抖</span><br><span class="line">                        if (fan &#x3D;&#x3D; 0) &#123;</span><br><span class="line">                                while (fan &#x3D;&#x3D; 0);       &#x2F;&#x2F;判按键松开</span><br><span class="line">                        &#125;</span><br><span class="line">                        delay1ms(10);</span><br><span class="line">                        while (fan &#x3D;&#x3D; 0);</span><br><span class="line">                        JD &#x3D; 0;</span><br><span class="line">                &#125; </span><br><span class="line">        &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;*****************************延时子函数*********************************&#x2F;&#x2F;</span><br><span class="line">void delay1ms(int x)  &#123; </span><br><span class="line">          int i, j;  </span><br><span class="line">          for (i &#x3D; x; i &gt; 0; i--)  </span><br><span class="line">                 for (j &#x3D; 120; j &gt; 0; j--);</span><br><span class="line">         </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;使用到芯片L293D，含接线&lt;br&gt;&lt;a href=&quot;https://blog.csdn.net/XiaoCaiDaYong/article/details/82354311&quot; target=&quot;_blank&quot;&gt;STC单片机简单控制直流电机正反转&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a 
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[硬件] 示波器的使用</title>
-    <link href="http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274836000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/25/articles/2019/12/25/1577274836000.html/</id>
-    <published>2019-12-25T11:53:56.000Z</published>
-    <updated>2019-12-25T11:53:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.bilibili.com/video/av65714411" target="_blank">示波器的使用</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/av65714411&quot; target=&quot;_blank&quot;&gt;示波器的使用&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="硬件" scheme="http://brightereyer.xyz/tags/%E7%A1%AC%E4%BB%B6/"/>
     
   </entry>
   
