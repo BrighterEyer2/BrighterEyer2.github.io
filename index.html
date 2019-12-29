@@ -364,7 +364,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/29/articles/2019/12/29/1577593137000.html/">[stm8] STM9基础学习</a>
+      <a  class="article-title" href="/2019/12/29/articles/2019/12/29/1577593137000.html/">[stm8] STM8基础学习+资料</a>
     </h1>
   
 
@@ -440,10 +440,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="" target="_blank"></a></p>
-<p>启动顺序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">config-server</span><br><span class="line"></span><br><span class="line">eureka-server</span><br><span class="line"></span><br><span class="line">service-provider</span><br><span class="line"></span><br><span class="line">feign-consumer</span><br><span class="line"></span><br><span class="line">hystrix-turbine</span><br><span class="line"></span><br><span class="line">zuul-gateway</span><br></pre></td></tr></table></figure>
-
+        <p>启动顺序</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">zuul-gateway</span><br><span class="line">service-provider</span><br><span class="line">hystrix-turbine</span><br><span class="line">feign-consumer</span><br><span class="line">eureka-server</span><br></pre></td></tr></table></figure>
 
       
@@ -509,7 +506,7 @@
         <p>windows上先打开 “Docker Quickstart Terminal”</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean package dockerfile:build -Dmaven.test.skip&#x3D;true</span><br></pre></td></tr></table></figure>
 
-<p>查看windows访问ip</p>
+<p>查看windows访问服务网址所需ip</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-machine ip</span><br></pre></td></tr></table></figure>
 
 <p>springboot使用dockerfile docker远程api端口打包上传镜像demo案例<br><a href="https://gitee.com/JavaLionLi/springboot-docker-demo" target="_blank">springboot-docker-demo</a></p>
