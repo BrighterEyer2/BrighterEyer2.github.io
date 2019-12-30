@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2019-12-29T09:06:38.000Z</updated>
+  <updated>2019-12-30T13:29:34.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,104 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[springboot] 打成war包</title>
+    <link href="http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712574000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712574000.html/</id>
+    <published>2019-12-30T13:29:34.000Z</published>
+    <updated>2019-12-30T13:29:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/xjxz/p/6755918.html" target="_blank">查看tomcat日志</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;tomcat8&#x2F;logs</span><br><span class="line">tail -f catalina.out</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/qq_34381084/article/details/81485319" target="_blank">springboot项目如何打包成war包</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--去除内嵌tomcat--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-tomcat&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;!--websocket依赖包--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.tomcat.embed&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;tomcat-embed-websocket&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;8.5.23&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure><p>注释掉ServerEndpointExporter</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public ServerEndpointExporter serverEndpointExporter() &#123;</span><br><span class="line">    return new ServerEndpointExporter();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/fanshuyao/p/6741994.html" target="_blank">报错：this web application instance has been stopped already</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tomcat&#x2F;conf&#x2F;server.xml</span><br><span class="line"></span><br><span class="line">&lt;Context path&#x3D;&quot;&quot; docBase&#x3D;&quot;&#x2F;home&#x2F;java&#x2F;tomcat7&#x2F;webapps&#x2F;finance&quot; debug&#x3D;&quot;0&quot; reloadable&#x3D;&quot;false&quot;&#x2F;&gt;  </span><br><span class="line"></span><br><span class="line">&lt;Host name&#x3D;&quot;localhost&quot; appBase&#x3D;&quot;webapps&quot; unpackWARs&#x3D;&quot;true&quot; autoDeploy&#x3D;&quot;true&quot; reloadable&#x3D;&quot;false&quot;&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/xjxz/p/6755918.html&quot; target=&quot;_blank&quot;&gt;查看tomcat日志&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[linux] 查看服务器类型</title>
+    <link href="http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712573000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712573000.html/</id>
+    <published>2019-12-30T13:29:33.000Z</published>
+    <updated>2019-12-30T13:29:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dmidecode | grep &quot;Product Name&quot;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[linux] centos+tomcat+nginx</title>
+    <link href="http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712572000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712572000.html/</id>
+    <published>2019-12-30T13:29:32.000Z</published>
+    <updated>2019-12-30T13:29:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/xjxz/p/6755918.html" target="_blank">查看tomcat日志</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -i -t centos &#x2F;bin&#x2F;bash</span><br><span class="line">docker ps</span><br><span class="line">docker attach aaaaf2c4febd</span><br></pre></td></tr></table></figure><p>centos安装jdk8</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum search java|grep jdk</span><br><span class="line">yum install -y java-1.8.0-openjdk</span><br></pre></td></tr></table></figure><p>直接安装nginx</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nginx</span><br><span class="line">rpm -ql nginx</span><br><span class="line">cd &#x2F;etc&#x2F;nginx&#x2F;</span><br><span class="line">vi nginx.conf</span><br><span class="line"></span><br><span class="line">nginx -t -c &#x2F;etc&#x2F;nginx&#x2F;nginx.conf</span><br><span class="line"></span><br><span class="line">curl localhost:9090</span><br></pre></td></tr></table></figure><p>centos配置nginx（不推荐）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ automake autoconf make libtool zlib zlib-devel openssl openssl-devel pcre pcre-devel</span><br><span class="line"></span><br><span class="line">wget -c https:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.10.1.tar.gz</span><br><span class="line">tar -zxvf nginx-1.10.1.tar.gz</span><br><span class="line">cd nginx-1.10.1</span><br><span class="line">#.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx --with-http_stub_status_module --with-http_ssl_module  --with-http_realip_module</span><br><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx --with-http_stub_status_module --with-http_ssl_module</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;</span><br><span class="line">.&#x2F;nginx </span><br><span class="line">.&#x2F;nginx -s stop</span><br><span class="line">.&#x2F;nginx -s quit</span><br><span class="line">.&#x2F;nginx -s reload</span><br></pre></td></tr></table></figure><p>centos配置tomcat8</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">访问https:&#x2F;&#x2F;tomcat.apache.org&#x2F;download-80.cgi</span><br></pre></td></tr></table></figure><p>命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;mirror.bit.edu.cn&#x2F;apache&#x2F;tomcat&#x2F;tomcat-8&#x2F;v8.5.50&#x2F;bin&#x2F;apache-tomcat-8.5.50.tar.gz</span><br><span class="line">tar zxvf apache-tomcat-8.5.50.tar.gz</span><br><span class="line">mv apache-tomcat-8.5.50 &#x2F;usr&#x2F;local&#x2F;tomcat8</span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;tomcat8&#x2F;bin</span><br><span class="line">bash startup.sh</span><br><span class="line">curl localhost:8080</span><br></pre></td></tr></table></figure><p>nginx.conf<br>注意access_log对应路径日志文件要存在</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">user nginx;</span><br><span class="line">worker_processes auto;</span><br><span class="line">error_log &#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log;</span><br><span class="line">pid &#x2F;run&#x2F;nginx.pid;</span><br><span class="line"></span><br><span class="line">include &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;modules&#x2F;*.conf;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections 1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;</span><br><span class="line">                      &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;</span><br><span class="line">                      &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;</span><br><span class="line"></span><br><span class="line">    access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile            on;</span><br><span class="line">    tcp_nopush          on;</span><br><span class="line">    tcp_nodelay         on;</span><br><span class="line">    keepalive_timeout   65;</span><br><span class="line">    types_hash_max_size 2048;</span><br><span class="line"></span><br><span class="line">    include             &#x2F;etc&#x2F;nginx&#x2F;mime.types;</span><br><span class="line">    default_type        application&#x2F;octet-stream;</span><br><span class="line"></span><br><span class="line">    include &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;*.conf;</span><br><span class="line"></span><br><span class="line">    upstream tomcat &#123;</span><br><span class="line">      server 127.0.0.1:8080;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    upstream webService &#123;</span><br><span class="line">       server  127.0.0.1:8081;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       9090 default_server;</span><br><span class="line">        listen       [::]:9090 default_server;</span><br><span class="line">        server_name  127.0.0.1;</span><br><span class="line">        root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line"></span><br><span class="line">        include &#x2F;etc&#x2F;nginx&#x2F;default.d&#x2F;*.conf;</span><br><span class="line"></span><br><span class="line">        location  &#x2F;service1 &#123;</span><br><span class="line">           proxy_pass  http:&#x2F;&#x2F;tomcat&#x2F;service1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location  &#x2F;service2 &#123;</span><br><span class="line">           proxy_pass  http:&#x2F;&#x2F;webService&#x2F;service2;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/xjxz/p/6755918.html&quot; target=&quot;_blank&quot;&gt;查看tomcat日志&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[docker] 通过脚本导入sql</title>
+    <link href="http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712571000.html/"/>
+    <id>http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712571000.html/</id>
+    <published>2019-12-30T13:29:31.000Z</published>
+    <updated>2019-12-30T13:29:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_42891915/article/details/90116190" target="_blank">详解关于docker中利用Dockerfile构建mysql让mysql启动时自动执行sql文件</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_42891915/article/details/90116190&quot; target=&quot;_blank&quot;&gt;详解关于docker中利用Dockerfile构建mysql让mysql启动时自动执行sql文件&lt;/a&gt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>[aria2] windows下载工具</title>
@@ -400,105 +498,6 @@
       
       
         &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_21792169/category_5844033.html&quot; target=&quot;_blank&quot;&gt;HeroKern - MCU for 51&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://blog.csdn
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] USB转TTL模块连接PN532</title>
-    <link href="http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447586000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447586000.html/</id>
-    <published>2019-12-27T11:53:06.000Z</published>
-    <updated>2019-12-27T11:53:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/roctwo/article/details/78743259" target="_blank">《转》PN532读写操作（串口）</a><br><a href="https://blog.csdn.net/qq_43479164/article/details/96863299" target="_blank">使用PN532进行基本读写操作</a></p><p><a href="https://www.cr173.com/soft/316162.html" target="_blank">Prolific PL2303 usb转串口驱动</a><br><a href="http://tcy.198424.com/pl2303_installer.zip" target="_blank">pl2303_installer.zip</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/roctwo/article/details/78743259&quot; target=&quot;_blank&quot;&gt;《转》PN532读写操作（串口）&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://blog.csdn.net/qq
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] SDA与SCL</title>
-    <link href="http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447585000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447585000.html/</id>
-    <published>2019-12-27T11:53:05.000Z</published>
-    <updated>2019-12-27T11:53:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是I^2C总线标准的两根传输线，SDA是串行数据线，SCL是时钟~</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">I2C有两条线， SCL为时钟信号，SDA为双向数据通道。</span><br><span class="line"></span><br><span class="line">UART三条线， TX,RX,GND，如果单向的话可能只两条</span><br><span class="line"></span><br><span class="line">SPI的话四条线，不要CS片选的话剩三条MISO,MOSI,CLK</span><br><span class="line"></span><br><span class="line">串口中TX为发送，RX为接收，所以串口通讯两个单片机之间TX接RX，RX接TX。</span><br><span class="line"></span><br><span class="line">SPI中CLK是时钟，MISO就是主设备读，从设备写。MOSI就是主设备写，从设备读</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这是I^2C总线标准的两根传输线，SDA是串行数据线，SCL是时钟~&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] P3口第二功能各引脚功能</title>
-    <link href="http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447584000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447584000.html/</id>
-    <published>2019-12-27T11:53:04.000Z</published>
-    <updated>2019-12-27T11:53:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>P3口第二功能各引脚功能 定义：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">P3.0：RXD串行口输入 </span><br><span class="line">P3.1：TXD串行口输出 </span><br><span class="line">P3.2：INT0外部中断0输入 </span><br><span class="line">P3.3：INT1外部中断1输入 </span><br><span class="line">P3.4：T0定时器0外部输入 </span><br><span class="line">P3.5：T1定时器1外部输入 </span><br><span class="line">P3.6：WR外部写控制 </span><br><span class="line">P3.7：RD外部读控制</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;P3口第二功能各引脚功能 定义：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] MQTT服务器</title>
-    <link href="http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447582000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447582000.html/</id>
-    <published>2019-12-27T11:53:02.000Z</published>
-    <updated>2019-12-27T11:53:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/lulipro/p/10914482.html" target="_blank">搭建MQTT服务器</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/lulipro/p/10914482.html&quot; target=&quot;_blank&quot;&gt;搭建MQTT服务器&lt;/a&gt;&lt;/p&gt;
-
       
     
     </summary>
