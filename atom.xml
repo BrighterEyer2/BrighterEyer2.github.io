@@ -466,31 +466,6 @@
   </entry>
   
   <entry>
-    <title>[linux] 常用命令</title>
-    <link href="http://brightereyer.xyz/2020/01/01/articles/2020/01/01/1577823565000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/01/articles/2020/01/01/1577823565000.html/</id>
-    <published>2019-12-31T20:19:25.000Z</published>
-    <updated>2019-12-31T20:19:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/xuxinstyle/p/9609551.html" target="_blank">linux常用命令（50个）</a></p><p><a href="https://blog.csdn.net/qq_23329167/article/details/83856430" target="_blank">Linux常用命令</a></p><p><a href="https://www.cnblogs.com/guanbin-529/p/11227069.html" target="_blank">Linux添加用户组和添加用户</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/xuxinstyle/p/9609551.html&quot; target=&quot;_blank&quot;&gt;linux常用命令（50个）&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_2
-      
-    
-    </summary>
-    
-    
-    
-      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
     <title>[linux] jar包启动与发布脚本</title>
     <link href="http://brightereyer.xyz/2020/01/01/articles/2020/01/01/1577823565000.html/"/>
     <id>http://brightereyer.xyz/2020/01/01/articles/2020/01/01/1577823565000.html/</id>
@@ -505,6 +480,31 @@
       
         &lt;p&gt;start.sh&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[linux] 常用命令</title>
+    <link href="http://brightereyer.xyz/2020/01/01/articles/2020/01/01/1577823565000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/01/articles/2020/01/01/1577823565000.html/</id>
+    <published>2019-12-31T20:19:25.000Z</published>
+    <updated>2019-12-31T20:19:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/xuxinstyle/p/9609551.html" target="_blank">linux常用命令（50个）</a></p><p><a href="https://blog.csdn.net/qq_23329167/article/details/83856430" target="_blank">Linux常用命令</a></p><p><a href="https://www.cnblogs.com/guanbin-529/p/11227069.html" target="_blank">Linux添加用户组和添加用户</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/xuxinstyle/p/9609551.html&quot; target=&quot;_blank&quot;&gt;linux常用命令（50个）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_2
       
     
     </summary>
