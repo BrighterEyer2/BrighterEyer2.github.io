@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2019-12-30T13:29:34.000Z</updated>
+  <updated>2020-01-06T11:54:18.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -17,38 +17,438 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>[springboot] 打成war包</title>
-    <link href="http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712574000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712574000.html/</id>
-    <published>2019-12-30T13:29:34.000Z</published>
-    <updated>2019-12-30T13:29:34.000Z</updated>
+    <title>[qt] QtCreator跟PyQt5冲突打不开的问题</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311658000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311658000.html/</id>
+    <published>2020-01-06T11:54:18.000Z</published>
+    <updated>2020-01-06T11:54:18.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/xjxz/p/6755918.html" target="_blank">查看tomcat日志</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;tomcat8&#x2F;logs</span><br><span class="line">tail -f catalina.out</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/qq_34381084/article/details/81485319" target="_blank">springboot项目如何打包成war包</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--去除内嵌tomcat--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-tomcat&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;!--websocket依赖包--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.tomcat.embed&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;tomcat-embed-websocket&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;8.5.23&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure><p>注释掉ServerEndpointExporter</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public ServerEndpointExporter serverEndpointExporter() &#123;</span><br><span class="line">    return new ServerEndpointExporter();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/fanshuyao/p/6741994.html" target="_blank">报错：this web application instance has been stopped already</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tomcat&#x2F;conf&#x2F;server.xml</span><br><span class="line"></span><br><span class="line">&lt;Context path&#x3D;&quot;&quot; docBase&#x3D;&quot;&#x2F;home&#x2F;java&#x2F;tomcat7&#x2F;webapps&#x2F;finance&quot; debug&#x3D;&quot;0&quot; reloadable&#x3D;&quot;false&quot;&#x2F;&gt;  </span><br><span class="line"></span><br><span class="line">&lt;Host name&#x3D;&quot;localhost&quot; appBase&#x3D;&quot;webapps&quot; unpackWARs&#x3D;&quot;true&quot; autoDeploy&#x3D;&quot;true&quot; reloadable&#x3D;&quot;false&quot;&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>只需要两步即可解决：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.把QT下面的bin文件夹下所有的dll复制到exe同级目录下，尽管有些可能用不到；</span><br><span class="line"></span><br><span class="line">2.把QT下面的platforms文件夹也复制到exe同级别目录下，如我的platforms文件夹位于D:\Qt\Qt5.4.0\5.4\msvc2013_64\plugins\platforms，只需要直接复制这个platforms文件夹！</span><br></pre></td></tr></table></figure><p>参考1：<br><a href="https://blog.csdn.net/jzwong/article/details/71479691" target="_blank">QT移植无法启动 This application failed to start because it could not find or load the Qt platform plugin</a><br>参考2：<br><a href="https://blog.csdn.net/NSSC_K/article/details/88670686" target="_blank">this application failed to start because no Qt platform</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/xjxz/p/6755918.html&quot; target=&quot;_blank&quot;&gt;查看tomcat日志&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c
+        &lt;p&gt;只需要两步即可解决：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/sp
       
     
     </summary>
     
     
     
-      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
     
   </entry>
   
   <entry>
-    <title>[linux] 查看服务器类型</title>
-    <link href="http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712573000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712573000.html/</id>
-    <published>2019-12-30T13:29:33.000Z</published>
-    <updated>2019-12-30T13:29:33.000Z</updated>
+    <title>[linux] 查看网关</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311657000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311657000.html/</id>
+    <published>2020-01-06T11:54:17.000Z</published>
+    <updated>2020-01-06T11:54:17.000Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dmidecode | grep &quot;Product Name&quot;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p><a href="" target="_blank"></a></p><p>Linux下查看网关方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1、</span><br><span class="line">route -n</span><br><span class="line"></span><br><span class="line">2、</span><br><span class="line">ip route show</span><br><span class="line"></span><br><span class="line">3、【第一行就是自己的网关】</span><br><span class="line">traceroute www.prudentwoo.com -s 100</span><br><span class="line"></span><br><span class="line">4、</span><br><span class="line">netstat -r</span><br><span class="line"></span><br><span class="line">5、 【Debian&#x2F;Ubuntu Linux】</span><br><span class="line">more &#x2F;etc&#x2F;network&#x2F;interfaces</span><br><span class="line"></span><br><span class="line">6、 【Red Hat Linux】</span><br><span class="line">more &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Linux下查看网关方法：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[js] 车牌输入</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311656000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311656000.html/</id>
+    <published>2020-01-06T11:54:16.000Z</published>
+    <updated>2020-01-06T11:54:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.jq22.com/jquery-info19439" target="_blank">jQuery快速车牌号码输入</a></p><p>关于微信手机端IOS系统中input输入框无法输入的问题</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-webkit-user-select:auto;</span><br></pre></td></tr></table></figure><p><a href="https://segmentfault.com/q/1010000012115950" target="_blank">怎样实现将用户在input框中输入的中英文混合字符(车牌)中的字母实时转换为大写</a><br>css</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">input &#123;</span><br><span class="line">    text-transform: uppercase;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>正则表达式限制input框只能输入车牌号</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;text&quot; onkeyup&#x3D;&quot;if (!&#x2F;^[\u4e00-\u9fa5]&#123;1&#125;([A-Z]&#123;1&#125;([A-Z_0-9]&#123;1,5&#125;)?)?$&#x2F;.test(value)) value &#x3D; value.replace(&#x2F;[\s\S]$&#x2F;, &#39;&#39;)&quot;&gt;</span><br></pre></td></tr></table></figure><p>联合</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input style&#x3D;&quot;text-transform: uppercase;&quot; onkeyup&#x3D;&quot;if (!&#x2F;^[\u4e00-\u9fa5]&#123;1&#125;([A-Z]&#123;1&#125;([A-Z_0-9]&#123;1,5&#125;)?)?$&#x2F;.test(value)) value &#x3D; value.replace(&#x2F;[\s\S]$&#x2F;, &#39;&#39;)&quot; maxlength&#x3D;&quot;10&quot; placeholder&#x3D;&quot;请输入车牌号码&quot;&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://www.jq22.com/jquery-info19439&quot; target=&quot;_blank&quot;&gt;jQuery快速车牌号码输入&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;关于微信手机端IOS系统中input输入框无法输入的问题&lt;/p&gt;
+&lt;figure class=&quot;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="js" scheme="http://brightereyer.xyz/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[DevOps] 免费的DevOps</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311655000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311655000.html/</id>
+    <published>2020-01-06T11:54:15.000Z</published>
+    <updated>2020-01-06T11:54:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://coding.net/pricing" target="_blank">5 人及以下团队永久免费，5 人以上免费试用 15 天</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://coding.net/pricing&quot; target=&quot;_blank&quot;&gt;5 人及以下团队永久免费，5 人以上免费试用 15 天&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="DevOps" scheme="http://brightereyer.xyz/tags/DevOps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[stm32] 智能手环</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311654000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311654000.html/</id>
+    <published>2020-01-06T11:54:14.000Z</published>
+    <updated>2020-01-06T11:54:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/Raymaa/SmartHouse" target="_blank">含 智能手环</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">基于STM32单片机，硬件传感器感知室内环境数据并上传至服务器，具有通过前端页面，手机App远程实时监控室内环境、控制相应设备和远程预警等功能。</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://github.com/Raymaa/SmartHouse&quot; target=&quot;_blank&quot;&gt;含 智能手环&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
+      
+    
+    </summary>
+    
+    
+    
+      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[stm32] 开发工具</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311653000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311653000.html/</id>
+    <published>2020-01-06T11:54:13.000Z</published>
+    <updated>2020-01-06T11:54:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>STM32 开发工具</p><p>====  TrueSTUDIO start  ====<br><a href="https://atollic.com/truestudio/" target="_blank">TrueSTUDIO</a><br><a href="https://atollic.com/resources/download/windows/windows-archive/?submissionGuid=6a9df4f2-76ee-4575-adac-7d5172666c12" target="_blank">Windows archive </a><br><a href="http://download.atollic.com/TrueSTUDIO/installers/Atollic_TrueSTUDIO_for_STM32_windows_x86_v9.2.0_20181203-0921.exe" target="_blank">Atollic_TrueSTUDIO_for_STM32_windows_x86_v9.2.0_20181203-0921.exe</a><br>====  TrueSTUDIO end  ====</p><p>====  keil MDK ARM start  ====<br><a href="http://products.embedfire.com/zh_CN/latest/stm32/ebf_stm32f429_tiaozhanzhe_v1.html" target="_blank">野火STM32F429挑战者_V1开发板</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">野火STM32F429挑战者_V1开发板资料链接：</span><br><span class="line"></span><br><span class="line">资料盘链接：</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1UaISAMHE2-z4CVI3ivVCHQ</span><br><span class="line">提取码：</span><br><span class="line">9mn0</span><br></pre></td></tr></table></figure><p>====  keil MDK ARM end  ====</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;STM32 开发工具&lt;/p&gt;
+&lt;p&gt;====  TrueSTUDIO start  ====&lt;br&gt;&lt;a href=&quot;https://atollic.com/truestudio/&quot; target=&quot;_blank&quot;&gt;TrueSTUDIO&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;ht
+      
+    
+    </summary>
+    
+    
+    
+      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[stm32] 基于STM32的RGB调色器</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311652000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311652000.html/</id>
+    <published>2020-01-06T11:54:12.000Z</published>
+    <updated>2020-01-06T11:54:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/whik1194/article/details/102750994" target="_blank">基于STM32的RGB调色器——STM32程序和Qt上位机全开源</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/whik1194/article/details/102750994&quot; target=&quot;_blank&quot;&gt;基于STM32的RGB调色器——STM32程序和Qt上位机全开源&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[stm32] PN532</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311651000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311651000.html/</id>
+    <published>2020-01-06T11:54:11.000Z</published>
+    <updated>2020-01-06T11:54:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="" target="_blank"></a></p><p><a href="https://github.com/zhangyuhu/STM32-PN532" target="_blank">github STM32-PN532</a></p><p><a href="http://c.51hei.com/pro/down.php?h=7&e=661630&c=92550&host=forum/201708/11/191206fwu6ucuvwcuruc1p.rar&name=%22PN532%B6%C1%D0%B4%BF%A8%CA%B5%D1%E9%20%A3%A8ALIENTEK%20MINISTM32%A3%A9.rar%22" target="_blank">51黑论坛_PN532读写卡实验 （ALIENTEK MINISTM32）.rar</a></p><p><a href="https://blog.csdn.net/imzhujun/article/details/94399288" target="_blank">PN532 I2C模式STM32开发</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/zhangyuhu/STM32-PN532&quot; target=&quot;_blank&quot;&gt;github STM32-PN532&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[stm32] 开发工具</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311650000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311650000.html/</id>
+    <published>2020-01-06T11:54:10.000Z</published>
+    <updated>2020-01-06T11:54:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://tutorial.linux.doc.embedfire.com/zh_CN/latest/" target="_blank">[野火]i.MX Linux开发实战指南</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">[野火]i.MX Linux开发实战指南</span><br><span class="line"></span><br><span class="line">搭建并熟悉开发环境：</span><br><span class="line">1. 为什么学习Linux开发</span><br><span class="line">2. i.MX系列芯片简介</span><br><span class="line">3. Linux系统简介</span><br><span class="line">4. 安装Ubuntu系统</span><br><span class="line">5. Linux文件目录</span><br><span class="line">6. 用户组与文件权限</span><br><span class="line">7. 使用Linux命令行</span><br><span class="line">8. 包管理工具</span><br><span class="line">9. 使用编辑器</span><br><span class="line">10. 野火EBF 6ULL 开发板硬件资源介绍</span><br><span class="line">11. 让开发板跑起来</span><br><span class="line">12. 查看系统信息</span><br><span class="line">13. 使用命令点灯和检测按键</span><br><span class="line">14. 使用脚本测试硬件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">在Linux下开发应用程序：</span><br><span class="line">1. 挂载NFS网络文件系统</span><br><span class="line">2. GCC和Hello World</span><br><span class="line">3. 文件操作与系统调用</span><br><span class="line">4. 控制LED灯设备（LED子系统）</span><br><span class="line">5. 控制蜂鸣器（GPIO子系统）</span><br><span class="line">6. 检测按键输入（input子系统）</span><br><span class="line">7. 串口通讯与终端设备</span><br><span class="line">8. I2C通讯</span><br><span class="line">9. SPI通讯</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">安装系统镜像：</span><br><span class="line">1. 使用Etcher烧录镜像到SD卡</span><br><span class="line">2. 使用sd卡烧录完整镜像</span><br><span class="line">3. MFGtool工具</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">制作系统镜像：</span><br><span class="line">1. 系统运行所需要的组件</span><br><span class="line">2. 编译内核</span><br><span class="line">3. 编译uboot</span><br><span class="line">4. 制作根文件系统</span><br><span class="line">5. 给开发板移植debian发行版</span><br><span class="line">6. 制作ubuntu core版本镜像</span><br><span class="line">7. 使用Buildroot编译</span><br><span class="line">8. 使用yocot构建镜像</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">i.MX6 裸机开发：</span><br><span class="line">1. 熟悉sdk</span><br><span class="line">2. 编译下载官方SDK程序到开发板</span><br><span class="line">3. 开发前准备</span><br><span class="line">4. 汇编点亮LED灯</span><br><span class="line">5. 点亮LED灯</span><br><span class="line">6. LED灯进阶——C语言实现</span><br><span class="line">7. 完善LED程序</span><br><span class="line">8. GPIO输入—按键查询检测</span><br><span class="line">9. 整理工程文件</span><br><span class="line">10. 中断</span><br><span class="line">11. 时钟控制模块（CCM）</span><br><span class="line">12. UART—串口通讯</span><br><span class="line">13. DDR测试</span><br><span class="line">14. eLCDIF—液晶显示</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Linux驱动开发：</span><br><span class="line">1. 字符设备驱动</span><br><span class="line">2. 内核模块</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://tutorial.linux.doc.embedfire.com/zh_CN/latest/&quot; target=&quot;_blank&quot;&gt;[野火]i.MX Linux开发实战指南&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight pla
+      
+    
+    </summary>
+    
+    
+    
+      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[arm] ubuntu+QEMU虚拟化模拟器+vexpress开发板</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311648000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311648000.html/</id>
+    <published>2020-01-06T11:54:08.000Z</published>
+    <updated>2020-01-06T11:54:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">80%的嵌入式知识和技能，其实都跟开发板无关。</span><br><span class="line">你可以直接在Ubuntu上练习编程，也可以使用QEMU模拟一款ARM开发板，在这款虚拟的开发板上可以跑U-boot、kernel、NFS。</span><br><span class="line">如果嫌安装配置麻烦的话，也可以直接下载已经安装配置好的Ubuntu镜像，将镜像下载到本地后，使用VMware打开即可直接运行。</span><br></pre></td></tr></table></figure><p><a href="https://pan.baidu.com/s/1FPbKMi8K0jkrix6p2DNp5g" target="_blank">QEMU虚拟机镜像下载链接</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码:</span><br><span class="line">rsnt</span><br></pre></td></tr></table></figure><p><a href="https://www.jianshu.com/p/94833e841742" target="_blank">Qemu搭建ARM vexpress开发环境(一)</a><br><a href="https://www.jianshu.com/p/db8c20aa6a69" target="_blank">QEMU简介</a><br><a href="https://www.huaweicloud.com/kunpeng/software/qemu.html" target="_blank">QEMU虚拟化模拟器</a></p><p>Linux 上安装QEMU</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;download.qemu.org&#x2F;qemu-4.0.0.tar.xz</span><br><span class="line">tar xvJf qemu-4.0.0.tar.xz</span><br><span class="line">cd qemu-4.0.0</span><br><span class="line">.&#x2F;configure</span><br><span class="line">make</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git:&#x2F;&#x2F;git.kernel.org&#x2F;pub&#x2F;scm&#x2F;linux&#x2F;kernel&#x2F;git&#x2F;torvalds&#x2F;linux.git</span><br></pre></td></tr></table></figure><p>安装arm的交叉编译工具链</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-arm-linux-gnueabi</span><br></pre></td></tr></table></figure><p>编译Linux内核，生成vexpress开发板子的config文件：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make CROSS_COMPILE&#x3D;arm-linux-gnueabi- ARCH&#x3D;arm vexpress_defconfig</span><br></pre></td></tr></table></figure><p>编译：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make CROSS_COMPILE&#x3D;arm-linux-gnueabi- ARCH&#x3D;arm</span><br><span class="line"></span><br><span class="line">#生成的内核镱像位于arch&#x2F;arm&#x2F;boot&#x2F;zImage， 后续qemu启动时需要使用该镜像。</span><br></pre></td></tr></table></figure><p>下载和安装qemu模拟器<br>其实Ubuntu 12.04有qemu的安装包，但由于版本较低，对vexpress开发板支持不友好，建议下载高版本的qemu:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;wiki.qemu-project.org&#x2F;download&#x2F;qemu-2.0.2.tar.bz2</span><br></pre></td></tr></table></figure><p>配置qemu前，需要安装几个软件包：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y zlib1g-dev libglib2.0-0 libglib2.0-dev</span><br></pre></td></tr></table></figure><p>配置qemu，支持模拟arm架构下的所有单板：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure --target-list&#x3D;arm-softmmu --audio-drv-list&#x3D;</span><br></pre></td></tr></table></figure><p>编译和安装：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure><p>测试qemu和内核能否运行成功<br>qemu已经安装好了，内核也编译成功了，到这里最好是测试一下，编译出来的内核是否OK，或者qemu对vexpress单板支持是否够友好。</p><p>运行命令很简单：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M vexpress-a9 -m 512M -kernel &#x2F;path&#x2F;to&#x2F;kernel&#x2F;dir&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;zImage -dtb  &#x2F;path&#x2F;to&#x2F;kernel&#x2F;dir&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;dts&#x2F;vexpress-v2p-ca9.dtb -nographic -append &quot;console&#x3D;ttyAMA0&quot;</span><br><span class="line"></span><br><span class="line">#这里的 &#x2F;path&#x2F;to&#x2F;kernel&#x2F;dir&#x2F;  是内核的下载目录，或者编译目录。</span><br><span class="line">#如果看到内核启动过程中的打印，说明前面的搭建是成功的。</span><br></pre></td></tr></table></figure><p>下载、编译和安装busybox</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;www.busybox.net&#x2F;downloads&#x2F;busybox-1.20.2.tar.bz2</span><br><span class="line">make defconfig</span><br><span class="line">make CROSS_COMPILE&#x3D;arm-linux-gnueabi-</span><br><span class="line">make install CROSS_COMPILE&#x3D;arm-linux-gnueabi-</span><br></pre></td></tr></table></figure><p>安装完成后，会在busybox目录下生成_install目录，该目录下的程序就是单板运行所需要的命令。</p><p>形成根目录结构<br>先在Ubuntu主机环境下，形成目录结构，里面存放的文件和目录与单板上运行所需要的目录结构完全一样，然后再打包成镜像（在开发板看来就是SD卡），这个临时的目录结构称为根目录</p><p>1.创建rootfs目录（根目录），根文件系统内的文件全部放到这里</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p rootfs&#x2F;&#123;dev,etc&#x2F;init.d,lib&#125;</span><br></pre></td></tr></table></figure><p>2.拷贝busybox命令到根目录下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp busybox-1.20.2&#x2F;_install&#x2F;* -r rootfs&#x2F;</span><br></pre></td></tr></table></figure><p>3.从工具链中拷贝运行库到lib目录下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp -P &#x2F;usr&#x2F;arm-linux-gnueabi&#x2F;lib&#x2F;* rootfs&#x2F;lib&#x2F;</span><br></pre></td></tr></table></figure><p>4.创建4个tty端终设备</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty1 c 4 1</span><br><span class="line"></span><br><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty2 c 4 2</span><br><span class="line"></span><br><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty3 c 4 3</span><br><span class="line"></span><br><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty4 c 4 4</span><br></pre></td></tr></table></figure><p>制作根文件系统镜像<br>1.生成32M大小的镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;a9rootfs.ext3 bs&#x3D;1M count&#x3D;32</span><br></pre></td></tr></table></figure><p>2.格式化成ext3文件系统</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext3 a9rootfs.ext3</span><br></pre></td></tr></table></figure><p>3.将文件拷贝到镜像中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir tmpfs</span><br><span class="line">sudo mount -t ext3 a9rootfs.ext3 tmpfs&#x2F; -o loop</span><br><span class="line">sudo cp -r rootfs&#x2F;*  tmpfs&#x2F;</span><br><span class="line">sudo umount tmpfs</span><br></pre></td></tr></table></figure><p>系统启动运行<br>完成上述所有步骤之后，就可以启动qemu来模拟vexpress开发板了，命令参数如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M vexpress-a9 -m 512M -kernel &#x2F;path&#x2F;to&#x2F;kernel&#x2F;dir&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;zImage -dtb  &#x2F;path&#x2F;to&#x2F;kernel&#x2F;dir&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;dts&#x2F;vexpress-v2p-ca9.dtb -nographic -append &quot;root&#x3D;&#x2F;dev&#x2F;mmcblk0  console&#x3D;ttyAMA0&quot; -sd a9rootfs.ext3</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[arm] 智能门锁系统设计</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311647000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311647000.html/</id>
+    <published>2020-01-06T11:54:07.000Z</published>
+    <updated>2020-01-06T11:54:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://wenku.baidu.com/view/1e4f8b192bf90242a8956bec0975f46527d3a727.html" target="_blank">基于ARM_Linux的智能门锁系统设计_王溢琴</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://wenku.baidu.com/view/1e4f8b192bf90242a8956bec0975f46527d3a727.html&quot; target=&quot;_blank&quot;&gt;基于ARM_Linux的智能门锁系统设计_王溢琴&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[arm] iTop6818教程</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311646000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311646000.html/</id>
+    <published>2020-01-06T11:54:06.000Z</published>
+    <updated>2020-01-06T11:54:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://pan.baidu.com/s/1kV4jt47" target="_blank">iTop6818资料</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">bjg0</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://pan.baidu.com/s/1kV4jt47&quot; target=&quot;_blank&quot;&gt;iTop6818资料&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[物联网] zigbee+MQTT服务器</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311644000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311644000.html/</id>
+    <published>2020-01-06T11:54:04.000Z</published>
+    <updated>2020-01-06T11:54:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>===============================  MQTT start  ===============================</p><p>====  客户端 start  ====<br><a href="https://github.com/search?utf8=%E2%9C%93&q=android+MQTT&ref=simplesearch" target="_blank">android客户端</a><br><a href="https://www.hangge.com/blog/cache/detail_2350.html" target="_blank">航歌 - MQTTBox</a><br><a href="https://www.cnblogs.com/yexiaopeng/p/8542894.html" target="_blank">Qt官方MQTT库的使用，附一个MqttClient例子</a><br><a href="https://blog.csdn.net/qq_32865083/article/details/78638781" target="_blank">QT版MQTT客户端</a><br><a href="https://www.chromefor.com/mqttlens_v0-0-14/" target="_blank">chrome插件MQTTLens</a><br>====  客户端 end  ====</p><p>====  linux start  ====<br><a href="https://www.hangge.com/blog/cache/detail_2609.html" target="_blank">Docker - 在容器中搭建运行EMQ服务器（MQTT服务器）</a><br><a href="https://blog.csdn.net/kxwinxp/article/details/86592457" target="_blank">CentOS上搭建EMQ MQTT服务器</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">docker run --name emqtt -p 18083:18083 -p 1883:1883 -p 8084:8084 -p 8883:8883 -p 8083:8083 -p 8080:8080 -d emqx&#x2F;emqx</span><br><span class="line">docker exec -it emqtt &#x2F;bin&#x2F;sh</span><br><span class="line"></span><br><span class="line">ls &#x2F;opt&#x2F;emqx&#x2F;etc</span><br><span class="line">acl.conf       certs          emqx.conf      lwm2m_xml      plugins        psk.txt        ssl_dist.conf  vm.args</span><br><span class="line"></span><br><span class="line">ls &#x2F;opt&#x2F;emqx&#x2F;etc&#x2F;plugins</span><br><span class="line">acl.conf.paho                emqx_auth_jwt.conf           emqx_auth_redis.conf         emqx_delayed_publish.conf    emqx_psk_file.conf           emqx_sn.conf</span><br><span class="line">ekka.conf.example            emqx_auth_ldap.conf          emqx_auth_username.conf      emqx_lua_hook.conf           emqx_recon.conf              emqx_statsd.conf</span><br><span class="line">ekka.config.example          emqx_auth_mongo.conf         emqx_bridge_mqtt.conf        emqx_lwm2m.conf              emqx_reloader.conf           emqx_stomp.conf</span><br><span class="line">emqx_auth_clientid.conf      emqx_auth_mysql.conf         emqx_coap.conf               emqx_management.conf         emqx_retainer.conf           emqx_web_hook.conf</span><br><span class="line">emqx_auth_http.conf          emqx_auth_pgsql.conf         emqx_dashboard.conf          emqx_plugin_template.config  emqx_rule_engine.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#EMQ配置“ClientId 认证”</span><br><span class="line">cat &#x2F;opt&#x2F;emqx&#x2F;etc&#x2F;plugins&#x2F;emqx_auth_clientid.conf</span><br><span class="line">auth.client.1.clientid &#x3D; id</span><br><span class="line">auth.client.1.password &#x3D; passwd</span><br><span class="line">auth.client.password_hash &#x3D; sha256</span><br><span class="line"></span><br><span class="line">cat &#x2F;opt&#x2F;emqx&#x2F;etc&#x2F;plugins&#x2F;emqx_auth_username.conf</span><br><span class="line">auth.user.1.username &#x3D; admin</span><br><span class="line">auth.user.1.password &#x3D; public</span><br><span class="line">auth.user.password_hash &#x3D; sha256</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 开启匿名认证</span><br><span class="line">cat &#x2F;opt&#x2F;emqx&#x2F;etc&#x2F;emqx.conf | grep allow_anonymous</span><br><span class="line">## Allow Anonymous authentication</span><br><span class="line">allow_anonymous &#x3D; true</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 命令     作用</span><br><span class="line">&#x2F;opt&#x2F;emqx&#x2F;bin&#x2F;emqx start       # 启动emqtt</span><br><span class="line">&#x2F;opt&#x2F;emqx&#x2F;bin&#x2F;emqx stop        # 关闭emqtt</span><br><span class="line">&#x2F;opt&#x2F;emqx&#x2F;bin&#x2F;emqx restart     # 重启emqtt</span><br><span class="line">&#x2F;opt&#x2F;emqx&#x2F;bin&#x2F;emqx_ctl status  # 查看emqtt状态</span><br><span class="line">&#x2F;opt&#x2F;emqx&#x2F;bin&#x2F;emqx_ctl plugins load emqx_auth_clientid  # 加载认证插件</span><br><span class="line"></span><br><span class="line"># EMQ X R3.0 消息服务器默认占用的 TCP 端口包括:</span><br><span class="line"># 端口用途</span><br><span class="line">1883MQTT 协议端口</span><br><span class="line">8883MQTT&#x2F;SSL 端口</span><br><span class="line">8083MQTT&#x2F;WebSocket 端口</span><br><span class="line">8080HTTP API 端口</span><br><span class="line">18083Dashboard 管理控制台端口</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/u011267225/article/details/81982515" target="_blank">那些年用EMQ踩过的坑</a></p><p>参考：<a href="https://www.jianshu.com/p/dc0e8716a77a" target="_blank">centos 7 安装mqtt</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#docker run --name mqtt -p 18083:18083 -p 1883:1883 -p 8084:8084 -p 8883:8883 -p 8083:8083 -d centos</span><br><span class="line"></span><br><span class="line">docker search mqtt</span><br><span class="line">docker run --name mqtt -p 18083:18083 -p 1883:1883 -p 8084:8084 -p 8883:8883 -p 8083:8083 -d eclipse-mosquitto</span><br><span class="line">docker attach mqtt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 安装</span><br><span class="line">yum install mosquitto mosquitto-clients</span><br><span class="line"># 启动mosquitto</span><br><span class="line">mosquitto -c &#x2F;etc&#x2F;mosquitto&#x2F;mosquitto.conf -d</span><br><span class="line">mosquitto -v</span><br><span class="line"></span><br><span class="line"># 将1883 和8080端口打开（如果是阿里云服务器，需要去阿里云后台安全组策略管理页面打开端口）</span><br><span class="line"># firewall-cmd --zone&#x3D;public --add-port&#x3D;1883&#x2F;tcp --permanent</span><br><span class="line"># firewall-cmd --zone&#x3D;public --add-port&#x3D;8080&#x2F;tcp --permanent</span><br><span class="line"># firewall-cmd --reload</span><br><span class="line"></span><br><span class="line">WebSocket地址:</span><br><span class="line">192.168.99.100:8083&#x2F;mqtt</span><br><span class="line"></span><br><span class="line">TCP端口:</span><br><span class="line">1883</span><br></pre></td></tr></table></figure><p>测试MQTT</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 订阅主题</span><br><span class="line">mosquitto_sub -v -t topicTest01</span><br><span class="line"></span><br><span class="line"># 发布内容</span><br><span class="line">mosquitto_pub -t topicTest01 -m TestMessage</span><br></pre></td></tr></table></figure><p><a href="https://www.hangge.com/blog/cache/detail_2609.html" target="_blank">航歌 - Docker - 在容器中搭建运行EMQ服务器（MQTT服务器）</a></p><p><a href="https://blog.csdn.net/xj178926426/article/details/78832296" target="_blank">Centos7上安装Mosquitto和使用（源码方式）</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">yum install -y c-ares-devel libwebsockets-devel.x86_64</span><br><span class="line">yum install mosquitto mosquitto-clients</span><br><span class="line"></span><br><span class="line"># 1 启动代理服务</span><br><span class="line">#在第一个终端中输入如下命令：</span><br><span class="line">mosquitto -v</span><br><span class="line">-v #打印更多的调试信息</span><br><span class="line"></span><br><span class="line"># 2 订阅主题</span><br><span class="line">#在第二个终端中输入如下命令：</span><br><span class="line">mosquitto_sub -v -t sensor</span><br><span class="line">-t #指定主题，此处为sensor </span><br><span class="line">-v #打印更多的调试信息</span><br><span class="line"></span><br><span class="line"># 3 发布内容</span><br><span class="line">#在第三个终端中输入如下命令：</span><br><span class="line">mosquitto_pub -t sensor -m 12</span><br><span class="line">-t #指定主题 </span><br><span class="line">-m #指定消息内容</span><br><span class="line"></span><br><span class="line"># 4 运行结果</span><br><span class="line">#当发布者推送消息之后，订阅者（也就是第二个终端）获得以下内容：</span><br><span class="line">sensor 12</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/saryli/p/8962624.html" target="_blank">MQTT服务器搭建–Mosquitto用户名密码配置</a><br>1.用户参数说明</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;mosquitto&#x2F;mosquitto.conf</span><br><span class="line"># 不允许匿名</span><br><span class="line">allow_anonymous false</span><br><span class="line"></span><br><span class="line"># 配置用户密码文件</span><br><span class="line">password_file &#x2F;etc&#x2F;mosquitto&#x2F;pwfile</span><br><span class="line"></span><br><span class="line"># 配置topic和用户</span><br><span class="line">acl_file &#x2F;etc&#x2F;mosquitto&#x2F;acl</span><br></pre></td></tr></table></figure><p>2.添加用户信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">添加用户&#39;admin&#39;</span><br><span class="line">mosquitto_passwd -c &#x2F;etc&#x2F;mosquitto&#x2F;pwfile admin</span><br></pre></td></tr></table></figure><p>3.添加Topic和用户的关系</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#cat acl</span><br><span class="line">#找到你要的topic --- &#39;a&#x2F;b&#39;</span><br><span class="line"></span><br><span class="line">#topic a&#x2F;b</span><br><span class="line">#在下面添加</span><br><span class="line">user admin</span><br><span class="line">topic write mtopic&#x2F;#</span><br><span class="line"></span><br><span class="line">#找到</span><br><span class="line">#This affects all clients</span><br><span class="line">#添加</span><br><span class="line">user admin</span><br><span class="line">topic read mtopic&#x2F;#</span><br></pre></td></tr></table></figure><p>4.用户认证测试</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mosquitto -c &#x2F;etc&#x2F;mosquitto&#x2F;mosquitto.conf</span><br><span class="line"></span><br><span class="line">#（订阅端）客户端启动：</span><br><span class="line">mosquitto_sub -h 192.168.1.100 -t mtopic -u admin -P 123456</span><br><span class="line"></span><br><span class="line">#（发布者）客户端启动：</span><br><span class="line">mosquitto_pub -h 192.168.1.100 -t mtopic -u admin -P 123456 -m &quot;test&quot;</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/lulipro/p/10914482.html" target="_blank">ubuntu搭建MQTT服务器</a><br>1、安装</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-add-repository ppa:mosquitto-dev&#x2F;mosquitto-ppa     #添加源到软件仓库</span><br><span class="line">sudo apt-get update                                         #更新软件仓库列表</span><br><span class="line">sudo apt-get install mosquitto                              #安装mosquitto</span><br></pre></td></tr></table></figure><p>2、试运行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo service mosquitto status                               #查看运行状态</span><br><span class="line">sudo service mosquitto start                                #启动服务</span><br><span class="line">sudo service mosquitto stop                                 #停止服务</span><br></pre></td></tr></table></figure><p>3、添加和修改配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo service mosquitto stop   #首先停止服务</span><br><span class="line"></span><br><span class="line">#用户的局部配置文件放在： &#x2F;etc&#x2F;mosquitto&#x2F;conf.d&#x2F;目录下，并且这个目录下的所有以.conf后缀的文件都将被mosquitto作为配置文件，在启动时加载。</span><br><span class="line">#在&#x2F;etc&#x2F;mosquitto&#x2F;conf.d目录下，新建myconfig.conf配置文件</span><br><span class="line">#在其中输入如下内容</span><br><span class="line">#-------------------------------------------</span><br><span class="line"># 关闭匿名访问，客户端必须使用用户名</span><br><span class="line">allow_anonymous false</span><br><span class="line"></span><br><span class="line">#指定 用户名-密码 文件</span><br><span class="line">password_file &#x2F;etc&#x2F;mosquitto&#x2F;pwfile.txt</span><br></pre></td></tr></table></figure><p>4、创建一个MQTT服务器账户</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#假设用户名为:</span><br><span class="line">user1</span><br><span class="line">#在命令行运行：</span><br><span class="line">mosquitto_passwd -c &#x2F;etc&#x2F;mosquitto&#x2F;pwfile.txt user1</span><br><span class="line">#回车后连续输入2次用户密码即可</span><br></pre></td></tr></table></figure><p>5、重新启动mosquitto</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#启动服务</span><br><span class="line">sudo service mosquitto start</span><br></pre></td></tr></table></figure><p>====  linux end  ====</p><p>====  windows start  ====<br><a href="https://packages.emqx.io/emqx-ee/v3.4.5/emqx-ee-windows-v3.4.5.zip" target="_blank">emqx-ee-windows-v3.4.5.zip</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">emqx install</span><br><span class="line">emqx start</span><br><span class="line"></span><br><span class="line"># 在浏览器中输入</span><br><span class="line">http:&#x2F;&#x2F;localhost:18083&#x2F;</span><br><span class="line"></span><br><span class="line">输入用户名：</span><br><span class="line">admin</span><br><span class="line">密码：</span><br><span class="line">public</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/wolinghuanyun/article/details/53492189" target="_blank">Windows环境下搭建MosQuitto服务器</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">模块功能</span><br><span class="line">mosquitto.confmosquitto服务器的配置文件</span><br><span class="line">mosquitto用来开启broker</span><br><span class="line">mosquitto_passwd用来设置用户的账号与密码</span><br><span class="line">mosquitto_pub用来发布消息</span><br><span class="line">mosquitto_sub用来订阅消息</span><br><span class="line">pwfile.example通过mosquitto_passwd来存储用户的账号密码的文件</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/pgpanda/article/details/51800865" target="_blank">windows + mosquitto + mqtt + Cygwin64</a><br>mosquitto64位版与Cygwin64位版：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">链接：</span><br><span class="line">http:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1o8Swnv8</span><br><span class="line">密码：</span><br><span class="line">si95</span><br><span class="line"></span><br><span class="line">链接：</span><br><span class="line">http:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1dEW2eq9</span><br><span class="line">密码：</span><br><span class="line">myj1</span><br><span class="line"></span><br><span class="line">Cygwin64添加源</span><br><span class="line">http:&#x2F;&#x2F;mirrors.163.com&#x2F;cygwin&#x2F;x86_64</span><br></pre></td></tr></table></figure><p><a href="https://github.com/emqtt/qmqtt" target="_blank">github qmqtt</a></p><p><a href="https://blog.csdn.net/github_33304260/article/details/73692589" target="_blank">MQTT + android 实现消息推送</a></p><p>DEMO地址 ：<br>大家只需要更换自己的IP地址就可以用了。<br><a href="http://download.csdn.net/detail/github_33304260/9879717" target="_blank" rel="noopener">http://download.csdn.net/detail/github_33304260/9879717</a><br><a href="" target="_blank"></a></p><p>后续会更加精彩，欢迎关注本人博客以及github<br><a href="https://github.com/libin7278/ImageLoader" target="_blank" rel="noopener">https://github.com/libin7278/ImageLoader</a><br><a href="" target="_blank"></a><br>====  windows end  ====</p><p>===============================  MQTT end  ===============================</p><p>===============================  zigbee start  ===============================<br><a href="https://www.bilibili.com/video/av57387117" target="_blank">基于zigbee的智能家居管理系统</a></p><p>基于zigbee和stm32的智能家居系统，上位机使用Qt编写，实现了基本的监控。主要包括监控室内温度、湿度、烟雾浓度，用led灯模拟控制家中的灯。界面良好<br><a href="https://gitee.com/sunshare21/SmartHOme-ARM" target="_blank">SmartHOme-ARM</a></p><p><a href="https://github.com/Raymaa/SmartHouse" target="_blank">github 全栈 SmartHouse</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#基于STM32单片机，硬件传感器感知室内环境数据并上传至服务器，具有通过前端页面，手机App远程实时监控室内环境、控制相应设备和远程预警等功能。</span><br><span class="line"></span><br><span class="line">Android&#x2F;SmartHome</span><br><span class="line">Web前端</span><br><span class="line">Web后端&#x2F;SmartHome</span><br><span class="line">img</span><br><span class="line">嵌入式</span><br><span class="line">README.md</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/u013704336/article/details/51765397" target="_blank">基于ZigBee和STM32的智能家居控制系统的设计与实现(五)–终结篇</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;kevinlq&#x2F;SmartHome-Qt</span><br><span class="line">https:&#x2F;&#x2F;github.com&#x2F;kevinlq</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/weixin_42827999/article/details/93598213" target="_blank">STM32F429与CC2530 ZigBee模块通信</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">STM32 与 ZigBee 接线如下：</span><br><span class="line">VCC -----&gt; VCC</span><br><span class="line">GND -----&gt; GND</span><br><span class="line">TXD -----&gt; RXD</span><br><span class="line">RXD -----&gt; TXD</span><br></pre></td></tr></table></figure><p>===============================  zigbee end  ===============================</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;===============================  MQTT start  ===============================&lt;/p&gt;
+&lt;p&gt;====  客户端 start  ====&lt;br&gt;&lt;a href=&quot;https://github.com/
+      
+    
+    </summary>
+    
+    
+    
+      <category term="物联网" scheme="http://brightereyer.xyz/tags/%E7%89%A9%E8%81%94%E7%BD%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机+qt+arm+stm32] 流浪的鹅卵石</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311643000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311643000.html/</id>
+    <published>2020-01-06T11:54:03.000Z</published>
+    <updated>2020-01-06T11:54:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://kevinlq.com/categories/#ARM%E5%AD%A6%E4%B9%A0" target="_blank">鹅卵石 ARM学习</a><br><a href="https://github.com/kevinlq/SmartHome-Qt" target="_blank">SmartHome-Qt</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://kevinlq.com/categories/#ARM%E5%AD%A6%E4%B9%A0&quot; target=&quot;_blank&quot;&gt;鹅卵石 ARM学习&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/kevinlq/Smart
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机+qt+arm+stm32" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA-qt-arm-stm32/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[vbox] 常用快捷键+扩展虚拟分区</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311642000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311642000.html/</id>
+    <published>2020-01-06T11:54:02.000Z</published>
+    <updated>2020-01-06T11:54:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>查看虚拟硬盘：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">VBoxManage list hdds</span><br><span class="line"></span><br><span class="line">VBoxManage showhdinfo &quot;G:\VirtualBox\ubuntu18\ubuntu18.vdi&quot;</span><br><span class="line"></span><br><span class="line">#MB</span><br><span class="line">set &#x2F;a 40*1024</span><br><span class="line"></span><br><span class="line">#Byte</span><br><span class="line">set &#x2F;a 516*1024*1024</span><br><span class="line"></span><br><span class="line">15805aaa-dc04-487f-9454-664835a38cdc</span><br><span class="line"></span><br><span class="line">VBoxManage.exe modifyhd 15805aaa-dc04-487f-9454-664835a38cdc --resize 40960</span><br><span class="line"></span><br><span class="line">VBoxManage.exe modifyhd 15805aaa-dc04-487f-9454-664835a38cdc --resizebyte 541065216</span><br></pre></td></tr></table></figure><p>ubuntu18中分区</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df -ah</span><br><span class="line"></span><br><span class="line">#开始分区</span><br><span class="line">sudo fdisk &#x2F;dev&#x2F;sda</span><br><span class="line"></span><br><span class="line">首先输入命令：n(添加新分区)之后回车：</span><br><span class="line">接着输入命令： p</span><br><span class="line">剩下步骤全按回车默认，</span><br><span class="line">最后输入命令w保存分区信息。</span><br><span class="line"></span><br><span class="line">fdisk -l</span><br></pre></td></tr></table></figure><p>Oracle VM VirtualBox各种显示模式切换热键</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">初用VirtualBox, 几个显示切换快捷键还是要记一下的:</span><br><span class="line"></span><br><span class="line">Right Ctrl + F        -- 切换到全屏模式</span><br><span class="line"></span><br><span class="line">Right Ctrl + L        -- 切换到无缝模式</span><br><span class="line"></span><br><span class="line">Right Ctrl + C        -- 切换到比例模式</span><br><span class="line"></span><br><span class="line">Right Ctrl + Home     -- 显示控制菜单</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/tanningzhong/article/details/80482994" target="_blank">Virtualbox 扩展虚拟磁盘空间大小</a></p><p><a href="https://blog.csdn.net/ouyang_peng/article/details/53261599" target="_blank">VirtualBox如何扩展虚拟机Ubuntu的硬盘容量？</a></p><p><a href="https://blog.csdn.net/LEON1741/article/details/56494797" target="_blank">VirtualBox ubuntu gparted</a></p><p><a href="https://blog.csdn.net/ouyang_peng/article/details/53261599" target="_blank">VirtualBox如何扩展虚拟机Ubuntu的硬盘容量？</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;查看虚拟硬盘：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="vbox" scheme="http://brightereyer.xyz/tags/vbox/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[qt] ubuntu+clang+opencv环境</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311640000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311640000.html/</id>
+    <published>2020-01-06T11:54:00.000Z</published>
+    <updated>2020-01-06T11:54:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>安装clang++与opencv</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y clang build-essential libqt4-dev mesa-libGL-devel libssl-dev</span><br><span class="line">sudo apt-get install -y libssl-dev</span><br><span class="line">sudo apt-get install -y opencv</span><br></pre></td></tr></table></figure><p>ubuntu安装opencv</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install pkg-config</span><br><span class="line">pkg-config --modversion opencv</span><br><span class="line">sudo apt-get -y install cmake</span><br><span class="line">sudo apt-get -y install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg.dev libtiff4.dev libswscale-dev libjasper-dev</span><br></pre></td></tr></table></figure><p><a href="https://www.jianshu.com/p/f646448da265" target="_blank">Ubuntu 16.04 安装Opencv 3.4.3</a><br><a href="https://blog.csdn.net/lumingha/article/details/88819631" target="_blank">ubuntu16.04安装Opencv3.4.0</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install update</span><br><span class="line">sudo apt-get install cmake</span><br><span class="line">sudo apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg.dev libtiff4.dev libswscale-dev libjasper-dev  </span><br><span class="line"></span><br><span class="line">cd opencv</span><br><span class="line">mkdir build &amp;&amp; cd build</span><br><span class="line">cmake -D CMAKE_BUILD_TYPE&#x3D;Release -D CMAKE_INSTALL_PREFIX&#x3D;&#x2F;usr&#x2F;local ..</span><br><span class="line"></span><br><span class="line">sudo make</span><br><span class="line">sudo make install</span><br><span class="line">sudo gedit &#x2F;etc&#x2F;ld.so.conf.d&#x2F;opencv.conf</span><br><span class="line">sudo ldconfig &amp;&amp; cd &#x2F;usr&#x2F;local&#x2F;lib</span><br><span class="line">#配置bash</span><br><span class="line">sudo gedit &#x2F;etc&#x2F;bash.bashrc</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/echoamor/article/details/83022352" target="_blank">Ubuntu16.04安装配置opencv3.4.3+opencv_contrib3.4.3</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install cmake-gui</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;安装clang++与opencv&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[ubuntu] arm交叉编译</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311639000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311639000.html/</id>
+    <published>2020-01-06T11:53:59.000Z</published>
+    <updated>2020-01-06T11:53:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxfixes-dev libxi-dev libxrender-dev libxcb1-dev libx11-xcb-dev libxcb-glx0-dev</span><br><span class="line"></span><br><span class="line">sudo apt-get install libxcb-keysyms1-dev libxcb-image0-dev libxcb-shm0-dev libxcb-icccm4-dev libxcb-sync0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-randr0-dev libxcb-render-util0-dev</span><br></pre></td></tr></table></figure><p><a href="https://www.veryarm.com/53209.html" target="_blank">Ubuntu 14.04系统下安装和编译QT 5.9.2库（桌面版ARM嵌入式IMX6版）</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[idea] tomcat调试</title>
+    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311637000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311637000.html/</id>
+    <published>2020-01-06T11:53:57.000Z</published>
+    <updated>2020-01-06T11:53:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">启用IDEA debug里的JAVA_OPTS，把Transport改成Shared memory即可</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -61,25 +461,25 @@
     
     
     
-      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+      <category term="idea" scheme="http://brightereyer.xyz/tags/idea/"/>
     
   </entry>
   
   <entry>
-    <title>[linux] centos+tomcat+nginx</title>
-    <link href="http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712572000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712572000.html/</id>
-    <published>2019-12-30T13:29:32.000Z</published>
-    <updated>2019-12-30T13:29:32.000Z</updated>
+    <title>[linux] 常用命令</title>
+    <link href="http://brightereyer.xyz/2020/01/01/articles/2020/01/01/1577823565000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/01/articles/2020/01/01/1577823565000.html/</id>
+    <published>2019-12-31T20:19:25.000Z</published>
+    <updated>2019-12-31T20:19:25.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/xjxz/p/6755918.html" target="_blank">查看tomcat日志</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -i -t centos &#x2F;bin&#x2F;bash</span><br><span class="line">docker ps</span><br><span class="line">docker attach aaaaf2c4febd</span><br></pre></td></tr></table></figure><p>centos安装jdk8</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum search java|grep jdk</span><br><span class="line">yum install -y java-1.8.0-openjdk</span><br></pre></td></tr></table></figure><p>直接安装nginx</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nginx</span><br><span class="line">rpm -ql nginx</span><br><span class="line">cd &#x2F;etc&#x2F;nginx&#x2F;</span><br><span class="line">vi nginx.conf</span><br><span class="line"></span><br><span class="line">nginx -t -c &#x2F;etc&#x2F;nginx&#x2F;nginx.conf</span><br><span class="line"></span><br><span class="line">curl localhost:9090</span><br></pre></td></tr></table></figure><p>centos配置nginx（不推荐）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ automake autoconf make libtool zlib zlib-devel openssl openssl-devel pcre pcre-devel</span><br><span class="line"></span><br><span class="line">wget -c https:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.10.1.tar.gz</span><br><span class="line">tar -zxvf nginx-1.10.1.tar.gz</span><br><span class="line">cd nginx-1.10.1</span><br><span class="line">#.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx --with-http_stub_status_module --with-http_ssl_module  --with-http_realip_module</span><br><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx --with-http_stub_status_module --with-http_ssl_module</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;</span><br><span class="line">.&#x2F;nginx </span><br><span class="line">.&#x2F;nginx -s stop</span><br><span class="line">.&#x2F;nginx -s quit</span><br><span class="line">.&#x2F;nginx -s reload</span><br></pre></td></tr></table></figure><p>centos配置tomcat8</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">访问https:&#x2F;&#x2F;tomcat.apache.org&#x2F;download-80.cgi</span><br></pre></td></tr></table></figure><p>命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;mirror.bit.edu.cn&#x2F;apache&#x2F;tomcat&#x2F;tomcat-8&#x2F;v8.5.50&#x2F;bin&#x2F;apache-tomcat-8.5.50.tar.gz</span><br><span class="line">tar zxvf apache-tomcat-8.5.50.tar.gz</span><br><span class="line">mv apache-tomcat-8.5.50 &#x2F;usr&#x2F;local&#x2F;tomcat8</span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;tomcat8&#x2F;bin</span><br><span class="line">bash startup.sh</span><br><span class="line">curl localhost:8080</span><br></pre></td></tr></table></figure><p>nginx.conf<br>注意access_log对应路径日志文件要存在</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">user nginx;</span><br><span class="line">worker_processes auto;</span><br><span class="line">error_log &#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log;</span><br><span class="line">pid &#x2F;run&#x2F;nginx.pid;</span><br><span class="line"></span><br><span class="line">include &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;modules&#x2F;*.conf;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections 1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;</span><br><span class="line">                      &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;</span><br><span class="line">                      &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;</span><br><span class="line"></span><br><span class="line">    access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile            on;</span><br><span class="line">    tcp_nopush          on;</span><br><span class="line">    tcp_nodelay         on;</span><br><span class="line">    keepalive_timeout   65;</span><br><span class="line">    types_hash_max_size 2048;</span><br><span class="line"></span><br><span class="line">    include             &#x2F;etc&#x2F;nginx&#x2F;mime.types;</span><br><span class="line">    default_type        application&#x2F;octet-stream;</span><br><span class="line"></span><br><span class="line">    include &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;*.conf;</span><br><span class="line"></span><br><span class="line">    upstream tomcat &#123;</span><br><span class="line">      server 127.0.0.1:8080;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    upstream webService &#123;</span><br><span class="line">       server  127.0.0.1:8081;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       9090 default_server;</span><br><span class="line">        listen       [::]:9090 default_server;</span><br><span class="line">        server_name  127.0.0.1;</span><br><span class="line">        root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line"></span><br><span class="line">        include &#x2F;etc&#x2F;nginx&#x2F;default.d&#x2F;*.conf;</span><br><span class="line"></span><br><span class="line">        location  &#x2F;service1 &#123;</span><br><span class="line">           proxy_pass  http:&#x2F;&#x2F;tomcat&#x2F;service1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location  &#x2F;service2 &#123;</span><br><span class="line">           proxy_pass  http:&#x2F;&#x2F;webService&#x2F;service2;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/xuxinstyle/p/9609551.html" target="_blank">linux常用命令（50个）</a></p><p><a href="https://blog.csdn.net/qq_23329167/article/details/83856430" target="_blank">Linux常用命令</a></p><p><a href="https://www.cnblogs.com/guanbin-529/p/11227069.html" target="_blank">Linux添加用户组和添加用户</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/xjxz/p/6755918.html&quot; target=&quot;_blank&quot;&gt;查看tomcat日志&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/xuxinstyle/p/9609551.html&quot; target=&quot;_blank&quot;&gt;linux常用命令（50个）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_2
       
     
     </summary>
@@ -91,315 +491,20 @@
   </entry>
   
   <entry>
-    <title>[docker] 通过脚本导入sql</title>
-    <link href="http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712571000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/30/articles/2019/12/30/1577712571000.html/</id>
-    <published>2019-12-30T13:29:31.000Z</published>
-    <updated>2019-12-30T13:29:31.000Z</updated>
+    <title>[linux] jar包启动与发布脚本</title>
+    <link href="http://brightereyer.xyz/2020/01/01/articles/2020/01/01/1577823565000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/01/articles/2020/01/01/1577823565000.html/</id>
+    <published>2019-12-31T20:19:25.000Z</published>
+    <updated>2019-12-31T20:19:25.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_42891915/article/details/90116190" target="_blank">详解关于docker中利用Dockerfile构建mysql让mysql启动时自动执行sql文件</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_42891915/article/details/90116190&quot; target=&quot;_blank&quot;&gt;详解关于docker中利用Dockerfile构建mysql让mysql启动时自动执行sql文件&lt;/a&gt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[aria2] windows下载工具</title>
-    <link href="http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577610398000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577610398000.html/</id>
-    <published>2019-12-29T09:06:38.000Z</published>
-    <updated>2019-12-29T09:06:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/weixin_41594045/article/details/83063327" target="_blank">Windows 下 Aria2+BaiduExporter+Chrome浏览器 破解百度云盘</a><br><a href="https://pan.baidu.com/s/1nuRSFzz" target="_blank">aria2.zip</a><br><a href="https://cdn.51shenyun.cn/Aria2_Win_config.zip" target="_blank">Aria2_Win_config.zip</a></p>]]></content>
+    <content type="html"><![CDATA[<p>start.sh</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash </span><br><span class="line">nohup java -Xms512m -Xmx512m -jar app.jar &gt; app.log 2&gt;&amp;1 &amp;</span><br><span class="line">#record the process id</span><br><span class="line">echo $!&gt;pid</span><br></pre></td></tr></table></figure><p>stop.sh</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill &#96;cat pid&#96;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/weixin_41594045/article/details/83063327&quot; target=&quot;_blank&quot;&gt;Windows 下 Aria2+BaiduExporter+Chrome浏览器 破解百度云盘&lt;/
-      
-    
-    </summary>
-    
-    
-    
-      <category term="aria2" scheme="http://brightereyer.xyz/tags/aria2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[android] 签名证书</title>
-    <link href="http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577610397000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577610397000.html/</id>
-    <published>2019-12-29T09:06:37.000Z</published>
-    <updated>2019-12-29T09:06:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 生成jks证书文件</span><br><span class="line">keytool -genkey -alias android.keystore -keyalg RSA -validity 36500 -keystore android.keystore</span><br><span class="line"></span><br><span class="line"># android证书jks转p12</span><br><span class="line">keytool -importkeystore -srckeystore android.keystore -srcstoretype JKS -deststoretype PKCS12 -destkeystore android.p12</span><br><span class="line"></span><br><span class="line"># 查看keystore文件</span><br><span class="line">keytool -list -v -keystore android.keystore</span><br><span class="line"></span><br><span class="line"># 提取证书文件</span><br><span class="line">openssl pkcs12 -in android.p12 -nokeys -out cert.pem</span><br><span class="line"></span><br><span class="line"># 查看证书文件</span><br><span class="line">openssl x509 -in cert.pem -text</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
-      
-    
-    </summary>
-    
-    
-    
-      <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[stm8] NRF24L01</title>
-    <link href="http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593138000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593138000.html/</id>
-    <published>2019-12-29T04:18:58.000Z</published>
-    <updated>2019-12-29T04:18:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://www.51hei.com/bbs/dpj-99783-1.html" target="_blank">众拳基于STM8的NRF24L01 2.4G无线模块实验详解 含程序</a><br><a href="http://c.51hei.com/pro/down.php?h=7&e=661630&c=99838&host=forum/201711/28/131758hxeiojzxxurejlp2.zip&name=%22%D6%DA%C8%AD%BD%A3%B3%DD%BB%A2NRF24L01%202.4G%CE%DE%CF%DF%C4%A3%BF%E9%CA%B5%D1%E9%B3%CC%D0%F2.zip%22" target="_blank">众拳剑齿虎NRF24L01 2.4G无线模块实验程序.zip</a></p><p><a href="https://blog.csdn.net/weixin_43314452/article/details/90316955" target="_blank">stm8s使用NRF24L01</a><br><a href="https://github.com/ARENIBDelta/rf24l01_stm8s" target="_blank">github rf24l01_stm8s</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;http://www.51hei.com/bbs/dpj-99783-1.html&quot; target=&quot;_blank&quot;&gt;众拳基于STM8的NRF24L01 2.4G无线模块实验详解 含程序&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://c.51hei.com
-      
-    
-    </summary>
-    
-    
-    
-      <category term="stm8" scheme="http://brightereyer.xyz/tags/stm8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[stm8] STM8基础学习+资料</title>
-    <link href="http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593137000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593137000.html/</id>
-    <published>2019-12-29T04:18:57.000Z</published>
-    <updated>2019-12-29T04:18:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.strongerhuang.com/" target="_blank">www.strongerhuang.com一名90后嵌入式开发程序员</a><br><a href="https://blog.csdn.net/ybhuangfugui/article/details/52936636" target="_blank">IAR for STM8介绍、下载、安装与注册</a></p><p><a href="http://pan.baidu.com/s/1slF5kYx" target="_blank">度娘 - IAR for STM8软件安装包的下载链接</a><br><a href="http://pan.baidu.com/s/1c2EcRo0" target="_blank">度娘 - STM8S系列教程对应的源代码例程</a><br><a href="https://github.com/EmbeddedDevelop/STM8S_Demo" target="_blank">github STM8S_Demo</a></p><p><a href="http://www.prechin.net/forum.php?mod=viewthread&tid=35264&extra=" target="_blank" rel="noopener">普中科技–各型号开发板资料下载链接</a><br><a href="https://pan.baidu.com/s/1Esp4APulTzrm1e6kexkN9A" target="_blank" rel="noopener">8–STM8S例程.rar</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">3mul</span><br></pre></td></tr></table></figure><p><a href="https://www.bilibili.com/video/av45083743" target="_blank">STM8基础学习</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"> P1 STM8_2---初识STM8单片机家族</span><br><span class="line"> P2 STM8_3---IAR工程建立及使用</span><br><span class="line"> P3 STM8_4---STVD工程建立及使用</span><br><span class="line"> P4 STM8_5---STVP使用及串口下载</span><br><span class="line"> P5 STM8_6---初识GPIO及输入模式</span><br><span class="line"> P6 STM8_7---输出模式及特点</span><br><span class="line"> P7 STM8_8---引脚标识及方向配置</span><br><span class="line"> P8 STM8_9---GPIO输入输出配置</span><br><span class="line"> P9 STM8_10---神奇有趣的LED</span><br><span class="line">P10 STM8_11---数码管原理及驱动</span><br><span class="line">P11 STM8_12---初探字符型1602液晶</span><br><span class="line">P12 STM8_13---字符型1602液晶编程</span><br><span class="line">P13 STM8_14---初探图形点阵12864液晶</span><br><span class="line">P14 STM8_15---图形点阵12864液晶编程</span><br><span class="line">P15 STM8_16---独立按键与矩阵键盘</span><br><span class="line">P16 STM8_17---PS2接口及数据帧组成</span><br><span class="line">P17 STM8_18-PS2相关码值及通信流程</span><br><span class="line">P18 STM8_19---高楼大厦说存储器结构A</span><br><span class="line">P19 STM8_20---高楼大厦说存储器结构B</span><br><span class="line">P20 STM8_21---Flash编程方式简介</span><br><span class="line">P21 STM8_22---神秘的存储器保护机制</span><br><span class="line">P22 STM8_23---“外科手术”选项字节A</span><br><span class="line">P23 STM8_24---“外科手术”选项字节B</span><br><span class="line">P24 STM8_25---“唐僧的心”时钟源和时钟树</span><br><span class="line">P25 STM8_26---配置系统主时钟为HSI</span><br><span class="line">P26 STM8_27---配置系统主时钟为HSE</span><br><span class="line">P27 STM8_28-配置系统主时钟为LSI</span><br><span class="line">P28 STM8_29---时钟门控、时钟安全及时钟输出</span><br><span class="line">P29 STM8_30---中断概念及中断基础</span><br><span class="line">P30 STM8_31---中断向量、函数及模式</span><br><span class="line">P31 STM8_32---中断寄存器及处理方法讲解</span><br><span class="line">P32 STM8_33---定时计数器本质与基础</span><br><span class="line">P33 STM8_34---TIM4寄存器配置及应用</span><br><span class="line">P34 STM8_35-TIM1基础与定时功能</span><br><span class="line">P35 STM8_36---TIM1外模式1计数功能</span><br><span class="line">P36 STM8_37---TIM1外模式2计数功能</span><br><span class="line">P37 STM8_38---输入捕获之周期测量</span><br><span class="line">P38 STM8_39---输入捕获之占空比测量</span><br><span class="line">P39 STM8_40---输出比较PWM与对齐方式</span><br><span class="line">P40 STM8_41---PWM信号输出流程配置</span><br><span class="line">P41 STM8_42---电源模式管理及功耗控制</span><br><span class="line">P42 STM8_43---自动唤醒AWU结构及配置</span><br><span class="line">P43 STM8_44---神奇的电磁讯响器</span><br><span class="line">P44 STM8_45---独立看门狗IWDG配置</span><br><span class="line">P45 STM8_46---窗口看门狗WWDG配置</span><br><span class="line">P46 STM8_47-单片机数据通信基础A</span><br><span class="line">P47 STM8_48---单片机数据通信基础B</span><br><span class="line">P48 STM8_49---初识串口及数据帧配置</span><br><span class="line">P49 STM8_50---波特率配置及串口收发</span><br><span class="line">P50 STM8_51---“独木桥”之单总线通信</span><br><span class="line">P51 STM8_52---DS18B20数据格式及转换</span><br><span class="line">P52 STM8_53---DS18B20读写及时序编程</span><br><span class="line">P53 STM8_54---“击鼓传花”走进SPI通信</span><br><span class="line">P54 STM8_55---SPI寄存器功能及运用</span><br><span class="line">P55 STM8_56---主从机初始化流程及通信</span><br><span class="line">P56 STM8_57---华邦W25Qxx存储颗粒简介</span><br><span class="line">P57 STM8_58---华邦W25Qxx操作指令及时序</span><br><span class="line">P58 STM8_59---“升堂审案”说I2C基础</span><br><span class="line">P59 STM8_60---轻松搞定AT24Cxx读写时序</span><br><span class="line">P60 STM8_61---“翻译官”ADC原理及结构</span><br><span class="line">P61 STM8_62---ADC配置与系统可靠性</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.strongerhuang.com/&quot; target=&quot;_blank&quot;&gt;www.strongerhuang.com一名90后嵌入式开发程序员&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://blog.csdn.net/ybhuang
-      
-    
-    </summary>
-    
-    
-    
-      <category term="stm8" scheme="http://brightereyer.xyz/tags/stm8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[springcloud] 启动顺序</title>
-    <link href="http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593136000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593136000.html/</id>
-    <published>2019-12-29T04:18:56.000Z</published>
-    <updated>2019-12-29T04:18:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>启动顺序</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">zuul-gateway</span><br><span class="line">service-provider</span><br><span class="line">hystrix-turbine</span><br><span class="line">feign-consumer</span><br><span class="line">eureka-server</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;启动顺序&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br
-      
-    
-    </summary>
-    
-    
-    
-      <category term="springcloud" scheme="http://brightereyer.xyz/tags/springcloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[Dockerfile] springboot+打包命令</title>
-    <link href="http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593135000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/29/articles/2019/12/29/1577593135000.html/</id>
-    <published>2019-12-29T04:18:55.000Z</published>
-    <updated>2019-12-29T04:18:55.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>windows上先打开 “Docker Quickstart Terminal”</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean package dockerfile:build -Dmaven.test.skip&#x3D;true</span><br></pre></td></tr></table></figure><p>查看windows访问服务网址所需ip</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-machine ip</span><br></pre></td></tr></table></figure><p>springboot使用dockerfile docker远程api端口打包上传镜像demo案例<br><a href="https://gitee.com/JavaLionLi/springboot-docker-demo" target="_blank">springboot-docker-demo</a></p><p><a href="https://github.com/yunTerry/Spring-Cloud-Docker" target="_blank">Docker Compose 轻量级容器编排</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mvn clean package</span><br><span class="line"></span><br><span class="line"># 构建Docker镜像</span><br><span class="line">docker-compose build</span><br><span class="line"></span><br><span class="line"># 运行所有容器</span><br><span class="line">docker-compose up -d</span><br><span class="line"></span><br><span class="line"># 停止所有微服务</span><br><span class="line">docker-compose stop</span><br><span class="line"></span><br><span class="line"># 删除所有容器</span><br><span class="line">docker-compose rm</span><br></pre></td></tr></table></figure><p><a href="https://github.com/zzzzbw/Fame" target="_blank">docker springboot vue前后端分离</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fame-admin</span><br><span class="line">fame-docker</span><br><span class="line">fame-front</span><br><span class="line">fame-server</span><br><span class="line">docker-compose.yml</span><br></pre></td></tr></table></figure><p><a href="https://gitee.com/catoop/springboot-docker" target="_blank">springboot-docker</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#打包</span><br><span class="line">mvn clean package -Dmaven.test.skip&#x3D;true</span><br><span class="line">#启动</span><br><span class="line">java -jar target&#x2F;spring-boot-docker-1.0.jar</span><br><span class="line">#访问</span><br><span class="line">http:&#x2F;&#x2F;192.168.99.101:8080</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;windows上先打开 “Docker Quickstart Terminal”&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/spa
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Dockerfile" scheme="http://brightereyer.xyz/tags/Dockerfile/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[nginx] nginx配置https+springboot</title>
-    <link href="http://brightereyer.xyz/2019/12/28/articles/2019/12/28/1577533870000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/28/articles/2019/12/28/1577533870000.html/</id>
-    <published>2019-12-28T11:51:10.000Z</published>
-    <updated>2019-12-28T11:51:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_18145031/article/details/83866287" target="_blank">Centos下Nginx安装与配置</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc-c++ pcre pcre-devel zlib zlib-devel openssl openssl--devel</span><br><span class="line">cd &#x2F;usr&#x2F;local  </span><br><span class="line"></span><br><span class="line">wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.7.4.tar.gz</span><br><span class="line">tar -zxvf nginx-1.7.4.tar.gz</span><br><span class="line">cd nginx-1.7.4</span><br><span class="line">.&#x2F;configure</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">whereis nginx</span><br><span class="line"></span><br><span class="line">#启动</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx</span><br><span class="line"></span><br><span class="line">ps aux | grep nginx</span><br><span class="line"></span><br><span class="line">vim &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;conf&#x2F;nginx.conf</span><br></pre></td></tr></table></figure><p><a href="https://www.jianshu.com/p/8373f97d7514" target="_blank">nginx配置https+springboot</a></p><p><a href="https://blog.csdn.net/fenglin0429/article/details/81347634" target="_blank">SpringBoot + Nginx 配置HTTPS的一次经历</a></p><p><a href="https://www.cnblogs.com/b516/p/10916522.html" target="_blank">upstream配置(127.0.0.1)</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_18145031/article/details/83866287&quot; target=&quot;_blank&quot;&gt;Centos下Nginx安装与配置&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight p
-      
-    
-    </summary>
-    
-    
-    
-      <category term="nginx" scheme="http://brightereyer.xyz/tags/nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[小程序] 功能拆分</title>
-    <link href="http://brightereyer.xyz/2019/12/28/articles/2019/12/28/1577489989000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/28/articles/2019/12/28/1577489989000.html/</id>
-    <published>2019-12-27T23:39:49.000Z</published>
-    <updated>2019-12-27T23:39:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>搜索框<br><a href="https://github.com/mindawei/wsSearchView" target="_blank">wsSearchView</a></p><p>天气查询<br><a href="https://github.com/mindawei/weather" target="_blank">weather</a></p><p>文本折叠<br><a href="https://blog.csdn.net/qq_29644709/article/details/87966016" target="_blank">微信小程序长文本点击折叠效果</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;搜索框&lt;br&gt;&lt;a href=&quot;https://github.com/mindawei/wsSearchView&quot; target=&quot;_blank&quot;&gt;wsSearchView&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;天气查询&lt;br&gt;&lt;a href=&quot;https://github.com/min
-      
-    
-    </summary>
-    
-    
-    
-      <category term="小程序" scheme="http://brightereyer.xyz/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[树莓派] 树莓派4B开机</title>
-    <link href="http://brightereyer.xyz/2019/12/28/articles/2019/12/28/1577489988000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/28/articles/2019/12/28/1577489988000.html/</id>
-    <published>2019-12-27T23:39:48.000Z</published>
-    <updated>2019-12-27T23:39:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/yzy_1996/article/details/82916940" target="_blank">【方法】树莓派开机使用教程(看这个就够了)</a></p><p><a href="https://pan.baidu.com/s/14UJlTrh20Z2ogceqCP7Olw" target="_blank">树莓派4B+工具</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">4qlp</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/yzy_1996/article/details/82916940&quot; target=&quot;_blank&quot;&gt;【方法】树莓派开机使用教程(看这个就够了)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://pan.b
-      
-    
-    </summary>
-    
-    
-    
-      <category term="树莓派" scheme="http://brightereyer.xyz/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[vue] 使用cordova打包apk</title>
-    <link href="http://brightereyer.xyz/2019/12/28/articles/2019/12/28/1577489987000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/28/articles/2019/12/28/1577489987000.html/</id>
-    <published>2019-12-27T23:39:47.000Z</published>
-    <updated>2019-12-27T23:39:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>vue打包成apk</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">使用cordova分支的代码（已经参考https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;25d797b983cd 配置好了所需代码）</span><br><span class="line"></span><br><span class="line">执行npm install -g cordova（安装Cordova）</span><br><span class="line"></span><br><span class="line">在某文件夹下，执行cordova create cordovaApp com.cordova.testapp（创建Cordova项目，生成cordovaApp目录）</span><br><span class="line"></span><br><span class="line">在cordovaApp目录下，执行cordova platform add android</span><br><span class="line"></span><br><span class="line">在wanAndroidWebApp项目下，执行npm run build（打包webAPP）</span><br><span class="line"></span><br><span class="line">把生成的dist目录下的所有文件替换掉\cordovaApp\www目录下的所有文件</span><br><span class="line"></span><br><span class="line">在cordovaApp目录下，执行cordova build android（需要翻墙。生成apk安装文件，在\cordovaApp\platforms\android\app\build\outputs\apk\debug）</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/jeremy5810/p/8467258.html" target="_blank">cordova+vue 项目打包成Android（apk）应用</a></p><p><a href="https://blog.csdn.net/qq_21963133/article/details/88546086" target="_blank">前端VUE项目打包成安卓APP</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#folkmusic是项目名称，com.music.folkmusic是包名，musicapp是程序的标题</span><br><span class="line">cordova create folkmusic com.music.folkmusic musicapp</span><br><span class="line"></span><br><span class="line">cd folkmusic</span><br><span class="line">cordova platforms add android --save</span><br><span class="line">cordova run android</span><br><span class="line"></span><br><span class="line">#生成apk文件</span><br><span class="line">cordova build android</span><br><span class="line"></span><br><span class="line">#检查环境是否已经准备就绪</span><br><span class="line">cordova requirements</span><br><span class="line"></span><br><span class="line">#生成签名证书</span><br><span class="line">keytool -genkey -v -keystore folkmusic.keystore -alias flokmusic -keyalg RSA -validity 36500</span><br><span class="line"></span><br><span class="line">#在项目的根目录下面新建一个build.json文件，在里面配置证书的一些配置信息</span><br><span class="line">build.json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;android&quot;: &#123;</span><br><span class="line">    &quot;release&quot;: &#123;</span><br><span class="line">    &quot;keystore&quot;: &quot;folkmusic.keystore&quot;,</span><br><span class="line">    &quot;alias&quot;: &quot;flokmusic&quot;,</span><br><span class="line">    &quot;storePassword&quot;: &quot;123456&quot;,</span><br><span class="line">    &quot;password&quot;: &quot;123456&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#apk签名</span><br><span class="line">cordova build android --release</span><br></pre></td></tr></table></figure><p>webpack + vue + vuex + vue-loader + keepAlive + muse-ui + cordova 全家桶<br><a href="https://github.com/kang558/vue-movie" target="_blank">vue-movie</a></p><p>Vue实现的WanAndroid移动Web端，可使用Cordova打包成Android安装包apk<br><a href="https://github.com/Luogjy/wanAndroidWebApp" target="_blank">wanAndroidWebApp</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;vue打包成apk&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/spa
-      
-    
-    </summary>
-    
-    
-    
-      <category term="vue" scheme="http://brightereyer.xyz/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[springboot] 视频播放后台</title>
-    <link href="http://brightereyer.xyz/2019/12/28/articles/2019/12/28/1577489986000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/28/articles/2019/12/28/1577489986000.html/</id>
-    <published>2019-12-27T23:39:46.000Z</published>
-    <updated>2019-12-27T23:39:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="" target="_blank"></a><br><a href="https://github.com/Leme34/weixin-video" target="_blank">仿抖音小程序后台</a></p><p><a href="https://segmentfault.com/a/1190000018778743" target="_blank">SpringBoot 仿抖音短视频小程序开发（一）</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/Leme34/weixin-video&quot; target=&quot;_blank&quot;&gt;仿抖音小程序后台&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://
-      
-    
-    </summary>
-    
-    
-    
-      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[linux] 网卡与防火墙</title>
-    <link href="http://brightereyer.xyz/2019/12/28/articles/2019/12/28/1577489985000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/28/articles/2019/12/28/1577489985000.html/</id>
-    <published>2019-12-27T23:39:45.000Z</published>
-    <updated>2019-12-27T23:39:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>测试连通</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install inetutils-ping</span><br><span class="line">ifconfig</span><br><span class="line">ping x.x.x.x</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#常用端口和系统端口</span><br><span class="line">0 – 1023</span><br><span class="line"></span><br><span class="line">#软件的注册端口</span><br><span class="line">1024 – 49151</span><br><span class="line"></span><br><span class="line">#动态端口或私有端口</span><br><span class="line">49152 – 65535</span><br></pre></td></tr></table></figure><p><a href="http://www.pianshen.com/article/1203445123/" target="_blank">linux网络及端口配置问题</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#查看当前所有tcp端口</span><br><span class="line">netstat -ntlp</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/chaos-li/p/9779558.html" target="_blank">Linux查看当前使用的网卡 以及 查看某进程使用的网络带宽情况 以及 端口占用的情况</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#查看当前使用的网卡</span><br><span class="line">watch cat &#x2F;proc&#x2F;net&#x2F;dev</span><br><span class="line"></span><br><span class="line">#如查看80端口</span><br><span class="line">lsof -i :80</span><br><span class="line"></span><br><span class="line">netstat -tunlp |grep 80</span><br></pre></td></tr></table></figure><p>iptables查看、开放、删除端口、保存设置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.centos.bz&#x2F;2018&#x2F;01&#x2F;iptables%E6%9F%A5%E7%9C%8B%E3%80%81%E5%BC%80%E6%94%BE%E3%80%81%E5%88%A0%E9%99%A4%E7%AB%AF%E5%8F%A3%E3%80%81%E4%BF%9D%E5%AD%98%E8%AE%BE%E7%BD%AE&#x2F;</span><br></pre></td></tr></table></figure><p><a href="https://www.jianshu.com/p/dece534c011a" target="_blank">Linux配置网卡</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#手动指定IP地址</span><br><span class="line">vi &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0</span><br><span class="line"></span><br><span class="line">DEVICE&#x3D;eth0</span><br><span class="line">HWADDR&#x3D;00:0C:29:8E:0B:00</span><br><span class="line">TYPE&#x3D;Ethernet</span><br><span class="line">UUID&#x3D;f23f083d-89af-4951-a33d-496d4534beb1</span><br><span class="line">ONBOOT&#x3D;yes</span><br><span class="line">NM_CONTROLLED&#x3D;yes</span><br><span class="line">BOOTPROTO&#x3D;static</span><br><span class="line">IPADDR&#x3D;192.168.111.111</span><br><span class="line">NETMASK&#x3D;255.255.255.0</span><br><span class="line">GATEWAY&#x3D;192.168.111.2</span><br></pre></td></tr></table></figure><p><a href="https://help.aliyun.com/knowledge_detail/41319.html" target="_blank">CentOS7系统中使用iptables</a></p><p><a href="https://blog.csdn.net/baidu_36124158/article/details/90603496" target="_blank">firewall-cmd</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">18.在指定区域打开端口（记得重启防火墙）</span><br><span class="line">firewall-cmd --zone&#x3D;public --add-port&#x3D;80&#x2F;tcp</span><br><span class="line"></span><br><span class="line">10.查看指定接口所属区域信息</span><br><span class="line">firewall-cmd --get-zone-of-interface&#x3D;eth0</span><br><span class="line"></span><br><span class="line">14.将接口添加到区域(默认接口都在public)</span><br><span class="line">firewall-cmd --zone&#x3D;public --add-interface&#x3D;eth0</span><br><span class="line"></span><br><span class="line">16.更新防火墙规则</span><br><span class="line">firewall-cmd --complete-reload</span><br><span class="line"></span><br><span class="line">17.查看指定区域所有打开的端口</span><br><span class="line">firewall-cmd --zone&#x3D;public --list-ports</span><br></pre></td></tr></table></figure><p><a href="https://zhidao.baidu.com/question/144270449.html" target="_blank">双网卡 iptables设置问题</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -i eth0 -p tcp --dport 21 -j ACCEPT</span><br><span class="line">iptables -A INPUT -i eth0 -p tcp --dport 80 -j ACCEPT</span><br><span class="line">#iptables -A INPUT -i eth0 -p tcp -j REJECT</span><br><span class="line">#默认的，不需要用任何命令，在eth1上就已经是接受所有端口了。</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -i eno1 -p tcp --dport 9027 -j ACCEPT</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;测试连通&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br
+        &lt;p&gt;start.sh&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span
       
     
     </summary>
@@ -407,104 +512,6 @@
     
     
       <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] 控制风扇</title>
-    <link href="http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447590000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447590000.html/</id>
-    <published>2019-12-27T11:53:10.000Z</published>
-    <updated>2019-12-27T11:53:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_43336248/article/details/91443311" target="_blank">基于51单片机温度控制风扇转动</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_43336248/article/details/91443311&quot; target=&quot;_blank&quot;&gt;基于51单片机温度控制风扇转动&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] 单片机三种烧录方式ISP、IAP和ICP</title>
-    <link href="http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447589000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447589000.html/</id>
-    <published>2019-12-27T11:53:09.000Z</published>
-    <updated>2019-12-27T11:53:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ISP：In System Programing，在系统编程</span><br><span class="line"></span><br><span class="line">IAP：In applicaTIng Programing，在应用编程</span><br><span class="line"></span><br><span class="line">ICP：In Circuit Programing，在电路编程</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] 程序网站</title>
-    <link href="http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447588000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447588000.html/</id>
-    <published>2019-12-27T11:53:08.000Z</published>
-    <updated>2019-12-27T11:53:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://news.eeworld.com.cn/mcu/51mcu/" target="_blank">电子工程世界</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;http://news.eeworld.com.cn/mcu/51mcu/&quot; target=&quot;_blank&quot;&gt;电子工程世界&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[单片机] 博客</title>
-    <link href="http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447587000.html/"/>
-    <id>http://brightereyer.xyz/2019/12/27/articles/2019/12/27/1577447587000.html/</id>
-    <published>2019-12-27T11:53:07.000Z</published>
-    <updated>2019-12-27T11:53:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_21792169/category_5844033.html" target="_blank">HeroKern - MCU for 51</a><br><a href="https://blog.csdn.net/qq_43588817/category_8674324.html" target="_blank">叶子丶de花 - 51笔记</a></p><p>ESP8266 WIFI模块学习之路<br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/81951529" target="_blank">（1）——模块的USB串口连接</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/81953193" target="_blank">（2）——模块与单片机连接进行远程操作</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/81989814" target="_blank">（3）——用手机APP进行功能控制LED灯</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82216952" target="_blank">（4）——WIFI模块与Android互相通信</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82220223" target="_blank">（5）——Android手机调试助手与单片机互相通信</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82289276" target="_blank">（6）——自写Android手机APP控制单片机LED灯</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82313787" target="_blank">（7）——自写Android手机APP接受单片机数据</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82355579" target="_blank">（8）——自写Android手机APP控制直流电机正反转</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/89226518" target="_blank">（9）——C++实现通过电脑串口读取ESP8266数据</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/89244697" target="_blank">（10）——手机远程关闭电脑</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/89247192" target="_blank">（11）——WIFI模块通过VC自动配置，实现远程关闭电脑</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/89305533" target="_blank">（12）——AT命令自动配置，实现远程关闭电脑</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_21792169/category_5844033.html&quot; target=&quot;_blank&quot;&gt;HeroKern - MCU for 51&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://blog.csdn
-      
-    
-    </summary>
-    
-    
-    
-      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
   </entry>
   
