@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-01-06T11:54:18.000Z</updated>
+  <updated>2020-01-08T12:05:01.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,181 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[stm32] keil5添加头文件</title>
+    <link href="http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578485101000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578485101000.html/</id>
+    <published>2020-01-08T12:05:01.000Z</published>
+    <updated>2020-01-08T12:05:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/baby00qi/article/details/53056099" target="_blank">在 Keil5 中添加 .h 文件的问题</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/baby00qi/article/details/53056099&quot; target=&quot;_blank&quot;&gt;在 Keil5 中添加 .h 文件的问题&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[单片机] ESP8266使用AT命令进行网络请求</title>
+    <link href="http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578484449000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578484449000.html/</id>
+    <published>2020-01-08T11:54:09.000Z</published>
+    <updated>2020-01-08T11:54:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_28877125/article/details/73028338" target="_blank">ESP8266–学习笔记–AT指令下进行HTTP连接网址</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_28877125/article/details/73028338&quot; target=&quot;_blank&quot;&gt;ESP8266–学习笔记–AT指令下进行HTTP连接网址&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="单片机" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[zigbee] zstack协议栈介绍与安装</title>
+    <link href="http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578484448000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578484448000.html/</id>
+    <published>2020-01-08T11:54:08.000Z</published>
+    <updated>2020-01-08T11:54:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/m0_38064214/article/details/77326463" target="_blank">ZigBee TI ZStack CC2530 3.6 创建基于ZStack的新工程</a><br><a href="http://www.ti.com.cn/tool/cn/z-stack" target="_blank" rel="noopener">官方ZStack-CC2530下载</a></p><p><a href="https://pan.baidu.com/s/1JHpi202srO6VhPX6EY3Tlw" target="_blank">zigbee网关开发板V4.0.rar(含zstack)</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码:</span><br><span class="line">nuw4</span><br></pre></td></tr></table></figure><p><a href="https://pan.baidu.com/s/10KlVnhM-GslH-O7SDLHsng" target="_blank">ZIGBEE网关开发板视频教程-网关篇</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">zigbee开发板-基础篇视频教程</span><br><span class="line">https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;av67397775</span><br><span class="line"></span><br><span class="line">zigbee网关开发板-高级篇视频教程</span><br><span class="line">https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;av67449058</span><br><span class="line"></span><br><span class="line">zigbee网关开发板--网关篇视频教程</span><br><span class="line">https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;av67450897</span><br><span class="line"></span><br><span class="line">zigbee网关开发板-实战篇远程视频教程</span><br><span class="line">https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;av67449719</span><br><span class="line"></span><br><span class="line">zigbee网关开发板--终结篇远程视频教程</span><br><span class="line">https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;av67450240</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/weilexuexi12/article/details/71374307" target="_blank">ZigBee协议栈Zstack介绍</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">APP：应用层目录，这是用户创建各种不同工程的区域，在这个目录中包含了应用层的内容和这个项目的主要内容，在协议栈里面一般是以操作系统的任务实现的。</span><br><span class="line"></span><br><span class="line">HAL：硬件层目录，包含有与硬件相关的配置和驱动及操作函数。</span><br><span class="line"></span><br><span class="line">MAC：MAC层目录，包含了MAC层的参数配置文件及其MAC的LIB库的函数接口文件。</span><br><span class="line"></span><br><span class="line">MT：监控调试层，主要用于调试目的的，即实现通过串口调试各层，与各层进行直接交互。</span><br><span class="line"></span><br><span class="line">NWK：网络层目录，涵网络层配置参数文件及网络层库的函数接口文件，APS层库的函数接口。</span><br><span class="line"></span><br><span class="line">OSAL：协议栈的操作系统。</span><br><span class="line"></span><br><span class="line">Profile：AF层目录，包含AF层处理函数文件。</span><br><span class="line"></span><br><span class="line">Security：安全层目录，安全层处理函数接口文件，比如加密函数等。</span><br><span class="line"></span><br><span class="line">Services：地址处理函数目录，包括着地址模式的定义及地址处理函数。</span><br><span class="line"></span><br><span class="line">Tools：工程配置目录，包括空间划分和Zstack相关的配置信息。</span><br><span class="line"></span><br><span class="line">ZDO：ZDO目录。</span><br><span class="line"></span><br><span class="line">ZMac：MAC层目录，包括MAC层参数配置及MAC层LIB库函数回调处理函数。</span><br><span class="line"></span><br><span class="line">ZMain：主函数目录，包括入口函数main（）及硬件配置文件。</span><br><span class="line"></span><br><span class="line">Output：输出文件目录层，这个EW8051 IDE自主设计的。</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/weixin_33697898/article/details/85821372" target="_blank">Zigbee协议栈介绍及简单例子</a><br><img src="https://images2015.cnblogs.com/blog/506370/201607/506370-20160731000342466-1592540828.png"></p><p>SampleApp目录<br><img src="https://images2015.cnblogs.com/blog/506370/201607/506370-20160731005459763-749308991.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/m0_38064214/article/details/77326463&quot; target=&quot;_blank&quot;&gt;ZigBee TI ZStack CC2530 3.6 创建基于ZStack的新工程&lt;/a&gt;&lt;br&gt;&lt;a
+      
+    
+    </summary>
+    
+    
+    
+      <category term="zigbee" scheme="http://brightereyer.xyz/tags/zigbee/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[stm32] 野火STM32f429_v1资料</title>
+    <link href="http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578484447000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578484447000.html/</id>
+    <published>2020-01-08T11:54:07.000Z</published>
+    <updated>2020-01-08T11:54:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://pan.baidu.com/s/1UaISAMHE2-z4CVI3ivVCHQ" target="_blank">野火STM32F429挑战者_V1开发板资料链接</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">9mn0</span><br></pre></td></tr></table></figure><p>若上述链接失效，请直接下载以下打包压缩的版本，内容是一样的：</p><p><a href="https://pan.baidu.com/s/1SSkvtbe0KIqNNb_L7hiarw" target="_blank">打包的资料盘 链接</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">onvk</span><br></pre></td></tr></table></figure><p><a href="https://pan.baidu.com/s/1MgjvUyFR1e9UPbRlw9coLw" target="_blank">视频盘 链接</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">e2cp</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://pan.baidu.com/s/1UaISAMHE2-z4CVI3ivVCHQ&quot; target=&quot;_blank&quot;&gt;野火STM32F429挑战者_V1开发板资料链接&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain
+      
+    
+    </summary>
+    
+    
+    
+      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[stm32] 野火STM32F429_v1仿真器连接问题</title>
+    <link href="http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578484446000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578484446000.html/</id>
+    <published>2020-01-08T11:54:06.000Z</published>
+    <updated>2020-01-08T11:54:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="" target="_blank"></a></p><p>查看设备列表</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">win + R</span><br><span class="line">devmgmt.msc</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">顶部-&gt;查看(V)-&gt;显示隐藏的设备(W)</span><br><span class="line"></span><br><span class="line">列表框展开-&gt;libusb-win32 devices -&gt; 观察 BETTER_USB_HS</span><br><span class="line">列表框展开-&gt;端口(COM和LPT)、观察 USB-SERIAL CH341、USB-SERIAL CH340</span><br><span class="line">列表框展开-&gt;Cebal controlled devices -&gt; 观察 zigbee仿真器驱动 SmartRF40EB</span><br><span class="line">列表框展开-&gt;通用串行总线控制器 -&gt; 观察 未知USB设备(设备描述符请求失败) 、USB 根集线器(USB3.0)</span><br></pre></td></tr></table></figure><p>解决过程</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、Windows+R打开运行，在运行的输入框中输入&quot;services.msc&quot;回车，打开服务。</span><br><span class="line">2、在服务中找到 &quot;Plug and Play&quot; 服务，将服务关闭，再启用。</span><br><span class="line">3、在服务列表中找到 &quot;Device Install Service&quot; 和 &quot;Device Setup Manager&quot; 两个服务项。</span><br><span class="line">4、将设备管理器中的出现问题的设备右键卸载，然后将设备上的USB外设移除。</span><br><span class="line">5、卸载libusb-win32 devices下的驱动</span><br><span class="line">6、拔出所有单片机接线</span><br><span class="line">7、重启后将USB外设重新接入，扫描检测硬件改动，再次查看设备管理器中的问题是否还存在。</span><br><span class="line">8、安装再次CH341SER_EXE</span><br></pre></td></tr></table></figure><p>win10 keil5识别不了DAP，卸载驱动后可以下载<br><a href="https://blog.csdn.net/Rambo122/article/details/101018816" target="_blank">卸载libusb-win32 devices下的驱动</a></p><p><a href="https://jingyan.baidu.com/article/624e74594dbc8d34e8ba5aa6.html" target="_blank">禁用数字签名</a></p><p><a href="http://www.wch.cn/download/CH341SER_EXE.html" target="_blank">CH341SER_EXE</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;查看设备列表&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1
+      
+    
+    </summary>
+    
+    
+    
+      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[stm32] wifi透传+websocket</title>
+    <link href="http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578484445000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578484445000.html/</id>
+    <published>2020-01-08T11:54:05.000Z</published>
+    <updated>2020-01-08T11:54:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>java工程<br><a href="https://github.com/ajith-varghese/zigbee-mqtt-bridge" target="_blank">zigbee-mqtt-bridge</a><br>介绍</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Converts websocket (on zigbee controller) to MQTT messages</span><br></pre></td></tr></table></figure><p>stm32f10x websocket<br><a href="https://github.com/ittopone/websocket_stm32" target="_blank">websocket_stm32</a></p><p><a href="https://blog.csdn.net/xj178926426/article/details/78888633" target="_blank">在GPRS模块（GA6）和STM32F103C8T6单片机上移植MQTT协议</a></p><p><a href="https://blog.csdn.net/WIZnet2012/article/details/47401241" target="_blank">STM32+W5500+MQTT+Android实现远程数据采集及控制</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line">* @brief  通过TCP方式发送数据到TCP服务器</span><br><span class="line">* @param  buf 数据首地址</span><br><span class="line">* @param  buflen 数据长度</span><br><span class="line">* @retval 小于0表示发送失败</span><br><span class="line">*&#x2F;</span><br><span class="line">int transport_sendPacketBuffer(unsigned char* buf, int buflen)</span><br><span class="line">&#123;</span><br><span class="line">return send(SOCK_TCPS, buf, buflen);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;**</span><br><span class="line">* @brief  阻塞方式接收TCP服务器发送的数据</span><br><span class="line">* @param  buf 数据存储首地址</span><br><span class="line">* @param  count 数据缓冲区长度</span><br><span class="line">* @retval 小于0表示接收数据失败</span><br><span class="line">*&#x2F;</span><br><span class="line">int transport_getdata(unsigned char* buf, int count)</span><br><span class="line">&#123;</span><br><span class="line">return recv(SOCK_TCPS, buf, count);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line">* @brief  打开一个socket并连接到服务器</span><br><span class="line">* @param  无</span><br><span class="line">* @retval 小于0表示打开失败</span><br><span class="line">*&#x2F;</span><br><span class="line">int transport_open(void)</span><br><span class="line">&#123;</span><br><span class="line">int32_t ret;</span><br><span class="line">&#x2F;&#x2F;新建一个Socket并绑定本地端口5000</span><br><span class="line">ret &#x3D; socket(SOCK_TCPS, Sn_MR_TCP, 5000, 0×00);</span><br><span class="line">if (ret !&#x3D; SOCK_TCPS) &#123;</span><br><span class="line">printf(&quot; % d: Socket Error\r\n&quot;, SOCK_TCPS);</span><br><span class="line">while (1);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">printf(&quot; % d: Opened\r\n&quot;, SOCK_TCPS);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;连接TCP服务器</span><br><span class="line">ret &#x3D; connect(SOCK_TCPS, domain_ip, 1883); &#x2F;&#x2F;端口必须为1883</span><br><span class="line">if (ret !&#x3D; SOCK_OK) &#123;</span><br><span class="line">printf(&quot; % d: Socket Connect Error\r\n&quot;, SOCK_TCPS);</span><br><span class="line">while (1);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">printf(&quot; % d: Connected\r\n&quot;, SOCK_TCPS);</span><br><span class="line">&#125;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line">* @brief  关闭socket</span><br><span class="line">* @param  无</span><br><span class="line">* @retval 小于0表示关闭失败</span><br><span class="line">*&#x2F;</span><br><span class="line">int transport_close(void)</span><br><span class="line">&#123;</span><br><span class="line">close(SOCK_TCPS);</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line">* @brief  向代理（服务器）发送一个消息</span><br><span class="line">* @param  pTopic 消息主题</span><br><span class="line">* @param  pMessage 消息内容</span><br><span class="line">* @retval 小于0表示发送失败</span><br><span class="line">*&#x2F;</span><br><span class="line">int mqtt_publish(char *pTopic, char *pMessage)</span><br><span class="line">&#123;</span><br><span class="line">int32_t len, rc;</span><br><span class="line">MQTTPacket_connectData data &#x3D; MQTTPacket_connectData_initializer;</span><br><span class="line">unsigned char buf[200];</span><br><span class="line">MQTTString topicString &#x3D; MQTTString_initializer;</span><br><span class="line">int msglen &#x3D; strlen(pMessage);</span><br><span class="line">int buflen &#x3D; sizeof(buf);</span><br><span class="line"></span><br><span class="line">data.clientID.cstring &#x3D; &quot;me&quot;;</span><br><span class="line">data.keepAliveInterval &#x3D; 5;</span><br><span class="line">data.cleansession &#x3D; 1;</span><br><span class="line">len &#x3D; MQTTSerialize_connect(buf, buflen, &amp;data); &#x2F;* 1 *&#x2F;</span><br><span class="line"></span><br><span class="line">topicString.cstring &#x3D; pTopic;</span><br><span class="line">len +&#x3D; MQTTSerialize_publish(buf + len, buflen – len, 0, 0, 0, 0, topicString, (unsigned char*)pMessage, msglen); &#x2F;* 2 *&#x2F;</span><br><span class="line"></span><br><span class="line">len +&#x3D; MQTTSerialize_disconnect(buf + len, buflen – len); &#x2F;* 3 *&#x2F;</span><br><span class="line">transport_open();</span><br><span class="line">rc &#x3D; transport_sendPacketBuffer(buf, len);</span><br><span class="line">transport_close();</span><br><span class="line">if (rc &#x3D;&#x3D; len)</span><br><span class="line">printf(&quot;Successfully published\n\r&quot;);</span><br><span class="line">else</span><br><span class="line">printf(&quot;Publish failed\n\r&quot;);</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">static char meassage[200];</span><br><span class="line">int rc;</span><br><span class="line">char *led;</span><br><span class="line">char led_value;</span><br><span class="line">float temperature, humidity, light, pressure;</span><br><span class="line">srand(0);</span><br><span class="line">&#x2F;&#x2F;配置LED灯引脚</span><br><span class="line">LED_Config();</span><br><span class="line">&#x2F;&#x2F;初始化配置网络</span><br><span class="line">network_init();</span><br><span class="line">while (1) &#123;</span><br><span class="line">memset(meassage, 0, sizeof(meassage));</span><br><span class="line">&#x2F;&#x2F;订阅消息</span><br><span class="line">rc &#x3D; mqtt_subscrib(&quot;pyboard_led&quot;, meassag e);</span><br><span class="line">printf(&quot;rc &#x3D; % d\n\r&quot;, rc);</span><br><span class="line">if (rc &gt;&#x3D; 0) &#123;</span><br><span class="line">printf(&quot;meassage &#x3D; % s\n\r&quot;, meassage);</span><br><span class="line">&#x2F;&#x2F;解析JSON格式字符串并点亮相应的LED灯</span><br><span class="line">cJSON *root &#x3D; cJSON_Parse(meassage);</span><br><span class="line">if (root !&#x3D; NULL) &#123;</span><br><span class="line">led &#x3D; cJSON_GetObjectItem(root, &quot;led&quot;)-&gt;valuestring;</span><br><span class="line">printf(&quot;led &#x3D; % s\n\r&quot;, led);</span><br><span class="line">led_value &#x3D; cJSON_GetObjectItem(root, &quot;value&quot;)-&gt;valueint;</span><br><span class="line">if (!strcmp(led, &quot;red&quot;)) &#123;</span><br><span class="line">if (led_value) &#123;</span><br><span class="line">LED_On(LED_RED);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">LED_Off(LED_RED);</span><br><span class="line">&#125;</span><br><span class="line">&#125; else if (!strcmp(led, &quot;green&quot;)) &#123;</span><br><span class="line">if (led_value) &#123;</span><br><span class="line">LED_On(LED_GREEN);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">LED_Off(LED_GREEN);</span><br><span class="line">&#125;</span><br><span class="line">&#125; else if (!strcmp(led, &quot;blue&quot;)) &#123;</span><br><span class="line">if (led_value) &#123;</span><br><span class="line">LED_On(LED_BLUE);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">LED_Off(LED_BLUE);</span><br><span class="line">&#125;</span><br><span class="line">&#125; else if (!strcmp(led, &quot;yellow&quot;)) &#123;</span><br><span class="line">if (led_value) &#123;</span><br><span class="line">LED_On(LED_YELLOW);</span><br><span class="line">printf(&quot;Yellow On\n\r&quot;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">LED_Off(LED_YELLOW);</span><br><span class="line">printf(&quot;Yellow Off\n\r&quot;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 释放内存空间</span><br><span class="line">cJSON_Delete(root);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">printf(&quot;Error before: [ % s]\n\r&quot;, cJSON_GetErrorPtr());</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">delay_ms(500);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;获取传感器测量数据，该示例使用随机数</span><br><span class="line">temperature &#x3D; rand() % 50;</span><br><span class="line">humidity &#x3D; rand() % 100;</span><br><span class="line">light &#x3D; rand() % 1000;</span><br><span class="line">pressure &#x3D; rand() % 1000;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;将数据合成为JSON格式数据</span><br><span class="line">sprintf(meassage, &quot; &#123;\&quot;temperature\&quot;: % .1f, \&quot;humidity\&quot;: % .1f, \&quot;light\&quot;: % .1f, \&quot;pressure\&quot;: % .1f&#125;&quot;, temperature, humidity, light, pressure);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;将数据发送出去</span><br><span class="line">mqtt_publish(&quot;pyboard_value&quot;, meassage);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>文章<br><a href="https://blog.csdn.net/kh766200466/article/details/79694119" target="_blank">stm32移植mqtt</a><br>1、下载MQTT的库：<br><a href="https://github.com/eclipse/paho.mqtt.embedded-c/tree/master/MQTTPacket" target="_blank">MQTTPacket</a></p><p>2、将MQTTPacket\src目录下的文件添加到工程</p><p>3、MQTTPacket\samples下的transport.c、transport.h添加到工程</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;接收数据,recv函数仅仅是copy数据，真正的接收数据是协议来完成的）， recv函数返回其实际copy的字节数。</span><br><span class="line">int transport_getdata(unsigned char* buf, int count)</span><br><span class="line">&#123;</span><br><span class="line">int rc &#x3D; 0;</span><br><span class="line">u16 len &#x3D; 0;</span><br><span class="line">u8 *data &#x3D; 0;</span><br><span class="line">while (1)</span><br><span class="line">&#123;</span><br><span class="line">if (UART7_RX_STA &amp; 0X8000)  &#x2F;&#x2F;接收到一次数据了</span><br><span class="line">&#123;</span><br><span class="line">memcpy(buf, (void*)&amp;UART7_RX_BUF[read_buf_len], count);</span><br><span class="line">read_buf_len +&#x3D; count;</span><br><span class="line">break;</span><br><span class="line">&#125;</span><br><span class="line">delay_ms(10);</span><br><span class="line">&#125;</span><br><span class="line">return count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在需要调用的地方实现订阅发布和读取订阅</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;打开网络连接</span><br><span class="line">mysock &#x3D; transport_open(host, port);</span><br><span class="line">if (mysock &lt; 0)</span><br><span class="line">return mysock;</span><br><span class="line"></span><br><span class="line">printf(&quot;Sending to hostname %s port %d\n&quot;, host, port);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;现在将连接字符串格式化一下，现在还没有发送</span><br><span class="line">len &#x3D; MQTTSerialize_connect(buf, buflen, &amp;data);</span><br><span class="line">printf(&quot;%s&quot;, buf);</span><br><span class="line">&#x2F;&#x2F;现在是数据的发送</span><br><span class="line">rc &#x3D; transport_sendPacketBuffer(mysock, buf, len);</span><br><span class="line">&#x2F;* 等待connack *&#x2F;&#x2F;&#x2F;发送后接收服务器返回的数据，这里使用了一个函数的指针，要定义这个指针</span><br><span class="line">if (MQTTPacket_read(buf, buflen, transport_getdata) &#x3D;&#x3D; CONNACK) &#123;&#x2F;&#x2F;CONNACK – 确认连接请求</span><br><span class="line">unsigned char sessionPresent, connack_rc</span><br><span class="line">if (MQTTDeserialize_connack(&amp;sessionPresent, &amp;connack_rc, buf, buflen) !&#x3D; 1 || connack_rc !&#x3D; 0)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;Unable to connect, return code %d\n&quot;, connack_rc);</span><br><span class="line">goto exit;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">goto exit;</span><br><span class="line"></span><br><span class="line">&#x2F;* 订阅 *&#x2F;</span><br><span class="line">topicString.cstring &#x3D; &quot;substopic&quot;;</span><br><span class="line">len &#x3D; MQTTSerialize_subscribe(buf, buflen, 0, msgid, 1, &amp;topicString, &amp;req_qos);</span><br><span class="line">rc &#x3D; transport_sendPacketBuffer(mysock, buf, len);</span><br><span class="line">&#x2F;&#x2F;等待服务器答复</span><br><span class="line">&#x2F;&#x2F;SUBACK 订阅确认 报文包含一个返回码清单， 它们指定了 SUBSCRIBE 请求的每个订阅被授予的最大 QoS 等级。</span><br><span class="line">if (MQTTPacket_read(buf, buflen, transport_getdata) &#x3D;&#x3D; SUBACK)  &#x2F;* 等待 suback *&#x2F;</span><br><span class="line">&#123;</span><br><span class="line">unsigned short submsgid;</span><br><span class="line">int subcount;</span><br><span class="line">int granted_qos;</span><br><span class="line">rc &#x3D; MQTTDeserialize_suback(&amp;submsgid, 1, &amp;subcount, &amp;granted_qos, buf, buflen);</span><br><span class="line">if (granted_qos !&#x3D; 0)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;granted qos !&#x3D; 0, %d\n&quot;, granted_qos);</span><br><span class="line">goto exit;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">goto exit;</span><br><span class="line">&#x2F;* 循环获取消息 on subscribed topic *&#x2F;</span><br><span class="line">&#x2F;&#x2F;  topicString.cstring &#x3D; &quot;pubtopic&quot;;</span><br><span class="line">&#x2F;&#x2F;  while (1)</span><br><span class="line">&#123;</span><br><span class="line">&#x2F;* transport_getdata() has a built-in 1 second timeout,</span><br><span class="line">your mileage will vary *&#x2F;</span><br><span class="line">if (MQTTPacket_read(buf, buflen, transport_getdata) &#x3D;&#x3D; PUBLISH)&#x2F;&#x2F;qos 响应报文，当qos&gt;0时才有响应</span><br><span class="line">&#123;</span><br><span class="line">unsigned char dup;</span><br><span class="line">int qos;</span><br><span class="line">unsigned char retained;</span><br><span class="line">unsigned short msgid;</span><br><span class="line">int payloadlen_in;</span><br><span class="line">unsigned char* payload_in;</span><br><span class="line">int rc;</span><br><span class="line">MQTTString receivedTopic;</span><br><span class="line">rc &#x3D; MQTTDeserialize_publish(&amp;dup, &amp;qos, &amp;retained, &amp;msgid, &amp;receivedTopic,</span><br><span class="line">                             &amp;payload_in, &amp;payloadlen_in, buf, buflen);</span><br><span class="line">printf(&quot;message arrived %.*s\n&quot;, payloadlen_in, payload_in); &#x2F;&#x2F;消息到达</span><br><span class="line">&#125;</span><br><span class="line">printf(&quot;publishing reading\n&quot;);&#x2F;&#x2F;读取发布</span><br><span class="line">&#x2F;&#x2F;下面两行是用来发布消息。这里发布，上面订阅，就形成了一个循环。</span><br><span class="line">len &#x3D; MQTTSerialize_publish(buf, buflen, 0, 0, 0, 0, topicString, (unsigned char*)payload, payloadlen);</span><br><span class="line">rc &#x3D; transport_sendPacketBuffer(mysock, buf, len);</span><br><span class="line">delay_ms(1000);</span><br><span class="line">&#125;</span><br><span class="line">while (1)</span><br><span class="line">&#123;</span><br><span class="line">len &#x3D; MQTTSerialize_pingreq(buf, buflen);&#x2F;&#x2F;发送心跳</span><br><span class="line">rc &#x3D; transport_sendPacketBuffer(mysock, buf, len);&#x2F;&#x2F;发送</span><br><span class="line">delay_s(55);</span><br><span class="line">printf(&quot;心跳&quot;);</span><br><span class="line">&#125;</span><br><span class="line">exit:</span><br><span class="line">transport_close(mysock);</span><br><span class="line"></span><br><span class="line">return 0;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;java工程&lt;br&gt;&lt;a href=&quot;https://github.com/ajith-varghese/zigbee-mqtt-bridge&quot; target=&quot;_blank&quot;&gt;zigbee-mqtt-bridge&lt;/a&gt;&lt;br&gt;介绍&lt;/p&gt;
+&lt;figure class=&quot;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[qt] mqtt客户端</title>
+    <link href="http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578484444000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578484444000.html/</id>
+    <published>2020-01-08T11:54:04.000Z</published>
+    <updated>2020-01-08T11:54:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="" target="_blank"></a></p><p><a href="https://www.cnblogs.com/yexiaopeng/p/8542894.html" target="_blank">Qt官方MQTT库的使用，附一个MqttClient例子</a></p><p><a href="https://blog.csdn.net/qq_28877125/article/details/78357510" target="_blank">MQTT–Qt5编写MQTT-client客户端</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/yexiaopeng/p/8542894.html&quot; target=&quot;_blank&quot;&gt;Qt官方MQTT库的使用，附一个MqttCl
+      
+    
+    </summary>
+    
+    
+    
+      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
+    
+  </entry>
   
   <entry>
     <title>[qt] QtCreator跟PyQt5冲突打不开的问题</title>
@@ -194,33 +369,7 @@
   </entry>
   
   <entry>
-    <title>[stm32] PN532</title>
-    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311651000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311651000.html/</id>
-    <published>2020-01-06T11:54:11.000Z</published>
-    <updated>2020-01-06T11:54:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="" target="_blank"></a></p><p><a href="https://github.com/zhangyuhu/STM32-PN532" target="_blank">github STM32-PN532</a></p><p><a href="http://c.51hei.com/pro/down.php?h=7&e=661630&c=92550&host=forum/201708/11/191206fwu6ucuvwcuruc1p.rar&name=%22PN532%B6%C1%D0%B4%BF%A8%CA%B5%D1%E9%20%A3%A8ALIENTEK%20MINISTM32%A3%A9.rar%22" target="_blank">51黑论坛_PN532读写卡实验 （ALIENTEK MINISTM32）.rar</a></p><p><a href="https://blog.csdn.net/imzhujun/article/details/94399288" target="_blank">PN532 I2C模式STM32开发</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/zhangyuhu/STM32-PN532&quot; target=&quot;_blank&quot;&gt;github STM32-PN532&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[stm32] 开发工具</title>
+    <title>[arm] 开发工具</title>
     <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311650000.html/"/>
     <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311650000.html/</id>
     <published>2020-01-06T11:54:10.000Z</published>
@@ -240,7 +389,7 @@
     
     
     
-      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
     
   </entry>
   
@@ -300,14 +449,13 @@
     <published>2020-01-06T11:54:06.000Z</published>
     <updated>2020-01-06T11:54:06.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://pan.baidu.com/s/1kV4jt47" target="_blank">iTop6818资料</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">bjg0</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p><a href="http://bbs.topeetboard.com/forum.php?mod=forumdisplay&fid=44" target="_blank">讯为iTOP-6818开发板技术专区</a><br><a href="https://pan.baidu.com/s/1kV4jt47" target="_blank">iTop6818资料</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">bjg0</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;https://pan.baidu.com/s/1kV4jt47&quot; target=&quot;_blank&quot;&gt;iTop6818资料&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
+        &lt;p&gt;&lt;a href=&quot;http://bbs.topeetboard.com/forum.php?mod=forumdisplay&amp;fid=44&quot; target=&quot;_blank&quot;&gt;讯为iTOP-6818开发板技术专区&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://pan.bai
       
     
     </summary>
@@ -364,154 +512,6 @@
     
     
       <category term="单片机+qt+arm+stm32" scheme="http://brightereyer.xyz/tags/%E5%8D%95%E7%89%87%E6%9C%BA-qt-arm-stm32/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[vbox] 常用快捷键+扩展虚拟分区</title>
-    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311642000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311642000.html/</id>
-    <published>2020-01-06T11:54:02.000Z</published>
-    <updated>2020-01-06T11:54:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>查看虚拟硬盘：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">VBoxManage list hdds</span><br><span class="line"></span><br><span class="line">VBoxManage showhdinfo &quot;G:\VirtualBox\ubuntu18\ubuntu18.vdi&quot;</span><br><span class="line"></span><br><span class="line">#MB</span><br><span class="line">set &#x2F;a 40*1024</span><br><span class="line"></span><br><span class="line">#Byte</span><br><span class="line">set &#x2F;a 516*1024*1024</span><br><span class="line"></span><br><span class="line">15805aaa-dc04-487f-9454-664835a38cdc</span><br><span class="line"></span><br><span class="line">VBoxManage.exe modifyhd 15805aaa-dc04-487f-9454-664835a38cdc --resize 40960</span><br><span class="line"></span><br><span class="line">VBoxManage.exe modifyhd 15805aaa-dc04-487f-9454-664835a38cdc --resizebyte 541065216</span><br></pre></td></tr></table></figure><p>ubuntu18中分区</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df -ah</span><br><span class="line"></span><br><span class="line">#开始分区</span><br><span class="line">sudo fdisk &#x2F;dev&#x2F;sda</span><br><span class="line"></span><br><span class="line">首先输入命令：n(添加新分区)之后回车：</span><br><span class="line">接着输入命令： p</span><br><span class="line">剩下步骤全按回车默认，</span><br><span class="line">最后输入命令w保存分区信息。</span><br><span class="line"></span><br><span class="line">fdisk -l</span><br></pre></td></tr></table></figure><p>Oracle VM VirtualBox各种显示模式切换热键</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">初用VirtualBox, 几个显示切换快捷键还是要记一下的:</span><br><span class="line"></span><br><span class="line">Right Ctrl + F        -- 切换到全屏模式</span><br><span class="line"></span><br><span class="line">Right Ctrl + L        -- 切换到无缝模式</span><br><span class="line"></span><br><span class="line">Right Ctrl + C        -- 切换到比例模式</span><br><span class="line"></span><br><span class="line">Right Ctrl + Home     -- 显示控制菜单</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/tanningzhong/article/details/80482994" target="_blank">Virtualbox 扩展虚拟磁盘空间大小</a></p><p><a href="https://blog.csdn.net/ouyang_peng/article/details/53261599" target="_blank">VirtualBox如何扩展虚拟机Ubuntu的硬盘容量？</a></p><p><a href="https://blog.csdn.net/LEON1741/article/details/56494797" target="_blank">VirtualBox ubuntu gparted</a></p><p><a href="https://blog.csdn.net/ouyang_peng/article/details/53261599" target="_blank">VirtualBox如何扩展虚拟机Ubuntu的硬盘容量？</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;查看虚拟硬盘：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="vbox" scheme="http://brightereyer.xyz/tags/vbox/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[qt] ubuntu+clang+opencv环境</title>
-    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311640000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311640000.html/</id>
-    <published>2020-01-06T11:54:00.000Z</published>
-    <updated>2020-01-06T11:54:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>安装clang++与opencv</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y clang build-essential libqt4-dev mesa-libGL-devel libssl-dev</span><br><span class="line">sudo apt-get install -y libssl-dev</span><br><span class="line">sudo apt-get install -y opencv</span><br></pre></td></tr></table></figure><p>ubuntu安装opencv</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install pkg-config</span><br><span class="line">pkg-config --modversion opencv</span><br><span class="line">sudo apt-get -y install cmake</span><br><span class="line">sudo apt-get -y install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg.dev libtiff4.dev libswscale-dev libjasper-dev</span><br></pre></td></tr></table></figure><p><a href="https://www.jianshu.com/p/f646448da265" target="_blank">Ubuntu 16.04 安装Opencv 3.4.3</a><br><a href="https://blog.csdn.net/lumingha/article/details/88819631" target="_blank">ubuntu16.04安装Opencv3.4.0</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install update</span><br><span class="line">sudo apt-get install cmake</span><br><span class="line">sudo apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg.dev libtiff4.dev libswscale-dev libjasper-dev  </span><br><span class="line"></span><br><span class="line">cd opencv</span><br><span class="line">mkdir build &amp;&amp; cd build</span><br><span class="line">cmake -D CMAKE_BUILD_TYPE&#x3D;Release -D CMAKE_INSTALL_PREFIX&#x3D;&#x2F;usr&#x2F;local ..</span><br><span class="line"></span><br><span class="line">sudo make</span><br><span class="line">sudo make install</span><br><span class="line">sudo gedit &#x2F;etc&#x2F;ld.so.conf.d&#x2F;opencv.conf</span><br><span class="line">sudo ldconfig &amp;&amp; cd &#x2F;usr&#x2F;local&#x2F;lib</span><br><span class="line">#配置bash</span><br><span class="line">sudo gedit &#x2F;etc&#x2F;bash.bashrc</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/echoamor/article/details/83022352" target="_blank">Ubuntu16.04安装配置opencv3.4.3+opencv_contrib3.4.3</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install cmake-gui</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;安装clang++与opencv&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[ubuntu] arm交叉编译</title>
-    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311639000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311639000.html/</id>
-    <published>2020-01-06T11:53:59.000Z</published>
-    <updated>2020-01-06T11:53:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxfixes-dev libxi-dev libxrender-dev libxcb1-dev libx11-xcb-dev libxcb-glx0-dev</span><br><span class="line"></span><br><span class="line">sudo apt-get install libxcb-keysyms1-dev libxcb-image0-dev libxcb-shm0-dev libxcb-icccm4-dev libxcb-sync0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-randr0-dev libxcb-render-util0-dev</span><br></pre></td></tr></table></figure><p><a href="https://www.veryarm.com/53209.html" target="_blank">Ubuntu 14.04系统下安装和编译QT 5.9.2库（桌面版ARM嵌入式IMX6版）</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
-      
-    
-    </summary>
-    
-    
-    
-      <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[idea] tomcat调试</title>
-    <link href="http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311637000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/06/articles/2020/01/06/1578311637000.html/</id>
-    <published>2020-01-06T11:53:57.000Z</published>
-    <updated>2020-01-06T11:53:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">启用IDEA debug里的JAVA_OPTS，把Transport改成Shared memory即可</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla
-      
-    
-    </summary>
-    
-    
-    
-      <category term="idea" scheme="http://brightereyer.xyz/tags/idea/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[linux] jar包启动与发布脚本</title>
-    <link href="http://brightereyer.xyz/2020/01/01/articles/2020/01/01/1577823565000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/01/articles/2020/01/01/1577823565000.html/</id>
-    <published>2019-12-31T20:19:25.000Z</published>
-    <updated>2019-12-31T20:19:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>start.sh</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash </span><br><span class="line">nohup java -Xms512m -Xmx512m -jar app.jar &gt; app.log 2&gt;&amp;1 &amp;</span><br><span class="line">#record the process id</span><br><span class="line">echo $!&gt;pid</span><br></pre></td></tr></table></figure><p>stop.sh</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill &#96;cat pid&#96;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;start.sh&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span
-      
-    
-    </summary>
-    
-    
-    
-      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[linux] 常用命令</title>
-    <link href="http://brightereyer.xyz/2020/01/01/articles/2020/01/01/1577823565000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/01/articles/2020/01/01/1577823565000.html/</id>
-    <published>2019-12-31T20:19:25.000Z</published>
-    <updated>2019-12-31T20:19:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/xuxinstyle/p/9609551.html" target="_blank">linux常用命令（50个）</a></p><p><a href="https://blog.csdn.net/qq_23329167/article/details/83856430" target="_blank">Linux常用命令</a></p><p><a href="https://www.cnblogs.com/guanbin-529/p/11227069.html" target="_blank">Linux添加用户组和添加用户</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/xuxinstyle/p/9609551.html&quot; target=&quot;_blank&quot;&gt;linux常用命令（50个）&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_2
-      
-    
-    </summary>
-    
-    
-    
-      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
     
   </entry>
   
