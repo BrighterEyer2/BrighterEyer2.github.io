@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-01-10T15:36:01.000Z</updated>
+  <updated>2020-01-13T11:14:51.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,182 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[windows] 启用组策略gpedit.msc</title>
+    <link href="http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914091000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914091000.html/</id>
+    <published>2020-01-13T11:14:51.000Z</published>
+    <updated>2020-01-13T11:14:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>windows10启用组策略gpedit.msc</p><p>exec.cmd</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">pushd &quot;%~dp0&quot;</span><br><span class="line">dir &#x2F;b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &gt;List.txt</span><br><span class="line">dir &#x2F;b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum &gt;&gt;List.txt</span><br><span class="line">for &#x2F;f %%i in (&#39;findstr &#x2F;i . List.txt 2^&gt;nul&#39;) do dism &#x2F;online &#x2F;norestart &#x2F;add-package:&quot;C:\Windows\servicing\Packages\%%i&quot;</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;windows10启用组策略gpedit.msc&lt;/p&gt;
+&lt;p&gt;exec.cmd&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/spa
+      
+    
+    </summary>
+    
+    
+    
+      <category term="windows" scheme="http://brightereyer.xyz/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[stm32] keil乱码问题</title>
+    <link href="http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914090000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914090000.html/</id>
+    <published>2020-01-13T11:14:50.000Z</published>
+    <updated>2020-01-13T11:14:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qlexcel/article/details/54929072" target="_blank">keil中文乱码解决和个人习惯字体设置</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qlexcel/article/details/54929072&quot; target=&quot;_blank&quot;&gt;keil中文乱码解决和个人习惯字体设置&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[stm32] 网络+串口字符串收发</title>
+    <link href="http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914089000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914089000.html/</id>
+    <published>2020-01-13T11:14:49.000Z</published>
+    <updated>2020-01-13T11:14:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/ce2a09d2dde9" target="_blank">stm32串口编程实例：实现数据的收发功能</a></p><details><comments>bsp_usart.h</comments><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">#ifndef __BSP_USART_H</span><br><span class="line">#define__BSP_USART_H</span><br><span class="line"></span><br><span class="line">#include &quot;stm32f4xx.h&quot;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;引脚定义</span><br><span class="line">&#x2F;*******************************************************&#x2F;</span><br><span class="line">#define DEBUG_USART                             USART1</span><br><span class="line">#define DEBUG_USART_CLK                         RCC_APB2Periph_USART1</span><br><span class="line"></span><br><span class="line">#define DEBUG_USART_RX_GPIO_PORT                GPIOA</span><br><span class="line">#define DEBUG_USART_RX_GPIO_CLK                 RCC_AHB1Periph_GPIOA</span><br><span class="line">#define DEBUG_USART_RX_PIN                      GPIO_Pin_10</span><br><span class="line">#define DEBUG_USART_RX_AF                       GPIO_AF_USART1</span><br><span class="line">#define DEBUG_USART_RX_SOURCE                   GPIO_PinSource10</span><br><span class="line"></span><br><span class="line">#define DEBUG_USART_TX_GPIO_PORT                GPIOA</span><br><span class="line">#define DEBUG_USART_TX_GPIO_CLK                 RCC_AHB1Periph_GPIOA</span><br><span class="line">#define DEBUG_USART_TX_PIN                      GPIO_Pin_9</span><br><span class="line">#define DEBUG_USART_TX_AF                       GPIO_AF_USART1</span><br><span class="line">#define DEBUG_USART_TX_SOURCE                   GPIO_PinSource9</span><br><span class="line">&#x2F;************************************************************&#x2F;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;串口波特率</span><br><span class="line">#define DEBUG_USART_BAUDRATE                    115200</span><br><span class="line"></span><br><span class="line">void Debug_USART_Config(void);</span><br><span class="line">&#x2F;&#x2F;int fputc(int ch, FILE *f);</span><br><span class="line"></span><br><span class="line">void Usart_SendByte(USART_TypeDef *pUSARTx, uint8_t Data);</span><br><span class="line"></span><br><span class="line">void Usart_SendArray(USART_TypeDef *pUSARTx, uint8_t *data, uint8_t num);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;接收字符</span><br><span class="line">char usart1_getc(void);</span><br><span class="line">&#x2F;&#x2F;接收字符串</span><br><span class="line">int usart1_getstr(unsigned char* buff, int len);</span><br><span class="line"></span><br><span class="line">#endif &#x2F;* __USART1_H *&#x2F;</span><br></pre></td></tr></table></figure></details><details><comments>bsp_usart.c</comments><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;.&#x2F;usart&#x2F;bsp_usart.h&quot;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @brief  DEBUG_USART GPIO 配置，工作模式配置。115200 8-N-1</span><br><span class="line"> * @param  无</span><br><span class="line"> * @retval 无</span><br><span class="line"> *&#x2F;</span><br><span class="line">void Debug_USART_Config(void)</span><br><span class="line">&#123;</span><br><span class="line">GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">USART_InitTypeDef USART_InitStructure;</span><br><span class="line"></span><br><span class="line">RCC_AHB1PeriphClockCmd( DEBUG_USART_RX_GPIO_CLK | DEBUG_USART_TX_GPIO_CLK, ENABLE);</span><br><span class="line"></span><br><span class="line">&#x2F;* 使能 UART 时钟 *&#x2F;</span><br><span class="line">RCC_APB2PeriphClockCmd(DEBUG_USART_CLK, ENABLE);</span><br><span class="line"></span><br><span class="line">&#x2F;* 连接 PXx 到 USARTx_Tx*&#x2F;</span><br><span class="line">GPIO_PinAFConfig(DEBUG_USART_RX_GPIO_PORT, DEBUG_USART_RX_SOURCE, DEBUG_USART_RX_AF);</span><br><span class="line"></span><br><span class="line">&#x2F;*  连接 PXx 到 USARTx__Rx*&#x2F;</span><br><span class="line">GPIO_PinAFConfig(DEBUG_USART_TX_GPIO_PORT, DEBUG_USART_TX_SOURCE, DEBUG_USART_TX_AF);</span><br><span class="line"></span><br><span class="line">&#x2F;* 配置Tx引脚为复用功能  *&#x2F;</span><br><span class="line">GPIO_InitStructure.GPIO_OType &#x3D; GPIO_OType_PP;</span><br><span class="line">GPIO_InitStructure.GPIO_PuPd &#x3D; GPIO_PuPd_UP;</span><br><span class="line">GPIO_InitStructure.GPIO_Mode &#x3D; GPIO_Mode_AF;</span><br><span class="line"></span><br><span class="line">GPIO_InitStructure.GPIO_Pin &#x3D; DEBUG_USART_TX_PIN  ;</span><br><span class="line">GPIO_InitStructure.GPIO_Speed &#x3D; GPIO_Speed_50MHz;</span><br><span class="line">GPIO_Init(DEBUG_USART_TX_GPIO_PORT, &amp;GPIO_InitStructure);</span><br><span class="line"></span><br><span class="line">&#x2F;* 配置Rx引脚为复用功能 *&#x2F;</span><br><span class="line">GPIO_InitStructure.GPIO_Mode &#x3D; GPIO_Mode_AF;</span><br><span class="line">GPIO_InitStructure.GPIO_Pin &#x3D; DEBUG_USART_RX_PIN;</span><br><span class="line">GPIO_Init(DEBUG_USART_RX_GPIO_PORT, &amp;GPIO_InitStructure);</span><br><span class="line"></span><br><span class="line">&#x2F;* 配置串DEBUG_USART 模式 *&#x2F;</span><br><span class="line">USART_InitStructure.USART_BaudRate &#x3D; DEBUG_USART_BAUDRATE;</span><br><span class="line">USART_InitStructure.USART_WordLength &#x3D; USART_WordLength_8b;</span><br><span class="line">USART_InitStructure.USART_StopBits &#x3D; USART_StopBits_1;</span><br><span class="line">USART_InitStructure.USART_Parity &#x3D; USART_Parity_No ;</span><br><span class="line">USART_InitStructure.USART_HardwareFlowControl &#x3D; USART_HardwareFlowControl_None;</span><br><span class="line">USART_InitStructure.USART_Mode &#x3D; USART_Mode_Rx | USART_Mode_Tx;</span><br><span class="line">USART_Init(DEBUG_USART, &amp;USART_InitStructure);</span><br><span class="line">USART_Cmd(DEBUG_USART, ENABLE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F;重定向c库函数printf到串口DEBUG_USART，重定向后可使用printf函数</span><br><span class="line">int fputc(int ch, FILE *f)</span><br><span class="line">&#123;</span><br><span class="line">&#x2F;* 发送一个字节数据到串口DEBUG_USART *&#x2F;</span><br><span class="line">USART_SendData(DEBUG_USART, (uint8_t) ch);</span><br><span class="line"></span><br><span class="line">&#x2F;* 等待发送完毕 *&#x2F;</span><br><span class="line">while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) &#x3D;&#x3D; RESET);</span><br><span class="line"></span><br><span class="line">return (ch);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F;重定向c库函数printf到串口DEBUG_USART，重定向后可使用scanf、getchar函数</span><br><span class="line">int fgetc(FILE *f)</span><br><span class="line">&#123;</span><br><span class="line">&#x2F;* 等待串口输入数据 *&#x2F;</span><br><span class="line">while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_RXNE) &#x3D;&#x3D; RESET);</span><br><span class="line"></span><br><span class="line">return (int)USART_ReceiveData(DEBUG_USART);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Usart_SendByte(USART_TypeDef *pUSARTx, uint8_t Data)</span><br><span class="line">&#123;</span><br><span class="line">USART_SendData(pUSARTx, Data);</span><br><span class="line">while (USART_GetFlagStatus(pUSARTx, USART_FLAG_TXE) &#x3D;&#x3D; RESET);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Usart_SendArray(USART_TypeDef *pUSARTx, uint8_t *data, uint8_t num)</span><br><span class="line">&#123;</span><br><span class="line">uint8_t t;</span><br><span class="line">for (t &#x3D; 0; t &lt; num; t++) &#123;</span><br><span class="line">Usart_SendByte(pUSARTx, data[t]);</span><br><span class="line">&#125;</span><br><span class="line">while (USART_GetFlagStatus(pUSARTx, USART_FLAG_TC) &#x3D;&#x3D; RESET);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;接收字符</span><br><span class="line">char usart1_getc(void) &#123;</span><br><span class="line">char temp &#x3D; 0;</span><br><span class="line">while (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) !&#x3D; SET);</span><br><span class="line">temp &#x3D; USART_ReceiveData(USART1);</span><br><span class="line">return temp;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;接收字符串</span><br><span class="line">int usart1_getstr(unsigned char* buff, int len) &#123;</span><br><span class="line">int i &#x3D; 0;</span><br><span class="line">for (i &#x3D; 0; i &lt; len; i++) &#123;</span><br><span class="line">buff[i] &#x3D; usart1_getc();</span><br><span class="line">&#125;</span><br><span class="line">return len;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*********************************************END OF FILE**********************&#x2F;</span><br></pre></td></tr></table></figure></details>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/ce2a09d2dde9&quot; target=&quot;_blank&quot;&gt;stm32串口编程实例：实现数据的收发功能&lt;/a&gt;&lt;/p&gt;
+&lt;details&gt;
+&lt;comments&gt;bsp_usart.h&lt;/comments&gt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[ps] 表情包</title>
+    <link href="http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914088000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914088000.html/</id>
+    <published>2020-01-13T11:14:48.000Z</published>
+    <updated>2020-01-13T11:14:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://ibaotu.com/sucai/19437774.html?kwd=%E8%A1%A8%E6%83%85%E5%8C%85" target="_blank">可爱老鼠表情包2-给您拜年动图GIF</a></p><p><a href="https://ibaotu.com/sucai/19437781.html?kwd=%E8%A1%A8%E6%83%85%E5%8C%85" target="_blank">可爱老鼠表情包9-赞动图GIF</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://ibaotu.com/sucai/19437774.html?kwd=%E8%A1%A8%E6%83%85%E5%8C%85&quot; target=&quot;_blank&quot;&gt;可爱老鼠表情包2-给您拜年动图GIF&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;h
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ps" scheme="http://brightereyer.xyz/tags/ps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[linux] MQTT服务之mosquitto配置</title>
+    <link href="http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914087000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914087000.html/</id>
+    <published>2020-01-13T11:14:47.000Z</published>
+    <updated>2020-01-13T11:14:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;mosquitto&#x2F;</span><br><span class="line">touch pwfile acl</span><br><span class="line"></span><br><span class="line">vim mosquitto.conf</span><br><span class="line"></span><br><span class="line">allow_anonymous false</span><br><span class="line">password_file &#x2F;etc&#x2F;mosquitto&#x2F;pwfile</span><br><span class="line">acl_file acl_file &#x2F;etc&#x2F;mosquitto&#x2F;acl</span><br></pre></td></tr></table></figure><p>添加用户信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 添加用户&#39;admin&#39;</span><br><span class="line">mosquitto_passwd -c &#x2F;etc&#x2F;mosquitto&#x2F;pwfile admin</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim acl</span><br><span class="line"></span><br><span class="line">user admin</span><br><span class="line">topic write mtopic&#x2F;#</span><br><span class="line"></span><br><span class="line">user admin</span><br><span class="line">topic read mtopic&#x2F;#</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -aux | grep mosquitto</span><br><span class="line">kill -9 18248</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto -c &#x2F;etc&#x2F;mosquitto&#x2F;mosquitto.conf -d</span><br></pre></td></tr></table></figure><p>（订阅端）客户端启动：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h 127.0.0.1 -t mtopic -u admin -P hello</span><br></pre></td></tr></table></figure><p>（发布者）客户端启动：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -h 127.0.0.1 -t mtopic -u admin -P hello -m &quot;test&quot;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[stm32] ESP8266透传</title>
+    <link href="http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914086000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914086000.html/</id>
+    <published>2020-01-13T11:14:46.000Z</published>
+    <updated>2020-01-13T11:14:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://cloud.tencent.com/developer/article/1457141" target="_blank">ESP8266透传：利用STM32f103zet6发送数据到HTTP服务器</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://cloud.tencent.com/developer/article/1457141&quot; target=&quot;_blank&quot;&gt;ESP8266透传：利用STM32f103zet6发送数据到HTTP服务器&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[虚拟机] 将VirtualBox和VMware虚拟机相互转换</title>
+    <link href="http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914085000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914085000.html/</id>
+    <published>2020-01-13T11:14:45.000Z</published>
+    <updated>2020-01-13T11:14:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_36242834/article/details/77801455" target="_blank">将VirtualBox和VMware虚拟机相互转换</a></p><p><a href="https://www.jb51.net/os/other/349015.html" target="_blank">将Vmware的镜像格式转换为Virtualbox的镜像格式的方法</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VBoxManage.exe clonehd F:\centos-6.0-i386-minimal.vmdk F:\centos-6.0-i386-minimal.vdi</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_36242834/article/details/77801455&quot; target=&quot;_blank&quot;&gt;将VirtualBox和VMware虚拟机相互转换&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https:
+      
+    
+    </summary>
+    
+    
+    
+      <category term="虚拟机" scheme="http://brightereyer.xyz/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>[ubuntu] 安装配置STM32开发环境</title>
@@ -327,179 +503,6 @@
       
       
         &lt;p&gt;&lt;a href=&quot;http://www.firebbs.cn/forum.php?mod=viewthread&amp;tid=26091&amp;highlight=stm32f407&quot; target=&quot;_blank&quot;&gt;STM32F407内置WEB服务器实现wifi视频传输语音识别物体人
-      
-    
-    </summary>
-    
-    
-    
-      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[C] MinGW安装和使用</title>
-    <link href="http://brightereyer.xyz/2020/01/10/articles/2020/01/10/1578670548000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/10/articles/2020/01/10/1578670548000.html/</id>
-    <published>2020-01-10T15:35:48.000Z</published>
-    <updated>2020-01-10T15:35:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/e9ff7b654c4a" target="_blank">MinGW安装和使用</a><br><a href="https://blog.csdn.net/qq_35028262/article/details/100592576" target="_blank">MinGW 安装教程</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/e9ff7b654c4a&quot; target=&quot;_blank&quot;&gt;MinGW安装和使用&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://blog.csdn.net/qq_35028262/article/det
-      
-    
-    </summary>
-    
-    
-    
-      <category term="C" scheme="http://brightereyer.xyz/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[keil] windows+arm+gcc开发环境的搭建</title>
-    <link href="http://brightereyer.xyz/2020/01/10/articles/2020/01/10/1578670547000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/10/articles/2020/01/10/1578670547000.html/</id>
-    <published>2020-01-10T15:35:47.000Z</published>
-    <updated>2020-01-10T15:35:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/vigour1000/article/details/21866895" target="_blank">windows环境下arm gcc+Keil开发环境的搭建</a></p><p><a href="https://launchpadlibrarian.net/287101671/gcc-arm-none-eabi-5_4-2016q3-20160926-win32.exe" target="_blank">gcc-arm-none-eabi-5_4-2016q3-20160926-win32.exe</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arm-none-eabi-gcc -v</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/vigour1000/article/details/21866895&quot; target=&quot;_blank&quot;&gt;windows环境下arm gcc+Keil开发环境的搭建&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;htt
-      
-    
-    </summary>
-    
-    
-    
-      <category term="keil" scheme="http://brightereyer.xyz/tags/keil/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[keil] 解决因系统问题移植MQTTPacket的报错</title>
-    <link href="http://brightereyer.xyz/2020/01/10/articles/2020/01/10/1578670546000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/10/articles/2020/01/10/1578670546000.html/</id>
-    <published>2020-01-10T15:35:46.000Z</published>
-    <updated>2020-01-10T15:35:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/e9ff7b654c4a" target="_blank">MinGW安装和使用</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">关于 __int32</span><br><span class="line"></span><br><span class="line">#define __uint8 unsigned char</span><br><span class="line">#define __uint16 unsigned short </span><br><span class="line">#define __uint32 unsigned int </span><br><span class="line">#define __int32 int</span><br></pre></td></tr></table></figure><p>socket</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mingw中的socket基础</span><br><span class="line">http:&#x2F;&#x2F;blog.chinaunix.net&#x2F;uid-23065002-id-4557735.html</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vs出现 fatal error C1083: 无法打开包括文件: &quot;sys&#x2F;socket.h&quot;: No such file ....</span><br><span class="line"></span><br><span class="line">windows下winsock.h&#x2F;winsock2.h </span><br><span class="line">linux下sys&#x2F;socket.h</span><br><span class="line"></span><br><span class="line">不同平台头文件不一样</span><br><span class="line">#include &lt;winsock.h&gt;</span><br><span class="line">&#x2F;&#x2F;或</span><br><span class="line">#include &lt;winsock2.h&gt;</span><br><span class="line"></span><br><span class="line">&lt;arpa&#x2F;inet.h&gt;用&lt;windows.h&gt;代替</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;netinet&#x2F;in.h&gt;、#include &lt;netdb.h&gt; 在windows下对应什么什么头文件？求高手讲解！</span><br><span class="line"></span><br><span class="line">vc下把这个包含语句改为</span><br><span class="line">#include &lt;winsock2.h&gt;</span><br><span class="line">#pragma comment(lib,&quot;ws2_32.lib&quot;)</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/wannable/p/5910968.html" target="_blank">Linux Socket</a></p><p>arpa/inet.h在windows下对应什么文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">windows的总库包含了上述内容：</span><br><span class="line">#include &lt;windows.h&gt;</span><br><span class="line">#pragma comment(lib, &quot;wsock32.lib&quot;)</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">请教高手几个C++问题,为什么老说&lt;sys&#x2F;socket.h&gt;和&lt;netdb.h&gt;错呢？</span><br><span class="line">https:&#x2F;&#x2F;zhidao.baidu.com&#x2F;question&#x2F;89969252.html</span><br><span class="line"></span><br><span class="line">如果在Windows下面编程，试一试</span><br><span class="line">#include &lt;winsock.h&gt;</span><br><span class="line">#include &lt;winsock2.h&gt;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/e9ff7b654c4a&quot; target=&quot;_blank&quot;&gt;MinGW安装和使用&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=
-      
-    
-    </summary>
-    
-    
-    
-      <category term="keil" scheme="http://brightereyer.xyz/tags/keil/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[C] linux下C语言实现websocket服务器</title>
-    <link href="http://brightereyer.xyz/2020/01/10/articles/2020/01/10/1578670545000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/10/articles/2020/01/10/1578670545000.html/</id>
-    <published>2020-01-10T15:35:45.000Z</published>
-    <updated>2020-01-10T15:35:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/lell3538/article/details/60470558" target="_blank">用C语言实现websocket服务器</a></p><p><a href="https://github.com/lhc3538/my-websocket-server" target="_blank">my-websocket-server</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/lell3538/article/details/60470558&quot; target=&quot;_blank&quot;&gt;用C语言实现websocket服务器&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.c
-      
-    
-    </summary>
-    
-    
-    
-      <category term="C" scheme="http://brightereyer.xyz/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[arm] 交叉编译</title>
-    <link href="http://brightereyer.xyz/2020/01/10/articles/2020/01/10/1578670544000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/10/articles/2020/01/10/1578670544000.html/</id>
-    <published>2020-01-10T15:35:44.000Z</published>
-    <updated>2020-01-10T15:35:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.st.com/content/ccc/resource/technical/software/sw_development_suite/group0/9e/2b/29/0d/1d/36/44/56/stm32cubemx_v5-5-0/files/stm32cubemx_v5-5-0.zip/jcr:content/translations/en.stm32cubemx_v5-5-0.zip" target="_blank">stm32cubemx_v5-5-0.zip</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line">&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;blog.csdn.net&#x2F;terminaterfxy&#x2F;article&#x2F;details&#x2F;78048627&quot; target&#x3D;&quot;_blank&quot;&gt;STM32CubeMX开发（一）--介绍、下载与安装&lt;&#x2F;a&gt;</span><br><span class="line">百度网盘下载</span><br></pre></td></tr></table></figure><p>ST官方下载资料或文档需要ST账号登陆成功才能下载，若觉得麻烦可以在我百度网盘下载（定期更新）。<br>为了方便大家下载，我在百度网盘提供下载的版本也是上面官网下载，上传至百度网盘。<br>里面包含STM32CubeMX软件和库。</p><p>JRE：<br><a href="http://pan.baidu.com/s/1cML4Hg" target="_blank" rel="noopener">http://pan.baidu.com/s/1cML4Hg</a></p><p>STM32CubeMX工具：<br><a href="http://pan.baidu.com/s/1dFMFwHF" target="_blank" rel="noopener">http://pan.baidu.com/s/1dFMFwHF</a></p><p>STM32CubeMX资料：<br><a href="http://pan.baidu.com/s/1nvcxQC5" target="_blank" rel="noopener">http://pan.baidu.com/s/1nvcxQC5</a></p><pre><code></code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.st.com/content/ccc/resource/technical/software/sw_development_suite/group0/9e/2b/29/0d/1d/36/44/56/stm32cubemx_v5-5-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[arm] MQTT</title>
-    <link href="http://brightereyer.xyz/2020/01/10/articles/2020/01/10/1578670543000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/10/articles/2020/01/10/1578670543000.html/</id>
-    <published>2020-01-10T15:35:43.000Z</published>
-    <updated>2020-01-10T15:35:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/411e01334231" target="_blank">linux下 mqtt源码交叉编译和应用</a></p><p><a href="https://blog.csdn.net/qq_28643619/article/details/86011212" target="_blank">基于i-mx287 ARM9的嵌入式linux上 交叉编译paho.mqtt.embedded-c库和嵌入式linux样例程序</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/411e01334231&quot; target=&quot;_blank&quot;&gt;linux下 mqtt源码交叉编译和应用&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_286436
-      
-    
-    </summary>
-    
-    
-    
-      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[stm32] keil5添加头文件</title>
-    <link href="http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578485101000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/08/articles/2020/01/08/1578485101000.html/</id>
-    <published>2020-01-08T12:05:01.000Z</published>
-    <updated>2020-01-08T12:05:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/baby00qi/article/details/53056099" target="_blank">在 Keil5 中添加 .h 文件的问题</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/baby00qi/article/details/53056099&quot; target=&quot;_blank&quot;&gt;在 Keil5 中添加 .h 文件的问题&lt;/a&gt;&lt;/p&gt;
-
       
     
     </summary>
