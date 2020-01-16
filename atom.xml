@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-01-16T12:26:02.000Z</updated>
+  <updated>2020-01-16T13:00:37.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[docker] svn服务</title>
+    <link href="http://brightereyer.xyz/2020/01/16/articles/2020/01/16/1579179637000.html/"/>
+    <id>http://brightereyer.xyz/2020/01/16/articles/2020/01/16/1579179637000.html/</id>
+    <published>2020-01-16T13:00:37.000Z</published>
+    <updated>2020-01-16T13:00:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/a25fac7e7811" target="_blank">docker安装svn</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker search svn</span><br><span class="line">docker pull docker.io&#x2F;garethflowers&#x2F;svn-server</span><br><span class="line">docker run --name svn-server -p 3690:3690 --privileged&#x3D;true -e SVN_REPONAME&#x3D;repository -d docker.io&#x2F;garethflowers&#x2F;svn-server</span><br></pre></td></tr></table></figure><p>③ 进入容器容器进行配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">##进入容器内部</span><br><span class="line">docker exec -it svn-server &#x2F;bin&#x2F;sh  </span><br><span class="line">## 创建仓库  创建了一个为repository 的仓库</span><br><span class="line">svnadmin create &#x2F;var&#x2F;opt&#x2F;svn&#x2F;repository</span><br><span class="line">##进入仓库配置文件路径</span><br><span class="line">cd &#x2F;var&#x2F;opt&#x2F;svn&#x2F;repository&#x2F;conf</span><br></pre></td></tr></table></figure><p>vi svnserve.conf</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">anon-access &#x3D; read</span><br><span class="line">auth-access &#x3D; write</span><br><span class="line"></span><br><span class="line">password-db &#x3D; passwd</span><br><span class="line"></span><br><span class="line">auth-db &#x3D; authz</span><br></pre></td></tr></table></figure><p>vi passwd</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[users]</span><br><span class="line">user1&#x3D;123</span><br><span class="line">user2&#x3D;123</span><br></pre></td></tr></table></figure><p>vi authz</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[aliases]</span><br><span class="line"></span><br><span class="line">[groups]</span><br><span class="line">admin &#x3D; user1,user2</span><br><span class="line"></span><br><span class="line">[repository:&#x2F;]</span><br><span class="line">@admin&#x3D;rw</span><br></pre></td></tr></table></figure><p>重启docker的svn服务</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart svn-server</span><br></pre></td></tr></table></figure><p>访问</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker-machine ip</span><br><span class="line"></span><br><span class="line">url为：</span><br><span class="line">svn:&#x2F;&#x2F;ip地址&#x2F;repository</span><br><span class="line"></span><br><span class="line">用户为</span><br><span class="line">user1</span><br><span class="line"></span><br><span class="line">密码为</span><br><span class="line">123</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/a25fac7e7811&quot; target=&quot;_blank&quot;&gt;docker安装svn&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class
+      
+    
+    </summary>
+    
+    
+    
+      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>[ubuntu] 安装glib</title>
@@ -492,30 +517,6 @@
     
     
       <category term="ps" scheme="http://brightereyer.xyz/tags/ps/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[linux] MQTT服务之mosquitto配置</title>
-    <link href="http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914087000.html/"/>
-    <id>http://brightereyer.xyz/2020/01/13/articles/2020/01/13/1578914087000.html/</id>
-    <published>2020-01-13T11:14:47.000Z</published>
-    <updated>2020-01-13T11:14:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;mosquitto&#x2F;</span><br><span class="line">touch pwfile acl</span><br><span class="line"></span><br><span class="line">vim mosquitto.conf</span><br><span class="line"></span><br><span class="line">allow_anonymous false</span><br><span class="line">password_file &#x2F;etc&#x2F;mosquitto&#x2F;pwfile</span><br><span class="line">acl_file acl_file &#x2F;etc&#x2F;mosquitto&#x2F;acl</span><br></pre></td></tr></table></figure><p>添加用户信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 添加用户&#39;admin&#39;</span><br><span class="line">mosquitto_passwd -c &#x2F;etc&#x2F;mosquitto&#x2F;pwfile admin</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim acl</span><br><span class="line"></span><br><span class="line">user admin</span><br><span class="line">topic write mtopic&#x2F;#</span><br><span class="line"></span><br><span class="line">user admin</span><br><span class="line">topic read mtopic&#x2F;#</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -aux | grep mosquitto</span><br><span class="line">kill -9 18248</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto -c &#x2F;etc&#x2F;mosquitto&#x2F;mosquitto.conf -d</span><br></pre></td></tr></table></figure><p>（订阅端）客户端启动：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h 127.0.0.1 -t mtopic -u admin -P hello</span><br></pre></td></tr></table></figure><p>（发布者）客户端启动：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -h 127.0.0.1 -t mtopic -u admin -P hello -m &quot;test&quot;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
-      
-    
-    </summary>
-    
-    
-    
-      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
     
   </entry>
   
