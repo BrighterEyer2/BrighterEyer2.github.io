@@ -283,69 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/10/23/1571924654000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/24/articles/2019/10/23/1571924654000.html/" class="article-date">
-      <time datetime="2019-10-24T13:44:14.000Z" itemprop="datePublished">2019-10-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924654000.html/">[qt] 追加库引用-官方文档</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://doc.qt.io/qt-5/qwinthumbnailtoolbar.html" target="_blank">QWinThumbnailToolBar</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QWinThumbnailToolBar&gt;</span><br><span class="line"></span><br><span class="line">QT +&#x3D; winextras</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2019/10/23/1571924652000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -558,7 +495,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924648000.html/">[qt] 进度条</a>
+      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924648000.html/">[cocos2dx] 跑酷游戏</a>
     </h1>
   
 
@@ -569,13 +506,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="" target="_blank"></a></p>
-<p><a href="https://blog.csdn.net/xuancailinggan/article/details/48398921" target="_blank">QT之进度条</a></p>
-<p>Qt进度条QProgressBar的使用<br><a href="https://blog.csdn.net/yao_hou/article/details/80179087" target="_blank">参考</a><br>SliderDemo.h</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#pragma once</span><br><span class="line"></span><br><span class="line">#ifndef SLIDERDEMO_H</span><br><span class="line">#define SLIDERDEMO_H</span><br><span class="line"></span><br><span class="line">#include &lt;QMainWindow&gt;</span><br><span class="line">#include &lt;QTimer&gt;</span><br><span class="line"></span><br><span class="line">namespace Ui &#123;</span><br><span class="line">class SliderDemo;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class SliderDemo : public QMainWindow</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    explicit SliderDemo(QWidget *parent &#x3D; nullptr);</span><br><span class="line">    ~SliderDemo();</span><br><span class="line"></span><br><span class="line">public slots:</span><br><span class="line">    void slotStart();</span><br><span class="line">    void slotStop();</span><br><span class="line">    void slotProcessBar();</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    Ui::SliderDemo *ui;</span><br><span class="line">    QTimer *m_timer;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif &#x2F;&#x2F; SLIDERDEMO_H</span><br></pre></td></tr></table></figure>
-
-<p>SliderDemo.cpp</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;SliderDemo.h&quot;</span><br><span class="line">#include &quot;ui_sliderdemo.h&quot;</span><br><span class="line"></span><br><span class="line">SliderDemo::SliderDemo(QWidget *parent) :</span><br><span class="line">    QMainWindow(parent),</span><br><span class="line">    ui(new Ui::SliderDemo)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;setupUi(this);</span><br><span class="line"></span><br><span class="line">    m_timer &#x3D; new QTimer(this);</span><br><span class="line"></span><br><span class="line">    ui-&gt;progressBar-&gt;setRange(0, 99);</span><br><span class="line">    ui-&gt;progressBar-&gt;setValue(0);</span><br><span class="line"></span><br><span class="line">    connect(ui-&gt;btn_Start, SIGNAL(clicked()), this, SLOT(slotStart()));</span><br><span class="line">    connect(ui-&gt;btn_Stop, SIGNAL(clicked()), this, SLOT(slotStop()));</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;接收到timeout信号，定时器工作</span><br><span class="line">    connect(m_timer, SIGNAL(timeout()), this, SLOT(slotProcessBar()));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SliderDemo::~SliderDemo()</span><br><span class="line">&#123;</span><br><span class="line">    delete ui;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;控制进度条</span><br><span class="line">void SliderDemo::slotProcessBar()</span><br><span class="line">&#123;</span><br><span class="line">    static int pos &#x3D; 0;</span><br><span class="line">    if (pos &#x3D;&#x3D; 100)</span><br><span class="line">    &#123;</span><br><span class="line">        m_timer-&gt;stop();</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ui-&gt;progressBar-&gt;setValue(pos++);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;开启定时器</span><br><span class="line">void SliderDemo::slotStart()</span><br><span class="line">&#123;</span><br><span class="line">    m_timer-&gt;start(100);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;关闭定时器</span><br><span class="line">void SliderDemo::slotStop()</span><br><span class="line">&#123;</span><br><span class="line">    m_timer-&gt;stop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="https://github.com/tashaxing/MyParkourGame" target="_blank">跑酷游戏</a></p>
 
       
     </div>
@@ -586,7 +517,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cocos2dx/" rel="tag">cocos2dx</a></li></ul>
     </div>
 
       
@@ -626,7 +557,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924648000.html/">[cocos2dx] 跑酷游戏</a>
+      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924648000.html/">[qt] 进度条</a>
     </h1>
   
 
@@ -637,7 +568,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://github.com/tashaxing/MyParkourGame" target="_blank">跑酷游戏</a></p>
+        <p><a href="" target="_blank"></a></p>
+<p><a href="https://blog.csdn.net/xuancailinggan/article/details/48398921" target="_blank">QT之进度条</a></p>
+<p>Qt进度条QProgressBar的使用<br><a href="https://blog.csdn.net/yao_hou/article/details/80179087" target="_blank">参考</a><br>SliderDemo.h</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#pragma once</span><br><span class="line"></span><br><span class="line">#ifndef SLIDERDEMO_H</span><br><span class="line">#define SLIDERDEMO_H</span><br><span class="line"></span><br><span class="line">#include &lt;QMainWindow&gt;</span><br><span class="line">#include &lt;QTimer&gt;</span><br><span class="line"></span><br><span class="line">namespace Ui &#123;</span><br><span class="line">class SliderDemo;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class SliderDemo : public QMainWindow</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    explicit SliderDemo(QWidget *parent &#x3D; nullptr);</span><br><span class="line">    ~SliderDemo();</span><br><span class="line"></span><br><span class="line">public slots:</span><br><span class="line">    void slotStart();</span><br><span class="line">    void slotStop();</span><br><span class="line">    void slotProcessBar();</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    Ui::SliderDemo *ui;</span><br><span class="line">    QTimer *m_timer;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif &#x2F;&#x2F; SLIDERDEMO_H</span><br></pre></td></tr></table></figure>
+
+<p>SliderDemo.cpp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;SliderDemo.h&quot;</span><br><span class="line">#include &quot;ui_sliderdemo.h&quot;</span><br><span class="line"></span><br><span class="line">SliderDemo::SliderDemo(QWidget *parent) :</span><br><span class="line">    QMainWindow(parent),</span><br><span class="line">    ui(new Ui::SliderDemo)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;setupUi(this);</span><br><span class="line"></span><br><span class="line">    m_timer &#x3D; new QTimer(this);</span><br><span class="line"></span><br><span class="line">    ui-&gt;progressBar-&gt;setRange(0, 99);</span><br><span class="line">    ui-&gt;progressBar-&gt;setValue(0);</span><br><span class="line"></span><br><span class="line">    connect(ui-&gt;btn_Start, SIGNAL(clicked()), this, SLOT(slotStart()));</span><br><span class="line">    connect(ui-&gt;btn_Stop, SIGNAL(clicked()), this, SLOT(slotStop()));</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;接收到timeout信号，定时器工作</span><br><span class="line">    connect(m_timer, SIGNAL(timeout()), this, SLOT(slotProcessBar()));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SliderDemo::~SliderDemo()</span><br><span class="line">&#123;</span><br><span class="line">    delete ui;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;控制进度条</span><br><span class="line">void SliderDemo::slotProcessBar()</span><br><span class="line">&#123;</span><br><span class="line">    static int pos &#x3D; 0;</span><br><span class="line">    if (pos &#x3D;&#x3D; 100)</span><br><span class="line">    &#123;</span><br><span class="line">        m_timer-&gt;stop();</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ui-&gt;progressBar-&gt;setValue(pos++);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;开启定时器</span><br><span class="line">void SliderDemo::slotStart()</span><br><span class="line">&#123;</span><br><span class="line">    m_timer-&gt;start(100);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;关闭定时器</span><br><span class="line">void SliderDemo::slotStop()</span><br><span class="line">&#123;</span><br><span class="line">    m_timer-&gt;stop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -648,7 +585,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cocos2dx/" rel="tag">cocos2dx</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
     </div>
 
       
@@ -902,6 +839,71 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/24/1571872292000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/24/articles/2019/10/24/1571872292000.html/" class="article-date">
+      <time datetime="2019-10-23T23:11:32.000Z" itemprop="datePublished">2019-10-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/24/articles/2019/10/24/1571872292000.html/">[珠海] 居住证作用</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="" target="_blank"></a><br><a href="http://zh.bendibao.com/live/2016428/43210.shtm" target="_blank">珠海居住证有什么用- 珠海本地宝</a></p>
+<p>珠海居住证有什么用？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">办理出入境证件（限广东省户籍）；</span><br><span class="line"></span><br><span class="line">换领、补领居民身份证（珠海可异地换领补领身份证的省份城市有哪些（动态更新））；</span><br><span class="line"></span><br><span class="line">机动车登记；</span><br><span class="line"></span><br><span class="line">申领机动车驾驶证；</span><br><span class="line"></span><br><span class="line">报名参加职业资格考试、申请授予职业资格；</span><br><span class="line"></span><br><span class="line">办理生育服务登记和其他计划生育证明材料；</span><br><span class="line"></span><br><span class="line">积分入学（2017珠海积分入学）；</span><br><span class="line"></span><br><span class="line">国家规定的其他便利。</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8F%A0%E6%B5%B7/" rel="tag">珠海</a></li></ul>
     </div>
 
       
