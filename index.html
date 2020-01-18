@@ -745,27 +745,40 @@
       
           
         <p>确保通过RS232已经进入fastboot模式，接上OTG线（即usb线）</p>
-<p>拨码开关<br>1、3 on<br>2 off</p>
-<p>烧写android</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">fastboot.exe flash uboot u-boot-iTOP-6818.bin</span><br><span class="line">fastboot.exe flash boot boot.img</span><br><span class="line">fastboot.exe flash cache cache.img</span><br><span class="line">fastboot.exe flash system system.img</span><br><span class="line">fastboot.exe flash userdata userdata.img</span><br><span class="line">fastboot.exe flash recovery recovery.img</span><br><span class="line">fastboot reboot</span><br><span class="line"></span><br><span class="line">setenv bootsystem android</span><br><span class="line">setenv lcdtype 4.3</span><br><span class="line">saveenv</span><br><span class="line">reset</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">adb devices</span><br><span class="line">adb push &lt;deviceId&gt; helloworld &#x2F;data</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">拨码开关</span><br><span class="line">1、3 on</span><br><span class="line">2 off</span><br></pre></td></tr></table></figure>
 
-<p>烧写qt</p>
+<details>
+<summary>烧写android</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fastboot.exe flash uboot u-boot-iTOP-6818.bin</span><br><span class="line">fastboot.exe flash boot boot.img</span><br><span class="line">fastboot.exe flash cache cache.img</span><br><span class="line">fastboot.exe flash system system.img</span><br><span class="line">fastboot.exe flash userdata userdata.img</span><br><span class="line">fastboot.exe flash recovery recovery.img</span><br><span class="line">fastboot reboot</span><br><span class="line"></span><br><span class="line">setenv bootsystem android</span><br><span class="line">setenv lcdtype 4.3</span><br><span class="line">saveenv</span><br><span class="line">reset</span><br><span class="line"></span><br><span class="line">adb devices</span><br><span class="line">adb push &lt;deviceId&gt; helloworld &#x2F;data</span><br></pre></td></tr></table></figure>
+</details>
+
+<details>
+<summary>烧写qt</summary>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fastboot.exe flash uboot u-boot-iTOP-6818.bin</span><br><span class="line">fastboot.exe flash boot boot.img</span><br><span class="line">fastboot.exe flash system system.img</span><br><span class="line">fastboot reboot</span><br><span class="line"></span><br><span class="line">setenv bootsystem qt</span><br><span class="line">setenv lcdtype 4.3</span><br><span class="line">saveenv</span><br><span class="line">reset</span><br></pre></td></tr></table></figure>
+</details>
 
 <p>烧写 Uboot 到 TF 卡</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#查看盘符</span><br><span class="line">df -l</span><br></pre></td></tr></table></figure>
 
-<p>TF 卡烧写 Android</p>
+<details>
+<summary>TF 卡烧写 Android</summary>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">TF 卡中建立目录“sdupdate”，sdupdate中放置boot.img、cache.img、system.img、u-boot-iTOP-6818.bin、userdata.img</span><br><span class="line">#一次性烧写</span><br><span class="line">sdfuse flashall</span><br><span class="line"></span><br><span class="line">#分别烧写----</span><br><span class="line">#单独烧写 uboot 镜像</span><br><span class="line">sdfuse flash uboot u-boot-iTOP-6818.bin</span><br><span class="line">#单独烧写内核镜像</span><br><span class="line">sdfuse flash boot boot.img</span><br><span class="line">#单独烧写 Android 文件系统镜像</span><br><span class="line">sdfuse flash cache cache.img</span><br><span class="line">sdfuse flash system system.img</span><br><span class="line">sdfuse flash userdata userdata.img</span><br><span class="line"></span><br><span class="line">setenv bootsystem android</span><br><span class="line">setenv lcdtype 4.3</span><br><span class="line">#设置参数和命令</span><br><span class="line">saveenv</span><br><span class="line">#设置拨码开关为 emmc 启动，取下 tf 卡</span><br><span class="line">reset</span><br></pre></td></tr></table></figure>
+</details>
 
+<details>
+<summary>TF 卡烧写 Qt</summary>
 
-<p>TF 卡烧写 Qt</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">TF 卡中建立目录“sdupdate”，sdupdate中放置boot.img、system.img、u-boot-iTOP-6818.bin</span><br><span class="line">#一次性烧写</span><br><span class="line">sdfuse flashall</span><br><span class="line"></span><br><span class="line">#分别烧写----</span><br><span class="line">#单独烧写 uboot 镜像</span><br><span class="line">sdfuse flash uboot u-boot-iTOP-6818.bin</span><br><span class="line">#单独烧写内核镜像</span><br><span class="line">sdfuse flash boot boot.img</span><br><span class="line">#单独烧写 Android 文件系统镜像</span><br><span class="line">sdfuse flash system system.img</span><br><span class="line"></span><br><span class="line">setenv bootsystem qt</span><br><span class="line">setenv lcdtype 4.3</span><br><span class="line">#设置参数和命令</span><br><span class="line">saveenv</span><br><span class="line">#设置拨码开关为 emmc 启动，取下 tf 卡</span><br><span class="line">reset</span><br></pre></td></tr></table></figure>
+</details>
 
+<details>
+<summary>查看设备与执行程序</summary>
 
-<p>查看设备</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ls &#x2F;dev&#x2F;u*</span><br><span class="line">ls &#x2F;dev&#x2F;mm*</span><br><span class="line"></span><br><span class="line">mkdir &#x2F;mnt&#x2F;udisk</span><br><span class="line">mount &#x2F;dev&#x2F;udisk &#x2F;mnt&#x2F;udisk&#x2F;</span><br><span class="line">ls &#x2F;mnt&#x2F;udisk&#x2F;</span><br><span class="line">chmod 777 helloworld</span><br><span class="line">helloworld -qws</span><br></pre></td></tr></table></figure>
-
+</details>
       
     </div>
     
