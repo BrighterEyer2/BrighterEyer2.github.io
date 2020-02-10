@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-02-08T08:30:03.000Z</updated>
+  <updated>2020-02-10T13:37:32.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,106 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[docker] oracle数据库</title>
+    <link href="http://brightereyer.xyz/2020/02/10/articles/2020/02/10/1581341852000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/10/articles/2020/02/10/1581341852000.html/</id>
+    <published>2020-02-10T13:37:32.000Z</published>
+    <updated>2020-02-10T13:37:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_38380025/article/details/80647620" target="_blank">Docker 拉取 oracle 11g镜像配置(镜像6.8G)</a><br><a href="https://www.cnblogs.com/maoxianfei/p/9083426.html" target="_blank">Docker oracle部署使用</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com&#x2F;helowin&#x2F;oracle_11g</span><br><span class="line">docker run -d -p 1521:1521 --name oracle11g registry.cn-hangzhou.aliyuncs.com&#x2F;helowin&#x2F;oracle_11g</span><br><span class="line">docker start oracle11g</span><br><span class="line">docker exec -it oracle11g bash</span><br><span class="line"></span><br><span class="line">#切换root</span><br><span class="line">su root</span><br><span class="line">#密码：</span><br><span class="line">helowin</span><br><span class="line"></span><br><span class="line">#编辑profile文件配置ORACLE环境变量</span><br><span class="line">vi &#x2F;etc&#x2F;profile</span><br><span class="line">export ORACLE_HOME&#x3D;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;product&#x2F;11.2.0&#x2F;dbhome_2</span><br><span class="line">export ORACLE_SID&#x3D;helowin</span><br><span class="line">export PATH&#x3D;$ORACLE_HOME&#x2F;bin:$PATH</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">#创建软连接</span><br><span class="line">ln -s $ORACLE_HOME&#x2F;bin&#x2F;sqlplus &#x2F;usr&#x2F;bin</span><br><span class="line"></span><br><span class="line">#从root切换到oracle 用户</span><br><span class="line">su - oracle</span><br><span class="line"></span><br><span class="line">#登录sqlplus</span><br><span class="line">sqlplus &#x2F;nolog</span><br><span class="line">conn &#x2F;as sysdba</span><br><span class="line"></span><br><span class="line">#查看用户</span><br><span class="line">select username,password from dba_users;</span><br><span class="line"></span><br><span class="line">#修改sys、system用户密码</span><br><span class="line">alter user system identified by system;</span><br><span class="line">alter user sys identified by sys;</span><br><span class="line"></span><br><span class="line">#连接测试</span><br><span class="line">connect system&#x2F;system;</span><br><span class="line"></span><br><span class="line">#创建用户</span><br><span class="line">create user test identified by test;</span><br><span class="line">#并给用户赋予权限</span><br><span class="line">grant connect,resource,dba to test;</span><br><span class="line"></span><br><span class="line">alter database open;</span><br><span class="line">alter database mount;</span><br><span class="line">alter database open;</span><br><span class="line">ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;</span><br><span class="line">exit</span><br></pre></td></tr></table></figure><p>查询ORACLE数据库的实例名和服务名</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#1.实例名：</span><br><span class="line">select instance_name from v$instance;</span><br><span class="line">#显示</span><br><span class="line">helowin</span><br><span class="line"></span><br><span class="line">#2.服务名：</span><br><span class="line">select global_name from global_name;</span><br><span class="line">#显示</span><br><span class="line">HELOWIN</span><br></pre></td></tr></table></figure><p>oracle 查看sid和服务名</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#匿名管理员登陆</span><br><span class="line">conn &#x2F;as sysdba</span><br><span class="line">#查看SID</span><br><span class="line">select instance_name from v$instance;</span><br><span class="line"></span><br><span class="line">#查看用户名</span><br><span class="line">select * from dba_users; --查看数据库里面所有用户，前提是你是有dba权限的帐号，如sys,system</span><br><span class="line">select * from all_users;  --查看你能管理的所有用户！</span><br><span class="line">select * from user_users; --查看当前用户信息 ！</span><br></pre></td></tr></table></figure><p>navicat连接oracle</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">主机：</span><br><span class="line">192.168.99.103</span><br><span class="line"></span><br><span class="line">端口：</span><br><span class="line">1521</span><br><span class="line"></span><br><span class="line">服务名：</span><br><span class="line">HELOWIN</span><br><span class="line"></span><br><span class="line">用户名：</span><br><span class="line">system</span><br><span class="line"></span><br><span class="line">密码：</span><br><span class="line">system</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/dongyuxu342719/article/details/81670837" target="_blank">Linux新建Oracle用户和数据库</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create table classinfo(</span><br><span class="line">       classid number(2) primary key,</span><br><span class="line">       classname varchar(10) not null   </span><br><span class="line">);</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/garyzhuang/p/9670411.html" target="_blank">oracle基础之增删改查（基础版）</a></p><p><a href="https://blog.csdn.net/dongyuxu342719/article/details/81670837" target="_blank">Linux新建Oracle用户和数据库</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#1、切换到Oracle用户</span><br><span class="line">su – oracle</span><br><span class="line"></span><br><span class="line">#2、登录sys用户</span><br><span class="line">sqlplus &#x2F; as sysdba</span><br><span class="line"></span><br><span class="line">#3、创建表空间</span><br><span class="line">#查询用户表空间文件的路径</span><br><span class="line">select name from v$datafile;</span><br><span class="line"></span><br><span class="line">CREATE TABLESPACE customerchat LOGGING DATAFILE &#39;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;helowin&#x2F;customerchat.dbf&#39; </span><br><span class="line">SIZE 100M AUTOEXTEND ON NEXT 32M MAXSIZE 500M EXTENT MANAGEMENT LOCAL;</span><br><span class="line"></span><br><span class="line">#4、创建临时表空间</span><br><span class="line">select name from v$tempfile;</span><br><span class="line">create temporary tablespace customerchat_temp tempfile &#39;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;helowin&#x2F;customerchat_temp.dbf&#39;</span><br><span class="line">size 100m autoextend on next 32m maxsize 500m extent management local;</span><br><span class="line"></span><br><span class="line">#5、创建用户密码与上面创建的文件形成映射关系</span><br><span class="line">create user customerchat identified by customerchat default tablespace customerchat temporary tablespace customerchat_temp;</span><br><span class="line"></span><br><span class="line">#6、为用户添加权限</span><br><span class="line">初始建立的用户没有任何权限，不能执行任何数据库操作，因此必须为用户设置权限或者角色。</span><br><span class="line"></span><br><span class="line">被赋予了某个角色的用户将拥有该角色所具备的权限，常被用到的系统预定义角色：</span><br><span class="line">CONNECT、RESOURCE、DBA、EXP_FULL_DATABASE、IMP_FULL_DATABASE。</span><br><span class="line"></span><br><span class="line">其中，CONNECT、RESOURCE、DBA主要用于数据库管理，数据库管理员需要被授予这三个角色。</span><br><span class="line">一般的数据库开发人员，需要被授予CONNECT、RESOURCE角色即可。</span><br><span class="line"></span><br><span class="line">EXP_FULL_DATABASE、IMP_FULL_DATABASE角色分别用于操作数据库导出、导入相关的操作。</span><br><span class="line">为用户授予角色：</span><br><span class="line">grant connect,resource,create session,dba to customerchat;</span><br><span class="line"></span><br><span class="line">#7、查询已创建的用户</span><br><span class="line">select username from dba_users;</span><br><span class="line"></span><br><span class="line">#8、修改用户密码，将用户的密码设置为123456</span><br><span class="line">alter user customerchat identified by 123456;</span><br><span class="line"></span><br><span class="line">#9、有时用户会处于锁定状态，解锁用户：</span><br><span class="line">alter user customerchat account unlock;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_38380025/article/details/80647620&quot; target=&quot;_blank&quot;&gt;Docker 拉取 oracle 11g镜像配置(镜像6.8G)&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;htt
+      
+    
+    </summary>
+    
+    
+    
+      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[win10] 启用或关闭Windows功能</title>
+    <link href="http://brightereyer.xyz/2020/02/09/articles/2020/02/09/1581239792000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/09/articles/2020/02/09/1581239792000.html/</id>
+    <published>2020-02-09T09:16:32.000Z</published>
+    <updated>2020-02-09T09:16:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/telwanggs/p/10770496.html" target="_blank">启用或关闭Windows功能</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/telwanggs/p/10770496.html&quot; target=&quot;_blank&quot;&gt;启用或关闭Windows功能&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="win10" scheme="http://brightereyer.xyz/tags/win10/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[sql] oracle常用sql</title>
+    <link href="http://brightereyer.xyz/2020/02/09/articles/2020/02/09/1581239791000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/09/articles/2020/02/09/1581239791000.html/</id>
+    <published>2020-02-09T09:16:31.000Z</published>
+    <updated>2020-02-09T09:16:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/yk10010/article/details/89513731" target="_blank">Oracle 常用SQL</a></p><p>docker安装oracle数据库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker search oracle</span><br><span class="line">docker volume create exeed-db</span><br><span class="line">docker run -d --name exeed-db -p 1521:1521 -p 8080:8080 --shm-size&#x3D;1g --restart&#x3D;always -e ORACLE_PWD&#x3D;XXX -v exeed-db:&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;oradata zerda&#x2F;oracle-database:11.2.0.2-xe</span><br></pre></td></tr></table></figure><p>Host</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker-machine ls</span><br><span class="line">docker-machine ip</span><br></pre></td></tr></table></figure><p>SID</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XE</span><br></pre></td></tr></table></figure><p>User</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sys as sysdba</span><br></pre></td></tr></table></figure><p>Password</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XXX</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/telwanggs/p/10770496.html" target="_blank">windows10启用或关闭Windows功能</a><br><a href="https://docs.microsoft.com/zh-cn/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v" target="_blank">windows10安装hyper-v</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/yk10010/article/details/89513731&quot; target=&quot;_blank&quot;&gt;Oracle 常用SQL&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;docker安装oracle数据库&lt;/p&gt;
+&lt;figure cl
+      
+    
+    </summary>
+    
+    
+    
+      <category term="sql" scheme="http://brightereyer.xyz/tags/sql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[linux] 用户及权限分配</title>
+    <link href="http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581162770000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581162770000.html/</id>
+    <published>2020-02-08T11:52:50.000Z</published>
+    <updated>2020-02-08T11:52:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/snail90/p/11427181.html" target="_blank">linux用户及权限分配</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/snail90/p/11427181.html&quot; target=&quot;_blank&quot;&gt;linux用户及权限分配&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>[qt] 自带opencv库</title>
@@ -315,30 +415,6 @@
   </entry>
   
   <entry>
-    <title>[android] 报错INSTALL_FAILED_NO_MATCHING_ABIS</title>
-    <link href="http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150590000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150590000.html/</id>
-    <published>2020-02-08T08:29:50.000Z</published>
-    <updated>2020-02-08T08:29:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>INSTALL_FAILED_NO_MATCHING_ABIS<br><a href="https://blog.csdn.net/Leafage_M/article/details/86675699" target="_blank">解决参考</a><br>app/build.gradle</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    splits &#123;</span><br><span class="line">        abi &#123;</span><br><span class="line">            enable true</span><br><span class="line">            reset()</span><br><span class="line">            include &#39;x86&#39;, &#39;armeabi-v7a&#39;, &#39;x86_64&#39;</span><br><span class="line">            universalApk true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;INSTALL_FAILED_NO_MATCHING_ABIS&lt;br&gt;&lt;a href=&quot;https://blog.csdn.net/Leafage_M/article/details/86675699&quot; target=&quot;_blank&quot;&gt;解决参考&lt;/a&gt;&lt;br&gt;app/bui
-      
-    
-    </summary>
-    
-    
-    
-      <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
     <title>[adb] 查看android设备ip</title>
     <link href="http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150589000.html/"/>
     <id>http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150589000.html/</id>
@@ -434,80 +510,6 @@
     
     
       <category term="vue" scheme="http://brightereyer.xyz/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[vue] better-scroll</title>
-    <link href="http://brightereyer.xyz/2020/02/06/articles/2020/02/06/1580970896000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/06/articles/2020/02/06/1580970896000.html/</id>
-    <published>2020-02-06T06:34:56.000Z</published>
-    <updated>2020-02-06T06:34:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/5214d4979ff2" target="_blank">在Vue中用better-scroll实现横向滚动</a><br><a href="http://www.imooc.com/article/272021" target="_blank">使用vue+better-scroll实现横向滚动效果</a></p><p><a href="https://github.com/CruxF/Vue-base" target="_blank">github Vue-base</a></p><p><a href="https://www.cnblogs.com/mhtss/p/11245132.html" target="_blank">当 better-scroll 遇见 Vue</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/5214d4979ff2&quot; target=&quot;_blank&quot;&gt;在Vue中用better-scroll实现横向滚动&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.imooc.com/article/2
-      
-    
-    </summary>
-    
-    
-    
-      <category term="vue" scheme="http://brightereyer.xyz/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[vue] axios+axios封装成http</title>
-    <link href="http://brightereyer.xyz/2020/02/06/articles/2020/02/06/1580970895000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/06/articles/2020/02/06/1580970895000.html/</id>
-    <published>2020-02-06T06:34:55.000Z</published>
-    <updated>2020-02-06T06:34:55.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://segmentfault.com/a/1190000013128858" target="_blank">vue全局使用axios的方法</a></p><p><a href="https://www.cnblogs.com/nogodie/p/9853660.html" target="_blank">axios封装成http</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">var Ajax &#x3D; &#123;</span><br><span class="line">    get: function(url,fn)&#123;</span><br><span class="line">        &#x2F;&#x2F; XMLHttpRequest对象用于在后台与服务器交换数据</span><br><span class="line">        var xhr&#x3D;new XMLHttpRequest();</span><br><span class="line">        xhr.open(&#39;GET&#39;,url,false);</span><br><span class="line">        xhr.onreadystatechange&#x3D;function()&#123;</span><br><span class="line">            &#x2F;&#x2F; readyState &#x3D;&#x3D; 4说明请求已完成</span><br><span class="line">            if(xhr.readyState&#x3D;&#x3D;4)&#123;</span><br><span class="line">                if(xhr.status&#x3D;&#x3D;200 || xhr.status&#x3D;&#x3D;304)&#123;</span><br><span class="line">                    console.log(xhr.responseText);</span><br><span class="line">                    fn.call(xhr.responseText);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        xhr.send();</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; data应为&#39;a&#x3D;a1&amp;b&#x3D;b1&#39;这种字符串格式，在jq里如果data为对象会自动将对象转成这种字符串格式</span><br><span class="line">    post: function(url,data,fn)&#123;</span><br><span class="line">        var xhr&#x3D;new XMLHttpRequest();</span><br><span class="line">        xhr.open(&#39;POST&#39;,url,false);</span><br><span class="line">        &#x2F;&#x2F; 添加http头，发送信息至服务器时内容编码类型</span><br><span class="line">        xhr.setRequestHeader(&#39;Content-Type&#39;,&#39;application&#x2F;x-www-form-urlencoded&#39;);</span><br><span class="line">        xhr.onreadystatechange&#x3D;function()&#123;</span><br><span class="line">            if (xhr.readyState&#x3D;&#x3D;4)&#123;</span><br><span class="line">                if (xhr.status&#x3D;&#x3D;200 || xhr.status&#x3D;&#x3D;304)&#123;</span><br><span class="line">                    &#x2F;&#x2F; console.log(xhr.responseText);</span><br><span class="line">                    fn.call(xhr.responseText);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        xhr.send(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000013128858&quot; target=&quot;_blank&quot;&gt;vue全局使用axios的方法&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/nogodie
-      
-    
-    </summary>
-    
-    
-    
-      <category term="vue" scheme="http://brightereyer.xyz/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[sublime] 微信小程序的sublime插件</title>
-    <link href="http://brightereyer.xyz/2020/02/06/articles/2020/02/06/1580970894000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/06/articles/2020/02/06/1580970894000.html/</id>
-    <published>2020-02-06T06:34:54.000Z</published>
-    <updated>2020-02-06T06:34:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://github.com/Lee66/tc-weapp-snippets" target="_blank">微信小程序 sublime 插件</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://github.com/Lee66/tc-weapp-snippets&quot; target=&quot;_blank&quot;&gt;微信小程序 sublime 插件&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="sublime" scheme="http://brightereyer.xyz/tags/sublime/"/>
     
   </entry>
   
