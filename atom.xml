@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-02-10T13:37:32.000Z</updated>
+  <updated>2020-02-12T11:16:43.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -17,13 +17,314 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[arm] Linux下ARM程序的编译运行及调试</title>
+    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506203000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506203000.html/</id>
+    <published>2020-02-12T11:16:43.000Z</published>
+    <updated>2020-02-12T11:16:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/dc8e263d6466" target="_blank">Linux下ARM程序的编译运行及调试</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/dc8e263d6466&quot; target=&quot;_blank&quot;&gt;Linux下ARM程序的编译运行及调试&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[zigbee] 专栏</title>
+    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506202000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506202000.html/</id>
+    <published>2020-02-12T11:16:42.000Z</published>
+    <updated>2020-02-12T11:16:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zjutlitao/p/5652058.html" target="_blank">3、ZigBee基础实验——GPIO输出控制实验-控制Led亮灭</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5652058.html" target="_blank">4、ZigBee基础实验——中断</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5658644.html" target="_blank">5、ZigBee基础实验——图文与代码详解定时器1（16位定时器）（长文）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5671921.html" target="_blank">6、ZigBee基础实验——定时器3和定时器4（8 位定时器）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5675169.html" target="_blank">7、ZigBee之UART剖析（ONLY串口发送）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5676675.html" target="_blank">8、ZigBee之UART剖析·二（串口收发）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5677624.html" target="_blank">9、ZigBee之AD剖析——AD采集CC2530温度串口显示</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5683177.html" target="_blank">10、ZigBee之睡眠定时器</a><br><a href="https://www.cnblogs.com/zjutlitao/p/5686488.html" target="_blank">11、ZigBee之睡眠定时器二</a><br><a href="https://www.cnblogs.com/zjutlitao/p/5686834.html" target="_blank">12、ZigBee之看门狗定时器——饿了就咬人的GOOD DOG</a><br><a href="https://www.cnblogs.com/zjutlitao/p/5693720.html" target="_blank">13、ZigBee基础阶段性回顾与加深理解——用定时器1产生PWM来控制LED亮度（七色灯）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5652025.html" target="_blank">ZigBee开发环境搭建</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/zjutlitao/p/5652058.html&quot; target=&quot;_blank&quot;&gt;3、ZigBee基础实验——GPIO输出控制实验-控制Led亮灭&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnb
+      
+    
+    </summary>
+    
+    
+    
+      <category term="zigbee" scheme="http://brightereyer.xyz/tags/zigbee/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[vmware] 设置NAT模式上网</title>
+    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506201000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506201000.html/</id>
+    <published>2020-02-12T11:16:41.000Z</published>
+    <updated>2020-02-12T11:16:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/lavendyu/article/details/80373708" target="_blank">VMware 虚拟机如何连接网络</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/lavendyu/article/details/80373708&quot; target=&quot;_blank&quot;&gt;VMware 虚拟机如何连接网络&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="vmware" scheme="http://brightereyer.xyz/tags/vmware/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[vmware] 扩展硬盘空间</title>
+    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506200000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506200000.html/</id>
+    <published>2020-02-12T11:16:40.000Z</published>
+    <updated>2020-02-12T11:16:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/Nonpc123/article/details/90098267" target="_blank">VMware 虚拟机扩展Ubuntu系统磁盘空间</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#查看添加的新的硬盘 &#x2F;dev&#x2F;sdb</span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line">#把新添加的硬盘格式化成 ext3</span><br><span class="line">mkfs -t ext3 &#x2F;dev&#x2F;sdb</span><br><span class="line"></span><br><span class="line">#在&#x2F;home 目录下建立 work 文件夹</span><br><span class="line">mkdir &#x2F;home&#x2F;work</span><br><span class="line">mount &#x2F;dev&#x2F;sdb work&#x2F;</span><br><span class="line"></span><br><span class="line">#设置开机启动自动挂载</span><br><span class="line">vim &#x2F;etc&#x2F;fstab</span><br><span class="line">&#x2F;dev&#x2F;sdb &#x2F;home&#x2F;work ext3 defaults 0 0</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/Nonpc123/article/details/90098267&quot; target=&quot;_blank&quot;&gt;VMware 虚拟机扩展Ubuntu系统磁盘空间&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlig
+      
+    
+    </summary>
+    
+    
+    
+      <category term="vmware" scheme="http://brightereyer.xyz/tags/vmware/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[ubuntu14] 更新源</title>
+    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506199000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506199000.html/</id>
+    <published>2020-02-12T11:16:39.000Z</published>
+    <updated>2020-02-12T11:16:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>(1)备份原来的源列表文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;apt&#x2F;</span><br><span class="line">mv sources.list sources.list.bak</span><br></pre></td></tr></table></figure><p>(2)<br>nano sources.list</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -r &#x2F;var&#x2F;lib&#x2F;apt&#x2F;lists&#x2F;*</span><br></pre></td></tr></table></figure><p>更新源文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;(1)备份原来的源列表文件&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ubuntu14" scheme="http://brightereyer.xyz/tags/ubuntu14/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] jsp登录注册</title>
+    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506198000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506198000.html/</id>
+    <published>2020-02-12T11:16:38.000Z</published>
+    <updated>2020-02-12T11:16:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_35280367/article/details/79700970" target="_blank">使用命令构建（Maven）Spring Boot项目</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn archetype:generate -DinteractiveMode&#x3D;false -DgroupId&#x3D;com.code -DartifactId&#x3D;demo -Dversion&#x3D;1.0.0-SNAPSHOT</span><br></pre></td></tr></table></figure><p><a href="https://www.jb51.net/article/110203.htm" target="_blank">SpringBoot创建JSP登录页面功能实例代码</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_35280367/article/details/79700970&quot; target=&quot;_blank&quot;&gt;使用命令构建（Maven）Spring Boot项目&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;hi
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[linux] 查看挂载情况</title>
+    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506197000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506197000.html/</id>
+    <published>2020-02-12T11:16:37.000Z</published>
+    <updated>2020-02-12T11:16:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>linux查看挂载</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br><span class="line">#或</span><br><span class="line">lsblk -f</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/sword03/p/9818957.html" target="_blank">&lt;Linux查看设备命令/a&gt;</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#查看所有启动时检测到的硬件信息</span><br><span class="line">dmesg</span><br><span class="line"></span><br><span class="line">lspci -tv # 显示外设信息</span><br><span class="line">lsusb -tv # 列出所有USB设备</span><br><span class="line"></span><br><span class="line">#查看USB设备：</span><br><span class="line">cat &#x2F;proc&#x2F;bus&#x2F;usb&#x2F;devices</span><br><span class="line"></span><br><span class="line">#查看键盘和鼠标:</span><br><span class="line">cat &#x2F;proc&#x2F;bus&#x2F;input&#x2F;devices</span><br><span class="line"></span><br><span class="line">#查看系统硬盘信息和使用情况：</span><br><span class="line">fdisk &amp; disk – l &amp; df</span><br><span class="line"></span><br><span class="line">#查看各设备的中断请求(IRQ):</span><br><span class="line">cat &#x2F;proc&#x2F;interrupts</span><br><span class="line"></span><br><span class="line">#用硬件检测程序kuduz探测新硬件：</span><br><span class="line">service kudzu start</span><br><span class="line">service kudzu restart</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;linux查看挂载&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/spa
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[arm] ubuntu18.04+嵌入式Linux开发环境+嵌入式Qt5.6开发环境</title>
+    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506196000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506196000.html/</id>
+    <published>2020-02-12T11:16:36.000Z</published>
+    <updated>2020-02-12T11:16:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/Ningjianwen/article/details/87879668" target="_blank">从0开始在ubuntu18.04上搭建嵌入式Linux开发环境以及嵌入式Qt5.6开发环境</a></p><p><a href="https://pan.baidu.com/s/10r4kku8C0bt8vLampOyvWQ" target="_blank">文件</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/Ningjianwen/article/details/87879668&quot; target=&quot;_blank&quot;&gt;从0开始在ubuntu18.04上搭建嵌入式Linux开发环境以及嵌入式Qt5.6开发环境&lt;/a&gt;&lt;/p
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[arm] ubuntu+QEMU</title>
+    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506195000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506195000.html/</id>
+    <published>2020-02-12T11:16:35.000Z</published>
+    <updated>2020-02-12T11:16:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.veryarm.com/15700.html" target="_blank">零基础qemu模拟arm系统环境搭建</a></p><p>qemu编译安装</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 1.通过git下载源码树</span><br><span class="line">git clone git:&#x2F;&#x2F;git.qemu-project.org&#x2F;qemu.git</span><br><span class="line"></span><br><span class="line"># 2.安装需要的软件包</span><br><span class="line">sudo apt-get install -y zlib1g-dev libglib2.0-0 libglib2.0-dev autoconf flex bison libtool  </span><br><span class="line"></span><br><span class="line"># 3.解压qemu源码包:</span><br><span class="line">tar zxvf qemu qemu-2.7.0.tar.bz2</span><br><span class="line">cd qemu-2.7.0</span><br><span class="line"></span><br><span class="line"># 4.然后配置编译安装</span><br><span class="line">.&#x2F;configure --target-list&#x3D;arm-softmmu --audio-drv-list&#x3D;</span><br><span class="line"></span><br><span class="line">#安装到系统目录 &#x2F;usr&#x2F;local中</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure><p>linux内核编译</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 1.安装gun的交叉编译工具：</span><br><span class="line">sudo apt-get install gcc-arm-linux-gnueabi</span><br><span class="line"></span><br><span class="line"># 2.linux-3.16.tar.xz</span><br><span class="line">wget https:&#x2F;&#x2F;www.kernel.org&#x2F;pub&#x2F;linux&#x2F;kernel&#x2F;v3.x&#x2F;linux-3.16.tar.xz</span><br><span class="line"></span><br><span class="line"># 3.配置与编译</span><br><span class="line">export CROSS_COMPILE&#x3D;arm-linux-gnueabi-</span><br><span class="line">export ARCH&#x3D;arm</span><br><span class="line">make vexpress_defconfig</span><br><span class="line">make -j2</span><br></pre></td></tr></table></figure><p>文件系统的制作</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># 1.busybox下载</span><br><span class="line">wget http:&#x2F;&#x2F;www.busybox.net&#x2F;downloads&#x2F;busybox-1.25.0.tar.bz2 --no-check-certificate</span><br><span class="line"></span><br><span class="line"># 2.配置编译：</span><br><span class="line">make defconfig</span><br><span class="line">make CROSS_COMPILE&#x3D;arm-linux-gnueabi-</span><br><span class="line">make CROSS_COMPILE&#x3D;arm-linux-gnueabi-install</span><br><span class="line"></span><br><span class="line"># 3.编译完成后，可以制作根文件系统了，首先创建必要的目录</span><br><span class="line">mkdir rootfs</span><br><span class="line">cd rootfs</span><br><span class="line">mkdir rootfs &#x2F;lib</span><br><span class="line">mkdir rootfs &#x2F;dev</span><br><span class="line"></span><br><span class="line"># 4.拷贝busybox编译生产的目录和文件，编译器自带的lib</span><br><span class="line">sudo cp busybox-1.25.0&#x2F;_install&#x2F;* -r rootfs&#x2F;</span><br><span class="line">sudo cp -P &#x2F;usr&#x2F;arm-linux-gnueabi&#x2F;lib&#x2F;* rootfs&#x2F;lib&#x2F;</span><br><span class="line"></span><br><span class="line"># 5.创建4个tty端终设备</span><br><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty1 c 4 1</span><br><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty2 c 4 2</span><br><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty3 c 4 3</span><br><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty4 c 4 4</span><br><span class="line"></span><br><span class="line"># 6.生成32M大小的镜像 ，copy文件系统树到镜像文件中</span><br><span class="line">dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;a9rootfs.ext3 bs&#x3D;1M count&#x3D;32</span><br><span class="line">mkfs.ext3 a9rootfs.ext3</span><br><span class="line">mkdir tmpfs</span><br><span class="line">mount -t ext3 a9rootfs.ext3 tmpfs&#x2F; -o loop</span><br><span class="line">cp -r rootfs&#x2F;*  tmpfs&#x2F;</span><br><span class="line">sudo umount tmpfs</span><br></pre></td></tr></table></figure><p>运行虚拟机</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;src&#x2F;qemu-rootfs&#x2F;:qemu-system-arm -M vexpress-a9 -m 512M -kernel &#x2F;home&#x2F;marquis&#x2F;src&#x2F;kernel&#x2F;linux-3.16&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;zImage -nographic -append &quot;root&#x3D;&#x2F;dev&#x2F;mmcblk0 console&#x3D;ttyAMA0&quot; -sd a9rootfs.ext3</span><br></pre></td></tr></table></figure><p><a href="https://www.jianshu.com/p/dc8e263d6466" target="_blank">Linux下ARM程序的编译运行及调试</a><br><a href="https://jingyan.baidu.com/article/f00622281253e8fbd3f0c814.html" target="_blank">QEMU模拟ARM嵌入式LINUX系统</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.veryarm.com/15700.html&quot; target=&quot;_blank&quot;&gt;零基础qemu模拟arm系统环境搭建&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;qemu编译安装&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[arm] iTop6818最小linux-c系统</title>
+    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581505786000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581505786000.html/</id>
+    <published>2020-02-12T11:09:46.000Z</published>
+    <updated>2020-02-12T11:09:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<details><summary>busybox-1.21.1.tar.bz2</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;www.busybox.net&#x2F;</span><br><span class="line"></span><br><span class="line">tar -xvf busybox-1.21.1.tar.bz2</span><br><span class="line">cd busybox-1.21.1</span><br><span class="line"></span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  配置busybox start  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">make menuconfig</span><br><span class="line"></span><br><span class="line">（1）选中“Busybox Settings”，</span><br><span class="line">然后按“回车”进入到“Busybox Settings”</span><br><span class="line"></span><br><span class="line">（2）第一个是“Build Optiions-&gt; Cross Compiler prefix”, </span><br><span class="line">输入 “arm-none-linux-gnueabi-”，</span><br><span class="line">ok回车返回</span><br><span class="line"></span><br><span class="line">（3）使用键盘的“左右”方向按键，</span><br><span class="line">选中“Exit”，</span><br><span class="line">“回车”回到“Busybox Settings”设置界面</span><br><span class="line"></span><br><span class="line">（4）选中“Installation Options”，</span><br><span class="line">然后选择“Select”，</span><br><span class="line">按“回车”进入“Installation Options”配置界面</span><br><span class="line"></span><br><span class="line">（5）选中“BusyBox installation prefix (NEW)”，</span><br><span class="line">然后按“回车”进入“BusyBox installation prefix”配置界面，</span><br><span class="line">删除“.&#x2F;_install”，</span><br><span class="line">输入“..&#x2F;system”，</span><br><span class="line">按“回车”回到“Installation Options”</span><br><span class="line"></span><br><span class="line">（6）键盘“向右”的方向键移动光标到“Exit”，</span><br><span class="line">按“回车”返回到“Busybox Settings”</span><br><span class="line"></span><br><span class="line">（7）移动光标到“Exit”，</span><br><span class="line">按“回车”返回到“Busybox Configuration”</span><br><span class="line"></span><br><span class="line">（8）移动光标到“Exit”，</span><br><span class="line">按“回车”，弹出保存配置界面，</span><br><span class="line">选择“Yes”，按“回车”保存配置，退出配置界面</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">cd ..&#x2F;system</span><br><span class="line">ls</span><br><span class="line">mkdir dev etc lib mnt proc sys tmp var</span><br><span class="line"></span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  配置busybox end  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  etc&#x2F;eth0-setting start  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">vi etc&#x2F;eth0-setting</span><br><span class="line"></span><br><span class="line">IP&#x3D;192.168.1.230</span><br><span class="line">Mask&#x3D;255.255.255.0</span><br><span class="line">Gateway&#x3D;192.168.1.1</span><br><span class="line">DNS&#x3D;192.168.1.1</span><br><span class="line">MAC&#x3D;08:90:90:90:90:90</span><br><span class="line"></span><br><span class="line">chmod 755 etc&#x2F;eth0-setting</span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  etc&#x2F;eth0-setting end  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">mkdir etc&#x2F;init.d</span><br><span class="line"></span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  etc&#x2F;init.d&#x2F;ifconfig-eth0 start  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">vi etc&#x2F;init.d&#x2F;ifconfig-eth0</span><br><span class="line"></span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo -n Try to bring eth0 interface up......&gt;&#x2F;dev&#x2F;ttySAC2</span><br><span class="line"></span><br><span class="line">if [ -f &#x2F;etc&#x2F;eth0-setting ] ; then</span><br><span class="line">source &#x2F;etc&#x2F;eth0-setting</span><br><span class="line">if grep -q &quot;&#x2F;dev&#x2F;root &#x2F; nfs &quot; &#x2F;etc&#x2F;mtab ; then</span><br><span class="line">echo -n NFS root ... &gt; &#x2F;dev&#x2F;ttySAC2</span><br><span class="line">else</span><br><span class="line">ifconfig eth0 down</span><br><span class="line">ifconfig eth0 hw ether $MAC</span><br><span class="line">ifconfig eth0 $IP netmask $Mask up</span><br><span class="line">route add default gw $Gateway</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">echo nameserver $DNS &gt; &#x2F;etc&#x2F;resolv.conf</span><br><span class="line">else</span><br><span class="line"></span><br><span class="line">if grep -q &quot;^&#x2F;dev&#x2F;root &#x2F; nfs &quot; &#x2F;etc&#x2F;mtab ; then</span><br><span class="line">echo -n NFS root ... &gt; &#x2F;dev&#x2F;ttySAC2</span><br><span class="line">else</span><br><span class="line">&#x2F;sbin&#x2F;ifconfig eth0 192.168.253.12 netmask 255.255.255.0 up</span><br><span class="line">fi</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">echo Done &gt; &#x2F;dev&#x2F;ttySAC2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chmod 755 etc&#x2F;init.d&#x2F;ifconfig-eth0</span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  etc&#x2F;init.d&#x2F;ifconfig-eth0 end  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  etc&#x2F;init.d&#x2F;rcS start  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">vi etc&#x2F;init.d&#x2F;rcS</span><br><span class="line"></span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">PATH&#x3D;&#x2F;sbin:&#x2F;bin:&#x2F;usr&#x2F;sbin:&#x2F;usr&#x2F;bin:&#x2F;usr&#x2F;local&#x2F;bin:</span><br><span class="line">runlevel&#x3D;S</span><br><span class="line">prevlevel&#x3D;N</span><br><span class="line">umask 022</span><br><span class="line">export PATH runlevel prevlevel</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Trap CTRL-C &amp;c only in this shell so we can interrupt subprocesses.</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">trap &quot;:&quot; INT QUIT TSTP</span><br><span class="line">&#x2F;bin&#x2F;hostname iTOP-6818</span><br><span class="line">#&#x2F;bin&#x2F;mount -n -t proc none &#x2F;proc</span><br><span class="line">#&#x2F;bin&#x2F;mount -n -t sysfs none &#x2F;sys</span><br><span class="line">#&#x2F;bin&#x2F;mount -n -t usbfs none &#x2F;proc&#x2F;bus&#x2F;usb</span><br><span class="line">#&#x2F;bin&#x2F;mount -t ramfs none &#x2F;dev</span><br><span class="line">[ -e &#x2F;proc&#x2F;1 ] || &#x2F;bin&#x2F;mount -n -t proc none &#x2F;proc</span><br><span class="line">[ -e &#x2F;sys&#x2F;class ] || &#x2F;bin&#x2F;mount -n -t sysfs none &#x2F;sys</span><br><span class="line">[ -e &#x2F;dev&#x2F;tty ] || &#x2F;bin&#x2F;mount -t ramfs none &#x2F;dev</span><br><span class="line"></span><br><span class="line">echo &#x2F;sbin&#x2F;mdev &gt; &#x2F;proc&#x2F;sys&#x2F;kernel&#x2F;hotplug</span><br><span class="line">&#x2F;sbin&#x2F;mdev -s</span><br><span class="line">#&#x2F;bin&#x2F;hotplug</span><br><span class="line"># mounting file system specified in &#x2F;etc&#x2F;fstab</span><br><span class="line">mkdir -p &#x2F;dev&#x2F;pts</span><br><span class="line">mkdir -p &#x2F;dev&#x2F;shm</span><br><span class="line">&#x2F;bin&#x2F;mount -n -t devpts none &#x2F;dev&#x2F;pts -o mode&#x3D;0622</span><br><span class="line">&#x2F;bin&#x2F;mount -n -t tmpfs tmpfs &#x2F;dev&#x2F;shm</span><br><span class="line">#&#x2F;bin&#x2F;mount -n -t ramfs none &#x2F;tmp</span><br><span class="line">#&#x2F;bin&#x2F;mount -n -t ramfs none &#x2F;var</span><br><span class="line">mkdir -p &#x2F;var&#x2F;empty</span><br><span class="line">mkdir -p &#x2F;var&#x2F;log</span><br><span class="line">mkdir -p &#x2F;var&#x2F;log&#x2F;boa</span><br><span class="line">mkdir -p &#x2F;var&#x2F;lock</span><br><span class="line">mkdir -p &#x2F;var&#x2F;run</span><br><span class="line">mkdir -p &#x2F;var&#x2F;tmp</span><br><span class="line"></span><br><span class="line">#ln -sf &#x2F;dev&#x2F;ttyS2 &#x2F;dev&#x2F;tty2</span><br><span class="line">#ln -sf &#x2F;dev&#x2F;ttyS2 &#x2F;dev&#x2F;tty3</span><br><span class="line">#ln -sf &#x2F;dev&#x2F;ttyS2 &#x2F;dev&#x2F;tty4</span><br><span class="line"></span><br><span class="line">syslogd</span><br><span class="line">&#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F;netd start</span><br><span class="line">echo &quot; &quot; &gt; &#x2F;dev&#x2F;tty1</span><br><span class="line">echo &quot;Starting networking...&quot; &gt; &#x2F;dev&#x2F;tty1</span><br><span class="line"></span><br><span class="line">#sleep 1</span><br><span class="line">#&#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F;httpd start</span><br><span class="line">#echo &quot; &quot; &gt; &#x2F;dev&#x2F;tty1</span><br><span class="line">#echo &quot;Starting web server...&quot; &gt; &#x2F;dev&#x2F;tty1</span><br><span class="line">#sleep 1</span><br><span class="line">#&#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F;leds start</span><br><span class="line">#echo &quot; &quot; &gt; &#x2F;dev&#x2F;tty1</span><br><span class="line">#echo &quot;Starting leds service...&quot; &gt; &#x2F;dev&#x2F;tty1</span><br><span class="line">#echo &quot; &quot;</span><br><span class="line">#sleep 1</span><br><span class="line"></span><br><span class="line">#echo &quot;*************************************&quot; &gt; &#x2F;dev&#x2F;ttySAC2</span><br><span class="line">#echo &quot; http:&#x2F;&#x2F;www.topeet.com.cn &quot; &gt; &#x2F;dev&#x2F;ttySAC2</span><br><span class="line">#echo &quot;*************************************&quot; &gt; &#x2F;dev&#x2F;ttySAC2</span><br><span class="line">#echo &quot;*************************************&quot;</span><br><span class="line">#echo &quot; http:&#x2F;&#x2F;www.topeet.com.cn &quot;</span><br><span class="line">#echo &quot;*************************************&quot;</span><br><span class="line"></span><br><span class="line">mkdir &#x2F;mnt&#x2F;disk</span><br><span class="line"></span><br><span class="line">sleep 1</span><br><span class="line">&#x2F;sbin&#x2F;ifconfig lo 127.0.0.1</span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;ifconfig-eth0</span><br><span class="line"></span><br><span class="line">chmod 755 etc&#x2F;init.d&#x2F;rcS</span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  etc&#x2F;init.d&#x2F;rcS end  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">ls etc&#x2F;init.d&#x2F;</span><br><span class="line"></span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  etc&#x2F;passwd start  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">vi etc&#x2F;passwd</span><br><span class="line"></span><br><span class="line">root::0:0:root:&#x2F;:&#x2F;bin&#x2F;sh</span><br><span class="line">bin:*:1:1:bin:&#x2F;bin:</span><br><span class="line">daemon:*:2:2:daemon:&#x2F;sbin:</span><br><span class="line">nobody:*:99:99:Nobody:&#x2F;:</span><br><span class="line"></span><br><span class="line">chmod 755 etc&#x2F;passwd</span><br><span class="line"></span><br><span class="line">vi etc&#x2F;profile</span><br><span class="line"># Ash profile</span><br><span class="line"># vim: syntax&#x3D;sh</span><br><span class="line"></span><br><span class="line"># No core files by default</span><br><span class="line">ulimit -S -c 0 &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1</span><br><span class="line">USER&#x3D;&quot;&#96;id -un&#96;&quot;</span><br><span class="line">LOGNAME&#x3D;$USER</span><br><span class="line">PS1&#x3D;&#39;[$USER@$HOSTNAME]# &#39; PATH&#x3D;$PATH</span><br><span class="line"></span><br><span class="line">HOSTNAME&#x3D;&#96;&#x2F;bin&#x2F;hostname&#96;</span><br><span class="line">export USER LOGNAME PS1 PATH</span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  etc&#x2F;passwd end  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  etc&#x2F;rc.d&#x2F; start  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">mkdir -p etc&#x2F;rc.d&#x2F;init.d</span><br><span class="line">vi etc&#x2F;rc.d&#x2F;init.d&#x2F;netd</span><br><span class="line"></span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line"></span><br><span class="line">base&#x3D;inetd</span><br><span class="line"># See how we were called.</span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">start)</span><br><span class="line">&#x2F;usr&#x2F;sbin&#x2F;$base</span><br><span class="line">;;</span><br><span class="line"></span><br><span class="line">stop)</span><br><span class="line">pid&#x3D;&#96;&#x2F;bin&#x2F;pidof $base&#96;</span><br><span class="line">if [ -n &quot;$pid&quot; ]; then</span><br><span class="line">kill -9 $pid</span><br><span class="line">fi</span><br><span class="line">;;</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line">exit 0</span><br><span class="line"></span><br><span class="line">chmod 755 etc&#x2F;rc.d&#x2F;init.d&#x2F;netd</span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  etc&#x2F;rc.d&#x2F; end  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  lib start  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">cp -r &#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2009q3&#x2F;arm-none-linux-gnueabi&#x2F;lib&#x2F;* .&#x2F;lib&#x2F;</span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  lib end  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">cd var</span><br><span class="line">mkdir lib lock log run tmp</span><br><span class="line">cd ..&#x2F;..&#x2F;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">tar xvf system_6818_minilinux.tar.gz</span><br><span class="line"></span><br><span class="line">ls ~&#x2F;lollipop-5.1.1_r6&#x2F;android&#x2F;qt_system</span><br></pre></td></tr></table></figure></details><details><summary>arm-2009q3.tar.bz2</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line"></span><br><span class="line">mkdir &#x2F;usr&#x2F;local&#x2F;arm&#x2F;</span><br><span class="line">tar xvf arm-2009q3.tar.bz2 -C &#x2F;usr&#x2F;local&#x2F;arm&#x2F;</span><br><span class="line"></span><br><span class="line">vim &#x2F;root&#x2F;.bashrc</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2009q3&#x2F;bin</span><br><span class="line">source &#x2F;root&#x2F;.bashrc</span><br><span class="line"></span><br><span class="line">#Ubuntu 命令行中输入命令</span><br><span class="line">arm</span><br></pre></td></tr></table></figure></details><p>helloworld.c</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)&#123;</span><br><span class="line">printf(&quot;hello world&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>编译helloworld程序</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arm-none-linux-gnueabi-gcc -o helloworld helloworld.c -static</span><br></pre></td></tr></table></figure><p>OTG烧写镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fastboot.exe flash system system.img</span><br><span class="line">fastboot.exe reboot</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;data</span><br><span class="line">#拷贝程序到开发板</span><br><span class="line">chmod 777 &#x2F;data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#开启允许 USB 调试，fastboot目录下</span><br><span class="line">adb push helloworld &#x2F;data</span><br><span class="line"></span><br><span class="line">#超级终端中，输入命令</span><br><span class="line">cd &#x2F;data</span><br><span class="line">.&#x2F;helloworld</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;details&gt;
+&lt;summary&gt;busybox-1.21.1.tar.bz2&lt;/summary&gt;
+
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[arm] iTop6818-linux-c程序</title>
+    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581505785000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581505785000.html/</id>
+    <published>2020-02-12T11:09:45.000Z</published>
+    <updated>2020-02-12T11:09:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/BrighterEyer/itop6818Demos/tree/master/linux-c" target="_blank">linux-c</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://github.com/BrighterEyer/itop6818Demos/tree/master/linux-c&quot; target=&quot;_blank&quot;&gt;linux-c&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[arm] iTop6818使用TF卡启动</title>
+    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581468037000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581468037000.html/</id>
+    <published>2020-02-12T00:40:37.000Z</published>
+    <updated>2020-02-12T00:40:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>烧写 Uboot 到 TF 卡</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#将 TF 卡从 windows 接入 Ubuntu</span><br><span class="line"></span><br><span class="line">#查看盘符</span><br><span class="line">df -l</span><br><span class="line"></span><br><span class="line">cd &#x2F;home&#x2F;6818&#x2F;lollipop-5.1.1_r6&#x2F;result</span><br><span class="line">ls u-boot-Top-6818.bin</span><br><span class="line"></span><br><span class="line">.&#x2F;mkuboot &#x2F;dev&#x2F;sdx</span><br></pre></td></tr></table></figure><p>TF 卡引导 uboot</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">拨码开关编号 1 2 3</span><br><span class="line">EMMC 启动 1 0 1</span><br><span class="line">TF 卡启动 1 0 0</span><br></pre></td></tr></table></figure><p>TF 卡烧写 Android</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#在 TF 卡中建立目录“sdupdate”，然后将 Android 的镜像拷贝到“sdupdate”目录下</span><br><span class="line"></span><br><span class="line">boot.img</span><br><span class="line">cache.img</span><br><span class="line">system.img</span><br><span class="line">u-boot-iTOP-6818.bin</span><br><span class="line">userdata.img</span><br><span class="line"></span><br><span class="line">#recovery.img</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#将 TF 卡接到开发板，将开发板设置为 TF 卡启动，上电启动开发板，进入 uboot 模式</span><br><span class="line">sdfuse flashall</span><br><span class="line"></span><br><span class="line">setenv bootsystem android</span><br><span class="line">saveenv</span><br></pre></td></tr></table></figure><p>TF 卡烧写 Qt</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#在 TF 卡中建立目录“sdupdate”，然后将 QT 的镜像拷贝到“sdupdate”目录下</span><br><span class="line"></span><br><span class="line">boot.img</span><br><span class="line">system.img</span><br><span class="line">u-boot-iTOP-6818.bin</span><br><span class="line"></span><br><span class="line">#将 TF 卡接到开发板，将开发板设置为 TF 卡启动，上电启动开发板，进入 uboot 模式</span><br><span class="line">sdfuse flashall</span><br><span class="line"></span><br><span class="line">setenv bootsystem qt</span><br><span class="line">saveenv</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;烧写 Uboot 到 TF 卡&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[docker] oracle数据库</title>
     <link href="http://brightereyer.xyz/2020/02/10/articles/2020/02/10/1581341852000.html/"/>
     <id>http://brightereyer.xyz/2020/02/10/articles/2020/02/10/1581341852000.html/</id>
     <published>2020-02-10T13:37:32.000Z</published>
     <updated>2020-02-10T13:37:32.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_38380025/article/details/80647620" target="_blank">Docker 拉取 oracle 11g镜像配置(镜像6.8G)</a><br><a href="https://www.cnblogs.com/maoxianfei/p/9083426.html" target="_blank">Docker oracle部署使用</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com&#x2F;helowin&#x2F;oracle_11g</span><br><span class="line">docker run -d -p 1521:1521 --name oracle11g registry.cn-hangzhou.aliyuncs.com&#x2F;helowin&#x2F;oracle_11g</span><br><span class="line">docker start oracle11g</span><br><span class="line">docker exec -it oracle11g bash</span><br><span class="line"></span><br><span class="line">#切换root</span><br><span class="line">su root</span><br><span class="line">#密码：</span><br><span class="line">helowin</span><br><span class="line"></span><br><span class="line">#编辑profile文件配置ORACLE环境变量</span><br><span class="line">vi &#x2F;etc&#x2F;profile</span><br><span class="line">export ORACLE_HOME&#x3D;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;product&#x2F;11.2.0&#x2F;dbhome_2</span><br><span class="line">export ORACLE_SID&#x3D;helowin</span><br><span class="line">export PATH&#x3D;$ORACLE_HOME&#x2F;bin:$PATH</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">#创建软连接</span><br><span class="line">ln -s $ORACLE_HOME&#x2F;bin&#x2F;sqlplus &#x2F;usr&#x2F;bin</span><br><span class="line"></span><br><span class="line">#从root切换到oracle 用户</span><br><span class="line">su - oracle</span><br><span class="line"></span><br><span class="line">#登录sqlplus</span><br><span class="line">sqlplus &#x2F;nolog</span><br><span class="line">conn &#x2F;as sysdba</span><br><span class="line"></span><br><span class="line">#查看用户</span><br><span class="line">select username,password from dba_users;</span><br><span class="line"></span><br><span class="line">#修改sys、system用户密码</span><br><span class="line">alter user system identified by system;</span><br><span class="line">alter user sys identified by sys;</span><br><span class="line"></span><br><span class="line">#连接测试</span><br><span class="line">connect system&#x2F;system;</span><br><span class="line"></span><br><span class="line">#创建用户</span><br><span class="line">create user test identified by test;</span><br><span class="line">#并给用户赋予权限</span><br><span class="line">grant connect,resource,dba to test;</span><br><span class="line"></span><br><span class="line">alter database open;</span><br><span class="line">alter database mount;</span><br><span class="line">alter database open;</span><br><span class="line">ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;</span><br><span class="line">exit</span><br></pre></td></tr></table></figure><p>查询ORACLE数据库的实例名和服务名</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#1.实例名：</span><br><span class="line">select instance_name from v$instance;</span><br><span class="line">#显示</span><br><span class="line">helowin</span><br><span class="line"></span><br><span class="line">#2.服务名：</span><br><span class="line">select global_name from global_name;</span><br><span class="line">#显示</span><br><span class="line">HELOWIN</span><br></pre></td></tr></table></figure><p>oracle 查看sid和服务名</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#匿名管理员登陆</span><br><span class="line">conn &#x2F;as sysdba</span><br><span class="line">#查看SID</span><br><span class="line">select instance_name from v$instance;</span><br><span class="line"></span><br><span class="line">#查看用户名</span><br><span class="line">select * from dba_users; --查看数据库里面所有用户，前提是你是有dba权限的帐号，如sys,system</span><br><span class="line">select * from all_users;  --查看你能管理的所有用户！</span><br><span class="line">select * from user_users; --查看当前用户信息 ！</span><br></pre></td></tr></table></figure><p>navicat连接oracle</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">主机：</span><br><span class="line">192.168.99.103</span><br><span class="line"></span><br><span class="line">端口：</span><br><span class="line">1521</span><br><span class="line"></span><br><span class="line">服务名：</span><br><span class="line">HELOWIN</span><br><span class="line"></span><br><span class="line">用户名：</span><br><span class="line">system</span><br><span class="line"></span><br><span class="line">密码：</span><br><span class="line">system</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/dongyuxu342719/article/details/81670837" target="_blank">Linux新建Oracle用户和数据库</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create table classinfo(</span><br><span class="line">       classid number(2) primary key,</span><br><span class="line">       classname varchar(10) not null   </span><br><span class="line">);</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/garyzhuang/p/9670411.html" target="_blank">oracle基础之增删改查（基础版）</a></p><p><a href="https://blog.csdn.net/dongyuxu342719/article/details/81670837" target="_blank">Linux新建Oracle用户和数据库</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#1、切换到Oracle用户</span><br><span class="line">su – oracle</span><br><span class="line"></span><br><span class="line">#2、登录sys用户</span><br><span class="line">sqlplus &#x2F; as sysdba</span><br><span class="line"></span><br><span class="line">#3、创建表空间</span><br><span class="line">#查询用户表空间文件的路径</span><br><span class="line">select name from v$datafile;</span><br><span class="line"></span><br><span class="line">CREATE TABLESPACE customerchat LOGGING DATAFILE &#39;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;helowin&#x2F;customerchat.dbf&#39; </span><br><span class="line">SIZE 100M AUTOEXTEND ON NEXT 32M MAXSIZE 500M EXTENT MANAGEMENT LOCAL;</span><br><span class="line"></span><br><span class="line">#4、创建临时表空间</span><br><span class="line">select name from v$tempfile;</span><br><span class="line">create temporary tablespace customerchat_temp tempfile &#39;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;helowin&#x2F;customerchat_temp.dbf&#39;</span><br><span class="line">size 100m autoextend on next 32m maxsize 500m extent management local;</span><br><span class="line"></span><br><span class="line">#5、创建用户密码与上面创建的文件形成映射关系</span><br><span class="line">create user customerchat identified by customerchat default tablespace customerchat temporary tablespace customerchat_temp;</span><br><span class="line"></span><br><span class="line">#6、为用户添加权限</span><br><span class="line">初始建立的用户没有任何权限，不能执行任何数据库操作，因此必须为用户设置权限或者角色。</span><br><span class="line"></span><br><span class="line">被赋予了某个角色的用户将拥有该角色所具备的权限，常被用到的系统预定义角色：</span><br><span class="line">CONNECT、RESOURCE、DBA、EXP_FULL_DATABASE、IMP_FULL_DATABASE。</span><br><span class="line"></span><br><span class="line">其中，CONNECT、RESOURCE、DBA主要用于数据库管理，数据库管理员需要被授予这三个角色。</span><br><span class="line">一般的数据库开发人员，需要被授予CONNECT、RESOURCE角色即可。</span><br><span class="line"></span><br><span class="line">EXP_FULL_DATABASE、IMP_FULL_DATABASE角色分别用于操作数据库导出、导入相关的操作。</span><br><span class="line">为用户授予角色：</span><br><span class="line">grant connect,resource,create session,dba to customerchat;</span><br><span class="line"></span><br><span class="line">#7、查询已创建的用户</span><br><span class="line">select username from dba_users;</span><br><span class="line"></span><br><span class="line">#8、修改用户密码，将用户的密码设置为123456</span><br><span class="line">alter user customerchat identified by 123456;</span><br><span class="line"></span><br><span class="line">#9、有时用户会处于锁定状态，解锁用户：</span><br><span class="line">alter user customerchat account unlock;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_38380025/article/details/80647620" target="_blank">Docker 拉取 oracle 11g镜像配置(镜像6.8G)</a><br><a href="https://www.cnblogs.com/maoxianfei/p/9083426.html" target="_blank">Docker oracle部署使用</a></p><details><summary>拉取和设置</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com&#x2F;helowin&#x2F;oracle_11g</span><br><span class="line">docker run -d -p 1521:1521 --name oracle11g registry.cn-hangzhou.aliyuncs.com&#x2F;helowin&#x2F;oracle_11g</span><br><span class="line">docker start oracle11g</span><br><span class="line">docker exec -it oracle11g bash</span><br><span class="line"></span><br><span class="line">#切换root</span><br><span class="line">su root</span><br><span class="line">#密码：</span><br><span class="line">helowin</span><br><span class="line"></span><br><span class="line">#编辑profile文件配置ORACLE环境变量</span><br><span class="line">vi &#x2F;etc&#x2F;profile</span><br><span class="line">export ORACLE_HOME&#x3D;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;product&#x2F;11.2.0&#x2F;dbhome_2</span><br><span class="line">export ORACLE_SID&#x3D;helowin</span><br><span class="line">export PATH&#x3D;$ORACLE_HOME&#x2F;bin:$PATH</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">#创建软连接</span><br><span class="line">ln -s $ORACLE_HOME&#x2F;bin&#x2F;sqlplus &#x2F;usr&#x2F;bin</span><br><span class="line"></span><br><span class="line">#从root切换到oracle 用户</span><br><span class="line">su - oracle</span><br><span class="line"></span><br><span class="line">#登录sqlplus</span><br><span class="line">sqlplus &#x2F;nolog</span><br><span class="line">conn &#x2F;as sysdba</span><br><span class="line"></span><br><span class="line">#查看用户</span><br><span class="line">select username,password from dba_users;</span><br><span class="line"></span><br><span class="line">#修改sys、system用户密码</span><br><span class="line">alter user system identified by system;</span><br><span class="line">alter user sys identified by sys;</span><br><span class="line"></span><br><span class="line">#连接测试</span><br><span class="line">connect system&#x2F;system;</span><br><span class="line"></span><br><span class="line">#创建用户</span><br><span class="line">create user test identified by test;</span><br><span class="line">#并给用户赋予权限</span><br><span class="line">grant connect,resource,dba to test;</span><br><span class="line"></span><br><span class="line">alter database open;</span><br><span class="line">alter database mount;</span><br><span class="line">alter database open;</span><br><span class="line">ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;</span><br><span class="line">exit</span><br></pre></td></tr></table></figure></details><p>查询ORACLE数据库的实例名和服务名</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#1.实例名：</span><br><span class="line">select instance_name from v$instance;</span><br><span class="line">#显示</span><br><span class="line">helowin</span><br><span class="line"></span><br><span class="line">#2.服务名：</span><br><span class="line">select global_name from global_name;</span><br><span class="line">#显示</span><br><span class="line">HELOWIN</span><br></pre></td></tr></table></figure><p>oracle 查看sid和服务名</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#匿名管理员登陆</span><br><span class="line">conn &#x2F;as sysdba</span><br><span class="line">#查看SID</span><br><span class="line">select instance_name from v$instance;</span><br><span class="line"></span><br><span class="line">#查看用户名</span><br><span class="line">select * from dba_users; --查看数据库里面所有用户，前提是你是有dba权限的帐号，如sys,system</span><br><span class="line">select * from all_users;  --查看你能管理的所有用户！</span><br><span class="line">select * from user_users; --查看当前用户信息 ！</span><br></pre></td></tr></table></figure><p>navicat连接oracle</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">主机：</span><br><span class="line">192.168.99.103</span><br><span class="line"></span><br><span class="line">端口：</span><br><span class="line">1521</span><br><span class="line"></span><br><span class="line">服务名：</span><br><span class="line">HELOWIN</span><br><span class="line"></span><br><span class="line">用户名：</span><br><span class="line">system</span><br><span class="line"></span><br><span class="line">密码：</span><br><span class="line">system</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/dongyuxu342719/article/details/81670837" target="_blank">Linux新建Oracle用户和数据库</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create table classinfo(</span><br><span class="line">       classid number(2) primary key,</span><br><span class="line">       classname varchar(10) not null   </span><br><span class="line">);</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/garyzhuang/p/9670411.html" target="_blank">oracle基础之增删改查（基础版）</a></p><p><a href="https://blog.csdn.net/dongyuxu342719/article/details/81670837" target="_blank">Linux新建Oracle用户和数据库</a></p><details><summary>Linux新建Oracle用户和数据库</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#1、切换到Oracle用户</span><br><span class="line">su – oracle</span><br><span class="line"></span><br><span class="line">#2、登录sys用户</span><br><span class="line">sqlplus &#x2F; as sysdba</span><br><span class="line"></span><br><span class="line">#3、创建表空间</span><br><span class="line">#查询用户表空间文件的路径</span><br><span class="line">select name from v$datafile;</span><br><span class="line"></span><br><span class="line">CREATE TABLESPACE customerchat LOGGING DATAFILE &#39;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;helowin&#x2F;customerchat.dbf&#39; </span><br><span class="line">SIZE 100M AUTOEXTEND ON NEXT 32M MAXSIZE 500M EXTENT MANAGEMENT LOCAL;</span><br><span class="line"></span><br><span class="line">#4、创建临时表空间</span><br><span class="line">select name from v$tempfile;</span><br><span class="line">create temporary tablespace customerchat_temp tempfile &#39;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;helowin&#x2F;customerchat_temp.dbf&#39;</span><br><span class="line">size 100m autoextend on next 32m maxsize 500m extent management local;</span><br><span class="line"></span><br><span class="line">#5、创建用户密码与上面创建的文件形成映射关系</span><br><span class="line">create user customerchat identified by customerchat default tablespace customerchat temporary tablespace customerchat_temp;</span><br><span class="line"></span><br><span class="line">#6、为用户添加权限</span><br><span class="line">初始建立的用户没有任何权限，不能执行任何数据库操作，因此必须为用户设置权限或者角色。</span><br><span class="line"></span><br><span class="line">被赋予了某个角色的用户将拥有该角色所具备的权限，常被用到的系统预定义角色：</span><br><span class="line">CONNECT、RESOURCE、DBA、EXP_FULL_DATABASE、IMP_FULL_DATABASE。</span><br><span class="line"></span><br><span class="line">其中，CONNECT、RESOURCE、DBA主要用于数据库管理，数据库管理员需要被授予这三个角色。</span><br><span class="line">一般的数据库开发人员，需要被授予CONNECT、RESOURCE角色即可。</span><br><span class="line"></span><br><span class="line">EXP_FULL_DATABASE、IMP_FULL_DATABASE角色分别用于操作数据库导出、导入相关的操作。</span><br><span class="line">为用户授予角色：</span><br><span class="line">grant connect,resource,create session,dba to customerchat;</span><br><span class="line"></span><br><span class="line">#7、查询已创建的用户</span><br><span class="line">select username from dba_users;</span><br><span class="line"></span><br><span class="line">#8、修改用户密码，将用户的密码设置为123456</span><br><span class="line">alter user customerchat identified by 123456;</span><br><span class="line"></span><br><span class="line">#9、有时用户会处于锁定状态，解锁用户：</span><br><span class="line">alter user customerchat account unlock;</span><br></pre></td></tr></table></figure></details>]]></content>
     
     <summary type="html">
     
@@ -212,304 +513,6 @@
     
     
       <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[qt] 封装网络请求</title>
-    <link href="http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150599000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150599000.html/</id>
-    <published>2020-02-08T08:29:59.000Z</published>
-    <updated>2020-02-08T08:29:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://gitee.com/BlueBuger/qthttp_request_auxiliary_class" target="_blank">QT之Http请求</a></p><p>tcp请求<br><a href="https://gitee.com/ShaShiDiZhuanLan/Demo_Network" target="_blank">Demo_Network</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://gitee.com/BlueBuger/qthttp_request_auxiliary_class&quot; target=&quot;_blank&quot;&gt;QT之Http请求&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;tcp请求&lt;br&gt;&lt;a href=&quot;https://gitee
-      
-    
-    </summary>
-    
-    
-    
-      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[qt] windows资源信息之rc文件</title>
-    <link href="http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150598000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150598000.html/</id>
-    <published>2020-02-08T08:29:58.000Z</published>
-    <updated>2020-02-08T08:29:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/findumars/p/5682687.html" target="_blank">Qt之Windows资源文件（.rc文件）</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/findumars/p/5682687.html&quot; target=&quot;_blank&quot;&gt;Qt之Windows资源文件（.rc文件）&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[qt] unsigned_int强制类型转换问题</title>
-    <link href="http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150597000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150597000.html/</id>
-    <published>2020-02-08T08:29:57.000Z</published>
-    <updated>2020-02-08T08:29:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unsigned int</span><br><span class="line">uintptr_t</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[qt] sqlite+excel+sqlitecipher.dll</title>
-    <link href="http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150596000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150596000.html/</id>
-    <published>2020-02-08T08:29:56.000Z</published>
-    <updated>2020-02-08T08:29:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.devbean.net/2018/07/qtciphersqliteplugin-v1_0/" target="_blank">Qt SQLite加密插件QtCipherSqlitePlugin</a></p><p><a href="https://gitee.com/devbean/QtCipherSqlitePlugin" target="_blank">QtCipherSqlitePlugin</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;devbean&#x2F;QtCipherSqlitePlugin.git</span><br><span class="line">cd QtCipherSqlitePlugin</span><br><span class="line">git checkout 1.0</span><br></pre></td></tr></table></figure><p>放置qt目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">64\plugins\sqldrivers</span><br></pre></td></tr></table></figure><p><a href="" target="_blank"></a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;VilasWang&#x2F;QtSqliteExcelViewer</span><br><span class="line">https:&#x2F;&#x2F;github.com&#x2F;impressJay&#x2F;QT5.7SQLITE</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.devbean.net/2018/07/qtciphersqliteplugin-v1_0/&quot; target=&quot;_blank&quot;&gt;Qt SQLite加密插件QtCipherSqlitePlugin&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href
-      
-    
-    </summary>
-    
-    
-    
-      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[qt] dll的生成及使用</title>
-    <link href="http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150594000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150594000.html/</id>
-    <published>2020-02-08T08:29:54.000Z</published>
-    <updated>2020-02-08T08:29:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/2851c0f7f4a9" target="_blank">QT中dll的生成及使用</a></p><p><a href="https://blog.csdn.net/qq_29542611/article/details/86664781" target="_blank">Qt：Windows编程—DLL注入与卸载</a><br><a href="https://github.com/licongxing/DLLInject" target="_blank">github DLLInject</a></p><p>简单注入<br><a href="https://github.com/changeofpace/Simple-Injector" target="_blank">Simple-Injector</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/2851c0f7f4a9&quot; target=&quot;_blank&quot;&gt;QT中dll的生成及使用&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_29542611/artic
-      
-    
-    </summary>
-    
-    
-    
-      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[hexo] 使用github搭建博客</title>
-    <link href="http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150593000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150593000.html/</id>
-    <published>2020-02-08T08:29:53.000Z</published>
-    <updated>2020-02-08T08:29:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/4f56cf990bba" target="_blank">使用github搭建博客</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/4f56cf990bba&quot; target=&quot;_blank&quot;&gt;使用github搭建博客&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="hexo" scheme="http://brightereyer.xyz/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[docker] 私有maven仓库</title>
-    <link href="http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150592000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150592000.html/</id>
-    <published>2020-02-08T08:29:52.000Z</published>
-    <updated>2020-02-08T08:29:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/77af52a75ad8" target="_blank">使用docker搭建nexus并配置docker私有仓库</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#查找镜像</span><br><span class="line">docker search nexus</span><br><span class="line"></span><br><span class="line">#选取使用次数较多是镜像 拉取镜像</span><br><span class="line">docker pull sonatype&#x2F;nexus3</span><br><span class="line"></span><br><span class="line">#查看拉取的镜像</span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line">#启动容器</span><br><span class="line">docker run -d --name nexus3 \</span><br><span class="line">--restart&#x3D;always \</span><br><span class="line">-p 8081:8081 \</span><br><span class="line">-p 8082:8082  \</span><br><span class="line">-p 8083:8083  \</span><br><span class="line">-p 8084:8084  \</span><br><span class="line">-p 8085:8085   \</span><br><span class="line">-v &#x2F;opt&#x2F;nexus-data:&#x2F;nexus-data \</span><br><span class="line">sonatype&#x2F;nexus3</span><br><span class="line"></span><br><span class="line">#查看容器日志</span><br><span class="line">docker logs nexus3</span><br><span class="line"></span><br><span class="line">#登录配置</span><br><span class="line">确保正常启动后，使用浏览器访问</span><br><span class="line">http:&#x2F;&#x2F;服务器ip:8081</span><br><span class="line"></span><br><span class="line">#点击右上角登录</span><br><span class="line">账号密码：</span><br><span class="line">admin&#x2F;admin123</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/77af52a75ad8&quot; target=&quot;_blank&quot;&gt;使用docker搭建nexus并配置docker私有仓库&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;ta
-      
-    
-    </summary>
-    
-    
-    
-      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[docker] toolbox切换源</title>
-    <link href="http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150591000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150591000.html/</id>
-    <published>2020-02-08T08:29:51.000Z</published>
-    <updated>2020-02-08T08:29:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>镜像加速地址</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;registry.docker-cn.com</span><br><span class="line">https:&#x2F;&#x2F;docker.mirrors.ustc.edu.cn</span><br><span class="line">http:&#x2F;&#x2F;hub-mirror.c.163.com</span><br><span class="line">https:&#x2F;&#x2F;docker.mirrors.ustc.edu.cn</span><br><span class="line">https:&#x2F;&#x2F;cr.console.aliyun.com&#x2F;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker-machine ssh default</span><br><span class="line">sudo sed -i &quot;s|EXTRA_ARGS&#x3D;&#39;|EXTRA_ARGS&#x3D;&#39;--registry-mirror&#x3D;https:&#x2F;&#x2F;registry.docker-cn.com |g&quot; &#x2F;var&#x2F;lib&#x2F;boot2docker&#x2F;profile</span><br><span class="line">exit</span><br><span class="line">docker-machine restart default</span><br></pre></td></tr></table></figure><p>创建docker-machine</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-machine.exe create --driver virtualbox --virtualbox-boot2docker-url&#x3D;boot2docker.iso default</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;镜像加速地址&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[adb] 查看android设备ip</title>
-    <link href="http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150589000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/08/articles/2020/02/08/1581150589000.html/</id>
-    <published>2020-02-08T08:29:49.000Z</published>
-    <updated>2020-02-08T08:29:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/tangsong41/p/11069125.html" target="_blank">利用adb查看手机设备ip和连接手机的两种方式</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br><span class="line">adb shell netcfg</span><br><span class="line">adb shell ifconfig wlan0</span><br><span class="line">adb connect 192.168.1.101:5555</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/tangsong41/p/11069125.html&quot; target=&quot;_blank&quot;&gt;利用adb查看手机设备ip和连接手机的两种方式&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight pla
-      
-    
-    </summary>
-    
-    
-    
-      <category term="adb" scheme="http://brightereyer.xyz/tags/adb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[vue] idea+vue</title>
-    <link href="http://brightereyer.xyz/2020/02/06/articles/2020/02/06/1580970899000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/06/articles/2020/02/06/1580970899000.html/</id>
-    <published>2020-02-06T06:34:59.000Z</published>
-    <updated>2020-02-06T06:34:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/maggieq8324/p/11458752.html" target="_blank">IntelliJ IDEA支持.vue文件</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm i -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line">npm i -g vue-cli</span><br><span class="line">vue -V</span><br><span class="line">cnpm install -g webpack</span><br><span class="line">vue init webpack demo</span><br><span class="line">cd demo</span><br><span class="line">npm install</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/maggieq8324/p/11458752.html&quot; target=&quot;_blank&quot;&gt;IntelliJ IDEA支持.vue文件&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plai
-      
-    
-    </summary>
-    
-    
-    
-      <category term="vue" scheme="http://brightereyer.xyz/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[vue] demos</title>
-    <link href="http://brightereyer.xyz/2020/02/06/articles/2020/02/06/1580970898000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/06/articles/2020/02/06/1580970898000.html/</id>
-    <published>2020-02-06T06:34:58.000Z</published>
-    <updated>2020-02-06T06:34:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/237d49c7cf78" target="_blank">vue项目demo</a><br><a href="https://github.com/BugMyGod/mxProject" target="_blank">github mxProject</a></p><p><a href="https://blog.csdn.net/world_kun/article/details/99632463" target="_blank">vue-demo示例</a></p><p>从零构建vue2 + vue-router + vuex 开发环境到入门，实现基本的登录退出功能<br><a href="https://github.com/lzxb/vue2-demo" target="_blank">vue2-demo</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/237d49c7cf78&quot; target=&quot;_blank&quot;&gt;vue项目demo&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/BugMyGod/mxProject&quot; target=
-      
-    
-    </summary>
-    
-    
-    
-      <category term="vue" scheme="http://brightereyer.xyz/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[vue] cordova+vue实现android</title>
-    <link href="http://brightereyer.xyz/2020/02/06/articles/2020/02/06/1580970897000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/06/articles/2020/02/06/1580970897000.html/</id>
-    <published>2020-02-06T06:34:57.000Z</published>
-    <updated>2020-02-06T06:34:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="" target="_blank"></a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br><span class="line">npm install -g webpack</span><br><span class="line">npm install -g vue-cli</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/saucxs/article/details/93715133" target="_blank">cordova混合App开发：Cordova+Vue实现Android APP开发（一）</a> </p><p><a href="https://blog.csdn.net/litchiflesh/article/details/85096649" target="_blank">IDEA 的 plugins 搜不到任何的东西</a> </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Settings -&gt; Appearance &amp; Behavior -&gt; System Settings -&gt; Updates -&gt; 不勾选use secure connection</span><br><span class="line"></span><br><span class="line">保存退出后，重新点击Setting</span><br><span class="line"></span><br><span class="line">点击 Plugins  进行搜索</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb logcat</span><br></pre></td></tr></table></figure><p>基于vue全家桶开发的一款移动端音乐播放器webapp</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#前端：vue全家桶，es6，sass，axios，jsonp，better-scroll</span><br><span class="line">https:&#x2F;&#x2F;github.com&#x2F;wwenj&#x2F;web-music-player.git</span><br></pre></td></tr></table></figure><p><a href="https://github.com/dujingya/blueDevice/blob/master/blueDevice.md" target="_blank">vue+蓝牙</a><br><a href="https://github.com/Meituan-Dianping/mpvue" target="_blank">mqvue</a><br><a href="https://www.cnblogs.com/weichen913/p/9439203.html" target="_blank">基于mpvue搭建小程序项目框架</a> </p><p><a href="https://blog.csdn.net/bing103425/article/details/81381041" target="_blank">Vue项目使用Cordova实现调取原生摄像头并实现裁剪功能</a><br>1.新建Cordova项目，在项目目录里添加插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cordova plugin add cordova-plugin-camera </span><br><span class="line">cordova plugin add --save cordova-plugin-crop</span><br></pre></td></tr></table></figure><p>2.在Vue项目的index.html中引入Cordova.js并添加设备监听函数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div id&#x3D;&quot;app&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">  &lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;cordova.js&quot;&gt;&lt;&#x2F;script&gt; </span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    document.addEventListener(&#39;deviceready&#39;, function() &#123;</span><br><span class="line"> </span><br><span class="line">    &#125;, false);</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure><p>要把引入和监听函数注释掉，因为这样在PC端跑不起来，在手机里才可以</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure><p>3.在需要调取摄像头的地方加入代码<br>比如在一个“打开相机”的按钮上点击事件绑定了一个函数，叫getCamera，代码如下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">getCamera: function()&#123;</span><br><span class="line">    &#x2F;&#x2F;打开照相机</span><br><span class="line">    navigator.camera.getPicture(function(imageURI)&#123;</span><br><span class="line">                &#x2F;&#x2F;打开摄像头成功的回调</span><br><span class="line">              plugins.crop(function success (imageURI) &#123;</span><br><span class="line">                &#x2F;&#x2F;裁剪成功的回调</span><br><span class="line">                console.log(imageURI)</span><br><span class="line">            &#125;, function fail () &#123;</span><br><span class="line">                &#x2F;&#x2F;裁剪失败的回调</span><br><span class="line">            &#125;, imageURI,  &#123;quality: 30&#125;)  &#x2F;&#x2F;quality为照片质量</span><br><span class="line">        &#125;,function()&#123;</span><br><span class="line">            &#x2F;&#x2F;打开摄像头失败的回调</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">        quality: 50,</span><br><span class="line">        destinationType: Camera.DestinationType.FILE_URI </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;sp
-      
-    
-    </summary>
-    
-    
-    
-      <category term="vue" scheme="http://brightereyer.xyz/tags/vue/"/>
     
   </entry>
   
