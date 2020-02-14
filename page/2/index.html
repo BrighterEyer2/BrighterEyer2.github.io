@@ -619,222 +619,6 @@
 
 
   
-    <article id="post-/articles/2020/02/14/1581643166000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/14/articles/2020/02/14/1581643166000.html/" class="article-date">
-      <time datetime="2020-02-14T01:19:26.000Z" itemprop="datePublished">2020-02-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/14/articles/2020/02/14/1581643166000.html/">[arm] ubuntu+QEMU</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://my.oschina.net/u/4232364/blog/3136019" target="_blank">QEMU搭建ARM LINUX开发环境</a><br>qemu编译安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 1.通过git下载源码树</span><br><span class="line">git clone git:&#x2F;&#x2F;git.qemu-project.org&#x2F;qemu.git</span><br><span class="line"></span><br><span class="line"># 2.安装需要的软件包</span><br><span class="line">sudo apt-get install -y zlib1g-dev libglib2.0-0 libglib2.0-dev autoconf flex bison libtool libpixman-1-dev libncurses5-dev linux-libc-dev-arm64-cross</span><br><span class="line"></span><br><span class="line"># 3.配置编译安装</span><br><span class="line">cd qemu</span><br><span class="line">.&#x2F;configure --target-list&#x3D;arm-softmmu --audio-drv-list&#x3D;</span><br><span class="line"></span><br><span class="line"># 4.安装到系统目录 &#x2F;usr&#x2F;local 中</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-
-<p>linux内核编译</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 1.安装gun的交叉编译工具：</span><br><span class="line">sudo apt-get install gcc-arm-linux-gnueabi</span><br><span class="line">sudo apt-get install g++-arm-linux-gnueabi</span><br><span class="line"></span><br><span class="line"># 2.linux-4.9.tar.xz</span><br><span class="line">wget https:&#x2F;&#x2F;www.kernel.org&#x2F;pub&#x2F;linux&#x2F;kernel&#x2F;v4.x&#x2F;linux-4.9.tar.xz</span><br><span class="line">tar xvf linux-4.9.tar.xz;mv linux-4.9 linux;cd linux</span><br><span class="line"></span><br><span class="line"># 3.配置与编译</span><br><span class="line">export CROSS_COMPILE&#x3D;arm-linux-gnueabi-</span><br><span class="line">export ARCH&#x3D;arm</span><br><span class="line">make vexpress_defconfig</span><br><span class="line">make -j2</span><br></pre></td></tr></table></figure>
-
-<p>文件系统的制作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># 1.busybox下载</span><br><span class="line">wget http:&#x2F;&#x2F;www.busybox.net&#x2F;downloads&#x2F;busybox-1.25.0.tar.bz2 --no-check-certificate</span><br><span class="line"></span><br><span class="line"># 2.配置编译：</span><br><span class="line">tar xvf busybox-1.25.0.tar.bz2;mv busybox-1.25.0 busybox;cd busybox</span><br><span class="line">make defconfig</span><br><span class="line">make CROSS_COMPILE&#x3D;arm-linux-gnueabi-</span><br><span class="line">make install CROSS_COMPILE&#x3D;arm-linux-gnueabi-</span><br><span class="line"></span><br><span class="line"># 3.编译完成后，可以制作根文件系统了，首先创建必要的目录</span><br><span class="line">cd ..</span><br><span class="line">mkdir rootfs</span><br><span class="line">mkdir rootfs&#x2F;lib</span><br><span class="line">mkdir rootfs&#x2F;dev</span><br><span class="line"></span><br><span class="line"># 4.拷贝busybox编译生产的目录和文件，编译器自带的lib</span><br><span class="line">sudo cp busybox&#x2F;_install&#x2F;* -r rootfs&#x2F;</span><br><span class="line">sudo cp -P &#x2F;usr&#x2F;arm-linux-gnueabi&#x2F;lib&#x2F;* rootfs&#x2F;lib&#x2F;</span><br><span class="line"></span><br><span class="line"># 5.创建4个tty端终设备</span><br><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty1 c 4 1</span><br><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty2 c 4 2</span><br><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty3 c 4 3</span><br><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty4 c 4 4</span><br><span class="line"></span><br><span class="line"># 6.生成32M大小的镜像，copy文件系统树到镜像文件中</span><br><span class="line">dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;a9rootfs.ext3 bs&#x3D;1M count&#x3D;32</span><br><span class="line">mkfs.ext3 a9rootfs.ext3</span><br><span class="line">mkdir tmpfs</span><br><span class="line">sudo mount -t ext3 a9rootfs.ext3 tmpfs&#x2F; -o loop</span><br><span class="line">sudo cp -r rootfs&#x2F;* tmpfs&#x2F;</span><br><span class="line">sudo umount tmpfs</span><br></pre></td></tr></table></figure>
-
-<p>加载sd卡运行虚拟机</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M vexpress-a9 -m 512M -kernel .&#x2F;linux&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;zImage -nographic -append &quot;root&#x3D;&#x2F;dev&#x2F;mmcblk0 console&#x3D;ttyAMA0&quot; -sd a9rootfs.ext3</span><br></pre></td></tr></table></figure>
-
-<p>无图形界面dtb运行虚拟机</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M vexpress-a9 -m 512M -kernel .&#x2F;linux&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;zImage -dtb .&#x2F;linux&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;dts&#x2F;vexpress-v2p-ca9.dtb -nographic -append &quot;console&#x3D;ttyAMA0 rootwait rw root&#x3D;&#x2F;dev&#x2F;mmcblk0 init&#x3D;&#x2F;linuxrc&quot;</span><br></pre></td></tr></table></figure>
-
-<p>Qemu跑helloworld程序:<br>hello.c</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main() &#123;</span><br><span class="line">  printf(&quot;hello linux world!!!&quot;);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译程序:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arm-none-linux-gnueabi-gcc hello.c -o hello</span><br></pre></td></tr></table></figure>
-<p>将程序拷到rootfs目录下,然后执行如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp hello rootfs&#x2F;</span><br><span class="line">sudo mount -t ext3 a9rootfs.ext3 tmpfs&#x2F; -o loop</span><br><span class="line">sudo cp -r rootfs&#x2F;* tmpfs&#x2F;</span><br><span class="line">sudo umount tmpfs</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.cnblogs.com/sky-heaven/p/8647807.html" target="_blank">arm程序运行与调试</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 运行该平台的命令行是:</span><br><span class="line">qemu-system-arm -M vexpress-a9 -m 128M -kernel .&#x2F;linux&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;zImage -initrd .&#x2F;rootfs.img.gz -append &quot;root&#x3D;&#x2F;dev&#x2F;ram rdinit&#x3D;&#x2F;sbin&#x2F;init&quot; -redir tcp:1234::1234</span><br><span class="line"></span><br><span class="line"># ARM客户机系统root权限的控制台，启动一个服务器并等待1234端口上的GDB连接</span><br><span class="line">gdbserver --multi 10.0.2.15:1234</span><br><span class="line"></span><br><span class="line"># 在PC上打开调试器：</span><br><span class="line">ddd --debugger arm-none-linux-gnueabi-gdb</span><br><span class="line"></span><br><span class="line"># ARM客户机系统root权限的控制台</span><br><span class="line">set solib-absolute-prefix nonexistantpath</span><br><span class="line">set solib-search-path &#x2F;home&#x2F;qemu&#x2F;arm-none-linux-gnueabi&#x2F;libc&#x2F;lib&#x2F;</span><br><span class="line">file .&#x2F;hello-2.6&#x2F;src&#x2F;hello</span><br><span class="line">target extended-remote localhost:1234</span><br><span class="line">set remote exec-file &#x2F;usr&#x2F;bin&#x2F;hello</span><br><span class="line">break main run</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/a568713197/article/details/87649676" target="_blank">在Ubuntu下使用QEMU搭建arm开发环境（一）搭建基本开发环境</a><br><a href="https://blog.csdn.net/a568713197/article/details/87652180" target="_blank">在Ubuntu下使用QEMU搭建arm开发环境（二）编译Linux内核、制作根文件系统</a><br><a href="https://blog.csdn.net/a568713197/article/details/87736943" target="_blank">在Ubuntu下使用QEMU搭建arm开发环境（三）使用u-boot加载Linux内核</a><br><a href="https://blog.csdn.net/a568713197/article/details/87738658" target="_blank">在Ubuntu下使用QEMU搭建arm开发环境（四）挂载NFS根文件系统</a><br><a href="https://blog.csdn.net/a568713197/article/details/87775629" target="_blank">在Ubuntu下使用QEMU搭建arm开发环境（五）在开发板上运行应用和内核驱动程序</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/14/1581643163000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/14/articles/2020/02/14/1581643163000.html/" class="article-date">
-      <time datetime="2020-02-14T01:19:23.000Z" itemprop="datePublished">2020-02-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/14/articles/2020/02/14/1581643163000.html/">[arm] QEMU+uboot+linux+rootfs</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/konga/article/details/79595119" target="_blank">基于QEMU搭建完整的虚拟ARM开发环境(uboot+linux+rootfs）</a><br><a href="https://www.jianshu.com/p/91baa4d140a2" target="_blank">qemu-system-arm仿真vexpress-a9踩坑记</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">主机环境：ubuntu 16.04虚拟机，</span><br><span class="line">目标机器：QEMU模拟vexpress-a9</span><br></pre></td></tr></table></figure>
-
-<p>一、准备工作<br>交叉编译工具</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y zlib1g-dev libglib2.0-0 libglib2.0-dev autoconf flex bison libtool libpixman-1-dev libncurses5-dev linux-libc-dev-arm64-cross</span><br><span class="line">sudo apt-get install gcc-arm-linux-gnueabi</span><br><span class="line">sudo apt-get install g++-arm-linux-gnueabi</span><br></pre></td></tr></table></figure>
-
-<p>安装qemu</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M ?</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://busybox.net/downloads/busybox-1.27.1.tar.bz2" target="_blank">busybox-1.27.1.tar.bz2</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/linux-4.9.39.tar.xz" target="_blank">linux-4.9.39.tar.xz</a><br><a href="ftp://ftp.denx.de/pub/u-boot/u-boot-2017.07.tar.bz2" target="_blank">u-boot-2017.07.tar.bz2</a></p>
-<p>准备一个单独的目录vexpress, uboot, linux和busybox源码并解压，创建镜像文件目录image</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">mkdir vexpress &amp;&amp; cd vexpress</span><br><span class="line">wget https:&#x2F;&#x2F;busybox.net&#x2F;downloads&#x2F;busybox-1.27.1.tar.bz2</span><br><span class="line">wget https:&#x2F;&#x2F;mirrors.edge.kernel.org&#x2F;pub&#x2F;linux&#x2F;kernel&#x2F;v4.x&#x2F;linux-4.9.39.tar.xz</span><br><span class="line">wget ftp:&#x2F;&#x2F;ftp.denx.de&#x2F;pub&#x2F;u-boot&#x2F;u-boot-2017.07.tar.bz2</span><br><span class="line"></span><br><span class="line">tar xjf busybox-1.27.1.tar.bz2</span><br><span class="line">#rm busybox-1.27.1.tar.bz2</span><br><span class="line">mv busybox-1.27.1 busybox</span><br><span class="line"></span><br><span class="line">tar xJf linux-4.9.39.tar.xz</span><br><span class="line">#rm linux-4.9.39.tar.xz</span><br><span class="line">mv linux-4.9.39&#x2F; linux</span><br><span class="line"></span><br><span class="line">tar xjf u-boot-2017.07.tar.bz2</span><br><span class="line">#rm u-boot-2017.07.tar.bz2</span><br><span class="line">mv u-boot-2017.07&#x2F; uboot</span><br><span class="line"></span><br><span class="line">mkdir image</span><br><span class="line"></span><br><span class="line">ls</span><br><span class="line">busybox image linux uboot</span><br></pre></td></tr></table></figure>
-
-<p>二、编译运行uboot</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;vexpress&#x2F;uboot</span><br><span class="line"># 创建mkuboot.sh脚本并添加执行权限，进行编译</span><br><span class="line">ls configs&#x2F;vexpress_* </span><br><span class="line">configs&#x2F;vexpress_aemv8a_dram_defconfig configs&#x2F;vexpress_aemv8a_semi_defconfig configs&#x2F;vexpress_ca5x2_defconfig</span><br><span class="line">configs&#x2F;vexpress_aemv8a_juno_defconfig configs&#x2F;vexpress_ca15_tc2_defconfig configs&#x2F;vexpress_ca9x4_defconfig</span><br><span class="line"></span><br><span class="line">cat &gt; mkuboot.sh &lt;&lt;EOF</span><br><span class="line">export ARCH&#x3D;arm</span><br><span class="line">export CROSS_COMPILE&#x3D;arm-linux-gnueabi-</span><br><span class="line">make vexpress_ca9x4_defconfig</span><br><span class="line">make V&#x3D;1</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">chmod +x mkuboot.sh</span><br><span class="line">.&#x2F;mkuboot.sh</span><br><span class="line">#编译完成后在当前目录有u-boot文件</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp u-boot ..&#x2F;image&#x2F;</span><br><span class="line">echo &quot;cp u-boot ..&#x2F;image&#x2F;&quot; &gt;&gt; mkuboot.sh</span><br><span class="line">qemu-system-arm -M vexpress-a9 -m 512 -nographic -kernel u-boot</span><br></pre></td></tr></table></figure>
-
-<p>把uboot目录下的mkimage命令所在目录加到PATH环境变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">find . -name mkimage</span><br><span class="line">#.&#x2F;tools&#x2F;mkimage</span><br><span class="line"></span><br><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;profile &lt;&lt;EOF</span><br><span class="line">export PATH&#x3D;$PATH:~&#x2F;vexpress&#x2F;uboot&#x2F;tools</span><br><span class="line">EOF</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
-
-<p>三、编译linux并运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;vexpress&#x2F;linux</span><br><span class="line">ls arch&#x2F;arm&#x2F;configs&#x2F;ve* </span><br><span class="line">arch&#x2F;arm&#x2F;configs&#x2F;versatile_defconfig arch&#x2F;arm&#x2F;configs&#x2F;vexpress_defconfig</span><br></pre></td></tr></table></figure>
-
-<p>创建mklinux.sh脚本赋权限并执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;vexpress&#x2F;linux</span><br><span class="line">cat &gt; mklinux.sh &lt;&lt;EOF</span><br><span class="line">export ARCH&#x3D;arm</span><br><span class="line">export CROSS_COMPILE&#x3D;arm-linux-gnueabi-</span><br><span class="line">make vexpress_defconfig</span><br><span class="line">make -j4</span><br><span class="line">make modules -j4</span><br><span class="line">make uImage LOADADDR&#x3D;0x60000000</span><br><span class="line">make dtbs</span><br><span class="line"> </span><br><span class="line">cp -f arch&#x2F;arm&#x2F;boot&#x2F;uImage ..&#x2F;image&#x2F;</span><br><span class="line">cp -f arch&#x2F;arm&#x2F;boot&#x2F;zImage ..&#x2F;image&#x2F;</span><br><span class="line">cp -f arch&#x2F;arm&#x2F;boot&#x2F;dts&#x2F;vexpress-v2p-ca9.dtb ..&#x2F;image&#x2F;device.dtb</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">chmod +x mklinux.sh</span><br><span class="line">.&#x2F;mklinux.sh</span><br></pre></td></tr></table></figure>
-
-<p>编译完成后可用直接单独跑下内核：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;vexpress&#x2F;linux</span><br><span class="line">qemu-system-arm -M vexpress-a9 -m 512 -kernel arch&#x2F;arm&#x2F;boot&#x2F;zImage -nographic -append &quot;console&#x3D;ttyAMA0&quot; -dtb arch&#x2F;arm&#x2F;boot&#x2F;dts&#x2F;vexpress-v2p-ca9.dtb</span><br></pre></td></tr></table></figure>
-
-<p>目前没有根文件系统，上面报错是正常的</p>
-<p>四、配置tftp</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y tftp-hpa tftpd-hpa</span><br></pre></td></tr></table></figure>
-
-<p>修改tftpd-hpa配置文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;default&#x2F;tftpd-hpa</span><br><span class="line"># &#x2F;etc&#x2F;default&#x2F;tftpd-hpa</span><br><span class="line"></span><br><span class="line">TFTP_USERNAME&#x3D;&quot;tftp&quot;</span><br><span class="line">TFTP_DIRECTORY&#x3D;&quot;&#x2F;home&#x2F;qemu&#x2F;vexpress&#x2F;image&quot;</span><br><span class="line">TFTP_ADDRESS&#x3D;&quot;:69&quot;</span><br><span class="line">TFTP_OPTIONS&#x3D;&quot;--secure&quot;</span><br></pre></td></tr></table></figure>
-<p>重启tftp服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service tftpd-hpa restart</span><br></pre></td></tr></table></figure>
-
-<p>确保可以正常下载image目录的文件，必要时可能要增加image目录的权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">ls ~&#x2F;vexpress&#x2F;image&#x2F;</span><br><span class="line">device.dtb u-boot uImage</span><br><span class="line">tftp localhost</span><br><span class="line">tftp&gt; get uImage</span><br><span class="line">tftp&gt; quit</span><br><span class="line">ls </span><br><span class="line">bin  Desktop  docs  uImage  work</span><br></pre></td></tr></table></figure>
-
-<p>五、配置TUN/TAP虚拟网络</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y bridge-utils uml-utilities</span><br></pre></td></tr></table></figure>
-
-<p>检查是否有/dev/net/tun 设备文件，无则自行配置安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls &#x2F;dev&#x2F;net&#x2F;tun</span><br></pre></td></tr></table></figure>
-
-<p>创建脚本并放在自己的bin目录（enp0s3为虚拟网卡接口，网段为10.0.2.0，VMWare中的”仅主机模式”）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~&#x2F;bin</span><br><span class="line">cat &gt; ~&#x2F;bin&#x2F;tuntap.sh &lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">if test -z $1 ; then</span><br><span class="line">	echo need a arg: down&#x2F;up</span><br><span class="line">	exit</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ &quot;up&quot; &#x3D; $1 ] ; then</span><br><span class="line"></span><br><span class="line">	brctl addbr br0</span><br><span class="line"></span><br><span class="line">	ifconfig enp0s3 down</span><br><span class="line">	brctl addif br0 enp0s3</span><br><span class="line"></span><br><span class="line">	#关闭生成树协议</span><br><span class="line">	brctl stp br0 off</span><br><span class="line"></span><br><span class="line">	ifconfig br0 10.0.2.3 netmask 255.255.255.0 promisc up</span><br><span class="line">	ifconfig enp0s3 10.0.2.2 netmask 255.255.255.0 promisc up</span><br><span class="line"></span><br><span class="line">	tunctl -t tap0 -u qemu</span><br><span class="line">	ifconfig tap0 10.0.2.4 netmask 255.255.255.0 promisc up</span><br><span class="line">	brctl addif br0 tap0</span><br><span class="line">else</span><br><span class="line">	ifconfig tap0 down</span><br><span class="line">	brctl delif br0 tap0</span><br><span class="line"></span><br><span class="line">	ifconfig enp0s3 down</span><br><span class="line">	brctl delif br0 enp0s3</span><br><span class="line"></span><br><span class="line">	ifconfig br0 down</span><br><span class="line">	brctl delbr br0</span><br><span class="line">	ifconfig enp0s3 10.0.2.2 netmask 255.255.255.0</span><br><span class="line">fi</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">chmod +x ~&#x2F;bin&#x2F;tuntap.sh</span><br></pre></td></tr></table></figure>
-
-<p>为了方便执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; ~&#x2F;.bashrc &lt;&lt;EOF</span><br><span class="line"></span><br><span class="line">alias ttup&#x3D;&#39;sudo ~&#x2F;bin&#x2F;tuntap.sh up&#39;</span><br><span class="line">alias ttdown&#x3D;&#39;sudo ~&#x2F;bin&#x2F;tuntap.sh down&#39;</span><br><span class="line"></span><br><span class="line">EOF</span><br><span class="line">source ~&#x2F;.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>六、用uboot下载内核并执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;vexpress&#x2F;image</span><br><span class="line">ls</span><br><span class="line">device.dtb u-boot uImage</span><br><span class="line"></span><br><span class="line">ttup </span><br><span class="line">#Set &#39;tap0&#39; persistent and owned by uid 1000</span><br></pre></td></tr></table></figure>
-
-<p>带网络执行uboot，进入命令行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M vexpress-a9 -m 512 -nographic -net nic -net tap,ifname&#x3D;tap0,script&#x3D;no -kernel u-boot</span><br><span class="line"></span><br><span class="line">设置环境变量，自己IP,tftp服务器：</span><br><span class="line">&#x3D;&gt; setenv ipaddr 10.0.2.100; setenv netmask 255.255.255.0; setenv serverip 10.0.2.3;</span><br><span class="line"></span><br><span class="line">下载内核镜像、设备树并启动内核（如果没有加载设备树，会卡在 Starting kernel...这一步）：</span><br><span class="line">&#x3D;&gt; tftp 0x60000000 uImage; tftp 0x70000000 device.dtb; fdt addr 0x70000000; bootm 0x60000000 - 0x70000000</span><br></pre></td></tr></table></figure>
-
-<p>七、制作根文件系统</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;vexpress&#x2F;busybox</span><br><span class="line"></span><br><span class="line">#创建脚本并执行：</span><br><span class="line">cat &gt; mkbusybox.sh &lt;&lt;EOF</span><br><span class="line"></span><br><span class="line">make ARCH&#x3D;arm CROSS_COMPILE&#x3D;arm-linux-gnueabi- defconfig</span><br><span class="line">make ARCH&#x3D;arm CROSS_COMPILE&#x3D;arm-linux-gnueabi- install</span><br><span class="line"></span><br><span class="line">dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;sdcard.ext3 bs&#x3D;1M count&#x3D;32</span><br><span class="line">mkfs.ext3 sdcard.ext3</span><br><span class="line">sudo rm -fr rootfs;</span><br><span class="line">mkdir rootfs</span><br><span class="line">sudo mount -t ext3 -o loop sdcard.ext3  rootfs&#x2F;</span><br><span class="line">cd rootfs;</span><br><span class="line">sudo mkdir lib proc sys dev etc etc&#x2F;init.d</span><br><span class="line">sudo cp -r ..&#x2F;_install&#x2F;* .</span><br><span class="line">sudo cp -P &#x2F;usr&#x2F;arm-linux-gnueabi&#x2F;lib&#x2F;* lib&#x2F;</span><br><span class="line"></span><br><span class="line">sudo cp ..&#x2F;examples&#x2F;bootfloppy&#x2F;etc&#x2F;inittab etc&#x2F;</span><br><span class="line">sudo touch etc&#x2F;init.d&#x2F;rcS ;</span><br><span class="line">sudo chmod 0777 etc&#x2F;init.d&#x2F;rcS;</span><br><span class="line">sudo echo &quot;#!&#x2F;bin&#x2F;sh&quot; &gt;&gt; etc&#x2F;init.d&#x2F;rcS</span><br><span class="line">sudo echo &quot;mount -t proc none &#x2F;proc&quot; &gt;&gt; etc&#x2F;init.d&#x2F;rcS</span><br><span class="line">sudo echo &quot;mount -t sysfs none &#x2F;sys&quot; &gt;&gt; etc&#x2F;init.d&#x2F;rcS</span><br><span class="line">sudo echo &quot;mount -t tmpfs none &#x2F;dev&quot; &gt;&gt; etc&#x2F;init.d&#x2F;rcS</span><br><span class="line">sudo echo &quot;&#x2F;sbin&#x2F;mdev -s&quot; &gt;&gt; etc&#x2F;init.d&#x2F;rcS</span><br><span class="line">sudo chmod 0755 etc&#x2F;init.d&#x2F;rcS;</span><br><span class="line"></span><br><span class="line">cd ..;</span><br><span class="line">sudo umount rootfs&#x2F;</span><br><span class="line">cp sdcard.ext3 ..&#x2F;image&#x2F;</span><br><span class="line"></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">chmod +x mkbusybox.sh</span><br><span class="line">bash -x mkbusybox.sh</span><br></pre></td></tr></table></figure>
-
-<p>八、完整运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;vexpress&#x2F;image</span><br><span class="line">ls</span><br><span class="line">device.dtb sdcard.ext3 u-boot uImage</span><br><span class="line"></span><br><span class="line">qemu-system-arm -M vexpress-a9 -m 512 -nographic -net nic -net tap,ifname&#x3D;tap0,script&#x3D;no -sd sdcard.ext3 -kernel u-boot</span><br><span class="line"></span><br><span class="line">&#x3D;&gt; setenv ipaddr 10.0.2.100; setenv netmask 255.255.255.0; setenv serverip 10.0.2.3; setenv bootargs &quot;console&#x3D;ttyAMA0 root&#x3D;&#x2F;dev&#x2F;mmcblk0 init&#x3D;&#x2F;linuxrc rw rootwait&quot;</span><br><span class="line"></span><br><span class="line">&#x3D;&gt; tftp 0x60000000 uImage; tftp 0x70000000 device.dtb; fdt addr 0x70000000; bootm 0x60000000 - 0x70000000 </span><br><span class="line"></span><br><span class="line">Please press Enter to activate this console. </span><br><span class="line">&#x2F; #</span><br><span class="line">&#x2F; # uname -a</span><br><span class="line">&#x2F; # cat &#x2F;proc&#x2F;cpuinfo</span><br></pre></td></tr></table></figure>
-
-<p>九、只运行内核和根文件系统</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M vexpress-a9 -m 512 -sd sdcard.ext3 -nographic -kernel zImage -dtb device.dtb -append &quot;console&#x3D;ttyAMA0 rootwait rw root&#x3D;&#x2F;dev&#x2F;mmcblk0 init&#x3D;&#x2F;linuxrc&quot;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2020/02/14/1581643162000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -865,69 +649,6 @@
       
           
         <p><a href="https://www.veryarm.com/arm" target="_blank">arm</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/14/1581643161000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/14/articles/2020/02/14/1581643161000.html/" class="article-date">
-      <time datetime="2020-02-14T01:19:21.000Z" itemprop="datePublished">2020-02-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/14/articles/2020/02/14/1581643161000.html/">[arm] gdb-multiarch调试arm程序</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="http://blog.binpang.me/2018/07/26/qemu-arm/" target="_blank">gdb-multiarch调试arm程序</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#安装qemu</span><br><span class="line">sudo apt-get install qemu</span><br><span class="line"></span><br><span class="line">#安装arm文件所需要的动态库</span><br><span class="line">sudo apt-get install gcc-multilib-arm-linux-gnueabi</span><br><span class="line">sudo apt-get install gcc-armhf-cross</span><br><span class="line"></span><br><span class="line">ln -s &#x2F;usr&#x2F;arm-linux-gnueabihf&#x2F;lib&#x2F;ld-linux-armhf.so.3 &#x2F;lib&#x2F;ld-linux-armhf.so.3</span><br><span class="line"></span><br><span class="line">运行</span><br><span class="line">在运行前，添加&#x2F;usr&#x2F;arm-linux-gnueabihf&#x2F;lib文件夹到LD_LIBRARY_PATH环境变量里面: </span><br><span class="line">export LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;arm-linux-gnueabihf&#x2F;lib&#x2F;:$LD_LIBRARY_PATH</span><br><span class="line"></span><br><span class="line">#qemu-arm运行arm程序，在1234端口上开启调试模式: </span><br><span class="line">qemu-arm -g 1234 &#x2F;path&#x2F;of&#x2F;arm-executable</span><br><span class="line"></span><br><span class="line"># gdb调试</span><br><span class="line">sudo apt install gdb-multiarch</span><br><span class="line"># 用gdb打开待调试文件: </span><br><span class="line">gdb-multiarch &#x2F;path&#x2F;of&#x2F;arm-executable</span><br><span class="line"></span><br><span class="line">#在gdb中连接调试端口: </span><br><span class="line">target remote 1234</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1001,6 +722,193 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/12/1581506202000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/12/articles/2020/02/12/1581506202000.html/" class="article-date">
+      <time datetime="2020-02-12T11:16:42.000Z" itemprop="datePublished">2020-02-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/12/articles/2020/02/12/1581506202000.html/">[zigbee] 专栏</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="http://www.cnblogs.com/zjutlitao/p/5652058.html" target="_blank">3、ZigBee基础实验——GPIO输出控制实验-控制Led亮灭</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5652058.html" target="_blank">4、ZigBee基础实验——中断</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5658644.html" target="_blank">5、ZigBee基础实验——图文与代码详解定时器1（16位定时器）（长文）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5671921.html" target="_blank">6、ZigBee基础实验——定时器3和定时器4（8 位定时器）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5675169.html" target="_blank">7、ZigBee之UART剖析（ONLY串口发送）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5676675.html" target="_blank">8、ZigBee之UART剖析·二（串口收发）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5677624.html" target="_blank">9、ZigBee之AD剖析——AD采集CC2530温度串口显示</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5683177.html" target="_blank">10、ZigBee之睡眠定时器</a><br><a href="https://www.cnblogs.com/zjutlitao/p/5686488.html" target="_blank">11、ZigBee之睡眠定时器二</a><br><a href="https://www.cnblogs.com/zjutlitao/p/5686834.html" target="_blank">12、ZigBee之看门狗定时器——饿了就咬人的GOOD DOG</a><br><a href="https://www.cnblogs.com/zjutlitao/p/5693720.html" target="_blank">13、ZigBee基础阶段性回顾与加深理解——用定时器1产生PWM来控制LED亮度（七色灯）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5652025.html" target="_blank">ZigBee开发环境搭建</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/zigbee/" rel="tag">zigbee</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/12/1581506201000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/12/articles/2020/02/12/1581506201000.html/" class="article-date">
+      <time datetime="2020-02-12T11:16:41.000Z" itemprop="datePublished">2020-02-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/12/articles/2020/02/12/1581506201000.html/">[vmware] 设置NAT模式上网</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/lavendyu/article/details/80373708" target="_blank">VMware 虚拟机如何连接网络</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/12/1581506200000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/12/articles/2020/02/12/1581506200000.html/" class="article-date">
+      <time datetime="2020-02-12T11:16:40.000Z" itemprop="datePublished">2020-02-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/12/articles/2020/02/12/1581506200000.html/">[vmware] 扩展硬盘空间</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/Nonpc123/article/details/90098267" target="_blank">VMware 虚拟机扩展Ubuntu系统磁盘空间</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#查看添加的新的硬盘 &#x2F;dev&#x2F;sdb</span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line">#把新添加的硬盘格式化成 ext3</span><br><span class="line">mkfs -t ext3 &#x2F;dev&#x2F;sdb</span><br><span class="line"></span><br><span class="line">#在&#x2F;home 目录下建立 work 文件夹</span><br><span class="line">mkdir &#x2F;home&#x2F;work</span><br><span class="line">mount &#x2F;dev&#x2F;sdb work&#x2F;</span><br><span class="line"></span><br><span class="line">#设置开机启动自动挂载</span><br><span class="line">vim &#x2F;etc&#x2F;fstab</span><br><span class="line">&#x2F;dev&#x2F;sdb &#x2F;home&#x2F;work ext3 defaults 0 0</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
     </div>
 
       
