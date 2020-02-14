@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-02-14T12:23:51.000Z</updated>
+  <updated>2020-02-14T13:30:43.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[shell] linux之shell程序</title>
+    <link href="http://brightereyer.xyz/2020/02/14/articles/2020/02/14/1581687043000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/14/articles/2020/02/14/1581687043000.html/</id>
+    <published>2020-02-14T13:30:43.000Z</published>
+    <updated>2020-02-14T13:30:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/fengyuhetao/shell" target="_blank">shell</a><br><a href="https://blog.csdn.net/weixin_34205076/article/details/91592459" target="_blank">Linux之Shell小程序（持续更新中）</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://github.com/fengyuhetao/shell&quot; target=&quot;_blank&quot;&gt;shell&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://blog.csdn.net/weixin_34205076/article/detail
+      
+    
+    </summary>
+    
+    
+    
+      <category term="shell" scheme="http://brightereyer.xyz/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[arm] ubuntu+QEMU</title>
     <link href="http://brightereyer.xyz/2020/02/14/articles/2020/02/14/1581683031000.html/"/>
     <id>http://brightereyer.xyz/2020/02/14/articles/2020/02/14/1581683031000.html/</id>
     <published>2020-02-14T12:23:51.000Z</published>
     <updated>2020-02-14T12:23:51.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://github.com/xianjimli/qemu-arm-linux" target="_blank" rel="noopener">qemu-arm-linux</a></p><p><a href="https://www.veryarm.com/116658.html" target="_blank" rel="noopener">Qemu跑helloworld程序:</a><br>hello.c</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main() &#123;</span><br><span class="line">  printf(&quot;hello linux world!!!&quot;);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>编译程序:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arm-linux-gnueabi-gcc hello.c -o hello;sudo chmod +x hello</span><br></pre></td></tr></table></figure><p>将程序拷到rootfs目录下,然后执行如下:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cp hello rootfs&#x2F;</span><br><span class="line">sudo mount -t ext3 rootfs.ext3 tmpdir&#x2F; -o loop</span><br><span class="line">sudo cp -r rootfs&#x2F;* tmpdir&#x2F;</span><br><span class="line">sudo umount tmpdir</span><br><span class="line">sudo .&#x2F;start-qemu.sh</span><br></pre></td></tr></table></figure><p>加载sd卡运行虚拟机</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M vexpress-a9 -m 512M -kernel .&#x2F;linux&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;zImage -nographic -append &quot;root&#x3D;&#x2F;dev&#x2F;mmcblk0 console&#x3D;ttyAMA0&quot; -sd a9rootfs.ext3</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p><a href="https://github.com/xianjimli/qemu-arm-linux" target="_blank" rel="noopener">qemu-arm-linux</a></p><p><a href="https://www.veryarm.com/116658.html" target="_blank" rel="noopener">Qemu跑helloworld程序</a><br>hello.c</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main() &#123;</span><br><span class="line">  printf(&quot;hello linux world!!!&quot;);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>编译程序:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arm-linux-gnueabi-gcc hello.c -o hello;sudo chmod +x hello</span><br></pre></td></tr></table></figure><p>将程序拷到rootfs目录下,然后执行如下:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cp hello rootfs&#x2F;</span><br><span class="line">sudo mount -t ext3 rootfs.ext3 tmpdir&#x2F; -o loop</span><br><span class="line">sudo cp -r rootfs&#x2F;* tmpdir&#x2F;</span><br><span class="line">sudo umount tmpdir</span><br><span class="line">sudo .&#x2F;start-qemu.sh</span><br></pre></td></tr></table></figure><p><a href="https://my.oschina.net/u/3258476/blog/1550537" target="_blank">用qemu运行一个小小Linux系统</a><br><a href="https://www.cnblogs.com/pengdonglin137/p/12194548.html" target="_blank">用QEMU模拟运行uboot从SD卡启动Linux</a><br>加载sd卡运行虚拟机</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M vexpress-a9 -m 512M -kernel .&#x2F;linux&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;zImage -nographic -append &quot;root&#x3D;&#x2F;dev&#x2F;mmcblk0 console&#x3D;ttyAMA0&quot; -sd a9rootfs.ext3</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -371,14 +395,13 @@
     <published>2020-02-14T01:19:22.000Z</published>
     <updated>2020-02-14T01:19:22.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://www.veryarm.com/arm" target="_blank">arm</a></p>]]></content>
+    <content type="html"><![CDATA[<p><a href="https://www.veryarm.com/arm" target="_blank">arm</a><br><a href="https://www.cnblogs.com/wanghuaijun/p/9416641.html" target="_blank">Linux下的串口编程实例</a><br><a href="https://github.com/buchenglei/linux-c-study" target="_blank">linux-c-study</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;https://www.veryarm.com/arm&quot; target=&quot;_blank&quot;&gt;arm&lt;/a&gt;&lt;/p&gt;
-
+        &lt;p&gt;&lt;a href=&quot;https://www.veryarm.com/arm&quot; target=&quot;_blank&quot;&gt;arm&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.cnblogs.com/wanghuaijun/p/9416641.html&quot; target=&quot;_bl
       
     
     </summary>
@@ -485,31 +508,6 @@
     
     
       <category term="vmware" scheme="http://brightereyer.xyz/tags/vmware/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[ubuntu14] 更新源</title>
-    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506199000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506199000.html/</id>
-    <published>2020-02-12T11:16:39.000Z</published>
-    <updated>2020-02-12T11:16:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>(1)备份原来的源列表文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;apt&#x2F;</span><br><span class="line">mv sources.list sources.list.bak</span><br></pre></td></tr></table></figure><p>(2)<br>nano sources.list</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -r &#x2F;var&#x2F;lib&#x2F;apt&#x2F;lists&#x2F;*</span><br></pre></td></tr></table></figure><p>更新源文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;(1)备份原来的源列表文件&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="ubuntu14" scheme="http://brightereyer.xyz/tags/ubuntu14/"/>
     
   </entry>
   
