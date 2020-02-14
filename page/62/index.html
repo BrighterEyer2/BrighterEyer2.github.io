@@ -283,205 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/10/29/1572350127000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/29/articles/2019/10/29/1572350127000.html/" class="article-date">
-      <time datetime="2019-10-29T11:55:27.000Z" itemprop="datePublished">2019-10-29</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350127000.html/">[qt] QDesktopServices打开文件、文件夹</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/mrfanhaibin/article/details/54315301" target="_blank">Qt之QDesktopServices</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include  &lt;QDesktopServices&gt;</span><br></pre></td></tr></table></figure>
-
-<p>1、打开浏览器网页</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QDesktopServices desktopServices;</span><br><span class="line">QUrl url(QString(&quot;www.baidu.com&quot;));</span><br><span class="line">desktopServices.openUrl(url);</span><br></pre></td></tr></table></figure>
-
-<p>2、打开本地文件（夹）、可执行文件等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">QString local_path &#x3D; QString(&quot;E:&#x2F;新建文件夹&quot;); &#x2F;&#x2F;a.txt、a.exe、a.mp3、a.mp4、a.rmvb等</span><br><span class="line">QString path &#x3D; QString(&quot;file:&#x2F;&#x2F;&#x2F;&quot;) + local_path;</span><br><span class="line">bool is_open &#x3D; QDesktopServices::openUrl(QUrl(path, QUrl::TolerantMode));</span><br><span class="line"></span><br><span class="line">#注意：这里local_path可以是文件（夹）路径、可执行程序路径，当为文件时，会选择默认打开方式进行打开！</span><br></pre></td></tr></table></figure>
-
-<p>3、获取桌面、我的文档、Home等目录的路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">QString desktop_path &#x3D; QDesktopServices::storageLocation(QDesktopServices::DesktopLocation);</span><br><span class="line">QString document_path &#x3D; QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);</span><br><span class="line">QString home_path &#x3D; QDesktopServices::storageLocation(QDesktopServices::HomeLocation);</span><br><span class="line">QString application_path &#x3D; QDesktopServices::storageLocatio(QDesktopServices::ApplicationsLocation);</span><br><span class="line">QString temp_path &#x3D; QDesktopServices::storageLocation(QDesktopServices::TempLocation);</span><br></pre></td></tr></table></figure>
-
-<p>4、QProcess也可以打开文件（夹）、可执行程序等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QString local_path &#x3D; QString(&quot;E:\\新建文件夹&quot;);</span><br><span class="line">bool is_start &#x3D; QProcess::startDetached(&quot;explorer &quot; + local_path);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/26/1572099610000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/26/articles/2019/10/26/1572099610000.html/" class="article-date">
-      <time datetime="2019-10-26T14:20:10.000Z" itemprop="datePublished">2019-10-26</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/26/articles/2019/10/26/1572099610000.html/">[qt-qml] 博客专栏</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/zbw1185/article/category/6826425" target="_blank">QtQuick（QML）</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QML之自定义电池充电&#x2F;电量显示效果</span><br><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;zbw1185&#x2F;article&#x2F;details&#x2F;75042398</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt-qml/" rel="tag">qt-qml</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/26/1572099609000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/26/articles/2019/10/26/1572099609000.html/" class="article-date">
-      <time datetime="2019-10-26T14:20:09.000Z" itemprop="datePublished">2019-10-26</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/26/articles/2019/10/26/1572099609000.html/">[qt-android] 智能家居</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://github.com/zccrs/IntelligentHome" target="_blank">智能家居的客户端</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt-android/" rel="tag">qt-android</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2019/10/26/1572099608000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -911,6 +712,202 @@
         <p><a href="https://github.com/wurui1994/CefBrowser" target="_blank">CefBrowser</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/26/1572099600000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/26/articles/2019/10/26/1572099600000.html/" class="article-date">
+      <time datetime="2019-10-26T14:20:00.000Z" itemprop="datePublished">2019-10-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/26/articles/2019/10/26/1572099600000.html/">[qt] 雷达图</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/qq_28877125/article/details/78429699" target="_blank">Qt5–雷达图</a><br><a href="https://www.fearlazy.com/zb_users/upload/2017/09/CRadar.rar" target="_blank">CRadar.rar</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/26/1572099598000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/26/articles/2019/10/26/1572099598000.html/" class="article-date">
+      <time datetime="2019-10-26T14:19:58.000Z" itemprop="datePublished">2019-10-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/26/articles/2019/10/26/1572099598000.html/">[qt] 动画</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="" target="_blank"></a><br><a href="https://github.com/search?utf8=%E2%9C%93&q=qt+%E5%8A%A8%E7%94%BB&ref=simplesearch" target="_blank">github qt 动画</a><br><a href="https://github.com/IfanTsai/flowers" target="_blank">qt表白动画程序</a></p>
+<p>传统Qt C++开发应用程序（插件化框架搭建、酷炫的动画窗口、图表控件、多屏自适应、权限控制、VNC远程监控集成、WebEngine与Qt交互、按键声效）<br><a href="https://github.com/linuxzjh/traditionalDevelopment" target="_blank">traditionalDevelopment</a></p>
+<p><a href="https://github.com/YMhao/qt-animation" target="_blank">把链式图片做成动画</a><br><a href="https://github.com/LonelySilen/ship" target="_blank">QT 动画练习</a><br><a href="https://github.com/guochanglun/H5Creator-Qt" target="_blank">H5动画、声音贺卡</a><br><a href="https://github.com/MRXY001/Bezier-Wave" target="_blank">贝塞尔曲线波浪</a></p>
+<p><a href="https://github.com/historyme/Shin.SpriteImage" target="_blank">精灵图片类</a><br><a href="https://github.com/lsyefficient/qtfish" target="_blank">游动的鱼</a><br><a href="https://github.com/MRXY001/Notification-Manager-V2" target="_blank">仿Windows消息控件</a><br><a href="https://github.com/MRXY001/Notification-Manager" target="_blank">仿Windows消息，支持多通知、同时通知、开关动画</a></p>
+<p><a href="https://github.com/cyt2017/QGLViewer_animation" target="_blank">喷泉动画效果</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">使用qt上封装的opengl，实现喷泉动画效果。</span><br><span class="line">粒子：三个函数：</span><br><span class="line">1、初始化，粒子的位置和速度；</span><br><span class="line">2、绘制，粒子的位置和颜色（使用opengl函数实现绘制）；</span><br><span class="line">3、动画，根据改变粒子的位置和速度，实现粒子动起来的效果。</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/lsyefficient/StartSplash" target="_blank">启动页闪屏动画</a></p>
+<p><a href="https://github.com/MRXY001/Interactive-Windows-Buttons" target="_blank">带动画交互的菜单、最小化、最大化、关闭按钮，强大自定义</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">可交互的创意动态按钮</span><br><span class="line">特点</span><br><span class="line">所有颜色自定义</span><br><span class="line">鼠标悬浮渐变</span><br><span class="line">两种点击效果：鼠标点击渐变 &#x2F; 水波纹动画（可多层波纹叠加）</span><br><span class="line">鼠标悬浮图标位置主动变化</span><br><span class="line">鼠标拖动图标抖动反弹效果</span><br><span class="line">鼠标进入父控件时开启出现效果，或启动时出现</span><br><span class="line">延迟出现的动画效果（多个按钮连续）</span><br><span class="line">记录开关状态</span><br><span class="line">直接设置 x、y 的圆角显示</span><br><span class="line">边框颜色设置</span><br><span class="line">禁用时半透明+点击穿透效果</span><br><span class="line">添加额外的边缘角标</span><br><span class="line">三种前景模式：图标、文字、带遮罩的图标（任意变色）</span><br><span class="line">支持QSS直接设置部分属性</span><br><span class="line">与父类 QPushButton 兼容</span><br><span class="line">时间准确性：根据时间戳计算动画进度，即使在低性能机器上也可准时完成动画</span><br><span class="line">稳定性：一按钮多功能，完美兼容多种情况下焦点事件</span><br><span class="line">极其强大的可扩展性，继承该按钮后可任意修改显示效果和动画效果</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/26/1572099597000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/26/articles/2019/10/26/1572099597000.html/" class="article-date">
+      <time datetime="2019-10-26T14:19:57.000Z" itemprop="datePublished">2019-10-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/26/articles/2019/10/26/1572099597000.html/">[qt] 定时关机</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/what951006/article/details/53914877" target="_blank">Qt/C++ 定时关机-给女票用的</a></p>
+<pre><code></code></pre>
       
     </div>
     

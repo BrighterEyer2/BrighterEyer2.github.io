@@ -283,213 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/11/23/1574471636000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/11/23/articles/2019/11/23/1574471636000.html/" class="article-date">
-      <time datetime="2019-11-23T01:13:56.000Z" itemprop="datePublished">2019-11-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/11/23/articles/2019/11/23/1574471636000.html/">[单片机] PWM方法控制舵机</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/qq_36192043/article/details/80812947" target="_blank">51单片机控制舵机</a></p>
-<p><a href="https://blog.csdn.net/qq_44488422/article/details/90415839" target="_blank">51单片机控制小舵机</a></p>
-<p><a href="http://www.eepw.com.cn/article/275890.htm" target="_blank">脉宽调制</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　脉宽调制(PWM，Pulse Width Modulation)是一种模拟控制方脉冲宽度调制，利用微处理器的数字输出来对模拟电路进行控制的一种非常有效的技术，广泛应用在从测量、通信到功率控制与变换的许多领域中。</span><br><span class="line"></span><br><span class="line">　　PWM就是脉冲宽度调制，也就是占空比可变的脉冲波形。该技术以该结论为理论基础，对半导体开关器件的导通和关断进行控制，使输出端得到一系列幅值相等而宽度不相等的脉冲，用这些脉冲来代替正弦波或其他所需要的波形。按一定的规则对各脉冲的宽度进行调制，既可改变逆变电路输出电压的大小，也可改变输出频率。</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/11/23/1574471635000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/11/23/articles/2019/11/23/1574471635000.html/" class="article-date">
-      <time datetime="2019-11-23T01:13:55.000Z" itemprop="datePublished">2019-11-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/11/23/articles/2019/11/23/1574471635000.html/">[单片机] keil+proteus仿真之vdmagi.exe</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.bilibili.com/video/av44785314" target="_blank">Proteus 仿真基础教程</a><br><a href="https://blog.csdn.net/kikajack/article/details/86374785" target="_blank">proteus 与 keil 的安装及联调</a><br><a href="https://blog.csdn.net/wzk456/article/details/80797652" target="_blank">keil和Proteus联动调试</a><br><a href="http://www.downxia.com/downinfo/258012.html" target="_blank">proteus pro V8.9 免费汉化版</a><br><a href="http://sd.downxia.com/down/proteusbdj.rar" target="_blank">proteusbdj.rar</a></p>
-<p><a href="https://github.com/zhao-gao-sheng/89C51" target="_blank">89C51</a></p>
-<p><a href="http://downloads.labcenter.co.uk/vdmagi.exe" target="_blank">vdmagi.exe</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">上面这个软件安装完成后，会在 Keil 的安装目录的 \C51\BIN 目录中添加 C51 联调相关的文件：VDM51.dll</span><br><span class="line"></span><br><span class="line">如果安装的时候你还选了 ARM，还会自动添加 VMDARM.dll 这个文件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">实际上，这个软件做的事情不止这些，除了自动创建 dll 文件外，它还修改了修改 keil 安装目录下 Tools.ini文件，并在[C51] 栏目下加入</span><br><span class="line">TDRV10&#x3D;BIN\VDM51.DLL (&quot;Proteus VSM Monitor-51 Driver&quot;) </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">其中 &quot;TDRV10&quot; 中的 &quot;10&quot; 要根据实际情况看，原则是不跟原来的重复</span><br></pre></td></tr></table></figure>
-
-<p>开启 proteus 的远程调试功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在菜单栏依次选择 &quot;Debug&quot;-&gt; &quot;Enable Remote Debug Monitor&quot;。开启后，proteus 会默认监听本机的 8000 端口</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/11/23/1574471634000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/11/23/articles/2019/11/23/1574471634000.html/" class="article-date">
-      <time datetime="2019-11-23T01:13:54.000Z" itemprop="datePublished">2019-11-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/11/23/articles/2019/11/23/1574471634000.html/">[单片机] android</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.cnblogs.com/jlutiger/p/9529820.html" target="_blank">单片机与android手机通信（控制LED小灯亮灭）</a></p>
-<p><a href="https://github.com/whaoming/SCMAndroidCommunicate" target="_blank">Android与51单片机的信息交互</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">单片机：STC89C52</span><br><span class="line">c语言</span><br><span class="line">编写环境：Keil uVision4</span><br><span class="line">烧录：stc-isp-15xx-v6.82</span><br><span class="line"></span><br><span class="line">Android</span><br><span class="line">android sdk 16+</span><br><span class="line">Android studio 1.0+</span><br></pre></td></tr></table></figure>
-
-<p>单片机课程实践——智能家居系统<br><a href="https://github.com/a-voyager/SmartHouse_Node" target="_blank">感知端</a><br><a href="https://github.com/a-voyager/SmartHouse_Server" target="_blank">服务器端</a><br><a href="https://github.com/a-voyager/SmartHouse_Android" target="_blank">安卓端</a></p>
-<p><a href="https://github.com/jp1017/AndroidSerialPort" target="_blank">安卓串口打开、接收与发送</a></p>
-<p><a href="https://blog.csdn.net/qq_33446100/article/details/99676957" target="_blank">【51单片机】Android端蓝牙开发，与蓝牙模块通信</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">单片机：HC6800-ES，晶振12MHz</span><br><span class="line">蓝牙模块：BT08(兼容HC-06、HC-05)</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://github.com/lioilwin/Bluetooth" target="_blank">【51单片机】Android端蓝牙开发，与蓝牙模块通信</a></p>
-<p><a href="https://github.com/yyysjz1997/STM32_RFID_Android_app" target="_blank">本科《电子课程设计》作品 基于STM32、RFID的宿舍门禁系统 Android端手机APP</a></p>
-<p><a href="https://github.com/search?utf8=%E2%9C%93&q=%E5%8D%95%E7%89%87%E6%9C%BA+android&ref=simplesearch" target="_blank">github搜索 单片机 android</a></p>
-<p><a href="https://github.com/search?utf8=%E2%9C%93&q=%E5%8D%95%E7%89%87%E6%9C%BA+android+%E9%97%A8%E7%A6%81&ref=simplesearch" target="_blank">github 搜索 单片机 android 门禁</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2019/11/23/1574471632000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -919,6 +712,198 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/11/21/1574339078000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/11/21/articles/2019/11/21/1574339078000.html/" class="article-date">
+      <time datetime="2019-11-21T12:24:38.000Z" itemprop="datePublished">2019-11-21</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/11/21/articles/2019/11/21/1574339078000.html/">[springboot] ueditor富文本编辑</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://github.com/uncleAndyChen/springBootIntegrationUEditor" target="_blank">springBoot 集成百度富文本框 UEditor，多模块方式（配置服务器图片存放路径）</a></p>
+<p><a href="https://github.com/wotrd/springboot-ueditor" target="_blank">springboot使用百度富文本ueditor，实现图片多张上传</a></p>
+<p><a href="https://github.com/luocai/background-template" target="_blank">springboot和thymeleaf搭建的后台模板，集成了分页，以及富文本编辑器wangeditor</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/11/21/1574339077000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/11/21/articles/2019/11/21/1574339077000.html/" class="article-date">
+      <time datetime="2019-11-21T12:24:37.000Z" itemprop="datePublished">2019-11-21</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/11/21/articles/2019/11/21/1574339077000.html/">[springboot] jpa+react增删改查</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/oXinYangonly/article/details/83545230" target="_blank">spring-boot react一步一步实现增删改查</a><br><a href="https://gitee.com/qinaichen/react-crud" target="_blank">react-crud</a></p>
+<p><a href="https://github.com/thiagoprocaci/springboot-react-jwt" target="_blank">前后端</a></p>
+<p><a href="https://github.com/juhahinkula/SpringBootReact" target="_blank">react工程里</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/11/21/1574339076000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/11/21/articles/2019/11/21/1574339076000.html/" class="article-date">
+      <time datetime="2019-11-21T12:24:36.000Z" itemprop="datePublished">2019-11-21</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/11/21/articles/2019/11/21/1574339076000.html/">[qt] 音乐播放器</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/daydream13580130043/article/details/79094643#comments" target="_blank">Qt5 QMediaPlayer 音乐播放器</a></p>
+<p><a href="https://github.com/sundial-dreams/Qt5_Music" target="_blank">Qt5_Music</a></p>
+<p><a href="https://www.cnblogs.com/guolao/p/8922552.html" target="_blank">QT5:C++实现基于multimedia的音乐播放器（一）</a><br><a href="https://github.com/pansinm/CleanPlayer" target="_blank">基于Qt编写的音乐播放器，界面由QML编写，网络和文件由C++实现，能够搜索和播放在线歌曲</a><br><a href="https://github.com/aeagean/QtMusic" target="_blank">基于Qt的音乐播放器，支持歌词显示。QML</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
     </div>
 
       

@@ -283,198 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/12/18/1576669680000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/12/18/articles/2019/12/18/1576669680000.html/" class="article-date">
-      <time datetime="2019-12-18T11:48:00.000Z" itemprop="datePublished">2019-12-18</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/18/articles/2019/12/18/1576669680000.html/">[单片机] 使用和配置HC-05蓝牙模块</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/qimi923511491/article/details/82928743" target="_blank">51单片机使用和配置HC-05蓝牙模块</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*串口初始化配置*&#x2F;</span><br><span class="line">void UartConfiguration()  </span><br><span class="line">&#123;</span><br><span class="line">    TMOD&#x3D;0x20;      &#x2F;&#x2F;设置计数器1的工作方式2</span><br><span class="line">    TH1&#x3D;0xfd;	    &#x2F;&#x2F;设置计数器1的初值，决定波特率</span><br><span class="line">    TL1&#x3D;0xfd;		&#x2F;&#x2F;设置计数器1的初值，决定波特率</span><br><span class="line">    PCON&#x3D;0x00;      &#x2F;&#x2F; 波特率倍增0x00不加倍	 0x80加倍</span><br><span class="line">    SCON&#x3D;0x50;		&#x2F;&#x2F;设置工作方式1 开启接受允许</span><br><span class="line">    EA&#x3D;1;		    &#x2F;&#x2F;开启总中断</span><br><span class="line">    ES&#x3D;1;			&#x2F;&#x2F;开启串口接受中断</span><br><span class="line">    TR1&#x3D;1;			&#x2F;&#x2F;计数器1开始运行</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*发送数据*&#x2F;</span><br><span class="line">void sendDate(char date)</span><br><span class="line">&#123;</span><br><span class="line">    SBUF&#x3D;date;		  &#x2F;&#x2F;接收到的数据放入发送缓存器发送</span><br><span class="line">    while(!TI);       &#x2F;&#x2F;等待发送数据完成</span><br><span class="line">    TI&#x3D;0;			  &#x2F;&#x2F;清除发送完成标志位</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">&#x2F;*主函数*&#x2F;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    UartConfiguration();</span><br><span class="line"> </span><br><span class="line">    sendDate(&#39;1&#39;);  &#x2F;&#x2F;发送字符1</span><br><span class="line"> </span><br><span class="line">    while(1);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">&#x2F;*中断函数*&#x2F;</span><br><span class="line">void Uart() interrupt 4</span><br><span class="line">&#123;</span><br><span class="line">    uchar date;</span><br><span class="line">    date&#x3D;SBUF;        &#x2F;&#x2F;取出接受到的数据</span><br><span class="line">    RI&#x3D;0;			  &#x2F;&#x2F;清除接受中断标志位</span><br><span class="line"> </span><br><span class="line">    &#x2F;&#x2F;收到的数据是date</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/12/18/1576669679000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/12/18/articles/2019/12/18/1576669679000.html/" class="article-date">
-      <time datetime="2019-12-18T11:47:59.000Z" itemprop="datePublished">2019-12-18</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/18/articles/2019/12/18/1576669679000.html/">[单片机] 独立按键</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/wangjiaweiwei/article/details/90233186" target="_blank">51单片机之独立按键</a></p>
-<p>独立键盘程序示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;reg52.h&quot;</span><br><span class="line"></span><br><span class="line">typedef unsigned char u8;</span><br><span class="line">typedef unsigned int u16;</span><br><span class="line"></span><br><span class="line">sbit led &#x3D; P0 ^ 0; &#x2F;&#x2F;设置灯的控制IO口</span><br><span class="line">sbit k1  &#x3D; P1 ^ 0; &#x2F;&#x2F;设置按键的控制IO口</span><br><span class="line"></span><br><span class="line">void delay(u16 i) &#x2F;&#x2F;延时函数</span><br><span class="line">&#123;</span><br><span class="line">	while (i--);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void keyprocess()</span><br><span class="line">&#123;</span><br><span class="line">	if (k1 &#x3D;&#x3D; 0) &#x2F;&#x2F;判断按键是否按下</span><br><span class="line">	&#123;</span><br><span class="line">		delay(1000); &#x2F;&#x2F;延时消抖</span><br><span class="line">		if (k1 &#x3D;&#x3D; 0) &#x2F;&#x2F;再次判断按键是否按下</span><br><span class="line">		&#123;</span><br><span class="line">			led &#x3D; 1; &#x2F;&#x2F;如果按键按下，则灯亮</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			led &#x3D; 0; &#x2F;&#x2F;如果按键没有按下，则灯灭</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">	led &#x3D; 0; &#x2F;&#x2F;初始灯灭</span><br><span class="line">	while (1)</span><br><span class="line">	&#123;</span><br><span class="line">		keyprocess(); &#x2F;&#x2F;处理按键事件</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/Lzinner/article/details/79597092" target="_blank">51单片机之独立按键控制LED</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;reg52.h&gt;</span><br><span class="line">typedef int u16;</span><br><span class="line">typedef char u8;</span><br><span class="line">sbit led1 &#x3D; P2 ^ 0;	&#x2F;&#x2F;D1</span><br><span class="line">sbit led2 &#x3D; P2 ^ 1;	&#x2F;&#x2F;D2</span><br><span class="line">sbit led3 &#x3D; P2 ^ 2;	&#x2F;&#x2F;D3</span><br><span class="line">sbit led4 &#x3D; P2 ^ 3;	&#x2F;&#x2F;D4</span><br><span class="line"></span><br><span class="line">sbit k1 &#x3D; P3 ^ 1; &#x2F;&#x2F;定义一个独立按键</span><br><span class="line">sbit k2 &#x3D; P3 ^ 2; &#x2F;&#x2F;定义一个独立按键</span><br><span class="line">sbit k3 &#x3D; P3 ^ 3; &#x2F;&#x2F;定义一个独立按键</span><br><span class="line">sbit k4 &#x3D; P3 ^ 4; &#x2F;&#x2F;定义一个独立按键</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;定义延时函数</span><br><span class="line">void delay(u16 i)</span><br><span class="line">&#123;</span><br><span class="line">	while (i--);</span><br><span class="line">&#125;</span><br><span class="line">void keypros()&#x2F;&#x2F;定义独立按键控制</span><br><span class="line">&#123;</span><br><span class="line">	if (k1 &#x3D;&#x3D; 0) &#x2F;&#x2F;说明按下去了</span><br><span class="line">	&#123;</span><br><span class="line">		delay(1000);&#x2F;&#x2F;消抖</span><br><span class="line">		if (k1 &#x3D;&#x3D; 0)</span><br><span class="line">		&#123;</span><br><span class="line">			led1 &#x3D; ~led1; &#x2F;&#x2F;翻转</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		while (!k1); &#x2F;&#x2F;按键松开</span><br><span class="line">	&#125;</span><br><span class="line">	if (k2 &#x3D;&#x3D; 0) &#x2F;&#x2F;说明按下去了</span><br><span class="line">	&#123;</span><br><span class="line">		delay(1000);&#x2F;&#x2F;消抖</span><br><span class="line">		if (k2 &#x3D;&#x3D; 0)</span><br><span class="line">		&#123;</span><br><span class="line">			led2 &#x3D; ~led2; &#x2F;&#x2F;翻转</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		while (!k2); &#x2F;&#x2F;按键松开</span><br><span class="line">	&#125;</span><br><span class="line">	if (k3 &#x3D;&#x3D; 0) &#x2F;&#x2F;说明按下去了</span><br><span class="line">	&#123;</span><br><span class="line">		delay(1000);&#x2F;&#x2F;消抖</span><br><span class="line">		if (k3 &#x3D;&#x3D; 0)</span><br><span class="line">		&#123;</span><br><span class="line">			led3 &#x3D; ~led3; &#x2F;&#x2F;翻转</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		while (!k3); &#x2F;&#x2F;按键松开</span><br><span class="line">	&#125;</span><br><span class="line">	if (k4 &#x3D;&#x3D; 0) &#x2F;&#x2F;说明按下去了</span><br><span class="line">	&#123;</span><br><span class="line">		delay(1000);&#x2F;&#x2F;消抖</span><br><span class="line">		if (k4 &#x3D;&#x3D; 0)</span><br><span class="line">		&#123;</span><br><span class="line">			led4 &#x3D; ~led4; &#x2F;&#x2F;翻转</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		while (!k4); &#x2F;&#x2F;按键松开</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">	while (1)</span><br><span class="line">	&#123;</span><br><span class="line">		keypros();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/12/18/1576669678000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/12/18/articles/2019/12/18/1576669678000.html/" class="article-date">
-      <time datetime="2019-12-18T11:47:58.000Z" itemprop="datePublished">2019-12-18</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/18/articles/2019/12/18/1576669678000.html/">[单片机] 电子密码锁+仿真</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="http://www.51hei.com/bbs/dpj-142683-1.html" target="_blank">基于单片机的电子密码锁全套设计资料</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2019/12/18/1576669677000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -891,6 +699,197 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/12/18/1576669670000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/12/18/articles/2019/12/18/1576669670000.html/" class="article-date">
+      <time datetime="2019-12-18T11:47:50.000Z" itemprop="datePublished">2019-12-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/12/18/articles/2019/12/18/1576669670000.html/">[springboot] vue前后端分离实现大文件分块上传</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://luoliangdsga.github.io/2018/06/25/SpringBoot-Vue-js%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%AE%9E%E7%8E%B0%E5%A4%A7%E6%96%87%E4%BB%B6%E5%88%86%E5%9D%97%E4%B8%8A%E4%BC%A0/" target="_blank">SpringBoot+Vue.js前后端分离实现大文件分块上传</a></p>
+<p><a href="https://github.com/LuoLiangDSGA/spring-learning/tree/master/boot-uploader" target="_blank">spring-learning</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/12/18/1576669669000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/12/18/articles/2019/12/18/1576669669000.html/" class="article-date">
+      <time datetime="2019-12-18T11:47:49.000Z" itemprop="datePublished">2019-12-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/12/18/articles/2019/12/18/1576669669000.html/">[springboot] Logging配置</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://my.oschina.net/woter/blog/1839781" target="_blank">SpringBoot Logging配置</a></p>
+<p><a href="https://blog.csdn.net/Small_Mouse0/article/details/77840582" target="_blank">SpringBoot配置logging日志及输出日志(yml格式)</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">protected static final Logger logger &#x3D; LoggerFactory.getLogger(SpringBootApplication.class);</span><br><span class="line"></span><br><span class="line">logger.info(&quot;SpringBoot加载完毕&quot;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/12/18/1576669668000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/12/18/articles/2019/12/18/1576669668000.html/" class="article-date">
+      <time datetime="2019-12-18T11:47:48.000Z" itemprop="datePublished">2019-12-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/12/18/articles/2019/12/18/1576669668000.html/">[单片机] HC-SR051人体红外传感器</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/everestrs/article/details/86415607" target="_blank">51单片机 人体红外感应报警</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;模块感应到信号后，输出高电平，此时LED的D7灯点亮，蜂鸣器报警。没有信号后，D8灯亮，蜂鸣器停止。</span><br><span class="line">#include &lt;reg52.h&gt;</span><br><span class="line">#define uchar unsigned char</span><br><span class="line">#define uint unsigned int</span><br><span class="line"></span><br><span class="line">sbit HC_SR051_out &#x3D; P1 ^ 7;</span><br><span class="line">sbit D7 &#x3D; P1 ^ 6;</span><br><span class="line">sbit beep &#x3D; P2 ^ 3;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void delay(uint z)</span><br><span class="line">&#123;</span><br><span class="line">	uint i, j;</span><br><span class="line">	for (i &#x3D; z; i &gt; 0; i--)</span><br><span class="line">		for (j &#x3D; 110; j &gt; 0; j--);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main() &#123;</span><br><span class="line"></span><br><span class="line">	while (1)</span><br><span class="line">	&#123;</span><br><span class="line">		if (HC_SR051_out &#x3D;&#x3D; 1)</span><br><span class="line">		&#123;</span><br><span class="line">			unsigned char m;</span><br><span class="line">			for (m &#x3D; 20; m &gt; 0; m--)</span><br><span class="line">			&#123;</span><br><span class="line">				beep &#x3D; ~beep;</span><br><span class="line">				D7 &#x3D; ~D7;</span><br><span class="line">				delay(500);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://www.51hei.com/bbs/dpj-145840-1.html" target="_blank">基于51单片机的人体红外模块的自动门设计原理图+程序</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
     </div>
 
       

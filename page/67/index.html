@@ -283,196 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/10/23/1571924646000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/24/articles/2019/10/23/1571924646000.html/" class="article-date">
-      <time datetime="2019-10-24T13:44:06.000Z" itemprop="datePublished">2019-10-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924646000.html/">[qt] 打包发布</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="" target="_blank"></a></p>
-<p><a href="https://blog.csdn.net/wyansai/article/details/80550723" target="_blank">QT - 程序打包发布</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">一、新建windows系统的菜单右键</span><br><span class="line"></span><br><span class="line">1、Win+R 运行regedit，打开注册表。</span><br><span class="line"></span><br><span class="line">2、新建目录：</span><br><span class="line">HKEY_CLASSES_ROOT\*\shell\DeployQt\command</span><br><span class="line"></span><br><span class="line">3、设置默认值为：</span><br><span class="line">D:\AppData\Qt\5.8\msvc2013\bin\windeployqt.exe &quot;%1&quot; --dir&#x3D;output --no-translations --no-opengl-sw --no-system-d3d-compiler --release --no-compiler-runtime</span><br><span class="line"></span><br><span class="line">二、右键发布exe程序</span><br><span class="line">1、如图所示，即可在当前目录下生成需要发布的dll文件</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/23/1571924643000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/24/articles/2019/10/23/1571924643000.html/" class="article-date">
-      <time datetime="2019-10-24T13:44:03.000Z" itemprop="datePublished">2019-10-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924643000.html/">[qt] string转QBytearray</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="" target="_blank"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">structCameraInfo tmpCameraInfo;</span><br><span class="line">string strData &#x3D; tmpCalibrateReq.images(i).data();</span><br><span class="line">string strCameraName &#x3D; tmpCalibrateReq.images(i).camera_name();</span><br><span class="line">QFile file;</span><br><span class="line">QString strImgPath &#x3D; qApp-&gt;applicationDirPath() + &quot;&#x2F;&quot; + QString::fromStdString(strCameraName) + &quot;.jpg&quot;;</span><br><span class="line">file.setFileName(strImgPath);</span><br><span class="line">if(file.open(QIODevice::WriteOnly))</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;QByteArray tmpByteArray &#x3D; QString::fromStdString(strData).toLatin1();这种写法是错误的</span><br><span class="line">　　 QByteArray tmpByteArray(strData.c_str(), strData.length());&#x2F;&#x2F;这才是正确的</span><br><span class="line">    file.write(tmpByteArray);</span><br><span class="line">    file.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/23/1571924641000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/24/articles/2019/10/23/1571924641000.html/" class="article-date">
-      <time datetime="2019-10-24T13:44:01.000Z" itemprop="datePublished">2019-10-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924641000.html/">[qt] json</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="" target="_blank"></a><br><a href="https://blog.csdn.net/qq_35153254/article/details/78233002" target="_blank">QJson的生成与解析</a></p>
-<p>常用的Json库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">QJson</span><br><span class="line"></span><br><span class="line">QJson是一个基于Qt的开发包用来将JSON数据解析成QVariant对象，JSON的数组将被映射为QVariantList实例，而其他对象映射为QVariantMap实例。</span><br><span class="line">网址：</span><br><span class="line">http:&#x2F;&#x2F;qjson.sourceforge.net&#x2F;</span><br><span class="line"></span><br><span class="line">关于Qt中对JSON的生成与解析，Qt5以前的版本，需要去进行单独下载、编译，才能使用。到了Qt5，提供了专门的QJsonDocument类来读取和写入JSON文档。</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2019/10/24/1571872292000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -914,6 +724,193 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfinal/" rel="tag">jfinal</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/23/1571834847000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/23/articles/2019/10/23/1571834847000.html/" class="article-date">
+      <time datetime="2019-10-23T12:47:27.000Z" itemprop="datePublished">2019-10-23</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834847000.html/">[jfinal] jfinal-ext文档</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://github.com/b1412/jfinal-ext/blob/master/doc/doc.org" target="_blank">jfinal-ext文档</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfinal/" rel="tag">jfinal</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/23/1571834765000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/23/articles/2019/10/23/1571834765000.html/" class="article-date">
+      <time datetime="2019-10-23T12:46:05.000Z" itemprop="datePublished">2019-10-23</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834765000.html/">[layui] 时间范围选择</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/qq_21178933/article/details/78581206" target="_blank">layui时间控件选择时间范围</a></p>
+<pre><code></code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/layui/" rel="tag">layui</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/23/1571834764000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/23/articles/2019/10/23/1571834764000.html/" class="article-date">
+      <time datetime="2019-10-23T12:46:04.000Z" itemprop="datePublished">2019-10-23</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834764000.html/">[js] json转换url参数</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="" target="_blank"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var json &#x3D; &#123; sh: &#39;上海&#39; &#125;</span><br><span class="line"></span><br><span class="line">var params &#x3D; Object.keys(json).map(function (key) &#123;</span><br><span class="line">	return encodeURIComponent(key) + &quot;&#x3D;&quot; + encodeURIComponent(json[key]);</span><br><span class="line">&#125;).join(&quot;&amp;&quot;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
     </div>
 
       

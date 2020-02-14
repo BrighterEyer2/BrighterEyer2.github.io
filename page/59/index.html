@@ -283,198 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/10/29/1572350161000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/29/articles/2019/10/29/1572350161000.html/" class="article-date">
-      <time datetime="2019-10-29T11:56:01.000Z" itemprop="datePublished">2019-10-29</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350161000.html/">[qt] 样式表的使用</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/goforwardtostep/article/details/60884870" target="_blank">样式表的使用</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/29/1572350160000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/29/articles/2019/10/29/1572350160000.html/" class="article-date">
-      <time datetime="2019-10-29T11:56:00.000Z" itemprop="datePublished">2019-10-29</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350160000.html/">[qt] 线条阴影</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/qq_40194498/article/details/79612891" target="_blank">Qt线条阴影</a><br>Qt中实现线条阴影有两种办法：</p>
-<p>一、用label控件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、label控件上鼠标右键，改变样式表</span><br><span class="line">2、编辑样式表，添加颜色</span><br><span class="line">3、编辑如下： </span><br><span class="line">border-top: 3px solid rgb(255, 255, 255); </span><br><span class="line">border-bottom: 1.5px solid rgb(66, 66, 66);</span><br></pre></td></tr></table></figure>
-
-<p>二、绘制两条线</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void Widget::paintEvent(QPaintEvent *)&#123;</span><br><span class="line">	QPainter painter(this);</span><br><span class="line">	QPen pen;</span><br><span class="line">	pen.setColor(Qt::white); </span><br><span class="line">	painter.drawLine(2,502,602,502);  &#x2F;&#x2F;绘制阴影线条，画笔默认为黑色</span><br><span class="line">	painter.setPen(pen);&#x2F;&#x2F;此处将画笔变为白色</span><br><span class="line">	painter.drawLine(0,500,600,500); &#x2F;&#x2F;绘制线条</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/29/1572350159000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/29/articles/2019/10/29/1572350159000.html/" class="article-date">
-      <time datetime="2019-10-29T11:55:59.000Z" itemprop="datePublished">2019-10-29</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350159000.html/">[qt] 线程</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.cnblogs.com/doker/p/11171684.html" target="_blank">Qt + 线程 QImage</a></p>
-<pre><code></code></pre><p><a href="" target="_blank"></a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2019/10/29/1572350158000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -902,6 +710,200 @@
           
         <p><a href="https://blog.csdn.net/dennis_sck/article/details/80828701" target="_blank">QT5 掌握debug调试的方法（简要内容：Memory查看内存地址的数值 和 查看变量值）（图文并茂）</a></p>
 <pre><code></code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/29/1572350150000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/29/articles/2019/10/29/1572350150000.html/" class="article-date">
+      <time datetime="2019-10-29T11:55:50.000Z" itemprop="datePublished">2019-10-29</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350150000.html/">[qt] 自定义控件</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/qq_15094525/article/category/5863621" target="_blank">QT自定义控件</a></p>
+<pre><code></code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/29/1572350148000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/29/articles/2019/10/29/1572350148000.html/" class="article-date">
+      <time datetime="2019-10-29T11:55:48.000Z" itemprop="datePublished">2019-10-29</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350148000.html/">[qt] 实现tab切换</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>顶部<br><a href="https://blog.csdn.net/baidu_36669549/article/details/76012689" target="_blank">QT手动生成选项卡窗口</a></p>
+<p>左边横向<br><a href="https://blog.csdn.net/csu_passer/article/details/79160042" target="_blank">QT：选项卡界面实现总结</a></p>
+<p><a href="https://github.com/toby20130333/PageChanged" target="_blank">PageChanged</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个简单的Qt-Widget页面的切换</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/hanxiaoluo/MultiPageDemo" target="_blank">MultiPageDemo</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qt实现的切换页效果</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/29/1572350147000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/29/articles/2019/10/29/1572350147000.html/" class="article-date">
+      <time datetime="2019-10-29T11:55:47.000Z" itemprop="datePublished">2019-10-29</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350147000.html/">[qt] 嵌入式监控</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://github.com/Ranpop/QT-Monitor" target="_blank">QT-Monitor</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QT嵌入式实现监控，曲线绘制，视频图像显示，tcp&#x2F;udp通信，Share内存通信等</span><br></pre></td></tr></table></figure>
+
       
     </div>
     

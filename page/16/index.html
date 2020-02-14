@@ -283,261 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2020/01/06/1578311650000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/06/articles/2020/01/06/1578311650000.html/" class="article-date">
-      <time datetime="2020-01-06T11:54:10.000Z" itemprop="datePublished">2020-01-06</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/06/articles/2020/01/06/1578311650000.html/">[arm] 开发工具</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="http://tutorial.linux.doc.embedfire.com/zh_CN/latest/" target="_blank">[野火]i.MX Linux开发实战指南</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">[野火]i.MX Linux开发实战指南</span><br><span class="line"></span><br><span class="line">搭建并熟悉开发环境：</span><br><span class="line">1. 为什么学习Linux开发</span><br><span class="line">2. i.MX系列芯片简介</span><br><span class="line">3. Linux系统简介</span><br><span class="line">4. 安装Ubuntu系统</span><br><span class="line">5. Linux文件目录</span><br><span class="line">6. 用户组与文件权限</span><br><span class="line">7. 使用Linux命令行</span><br><span class="line">8. 包管理工具</span><br><span class="line">9. 使用编辑器</span><br><span class="line">10. 野火EBF 6ULL 开发板硬件资源介绍</span><br><span class="line">11. 让开发板跑起来</span><br><span class="line">12. 查看系统信息</span><br><span class="line">13. 使用命令点灯和检测按键</span><br><span class="line">14. 使用脚本测试硬件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">在Linux下开发应用程序：</span><br><span class="line">1. 挂载NFS网络文件系统</span><br><span class="line">2. GCC和Hello World</span><br><span class="line">3. 文件操作与系统调用</span><br><span class="line">4. 控制LED灯设备（LED子系统）</span><br><span class="line">5. 控制蜂鸣器（GPIO子系统）</span><br><span class="line">6. 检测按键输入（input子系统）</span><br><span class="line">7. 串口通讯与终端设备</span><br><span class="line">8. I2C通讯</span><br><span class="line">9. SPI通讯</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">安装系统镜像：</span><br><span class="line">1. 使用Etcher烧录镜像到SD卡</span><br><span class="line">2. 使用sd卡烧录完整镜像</span><br><span class="line">3. MFGtool工具</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">制作系统镜像：</span><br><span class="line">1. 系统运行所需要的组件</span><br><span class="line">2. 编译内核</span><br><span class="line">3. 编译uboot</span><br><span class="line">4. 制作根文件系统</span><br><span class="line">5. 给开发板移植debian发行版</span><br><span class="line">6. 制作ubuntu core版本镜像</span><br><span class="line">7. 使用Buildroot编译</span><br><span class="line">8. 使用yocot构建镜像</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">i.MX6 裸机开发：</span><br><span class="line">1. 熟悉sdk</span><br><span class="line">2. 编译下载官方SDK程序到开发板</span><br><span class="line">3. 开发前准备</span><br><span class="line">4. 汇编点亮LED灯</span><br><span class="line">5. 点亮LED灯</span><br><span class="line">6. LED灯进阶——C语言实现</span><br><span class="line">7. 完善LED程序</span><br><span class="line">8. GPIO输入—按键查询检测</span><br><span class="line">9. 整理工程文件</span><br><span class="line">10. 中断</span><br><span class="line">11. 时钟控制模块（CCM）</span><br><span class="line">12. UART—串口通讯</span><br><span class="line">13. DDR测试</span><br><span class="line">14. eLCDIF—液晶显示</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Linux驱动开发：</span><br><span class="line">1. 字符设备驱动</span><br><span class="line">2. 内核模块</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/01/06/1578311648000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/06/articles/2020/01/06/1578311648000.html/" class="article-date">
-      <time datetime="2020-01-06T11:54:08.000Z" itemprop="datePublished">2020-01-06</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/06/articles/2020/01/06/1578311648000.html/">[arm] ubuntu+QEMU虚拟化模拟器+vexpress开发板</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">80%的嵌入式知识和技能，其实都跟开发板无关。</span><br><span class="line">你可以直接在Ubuntu上练习编程，也可以使用QEMU模拟一款ARM开发板，在这款虚拟的开发板上可以跑U-boot、kernel、NFS。</span><br><span class="line">如果嫌安装配置麻烦的话，也可以直接下载已经安装配置好的Ubuntu镜像，将镜像下载到本地后，使用VMware打开即可直接运行。</span><br></pre></td></tr></table></figure>
-<p><a href="https://pan.baidu.com/s/1FPbKMi8K0jkrix6p2DNp5g" target="_blank">QEMU虚拟机镜像下载链接</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码:</span><br><span class="line">rsnt</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.jianshu.com/p/94833e841742" target="_blank">Qemu搭建ARM vexpress开发环境(一)</a><br><a href="https://www.jianshu.com/p/db8c20aa6a69" target="_blank">QEMU简介</a><br><a href="https://www.huaweicloud.com/kunpeng/software/qemu.html" target="_blank">QEMU虚拟化模拟器</a></p>
-<p>Linux 上安装QEMU</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;download.qemu.org&#x2F;qemu-4.0.0.tar.xz</span><br><span class="line">tar xvJf qemu-4.0.0.tar.xz</span><br><span class="line">cd qemu-4.0.0</span><br><span class="line">.&#x2F;configure</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git:&#x2F;&#x2F;git.kernel.org&#x2F;pub&#x2F;scm&#x2F;linux&#x2F;kernel&#x2F;git&#x2F;torvalds&#x2F;linux.git</span><br></pre></td></tr></table></figure>
-
-<p>安装arm的交叉编译工具链</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-arm-linux-gnueabi</span><br></pre></td></tr></table></figure>
-
-<p>编译Linux内核，生成vexpress开发板子的config文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make CROSS_COMPILE&#x3D;arm-linux-gnueabi- ARCH&#x3D;arm vexpress_defconfig</span><br></pre></td></tr></table></figure>
-
-<p>编译：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make CROSS_COMPILE&#x3D;arm-linux-gnueabi- ARCH&#x3D;arm</span><br><span class="line"></span><br><span class="line">#生成的内核镱像位于arch&#x2F;arm&#x2F;boot&#x2F;zImage， 后续qemu启动时需要使用该镜像。</span><br></pre></td></tr></table></figure>
-
-
-<p>下载和安装qemu模拟器<br>其实Ubuntu 12.04有qemu的安装包，但由于版本较低，对vexpress开发板支持不友好，建议下载高版本的qemu:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;wiki.qemu-project.org&#x2F;download&#x2F;qemu-2.0.2.tar.bz2</span><br></pre></td></tr></table></figure>
-
-
-<p>配置qemu前，需要安装几个软件包：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y zlib1g-dev libglib2.0-0 libglib2.0-dev</span><br></pre></td></tr></table></figure>
-
-<p>配置qemu，支持模拟arm架构下的所有单板：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure --target-list&#x3D;arm-softmmu --audio-drv-list&#x3D;</span><br></pre></td></tr></table></figure>
-
-<p>编译和安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-
-<p>测试qemu和内核能否运行成功<br>qemu已经安装好了，内核也编译成功了，到这里最好是测试一下，编译出来的内核是否OK，或者qemu对vexpress单板支持是否够友好。</p>
-<p>运行命令很简单：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M vexpress-a9 -m 512M -kernel &#x2F;path&#x2F;to&#x2F;kernel&#x2F;dir&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;zImage -dtb  &#x2F;path&#x2F;to&#x2F;kernel&#x2F;dir&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;dts&#x2F;vexpress-v2p-ca9.dtb -nographic -append &quot;console&#x3D;ttyAMA0&quot;</span><br><span class="line"></span><br><span class="line">#这里的 &#x2F;path&#x2F;to&#x2F;kernel&#x2F;dir&#x2F;  是内核的下载目录，或者编译目录。</span><br><span class="line">#如果看到内核启动过程中的打印，说明前面的搭建是成功的。</span><br></pre></td></tr></table></figure>
-
-
-<p>下载、编译和安装busybox</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;www.busybox.net&#x2F;downloads&#x2F;busybox-1.20.2.tar.bz2</span><br><span class="line">make defconfig</span><br><span class="line">make CROSS_COMPILE&#x3D;arm-linux-gnueabi-</span><br><span class="line">make install CROSS_COMPILE&#x3D;arm-linux-gnueabi-</span><br></pre></td></tr></table></figure>
-
-<p>安装完成后，会在busybox目录下生成_install目录，该目录下的程序就是单板运行所需要的命令。</p>
-<p>形成根目录结构<br>先在Ubuntu主机环境下，形成目录结构，里面存放的文件和目录与单板上运行所需要的目录结构完全一样，然后再打包成镜像（在开发板看来就是SD卡），这个临时的目录结构称为根目录</p>
-<p>1.创建rootfs目录（根目录），根文件系统内的文件全部放到这里</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p rootfs&#x2F;&#123;dev,etc&#x2F;init.d,lib&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2.拷贝busybox命令到根目录下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp busybox-1.20.2&#x2F;_install&#x2F;* -r rootfs&#x2F;</span><br></pre></td></tr></table></figure>
-
-
-<p>3.从工具链中拷贝运行库到lib目录下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp -P &#x2F;usr&#x2F;arm-linux-gnueabi&#x2F;lib&#x2F;* rootfs&#x2F;lib&#x2F;</span><br></pre></td></tr></table></figure>
-
-
-<p>4.创建4个tty端终设备</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty1 c 4 1</span><br><span class="line"></span><br><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty2 c 4 2</span><br><span class="line"></span><br><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty3 c 4 3</span><br><span class="line"></span><br><span class="line">sudo mknod rootfs&#x2F;dev&#x2F;tty4 c 4 4</span><br></pre></td></tr></table></figure>
-
-<p>制作根文件系统镜像<br>1.生成32M大小的镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;a9rootfs.ext3 bs&#x3D;1M count&#x3D;32</span><br></pre></td></tr></table></figure>
-
-<p>2.格式化成ext3文件系统</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext3 a9rootfs.ext3</span><br></pre></td></tr></table></figure>
-
-<p>3.将文件拷贝到镜像中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir tmpfs</span><br><span class="line">sudo mount -t ext3 a9rootfs.ext3 tmpfs&#x2F; -o loop</span><br><span class="line">sudo cp -r rootfs&#x2F;*  tmpfs&#x2F;</span><br><span class="line">sudo umount tmpfs</span><br></pre></td></tr></table></figure>
-
-<p>系统启动运行<br>完成上述所有步骤之后，就可以启动qemu来模拟vexpress开发板了，命令参数如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M vexpress-a9 -m 512M -kernel &#x2F;path&#x2F;to&#x2F;kernel&#x2F;dir&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;zImage -dtb  &#x2F;path&#x2F;to&#x2F;kernel&#x2F;dir&#x2F;arch&#x2F;arm&#x2F;boot&#x2F;dts&#x2F;vexpress-v2p-ca9.dtb -nographic -append &quot;root&#x3D;&#x2F;dev&#x2F;mmcblk0  console&#x3D;ttyAMA0&quot; -sd a9rootfs.ext3</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/01/06/1578311647000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/06/articles/2020/01/06/1578311647000.html/" class="article-date">
-      <time datetime="2020-01-06T11:54:07.000Z" itemprop="datePublished">2020-01-06</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/06/articles/2020/01/06/1578311647000.html/">[arm] 智能门锁系统设计</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://wenku.baidu.com/view/1e4f8b192bf90242a8956bec0975f46527d3a727.html" target="_blank">基于ARM_Linux的智能门锁系统设计_王溢琴</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2020/01/06/1578311646000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1045,6 +790,198 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idea/" rel="tag">idea</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/01/01/1577823565000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/01/articles/2020/01/01/1577823565000.html/" class="article-date">
+      <time datetime="2019-12-31T20:19:25.000Z" itemprop="datePublished">2020-01-01</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/01/articles/2020/01/01/1577823565000.html/">[linux] 常用命令</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.cnblogs.com/xuxinstyle/p/9609551.html" target="_blank">linux常用命令（50个）</a></p>
+<p><a href="https://blog.csdn.net/qq_23329167/article/details/83856430" target="_blank">Linux常用命令</a></p>
+<p><a href="https://www.cnblogs.com/guanbin-529/p/11227069.html" target="_blank">Linux添加用户组和添加用户</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/01/01/1577823565000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/01/articles/2020/01/01/1577823565000.html/" class="article-date">
+      <time datetime="2019-12-31T20:19:25.000Z" itemprop="datePublished">2020-01-01</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/01/articles/2020/01/01/1577823565000.html/">[linux] jar包启动与发布脚本</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>start.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash </span><br><span class="line">nohup java -Xms512m -Xmx512m -jar app.jar &gt; app.log 2&gt;&amp;1 &amp;</span><br><span class="line">#record the process id</span><br><span class="line">echo $!&gt;pid</span><br></pre></td></tr></table></figure>
+
+<p>stop.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill &#96;cat pid&#96;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/01/01/1577823564000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/01/articles/2020/01/01/1577823564000.html/" class="article-date">
+      <time datetime="2019-12-31T20:19:24.000Z" itemprop="datePublished">2020-01-01</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/01/articles/2020/01/01/1577823564000.html/">[板绘] 城市</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.bilibili.com/video/av45666195" target="_blank">【高漫】板绘过程，科技城市场景绘画过程及技巧</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%BF%E7%BB%98/" rel="tag">板绘</a></li></ul>
     </div>
 
       
