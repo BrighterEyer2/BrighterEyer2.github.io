@@ -283,6 +283,82 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2019/09/25/1569418379000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/09/25/articles/2019/09/25/1569418379000.html/" class="article-date">
+      <time datetime="2019-09-25T13:32:59.000Z" itemprop="datePublished">2019-09-25</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/09/25/articles/2019/09/25/1569418379000.html/">[react-native] 本地webview</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="" target="_blank"></a><br><a href="https://blog.csdn.net/sunshinezx8023/article/details/80702443" target="_blank">React Native 中使用 WebView 加载本地 html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">然后把</span><br><span class="line">require(&#39;.&#x2F;pages&#x2F;demo.html&#39;)</span><br><span class="line">换成</span><br><span class="line">&#123;uri: &#39;file:&#x2F;&#x2F;&#x2F;android_asset&#x2F;pages&#x2F;demo.html&#39;&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://jintang.github.io/2018/12/04/react-native-%E4%B9%8B-webview/" target="_blank">react-native 之 webview</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-native-webview</span><br></pre></td></tr></table></figure>
+
+<p>LocalWebView.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123;Component&#125; from &#39;react&#39;;</span><br><span class="line">import &#123;</span><br><span class="line">    Button,</span><br><span class="line">    StyleSheet,</span><br><span class="line">    NativeModules,</span><br><span class="line">    Platform,</span><br><span class="line">    Text,</span><br><span class="line">    View,</span><br><span class="line">    WebView,</span><br><span class="line">    ActivityIndicator,</span><br><span class="line">&#125; from &#39;react-native&#39;;</span><br><span class="line"></span><br><span class="line">import &#123;</span><br><span class="line">    WebView,</span><br><span class="line">&#125; from &#39;react-native-webview&#39;;</span><br><span class="line"></span><br><span class="line">export default class LocalWebView extends Component &#123;</span><br><span class="line"></span><br><span class="line">    state &#x3D; &#123;</span><br><span class="line">        url: &#39;&#39;,</span><br><span class="line">        webViewHeight: 200,</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    _onLoadEnd &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">        const script &#x3D; &#96;window.postMessage(document.body.scrollHeight)&#96;;</span><br><span class="line">        this.webView.injectJavaScript(script);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    _onMessage &#x3D; (event) &#x3D;&gt; &#123;</span><br><span class="line">        const height &#x3D; parseInt(event.nativeEvent.data) || 0;</span><br><span class="line">        if (height &gt; 0) &#123;</span><br><span class="line">            this.setState(&#123;webViewHeight: height&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    _onNavigationStateChange &#x3D; (navState) &#x3D;&gt; &#123;</span><br><span class="line">        if (navState.title &amp;&amp; (navState.title - this.state.webViewHeight &gt; 0)) &#123;</span><br><span class="line">            this.setState(&#123;</span><br><span class="line">                webViewHeight: parseInt(navState.title),</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        &#x2F;&#x2F; const source &#x3D; &#123;uri: &#39;file:&#x2F;&#x2F;&#x2F;android_asset&#x2F;trivia-game&#x2F;index.html&#39;&#125;;</span><br><span class="line">        const source &#x3D; require(&#39;.&#x2F;html&#x2F;index.html&#39;);</span><br><span class="line"></span><br><span class="line">        return (</span><br><span class="line">            &lt;WebView</span><br><span class="line">                ref&#x3D;&#123;(webView) &#x3D;&gt; this.webView &#x3D; webView&#125;</span><br><span class="line">                source&#x3D;&#123;source&#125;</span><br><span class="line">                originWhitelist&#x3D;&#123;[&#39;file:&#x2F;&#x2F;&#39;, &#39;*&#39;]&#125;</span><br><span class="line">                style&#x3D;&#123;&#123;height: this.state.webViewHeight&#125;&#125;</span><br><span class="line">                javaScriptEnabled&#x3D;&#123;true&#125;</span><br><span class="line">                scrollEnabled&#x3D;&#123;false&#125;</span><br><span class="line">                domStorageEnabled&#x3D;&#123;true&#125;</span><br><span class="line">                scalesPageToFit&#x3D;&#123;true&#125;</span><br><span class="line">                startInLoadingState&#x3D;&#123;true&#125;</span><br><span class="line">                renderLoading&#x3D;&#123;() &#x3D;&gt; &lt;ActivityIndicator&#x2F;&gt;&#125;</span><br><span class="line">                onLoadEnd&#x3D;&#123;this._onLoadEnd&#125;</span><br><span class="line">                onMessage&#x3D;&#123;this._onMessage&#125;</span><br><span class="line">                onNavigationStateChange&#x3D;&#123;this._onNavigationStateChange&#125;</span><br><span class="line">                allowUniversalAccessFromFileURLs&#x3D;&#123;true&#125;</span><br><span class="line">                mediaPlaybackRequiresUserAction&#x3D;&#123;false&#125;</span><br><span class="line">            &#x2F;&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const styles &#x3D; StyleSheet.create(&#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>html/index.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-id">#height-wrapper</span> &#123;</span></span><br><span class="line">            position: absolute;</span><br><span class="line">            top: 0;</span><br><span class="line">            left: 0;</span><br><span class="line">            right: 0;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    ;(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> wrapper = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span></span><br><span class="line"><span class="actionscript">        wrapper.id = <span class="string">'height-wrapper'</span>;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">while</span> (<span class="built_in">document</span>.body.firstChild) &#123;</span></span><br><span class="line"><span class="javascript">            wrapper.appendChild(<span class="built_in">document</span>.body.firstChild);</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.body.appendChild(wrapper);</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> i = <span class="number">0</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="function"><span class="keyword">function</span> <span class="title">updateHeight</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.title = wrapper.clientHeight;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">window</span>.location.hash = ++i;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line">            updateHeight();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;());</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.jianshu.com/p/44365ec64e4a" target="_blank">React-Native Webview 和H5交互的两种方式</a></p>
+<p><a href="https://www.jianshu.com/p/c9306a0ac0e2" target="_blank">React-Native WebView与html交互</a><br><a href="https://blog.csdn.net/weixin_34411563/article/details/91869582" target="_blank">React Native - Webview 加载本地文件</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2019/09/25/1569418378000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -853,70 +929,6 @@
           
         <p><a href="https://www.bilibili.com/video/av61569527" target="_blank">【AE教程/粒子】粒子转场效果，教你不一般的转场</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">BGM:</span><br><span class="line">1.a little story</span><br><span class="line">2.星茶会</span><br><span class="line">3.青石巷</span><br><span class="line">4.斑光</span><br><span class="line">5.沐白</span><br><span class="line">6. κrOnё</span><br><span class="line">7.天空之城</span><br><span class="line">8.寂静之空</span><br><span class="line"></span><br><span class="line">粒子插件</span><br><span class="line">链接:</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;12RTKFl9_hmg_Q-znSZ0IaQ</span><br><span class="line">提取码:</span><br><span class="line">eh7f</span><br><span class="line"></span><br><span class="line">成品视频</span><br><span class="line">https:&#x2F;&#x2F;b23.tv&#x2F;av60094332</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ae/" rel="tag">ae</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/09/25/1569418370000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/09/25/articles/2019/09/25/1569418370000.html/" class="article-date">
-      <time datetime="2019-09-25T13:32:50.000Z" itemprop="datePublished">2019-09-25</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/09/25/articles/2019/09/25/1569418370000.html/">[ae] 画面破碎</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="" target="_blank"></a><br><a href="https://www.bilibili.com/video/av67458288" target="_blank">AE画面破碎效果</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
       

@@ -283,6 +283,93 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/02/10/1581341852000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/10/articles/2020/02/10/1581341852000.html/" class="article-date">
+      <time datetime="2020-02-10T13:37:32.000Z" itemprop="datePublished">2020-02-10</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/10/articles/2020/02/10/1581341852000.html/">[docker] oracle数据库</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/qq_38380025/article/details/80647620" target="_blank">Docker 拉取 oracle 11g镜像配置(镜像6.8G)</a><br><a href="https://www.cnblogs.com/maoxianfei/p/9083426.html" target="_blank">Docker oracle部署使用</a></p>
+<details>
+<summary>拉取和设置</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com&#x2F;helowin&#x2F;oracle_11g</span><br><span class="line">docker run -d -p 1521:1521 --name oracle11g registry.cn-hangzhou.aliyuncs.com&#x2F;helowin&#x2F;oracle_11g</span><br><span class="line">docker start oracle11g</span><br><span class="line">docker exec -it oracle11g bash</span><br><span class="line"></span><br><span class="line">#切换root</span><br><span class="line">su root</span><br><span class="line">#密码：</span><br><span class="line">helowin</span><br><span class="line"></span><br><span class="line">#编辑profile文件配置ORACLE环境变量</span><br><span class="line">vi &#x2F;etc&#x2F;profile</span><br><span class="line">export ORACLE_HOME&#x3D;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;product&#x2F;11.2.0&#x2F;dbhome_2</span><br><span class="line">export ORACLE_SID&#x3D;helowin</span><br><span class="line">export PATH&#x3D;$ORACLE_HOME&#x2F;bin:$PATH</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">#创建软连接</span><br><span class="line">ln -s $ORACLE_HOME&#x2F;bin&#x2F;sqlplus &#x2F;usr&#x2F;bin</span><br><span class="line"></span><br><span class="line">#从root切换到oracle 用户</span><br><span class="line">su - oracle</span><br><span class="line"></span><br><span class="line">#登录sqlplus</span><br><span class="line">sqlplus &#x2F;nolog</span><br><span class="line">conn &#x2F;as sysdba</span><br><span class="line"></span><br><span class="line">#查看用户</span><br><span class="line">select username,password from dba_users;</span><br><span class="line"></span><br><span class="line">#修改sys、system用户密码</span><br><span class="line">alter user system identified by system;</span><br><span class="line">alter user sys identified by sys;</span><br><span class="line"></span><br><span class="line">#连接测试</span><br><span class="line">connect system&#x2F;system;</span><br><span class="line"></span><br><span class="line">#创建用户</span><br><span class="line">create user test identified by test;</span><br><span class="line">#并给用户赋予权限</span><br><span class="line">grant connect,resource,dba to test;</span><br><span class="line"></span><br><span class="line">alter database open;</span><br><span class="line">alter database mount;</span><br><span class="line">alter database open;</span><br><span class="line">ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>查询ORACLE数据库的实例名和服务名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#1.实例名：</span><br><span class="line">select instance_name from v$instance;</span><br><span class="line">#显示</span><br><span class="line">helowin</span><br><span class="line"></span><br><span class="line">#2.服务名：</span><br><span class="line">select global_name from global_name;</span><br><span class="line">#显示</span><br><span class="line">HELOWIN</span><br></pre></td></tr></table></figure>
+
+<p>oracle 查看sid和服务名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#匿名管理员登陆</span><br><span class="line">conn &#x2F;as sysdba</span><br><span class="line">#查看SID</span><br><span class="line">select instance_name from v$instance;</span><br><span class="line"></span><br><span class="line">#查看用户名</span><br><span class="line">select * from dba_users; --查看数据库里面所有用户，前提是你是有dba权限的帐号，如sys,system</span><br><span class="line">select * from all_users;  --查看你能管理的所有用户！</span><br><span class="line">select * from user_users; --查看当前用户信息 ！</span><br></pre></td></tr></table></figure>
+
+<p>navicat连接oracle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">主机：</span><br><span class="line">192.168.99.103</span><br><span class="line"></span><br><span class="line">端口：</span><br><span class="line">1521</span><br><span class="line"></span><br><span class="line">服务名：</span><br><span class="line">HELOWIN</span><br><span class="line"></span><br><span class="line">用户名：</span><br><span class="line">system</span><br><span class="line"></span><br><span class="line">密码：</span><br><span class="line">system</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://blog.csdn.net/dongyuxu342719/article/details/81670837" target="_blank">Linux新建Oracle用户和数据库</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create table classinfo(</span><br><span class="line">       classid number(2) primary key,</span><br><span class="line">       classname varchar(10) not null   </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.cnblogs.com/garyzhuang/p/9670411.html" target="_blank">oracle基础之增删改查（基础版）</a></p>
+<p><a href="https://blog.csdn.net/dongyuxu342719/article/details/81670837" target="_blank">Linux新建Oracle用户和数据库</a></p>
+<details>
+<summary>Linux新建Oracle用户和数据库</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#1、切换到Oracle用户</span><br><span class="line">su – oracle</span><br><span class="line"></span><br><span class="line">#2、登录sys用户</span><br><span class="line">sqlplus &#x2F; as sysdba</span><br><span class="line"></span><br><span class="line">#3、创建表空间</span><br><span class="line">#查询用户表空间文件的路径</span><br><span class="line">select name from v$datafile;</span><br><span class="line"></span><br><span class="line">CREATE TABLESPACE customerchat LOGGING DATAFILE &#39;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;helowin&#x2F;customerchat.dbf&#39; </span><br><span class="line">SIZE 100M AUTOEXTEND ON NEXT 32M MAXSIZE 500M EXTENT MANAGEMENT LOCAL;</span><br><span class="line"></span><br><span class="line">#4、创建临时表空间</span><br><span class="line">select name from v$tempfile;</span><br><span class="line">create temporary tablespace customerchat_temp tempfile &#39;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;helowin&#x2F;customerchat_temp.dbf&#39;</span><br><span class="line">size 100m autoextend on next 32m maxsize 500m extent management local;</span><br><span class="line"></span><br><span class="line">#5、创建用户密码与上面创建的文件形成映射关系</span><br><span class="line">create user customerchat identified by customerchat default tablespace customerchat temporary tablespace customerchat_temp;</span><br><span class="line"></span><br><span class="line">#6、为用户添加权限</span><br><span class="line">初始建立的用户没有任何权限，不能执行任何数据库操作，因此必须为用户设置权限或者角色。</span><br><span class="line"></span><br><span class="line">被赋予了某个角色的用户将拥有该角色所具备的权限，常被用到的系统预定义角色：</span><br><span class="line">CONNECT、RESOURCE、DBA、EXP_FULL_DATABASE、IMP_FULL_DATABASE。</span><br><span class="line"></span><br><span class="line">其中，CONNECT、RESOURCE、DBA主要用于数据库管理，数据库管理员需要被授予这三个角色。</span><br><span class="line">一般的数据库开发人员，需要被授予CONNECT、RESOURCE角色即可。</span><br><span class="line"></span><br><span class="line">EXP_FULL_DATABASE、IMP_FULL_DATABASE角色分别用于操作数据库导出、导入相关的操作。</span><br><span class="line">为用户授予角色：</span><br><span class="line">grant connect,resource,create session,dba to customerchat;</span><br><span class="line"></span><br><span class="line">#7、查询已创建的用户</span><br><span class="line">select username from dba_users;</span><br><span class="line"></span><br><span class="line">#8、修改用户密码，将用户的密码设置为123456</span><br><span class="line">alter user customerchat identified by 123456;</span><br><span class="line"></span><br><span class="line">#9、有时用户会处于锁定状态，解锁用户：</span><br><span class="line">alter user customerchat account unlock;</span><br></pre></td></tr></table></figure>
+</details>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/02/09/1581239792000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -833,68 +920,6 @@
       
           
         <p><a href="https://www.cnblogs.com/findumars/p/5682687.html" target="_blank">Qt之Windows资源文件（.rc文件）</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/08/1581150597000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/08/articles/2020/02/08/1581150597000.html/" class="article-date">
-      <time datetime="2020-02-08T08:29:57.000Z" itemprop="datePublished">2020-02-08</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/08/articles/2020/02/08/1581150597000.html/">[qt] unsigned_int强制类型转换问题</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unsigned int</span><br><span class="line">uintptr_t</span><br></pre></td></tr></table></figure>
 
       
     </div>
