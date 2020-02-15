@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-02-14T13:30:43.000Z</updated>
+  <updated>2020-02-15T01:57:44.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,106 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[springboot] 集成MQTT</title>
+    <link href="http://brightereyer.xyz/2020/02/15/articles/2020/02/15/1581731864000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/15/articles/2020/02/15/1581731864000.html/</id>
+    <published>2020-02-15T01:57:44.000Z</published>
+    <updated>2020-02-15T01:57:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://segmentfault.com/a/1190000017811919" target="_blank">SpringBoot集成MQTT</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000017811919&quot; target=&quot;_blank&quot;&gt;SpringBoot集成MQTT&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[arm] QEMU模拟mini2440开发环境</title>
+    <link href="http://brightereyer.xyz/2020/02/15/articles/2020/02/15/1581731060000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/15/articles/2020/02/15/1581731060000.html/</id>
+    <published>2020-02-15T01:44:20.000Z</published>
+    <updated>2020-02-15T01:44:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/zwxwill/p/9431774.html" target="_blank">嵌入式linux：通过qemu模拟mini2440开发环境</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/zwxwill/p/9431774.html&quot; target=&quot;_blank&quot;&gt;嵌入式linux：通过qemu模拟mini2440开发环境&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[arm] C语言实现MQTT客户端</title>
+    <link href="http://brightereyer.xyz/2020/02/15/articles/2020/02/15/1581731059000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/15/articles/2020/02/15/1581731059000.html/</id>
+    <published>2020-02-15T01:44:19.000Z</published>
+    <updated>2020-02-15T01:44:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/d309de966379" target="_blank">C语言实现MQTT客户端</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/d309de966379&quot; target=&quot;_blank&quot;&gt;C语言实现MQTT客户端&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[linux] 程序员</title>
+    <link href="http://brightereyer.xyz/2020/02/15/articles/2020/02/15/1581730500000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/15/articles/2020/02/15/1581730500000.html/</id>
+    <published>2020-02-15T01:35:00.000Z</published>
+    <updated>2020-02-15T01:35:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://segmentfault.com/blog/wuyangchun" target="_blank">segmentfault Linux程序员</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://segmentfault.com/blog/wuyangchun&quot; target=&quot;_blank&quot;&gt;segmentfault Linux程序员&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>[shell] linux之shell程序</title>
@@ -122,14 +222,17 @@
     <published>2020-02-14T01:27:43.000Z</published>
     <updated>2020-02-14T01:27:43.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://segmentfault.com/a/1190000009249039" target="_blank">Linux虚拟网络设备之tun/tap</a></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;net/if.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ioctl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/if_tun.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">tun_alloc</span><span class="params">(<span class="keyword">int</span> flags)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ifreq</span> <span class="title">ifr</span>;</span></span><br><span class="line">    <span class="keyword">int</span> fd, err;</span><br><span class="line">    <span class="keyword">char</span> *clonedev = <span class="string">"/dev/net/tun"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((fd = <span class="built_in">open</span>(clonedev, O_RDWR)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> fd;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(&amp;ifr, <span class="number">0</span>, <span class="keyword">sizeof</span>(ifr));</span><br><span class="line">    ifr.ifr_flags = flags;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((err = ioctl(fd, TUNSETIFF, (<span class="keyword">void</span> *) &amp;ifr)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">close</span>(fd);</span><br><span class="line">        <span class="keyword">return</span> err;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Open tun/tap device: %s for reading...\n"</span>, ifr.ifr_name);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> fd;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> tun_fd, nread;</span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">buffer</span>[<span class="number">1500</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Flags: IFF_TUN   - TUN device (no Ethernet headers)</span></span><br><span class="line"><span class="comment">     *        IFF_TAP   - TAP device</span></span><br><span class="line"><span class="comment">     *        IFF_NO_PI - Do not provide packet information</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    tun_fd = tun_alloc(IFF_TUN | IFF_NO_PI);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (tun_fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"Allocating interface"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        nread = <span class="built_in">read</span>(tun_fd, <span class="built_in">buffer</span>, <span class="keyword">sizeof</span>(<span class="built_in">buffer</span>));</span><br><span class="line">        <span class="keyword">if</span> (nread &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            perror(<span class="string">"Reading from interface"</span>);</span><br><span class="line">            <span class="built_in">close</span>(tun_fd);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Read %d bytes from tun/tap device\n"</span>, nread);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>gcc tun.c -o tun<br>sudo ./tun</p>]]></content>
+    <content type="html"><![CDATA[<p><a href="https://segmentfault.com/a/1190000009249039" target="_blank">Linux虚拟网络设备之tun/tap</a></p><details><summary>tun.c</summary><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;net/if.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ioctl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/if_tun.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">tun_alloc</span><span class="params">(<span class="keyword">int</span> flags)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ifreq</span> <span class="title">ifr</span>;</span></span><br><span class="line">    <span class="keyword">int</span> fd, err;</span><br><span class="line">    <span class="keyword">char</span> *clonedev = <span class="string">"/dev/net/tun"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((fd = <span class="built_in">open</span>(clonedev, O_RDWR)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> fd;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(&amp;ifr, <span class="number">0</span>, <span class="keyword">sizeof</span>(ifr));</span><br><span class="line">    ifr.ifr_flags = flags;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((err = ioctl(fd, TUNSETIFF, (<span class="keyword">void</span> *) &amp;ifr)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">close</span>(fd);</span><br><span class="line">        <span class="keyword">return</span> err;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Open tun/tap device: %s for reading...\n"</span>, ifr.ifr_name);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> fd;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> tun_fd, nread;</span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">buffer</span>[<span class="number">1500</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Flags: IFF_TUN   - TUN device (no Ethernet headers)</span></span><br><span class="line"><span class="comment">     *        IFF_TAP   - TAP device</span></span><br><span class="line"><span class="comment">     *        IFF_NO_PI - Do not provide packet information</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    tun_fd = tun_alloc(IFF_TUN | IFF_NO_PI);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (tun_fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"Allocating interface"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        nread = <span class="built_in">read</span>(tun_fd, <span class="built_in">buffer</span>, <span class="keyword">sizeof</span>(<span class="built_in">buffer</span>));</span><br><span class="line">        <span class="keyword">if</span> (nread &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            perror(<span class="string">"Reading from interface"</span>);</span><br><span class="line">            <span class="built_in">close</span>(tun_fd);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Read %d bytes from tun/tap device\n"</span>, nread);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details><p>执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc tun.c -o tun</span><br><span class="line">sudo .&#x2F;tun</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000009249039&quot; target=&quot;_blank&quot;&gt;Linux虚拟网络设备之tun/tap&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;
+&lt;details&gt;
+&lt;summary&gt;tun.c&lt;/summary&gt;
+
+&lt;fi
       
     
     </summary>
@@ -409,105 +512,6 @@
     
     
       <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[arm] Linux下ARM程序的编译运行及调试</title>
-    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506203000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506203000.html/</id>
-    <published>2020-02-12T11:16:43.000Z</published>
-    <updated>2020-02-12T11:16:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/dc8e263d6466" target="_blank">Linux下ARM程序的编译运行及调试</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/dc8e263d6466&quot; target=&quot;_blank&quot;&gt;Linux下ARM程序的编译运行及调试&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[zigbee] 专栏</title>
-    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506202000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506202000.html/</id>
-    <published>2020-02-12T11:16:42.000Z</published>
-    <updated>2020-02-12T11:16:42.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zjutlitao/p/5652058.html" target="_blank">3、ZigBee基础实验——GPIO输出控制实验-控制Led亮灭</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5652058.html" target="_blank">4、ZigBee基础实验——中断</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5658644.html" target="_blank">5、ZigBee基础实验——图文与代码详解定时器1（16位定时器）（长文）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5671921.html" target="_blank">6、ZigBee基础实验——定时器3和定时器4（8 位定时器）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5675169.html" target="_blank">7、ZigBee之UART剖析（ONLY串口发送）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5676675.html" target="_blank">8、ZigBee之UART剖析·二（串口收发）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5677624.html" target="_blank">9、ZigBee之AD剖析——AD采集CC2530温度串口显示</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5683177.html" target="_blank">10、ZigBee之睡眠定时器</a><br><a href="https://www.cnblogs.com/zjutlitao/p/5686488.html" target="_blank">11、ZigBee之睡眠定时器二</a><br><a href="https://www.cnblogs.com/zjutlitao/p/5686834.html" target="_blank">12、ZigBee之看门狗定时器——饿了就咬人的GOOD DOG</a><br><a href="https://www.cnblogs.com/zjutlitao/p/5693720.html" target="_blank">13、ZigBee基础阶段性回顾与加深理解——用定时器1产生PWM来控制LED亮度（七色灯）</a><br><a href="http://www.cnblogs.com/zjutlitao/p/5652025.html" target="_blank">ZigBee开发环境搭建</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/zjutlitao/p/5652058.html&quot; target=&quot;_blank&quot;&gt;3、ZigBee基础实验——GPIO输出控制实验-控制Led亮灭&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnb
-      
-    
-    </summary>
-    
-    
-    
-      <category term="zigbee" scheme="http://brightereyer.xyz/tags/zigbee/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[vmware] 设置NAT模式上网</title>
-    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506201000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506201000.html/</id>
-    <published>2020-02-12T11:16:41.000Z</published>
-    <updated>2020-02-12T11:16:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/lavendyu/article/details/80373708" target="_blank">VMware 虚拟机如何连接网络</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/lavendyu/article/details/80373708&quot; target=&quot;_blank&quot;&gt;VMware 虚拟机如何连接网络&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="vmware" scheme="http://brightereyer.xyz/tags/vmware/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[vmware] 扩展硬盘空间</title>
-    <link href="http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506200000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/12/articles/2020/02/12/1581506200000.html/</id>
-    <published>2020-02-12T11:16:40.000Z</published>
-    <updated>2020-02-12T11:16:40.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/Nonpc123/article/details/90098267" target="_blank">VMware 虚拟机扩展Ubuntu系统磁盘空间</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#查看添加的新的硬盘 &#x2F;dev&#x2F;sdb</span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line">#把新添加的硬盘格式化成 ext3</span><br><span class="line">mkfs -t ext3 &#x2F;dev&#x2F;sdb</span><br><span class="line"></span><br><span class="line">#在&#x2F;home 目录下建立 work 文件夹</span><br><span class="line">mkdir &#x2F;home&#x2F;work</span><br><span class="line">mount &#x2F;dev&#x2F;sdb work&#x2F;</span><br><span class="line"></span><br><span class="line">#设置开机启动自动挂载</span><br><span class="line">vim &#x2F;etc&#x2F;fstab</span><br><span class="line">&#x2F;dev&#x2F;sdb &#x2F;home&#x2F;work ext3 defaults 0 0</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/Nonpc123/article/details/90098267&quot; target=&quot;_blank&quot;&gt;VMware 虚拟机扩展Ubuntu系统磁盘空间&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlig
-      
-    
-    </summary>
-    
-    
-    
-      <category term="vmware" scheme="http://brightereyer.xyz/tags/vmware/"/>
     
   </entry>
   
