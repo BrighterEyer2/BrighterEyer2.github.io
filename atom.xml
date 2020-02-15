@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-02-15T01:57:44.000Z</updated>
+  <updated>2020-02-15T03:51:39.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[docker] mysql主从复制</title>
+    <link href="http://brightereyer.xyz/2020/02/15/articles/2020/02/15/1581738699000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/15/articles/2020/02/15/1581738699000.html/</id>
+    <published>2020-02-15T03:51:39.000Z</published>
+    <updated>2020-02-15T03:51:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>master(主)：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3339:3306 --name mysql-master -e MYSQL_ROOT_PASSWORD&#x3D;123456 -d mysql:5.7</span><br></pre></td></tr></table></figure><p>slave(从)：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3340:3306 --name mysql-slave -e MYSQL_ROOT_PASSWORD&#x3D;123456 -d mysql:5.7</span><br></pre></td></tr></table></figure><p>master(主)：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mysql-master &#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">apt-get update;apt-get -y install vim</span><br><span class="line"></span><br><span class="line">cd &#x2F;etc&#x2F;mysql</span><br><span class="line"></span><br><span class="line">vi my.cnf</span><br><span class="line">[mysqld]</span><br><span class="line">## 同一局域网内注意要唯一</span><br><span class="line">server-id&#x3D;100  </span><br><span class="line">## 开启二进制日志功能，可以随便取（关键）</span><br><span class="line">log-bin&#x3D;mysql-bin</span><br><span class="line"></span><br><span class="line">service mysql restart</span><br><span class="line"></span><br><span class="line">docker start mysql-master;docker exec -it mysql-master &#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">mysql -uroot -p123456</span><br><span class="line">CREATE USER &#39;slave&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;;</span><br><span class="line">GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO &#39;slave&#39;@&#39;%&#39;;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure><p>slave(从)：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mysql-slave &#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">apt-get update;apt-get -y install vim</span><br><span class="line"></span><br><span class="line">cd &#x2F;etc&#x2F;mysql</span><br><span class="line"></span><br><span class="line">vi my.cnf</span><br><span class="line">[mysqld]</span><br><span class="line">## 设置server_id,注意要唯一</span><br><span class="line">server-id&#x3D;101</span><br><span class="line">## 开启二进制日志功能，以备Slave作为其它Slave的Master时使用</span><br><span class="line">log-bin&#x3D;mysql-slave-bin</span><br><span class="line">## relay_log配置中继日志</span><br><span class="line">relay_log&#x3D;edu-mysql-relay-bin</span><br><span class="line"></span><br><span class="line">service mysql restart</span><br><span class="line"></span><br><span class="line">docker start mysql-slave;docker exec -it mysql-slave &#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">mysql -uroot -p123456</span><br></pre></td></tr></table></figure><p>master(主)：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#为防止出现错误： Got fatal error 1236 from master when reading data from binary log</span><br><span class="line">#需记下 File, Position</span><br><span class="line">flush logs;</span><br><span class="line">show master status;</span><br></pre></td></tr></table></figure><p>slave(从)：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CHANGE MASTER TO MASTER_LOG_FILE&#x3D;&#39;mysql-bin.000002&#39;,MASTER_LOG_POS&#x3D;154;</span><br><span class="line">slave start;</span><br><span class="line">show slave status \G;</span><br></pre></td></tr></table></figure><p>查看master ip</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect --format&#x3D;&#39;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&#39; mysql-master</span><br></pre></td></tr></table></figure><p>slave(从)：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">change master to master_host&#x3D;&#39;172.17.0.3&#39;, master_user&#x3D;&#39;slave&#39;, master_password&#x3D;&#39;123456&#39;, master_port&#x3D;3306, master_log_file&#x3D;&#39;mysql-bin.000002&#39;, master_log_pos&#x3D;154, master_connect_retry&#x3D;30;</span><br></pre></td></tr></table></figure><p>命令说明：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">master_host ：Master的地址，指的是容器的独立ip,可以通过docker inspect --format&#x3D;&#39;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&#39; 容器名称|容器id查询容器的ip</span><br><span class="line"></span><br><span class="line">master_port：Master的端口号，指的是容器的端口号</span><br><span class="line"></span><br><span class="line">master_user：用于数据同步的用户</span><br><span class="line"></span><br><span class="line">master_password：用于同步的用户的密码</span><br><span class="line"></span><br><span class="line">master_log_file：指定 Slave 从哪个日志文件开始复制数据，即上文中提到的 File 字段的值</span><br><span class="line"></span><br><span class="line">master_log_pos：从哪个 Position 开始读，即上文中提到的 Position 字段的值</span><br><span class="line"></span><br><span class="line">master_connect_retry：如果连接失败，重试的时间间隔，单位是秒，默认是60秒</span><br></pre></td></tr></table></figure><p>slave(从)，开启主从同步：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#开启主从复制过程</span><br><span class="line">start slave;</span><br><span class="line"></span><br><span class="line">show slave status \G</span><br><span class="line"></span><br><span class="line">#SlaveIORunning 和 SlaveSQLRunning 都是Yes，说明主从复制已经开启</span><br></pre></td></tr></table></figure><p>slave(从)：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stop slave;</span><br></pre></td></tr></table></figure><p>测试</p><p>master(主)：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database test;</span><br></pre></td></tr></table></figure><p>slave(从)：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/songwenjie/p/9371422.html" target="_blank">基于Docker的Mysql主从复制搭建</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;master(主)：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;co
+      
+    
+    </summary>
+    
+    
+    
+      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>[springboot] 集成MQTT</title>
@@ -488,30 +513,6 @@
     
     
       <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[arm] linux嵌入式编程</title>
-    <link href="http://brightereyer.xyz/2020/02/14/articles/2020/02/14/1581643162000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/14/articles/2020/02/14/1581643162000.html/</id>
-    <published>2020-02-14T01:19:22.000Z</published>
-    <updated>2020-02-14T01:19:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.veryarm.com/arm" target="_blank">arm</a><br><a href="https://www.cnblogs.com/wanghuaijun/p/9416641.html" target="_blank">Linux下的串口编程实例</a><br><a href="https://github.com/buchenglei/linux-c-study" target="_blank">linux-c-study</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.veryarm.com/arm&quot; target=&quot;_blank&quot;&gt;arm&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.cnblogs.com/wanghuaijun/p/9416641.html&quot; target=&quot;_bl
-      
-    
-    </summary>
-    
-    
-    
-      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
     
   </entry>
   
