@@ -283,6 +283,211 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/01/16/1579174010000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/16/articles/2020/01/16/1579174010000.html/" class="article-date">
+      <time datetime="2020-01-16T11:26:50.000Z" itemprop="datePublished">2020-01-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/16/articles/2020/01/16/1579174010000.html/">[arm] iTop6818烧写android</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://pan.baidu.com/s/12V6yl21PeEdhKNiYFHKRnw" target="_blank">文件资料</a> 提取码：8n1e</p>
+<p>文件清单</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#安装 JDK 和库文件等</span><br><span class="line">iTOP6818 开发板资料汇总（不含光盘内容）\02_iTOP-6818 开发板编译系统所需要的工具包等\03-tools\linux_tools.tgz</span><br><span class="line">iTOP6818 开发板资料汇总（不含光盘内容）\02_iTOP-6818 开发板编译系统所需要的工具包等\04-JDK以及库文件安装脚本\android_env.tar.gz</span><br><span class="line">iTOP-6818光盘资料\04 源码_Android5.1文件系统\lollipop-5.1.1_r6_20170512.tar</span><br></pre></td></tr></table></figure>
+
+<p>放置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">linux_tools.tgz、android_env.tar.gz放到ubuntu系统“&#x2F;”目录下</span><br><span class="line">lollipop-5.1.1_r6_20160801.tar.gz 放 “~&#x2F;” 目录下</span><br></pre></td></tr></table></figure>
+
+<p>编译步骤</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;</span><br><span class="line">tar -vxf linux_tools.tgz</span><br><span class="line">tar -vxf android_env.tar.gz</span><br><span class="line"></span><br><span class="line">apt-get install -y default-jre default-jdk realpath</span><br><span class="line">cd &#x2F;android_env&#x2F;ubuntu&#x2F;</span><br><span class="line">.&#x2F;install-devel-packages.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">tar -vxf lollipop-5.1.1_r6_20160801.tar.gz -C ~&#x2F;;cd ~&#x2F;lollipop-5.1.1_r6&#x2F;u-boot</span><br><span class="line">cp nsih-2G16b-6818.txt nsih.txt</span><br><span class="line">cp -r config_for_iTOP6818_android .config</span><br><span class="line">export ARCH&#x3D;arm</span><br><span class="line">cd ..</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#保证给 Ubuntu 系统提供 6G 以上内存</span><br><span class="line">.&#x2F;build_android.sh</span><br><span class="line"></span><br><span class="line">#在 result 目录下生成镜像</span><br><span class="line">ls result</span><br></pre></td></tr></table></figure>
+
+<p>确保通过RS232已经进入fastboot模式，接上OTG线（即usb线）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">拨码开关</span><br><span class="line">1、3 on</span><br><span class="line">2 off</span><br></pre></td></tr></table></figure>
+
+<p>文件清单</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iTOP-6818光盘资料\03 镜像_Android5.1文件系统</span><br><span class="line">iTOP-6818光盘资料\03 镜像_Android5.1文件系统\2G</span><br></pre></td></tr></table></figure>
+
+<p>烧写android</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fastboot.exe flash uboot u-boot-iTOP-6818.bin</span><br><span class="line">fastboot.exe flash boot boot.img</span><br><span class="line">fastboot.exe flash cache cache.img</span><br><span class="line">fastboot.exe flash system system.img</span><br><span class="line">fastboot.exe flash userdata userdata.img</span><br><span class="line">fastboot.exe flash recovery recovery.img</span><br><span class="line">fastboot reboot</span><br><span class="line"></span><br><span class="line">setenv bootsystem android</span><br><span class="line">setenv lcdtype 4.3</span><br><span class="line">saveenv</span><br><span class="line">reset</span><br><span class="line"></span><br><span class="line">adb devices</span><br><span class="line">adb push &lt;deviceId&gt; helloworld &#x2F;data</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/01/16/1579174009000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/16/articles/2020/01/16/1579174009000.html/" class="article-date">
+      <time datetime="2020-01-16T11:26:49.000Z" itemprop="datePublished">2020-01-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/16/articles/2020/01/16/1579174009000.html/">[arm] arm平台交叉编译Qt5源代码+iMX6Q</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.eefocus.com/toradex/blog/19-07/437561_8e24f.html" target="_blank">嵌入式 ARM 平台交叉编译Qt5源代码</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/01/16/1579174008000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/16/articles/2020/01/16/1579174008000.html/" class="article-date">
+      <time datetime="2020-01-16T11:26:48.000Z" itemprop="datePublished">2020-01-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/16/articles/2020/01/16/1579174008000.html/">[android] 热更新</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.jianshu.com/p/03b1ac6e964e" target="_blank">带你一步一步手动实现Android热更新</a></p>
+<p>Demo的地址<br><a href="https://github.com/lxbnjupt/HotFixDemo" target="_blank">HotFixDemo</a></p>
+<p>热更新 Bugly Android SDK 使用例子<br><a href="https://github.com/BuglyDevTeam/Bugly-Android-Demo" target="_blank">Bugly-Android-Demo</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/01/14/1579000590000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -813,220 +1018,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/01/13/1578914089000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/13/articles/2020/01/13/1578914089000.html/" class="article-date">
-      <time datetime="2020-01-13T11:14:49.000Z" itemprop="datePublished">2020-01-13</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/13/articles/2020/01/13/1578914089000.html/">[stm32] 网络+串口字符串收发</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.jianshu.com/p/ce2a09d2dde9" target="_blank">stm32串口编程实例：实现数据的收发功能</a></p>
-<details>
-<summary>bsp_usart.h</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">#ifndef __BSP_USART_H</span><br><span class="line">#define	__BSP_USART_H</span><br><span class="line"></span><br><span class="line">#include &quot;stm32f4xx.h&quot;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;引脚定义</span><br><span class="line">&#x2F;*******************************************************&#x2F;</span><br><span class="line">#define DEBUG_USART                             USART1</span><br><span class="line">#define DEBUG_USART_CLK                         RCC_APB2Periph_USART1</span><br><span class="line"></span><br><span class="line">#define DEBUG_USART_RX_GPIO_PORT                GPIOA</span><br><span class="line">#define DEBUG_USART_RX_GPIO_CLK                 RCC_AHB1Periph_GPIOA</span><br><span class="line">#define DEBUG_USART_RX_PIN                      GPIO_Pin_10</span><br><span class="line">#define DEBUG_USART_RX_AF                       GPIO_AF_USART1</span><br><span class="line">#define DEBUG_USART_RX_SOURCE                   GPIO_PinSource10</span><br><span class="line"></span><br><span class="line">#define DEBUG_USART_TX_GPIO_PORT                GPIOA</span><br><span class="line">#define DEBUG_USART_TX_GPIO_CLK                 RCC_AHB1Periph_GPIOA</span><br><span class="line">#define DEBUG_USART_TX_PIN                      GPIO_Pin_9</span><br><span class="line">#define DEBUG_USART_TX_AF                       GPIO_AF_USART1</span><br><span class="line">#define DEBUG_USART_TX_SOURCE                   GPIO_PinSource9</span><br><span class="line">&#x2F;************************************************************&#x2F;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;串口波特率</span><br><span class="line">#define DEBUG_USART_BAUDRATE                    115200</span><br><span class="line"></span><br><span class="line">void Debug_USART_Config(void);</span><br><span class="line">&#x2F;&#x2F;int fputc(int ch, FILE *f);</span><br><span class="line"></span><br><span class="line">void Usart_SendByte(USART_TypeDef *pUSARTx, uint8_t Data);</span><br><span class="line"></span><br><span class="line">void Usart_SendArray(USART_TypeDef *pUSARTx, uint8_t *data, uint8_t num);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;接收字符</span><br><span class="line">char usart1_getc(void);</span><br><span class="line">&#x2F;&#x2F;接收字符串</span><br><span class="line">int usart1_getstr(unsigned char* buff, int len);</span><br><span class="line"></span><br><span class="line">#endif &#x2F;* __USART1_H *&#x2F;</span><br></pre></td></tr></table></figure>
-</details>
-
-<details>
-<summary>bsp_usart.c</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;.&#x2F;usart&#x2F;bsp_usart.h&quot;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @brief  DEBUG_USART GPIO 配置，工作模式配置。115200 8-N-1</span><br><span class="line"> * @param  无</span><br><span class="line"> * @retval 无</span><br><span class="line"> *&#x2F;</span><br><span class="line">void Debug_USART_Config(void)</span><br><span class="line">&#123;</span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">	USART_InitTypeDef USART_InitStructure;</span><br><span class="line"></span><br><span class="line">	RCC_AHB1PeriphClockCmd( DEBUG_USART_RX_GPIO_CLK | DEBUG_USART_TX_GPIO_CLK, ENABLE);</span><br><span class="line"></span><br><span class="line">	&#x2F;* 使能 UART 时钟 *&#x2F;</span><br><span class="line">	RCC_APB2PeriphClockCmd(DEBUG_USART_CLK, ENABLE);</span><br><span class="line"></span><br><span class="line">	&#x2F;* 连接 PXx 到 USARTx_Tx*&#x2F;</span><br><span class="line">	GPIO_PinAFConfig(DEBUG_USART_RX_GPIO_PORT, DEBUG_USART_RX_SOURCE, DEBUG_USART_RX_AF);</span><br><span class="line"></span><br><span class="line">	&#x2F;*  连接 PXx 到 USARTx__Rx*&#x2F;</span><br><span class="line">	GPIO_PinAFConfig(DEBUG_USART_TX_GPIO_PORT, DEBUG_USART_TX_SOURCE, DEBUG_USART_TX_AF);</span><br><span class="line"></span><br><span class="line">	&#x2F;* 配置Tx引脚为复用功能  *&#x2F;</span><br><span class="line">	GPIO_InitStructure.GPIO_OType &#x3D; GPIO_OType_PP;</span><br><span class="line">	GPIO_InitStructure.GPIO_PuPd &#x3D; GPIO_PuPd_UP;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode &#x3D; GPIO_Mode_AF;</span><br><span class="line"></span><br><span class="line">	GPIO_InitStructure.GPIO_Pin &#x3D; DEBUG_USART_TX_PIN  ;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed &#x3D; GPIO_Speed_50MHz;</span><br><span class="line">	GPIO_Init(DEBUG_USART_TX_GPIO_PORT, &amp;GPIO_InitStructure);</span><br><span class="line"></span><br><span class="line">	&#x2F;* 配置Rx引脚为复用功能 *&#x2F;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode &#x3D; GPIO_Mode_AF;</span><br><span class="line">	GPIO_InitStructure.GPIO_Pin &#x3D; DEBUG_USART_RX_PIN;</span><br><span class="line">	GPIO_Init(DEBUG_USART_RX_GPIO_PORT, &amp;GPIO_InitStructure);</span><br><span class="line"></span><br><span class="line">	&#x2F;* 配置串DEBUG_USART 模式 *&#x2F;</span><br><span class="line">	USART_InitStructure.USART_BaudRate &#x3D; DEBUG_USART_BAUDRATE;</span><br><span class="line">	USART_InitStructure.USART_WordLength &#x3D; USART_WordLength_8b;</span><br><span class="line">	USART_InitStructure.USART_StopBits &#x3D; USART_StopBits_1;</span><br><span class="line">	USART_InitStructure.USART_Parity &#x3D; USART_Parity_No ;</span><br><span class="line">	USART_InitStructure.USART_HardwareFlowControl &#x3D; USART_HardwareFlowControl_None;</span><br><span class="line">	USART_InitStructure.USART_Mode &#x3D; USART_Mode_Rx | USART_Mode_Tx;</span><br><span class="line">	USART_Init(DEBUG_USART, &amp;USART_InitStructure);</span><br><span class="line">	USART_Cmd(DEBUG_USART, ENABLE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F;重定向c库函数printf到串口DEBUG_USART，重定向后可使用printf函数</span><br><span class="line">int fputc(int ch, FILE *f)</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;* 发送一个字节数据到串口DEBUG_USART *&#x2F;</span><br><span class="line">	USART_SendData(DEBUG_USART, (uint8_t) ch);</span><br><span class="line"></span><br><span class="line">	&#x2F;* 等待发送完毕 *&#x2F;</span><br><span class="line">	while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) &#x3D;&#x3D; RESET);</span><br><span class="line"></span><br><span class="line">	return (ch);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F;重定向c库函数printf到串口DEBUG_USART，重定向后可使用scanf、getchar函数</span><br><span class="line">int fgetc(FILE *f)</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;* 等待串口输入数据 *&#x2F;</span><br><span class="line">	while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_RXNE) &#x3D;&#x3D; RESET);</span><br><span class="line"></span><br><span class="line">	return (int)USART_ReceiveData(DEBUG_USART);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Usart_SendByte(USART_TypeDef *pUSARTx, uint8_t Data)</span><br><span class="line">&#123;</span><br><span class="line">	USART_SendData(pUSARTx, Data);</span><br><span class="line">	while (USART_GetFlagStatus(pUSARTx, USART_FLAG_TXE) &#x3D;&#x3D; RESET);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Usart_SendArray(USART_TypeDef *pUSARTx, uint8_t *data, uint8_t num)</span><br><span class="line">&#123;</span><br><span class="line">	uint8_t t;</span><br><span class="line">	for (t &#x3D; 0; t &lt; num; t++) &#123;</span><br><span class="line">		Usart_SendByte(pUSARTx, data[t]);</span><br><span class="line">	&#125;</span><br><span class="line">	while (USART_GetFlagStatus(pUSARTx, USART_FLAG_TC) &#x3D;&#x3D; RESET);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;接收字符</span><br><span class="line">char usart1_getc(void) &#123;</span><br><span class="line">	char temp &#x3D; 0;</span><br><span class="line">	while (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) !&#x3D; SET);</span><br><span class="line">	temp &#x3D; USART_ReceiveData(USART1);</span><br><span class="line">	return temp;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;接收字符串</span><br><span class="line">int usart1_getstr(unsigned char* buff, int len) &#123;</span><br><span class="line">	int i &#x3D; 0;</span><br><span class="line">	for (i &#x3D; 0; i &lt; len; i++) &#123;</span><br><span class="line">		buff[i] &#x3D; usart1_getc();</span><br><span class="line">	&#125;</span><br><span class="line">	return len;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*********************************************END OF FILE**********************&#x2F;</span><br></pre></td></tr></table></figure>
-</details>
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/01/13/1578914088000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/13/articles/2020/01/13/1578914088000.html/" class="article-date">
-      <time datetime="2020-01-13T11:14:48.000Z" itemprop="datePublished">2020-01-13</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/13/articles/2020/01/13/1578914088000.html/">[ps] 表情包</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://ibaotu.com/sucai/19437774.html?kwd=%E8%A1%A8%E6%83%85%E5%8C%85" target="_blank">可爱老鼠表情包2-给您拜年动图GIF</a></p>
-<p><a href="https://ibaotu.com/sucai/19437781.html?kwd=%E8%A1%A8%E6%83%85%E5%8C%85" target="_blank">可爱老鼠表情包9-赞动图GIF</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ps/" rel="tag">ps</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/01/13/1578914087000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/13/articles/2020/01/13/1578914087000.html/" class="article-date">
-      <time datetime="2020-01-13T11:14:47.000Z" itemprop="datePublished">2020-01-13</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/13/articles/2020/01/13/1578914087000.html/">[linux] MQTT服务之mosquitto配置</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;mosquitto&#x2F;</span><br><span class="line">touch pwfile acl</span><br><span class="line"></span><br><span class="line">vim mosquitto.conf</span><br><span class="line"></span><br><span class="line">allow_anonymous false</span><br><span class="line">password_file &#x2F;etc&#x2F;mosquitto&#x2F;pwfile</span><br><span class="line">acl_file acl_file &#x2F;etc&#x2F;mosquitto&#x2F;acl</span><br></pre></td></tr></table></figure>
-
-<p>添加用户信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 添加用户&#39;admin&#39;</span><br><span class="line">mosquitto_passwd -c &#x2F;etc&#x2F;mosquitto&#x2F;pwfile admin</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim acl</span><br><span class="line"></span><br><span class="line">user admin</span><br><span class="line">topic write mtopic&#x2F;#</span><br><span class="line"></span><br><span class="line">user admin</span><br><span class="line">topic read mtopic&#x2F;#</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -aux | grep mosquitto</span><br><span class="line">kill -9 18248</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto -c &#x2F;etc&#x2F;mosquitto&#x2F;mosquitto.conf -d</span><br></pre></td></tr></table></figure>
-
-<p>（订阅端）客户端启动：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h 127.0.0.1 -t mtopic -u admin -P hello</span><br></pre></td></tr></table></figure>
-
-<p>（发布者）客户端启动：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -h 127.0.0.1 -t mtopic -u admin -P hello -m &quot;test&quot;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
     </div>
 
       
