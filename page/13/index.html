@@ -999,17 +999,18 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df -l</span><br><span class="line">#ls &#x2F;dev&#x2F;sd*</span><br><span class="line">ls &#x2F;dev&#x2F;mmcblk1p*</span><br></pre></td></tr></table></figure>
 
 
-<p>要先设置拨码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">将 Ubuntu 压缩包拷贝到 emmc 中</span><br></pre></td></tr></table></figure>
-<p>#emmc位置<br>cd /media/57f8f4bc-abf4-655f-bf67-946fc0f9f25b_/<br>rm -rf *<br>ls<br>tar vxf /media/NEW\ VOLUME/iTOP4412_ubuntu_12.04_for_LCD_20141230.tar.gz -C ./</p>
-<p>#解压完成之后，开发板断电，拔掉 TF 卡（注意一定要拔掉 TF 卡），然后启动开发板，进入 uboot 模式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（在终端助手执行）设置emmc启动</span><br></pre></td></tr></table></figure>
-<p>setenv bootsystem ubuntu_emmc<br>saveenv<br>reset</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;blog.csdn.net&#x2F;wf19930209&#x2F;article&#x2F;details&#x2F;73195055&quot; target&#x3D;&quot;_blank&quot;&gt;virtualbox的USB识别&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
-<p>vboxmanage -v<br>6.0.10r132072</p>
-<pre><code>
-&lt;a href=&quot;https://bbs.21ic.com/icview-1630956-1-3.html&quot; target=&quot;_blank&quot;&gt;学习4412开发板烧写Ubuntu系统&lt;/a&gt;
-&lt;a href=&quot;https://blog.csdn.net/liboxiu/article/details/81772391&quot; target=&quot;_blank&quot;&gt;迅为itop4412烧写ubuntu，脱离tf卡启动&lt;/a&gt;</code></pre>
+<p>将 Ubuntu 压缩包拷贝到 emmc 中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#emmc位置</span><br><span class="line">cd &#x2F;media&#x2F;57f8f4bc-abf4-655f-bf67-946fc0f9f25b_&#x2F;</span><br><span class="line">rm -rf *</span><br><span class="line">ls</span><br><span class="line">tar vxf &#x2F;media&#x2F;NEW\ VOLUME&#x2F;iTOP4412_ubuntu_12.04_for_LCD_20141230.tar.gz -C .&#x2F;</span><br><span class="line"></span><br><span class="line">#解压完成之后，开发板断电，拔掉 TF 卡（注意一定要拔掉 TF 卡），然后启动开发板，进入 uboot 模式</span><br></pre></td></tr></table></figure>
+
+<p>（在终端助手执行）设置emmc启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setenv bootsystem ubuntu_emmc</span><br><span class="line">saveenv</span><br><span class="line">reset</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://blog.csdn.net/wf19930209/article/details/73195055" target="_blank">virtualbox的USB识别</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vboxmanage -v</span><br><span class="line">6.0.10r132072</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://bbs.21ic.com/icview-1630956-1-3.html" target="_blank">学习4412开发板烧写Ubuntu系统</a><br><a href="https://blog.csdn.net/liboxiu/article/details/81772391" target="_blank">迅为itop4412烧写ubuntu，脱离tf卡启动</a></p>
+
       
     </div>
     
