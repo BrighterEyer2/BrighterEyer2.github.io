@@ -283,68 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2020/02/15/1581731864000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/15/articles/2020/02/15/1581731864000.html/" class="article-date">
-      <time datetime="2020-02-15T01:57:44.000Z" itemprop="datePublished">2020-02-15</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/15/articles/2020/02/15/1581731864000.html/">[springboot] 集成MQTT</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://segmentfault.com/a/1190000017811919" target="_blank">SpringBoot集成MQTT</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2020/02/15/1581731060000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1053,6 +991,72 @@
 
 <p>执行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc tun.c -o tun</span><br><span class="line">sudo .&#x2F;tun</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/14/1581643662000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/14/articles/2020/02/14/1581643662000.html/" class="article-date">
+      <time datetime="2020-02-14T01:27:42.000Z" itemprop="datePublished">2020-02-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/14/articles/2020/02/14/1581643662000.html/">[linux] 上网配置</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.cnblogs.com/xishaohui/p/8728848.html" target="_blank">Linux网络配置</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br><span class="line">#查看当前虚拟机的IP</span><br><span class="line">ip addr</span><br><span class="line"></span><br><span class="line">#如果虚拟机的ip是127.0.0.1的话，需要修改配置文件</span><br><span class="line">cd &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;</span><br><span class="line"></span><br><span class="line">vi ifcfg-ens33</span><br><span class="line">ONBOOT&#x3D;yes</span><br><span class="line"></span><br><span class="line">#重启网卡</span><br><span class="line">service network restart</span><br><span class="line"></span><br><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
+
+<p>ifcfg-eth0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts</span><br><span class="line">vim ifcfg-eth0</span><br><span class="line"></span><br><span class="line">DEVICE&#x3D;eth0</span><br><span class="line">#重启生效</span><br><span class="line">ONBOOT&#x3D;yes</span><br><span class="line">#设置为静态IP</span><br><span class="line">BOOTPROTO&#x3D;static</span><br><span class="line"></span><br><span class="line">#ip地址</span><br><span class="line">IPADDR&#x3D;10.23.57.227</span><br><span class="line">#子网掩码</span><br><span class="line">NETMASK&#x3D;255.255.255.0</span><br><span class="line">#网关</span><br><span class="line">GATEWAY&#x3D;10.23.57.2</span><br><span class="line">#DNS1</span><br><span class="line">DNS1&#x3D;8.8.8.8</span><br><span class="line">#DNS2</span><br><span class="line">DNS2&#x3D;4.4.4.4</span><br></pre></td></tr></table></figure>
 
       
     </div>

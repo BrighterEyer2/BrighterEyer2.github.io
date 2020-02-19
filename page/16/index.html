@@ -283,110 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2020/01/10/1578670551000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/10/articles/2020/01/10/1578670551000.html/" class="article-date">
-      <time datetime="2020-01-10T15:35:51.000Z" itemprop="datePublished">2020-01-10</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/10/articles/2020/01/10/1578670551000.html/">[stm32] esp8266+http</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://cloud.tencent.com/developer/article/1457141" target="_blank">ESP8266透传：利用STM32f103zet6发送数据到HTTP服务器</a></p>
-<details>
-<summary>头文件include</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;test.h&quot;</span><br><span class="line">#include &quot;.&#x2F;ESP8266&#x2F;bsp_esp8266.h&quot;</span><br><span class="line">#include &quot;bsp_SysTick.h&quot;</span><br><span class="line">#include &lt;stdio.h&gt; </span><br><span class="line">#include &lt;stdlib.h&gt; </span><br><span class="line">#include &lt;string.h&gt;  </span><br><span class="line">#include &lt;stdbool.h&gt;</span><br><span class="line">#include &quot;http.h&quot;</span><br></pre></td></tr></table></figure>
-</details>
-
-
-<details>
-<summary>http.h</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#ifndef  __HTTP_H</span><br><span class="line">#define	 __HTTP_H</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;宏定义 MALLOC、FREE、DATE_LEN</span><br><span class="line">#define MALLOC(x) malloc(x)</span><br><span class="line">#define FREE(x) free(x)</span><br><span class="line">#define TOTAL_DATA_LEN 64</span><br><span class="line">#define MAX_DATA_LEN  128</span><br><span class="line">#define DATE_LEN  128</span><br><span class="line"></span><br><span class="line">#define SERVER_IP &quot;xx.xx.xx.xx&quot;</span><br><span class="line">#define SERVER_PORT 1883</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;打包HTTP头</span><br><span class="line">int Head_Package(const char *server_ip, int port_num, int ContentLength, char *out_data);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;打包HTTP数据包</span><br><span class="line">int Data_Package(const char *date, const char *text1, const char *place, char *out_data);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;HTTP数据上传</span><br><span class="line">int Http_Data_Upload(char *server_ip, int port_num, char *time, char *text1, char *place, char *out_buffer);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;获得要上传的HTTP数据</span><br><span class="line">int Get_Hex_Http_Packet_Data(char *upload_http_data,char *http_hex_data);</span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
-</details>
-
-<details>
-<summary>http.c</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &quot;http.h&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;请求头部</span><br><span class="line">char upload_head[] &#x3D;</span><br><span class="line">&quot;POST &#x2F;? HTTP&#x2F;1.1\r\n&quot;</span><br><span class="line">&quot;Host: %s:%d\r\n&quot;</span><br><span class="line">&quot;content-type: multipart&#x2F;form-data; boundary&#x3D;--------------------------359443142220480708322079\r\n&quot;</span><br><span class="line">&quot;content-length: %d\r\n\r\n&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;请求数据</span><br><span class="line">char upload_data[] &#x3D;</span><br><span class="line">&#123;</span><br><span class="line">	&quot;----------------------------359443142220480708322079\r\n&quot;</span><br><span class="line">	&quot;Content-Disposition: form-data; name&#x3D;\&quot;date\&quot;\r\n\r\n&quot;</span><br><span class="line">	&quot;%s&quot;</span><br><span class="line">	&quot;\r\n----------------------------359443142220480708322079\r\n&quot;</span><br><span class="line">	&quot;Content-Disposition: form-data; name&#x3D;\&quot;text1\&quot;\r\n\r\n&quot;</span><br><span class="line">	&quot;%s&quot;</span><br><span class="line">	&quot;\r\n----------------------------359443142220480708322079\r\n&quot;</span><br><span class="line">	&quot;Content-Disposition: form-data; name&#x3D;\&quot;place\&quot;\r\n\r\n&quot;</span><br><span class="line">	&quot;%s&quot;</span><br><span class="line">	&quot;\r\n----------------------------359443142220480708322079--\r\n&quot;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;打包HTTP头</span><br><span class="line">int Head_Package(const char *server_ip, int port_num, int ContentLength, char *out_data)</span><br><span class="line">&#123;</span><br><span class="line">	int len &#x3D; 0 ;</span><br><span class="line">	char *up_head &#x3D; NULL ;</span><br><span class="line">	if (NULL &#x3D;&#x3D; server_ip || NULL &#x3D;&#x3D; out_data)</span><br><span class="line">		return -1 ;</span><br><span class="line">	if (ContentLength &lt; 0 || port_num &lt; 0)</span><br><span class="line">		return -2 ;</span><br><span class="line">	up_head &#x3D; MALLOC(DATE_LEN);</span><br><span class="line">	if (NULL !&#x3D; up_head)</span><br><span class="line">		snprintf(up_head, DATE_LEN, upload_head, server_ip, port_num, ContentLength);</span><br><span class="line">	if (NULL !&#x3D; out_data)</span><br><span class="line">		sprintf(out_data, &quot;%s&quot;, up_head);</span><br><span class="line">	else</span><br><span class="line">		return -3 ;</span><br><span class="line">	len &#x3D; strlen(up_head);</span><br><span class="line">	FREE(up_head);</span><br><span class="line">	return len;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;打包HTTP数据包</span><br><span class="line">int Data_Package(const char *date, const char *text1, const char *place, char *out_data)</span><br><span class="line">&#123;</span><br><span class="line">	int len &#x3D; 0 ;</span><br><span class="line">	char *up_data &#x3D; NULL ;</span><br><span class="line">	if (NULL &#x3D;&#x3D; date || NULL &#x3D;&#x3D; text1 || NULL &#x3D;&#x3D; place || NULL &#x3D;&#x3D; out_data)</span><br><span class="line">		return -1 ;</span><br><span class="line">	up_data &#x3D; MALLOC(DATE_LEN);</span><br><span class="line">	if (NULL !&#x3D; up_data)</span><br><span class="line">		snprintf(up_data, DATE_LEN, upload_data, date, text1, place);</span><br><span class="line">	if (NULL !&#x3D; out_data)</span><br><span class="line">		sprintf(out_data, &quot;%s&quot;, up_data);</span><br><span class="line">	else</span><br><span class="line">		return -2 ;</span><br><span class="line">	len &#x3D; strlen(up_data);</span><br><span class="line">	FREE(up_data);</span><br><span class="line">	return len;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;HTTP数据上传</span><br><span class="line">int Http_Data_Upload(char *server_ip, int port_num, char *time, char *text1, char *place, char *out_buffer)</span><br><span class="line">&#123;</span><br><span class="line">	int ContentLength &#x3D; 0 ;</span><br><span class="line">	char *http_head &#x3D; NULL ;</span><br><span class="line">	char *http_data &#x3D; NULL ;</span><br><span class="line">	char *upload_http_data &#x3D; NULL ;</span><br><span class="line">	http_head &#x3D; MALLOC(DATE_LEN);</span><br><span class="line">	if (NULL &#x3D;&#x3D; http_head)</span><br><span class="line">		return -1 ;</span><br><span class="line">	http_data &#x3D; MALLOC(DATE_LEN);</span><br><span class="line">	if (NULL &#x3D;&#x3D; http_data)</span><br><span class="line">		return -2 ;</span><br><span class="line">	upload_http_data &#x3D; MALLOC(TOTAL_DATA_LEN);</span><br><span class="line">	if (NULL &#x3D;&#x3D; upload_http_data)</span><br><span class="line">		return -3 ;</span><br><span class="line">	ContentLength &#x3D; Data_Package(time, text1, place, http_data);</span><br><span class="line">	Head_Package(server_ip, port_num, ContentLength, http_head);</span><br><span class="line">	sprintf(upload_http_data, &quot;%s%s&quot;, http_head, http_data);</span><br><span class="line">	sprintf(out_buffer, &quot;%s&quot;, upload_http_data);</span><br><span class="line">	FREE(http_head);</span><br><span class="line">	FREE(http_data);</span><br><span class="line">	FREE(upload_http_data);</span><br><span class="line">	return 0 ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;获得要上传的HTTP数据</span><br><span class="line">int Get_Hex_Http_Packet_Data(char *upload_http_data,char *http_hex_data)&#123;</span><br><span class="line">	&#x2F;*</span><br><span class="line">	printf(&quot;Get_Hex_Http_Packet_Data upload_http_data %s\r\n&quot;,upload_http_data);</span><br><span class="line">	printf(&quot;Get_Hex_Http_Packet_Data http_hex_data %s\r\n&quot;,http_hex_data);</span><br><span class="line">	&#x2F;&#x2F;*&#x2F;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>
-
-<details>
-<summary>void wifi_init(void)</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void wifi_init(void)&#123;</span><br><span class="line">  printf ( &quot;\r\n正在配置 ESP8266 ......\r\n&quot; );</span><br><span class="line">	macESP8266_CH_ENABLE();</span><br><span class="line">	ESP8266_AT_Test ();</span><br><span class="line">	ESP8266_Net_Mode_Choose ( STA );</span><br><span class="line">  while ( ! ESP8266_JoinAP ( macUser_ESP8266_ApSsid, macUser_ESP8266_ApPwd ) );	</span><br><span class="line">	ESP8266_Enable_MultipleId ( DISABLE );</span><br><span class="line">	while ( !	ESP8266_Link_Server ( enumTCP, macUser_ESP8266_TcpServer_IP, macUser_ESP8266_TcpServer_Port, Single_ID_0 ) );</span><br><span class="line">	while ( ! ESP8266_UnvarnishSend () );</span><br><span class="line">	printf ( &quot;\r\n配置 ESP8266 完毕\r\n&quot; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>
-
-<details>
-<summary>PC_Usart</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void PC_Usart(char* cStr)&#123;</span><br><span class="line">	ESP8266_SendString ( ENABLE, cStr, 0, Single_ID_0 ); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>
-
-<details>
-<summary>ESP8266_AP_TCP_Server</summary>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ESP8266_AP_TCP_Server</span> <span class="params">( <span class="keyword">void</span> )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> cStrInput [<span class="number">100</span>] = &#123; <span class="number">0</span> &#125;, *pStrDelimiter[<span class="number">3</span>], * pBuf, * pStr;</span><br><span class="line">	u8 uc = <span class="number">0</span>;</span><br><span class="line">	u32 ul = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	macESP8266_CH_ENABLE();</span><br><span class="line">	ESP8266_AT_Test ();</span><br><span class="line">	ESP8266_Net_Mode_Choose ( AP );</span><br><span class="line"></span><br><span class="line">	PC_Usart (<span class="string">"\r\n :\</span></span><br><span class="line"><span class="string">			   \r\n 0 = OPEN\</span></span><br><span class="line"><span class="string">			   \r\n 1 = WEP\</span></span><br><span class="line"><span class="string">			   \r\n 2 = WPA_PSK\</span></span><br><span class="line"><span class="string">			   \r\n 3 = WPA2_PSK\</span></span><br><span class="line"><span class="string">			   \r\n 4 = WPA_WPA2_PSK\</span></span><br><span class="line"><span class="string">			   \r\n \r\n"</span> );</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span> ( <span class="string">"%s"</span>, cStrInput );</span><br><span class="line"></span><br><span class="line">	PC_Usart ( <span class="string">"\r\n \r\n"</span> );</span><br><span class="line"></span><br><span class="line">	pBuf = cStrInput;</span><br><span class="line">	uc = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> ( ( pStr = strtok ( pBuf, <span class="string">","</span> ) ) != <span class="literal">NULL</span> ) &#123;</span><br><span class="line">		pStrDelimiter [ uc ++ ] = pStr;</span><br><span class="line">		pBuf = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	ENUM_AP_PsdMode_TypeDef enunPsdMode = WEP;</span><br><span class="line">	ESP8266_BuildAP ( pStrDelimiter[<span class="number">0</span>], pStrDelimiter[<span class="number">2</span>], enunPsdMode );</span><br><span class="line">	ESP8266_Cmd ( <span class="string">"AT+RST"</span>, <span class="string">"OK"</span>, <span class="string">"ready"</span>, <span class="number">2500</span> ); <span class="comment">//*</span></span><br><span class="line"></span><br><span class="line">	ESP8266_Enable_MultipleId ( ENABLE );</span><br><span class="line"></span><br><span class="line">	PC_Usart ( <span class="string">"\r\n \r\n"</span> );</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span> ( <span class="string">"%s"</span>, cStrInput );</span><br><span class="line"></span><br><span class="line">	PC_Usart ( <span class="string">"\r\n r\n"</span> );</span><br><span class="line"></span><br><span class="line">	pBuf = cStrInput;</span><br><span class="line">	uc = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> ( ( pStr = strtok ( pBuf, <span class="string">","</span> ) ) != <span class="literal">NULL</span> ) &#123;</span><br><span class="line">		pStrDelimiter [ uc ++ ] = pStr;</span><br><span class="line">		pBuf = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	ESP8266_StartOrShutServer ( ENABLE, pStrDelimiter[<span class="number">0</span>], pStrDelimiter[<span class="number">1</span>] );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">do</span> &#123;</span><br><span class="line">		PC_Usart ( <span class="string">"\r\n\r\n"</span> );</span><br><span class="line">		ESP8266_Cmd ( <span class="string">"AT+CIFSR"</span>, <span class="string">"OK"</span>, <span class="string">"Link"</span>, <span class="number">500</span> );</span><br><span class="line"></span><br><span class="line">		PC_Usart ( <span class="string">"\r\n \r\n"</span> );</span><br><span class="line">		Delay_ms ( <span class="number">20000</span> ) ;</span><br><span class="line">	&#125; <span class="keyword">while</span> ( !ESP8266_Cmd ( <span class="string">"AT+CIPSTATUS"</span>, <span class="string">"+CIPSTATUS:0"</span>, <span class="number">0</span>, <span class="number">500</span> ) );</span><br><span class="line"></span><br><span class="line">	PC_Usart ( <span class="string">"\r\n\r\n"</span> );</span><br><span class="line">	<span class="built_in">scanf</span> ( <span class="string">"%s"</span>, cStrInput );</span><br><span class="line">	ul = <span class="built_in">strlen</span> ( cStrInput );</span><br><span class="line">	ESP8266_SendString ( DISABLE, cStrInput, ul, Multiple_ID_0 );</span><br><span class="line"></span><br><span class="line">	PC_Usart ( <span class="string">"\r\n\r\n"</span> );</span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">		pStr = ESP8266_ReceiveString( DISABLE );</span><br><span class="line">		PC_Usart( cStr );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>
-
-<details>
-<summary>ESP8266_WebFetch_Test</summary>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 函数名：ESP8266_WebFetch_Test</span></span><br><span class="line"><span class="comment">* 描述 ：WF-ESP8266 模块进行抓取网页测试</span></span><br><span class="line"><span class="comment">* 输入 ：无</span></span><br><span class="line"><span class="comment">* 返回 : 无</span></span><br><span class="line"><span class="comment">* 调用 ：被外部调用</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ESP8266_WebFetch_Test</span> <span class="params">( <span class="keyword">void</span> )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">uint8_t</span> ucStatus;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span> ( <span class="string">"\r\n正在配置 ESP8266 ......\r\n"</span> );</span><br><span class="line">	macESP8266_CH_ENABLE();</span><br><span class="line">	ESP8266_AT_Test ();</span><br><span class="line">	ESP8266_Net_Mode_Choose ( STA );</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> ( ! ESP8266_JoinAP ( macUser_ESP8266_ApSsid, macUser_ESP8266_ApPwd ) );</span><br><span class="line">	ESP8266_Enable_MultipleId ( DISABLE );</span><br><span class="line">	<span class="keyword">while</span> ( !	ESP8266_Link_Server ( enumTCP, macUser_ESP8266_TcpServer_IP, macUser_ESP8266_TcpServer_Port, Single_ID_0 ) );</span><br><span class="line">	<span class="keyword">while</span> ( ! ESP8266_UnvarnishSend () );</span><br><span class="line">	<span class="built_in">printf</span> ( <span class="string">"\r\n配置 ESP8266 完毕\r\n"</span> );</span><br><span class="line"></span><br><span class="line">	PC_Usart ( <span class="string">"\r\n 本测试以访问 “eat.weixincore.com/index.php?s=/Mobile/PrinterTest/index”为例\r\n"</span> );</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> ( <span class="number">1</span> )</span><br><span class="line">	&#123;</span><br><span class="line">		ESP8266_SendString ( ENABLE, <span class="string">"GET index.php?s=/Mobile/PrinterTest/index HTTP/1.1\r\n"</span>, <span class="literal">NULL</span>, Single_ID_0 );</span><br><span class="line">		ESP8266_SendString ( ENABLE, <span class="string">"Host: eat.weixincore.com\r\n"</span>, <span class="literal">NULL</span>, Single_ID_0 );</span><br><span class="line">		ESP8266_SendString ( ENABLE, <span class="string">"User-Agent: abc\r\n"</span>, <span class="literal">NULL</span>, Single_ID_0 );</span><br><span class="line">		ESP8266_SendString ( ENABLE, <span class="string">"Connection: close\r\n"</span>, <span class="literal">NULL</span>, Single_ID_0 );</span><br><span class="line">		ESP8266_SendString ( ENABLE, <span class="string">"\r\n"</span>, <span class="literal">NULL</span>, Single_ID_0 );</span><br><span class="line">		USART_DMACmd(USART2, USART_DMAReq_Rx, ENABLE);</span><br><span class="line">		Delay_ms ( <span class="number">100</span> );</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> ( ucTcpClosedFlag )                                             <span class="comment">//检测是否失去连接</span></span><br><span class="line">		&#123;</span><br><span class="line">			ESP8266_ExitUnvarnishSend ();                                    <span class="comment">//退出透传模式</span></span><br><span class="line">			<span class="keyword">do</span> ucStatus = ESP8266_Get_LinkStatus ();                         <span class="comment">//获取连接状态</span></span><br><span class="line">			<span class="keyword">while</span> ( ! ucStatus );</span><br><span class="line">			<span class="keyword">if</span> ( ucStatus == <span class="number">4</span> )                                             <span class="comment">//确认失去连接后重连</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">printf</span> ( <span class="string">"\r\n正在重连热点和服务器 ......\r\n"</span> );</span><br><span class="line">				<span class="keyword">while</span> ( ! ESP8266_JoinAP ( macUser_ESP8266_ApSsid, macUser_ESP8266_ApPwd ) );</span><br><span class="line">				<span class="keyword">while</span> ( !	ESP8266_Link_Server ( enumTCP, macUser_ESP8266_TcpServer_IP, macUser_ESP8266_TcpServer_Port, Single_ID_0 ) );</span><br><span class="line">				<span class="built_in">printf</span> ( <span class="string">"\r\n重连热点和服务器成功\r\n"</span> );</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">while</span> ( ! ESP8266_UnvarnishSend () );</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2020/01/10/1578670548000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -672,7 +568,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/10/articles/2020/01/10/1578670544000.html/">[arm] 交叉编译</a>
+      <a  class="article-title" href="/2020/01/10/articles/2020/01/10/1578670544000.html/">[arm] 交叉编译工具STM32CubeMX</a>
     </h1>
   
 
@@ -953,6 +849,77 @@
 
 <p><a href="https://pan.baidu.com/s/1MgjvUyFR1e9UPbRlw9coLw" target="_blank">视频盘 链接</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">e2cp</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/01/08/1578484446000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/08/articles/2020/01/08/1578484446000.html/" class="article-date">
+      <time datetime="2020-01-08T11:54:06.000Z" itemprop="datePublished">2020-01-08</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/08/articles/2020/01/08/1578484446000.html/">[stm32] 野火STM32F429_v1仿真器连接问题</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="" target="_blank"></a></p>
+<p>查看设备列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">win + R</span><br><span class="line">devmgmt.msc</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">顶部-&gt;查看(V)-&gt;显示隐藏的设备(W)</span><br><span class="line"></span><br><span class="line">列表框展开-&gt;libusb-win32 devices -&gt; 观察 BETTER_USB_HS</span><br><span class="line">列表框展开-&gt;端口(COM和LPT)、观察 USB-SERIAL CH341、USB-SERIAL CH340</span><br><span class="line">列表框展开-&gt;Cebal controlled devices -&gt; 观察 zigbee仿真器驱动 SmartRF40EB</span><br><span class="line">列表框展开-&gt;通用串行总线控制器 -&gt; 观察 未知USB设备(设备描述符请求失败) 、USB 根集线器(USB3.0)</span><br></pre></td></tr></table></figure>
+
+<p>解决过程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、Windows+R打开运行，在运行的输入框中输入&quot;services.msc&quot;回车，打开服务。</span><br><span class="line">2、在服务中找到 &quot;Plug and Play&quot; 服务，将服务关闭，再启用。</span><br><span class="line">3、在服务列表中找到 &quot;Device Install Service&quot; 和 &quot;Device Setup Manager&quot; 两个服务项。</span><br><span class="line">4、将设备管理器中的出现问题的设备右键卸载，然后将设备上的USB外设移除。</span><br><span class="line">5、卸载libusb-win32 devices下的驱动</span><br><span class="line">6、拔出所有单片机接线</span><br><span class="line">7、重启后将USB外设重新接入，扫描检测硬件改动，再次查看设备管理器中的问题是否还存在。</span><br><span class="line">8、安装再次CH341SER_EXE</span><br></pre></td></tr></table></figure>
+
+<p>win10 keil5识别不了DAP，卸载驱动后可以下载<br><a href="https://blog.csdn.net/Rambo122/article/details/101018816" target="_blank">卸载libusb-win32 devices下的驱动</a></p>
+<p><a href="https://jingyan.baidu.com/article/624e74594dbc8d34e8ba5aa6.html" target="_blank">禁用数字签名</a></p>
+<p><a href="http://www.wch.cn/download/CH341SER_EXE.html" target="_blank">CH341SER_EXE</a></p>
 
       
     </div>

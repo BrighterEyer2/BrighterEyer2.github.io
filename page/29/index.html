@@ -283,71 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/12/18/1576669668000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/12/18/articles/2019/12/18/1576669668000.html/" class="article-date">
-      <time datetime="2019-12-18T11:47:48.000Z" itemprop="datePublished">2019-12-18</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/18/articles/2019/12/18/1576669668000.html/">[单片机] HC-SR051人体红外传感器</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/everestrs/article/details/86415607" target="_blank">51单片机 人体红外感应报警</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;模块感应到信号后，输出高电平，此时LED的D7灯点亮，蜂鸣器报警。没有信号后，D8灯亮，蜂鸣器停止。</span><br><span class="line">#include &lt;reg52.h&gt;</span><br><span class="line">#define uchar unsigned char</span><br><span class="line">#define uint unsigned int</span><br><span class="line"></span><br><span class="line">sbit HC_SR051_out &#x3D; P1 ^ 7;</span><br><span class="line">sbit D7 &#x3D; P1 ^ 6;</span><br><span class="line">sbit beep &#x3D; P2 ^ 3;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void delay(uint z)</span><br><span class="line">&#123;</span><br><span class="line">	uint i, j;</span><br><span class="line">	for (i &#x3D; z; i &gt; 0; i--)</span><br><span class="line">		for (j &#x3D; 110; j &gt; 0; j--);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main() &#123;</span><br><span class="line"></span><br><span class="line">	while (1)</span><br><span class="line">	&#123;</span><br><span class="line">		if (HC_SR051_out &#x3D;&#x3D; 1)</span><br><span class="line">		&#123;</span><br><span class="line">			unsigned char m;</span><br><span class="line">			for (m &#x3D; 20; m &gt; 0; m--)</span><br><span class="line">			&#123;</span><br><span class="line">				beep &#x3D; ~beep;</span><br><span class="line">				D7 &#x3D; ~D7;</span><br><span class="line">				delay(500);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a href="http://www.51hei.com/bbs/dpj-145840-1.html" target="_blank">基于51单片机的人体红外模块的自动门设计原理图+程序</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2019/12/18/1576669667000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -921,6 +856,71 @@
 <p><a href="https://ibaotu.com/sucai/19412446.html?kwd=%E5%85%AC%E5%8F%B8%E5%AE%98%E7%BD%91" target="_blank">简约大气家居装修电商企业官网模板网页界面</a></p>
 <p><a href="http://www.luomansizs.com/" target="_blank">硬件产品企业官网</a></p>
 <p><a href="https://www.zcool.com.cn/work/ZNDE0OTM2Mjg=.html" target="_blank">（参考）好美佳企业站练习</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/12/13/1576235783000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/12/13/articles/2019/12/13/1576235783000.html/" class="article-date">
+      <time datetime="2019-12-13T11:16:23.000Z" itemprop="datePublished">2019-12-13</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/12/13/articles/2019/12/13/1576235783000.html/">[设计] 珠海画册打印</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.bilibili.com/video/av74820321" target="_blank">科迅画册设计教程【全套】</a></p>
+<p><a href="https://ibaotu.com/sucai/18450137.html?kwd=%E7%94%BB%E5%86%8C" target="_blank">素材</a></p>
+<p><a href="http://www.zheliyin.com/goods/441471.html" target="_blank">[数码印刷]画册打样、小批量宣传册</a></p>
+<p><a href="https://zh.58.com/huaceys/" target="_blank">58同城 珠海画册</a></p>
 
       
     </div>

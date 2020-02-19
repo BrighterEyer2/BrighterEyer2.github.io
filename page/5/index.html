@@ -283,68 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2020/02/14/1581643162000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/14/articles/2020/02/14/1581643162000.html/" class="article-date">
-      <time datetime="2020-02-14T01:19:22.000Z" itemprop="datePublished">2020-02-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/14/articles/2020/02/14/1581643162000.html/">[arm] linux嵌入式编程</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.veryarm.com/arm" target="_blank">arm</a><br><a href="https://www.cnblogs.com/wanghuaijun/p/9416641.html" target="_blank">Linux下的串口编程实例</a><br><a href="https://github.com/buchenglei/linux-c-study" target="_blank">linux-c-study</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2020/02/12/1581506202000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -765,6 +703,7 @@
           
         <p><a href="https://blog.csdn.net/Ningjianwen/article/details/87879668" target="_blank">从0开始在ubuntu18.04上搭建嵌入式Linux开发环境以及嵌入式Qt5.6开发环境</a></p>
 <p><a href="https://pan.baidu.com/s/10r4kku8C0bt8vLampOyvWQ" target="_blank">文件</a></p>
+<p><a href="https://blog.csdn.net/ywueoei/article/details/83795755" target="_blank">Ubuntu16.04与ARM的NFS配置、挂载和卸载</a><br><a href="https://blog.csdn.net/Ningjianwen/article/details/87879668" target="_blank">Ubuntu16.04与ARM的NFS配置、挂载和卸载</a></p>
 
       
     </div>
@@ -918,6 +857,78 @@
       
           
         <p><a href="https://github.com/BrighterEyer/itop6818Demos/tree/master/linux-c" target="_blank">linux-c</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/12/1581468037000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/12/articles/2020/02/12/1581468037000.html/" class="article-date">
+      <time datetime="2020-02-12T00:40:37.000Z" itemprop="datePublished">2020-02-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/12/articles/2020/02/12/1581468037000.html/">[arm] iTop6818使用TF卡启动</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>烧写 Uboot 到 TF 卡</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#将 TF 卡从 windows 接入 Ubuntu</span><br><span class="line"></span><br><span class="line">#查看盘符</span><br><span class="line">df -l</span><br><span class="line"></span><br><span class="line">cd &#x2F;home&#x2F;6818&#x2F;lollipop-5.1.1_r6&#x2F;result</span><br><span class="line">ls u-boot-Top-6818.bin</span><br><span class="line"></span><br><span class="line">.&#x2F;mkuboot &#x2F;dev&#x2F;sdx</span><br></pre></td></tr></table></figure>
+
+<p>TF 卡引导 uboot</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">拨码开关编号 1 2 3</span><br><span class="line">EMMC 启动 1 0 1</span><br><span class="line">TF 卡启动 1 0 0</span><br></pre></td></tr></table></figure>
+
+<p>TF 卡烧写 Android</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#在 TF 卡中建立目录“sdupdate”，然后将 Android 的镜像拷贝到“sdupdate”目录下</span><br><span class="line"></span><br><span class="line">boot.img</span><br><span class="line">cache.img</span><br><span class="line">system.img</span><br><span class="line">u-boot-iTOP-6818.bin</span><br><span class="line">userdata.img</span><br><span class="line"></span><br><span class="line">#recovery.img</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#将 TF 卡接到开发板，将开发板设置为 TF 卡启动，上电启动开发板，进入 uboot 模式</span><br><span class="line">sdfuse flashall</span><br><span class="line"></span><br><span class="line">setenv bootsystem android</span><br><span class="line">saveenv</span><br></pre></td></tr></table></figure>
+
+<p>TF 卡烧写 Qt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#在 TF 卡中建立目录“sdupdate”，然后将 QT 的镜像拷贝到“sdupdate”目录下</span><br><span class="line"></span><br><span class="line">boot.img</span><br><span class="line">system.img</span><br><span class="line">u-boot-iTOP-6818.bin</span><br><span class="line"></span><br><span class="line">#将 TF 卡接到开发板，将开发板设置为 TF 卡启动，上电启动开发板，进入 uboot 模式</span><br><span class="line">sdfuse flashall</span><br><span class="line"></span><br><span class="line">setenv bootsystem qt</span><br><span class="line">saveenv</span><br></pre></td></tr></table></figure>
 
       
     </div>

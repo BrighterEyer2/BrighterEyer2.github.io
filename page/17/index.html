@@ -283,77 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2020/01/08/1578484446000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/08/articles/2020/01/08/1578484446000.html/" class="article-date">
-      <time datetime="2020-01-08T11:54:06.000Z" itemprop="datePublished">2020-01-08</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/08/articles/2020/01/08/1578484446000.html/">[stm32] 野火STM32F429_v1仿真器连接问题</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="" target="_blank"></a></p>
-<p>查看设备列表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">win + R</span><br><span class="line">devmgmt.msc</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">顶部-&gt;查看(V)-&gt;显示隐藏的设备(W)</span><br><span class="line"></span><br><span class="line">列表框展开-&gt;libusb-win32 devices -&gt; 观察 BETTER_USB_HS</span><br><span class="line">列表框展开-&gt;端口(COM和LPT)、观察 USB-SERIAL CH341、USB-SERIAL CH340</span><br><span class="line">列表框展开-&gt;Cebal controlled devices -&gt; 观察 zigbee仿真器驱动 SmartRF40EB</span><br><span class="line">列表框展开-&gt;通用串行总线控制器 -&gt; 观察 未知USB设备(设备描述符请求失败) 、USB 根集线器(USB3.0)</span><br></pre></td></tr></table></figure>
-
-<p>解决过程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、Windows+R打开运行，在运行的输入框中输入&quot;services.msc&quot;回车，打开服务。</span><br><span class="line">2、在服务中找到 &quot;Plug and Play&quot; 服务，将服务关闭，再启用。</span><br><span class="line">3、在服务列表中找到 &quot;Device Install Service&quot; 和 &quot;Device Setup Manager&quot; 两个服务项。</span><br><span class="line">4、将设备管理器中的出现问题的设备右键卸载，然后将设备上的USB外设移除。</span><br><span class="line">5、卸载libusb-win32 devices下的驱动</span><br><span class="line">6、拔出所有单片机接线</span><br><span class="line">7、重启后将USB外设重新接入，扫描检测硬件改动，再次查看设备管理器中的问题是否还存在。</span><br><span class="line">8、安装再次CH341SER_EXE</span><br></pre></td></tr></table></figure>
-
-<p>win10 keil5识别不了DAP，卸载驱动后可以下载<br><a href="https://blog.csdn.net/Rambo122/article/details/101018816" target="_blank">卸载libusb-win32 devices下的驱动</a></p>
-<p><a href="https://jingyan.baidu.com/article/624e74594dbc8d34e8ba5aa6.html" target="_blank">禁用数字签名</a></p>
-<p><a href="http://www.wch.cn/download/CH341SER_EXE.html" target="_blank">CH341SER_EXE</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2020/01/08/1578484445000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -906,6 +835,68 @@
           
         <p><a href="http://tutorial.linux.doc.embedfire.com/zh_CN/latest/" target="_blank">[野火]i.MX Linux开发实战指南</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">[野火]i.MX Linux开发实战指南</span><br><span class="line"></span><br><span class="line">搭建并熟悉开发环境：</span><br><span class="line">1. 为什么学习Linux开发</span><br><span class="line">2. i.MX系列芯片简介</span><br><span class="line">3. Linux系统简介</span><br><span class="line">4. 安装Ubuntu系统</span><br><span class="line">5. Linux文件目录</span><br><span class="line">6. 用户组与文件权限</span><br><span class="line">7. 使用Linux命令行</span><br><span class="line">8. 包管理工具</span><br><span class="line">9. 使用编辑器</span><br><span class="line">10. 野火EBF 6ULL 开发板硬件资源介绍</span><br><span class="line">11. 让开发板跑起来</span><br><span class="line">12. 查看系统信息</span><br><span class="line">13. 使用命令点灯和检测按键</span><br><span class="line">14. 使用脚本测试硬件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">在Linux下开发应用程序：</span><br><span class="line">1. 挂载NFS网络文件系统</span><br><span class="line">2. GCC和Hello World</span><br><span class="line">3. 文件操作与系统调用</span><br><span class="line">4. 控制LED灯设备（LED子系统）</span><br><span class="line">5. 控制蜂鸣器（GPIO子系统）</span><br><span class="line">6. 检测按键输入（input子系统）</span><br><span class="line">7. 串口通讯与终端设备</span><br><span class="line">8. I2C通讯</span><br><span class="line">9. SPI通讯</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">安装系统镜像：</span><br><span class="line">1. 使用Etcher烧录镜像到SD卡</span><br><span class="line">2. 使用sd卡烧录完整镜像</span><br><span class="line">3. MFGtool工具</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">制作系统镜像：</span><br><span class="line">1. 系统运行所需要的组件</span><br><span class="line">2. 编译内核</span><br><span class="line">3. 编译uboot</span><br><span class="line">4. 制作根文件系统</span><br><span class="line">5. 给开发板移植debian发行版</span><br><span class="line">6. 制作ubuntu core版本镜像</span><br><span class="line">7. 使用Buildroot编译</span><br><span class="line">8. 使用yocot构建镜像</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">i.MX6 裸机开发：</span><br><span class="line">1. 熟悉sdk</span><br><span class="line">2. 编译下载官方SDK程序到开发板</span><br><span class="line">3. 开发前准备</span><br><span class="line">4. 汇编点亮LED灯</span><br><span class="line">5. 点亮LED灯</span><br><span class="line">6. LED灯进阶——C语言实现</span><br><span class="line">7. 完善LED程序</span><br><span class="line">8. GPIO输入—按键查询检测</span><br><span class="line">9. 整理工程文件</span><br><span class="line">10. 中断</span><br><span class="line">11. 时钟控制模块（CCM）</span><br><span class="line">12. UART—串口通讯</span><br><span class="line">13. DDR测试</span><br><span class="line">14. eLCDIF—液晶显示</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Linux驱动开发：</span><br><span class="line">1. 字符设备驱动</span><br><span class="line">2. 内核模块</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/01/06/1578311647000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/06/articles/2020/01/06/1578311647000.html/" class="article-date">
+      <time datetime="2020-01-06T11:54:07.000Z" itemprop="datePublished">2020-01-06</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/06/articles/2020/01/06/1578311647000.html/">[arm] 智能门锁系统设计</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://wenku.baidu.com/view/1e4f8b192bf90242a8956bec0975f46527d3a727.html" target="_blank">基于ARM_Linux的智能门锁系统设计_王溢琴</a></p>
 
       
     </div>
