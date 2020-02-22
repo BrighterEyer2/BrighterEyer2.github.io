@@ -283,6 +283,97 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/02/17/1581945980000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/17/articles/2020/02/17/1581945980000.html/" class="article-date">
+      <time datetime="2020-02-17T13:26:20.000Z" itemprop="datePublished">2020-02-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/17/articles/2020/02/17/1581945980000.html/">[arm] gdb-multiarch调试arm程序</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://brightereyer2.github.io/2020/02/17//articles/2020/02/17/1581936650000.html/" target="_blank">docker+ubuntu</a></p>
+<p>交叉编译工具arm-linux-gnueabihf-gcc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf</span><br><span class="line">arm-linux-gnueabihf-gcc -v</span><br></pre></td></tr></table></figure>
+
+<p>安装qemu</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y qemu</span><br></pre></td></tr></table></figure>
+<p>安装gdb-multiarch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y gdb-multiarch</span><br></pre></td></tr></table></figure>
+
+<p>安装arm文件所需要的动态库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y gcc-multilib-arm-linux-gnueabi gcc-armhf-cross</span><br><span class="line"></span><br><span class="line">ln -s &#x2F;usr&#x2F;arm-linux-gnueabihf&#x2F;lib&#x2F;ld-linux-armhf.so.3 &#x2F;lib&#x2F;ld-linux-armhf.so.3</span><br><span class="line"></span><br><span class="line">vim &#x2F;etc&#x2F;profile</span><br><span class="line">export LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;arm-linux-gnueabihf&#x2F;lib&#x2F;:$LD_LIBRARY_PATH</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+
+<p>arm程序的编译运行</p>
+<p>hello.c</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)&#123;</span><br><span class="line">	printf(&quot;hello world&quot;);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arm-linux-gnueabihf-gcc -o hello-arm hello.c</span><br></pre></td></tr></table></figure>
+<p>运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-arm hello-arm</span><br></pre></td></tr></table></figure>
+
+<p>在1234端口上开启调试模式，并运行arm程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-arm -g 1234 hello-arm</span><br></pre></td></tr></table></figure>
+
+<p>用gdb打开待调试文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb-multiarch hello-arm</span><br></pre></td></tr></table></figure>
+
+<p>在gdb中连接调试端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">target remote 1234</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://blog.binpang.me/2018/07/26/qemu-arm/" target="_blank">gdb-multiarch调试arm程序</a><br><a href="https://www.jianshu.com/p/dc8e263d6466" target="_blank">Linux下ARM程序的编译运行及调试</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/02/17/1581936999000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1019,72 +1110,6 @@
 
 <p><a href="https://www.cnblogs.com/wenyihu/articles/7380144.html" target="_blank">迅为6818开发板Qtopia2.2.0开发环境搭建以及编译镜像</a></p>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/17/1581936643000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/17/articles/2020/02/17/1581936643000.html/" class="article-date">
-      <time datetime="2020-02-17T10:50:43.000Z" itemprop="datePublished">2020-02-17</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/17/articles/2020/02/17/1581936643000.html/">[arm] itop6818-linux程序汇总</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/mucheni/article/details/84848135" target="_blank">iTOP-4418/6818开发板-QtE4.7WIFI_MT6620热点</a></p>
-<p><a href="https://blog.csdn.net/mucheni/article/details/84381893" target="_blank">iTOP-6818开发板-Android5.1修改uboot和内核开机LOGO</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ls lollipop-5.1.1_r6_20170512&#x2F;device&#x2F;nexell&#x2F;s5p6818_drone&#x2F;boot</span><br><span class="line"></span><br><span class="line">#塑料框 7 寸：logo_800_1280.bmp</span><br><span class="line">9.7 寸、金属框 7 寸、金属框 10.1 寸、4.3 寸：logo.bmp</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/mucheni/article/details/81232374" target="_blank">iTOP-4418-MiniLinux-GPS_V1.0</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;topeet_gpstest &#x2F;dev&#x2F;ttyAMA3 &amp;</span><br></pre></td></tr></table></figure>
       
     </div>
     

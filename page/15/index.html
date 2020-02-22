@@ -283,6 +283,93 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/01/14/1579000587000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/14/articles/2020/01/14/1579000587000.html/" class="article-date">
+      <time datetime="2020-01-14T11:16:27.000Z" itemprop="datePublished">2020-01-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/14/articles/2020/01/14/1579000587000.html/">[arm] windows平台交叉编译+arm+QT5.7</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/qq_41068712/article/details/89672143" target="_blank">Windows平台交叉编译Arm Linux平台的QT5.7库</a></p>
+<p>1、Qt库源代码<br><a href="http://download.qt.io/archive/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.zip" target="_blank">qt-everywhere-opensource-src-5.7.0.zip</a></p>
+<details>
+<summary>修改qmake.conf</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">qtbase\mkspecs\linux-arm-gnueabi-g++\qmake.conf</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># qmake configuration for building with arm-linux-gnueabi-g++</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">MAKEFILE_GENERATOR      &#x3D; UNIX</span><br><span class="line">CONFIG                 +&#x3D; incremental</span><br><span class="line">QMAKE_INCREMENTAL_STYLE &#x3D; sublib</span><br><span class="line"></span><br><span class="line">#QT_QPA_DEFAULT_PLATFORM &#x3D; linux #eglfs</span><br><span class="line">#QMAKE_CFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line">#QMAKE_CXXFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line"></span><br><span class="line">include(..&#x2F;common&#x2F;linux.conf)</span><br><span class="line">include(..&#x2F;common&#x2F;gcc-base-unix.conf)</span><br><span class="line">include(..&#x2F;common&#x2F;g++-unix.conf)</span><br><span class="line"></span><br><span class="line"># modifications to g++.conf</span><br><span class="line">QMAKE_CC                &#x3D; arm-linux-gnueabihf-gcc</span><br><span class="line">QMAKE_CXX               &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line">QMAKE_LINK              &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line">QMAKE_LINK_SHLIB        &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line"></span><br><span class="line"># modifications to linux.conf</span><br><span class="line">QMAKE_AR                &#x3D; arm-linux-gnueabihf-ar cqs</span><br><span class="line">QMAKE_OBJCOPY           &#x3D; arm-linux-gnueabihf-objcopy</span><br><span class="line">QMAKE_NM                &#x3D; arm-linux-gnueabihf-nm -P</span><br><span class="line">QMAKE_STRIP             &#x3D; arm-linux-gnueabihf-strip</span><br><span class="line">load(qt_config)</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>修改kernel.pri</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">qtbase\src\corelib\kernel\kernel.pri</span><br><span class="line"></span><br><span class="line">SOURCES +&#x3D; \</span><br><span class="line">kernel&#x2F;qpoll.cpp \</span><br><span class="line">kernel&#x2F;qcore_unix.cpp \</span><br></pre></td></tr></table></figure>
+
+<p>2、Perl<br><a href="https://www.cr173.com/soft/14302.html" target="_blank">ActivePerl-5.26.1</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将其bin目录添加到环境变量PATH中</span><br></pre></td></tr></table></figure>
+
+<p>3、Python2.7以上<br><a href="https://www.python.org/downloads/" target="_blank">Python</a></p>
+<p>4、MinGW开发工具集（没用到）<br><a href="https://sourceforge.net/projects/mingw/" target="_blank">mingw-32</a><br><a href="https://sourceforge.net/projects/mingw-w64/files/mingw-w64/" target="_blank">mingw-w64</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将其bin目录添加到环境变量PATH中</span><br></pre></td></tr></table></figure>
+
+<p>5、交叉编译器<br><a href="http://releases.linaro.org/archive/14.07/components/toolchain/binaries/gcc-linaro-arm-linux-gnueabihf-4.9-2014.07-20140726_win32.exe" target="_blank">gcc-linaro-arm-linux-gnueabihf-4.9-2014.07-20140726_win32.exe</a><br><a href="https://blog.csdn.net/guodeqiangde/article/details/78239408" target="_blank">（可不下载）arm-none-linux-gnueabi</a><br><a href="https://www.veryarm.com/12506.html" target="_blank">【Linux开发】arm-linux-gnueabihf-gcc下载</a><br><a href="http://releases.linaro.org/archive/14.07/components/toolchain/binaries/" target="_blank">文件列表</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将其bin目录添加到环境变量PATH中</span><br></pre></td></tr></table></figure>
+
+<p>6、安装qt opensource</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd qt-everywhere-opensource-src-5.7.0</span><br><span class="line"></span><br><span class="line">configure.bat -release -opensource -prefix X:\Qt\Qt5.7.0_ARM_Linux -nomake tests -nomake examples -no-opengl -skip qtvirtualkeyboard  -xplatform linux-arm-gnueabi-g++</span><br><span class="line"></span><br><span class="line">mingw32-make</span><br><span class="line">mingw32-make install</span><br><span class="line"></span><br><span class="line">#可选</span><br><span class="line">qmake.exe程序所在目录增加一个qt.conf配置文件，内容为：</span><br><span class="line">[Paths]</span><br><span class="line">Prefix&#x3D;..</span><br></pre></td></tr></table></figure>
+
+<p>7、Qt Creator + ARM设置<br><a href="https://download.qt.io/archive/qt/5.12/5.12.2/qt-opensource-windows-x86-5.12.2.exe" target="_blank">qt-opensource-windows-x86-5.12.2.exe</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(1)</span><br><span class="line">工具(Tools) -&gt; 选项(options) -&gt; Kits -&gt; 编译器 -&gt; Manual -&gt; 添加，选GCC -&gt; arm-linux-gnueabihf-g++</span><br><span class="line"></span><br><span class="line">(2)</span><br><span class="line">CMake -&gt; Manual -&gt; 点击Add -&gt; 找到minGW安装目录bin里的 mingw32-make.exe，取个名后添加</span><br><span class="line"></span><br><span class="line">(3)调试功能</span><br><span class="line">Qt Versions -&gt; 手动设置 -&gt; 点击添加... -&gt; 找到Qt库安装目录bin里的qmake.exe，取名Qt5.70 for linux_armv7 后添加</span><br><span class="line"></span><br><span class="line">版本名称: Qt %&#123;Qt:Version&#125; for linux_armv7</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/01/14/1579000586000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -919,68 +1006,6 @@
       
           
         <p><a href="https://www.cnblogs.com/firege/" target="_blank">野火_firege</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/01/10/1578670559000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/10/articles/2020/01/10/1578670559000.html/" class="article-date">
-      <time datetime="2020-01-10T15:35:59.000Z" itemprop="datePublished">2020-01-10</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/10/articles/2020/01/10/1578670559000.html/">[stm32] 密码锁</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/sinat_23225111/article/details/53523568" target="_blank">一段在STM32上实现密码设置功能的小程序</a></p>
 
       
     </div>

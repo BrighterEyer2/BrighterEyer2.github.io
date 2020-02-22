@@ -283,6 +283,74 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2019/12/28/1577533870000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/12/28/articles/2019/12/28/1577533870000.html/" class="article-date">
+      <time datetime="2019-12-28T11:51:10.000Z" itemprop="datePublished">2019-12-28</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/12/28/articles/2019/12/28/1577533870000.html/">[nginx] https+springboot</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc-c++ pcre pcre-devel zlib zlib-devel openssl openssl--devel</span><br><span class="line">cd &#x2F;usr&#x2F;local;wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.7.4.tar.gz</span><br><span class="line">tar -zxvf nginx-1.7.4.tar.gz;cd nginx-1.7.4</span><br><span class="line"></span><br><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx --with-http_ssl_module</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">whereis nginx</span><br><span class="line"></span><br><span class="line">#启动</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx</span><br><span class="line"></span><br><span class="line">ps aux | grep nginx</span><br><span class="line"></span><br><span class="line">vim &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;conf&#x2F;nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.jianshu.com/p/8373f97d7514" target="_blank">nginx配置https+springboot</a><br>openssl生成https证书</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -nodes -newkey rsa:2048 -keyout server.key -out server.csr </span><br><span class="line">openssl req -new -x509 -key server.key -out ca.crt -days 3650</span><br><span class="line">openssl x509 -req -days 3650 -in server.csr -CA ca.crt -CAkey server.key -CAcreateserial -out server.crt</span><br><span class="line"></span><br><span class="line">cp server.key &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;ssl&#x2F;</span><br><span class="line">cp server.crt &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;ssl&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://blog.csdn.net/fenglin0429/article/details/81347634" target="_blank">SpringBoot + Nginx 配置HTTPS的一次经历</a><br><a href="https://www.cnblogs.com/b516/p/10916522.html" target="_blank">upstream配置(127.0.0.1)</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2019/12/28/1577489989000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -847,83 +915,6 @@
           
         <p><a href="https://blog.csdn.net/qq_21792169/category_5844033.html" target="_blank">HeroKern - MCU for 51</a><br><a href="https://blog.csdn.net/qq_43588817/category_8674324.html" target="_blank">叶子丶de花 - 51笔记</a></p>
 <p>ESP8266 WIFI模块学习之路<br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/81951529" target="_blank">（1）——模块的USB串口连接</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/81953193" target="_blank">（2）——模块与单片机连接进行远程操作</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/81989814" target="_blank">（3）——用手机APP进行功能控制LED灯</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82216952" target="_blank">（4）——WIFI模块与Android互相通信</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82220223" target="_blank">（5）——Android手机调试助手与单片机互相通信</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82289276" target="_blank">（6）——自写Android手机APP控制单片机LED灯</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82313787" target="_blank">（7）——自写Android手机APP接受单片机数据</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82355579" target="_blank">（8）——自写Android手机APP控制直流电机正反转</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/89226518" target="_blank">（9）——C++实现通过电脑串口读取ESP8266数据</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/89244697" target="_blank">（10）——手机远程关闭电脑</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/89247192" target="_blank">（11）——WIFI模块通过VC自动配置，实现远程关闭电脑</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/89305533" target="_blank">（12）——AT命令自动配置，实现远程关闭电脑</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/12/27/1577447586000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/12/27/articles/2019/12/27/1577447586000.html/" class="article-date">
-      <time datetime="2019-12-27T11:53:06.000Z" itemprop="datePublished">2019-12-27</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/27/articles/2019/12/27/1577447586000.html/">[单片机] USB转TTL模块连接PN532</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">SCL &lt;---&gt; RX</span><br><span class="line">SDA &lt;---&gt; TX</span><br></pre></td></tr></table></figure>
-
-<p>驱动<br><a href="http://tcy.198424.com/pl2303_installer.zip" target="_blank">pl2303_installer.zip</a></p>
-<p><a href="https://pan.baidu.com/s/1NjUdBYyqq6OlML5GAeDz2w" target="_blank">PN532 NFC RFID V3模块 近场通信，支持和手机通信 无线模块</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">oqw3</span><br></pre></td></tr></table></figure>
-
-<p>程序<br><a href="https://github.com/zhangyuhu/STM32-PN532" target="_blank">github STM32-PN532</a><br><a href="http://c.51hei.com/pro/down.php?h=7&e=661630&c=92550&host=forum/201708/11/191206fwu6ucuvwcuruc1p.rar&name=%22PN532%B6%C1%D0%B4%BF%A8%CA%B5%D1%E9%20%A3%A8ALIENTEK%20MINISTM32%A3%A9.rar%22" target="_blank">51黑论坛_PN532读写卡实验 （ALIENTEK MINISTM32）.rar</a></p>
-<p><a href="https://blog.csdn.net/imzhujun/article/details/94399288" target="_blank">stm32f10x + PN532 + 代码 (PN532 I2C模式STM32开发)</a><br><img src="https://img-blog.csdnimg.cn/20190701172109639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ltemh1anVu,size_16,color_FFFFFF,t_70"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">如使用I2C模式，拨码开关应打到【1，0】模式。</span><br><span class="line">模块需要连接VCC，GND，SDA，SCL，IRQ，RSTO，6根线。</span><br><span class="line">其中，RSTO是PN532的复位线，低电平复位。</span><br><span class="line">IRQ，是响应的中断线，可由程序选择是否启用，PN532有响应发生时，该引脚产生一个下降沿。</span><br></pre></td></tr></table></figure>
-
-
-<p><a href="https://blog.csdn.net/qq_43479164/article/details/96863299" target="_blank">(含接线图) 使用PN532进行基本读写操作</a><br><img src="https://img-blog.csdnimg.cn/20190722153045646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDc5MTY0,size_16,color_FFFFFF,t_70"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">选择链接后，打卡软件检测卡片是否存在。</span><br><span class="line"></span><br><span class="line">首先，将卡片置于强光下，或是闪光灯照射卡片找到芯片，放于pn532模块上，检测。</span><br><span class="line"></span><br><span class="line">扫描卡片类型</span><br></pre></td></tr></table></figure>
-
-
 
       
     </div>
