@@ -823,11 +823,11 @@
 
 
   
-    <article id="post-/articles/2020/02/17/1581947550000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2020/02/19/1582105141000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2020/02/17/articles/2020/02/17/1581947550000.html/" class="article-date">
-      <time datetime="2020-02-17T13:52:30.000Z" itemprop="datePublished">2020-02-17</time>
+      <a  href="/2020/02/19/articles/2020/02/19/1582105141000.html/" class="article-date">
+      <time datetime="2020-02-19T09:39:01.000Z" itemprop="datePublished">2020-02-19</time>
 </a>
 
     </div>
@@ -841,7 +841,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/17/articles/2020/02/17/1581947550000.html/">[docker] kail</a>
+      <a  class="article-title" href="/2020/02/19/articles/2020/02/19/1582105141000.html/">[arm] 看云</a>
     </h1>
   
 
@@ -852,108 +852,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://blog.csdn.net/xiyuliuyang/article/details/91445855" target="_blank">docker安装kali linux</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#开始部署</span><br><span class="line">docker search kali</span><br><span class="line"></span><br><span class="line">docker pull kalilinux&#x2F;kali-linux-docker</span><br><span class="line">docker run --name kali -it -p 6022:22 kalilinux&#x2F;kali-linux-docker &#x2F;bin&#x2F;bash exit</span><br><span class="line">docker ps -a</span><br><span class="line">docker start kali</span><br><span class="line">docker attach kali</span><br><span class="line"></span><br><span class="line">#修改密码</span><br><span class="line">passwd root 123456</span><br></pre></td></tr></table></figure>
-
-<p>sources.list软件源文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br><span class="line">vi &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kali kali-rolling main non-free contrib</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kali kali-rolling main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kali kali-rolling main contrib non-free</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kali-security kali-current&#x2F;updates main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kali-security kali-current&#x2F;updates main contrib non-free</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install -y net-tools</span><br><span class="line">netstat -ant</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y openssh-server</span><br><span class="line">vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config</span><br><span class="line">#PermitRootLogin prohibit-password</span><br><span class="line">PermitRootLogin yes</span><br><span class="line"></span><br><span class="line">service ssh start</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#安装tree直接运行</span><br><span class="line">apt-get install -y sqlmap</span><br><span class="line"></span><br><span class="line">#安装kali所有的工具(10G左右)</span><br><span class="line">apt-get install -y kali-linux-all</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/17/1581945980000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/17/articles/2020/02/17/1581945980000.html/" class="article-date">
-      <time datetime="2020-02-17T13:26:20.000Z" itemprop="datePublished">2020-02-17</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/17/articles/2020/02/17/1581945980000.html/">[arm] gdb-multiarch调试arm程序</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://brightereyer2.github.io/2020/02/17//articles/2020/02/17/1581936650000.html/" target="_blank">docker+ubuntu</a></p>
-<p>交叉编译工具arm-linux-gnueabihf-gcc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf</span><br><span class="line">arm-linux-gnueabihf-gcc -v</span><br></pre></td></tr></table></figure>
-
-<p>安装qemu</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y qemu</span><br></pre></td></tr></table></figure>
-<p>安装gdb-multiarch</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y gdb-multiarch</span><br></pre></td></tr></table></figure>
-
-<p>安装arm文件所需要的动态库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y gcc-multilib-arm-linux-gnueabi gcc-armhf-cross</span><br><span class="line"></span><br><span class="line">ln -s &#x2F;usr&#x2F;arm-linux-gnueabihf&#x2F;lib&#x2F;ld-linux-armhf.so.3 &#x2F;lib&#x2F;ld-linux-armhf.so.3</span><br><span class="line"></span><br><span class="line">vim &#x2F;etc&#x2F;profile</span><br><span class="line">export LD_LIBRARY_PATH&#x3D;&#x2F;usr&#x2F;arm-linux-gnueabihf&#x2F;lib&#x2F;:$LD_LIBRARY_PATH</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
-
-<p>arm程序的编译运行</p>
-<p>hello.c</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)&#123;</span><br><span class="line">	printf(&quot;hello world&quot;);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arm-linux-gnueabihf-gcc -o hello-arm hello.c</span><br></pre></td></tr></table></figure>
-<p>运行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-arm hello-arm</span><br></pre></td></tr></table></figure>
-
-<p>在1234端口上开启调试模式，并运行arm程序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-arm -g 1234 hello-arm</span><br></pre></td></tr></table></figure>
-
-<p>用gdb打开待调试文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb-multiarch hello-arm</span><br></pre></td></tr></table></figure>
-
-<p>在gdb中连接调试端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">target remote 1234</span><br></pre></td></tr></table></figure>
-
-<p><a href="http://blog.binpang.me/2018/07/26/qemu-arm/" target="_blank">gdb-multiarch调试arm程序</a><br><a href="https://www.jianshu.com/p/dc8e263d6466" target="_blank">Linux下ARM程序的编译运行及调试</a></p>
+        <p><a href="https://www.kancloud.cn/lichee/lpi0/418897" target="_blank">移植tslib</a></p>
 
       
     </div>
@@ -986,11 +885,11 @@
 
 
   
-    <article id="post-/articles/2020/02/17/1581936999000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2020/02/19/1582105140000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2020/02/17/articles/2020/02/17/1581936999000.html/" class="article-date">
-      <time datetime="2020-02-17T10:56:39.000Z" itemprop="datePublished">2020-02-17</time>
+      <a  href="/2020/02/19/articles/2020/02/19/1582105140000.html/" class="article-date">
+      <time datetime="2020-02-19T09:39:00.000Z" itemprop="datePublished">2020-02-19</time>
 </a>
 
     </div>
@@ -1004,7 +903,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/17/articles/2020/02/17/1581936999000.html/">[arm] buildroot+qemu+vexpress</a>
+      <a  class="article-title" href="/2020/02/19/articles/2020/02/19/1582105140000.html/">[arm] ubuntu.img</a>
     </h1>
   
 
@@ -1015,25 +914,163 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://brightereyer2.github.io/2020/02/17//articles/2020/02/17/1581936650000.html/" target="_blank">docker+ubuntu</a></p>
-<p>配置工作环境：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y gcc build-essential bison flex gettext tcl sharutils libncurses-dev zlib1g-dev exuberant-ctags g++ texinfo patch vim libtool bc git</span><br></pre></td></tr></table></figure>
-<p>安装qemu工具：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y qemu-system-arm</span><br></pre></td></tr></table></figure>
-<p>下载buildroot：<br><a href="https://buildroot.org/downloads/buildroot-2017.05.2.tar.gz" target="_blank">buildroot-2017.05.2.tar.gz</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;arnoldlu&#x2F;buildroot.git -b arnoldlu_2017_05_2;cd buildroot</span><br></pre></td></tr></table></figure>
+        <p><a href="http://cdimage.ubuntu.com/ubuntu-base/releases/" target="_blank">ubuntu core下载网址</a><br><a href="https://www.jianshu.com/p/7453d52f0324" target="_blank">移植ubuntu-base到ARM/AARCH64</a></p>
+<p>1、下载、解压ubuntu core</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;root&#x2F;ubuntu;cd &#x2F;root&#x2F;ubuntu</span><br><span class="line">wget http:&#x2F;&#x2F;cdimage.ubuntu.com&#x2F;ubuntu-base&#x2F;releases&#x2F;16.04.1&#x2F;release&#x2F;ubuntu-base-16.04.2-base-arm64.tar.gz</span><br><span class="line">tar -xpf ubuntu-base-16.04.2-base-arm64.tar.gz;mv ubuntu-base-16.04.2-base-arm64 ubuntu-base-16;</span><br></pre></td></tr></table></figure>
 
-<p>解决：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># lzo安装：</span><br><span class="line">wget http:&#x2F;&#x2F;www.oberhumer.com&#x2F;opensource&#x2F;lzo&#x2F;download&#x2F;lzo-2.06.tar.gz</span><br><span class="line">tar xzvf lzo-2.06.tar.gz;cd lzo-2.06</span><br><span class="line">.&#x2F;configure --enable-shared</span><br><span class="line">make;make install</span><br><span class="line"></span><br><span class="line"># lzop安装：</span><br><span class="line">wget &#39;http:&#x2F;&#x2F;www.lzop.org&#x2F;download&#x2F;lzop-1.03.tar.gz&#39;</span><br><span class="line">tar xzvf lzop-1.03.tar.gz;cd lzop-1.03</span><br><span class="line">.&#x2F;configure</span><br></pre></td></tr></table></figure>
+<p>2、安装qemu模拟器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y qemu-user-static</span><br></pre></td></tr></table></figure>
 
-<p>配置编译buildroot：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">apt install -y cpio python unzip rsync lzop</span><br><span class="line">make qemu_arm_vexpress_defconfig</span><br><span class="line">make</span><br><span class="line">#编译zImage，module以及dtb</span><br><span class="line">ls output&#x2F;images</span><br><span class="line">#zImage vexpress-v2p-ca9.dtb rootfs.ext2</span><br><span class="line"></span><br><span class="line"># zImage：内核</span><br><span class="line"># vexpress-v2p-ca9.dtb：DeviceTree文件</span><br><span class="line"># rootfs.ext2：文件系统</span><br></pre></td></tr></table></figure>
-<p>启动：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M vexpress-a9 -smp 4 -m 1024M -kernel output&#x2F;images&#x2F;zImage -append &quot;root&#x3D;&#x2F;dev&#x2F;mmcblk0 console&#x3D;ttyAMA0 loglevel&#x3D;8&quot; -dtb output&#x2F;images&#x2F;vexpress-v2p-ca9.dtb -sd output&#x2F;images&#x2F;rootfs.ext2 -nographic</span><br></pre></td></tr></table></figure>
-<p>停止qemu：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall qemu-system-arm</span><br></pre></td></tr></table></figure>
+<p>3、配置Ubuntu<br>1）拷贝qemu-arm-static 到ubuntu core的usr/bin/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp &#x2F;usr&#x2F;bin&#x2F;qemu-arm-static usr&#x2F;bin&#x2F;</span><br></pre></td></tr></table></figure>
+<p>2）拷贝主机的resolv.conf 到ubuntu core的etc/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -b &#x2F;etc&#x2F;resolv.conf etc&#x2F;resolv.conf</span><br></pre></td></tr></table></figure>
+<p>3）修改目标ubuntu的下载软件源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;apt&#x2F;sources.list &lt;&lt;EOF</span><br><span class="line">deb http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports&#x2F; xenial main universe</span><br><span class="line">deb-src http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports&#x2F; xenial main universe</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p>4）配置串口调试服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cp etc&#x2F;init&#x2F;tty1.conf etc&#x2F;init&#x2F;ttyS2.conf</span><br><span class="line">sudo vi etc&#x2F;init&#x2F;ttyS2.conf</span><br><span class="line"></span><br><span class="line">cat &gt;&gt; etc&#x2F;rc.local&lt;&lt;EOF</span><br><span class="line">start ttyS2</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p>5）以太网配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; etc&#x2F;network&#x2F;interfaces&lt;&lt;EOF</span><br><span class="line">auto eth0  </span><br><span class="line">iface eth0 inet dhcp hwaddress ether 7e:8d:a5:3a:ce:9e</span><br></pre></td></tr></table></figure>
+<p>6）修过主机名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi etc&#x2F;hostname</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://www.cnblogs.com/arnoldlu/p/9689585.html" target="_blank">buildroot+qemu+vexpress</a><br><a href="https://www.cnblogs.com/microxiami/articles/9746979.html" target="_blank">Qemu搭建ARM vexpress开发环境(一)</a><br><a href="https://www.cnblogs.com/microxiami/p/11093241.html" target="_blank">Qemu搭建ARM vexpress开发环境(二)—-通过u-boot启动Linux内核</a></p>
+<p>4、启动模拟器，安装组件<br>（1）用附件中的ch-mount.sh脚本，拷贝到前面的创建ubuntu的上级目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ch-mount.sh</span><br><span class="line">.&#x2F;ch-mount.sh -m ubuntu&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>-m 创建home目录 （不加这个要手动添加目录，不然开机时，会出现No directory,Logging in with HOME=/ ）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -s &#39;&#x2F;bin&#x2F;bash&#39; -m -G adm,sudo daluotuo</span><br></pre></td></tr></table></figure>
+<p>（2）修过密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd daluotuo</span><br></pre></td></tr></table></figure>
+<p>（3）安装常用工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y vim git openssh-server</span><br><span class="line">apt-get install -y sudo</span><br><span class="line">apt-get install -y net-tools</span><br><span class="line">apt-get install -y iputils-ping</span><br><span class="line">apt-get install -y wireless-tools</span><br><span class="line">apt-get install -y htop</span><br><span class="line">apt-get install -y rsyslog</span><br><span class="line">apt-get install -y network-manager</span><br><span class="line">apt-get install -y ifupdown</span><br><span class="line">apt-get install -y ethtool</span><br></pre></td></tr></table></figure>
+<p>可以根据需要，安装各种组件。<br>（4）退出chroot<br>用exit 命令，退出chroot<br>（5）用脚本载缷载退出根文件系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;ch-mount.sh -u ubuntu&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>4、制作镜像<br>1）用dd工具创建镜像文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;ubuntu.img  bs&#x3D;1M count&#x3D;1000</span><br></pre></td></tr></table></figure>
+<p>2）格式化镜像文件，并加入linuxroot卷标：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfs.ext4 -F -L linuxroot ubuntu.img</span><br></pre></td></tr></table></figure>
+<p>3）拷贝文件系统到 镜像文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir ubuntu-mount</span><br><span class="line">sudo mount  ubuntu.img ubuntu-mount</span><br><span class="line">sudo cp -rfp ubuntu&#x2F;* ubuntu-mount</span><br></pre></td></tr></table></figure>
+<p>4）缷载镜像：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount ubuntu-mount</span><br></pre></td></tr></table></figure>
+<p>5）检查镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo e2fsck -p -f ubuntu.img</span><br></pre></td></tr></table></figure>
+<p>6）减少镜像大小</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo resize2fs -M ubuntu.img</span><br><span class="line">du -sh ubuntu.img</span><br><span class="line">ubuntu, arm, rk3288</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/18/1582027314000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/18/articles/2020/02/18/1582027314000.html/" class="article-date">
+      <time datetime="2020-02-18T12:01:54.000Z" itemprop="datePublished">2020-02-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/18/articles/2020/02/18/1582027314000.html/">[arm] 编译ubuntu</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://brightereyer2.github.io/2020/02/17//articles/2020/02/17/1581936650000.html/" target="_blank">[docker] ubuntu+ssh</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt upgrade -y</span><br></pre></td></tr></table></figure>
+
+<p>debootstrap最小化系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y debootstrap</span><br><span class="line">debootstrap --arch&#x3D;arm64 xenial &#x2F;media&#x2F;ubuntu&#x2F; http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu-ports</span><br></pre></td></tr></table></figure>
+
+<p>chroot进入ubuntu最小系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;media&#x2F;ubuntu&#x2F;dev</span><br><span class="line">mkdir -p &#x2F;media&#x2F;ubuntu&#x2F;proc</span><br><span class="line">mkdir -p &#x2F;media&#x2F;ubuntu&#x2F;sys</span><br><span class="line">mkdir -p &#x2F;media&#x2F;ubuntu&#x2F;bin</span><br><span class="line">mkdir -p &#x2F;media&#x2F;ubuntu&#x2F;lib</span><br><span class="line">mkdir -p &#x2F;media&#x2F;ubuntu&#x2F;lib64</span><br><span class="line">mkdir -p &#x2F;media&#x2F;ubuntu&#x2F;usr&#x2F;bin</span><br><span class="line">mkdir -p &#x2F;media&#x2F;ubuntu&#x2F;usr&#x2F;lib</span><br><span class="line"></span><br><span class="line">mount -o bind &#x2F;dev &#x2F;media&#x2F;ubuntu&#x2F;dev</span><br><span class="line">mount -o bind &#x2F;proc &#x2F;media&#x2F;ubuntu&#x2F;proc</span><br><span class="line">mount -o bind &#x2F;sys &#x2F;media&#x2F;ubuntu&#x2F;sys</span><br><span class="line">mount -o bind &#x2F;bin &#x2F;media&#x2F;ubuntu&#x2F;bin</span><br><span class="line">mount -o bind &#x2F;lib &#x2F;media&#x2F;ubuntu&#x2F;lib</span><br><span class="line">mount -o bind &#x2F;lib64 &#x2F;media&#x2F;ubuntu&#x2F;lib64</span><br><span class="line">mount -o bind &#x2F;usr&#x2F;bin &#x2F;media&#x2F;ubuntu&#x2F;usr&#x2F;bin</span><br><span class="line">mount -o bind &#x2F;usr&#x2F;lib &#x2F;media&#x2F;ubuntu&#x2F;usr&#x2F;lib</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">dpkg --add-architecture i386</span><br><span class="line">apt-update</span><br><span class="line">apt install -y bash:i386</span><br><span class="line"></span><br><span class="line">ldd &#x2F;bin&#x2F;bash</span><br><span class="line">        linux-vdso.so.1 (0x00007ffdd45e1000)</span><br><span class="line">        libtinfo.so.5 &#x3D;&gt; &#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;libtinfo.so.5 (0x00007faacb58d000)</span><br><span class="line">        libdl.so.2 &#x3D;&gt; &#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;libdl.so.2 (0x00007faacb389000)</span><br><span class="line">        libc.so.6 &#x3D;&gt; &#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;libc.so.6 (0x00007faacaf98000)</span><br><span class="line">        &#x2F;lib64&#x2F;ld-linux-x86-64.so.2 (0x00007faacbad1000)</span><br><span class="line"></span><br><span class="line">cp &#x2F;bin&#x2F;bash &#x2F;media&#x2F;ubuntu&#x2F;bin&#x2F;</span><br><span class="line">mkdir &#x2F;media&#x2F;ubuntu&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;</span><br><span class="line">mkdir &#x2F;media&#x2F;ubuntu&#x2F;lib64</span><br><span class="line">cp &#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;&#123;libtinfo.so.5,libdl.so.2,libc.so.6&#125; &#x2F;media&#x2F;ubuntu&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;</span><br><span class="line">cp &#x2F;lib64&#x2F;ld-linux-x86-64.so.2 &#x2F;media&#x2F;ubuntu&#x2F;lib64&#x2F;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chroot &#x2F;media&#x2F;ubuntu &#x2F;bin&#x2F;bash -l</span><br></pre></td></tr></table></figure>
+
+<p>注意这里chroot命令执行后，就进入ubuntu最小化系统环境了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install -y sudo</span><br><span class="line">passwd</span><br></pre></td></tr></table></figure>
+
+<p>网络工具安装（包含ifconfig命令、dhcp服务）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y net-tools dhcpcd5</span><br></pre></td></tr></table></figure>
+
+<p>locales配置（字符编码配置–可选）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y locales</span><br><span class="line">dpkg-reconfigure locales</span><br></pre></td></tr></table></figure>
+
+<p>退出chroot环境，直接输入 exit 命令即可，退出后解绑系统资源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br><span class="line">umount &#x2F;media&#x2F;ubuntu&#x2F;dev</span><br><span class="line">umount &#x2F;media&#x2F;ubuntu&#x2F;proc</span><br><span class="line">umount &#x2F;media&#x2F;ubuntu&#x2F;sys</span><br></pre></td></tr></table></figure>
+
+<p>/media/ubuntu/etc/fstab</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;dev&#x2F;sda1 &#x2F;boot         ext4  defaults          0 2</span><br><span class="line">&#x2F;dev&#x2F;sda2 &#x2F;             ext4  errors&#x3D;remount-ro 0 1</span><br><span class="line">&#x2F;dev&#x2F;sda3 none          swap  sw                0 0</span><br></pre></td></tr></table></figure>
+
+<p>用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &#39;uuu&#39; &gt; &#x2F;media&#x2F;ubuntu&#x2F;etc&#x2F;hostname</span><br><span class="line">echo &#39;127.0.1.1 uuu&#39; &gt;&gt; &#x2F;media&#x2F;ubuntu&#x2F;etc&#x2F;hosts</span><br></pre></td></tr></table></figure>
+
+<p>/etc/resolv.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">search domain</span><br><span class="line">nameserver 127.0.0.1</span><br><span class="line">nameserver 114.114.114.114</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">perl -e &#39;print crypt(&quot;123&quot;,q(zzz)),&quot;\n&quot;&#39;</span><br><span class="line">zzpru5Cch2iTk</span><br><span class="line">chroot &#x2F;media&#x2F;ubuntu&#x2F; &#x2F;bin&#x2F;bash -c &quot;useradd -m -d &#x2F;home&#x2F;zzz -s &#x2F;bin&#x2F;bash -p zzpru5Cch2iTk zzz&quot;</span><br><span class="line">chroot &#x2F;media&#x2F;ubuntu&#x2F; &#x2F;bin&#x2F;bash -c &quot;addgroup zzz adm&quot;</span><br><span class="line">chroot &#x2F;media&#x2F;ubuntu&#x2F; &#x2F;bin&#x2F;bash -c &quot;addgroup zzz sudo&quot;</span><br></pre></td></tr></table></figure>
+
+<p>mkfs.ext4</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 &#x2F;dev&#x2F;sdb1  #如果是fat分区: mkfs.vfat</span><br><span class="line">mount &#x2F;dev&#x2F;sdb1 &#x2F;mnt</span><br><span class="line">rsync -a &#x2F;boot&#x2F;* &#x2F;mnt</span><br><span class="line">umount &#x2F;mnt</span><br></pre></td></tr></table></figure>
+
+<p>root分区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 &#x2F;dev&#x2F;sdb2 </span><br><span class="line">mount &#x2F;dev&#x2F;sdb2 &#x2F;mnt</span><br><span class="line">rsync -a &#x2F;media&#x2F;ubuntu&#x2F;* &#x2F;mnt</span><br><span class="line">umount &#x2F;mnt</span><br></pre></td></tr></table></figure>
+
+<p>完善系统 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get upgrade -y</span><br></pre></td></tr></table></figure>
+
+<p>安装图形化界面（推荐用xfce4）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install xfce4</span><br><span class="line">apt-get -y install xfce4-goodies</span><br><span class="line">apt-get -y install ttf-wqy-zenhei  #中文字体</span><br><span class="line">apt-get -y install slim            #登录管理</span><br><span class="line">apt-get -y install xscreensaver    #屏保</span><br><span class="line">apt-get -y install firefox         #火狐浏览器</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/westlor/article/details/78982649" target="_blank">构建安装ARM Ubuntu系统</a></p>
 
       
     </div>
@@ -1068,7 +1105,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/88/">88</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/89/">89</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 

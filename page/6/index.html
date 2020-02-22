@@ -283,6 +283,520 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/02/12/1581506197000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/12/articles/2020/02/12/1581506197000.html/" class="article-date">
+      <time datetime="2020-02-12T11:16:37.000Z" itemprop="datePublished">2020-02-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/12/articles/2020/02/12/1581506197000.html/">[linux] 查看挂载情况</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>linux查看挂载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br><span class="line">#或</span><br><span class="line">lsblk -f</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.cnblogs.com/sword03/p/9818957.html" target="_blank">Linux查看设备命令</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#查看所有启动时检测到的硬件信息</span><br><span class="line">dmesg</span><br><span class="line"></span><br><span class="line">lspci -tv # 显示外设信息</span><br><span class="line">lsusb -tv # 列出所有USB设备</span><br><span class="line"></span><br><span class="line">#查看USB设备：</span><br><span class="line">cat &#x2F;proc&#x2F;bus&#x2F;usb&#x2F;devices</span><br><span class="line"></span><br><span class="line">#查看键盘和鼠标:</span><br><span class="line">cat &#x2F;proc&#x2F;bus&#x2F;input&#x2F;devices</span><br><span class="line"></span><br><span class="line">#查看系统硬盘信息和使用情况：</span><br><span class="line">fdisk &amp; disk – l &amp; df</span><br><span class="line"></span><br><span class="line">#查看各设备的中断请求(IRQ):</span><br><span class="line">cat &#x2F;proc&#x2F;interrupts</span><br><span class="line"></span><br><span class="line">#用硬件检测程序kuduz探测新硬件：</span><br><span class="line">service kudzu start</span><br><span class="line">service kudzu restart</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/12/1581506196000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/12/articles/2020/02/12/1581506196000.html/" class="article-date">
+      <time datetime="2020-02-12T11:16:36.000Z" itemprop="datePublished">2020-02-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/12/articles/2020/02/12/1581506196000.html/">[arm] ubuntu18.04+嵌入式Linux开发环境+嵌入式Qt5.6开发环境</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/Ningjianwen/article/details/87879668" target="_blank">从0开始在ubuntu18.04上搭建嵌入式Linux开发环境以及嵌入式Qt5.6开发环境</a></p>
+<p><a href="https://pan.baidu.com/s/10r4kku8C0bt8vLampOyvWQ" target="_blank">文件</a></p>
+<p><a href="https://blog.csdn.net/ywueoei/article/details/83795755" target="_blank">Ubuntu16.04与ARM的NFS配置、挂载和卸载</a><br><a href="https://blog.csdn.net/Ningjianwen/article/details/87879668" target="_blank">Ubuntu16.04与ARM的NFS配置、挂载和卸载</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/12/1581505786000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/12/articles/2020/02/12/1581505786000.html/" class="article-date">
+      <time datetime="2020-02-12T11:09:46.000Z" itemprop="datePublished">2020-02-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/12/articles/2020/02/12/1581505786000.html/">[arm] iTop6818最小linux-c系统</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://github.com/BrighterEyer/itop6818-minilinux-files" target="_blank">itop6818-minilinux-files</a></p>
+<p>文件清单</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lollipop-5.1.1_r6_20170512.tar.gz</span><br><span class="line">system_6818_minilinux.tar.gz</span><br></pre></td></tr></table></figure>
+<details>
+<summary>busybox-1.21.1.tar.bz2</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf busybox-1.21.1.tar.bz2;cd busybox-1.21.1</span><br><span class="line"></span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  配置busybox start  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">make menuconfig</span><br><span class="line"></span><br><span class="line">（1）选中“Busybox Settings”，</span><br><span class="line">然后按“回车”进入到“Busybox Settings”</span><br><span class="line"></span><br><span class="line">（2）第一个是“Build Optiions-&gt; Cross Compiler prefix”, </span><br><span class="line">输入 “arm-none-linux-gnueabi-”，</span><br><span class="line">ok回车返回</span><br><span class="line"></span><br><span class="line">（3）使用键盘的“左右”方向按键，</span><br><span class="line">选中“Exit”，</span><br><span class="line">“回车”回到“Busybox Settings”设置界面</span><br><span class="line"></span><br><span class="line">（4）选中“Installation Options”，</span><br><span class="line">然后选择“Select”，</span><br><span class="line">按“回车”进入“Installation Options”配置界面</span><br><span class="line"></span><br><span class="line">（5）选中“BusyBox installation prefix (NEW)”，</span><br><span class="line">然后按“回车”进入“BusyBox installation prefix”配置界面，</span><br><span class="line">删除“.&#x2F;_install”，</span><br><span class="line">输入“..&#x2F;system”，</span><br><span class="line">按“回车”回到“Installation Options”</span><br><span class="line"></span><br><span class="line">（6）键盘“向右”的方向键移动光标到“Exit”，</span><br><span class="line">按“回车”返回到“Busybox Settings”</span><br><span class="line"></span><br><span class="line">（7）移动光标到“Exit”，</span><br><span class="line">按“回车”返回到“Busybox Configuration”</span><br><span class="line"></span><br><span class="line">（8）移动光标到“Exit”，</span><br><span class="line">按“回车”，弹出保存配置界面，</span><br><span class="line">选择“Yes”，按“回车”保存配置，退出配置界面</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">cd ..&#x2F;system</span><br><span class="line">ls</span><br><span class="line">mkdir dev etc lib mnt proc sys tmp var</span><br><span class="line"></span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  配置busybox end  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">chmod 755 ~&#x2F;work&#x2F;itop6818-minilinux-files&#x2F;etc&#x2F;eth0-setting</span><br><span class="line">chmod 755 ~&#x2F;work&#x2F;itop6818-minilinux-files&#x2F;etc&#x2F;init.d&#x2F;ifconfig-eth0</span><br><span class="line">chmod 755 ~&#x2F;work&#x2F;itop6818-minilinux-files&#x2F;etc&#x2F;init.d&#x2F;rcS</span><br><span class="line">chmod 755 ~&#x2F;work&#x2F;itop6818-minilinux-files&#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F;netd</span><br><span class="line">cp -r ~&#x2F;work&#x2F;itop6818-minilinux-files&#x2F;etc&#x2F;* ..&#x2F;etc&#x2F;</span><br><span class="line"></span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  lib start  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">cp -r &#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2009q3&#x2F;arm-none-linux-gnueabi&#x2F;lib&#x2F;* .&#x2F;lib&#x2F;</span><br><span class="line">#&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  lib end  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">cd var</span><br><span class="line">mkdir lib lock log run tmp</span><br><span class="line">cd ..&#x2F;..&#x2F;</span><br></pre></td></tr></table></figure>
+</details>
+
+<details>
+<summary>arm-2009q3.tar.bz2</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line"></span><br><span class="line">mkdir &#x2F;usr&#x2F;local&#x2F;arm&#x2F;</span><br><span class="line">tar xvf arm-2009q3.tar.bz2 -C &#x2F;usr&#x2F;local&#x2F;arm&#x2F;</span><br><span class="line"></span><br><span class="line">vim &#x2F;root&#x2F;.bashrc</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2009q3&#x2F;bin</span><br><span class="line">source &#x2F;root&#x2F;.bashrc</span><br><span class="line"></span><br><span class="line">#Ubuntu 命令行中输入命令</span><br><span class="line">arm</span><br></pre></td></tr></table></figure>
+</details>
+
+<details>
+<summary>linux_tools.tgz安装打包软件和编译</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#安装一下make_ext4fs工具</span><br><span class="line">cd &#x2F;</span><br><span class="line">tar xvf linux_tools.tgz</span><br><span class="line"></span><br><span class="line">#生成system.img文件系统镜像</span><br><span class="line">make_ext4fs -s -l 314572800 -a root -L linux system.img systemd</span><br></pre></td></tr></table></figure>
+</details>
+
+<details>
+<summary>生成最小linux镜像</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm -r ~&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;*</span><br><span class="line">tar xvf system_6818_minilinux.tar.gz -C ~&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system</span><br><span class="line">cd ~&#x2F;lollipop-5.1.1_r6;</span><br><span class="line">.&#x2F;build_android.sh qt</span><br></pre></td></tr></table></figure>
+</details>
+
+
+<p>helloworld.c</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)&#123;</span><br><span class="line">	printf(&quot;hello world&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译helloworld程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arm-none-linux-gnueabi-gcc -o helloworld helloworld.c -static</span><br></pre></td></tr></table></figure>
+
+<p>OTG烧写镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fastboot.exe flash system system.img</span><br><span class="line">fastboot.exe reboot</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;data</span><br><span class="line">#拷贝程序到开发板</span><br><span class="line">chmod 777 &#x2F;data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#开启允许 USB 调试，fastboot目录下</span><br><span class="line">adb push helloworld &#x2F;data</span><br><span class="line"></span><br><span class="line">#超级终端中，输入命令</span><br><span class="line">cd &#x2F;data</span><br><span class="line">.&#x2F;helloworld</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/a568713197/article/details/88095014" target="_blank">最小Linux系统的搭建、tftp服务器搭建与测试、搭建NFS文件系统</a><br><a href="https://www.oschina.net/question/2371345_2187748" target="_blank">嵌入式开发板学习从零建立Linux最小系统</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/12/1581505785000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/12/articles/2020/02/12/1581505785000.html/" class="article-date">
+      <time datetime="2020-02-12T11:09:45.000Z" itemprop="datePublished">2020-02-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/12/articles/2020/02/12/1581505785000.html/">[arm] itop6818-linux-c程序</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://github.com/BrighterEyer/itop6818Demos/tree/master/linux-c" target="_blank">linux-c</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/12/1581468037000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/12/articles/2020/02/12/1581468037000.html/" class="article-date">
+      <time datetime="2020-02-12T00:40:37.000Z" itemprop="datePublished">2020-02-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/12/articles/2020/02/12/1581468037000.html/">[arm] iTop6818使用TF卡启动</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>烧写 Uboot 到 TF 卡</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#将 TF 卡从 windows 接入 Ubuntu</span><br><span class="line"></span><br><span class="line">#查看盘符</span><br><span class="line">df -l</span><br><span class="line"></span><br><span class="line">cd &#x2F;home&#x2F;6818&#x2F;lollipop-5.1.1_r6&#x2F;result</span><br><span class="line">ls u-boot-Top-6818.bin</span><br><span class="line"></span><br><span class="line">.&#x2F;mkuboot &#x2F;dev&#x2F;sdx</span><br></pre></td></tr></table></figure>
+
+<p>TF 卡引导 uboot</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">拨码开关编号 1 2 3</span><br><span class="line">EMMC 启动 1 0 1</span><br><span class="line">TF 卡启动 1 0 0</span><br></pre></td></tr></table></figure>
+
+<p>TF 卡烧写 Android</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#在 TF 卡中建立目录“sdupdate”，然后将 Android 的镜像拷贝到“sdupdate”目录下</span><br><span class="line"></span><br><span class="line">boot.img</span><br><span class="line">cache.img</span><br><span class="line">system.img</span><br><span class="line">u-boot-iTOP-6818.bin</span><br><span class="line">userdata.img</span><br><span class="line"></span><br><span class="line">#recovery.img</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#将 TF 卡接到开发板，将开发板设置为 TF 卡启动，上电启动开发板，进入 uboot 模式</span><br><span class="line">sdfuse flashall</span><br><span class="line"></span><br><span class="line">setenv bootsystem android</span><br><span class="line">saveenv</span><br></pre></td></tr></table></figure>
+
+<p>TF 卡烧写 Qt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#在 TF 卡中建立目录“sdupdate”，然后将 QT 的镜像拷贝到“sdupdate”目录下</span><br><span class="line"></span><br><span class="line">boot.img</span><br><span class="line">system.img</span><br><span class="line">u-boot-iTOP-6818.bin</span><br><span class="line"></span><br><span class="line">#将 TF 卡接到开发板，将开发板设置为 TF 卡启动，上电启动开发板，进入 uboot 模式</span><br><span class="line">sdfuse flashall</span><br><span class="line"></span><br><span class="line">setenv bootsystem qt</span><br><span class="line">saveenv</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/10/1581341852000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/10/articles/2020/02/10/1581341852000.html/" class="article-date">
+      <time datetime="2020-02-10T13:37:32.000Z" itemprop="datePublished">2020-02-10</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/10/articles/2020/02/10/1581341852000.html/">[docker] oracle数据库</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/qq_38380025/article/details/80647620" target="_blank">Docker 拉取 oracle 11g镜像配置(镜像6.8G)</a><br><a href="https://www.cnblogs.com/maoxianfei/p/9083426.html" target="_blank">Docker oracle部署使用</a></p>
+<details>
+<summary>拉取和设置</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com&#x2F;helowin&#x2F;oracle_11g</span><br><span class="line">docker run -d -p 1521:1521 --name oracle11g registry.cn-hangzhou.aliyuncs.com&#x2F;helowin&#x2F;oracle_11g</span><br><span class="line">docker start oracle11g</span><br><span class="line">docker exec -it oracle11g bash</span><br><span class="line"></span><br><span class="line">#切换root</span><br><span class="line">su root</span><br><span class="line">#密码：</span><br><span class="line">helowin</span><br><span class="line"></span><br><span class="line">#编辑profile文件配置ORACLE环境变量</span><br><span class="line">vi &#x2F;etc&#x2F;profile</span><br><span class="line">export ORACLE_HOME&#x3D;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;product&#x2F;11.2.0&#x2F;dbhome_2</span><br><span class="line">export ORACLE_SID&#x3D;helowin</span><br><span class="line">export PATH&#x3D;$ORACLE_HOME&#x2F;bin:$PATH</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">#创建软连接</span><br><span class="line">ln -s $ORACLE_HOME&#x2F;bin&#x2F;sqlplus &#x2F;usr&#x2F;bin</span><br><span class="line"></span><br><span class="line">#从root切换到oracle 用户</span><br><span class="line">su - oracle</span><br><span class="line"></span><br><span class="line">#登录sqlplus</span><br><span class="line">sqlplus &#x2F;nolog</span><br><span class="line">conn &#x2F;as sysdba</span><br><span class="line"></span><br><span class="line">#查看用户</span><br><span class="line">select username,password from dba_users;</span><br><span class="line"></span><br><span class="line">#修改sys、system用户密码</span><br><span class="line">alter user system identified by system;</span><br><span class="line">alter user sys identified by sys;</span><br><span class="line"></span><br><span class="line">#连接测试</span><br><span class="line">connect system&#x2F;system;</span><br><span class="line"></span><br><span class="line">#创建用户</span><br><span class="line">create user test identified by test;</span><br><span class="line">#并给用户赋予权限</span><br><span class="line">grant connect,resource,dba to test;</span><br><span class="line"></span><br><span class="line">alter database open;</span><br><span class="line">alter database mount;</span><br><span class="line">alter database open;</span><br><span class="line">ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>查询ORACLE数据库的实例名和服务名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#1.实例名：</span><br><span class="line">select instance_name from v$instance;</span><br><span class="line">#显示</span><br><span class="line">helowin</span><br><span class="line"></span><br><span class="line">#2.服务名：</span><br><span class="line">select global_name from global_name;</span><br><span class="line">#显示</span><br><span class="line">HELOWIN</span><br></pre></td></tr></table></figure>
+
+<p>oracle 查看sid和服务名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#匿名管理员登陆</span><br><span class="line">conn &#x2F;as sysdba</span><br><span class="line">#查看SID</span><br><span class="line">select instance_name from v$instance;</span><br><span class="line"></span><br><span class="line">#查看用户名</span><br><span class="line">select * from dba_users; --查看数据库里面所有用户，前提是你是有dba权限的帐号，如sys,system</span><br><span class="line">select * from all_users;  --查看你能管理的所有用户！</span><br><span class="line">select * from user_users; --查看当前用户信息 ！</span><br></pre></td></tr></table></figure>
+
+<p>navicat连接oracle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">主机：</span><br><span class="line">192.168.99.103</span><br><span class="line"></span><br><span class="line">端口：</span><br><span class="line">1521</span><br><span class="line"></span><br><span class="line">服务名：</span><br><span class="line">HELOWIN</span><br><span class="line"></span><br><span class="line">用户名：</span><br><span class="line">system</span><br><span class="line"></span><br><span class="line">密码：</span><br><span class="line">system</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://blog.csdn.net/dongyuxu342719/article/details/81670837" target="_blank">Linux新建Oracle用户和数据库</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create table classinfo(</span><br><span class="line">       classid number(2) primary key,</span><br><span class="line">       classname varchar(10) not null   </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.cnblogs.com/garyzhuang/p/9670411.html" target="_blank">oracle基础之增删改查（基础版）</a></p>
+<p><a href="https://blog.csdn.net/dongyuxu342719/article/details/81670837" target="_blank">Linux新建Oracle用户和数据库</a></p>
+<details>
+<summary>Linux新建Oracle用户和数据库</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#1、切换到Oracle用户</span><br><span class="line">su – oracle</span><br><span class="line"></span><br><span class="line">#2、登录sys用户</span><br><span class="line">sqlplus &#x2F; as sysdba</span><br><span class="line"></span><br><span class="line">#3、创建表空间</span><br><span class="line">#查询用户表空间文件的路径</span><br><span class="line">select name from v$datafile;</span><br><span class="line"></span><br><span class="line">CREATE TABLESPACE customerchat LOGGING DATAFILE &#39;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;helowin&#x2F;customerchat.dbf&#39; </span><br><span class="line">SIZE 100M AUTOEXTEND ON NEXT 32M MAXSIZE 500M EXTENT MANAGEMENT LOCAL;</span><br><span class="line"></span><br><span class="line">#4、创建临时表空间</span><br><span class="line">select name from v$tempfile;</span><br><span class="line">create temporary tablespace customerchat_temp tempfile &#39;&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;oradata&#x2F;helowin&#x2F;customerchat_temp.dbf&#39;</span><br><span class="line">size 100m autoextend on next 32m maxsize 500m extent management local;</span><br><span class="line"></span><br><span class="line">#5、创建用户密码与上面创建的文件形成映射关系</span><br><span class="line">create user customerchat identified by customerchat default tablespace customerchat temporary tablespace customerchat_temp;</span><br><span class="line"></span><br><span class="line">#6、为用户添加权限</span><br><span class="line">初始建立的用户没有任何权限，不能执行任何数据库操作，因此必须为用户设置权限或者角色。</span><br><span class="line"></span><br><span class="line">被赋予了某个角色的用户将拥有该角色所具备的权限，常被用到的系统预定义角色：</span><br><span class="line">CONNECT、RESOURCE、DBA、EXP_FULL_DATABASE、IMP_FULL_DATABASE。</span><br><span class="line"></span><br><span class="line">其中，CONNECT、RESOURCE、DBA主要用于数据库管理，数据库管理员需要被授予这三个角色。</span><br><span class="line">一般的数据库开发人员，需要被授予CONNECT、RESOURCE角色即可。</span><br><span class="line"></span><br><span class="line">EXP_FULL_DATABASE、IMP_FULL_DATABASE角色分别用于操作数据库导出、导入相关的操作。</span><br><span class="line">为用户授予角色：</span><br><span class="line">grant connect,resource,create session,dba to customerchat;</span><br><span class="line"></span><br><span class="line">#7、查询已创建的用户</span><br><span class="line">select username from dba_users;</span><br><span class="line"></span><br><span class="line">#8、修改用户密码，将用户的密码设置为123456</span><br><span class="line">alter user customerchat identified by 123456;</span><br><span class="line"></span><br><span class="line">#9、有时用户会处于锁定状态，解锁用户：</span><br><span class="line">alter user customerchat account unlock;</span><br></pre></td></tr></table></figure>
+</details>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/09/1581239792000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/09/articles/2020/02/09/1581239792000.html/" class="article-date">
+      <time datetime="2020-02-09T09:16:32.000Z" itemprop="datePublished">2020-02-09</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/09/articles/2020/02/09/1581239792000.html/">[win10] 启用或关闭Windows功能</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.cnblogs.com/telwanggs/p/10770496.html" target="_blank">启用或关闭Windows功能</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/win10/" rel="tag">win10</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/02/09/1581239791000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -485,459 +999,9 @@
 
 
   
-    <article id="post-/articles/2020/02/08/1581150602000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/08/articles/2020/02/08/1581150602000.html/" class="article-date">
-      <time datetime="2020-02-08T08:30:02.000Z" itemprop="datePublished">2020-02-08</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/08/articles/2020/02/08/1581150602000.html/">[qt] 移动设备实时投屏软件</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/rankun1/article/details/87970523" target="_blank">基于Qt ffmpeg opengl开发跨平台安卓实时投屏软件</a><br><a href="https://gitee.com/Barryda/QtScrcpy/releases" target="_blank">gitee QtScrcpy</a></p>
-<p><a href="https://pan.baidu.com/s/1C4OVUj4FAHnQSMyzNhBgvA" target="_blank">QtScrcpy.zip(不含adb devices命令)</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">a5nr</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.cnblogs.com/tangsong41/p/11069125.html" target="_blank">利用adb查看手机设备ip和连接手机的两种方式</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br><span class="line">adb shell netcfg</span><br><span class="line">adb shell ifconfig wlan0</span><br><span class="line">adb connect 192.168.1.101:5555</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/08/1581150601000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/08/articles/2020/02/08/1581150601000.html/" class="article-date">
-      <time datetime="2020-02-08T08:30:01.000Z" itemprop="datePublished">2020-02-08</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/08/articles/2020/02/08/1581150601000.html/">[qt] 物联网工具箱</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://gitee.com/zyzp/qt_suptoolbox" target="_blank">QT 程序员集成工具箱</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1、串口调试</span><br><span class="line">2、Ymodem 升级</span><br><span class="line">3、GPRS、NBIOT 调试</span><br><span class="line">4、网络调试</span><br><span class="line">5、MQTT调试</span><br><span class="line">6、CRC modebus校验等工具</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/08/1581150600000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/08/articles/2020/02/08/1581150600000.html/" class="article-date">
-      <time datetime="2020-02-08T08:30:00.000Z" itemprop="datePublished">2020-02-08</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/08/articles/2020/02/08/1581150600000.html/">[qt] 视频播放</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/liji_digital/article/details/83691035" target="_blank">qt实现视频播放器</a></p>
-<p><a href="https://www.cnblogs.com/zhangyi-studio/p/8596837.html" target="_blank">QT-简易视频播放器</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/08/1581150599000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/08/articles/2020/02/08/1581150599000.html/" class="article-date">
-      <time datetime="2020-02-08T08:29:59.000Z" itemprop="datePublished">2020-02-08</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/08/articles/2020/02/08/1581150599000.html/">[qt] 封装网络请求</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://gitee.com/BlueBuger/qthttp_request_auxiliary_class" target="_blank">QT之Http请求</a></p>
-<p>tcp请求<br><a href="https://gitee.com/ShaShiDiZhuanLan/Demo_Network" target="_blank">Demo_Network</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/08/1581150598000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/08/articles/2020/02/08/1581150598000.html/" class="article-date">
-      <time datetime="2020-02-08T08:29:58.000Z" itemprop="datePublished">2020-02-08</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/08/articles/2020/02/08/1581150598000.html/">[qt] windows资源信息之rc文件</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.cnblogs.com/findumars/p/5682687.html" target="_blank">Qt之Windows资源文件（.rc文件）</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/08/1581150597000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/08/articles/2020/02/08/1581150597000.html/" class="article-date">
-      <time datetime="2020-02-08T08:29:57.000Z" itemprop="datePublished">2020-02-08</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/08/articles/2020/02/08/1581150597000.html/">[qt] unsigned_int强制类型转换问题</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unsigned int</span><br><span class="line">uintptr_t</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/08/1581150596000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/08/articles/2020/02/08/1581150596000.html/" class="article-date">
-      <time datetime="2020-02-08T08:29:56.000Z" itemprop="datePublished">2020-02-08</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/08/articles/2020/02/08/1581150596000.html/">[qt] sqlite+excel+sqlitecipher.dll</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.devbean.net/2018/07/qtciphersqliteplugin-v1_0/" target="_blank">Qt SQLite加密插件QtCipherSqlitePlugin</a></p>
-<p><a href="https://gitee.com/devbean/QtCipherSqlitePlugin" target="_blank">QtCipherSqlitePlugin</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;devbean&#x2F;QtCipherSqlitePlugin.git</span><br><span class="line">cd QtCipherSqlitePlugin</span><br><span class="line">git checkout 1.0</span><br></pre></td></tr></table></figure>
-
-<p>放置qt目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">64\plugins\sqldrivers</span><br></pre></td></tr></table></figure>
-
-<p><a href="" target="_blank"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;VilasWang&#x2F;QtSqliteExcelViewer</span><br><span class="line">https:&#x2F;&#x2F;github.com&#x2F;impressJay&#x2F;QT5.7SQLITE</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/88/">88</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/89/">89</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
     </nav>
   
 

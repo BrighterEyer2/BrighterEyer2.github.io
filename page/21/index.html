@@ -283,11 +283,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/12/27/1577447577000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/12/27/1577447590000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/12/27/articles/2019/12/27/1577447577000.html/" class="article-date">
-      <time datetime="2019-12-27T11:52:57.000Z" itemprop="datePublished">2019-12-27</time>
+      <a  href="/2019/12/27/articles/2019/12/27/1577447590000.html/" class="article-date">
+      <time datetime="2019-12-27T11:53:10.000Z" itemprop="datePublished">2019-12-27</time>
 </a>
 
     </div>
@@ -301,7 +301,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/27/articles/2019/12/27/1577447577000.html/">[PyQt5] 串口通信上位机</a>
+      <a  class="article-title" href="/2019/12/27/articles/2019/12/27/1577447590000.html/">[单片机] 控制风扇</a>
     </h1>
   
 
@@ -312,72 +312,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://blog.csdn.net/windowsyun/article/details/80001488" target="_blank">Python3+PyQT5+Pyserial 实现简单的串口工具</a><br><a href="https://github.com/ColinFred/Pyserial-Demo" target="_blank">Pyserial-Demo</a></p>
-<p><a href="https://www.cnblogs.com/geokai/articles/9537150.html" target="_blank">PyQt 开发采用串口通信的上位机软件（1）</a><br><a href="https://github.com/Oslomayor/PyQt5-SerialPort-Stable" target="_blank">PyQt5-SerialPort-Stable</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyQt5/" rel="tag">PyQt5</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/12/25/1577275294000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/12/25/articles/2019/12/25/1577275294000.html/" class="article-date">
-      <time datetime="2019-12-25T12:01:34.000Z" itemprop="datePublished">2019-12-25</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/25/articles/2019/12/25/1577275294000.html/">[单片机] 直流电机正反转</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>使用到芯片L293D，含接线<br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82354311" target="_blank">STC单片机简单控制直流电机正反转</a></p>
-<p><a href="https://wenku.baidu.com/view/03d48a05f111f18583d05a9a.html" target="_blank">继电器控制直流电机正反转</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;reg51.h&gt;</span><br><span class="line"></span><br><span class="line">sbit zheng &#x3D; P1 ^ 0;    &#x2F;&#x2F;正转按钮</span><br><span class="line">sbit fan &#x3D; P1 ^ 1;      &#x2F;&#x2F;反转按钮</span><br><span class="line">sbit JD &#x3D; P3 ^ 0;       &#x2F;&#x2F;继电器控制引脚</span><br><span class="line">void delay1ms(int);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;*****************************主函数*********************************&#x2F;&#x2F;</span><br><span class="line">void main() &#123;</span><br><span class="line"></span><br><span class="line">        JD &#x3D; 0;</span><br><span class="line">        P1 &#x3D; 0xff;   </span><br><span class="line"></span><br><span class="line">        while (1) &#123;</span><br><span class="line">                if (zheng &#x3D;&#x3D; 0) &#123;                       &#x2F;&#x2F;如果正转按钮按下  </span><br><span class="line">                         delay1ms(10);                  &#x2F;&#x2F;延时去抖</span><br><span class="line">                         if (zheng &#x3D;&#x3D; 0) </span><br><span class="line">                                 while (zheng &#x3D;&#x3D; 0);    &#x2F;&#x2F;判按键松开</span><br><span class="line">                         delay1ms(10);</span><br><span class="line">                         while (zheng &#x3D;&#x3D; 0);  </span><br><span class="line">                         JD &#x3D; 1;    </span><br><span class="line">                &#125; </span><br><span class="line">                if (fan &#x3D;&#x3D; 0)  &#123;                        &#x2F;&#x2F;如果反转按钮按下 </span><br><span class="line">                        delay1ms(10);                   &#x2F;&#x2F;延时去抖</span><br><span class="line">                        if (fan &#x3D;&#x3D; 0) &#123;</span><br><span class="line">                                while (fan &#x3D;&#x3D; 0);       &#x2F;&#x2F;判按键松开</span><br><span class="line">                        &#125;</span><br><span class="line">                        delay1ms(10);</span><br><span class="line">                        while (fan &#x3D;&#x3D; 0);</span><br><span class="line">                        JD &#x3D; 0;</span><br><span class="line">                &#125; </span><br><span class="line">        &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;*****************************延时子函数*********************************&#x2F;&#x2F;</span><br><span class="line">void delay1ms(int x)  &#123; </span><br><span class="line">          int i, j;  </span><br><span class="line">          for (i &#x3D; x; i &gt; 0; i--)  </span><br><span class="line">                 for (j &#x3D; 120; j &gt; 0; j--);</span><br><span class="line">         </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="https://blog.csdn.net/qq_43336248/article/details/91443311" target="_blank">基于51单片机温度控制风扇转动</a></p>
 
       
     </div>
@@ -410,11 +345,11 @@
 
 
   
-    <article id="post-/articles/2019/12/25/1577274836000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/12/27/1577447589000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/12/25/articles/2019/12/25/1577274836000.html/" class="article-date">
-      <time datetime="2019-12-25T11:53:56.000Z" itemprop="datePublished">2019-12-25</time>
+      <a  href="/2019/12/27/articles/2019/12/27/1577447589000.html/" class="article-date">
+      <time datetime="2019-12-27T11:53:09.000Z" itemprop="datePublished">2019-12-27</time>
 </a>
 
     </div>
@@ -428,7 +363,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/25/articles/2019/12/25/1577274836000.html/">[硬件] 示波器的使用</a>
+      <a  class="article-title" href="/2019/12/27/articles/2019/12/27/1577447589000.html/">[单片机] 单片机三种烧录方式ISP、IAP和ICP</a>
     </h1>
   
 
@@ -439,88 +374,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://www.bilibili.com/video/av65714411" target="_blank">示波器的使用</a></p>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ISP：In System Programing，在系统编程</span><br><span class="line"></span><br><span class="line">IAP：In applicaTIng Programing，在应用编程</span><br><span class="line"></span><br><span class="line">ICP：In Circuit Programing，在电路编程</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag">硬件</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/12/25/1577274835000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/12/25/articles/2019/12/25/1577274835000.html/" class="article-date">
-      <time datetime="2019-12-25T11:53:55.000Z" itemprop="datePublished">2019-12-25</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/25/articles/2019/12/25/1577274835000.html/">[单片机] ESP8266作AP热点+AT命令表格</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.cnblogs.com/lifan3a/articles/7070028.html" target="_blank">ESP8266 WiFi模块AT指令 表格</a></p>
-<p>作为AP热点</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#先在串口工具选择115200波特率</span><br><span class="line">AT</span><br><span class="line">AT+UART&#x3D;9600,8,1,0,0</span><br><span class="line">AT+CWMODE&#x3D;3</span><br><span class="line">AT+CWSAP&#x3D;&quot;ESP8266&quot;,&quot;12345678&quot;,11,3</span><br><span class="line">AT+CIPAP&#x3D;&quot;192.168.4.2&quot;</span><br><span class="line">AT+RST</span><br><span class="line">#查看分配的ip</span><br><span class="line">AT+CIFSR</span><br><span class="line">AT+CIPMUX&#x3D;1</span><br><span class="line">AT+CIPSERVER&#x3D;1,8080</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/qq_37707218/article/details/80614398" target="_blank">ESP8266 + 单片机c代码</a><br>基本配置命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;修改波特率为9600（模块初始波特率默认为115200，该命令通过串口助手发送，重新上电后有效）</span><br><span class="line">AT+CIOBAUD&#x3D;9600</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;设置模块为AP模式</span><br><span class="line">AT+CWMODE&#x3D;2</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;设置wifi名字为 ESP8266，密码是 123456，通道号是11，加密方式是OPEN（可以修改）</span><br><span class="line">&#x2F;&#x2F;加密方式</span><br><span class="line">&#x2F;&#x2F;0：OPEN</span><br><span class="line">&#x2F;&#x2F;1：WEP</span><br><span class="line">&#x2F;&#x2F;2：WPA_PSK</span><br><span class="line">&#x2F;&#x2F;3：WPA2_PSK</span><br><span class="line">&#x2F;&#x2F;4：WPA_WPA2_PSK </span><br><span class="line">AT+CWSAP&#x3D;&quot;ESP8266&quot;,&quot;12345678&quot;,11,3</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;启动多路连接方式（可以修改）</span><br><span class="line">AT+CIPMUX&#x3D;1</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;开启server，端口号为5000（可以修改）</span><br><span class="line">AT+CIPSERVER&#x3D;1,5000</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;向id为0的链接发送5字节数据（可以修改）</span><br><span class="line">AT+CIPSEND&#x3D;0,5</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82289276" target="_blank">Android手机APP控制单片机LED灯</a></p>
-<p>main.c</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;reg51.h&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;初始化程序（必须使用，否则无法收发）</span><br><span class="line">void Serial_Init();</span><br><span class="line">&#x2F;&#x2F;发送char型字符串</span><br><span class="line">void Uart_Sends(unsigned char *str);</span><br><span class="line">void Delay1ms(unsigned int t);&#x2F;&#x2F;1ms延时函数</span><br><span class="line">&#x2F;&#x2F;接收字符子函数</span><br><span class="line">unsigned char Uart_Receive();</span><br><span class="line">&#x2F;&#x2F;数据发送子函数</span><br><span class="line">void Uart_Dat(unsigned char dat);</span><br><span class="line">&#x2F;&#x2F;wifi模块初始化</span><br><span class="line">void Wifi_Init();</span><br><span class="line">&#x2F;&#x2F;字节发送子函数</span><br><span class="line">void Uart_Byte(char byte);</span><br><span class="line">&#x2F;&#x2F;t ms延时子函数</span><br><span class="line">void Delay1ms(unsigned int t);</span><br><span class="line"></span><br><span class="line">&#x2F;*串口初始化子函数*&#x2F;</span><br><span class="line">void Serial_Init()&#x2F;&#x2F;串口初始化,一定注意不要启动T1的串口中断</span><br><span class="line">&#123;</span><br><span class="line">	TMOD &#x3D; 0x20;</span><br><span class="line">	SCON &#x3D; 0x50;</span><br><span class="line">	TH1 &#x3D; 0xFD;</span><br><span class="line">	TL1 &#x3D; TH1;</span><br><span class="line">	PCON &#x3D; 0x00;</span><br><span class="line">	ES &#x3D; 0; &#x2F;&#x2F;关闭串口中断</span><br><span class="line">	TR1 &#x3D; 1;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*字符串发送子函数(用于配置)*&#x2F;</span><br><span class="line">void Uart_Sends(unsigned char *str) &#123;</span><br><span class="line">	while (*str !&#x3D; &#39;\0&#39;) &#123;</span><br><span class="line">		SBUF &#x3D; *str;</span><br><span class="line">		while (!TI); &#x2F;&#x2F;等待发送完成信号（TI&#x3D;1）出现</span><br><span class="line">		TI &#x3D; 0; &#x2F;&#x2F;清除发送中断标志位以继续发送</span><br><span class="line">		str++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*WIFI模块初始化*&#x2F;</span><br><span class="line">void Wifi_Init() &#123;</span><br><span class="line">	Delay1ms(3000);</span><br><span class="line">	Serial_Init();</span><br><span class="line">	Uart_Sends(&quot;AT+CWMODE&#x3D;2\r\n&quot;);</span><br><span class="line">	Delay1ms(2000);</span><br><span class="line">	Uart_Sends(&quot;AT+CWSAP&#x3D;\&quot;******\&quot;,\&quot;*****\&quot;,11,0\r\n&quot;);&#x2F;&#x2F;wifi名称及密码设置</span><br><span class="line">	Delay1ms(2000);</span><br><span class="line">	Uart_Sends(&quot;AT+CIPMUX&#x3D;1\r\n&quot;);</span><br><span class="line">	Delay1ms(2000);</span><br><span class="line">	Uart_Sends(&quot;AT+CIPSERVER&#x3D;1,5000\r\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*字节发送子函数*&#x2F;</span><br><span class="line">void Uart_Byte(char byte) &#123;</span><br><span class="line">	SBUF &#x3D; byte;</span><br><span class="line">	while (!TI);</span><br><span class="line">	TI &#x3D; 0;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*数据发送子函数*&#x2F;</span><br><span class="line">void Uart_Dat(unsigned char dat) &#123;</span><br><span class="line">	Uart_Sends(&quot;AT+CIPSEND&#x3D;0,1\r\n&quot;);</span><br><span class="line">	Delay1ms(1000);</span><br><span class="line">	Uart_Byte(dat);</span><br><span class="line">	Uart_Byte(&#39;\r&#39;);</span><br><span class="line">	Uart_Byte(&#39;\n&#39;);</span><br><span class="line">	Delay1ms(100);&#x2F;&#x2F;延时100ms防止出现循环发送现象</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*指令接收子函数*&#x2F;</span><br><span class="line">unsigned char Uart_Receive() &#123;</span><br><span class="line">	unsigned char order;</span><br><span class="line">	RI &#x3D; 0; &#x2F;&#x2F;先将接收表示位置0，防止wifi&#39;配置使的返回信息将其置1</span><br><span class="line">	while (!RI); &#x2F;&#x2F;等待接收到信息后跳出循环</span><br><span class="line">	order &#x3D; SBUF; &#x2F;&#x2F;当RI&#x3D;&#x3D;1时接收到数据</span><br><span class="line">	RI &#x3D; 0; &#x2F;&#x2F;清除接收中断标志位以继续接收</span><br><span class="line">	return order;</span><br><span class="line">&#125;</span><br><span class="line">void Delay1ms(unsigned int t)   &#x2F;&#x2F;误差 0us</span><br><span class="line">&#123;</span><br><span class="line">	unsigned char a, b, c;</span><br><span class="line">	for (t; t &gt; 0; t--)</span><br><span class="line">		for (c &#x3D; 1; c &gt; 0; c--)</span><br><span class="line">			for (b &#x3D; 142; b &gt; 0; b--)</span><br><span class="line">				for (a &#x3D; 2; a &gt; 0; a--);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/ludaoyi88/article/details/53380305" target="_blank">WIFI模块ESP8266的使用指南（客户端和服务器两种模式建立）</a></p>
-<p><a href="https://blog.csdn.net/lsalp/article/details/80592533" target="_blank">AT命令示例</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.1 模块 AP 模式下做 TCP serve</span><br><span class="line">1.2 模块 STA 模式下做 TCP serve</span><br><span class="line">1.3 模块 TCP  client 透传模式</span><br><span class="line">1.4 模块 UDP 多连接模式</span><br><span class="line">1.5 模块 UDP 透传模式</span><br><span class="line">1.6 两个模块 UDP 传输模式</span><br><span class="line">1.7 两个模组通过TCP透传</span><br><span class="line">1.8 模块通过数据外网透传</span><br></pre></td></tr></table></figure>
-
-<p>其它指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">恢复出厂设置（配网失败可以用这个指令）</span><br><span class="line">AT+RESTORE</span><br></pre></td></tr></table></figure>
-
-<p>连接网络调试助手TCP服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AT+CIPSTART&#x3D;&quot;TCP&quot;,&quot;192.168.4.2&quot;,9085</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -553,11 +408,11 @@
 
 
   
-    <article id="post-/articles/2019/12/25/1577274834000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/12/27/1577447588000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/12/25/articles/2019/12/25/1577274834000.html/" class="article-date">
-      <time datetime="2019-12-25T11:53:54.000Z" itemprop="datePublished">2019-12-25</time>
+      <a  href="/2019/12/27/articles/2019/12/27/1577447588000.html/" class="article-date">
+      <time datetime="2019-12-27T11:53:08.000Z" itemprop="datePublished">2019-12-27</time>
 </a>
 
     </div>
@@ -571,7 +426,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/25/articles/2019/12/25/1577274834000.html/">[PyQt5] 视频播放</a>
+      <a  class="article-title" href="/2019/12/27/articles/2019/12/27/1577447588000.html/">[单片机] 程序网站</a>
     </h1>
   
 
@@ -582,7 +437,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://github.com/taroshi/PyQt_Video_Demo" target="_blank">PyQt_Video_Demo</a></p>
+        <p><a href="http://news.eeworld.com.cn/mcu/51mcu/" target="_blank">电子工程世界</a></p>
 
       
     </div>
@@ -593,7 +448,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyQt5/" rel="tag">PyQt5</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
     </div>
 
       
@@ -615,11 +470,11 @@
 
 
   
-    <article id="post-/articles/2019/12/25/1577274833000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/12/27/1577447587000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/12/25/articles/2019/12/25/1577274833000.html/" class="article-date">
-      <time datetime="2019-12-25T11:53:53.000Z" itemprop="datePublished">2019-12-25</time>
+      <a  href="/2019/12/27/articles/2019/12/27/1577447587000.html/" class="article-date">
+      <time datetime="2019-12-27T11:53:07.000Z" itemprop="datePublished">2019-12-27</time>
 </a>
 
     </div>
@@ -633,7 +488,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/25/articles/2019/12/25/1577274833000.html/">[PyQt5] 使用http请求获取天气</a>
+      <a  class="article-title" href="/2019/12/27/articles/2019/12/27/1577447587000.html/">[单片机] 博客</a>
     </h1>
   
 
@@ -644,7 +499,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://www.cnblogs.com/ACPIE-liusiqi/p/10636594.html" target="_blank">PyQt5使用http请求获取天气</a></p>
+        <p><a href="https://blog.csdn.net/qq_21792169/category_5844033.html" target="_blank">HeroKern - MCU for 51</a><br><a href="https://blog.csdn.net/qq_43588817/category_8674324.html" target="_blank">叶子丶de花 - 51笔记</a></p>
+<p>ESP8266 WIFI模块学习之路<br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/81951529" target="_blank">（1）——模块的USB串口连接</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/81953193" target="_blank">（2）——模块与单片机连接进行远程操作</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/81989814" target="_blank">（3）——用手机APP进行功能控制LED灯</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82216952" target="_blank">（4）——WIFI模块与Android互相通信</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82220223" target="_blank">（5）——Android手机调试助手与单片机互相通信</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82289276" target="_blank">（6）——自写Android手机APP控制单片机LED灯</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82313787" target="_blank">（7）——自写Android手机APP接受单片机数据</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82355579" target="_blank">（8）——自写Android手机APP控制直流电机正反转</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/89226518" target="_blank">（9）——C++实现通过电脑串口读取ESP8266数据</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/89244697" target="_blank">（10）——手机远程关闭电脑</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/89247192" target="_blank">（11）——WIFI模块通过VC自动配置，实现远程关闭电脑</a><br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/89305533" target="_blank">（12）——AT命令自动配置，实现远程关闭电脑</a></p>
 
       
     </div>
@@ -655,7 +511,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyQt5/" rel="tag">PyQt5</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
     </div>
 
       
@@ -677,11 +533,11 @@
 
 
   
-    <article id="post-/articles/2019/12/25/1577274832000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/12/27/1577447586000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/12/25/articles/2019/12/25/1577274832000.html/" class="article-date">
-      <time datetime="2019-12-25T11:53:52.000Z" itemprop="datePublished">2019-12-25</time>
+      <a  href="/2019/12/27/articles/2019/12/27/1577447586000.html/" class="article-date">
+      <time datetime="2019-12-27T11:53:06.000Z" itemprop="datePublished">2019-12-27</time>
 </a>
 
     </div>
@@ -695,7 +551,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/25/articles/2019/12/25/1577274832000.html/">[nodejs] 仿微信扫码登录</a>
+      <a  class="article-title" href="/2019/12/27/articles/2019/12/27/1577447586000.html/">[单片机] USB转TTL模块连接PN532</a>
     </h1>
   
 
@@ -706,8 +562,22 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://www.jianshu.com/p/4b5e1b8c34a2" target="_blank">模仿微信授权二维码生成通过微信扫描登录</a></p>
-<p><a href="https://github.com/Ryan4G/QRCodeLoginDemo" target="_blank">QRCodeLoginDemo</a></p>
+        <p>连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">SCL &lt;---&gt; RX</span><br><span class="line">SDA &lt;---&gt; TX</span><br></pre></td></tr></table></figure>
+
+<p>驱动<br><a href="http://tcy.198424.com/pl2303_installer.zip" target="_blank">pl2303_installer.zip</a></p>
+<p><a href="https://pan.baidu.com/s/1NjUdBYyqq6OlML5GAeDz2w" target="_blank">PN532 NFC RFID V3模块 近场通信，支持和手机通信 无线模块</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">oqw3</span><br></pre></td></tr></table></figure>
+
+<p>程序<br><a href="https://github.com/zhangyuhu/STM32-PN532" target="_blank">github STM32-PN532</a><br><a href="http://c.51hei.com/pro/down.php?h=7&e=661630&c=92550&host=forum/201708/11/191206fwu6ucuvwcuruc1p.rar&name=%22PN532%B6%C1%D0%B4%BF%A8%CA%B5%D1%E9%20%A3%A8ALIENTEK%20MINISTM32%A3%A9.rar%22" target="_blank">51黑论坛_PN532读写卡实验 （ALIENTEK MINISTM32）.rar</a></p>
+<p><a href="https://blog.csdn.net/imzhujun/article/details/94399288" target="_blank">stm32f10x + PN532 + 代码 (PN532 I2C模式STM32开发)</a><br><img src="https://img-blog.csdnimg.cn/20190701172109639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ltemh1anVu,size_16,color_FFFFFF,t_70"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">如使用I2C模式，拨码开关应打到【1，0】模式。</span><br><span class="line">模块需要连接VCC，GND，SDA，SCL，IRQ，RSTO，6根线。</span><br><span class="line">其中，RSTO是PN532的复位线，低电平复位。</span><br><span class="line">IRQ，是响应的中断线，可由程序选择是否启用，PN532有响应发生时，该引脚产生一个下降沿。</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://blog.csdn.net/qq_43479164/article/details/96863299" target="_blank">(含接线图) 使用PN532进行基本读写操作</a><br><img src="https://img-blog.csdnimg.cn/20190722153045646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDc5MTY0,size_16,color_FFFFFF,t_70"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">选择链接后，打卡软件检测卡片是否存在。</span><br><span class="line"></span><br><span class="line">首先，将卡片置于强光下，或是闪光灯照射卡片找到芯片，放于pn532模块上，检测。</span><br><span class="line"></span><br><span class="line">扫描卡片类型</span><br></pre></td></tr></table></figure>
+
+
 
       
     </div>
@@ -718,7 +588,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
     </div>
 
       
@@ -740,11 +610,11 @@
 
 
   
-    <article id="post-/articles/2019/12/25/1577274831000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/12/27/1577447585000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/12/25/articles/2019/12/25/1577274831000.html/" class="article-date">
-      <time datetime="2019-12-25T11:53:51.000Z" itemprop="datePublished">2019-12-25</time>
+      <a  href="/2019/12/27/articles/2019/12/27/1577447585000.html/" class="article-date">
+      <time datetime="2019-12-27T11:53:05.000Z" itemprop="datePublished">2019-12-27</time>
 </a>
 
     </div>
@@ -758,7 +628,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/25/articles/2019/12/25/1577274831000.html/">[layui] 日期范围</a>
+      <a  class="article-title" href="/2019/12/27/articles/2019/12/27/1577447585000.html/">[单片机] SDA与SCL</a>
     </h1>
   
 
@@ -769,7 +639,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">layui.use(<span class="string">'laydate'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> endDate = laydate.render(&#123;</span><br><span class="line">        elem: <span class="string">'#endTime'</span>,<span class="comment">//选择器结束时间</span></span><br><span class="line">        type: <span class="string">'datetime'</span>,</span><br><span class="line">        <span class="comment">// type: 'date',</span></span><br><span class="line">        <span class="comment">// min:"1970-1-1",//设置min默认最小值</span></span><br><span class="line">        done: <span class="function"><span class="keyword">function</span> (<span class="params">value, date</span>) </span>&#123;</span><br><span class="line">            startDate.config.max = &#123;</span><br><span class="line">                year: date.year,</span><br><span class="line">                month: date.month - <span class="number">1</span>,<span class="comment">//关键</span></span><br><span class="line">                date: date.date,</span><br><span class="line">                hours: date.hour,</span><br><span class="line">                minutes: <span class="number">0</span>,</span><br><span class="line">                seconds: <span class="number">0</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//日期范围</span></span><br><span class="line">    <span class="keyword">var</span> startDate = laydate.render(&#123;</span><br><span class="line">        elem: <span class="string">'#startTime'</span>,</span><br><span class="line">        type: <span class="string">'datetime'</span>,</span><br><span class="line">        <span class="comment">// max:"2099-12-31",//设置一个默认最大值</span></span><br><span class="line">        done: <span class="function"><span class="keyword">function</span> (<span class="params">value, date</span>) </span>&#123;</span><br><span class="line">            endDate.config.min = &#123;</span><br><span class="line">                year: date.year,</span><br><span class="line">                month: date.month - <span class="number">1</span>, <span class="comment">//关键</span></span><br><span class="line">                date: date.date,</span><br><span class="line">                hours: date.hour,</span><br><span class="line">                minutes: <span class="number">0</span>,</span><br><span class="line">                seconds: <span class="number">0</span></span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        <p>这是I^2C总线标准的两根传输线，SDA是串行数据线，SCL是时钟~</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">I2C有两条线， SCL为时钟信号，SDA为双向数据通道。</span><br><span class="line"></span><br><span class="line">UART三条线， TX,RX,GND，如果单向的话可能只两条</span><br><span class="line"></span><br><span class="line">SPI的话四条线，不要CS片选的话剩三条MISO,MOSI,CLK</span><br><span class="line"></span><br><span class="line">串口中TX为发送，RX为接收，所以串口通讯两个单片机之间TX接RX，RX接TX。</span><br><span class="line"></span><br><span class="line">SPI中CLK是时钟，MISO就是主设备读，从设备写。MOSI就是主设备写，从设备读</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -779,7 +651,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/layui/" rel="tag">layui</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
     </div>
 
       
@@ -801,11 +673,11 @@
 
 
   
-    <article id="post-/articles/2019/12/25/1577274830000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/12/27/1577447584000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/12/25/articles/2019/12/25/1577274830000.html/" class="article-date">
-      <time datetime="2019-12-25T11:53:50.000Z" itemprop="datePublished">2019-12-25</time>
+      <a  href="/2019/12/27/articles/2019/12/27/1577447584000.html/" class="article-date">
+      <time datetime="2019-12-27T11:53:04.000Z" itemprop="datePublished">2019-12-27</time>
 </a>
 
     </div>
@@ -819,7 +691,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/25/articles/2019/12/25/1577274830000.html/">[hexo] 文章数量限制</a>
+      <a  class="article-title" href="/2019/12/27/articles/2019/12/27/1577447584000.html/">[单片机] P3口第二功能各引脚功能</a>
     </h1>
   
 
@@ -830,8 +702,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://hexo.io/docs/troubleshooting.html" target="_blank"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ulimit -n 10000</span><br></pre></td></tr></table></figure>
+        <p>P3口第二功能各引脚功能 定义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">P3.0：RXD串行口输入 </span><br><span class="line">P3.1：TXD串行口输出 </span><br><span class="line">P3.2：INT0外部中断0输入 </span><br><span class="line">P3.3：INT1外部中断1输入 </span><br><span class="line">P3.4：T0定时器0外部输入 </span><br><span class="line">P3.5：T1定时器1外部输入 </span><br><span class="line">P3.6：WR外部写控制 </span><br><span class="line">P3.7：RD外部读控制</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -842,7 +714,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
     </div>
 
       
@@ -864,11 +736,11 @@
 
 
   
-    <article id="post-/articles/2019/12/25/1577274703000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/12/27/1577447582000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/12/25/articles/2019/12/25/1577274703000.html/" class="article-date">
-      <time datetime="2019-12-25T11:51:43.000Z" itemprop="datePublished">2019-12-25</time>
+      <a  href="/2019/12/27/articles/2019/12/27/1577447582000.html/" class="article-date">
+      <time datetime="2019-12-27T11:53:02.000Z" itemprop="datePublished">2019-12-27</time>
 </a>
 
     </div>
@@ -882,7 +754,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/25/articles/2019/12/25/1577274703000.html/">[单片机] ESP8266和APP通讯</a>
+      <a  class="article-title" href="/2019/12/27/articles/2019/12/27/1577447582000.html/">[单片机] MQTT服务器</a>
     </h1>
   
 
@@ -893,15 +765,141 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://blog.csdn.net/qimi923511491/article/details/79284625" target="_blank">51单片机通过ESP8266模块与手机进行通讯（单片机）</a></p>
-<p><a href="https://www.jianshu.com/p/1809c471db39" target="_blank">智能家居简单实现—使用ESP8266简单实现和APP通讯</a></p>
-<p>用AP模式就够了，指令有下面这几个就够了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1、设置wifi模式：</span><br><span class="line">AT+CWMODE&#x3D;2</span><br><span class="line"></span><br><span class="line">2、重启生效：</span><br><span class="line">AT+RST</span><br><span class="line"></span><br><span class="line">3、启动多连接：</span><br><span class="line">AT+CIPMUX&#x3D;1</span><br><span class="line"></span><br><span class="line">4、建立server：</span><br><span class="line">AT+CIPSERVER&#x3D;1</span><br></pre></td></tr></table></figure>
+        <p><a href="https://www.cnblogs.com/lulipro/p/10914482.html" target="_blank">搭建MQTT服务器</a></p>
 
-<p>ESP8266发送数据到APP。首先ESP要使用到的指令有：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、建立TCP连接：</span><br><span class="line">AT+CIPSTART&#x3D;0,&quot;TCP&quot;,&quot;192.168.4.2&quot;,5000</span><br><span class="line"></span><br><span class="line">2、确定发送数据的长度：</span><br><span class="line">AT+CIPSEND&#x3D;0,19</span><br><span class="line"></span><br><span class="line">3、发送信息：</span><br><span class="line">Sent to the Android</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
 
-<img src="https://upload-images.jianshu.io/upload_images/5147222-98a0e58fe398fbc9?imageMogr2/auto-orient/strip|imageView2/2/w/548/format/webp">
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/12/27/1577447581000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/12/27/articles/2019/12/27/1577447581000.html/" class="article-date">
+      <time datetime="2019-12-27T11:53:01.000Z" itemprop="datePublished">2019-12-27</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/12/27/articles/2019/12/27/1577447581000.html/">[单片机] ESP8266连接外网</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/ludaoyi88/article/details/62236644" target="_blank">基于WIFI模块（ESP8266）与非同一个局域网内服务器建立连接</a></p>
+<p><a href="https://blog.csdn.net/qq_35281599/article/details/80218856" target="_blank">两个ESP8266一个作为服务器一个作为客户端实现互相通讯</a></p>
+<p><a href="https://blog.csdn.net/ReCclay/article/details/77802609" target="_blank">ESP8266AT开发之ESP8266的三种工作模式认识，AP模式下ESP8266建立TCP服务器，建立TCP客户端(解决防火墙)</a></p>
+<p>ESP8266的三种工作方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AP模式</span><br><span class="line">STA模式</span><br><span class="line">AP+STA模式</span><br><span class="line">AP模式就仅仅相当于路由器功能可以发出信号。 当然我们知道路由器不仅仅能发出信号，当然可以接受信号的，所以就有了STA模式的基站功能就是接受信号。</span><br></pre></td></tr></table></figure>
+
+<p>AP模式下PC连接ESP8266的WiFi</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.去除防火墙的影响</span><br><span class="line">最快捷的cmd+R-&gt;services.msc-&gt;windows firewall -&gt;双击后自动改为禁用</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/Jsagacity/article/details/78531819" target="_blank">使用ESP8266简单实现和APP通讯</a></p>
+<p><a href="https://blog.csdn.net/qimi923511491/article/details/79284625" target="_blank">糖醋咸鱼 - 51单片机通过ESP8266模块与手机进行通讯（单片机）</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/12/27/1577447579000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/12/27/articles/2019/12/27/1577447579000.html/" class="article-date">
+      <time datetime="2019-12-27T11:52:59.000Z" itemprop="datePublished">2019-12-27</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/12/27/articles/2019/12/27/1577447579000.html/">[单片机] 74HC595并行输出的位移缓存器</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://baike.baidu.com/item/74HC595/9886491" target="_blank">74HC595并行输出的位移缓存器</a></p>
 
       
     </div>
@@ -936,7 +934,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/20/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/88/">88</a><a class="extend next" rel="next" href="/page/22/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/20/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/89/">89</a><a class="extend next" rel="next" href="/page/22/">Next &amp;raquo;</a>
     </nav>
   
 

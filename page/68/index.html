@@ -283,11 +283,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/10/23/1571834853000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/10/23/1571924654000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/10/23/articles/2019/10/23/1571834853000.html/" class="article-date">
-      <time datetime="2019-10-23T12:47:33.000Z" itemprop="datePublished">2019-10-23</time>
+      <a  href="/2019/10/24/articles/2019/10/23/1571924654000.html/" class="article-date">
+      <time datetime="2019-10-24T13:44:14.000Z" itemprop="datePublished">2019-10-24</time>
 </a>
 
     </div>
@@ -301,7 +301,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834853000.html/">[js] 时间范围工具</a>
+      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924654000.html/">[qt] 添加事件</a>
     </h1>
   
 
@@ -312,7 +312,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://blog.csdn.net/alan_liuyue/article/details/78311491" target="_blank">js根据当前时间获取指定范围内的时间段日期</a></p>
+        <p><a href="https://blog.csdn.net/aaa123524457/article/details/78710180" target="_blank">QT 为按钮添加事件</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -323,7 +324,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
     </div>
 
       
@@ -345,11 +346,11 @@
 
 
   
-    <article id="post-/articles/2019/10/23/1571834852000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/10/23/1571924652000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/10/23/articles/2019/10/23/1571834852000.html/" class="article-date">
-      <time datetime="2019-10-23T12:47:32.000Z" itemprop="datePublished">2019-10-23</time>
+      <a  href="/2019/10/24/articles/2019/10/23/1571924652000.html/" class="article-date">
+      <time datetime="2019-10-24T13:44:12.000Z" itemprop="datePublished">2019-10-24</time>
 </a>
 
     </div>
@@ -363,7 +364,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834852000.html/">[jfinal] 下载文件</a>
+      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924652000.html/">[qt] 网络请求</a>
     </h1>
   
 
@@ -374,28 +375,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="" target="_blank"></a><br><a href="https://blog.csdn.net/m0_37934074/article/details/78130412" target="_blank">JFinal文件下载及设置路径</a></p>
-<p>一：利用超链接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;&#x2F;download&#x2F;a.docx&quot;&gt;download&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
-<p>二：java代码<br>1.页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;&#x2F;download&quot;&gt;下载&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
-<p>2.路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public void configConstant(Constants me) &#123;</span><br><span class="line">    me.setBaseUploadPath(&quot;upload&quot;);&#x2F;&#x2F; 配置文件上传路径</span><br><span class="line">    me.setBaseDownloadPath(&quot;&#x2F;download&quot;);&#x2F;&#x2F;配置文件下载路径</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3.代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public void download() &#123;</span><br><span class="line">    String path &#x3D; getSession().getServletContext().getRealPath(&quot;download&quot;);</span><br><span class="line">    File file &#x3D; new File(path + &quot;&#x2F;a.docx&quot;);</span><br><span class="line">    System.out.println(path);</span><br><span class="line">    System.out.println(file.exists());</span><br><span class="line">    if (file.exists()) &#123;</span><br><span class="line">        renderFile(file);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        renderJson(&quot;文件不存在&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="https://www.cnblogs.com/Braveliu/p/9361792.html" target="_blank">Qt 添加 QtNetwork 库文件</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">【1】若使用QTCreator开发程序</span><br><span class="line">在工程的pro文件中添加：QT +&#x3D; network</span><br><span class="line"></span><br><span class="line">【2】若使用VS + QT开发程序</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://yq.aliyun.com/articles/662197" target="_blank">jfinal框架文件下载功能代码</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;jfinal文件下载，使用普通io流方式下载</span><br><span class="line">public void downloadFile() throws IOException&#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;通过pathkit.getwebrootpath获取项目的根目录，或者在config配置默认的文件下载根路径</span><br><span class="line">    String basePath &#x3D; PathKit.getWebRootPath() +&quot;&#x2F;upload&#x2F;jpg&quot;;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;获取前台的传递的文件名（包括文件格式，例如&quot;test.jpg&quot;）</span><br><span class="line">    String fileName &#x3D; getPara(&quot;downFileName&quot;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;根据根目录和文件名，拼接成完整的file路径</span><br><span class="line">    String targetPath &#x3D; basePath+File.separator+fileName;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;普通IO流实现下载的功能</span><br><span class="line">    HttpServletResponse res &#x3D; getResponse(); &#x2F;&#x2F;创建response回应</span><br><span class="line">    res.setContentType(&quot;text&#x2F;html; charset&#x3D;UTF-8&quot;); &#x2F;&#x2F;设置编码字符</span><br><span class="line">    res.setContentType(&quot;application&#x2F;x-msdownload&quot;); &#x2F;&#x2F;设置内容类型</span><br><span class="line">    res.setHeader(&quot;Content-disposition&quot;, &quot;attachment;filename&#x3D;&quot;+fileName);&#x2F;&#x2F;设置下载的文件名称</span><br><span class="line">    OutputStream out &#x3D; res.getOutputStream();   &#x2F;&#x2F;创建页面返回方式为输出流，可弹出下载框</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;创建输入流读取文件</span><br><span class="line">    InputStream is &#x3D; new FileInputStream(targetPath); </span><br><span class="line">    byte[] Buffer &#x3D; new byte[4096];</span><br><span class="line">    int size &#x3D; 0; </span><br><span class="line">    while((size&#x3D;is.read(Buffer)) !&#x3D; -1)&#123;</span><br><span class="line">        out.write(Buffer, 0, size); </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;关闭和释放流</span><br><span class="line">    out.flush();</span><br><span class="line">    out.close();</span><br><span class="line">    is.close();</span><br><span class="line">    renderNull();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HttpSession session &#x3D; getSession();</span><br></pre></td></tr></table></figure>
-
-
-
-<p><a href="https://blog.csdn.net/qq_36073929/article/details/78326881" target="_blank" rel="noopener">https://blog.csdn.net/qq_36073929/article/details/78326881</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;下载</span><br><span class="line">public void download()&#123;</span><br><span class="line">	String text &#x3D; this.getPara(&quot;text&quot;).replaceAll(&quot;&#x2F;&quot;, &quot;\\\\&quot;);</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;要导出的数据文件</span><br><span class="line">	String path&#x3D;JFinal.me().getServletContext().getRealPath(&quot;&#x2F;&quot;)+text;</span><br><span class="line"></span><br><span class="line">	File file &#x3D; new File(path);</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;判断文件是否存在</span><br><span class="line">	if(file.exists())&#123;</span><br><span class="line">		System.out.println(&quot;yes &quot;); </span><br><span class="line">		this.setAttr(&quot;state&quot;, &quot;0&quot;);</span><br><span class="line">		this.renderJson();</span><br><span class="line">		return;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		System.out.println(&quot;no &quot;);</span><br><span class="line">		this.setAttr(&quot;state&quot;, &quot;FAILED&quot;);</span><br><span class="line">		this.renderJson();</span><br><span class="line">		return ;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;下载成功</span><br><span class="line">public void downloadOk()&#123;</span><br><span class="line">	String text &#x3D; this.getPara(&quot;text&quot;).replaceAll(&quot;&#x2F;&quot;, &quot;\\\\&quot;);</span><br><span class="line">	</span><br><span class="line">	String path&#x3D;JFinal.me().getServletContext().getRealPath(&quot;&#x2F;&quot;)+text;&#x2F;&#x2F;要导出的数据文件</span><br><span class="line">	System.out.println(path);</span><br><span class="line">	</span><br><span class="line">	this.renderFile(new File(path));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;点击直接下载</span><br><span class="line">function clickDownload(text)&#123;</span><br><span class="line">    console.log(text);</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:&#39;$&#123;path&#125;&#x2F;qtxz&#x2F;download&#39;,</span><br><span class="line">        type:&#39;POST&#39;,</span><br><span class="line">        async:false,</span><br><span class="line">        data:&#123;&#39;text&#39;:text&#125;,</span><br><span class="line">        dataType:&#39;json&#39;,</span><br><span class="line">        success:function(obj)&#123;</span><br><span class="line">        	if(obj.state &#x3D;&#x3D; &quot;0&quot;)&#123;</span><br><span class="line">        		window.open(&#39;$&#123;path&#125;&#x2F;qtxz&#x2F;downloadOk?text&#x3D;&#39;+text);</span><br><span class="line">        	&#125;else&#123;</span><br><span class="line">        		alert(&quot;文件丢失&quot;);</span><br><span class="line">        	&#125;</span><br><span class="line">    	&#125;,</span><br><span class="line">        error:function(obj)&#123;</span><br><span class="line">            alert(&quot;系统错误!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p><a href="https://blog.csdn.net/wyansai/article/details/80635028" target="_blank">QT - HTTP网络请求，使用curl模拟Network模块</a></p>
+<p><a href="https://blog.csdn.net/wyansai/article/details/52903692" target="_blank">QT-多线程知识（例子：多线程下载小说）</a></p>
+<p><a href="https://www.cnblogs.com/wurui1994/p/7661242.html" target="_blank">Qt5网络请求使用及WebRequest函数</a></p>
+<p><a href="https://blog.csdn.net/m0_37182645/article/details/82120668" target="_blank">如何使用Qt调用基于SpringCloud的Rest服务</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; URL</span><br><span class="line">QString url &#x3D; &quot;http:&#x2F;&#x2F;localhost:8080&#x2F;piedata&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 请求</span><br><span class="line">QNetworkRequest request;</span><br><span class="line">request.setUrl(QUrl(url));</span><br><span class="line"></span><br><span class="line">QNetworkAccessManager *manager &#x3D; new QNetworkAccessManager(this);</span><br><span class="line">&#x2F;&#x2F; 发送请求,get</span><br><span class="line">QNetworkReply *replay &#x3D; manager-&gt;get(request);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 开启一个局部的事件循环，等待响应结束，退出</span><br><span class="line">QEventLoop eventLoop;</span><br><span class="line">QObject::connect(manager, &amp;QNetworkAccessManager::finished, &amp;eventLoop, &amp;QEventLoop::quit);</span><br><span class="line">eventLoop.exec();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 获取响应信息</span><br><span class="line">QByteArray bytes &#x3D; replay-&gt;readAll();</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -406,7 +393,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfinal/" rel="tag">jfinal</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
     </div>
 
       
@@ -428,11 +415,11 @@
 
 
   
-    <article id="post-/articles/2019/10/23/1571834851000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/10/23/1571924650000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/10/23/articles/2019/10/23/1571834851000.html/" class="article-date">
-      <time datetime="2019-10-23T12:47:31.000Z" itemprop="datePublished">2019-10-23</time>
+      <a  href="/2019/10/24/articles/2019/10/23/1571924650000.html/" class="article-date">
+      <time datetime="2019-10-24T13:44:10.000Z" itemprop="datePublished">2019-10-24</time>
 </a>
 
     </div>
@@ -446,7 +433,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834851000.html/">[jfinal] 文档</a>
+      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924650000.html/">[qt] 实现登录注册</a>
     </h1>
   
 
@@ -457,7 +444,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="http://www.jfinal.com/doc/3-8" target="_blank">jfinal文档</a></p>
+        <p><a href="https://blog.csdn.net/qq_35153254/article/details/78233002" target="_blank">用Qt实现基于网络请求的用户登录（一）</a></p>
 
       
     </div>
@@ -468,7 +455,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfinal/" rel="tag">jfinal</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
     </div>
 
       
@@ -490,11 +477,11 @@
 
 
   
-    <article id="post-/articles/2019/10/23/1571834850000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/10/23/1571924649000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/10/23/articles/2019/10/23/1571834850000.html/" class="article-date">
-      <time datetime="2019-10-23T12:47:30.000Z" itemprop="datePublished">2019-10-23</time>
+      <a  href="/2019/10/24/articles/2019/10/23/1571924649000.html/" class="article-date">
+      <time datetime="2019-10-24T13:44:09.000Z" itemprop="datePublished">2019-10-24</time>
 </a>
 
     </div>
@@ -508,7 +495,132 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834850000.html/">[jfinal] 日志打印</a>
+      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924649000.html/">[qt] 日志输出</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/hp_cpp/article/details/83580525" target="_blank">Qt实现Logger日志 - 轻量级开源库QsLog的使用</a></p>
+<p><a href="https://www.cnblogs.com/brifuture/p/9203919.html" target="_blank">Qt学习（3）日志输出</a><br><a href="https://github.com/BriFuture/blog-code-example/tree/master/18-06to09/xmlreader" target="_blank">xmlreader</a><br><a href="https://www.hexcode.cn/article/show/qt5-log" target="_blank">Qt5中使用日志系统</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/23/1571924648000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/24/articles/2019/10/23/1571924648000.html/" class="article-date">
+      <time datetime="2019-10-24T13:44:08.000Z" itemprop="datePublished">2019-10-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924648000.html/">[cocos2dx] 跑酷游戏</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://github.com/tashaxing/MyParkourGame" target="_blank">跑酷游戏</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cocos2dx/" rel="tag">cocos2dx</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/23/1571924648000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/24/articles/2019/10/23/1571924648000.html/" class="article-date">
+      <time datetime="2019-10-24T13:44:08.000Z" itemprop="datePublished">2019-10-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924648000.html/">[qt] 进度条</a>
     </h1>
   
 
@@ -520,7 +632,12 @@
       
           
         <p><a href="" target="_blank"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;u013727805&#x2F;article&#x2F;details&#x2F;79939643</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import org.apache.log4j.Logger;</span><br><span class="line">import com.jfinal.log.Log;</span><br><span class="line"></span><br><span class="line">private final static Logger LOGGER &#x3D; Logger.getLogger(LogController.class);</span><br><span class="line">private final static Log LOG &#x3D; Log.getLog(LogController.class);</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/xuancailinggan/article/details/48398921" target="_blank">QT之进度条</a></p>
+<p>Qt进度条QProgressBar的使用<br><a href="https://blog.csdn.net/yao_hou/article/details/80179087" target="_blank">参考</a><br>SliderDemo.h</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#pragma once</span><br><span class="line"></span><br><span class="line">#ifndef SLIDERDEMO_H</span><br><span class="line">#define SLIDERDEMO_H</span><br><span class="line"></span><br><span class="line">#include &lt;QMainWindow&gt;</span><br><span class="line">#include &lt;QTimer&gt;</span><br><span class="line"></span><br><span class="line">namespace Ui &#123;</span><br><span class="line">class SliderDemo;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class SliderDemo : public QMainWindow</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    explicit SliderDemo(QWidget *parent &#x3D; nullptr);</span><br><span class="line">    ~SliderDemo();</span><br><span class="line"></span><br><span class="line">public slots:</span><br><span class="line">    void slotStart();</span><br><span class="line">    void slotStop();</span><br><span class="line">    void slotProcessBar();</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    Ui::SliderDemo *ui;</span><br><span class="line">    QTimer *m_timer;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif &#x2F;&#x2F; SLIDERDEMO_H</span><br></pre></td></tr></table></figure>
+
+<p>SliderDemo.cpp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;SliderDemo.h&quot;</span><br><span class="line">#include &quot;ui_sliderdemo.h&quot;</span><br><span class="line"></span><br><span class="line">SliderDemo::SliderDemo(QWidget *parent) :</span><br><span class="line">    QMainWindow(parent),</span><br><span class="line">    ui(new Ui::SliderDemo)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;setupUi(this);</span><br><span class="line"></span><br><span class="line">    m_timer &#x3D; new QTimer(this);</span><br><span class="line"></span><br><span class="line">    ui-&gt;progressBar-&gt;setRange(0, 99);</span><br><span class="line">    ui-&gt;progressBar-&gt;setValue(0);</span><br><span class="line"></span><br><span class="line">    connect(ui-&gt;btn_Start, SIGNAL(clicked()), this, SLOT(slotStart()));</span><br><span class="line">    connect(ui-&gt;btn_Stop, SIGNAL(clicked()), this, SLOT(slotStop()));</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;接收到timeout信号，定时器工作</span><br><span class="line">    connect(m_timer, SIGNAL(timeout()), this, SLOT(slotProcessBar()));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SliderDemo::~SliderDemo()</span><br><span class="line">&#123;</span><br><span class="line">    delete ui;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;控制进度条</span><br><span class="line">void SliderDemo::slotProcessBar()</span><br><span class="line">&#123;</span><br><span class="line">    static int pos &#x3D; 0;</span><br><span class="line">    if (pos &#x3D;&#x3D; 100)</span><br><span class="line">    &#123;</span><br><span class="line">        m_timer-&gt;stop();</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ui-&gt;progressBar-&gt;setValue(pos++);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;开启定时器</span><br><span class="line">void SliderDemo::slotStart()</span><br><span class="line">&#123;</span><br><span class="line">    m_timer-&gt;start(100);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;关闭定时器</span><br><span class="line">void SliderDemo::slotStop()</span><br><span class="line">&#123;</span><br><span class="line">    m_timer-&gt;stop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -531,7 +648,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfinal/" rel="tag">jfinal</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
     </div>
 
       
@@ -553,11 +670,11 @@
 
 
   
-    <article id="post-/articles/2019/10/23/1571834849000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/10/23/1571924647000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/10/23/articles/2019/10/23/1571834849000.html/" class="article-date">
-      <time datetime="2019-10-23T12:47:29.000Z" itemprop="datePublished">2019-10-23</time>
+      <a  href="/2019/10/24/articles/2019/10/23/1571924647000.html/" class="article-date">
+      <time datetime="2019-10-24T13:44:07.000Z" itemprop="datePublished">2019-10-24</time>
 </a>
 
     </div>
@@ -571,258 +688,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834849000.html/">[jfinal] excel导出</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://my.oschina.net/superzhu/blog/597915" target="_blank">JFinal学习-Excel导出</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jfinal实现点击a标签直接下载文件</span><br><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_36073929&#x2F;article&#x2F;details&#x2F;78326881</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public void download()&#123;</span><br><span class="line">	String text &#x3D; this.getPara(&quot;text&quot;).replaceAll(&quot;&#x2F;&quot;, &quot;\\\\&quot;);</span><br><span class="line">	String path&#x3D;JFinal.me().getServletContext().getRealPath(&quot;&#x2F;&quot;)+text;&#x2F;&#x2F;要导出的数据文件</span><br><span class="line">	</span><br><span class="line">	 File file &#x3D; new File(path);</span><br><span class="line">	 if(file.exists())&#123;&#x2F;&#x2F;判断文件是否存在</span><br><span class="line">		 System.out.println(&quot;yes &quot;); </span><br><span class="line">		 this.setAttr(&quot;state&quot;, &quot;0&quot;);</span><br><span class="line">		 this.renderJson();</span><br><span class="line">		 return;</span><br><span class="line">	 &#125;else&#123;</span><br><span class="line">		 System.out.println(&quot;no &quot;);</span><br><span class="line">		 this.setAttr(&quot;state&quot;, &quot;FAILED&quot;);</span><br><span class="line">		 this.renderJson();</span><br><span class="line">		 return ;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfinal/" rel="tag">jfinal</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/23/1571834848000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/23/articles/2019/10/23/1571834848000.html/" class="article-date">
-      <time datetime="2019-10-23T12:47:28.000Z" itemprop="datePublished">2019-10-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834848000.html/">[jfinal] @Before(POST.class)以及@Before(GET.class)</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Before(POST.class) 以及 @Before(GET.class)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfinal/" rel="tag">jfinal</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/23/1571834847000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/23/articles/2019/10/23/1571834847000.html/" class="article-date">
-      <time datetime="2019-10-23T12:47:27.000Z" itemprop="datePublished">2019-10-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834847000.html/">[jfinal] jfinal-ext文档</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://github.com/b1412/jfinal-ext/blob/master/doc/doc.org" target="_blank">jfinal-ext文档</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfinal/" rel="tag">jfinal</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/23/1571834765000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/23/articles/2019/10/23/1571834765000.html/" class="article-date">
-      <time datetime="2019-10-23T12:46:05.000Z" itemprop="datePublished">2019-10-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834765000.html/">[layui] 时间范围选择</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/qq_21178933/article/details/78581206" target="_blank">layui时间控件选择时间范围</a></p>
-<pre><code></code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/layui/" rel="tag">layui</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/23/1571834764000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/23/articles/2019/10/23/1571834764000.html/" class="article-date">
-      <time datetime="2019-10-23T12:46:04.000Z" itemprop="datePublished">2019-10-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834764000.html/">[js] json转换url参数</a>
+      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924647000.html/">[qt] 代码格式化</a>
     </h1>
   
 
@@ -834,8 +700,8 @@
       
           
         <p><a href="" target="_blank"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var json &#x3D; &#123; sh: &#39;上海&#39; &#125;</span><br><span class="line"></span><br><span class="line">var params &#x3D; Object.keys(json).map(function (key) &#123;</span><br><span class="line">	return encodeURIComponent(key) + &quot;&#x3D;&quot; + encodeURIComponent(json[key]);</span><br><span class="line">&#125;).join(&quot;&amp;&quot;);</span><br></pre></td></tr></table></figure>
-
+<p>QT格式化代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctrl+A 全选</span><br><span class="line">ctrl+I 格式化</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -845,7 +711,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
     </div>
 
       
@@ -867,11 +733,11 @@
 
 
   
-    <article id="post-/articles/2019/10/23/1571831035000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/10/23/1571924646000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/10/23/articles/2019/10/23/1571831035000.html/" class="article-date">
-      <time datetime="2019-10-23T11:43:55.000Z" itemprop="datePublished">2019-10-23</time>
+      <a  href="/2019/10/24/articles/2019/10/23/1571924646000.html/" class="article-date">
+      <time datetime="2019-10-24T13:44:06.000Z" itemprop="datePublished">2019-10-24</time>
 </a>
 
     </div>
@@ -885,7 +751,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571831035000.html/">[ui] 物联网-智能家居</a>
+      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924646000.html/">[qt] 打包发布</a>
     </h1>
   
 
@@ -896,7 +762,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://www.zcool.com.cn/collection/ZMjY3MzA4NTI=?from=search&word=%E7%89%A9%E8%81%94%E7%BD%91" target="_blank">智能家居</a></p>
+        <p><a href="" target="_blank"></a></p>
+<p><a href="https://blog.csdn.net/wyansai/article/details/80550723" target="_blank">QT - 程序打包发布</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">一、新建windows系统的菜单右键</span><br><span class="line"></span><br><span class="line">1、Win+R 运行regedit，打开注册表。</span><br><span class="line"></span><br><span class="line">2、新建目录：</span><br><span class="line">HKEY_CLASSES_ROOT\*\shell\DeployQt\command</span><br><span class="line"></span><br><span class="line">3、设置默认值为：</span><br><span class="line">D:\AppData\Qt\5.8\msvc2013\bin\windeployqt.exe &quot;%1&quot; --dir&#x3D;output --no-translations --no-opengl-sw --no-system-d3d-compiler --release --no-compiler-runtime</span><br><span class="line"></span><br><span class="line">二、右键发布exe程序</span><br><span class="line">1、如图所示，即可在当前目录下生成需要发布的dll文件</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -907,7 +775,133 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ui/" rel="tag">ui</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/23/1571924643000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/24/articles/2019/10/23/1571924643000.html/" class="article-date">
+      <time datetime="2019-10-24T13:44:03.000Z" itemprop="datePublished">2019-10-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924643000.html/">[qt] string转QBytearray</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="" target="_blank"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">structCameraInfo tmpCameraInfo;</span><br><span class="line">string strData &#x3D; tmpCalibrateReq.images(i).data();</span><br><span class="line">string strCameraName &#x3D; tmpCalibrateReq.images(i).camera_name();</span><br><span class="line">QFile file;</span><br><span class="line">QString strImgPath &#x3D; qApp-&gt;applicationDirPath() + &quot;&#x2F;&quot; + QString::fromStdString(strCameraName) + &quot;.jpg&quot;;</span><br><span class="line">file.setFileName(strImgPath);</span><br><span class="line">if(file.open(QIODevice::WriteOnly))</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;QByteArray tmpByteArray &#x3D; QString::fromStdString(strData).toLatin1();这种写法是错误的</span><br><span class="line">　　 QByteArray tmpByteArray(strData.c_str(), strData.length());&#x2F;&#x2F;这才是正确的</span><br><span class="line">    file.write(tmpByteArray);</span><br><span class="line">    file.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/23/1571924641000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/24/articles/2019/10/23/1571924641000.html/" class="article-date">
+      <time datetime="2019-10-24T13:44:01.000Z" itemprop="datePublished">2019-10-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/24/articles/2019/10/23/1571924641000.html/">[qt] json</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="" target="_blank"></a><br><a href="https://blog.csdn.net/qq_35153254/article/details/78233002" target="_blank">QJson的生成与解析</a></p>
+<p>常用的Json库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">QJson</span><br><span class="line"></span><br><span class="line">QJson是一个基于Qt的开发包用来将JSON数据解析成QVariant对象，JSON的数组将被映射为QVariantList实例，而其他对象映射为QVariantMap实例。</span><br><span class="line">网址：</span><br><span class="line">http:&#x2F;&#x2F;qjson.sourceforge.net&#x2F;</span><br><span class="line"></span><br><span class="line">关于Qt中对JSON的生成与解析，Qt5以前的版本，需要去进行单独下载、编译，才能使用。到了Qt5，提供了专门的QJsonDocument类来读取和写入JSON文档。</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
     </div>
 
       
@@ -931,7 +925,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/67/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/66/">66</a><a class="page-number" href="/page/67/">67</a><span class="page-number current">68</span><a class="page-number" href="/page/69/">69</a><a class="page-number" href="/page/70/">70</a><span class="space">&hellip;</span><a class="page-number" href="/page/88/">88</a><a class="extend next" rel="next" href="/page/69/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/67/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/66/">66</a><a class="page-number" href="/page/67/">67</a><span class="page-number current">68</span><a class="page-number" href="/page/69/">69</a><a class="page-number" href="/page/70/">70</a><span class="space">&hellip;</span><a class="page-number" href="/page/89/">89</a><a class="extend next" rel="next" href="/page/69/">Next &amp;raquo;</a>
     </nav>
   
 
