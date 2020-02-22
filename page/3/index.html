@@ -283,6 +283,223 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/02/17/1581936649000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/17/articles/2020/02/17/1581936649000.html/" class="article-date">
+      <time datetime="2020-02-17T10:50:49.000Z" itemprop="datePublished">2020-02-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/17/articles/2020/02/17/1581936649000.html/">[arm] buildroot+qemu+mini2440</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>相关文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;BrighterEyer&#x2F;qemu-mini2440-files</span><br></pre></td></tr></table></figure>
+
+<p>下载qemu for mini2440：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y git vim zlib1g-dev libsdl-dev</span><br><span class="line"></span><br><span class="line">#方式(1)</span><br><span class="line">cd &#x2F;root;wget http:&#x2F;&#x2F;repo.or.cz&#x2F;w&#x2F;qemu&#x2F;mini2440.git&#x2F;snapshot&#x2F;HEAD.tar.gz</span><br><span class="line">tar xvf HEAD.tar.gz;mv mini2440-HEAD* mini2440;cd mini2440</span><br><span class="line"></span><br><span class="line">#方式(2)</span><br><span class="line">#git clone git:&#x2F;&#x2F;repo.or.cz&#x2F;qemu&#x2F;mini2440.git mini2440;cd mini2440</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.cnblogs.com/pengdonglin137/p/5004784.html" target="_blank">configure打补丁</a><br>configure.patch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">--- configure.orig 2013-06-13 10:56:41.516276000 +0100</span><br><span class="line">+++ configure 2013-06-13 11:20:26.010368566 +0100</span><br><span class="line">@@ -1362,7 +1362,7 @@</span><br><span class="line"> cat &gt; $TMPC &lt;&lt;EOF</span><br><span class="line"> #include</span><br><span class="line"> #include</span><br><span class="line">-int main(void) &#123; clockid_t id; return clock_gettime(id, NULL); &#125;</span><br><span class="line">+int main(void) &#123; struct itimerspec v; timer_t t; return timer_gettime (t, &amp;v); &#125;</span><br><span class="line"> EOF</span><br><span class="line"> </span><br><span class="line"> rt&#x3D;no</span><br></pre></td></tr></table></figure>
+
+<p>执行(实测无用)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">patch configure configure.patch</span><br></pre></td></tr></table></figure>
+
+<p>或者修改Makefile.target(实测有用)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; Makefile.target &lt;&lt;EOF</span><br><span class="line">LIBS+&#x3D;-lz -lrt -lm</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure --target-list&#x3D;arm-softmmu --prefix&#x3D;$HOME&#x2F;work&#x2F;mini2440</span><br><span class="line">make -j4;make install</span><br><span class="line">ls $HOME&#x2F;work&#x2F;mini2440</span><br><span class="line"></span><br><span class="line">#git clone git:&#x2F;&#x2F;repo.or.cz&#x2F;u-boot-openmoko&#x2F;mini2440.git uboot</span><br></pre></td></tr></table></figure>
+
+<p>安装完后，添加环境变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo vim &#x2F;etc&#x2F;bash.bashrc</span><br><span class="line">export PATH&#x3D;$PATH:$HOME&#x2F;work&#x2F;mini2440&#x2F;bin</span><br><span class="line">source &#x2F;etc&#x2F;bash.bashrc</span><br><span class="line">qemu-system-arm --version</span><br></pre></td></tr></table></figure>
+
+<p>使用buildroot一键生成uboot和linux内核及根文件系统：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;arnoldlu&#x2F;buildroot.git -b arnoldlu_2017_05_2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;buildroot.org&#x2F;downloads&#x2F;buildroot-2012.05.tar.gz</span><br><span class="line">tar xvf buildroot-2012.05.tar.gz;mv buildroot-2012.05 buildroot;cd buildroot</span><br><span class="line">sudo apt-get install -y libncurses5-dev g++ bison flex gettext patch git-core xz-utils automake</span><br><span class="line"></span><br><span class="line">#打补丁</span><br><span class="line">#wget https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;BrighterEyer&#x2F;qemu-mini2440-files&#x2F;master&#x2F;configure.patch</span><br><span class="line">#patch configure &lt; .&#x2F;configure.patch</span><br><span class="line"></span><br><span class="line">cat &gt;&gt; Makefile.target &lt;&lt;EOF</span><br><span class="line">LIBS+&#x3D;-lz -lrt -lm</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">#make mini2440_defconfig</span><br><span class="line">make defconfig</span><br><span class="line"></span><br><span class="line">#注意要最大化命令行窗口</span><br><span class="line">#make ARCH&#x3D;arm menuconfig</span><br><span class="line"></span><br><span class="line">apt-get install -y gcc-arm-linux-gnueabi</span><br><span class="line">arm-linux-gnueabi -v</span><br></pre></td></tr></table></figure>
+
+<p>修改bug：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#注释掉：_GL_WARN_ON_USE (gets, &quot;gets is a security hole - use fgets instead&quot;）所在行</span><br><span class="line"></span><br><span class="line">#第165行</span><br><span class="line">vim output&#x2F;build&#x2F;host-m4-1.4.16&#x2F;lib&#x2F;stdio.in.h</span><br><span class="line"></span><br><span class="line">#第477行</span><br><span class="line">vim output&#x2F;build&#x2F;host-m4-1.4.16&#x2F;lib&#x2F;stdio.h</span><br></pre></td></tr></table></figure>
+
+<p>menuconfig选择</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- Toolchain ：我选上了GDB和GDBServer方便调试。</span><br><span class="line">- Package Selection for the target ： Busybox已经包含在里面了，我们也可以选择更多的项目，比如 Qt， EFL， directfb之类的图形库。在 Graphic libraries and application子目录里选择。 </span><br><span class="line">- Filesystem images ：在 Flash Type这项，改为 NAND flash with 512B Page and 16 KB erasesize 。 </span><br><span class="line">- Kernel ：内核版本改选为 3.3.7版本</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y cpio python unzip rsync</span><br><span class="line">make all</span><br><span class="line"></span><br><span class="line">ls output&#x2F;images&#x2F;</span><br><span class="line">#u-boot.bin uImage rootfs.jffs2 rootfs.tar</span><br></pre></td></tr></table></figure>
+
+<p>安装texinfo 4.13：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;texinfo&#x2F;texinfo-4.13a.tar.gz</span><br><span class="line">tar -zxvf texinfo-4.13a.tar.gz;mv texinfo-4.13 texinfo;cd texinfo</span><br><span class="line">.&#x2F;configure;make;make install</span><br></pre></td></tr></table></figure>
+
+<p>flashimg制作nand.bin并启动系统：<br><a href="https://gitorious.org/flashimg/flashimg.git" target="_blank">flashimg网址</a><br><a href="https://gitorious.org/flashimg/flashimg?p=flashimg:flashimg.git;a=snapshot;h=fb97139a0d50ad7f2cd2b2348f5b10312da3ed5b;sf=tgz" target="_blank">flashimgflashimg-fb97139.tar.gz</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#git clone https:&#x2F;&#x2F;github.com&#x2F;cailiwei&#x2F;flashimg;cd flashimg;</span><br><span class="line"></span><br><span class="line">wget -O flashimg.tar.gz --no-check-certificate &quot;https:&#x2F;&#x2F;gitorious.org&#x2F;flashimg&#x2F;flashimg?p&#x3D;flashimg:flashimg.git;a&#x3D;snapshot;h&#x3D;fb97139a0d50ad7f2cd2b2348f5b10312da3ed5b;sf&#x3D;tgz&quot;</span><br><span class="line">tar xvf flashimg.tar.gz;mv flashimgflashimg* flashimg;cd flashimg</span><br><span class="line"></span><br><span class="line">#如果没有sudo，注意从文件中去掉</span><br><span class="line">.&#x2F;autogen.sh</span><br><span class="line">.&#x2F;configure;make;make install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ls ..&#x2F;buildroot&#x2F;out&#x2F;images</span><br><span class="line">#u-boot.bin uImage rootfs.jffs2 rootfs.tar</span><br><span class="line">cp ..&#x2F;buildroot&#x2F;out&#x2F;images&#x2F;* .&#x2F;</span><br><span class="line">.&#x2F;flashimg -s 64M -t nand -f nand.bin -p uboot.part -w boot,u-boot.bin -w kernel,uImage -w root,rootfs.jffs2 -z 512</span><br></pre></td></tr></table></figure>
+
+<p>启动方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M mini2440 -serial stdio -mtdblock nand.bin -usbdevice mouse</span><br></pre></td></tr></table></figure>
+
+<p>加载内核和根文件系统：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nboot kernel </span><br><span class="line">setenv bootargs root&#x3D;&#x2F;dev&#x2F;mtdblock3 rootfstype&#x3D;jffs2 console&#x3D;ttySAC0,115200</span><br><span class="line">saveenv</span><br><span class="line">bootm</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#输入默认密码root</span><br><span class="line"></span><br><span class="line">#查看是否有网络配置</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+<p>NFS挂在根文件系统：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#安装nfs服务</span><br><span class="line">sudo apt-get install -y nfs-kernel-server</span><br><span class="line"></span><br><span class="line">#然后配置nfsroot目录</span><br><span class="line">sudo vi &#x2F;etc&#x2F;exports</span><br><span class="line">~&#x2F;work&#x2F;nfsroot *(rw,sync,no_root_squash,no_subtree_check)</span><br><span class="line"></span><br><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;nfs-kernel-server restart</span><br><span class="line"></span><br><span class="line">#新建nfsroot目录</span><br><span class="line">mkdir ~&#x2F;work&#x2F;nfsroot;cd ~&#x2F;work&#x2F;nfsroot&#x2F;</span><br><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;BrighterEyer&#x2F;qemu-mini2440-files&#x2F;raw&#x2F;master&#x2F;rootfs_qtopia_qt4-20140103.tar.gz</span><br><span class="line">tar xvf rootfs_qtopia_qt4-20140103.tar.gz;ls rootfs_qtopia_qt4;</span><br><span class="line"></span><br><span class="line">#用nfs挂载之前需要把网卡的初始化过程取消</span><br><span class="line">rm &#x2F;etc&#x2F;init.d&#x2F;if-config</span><br><span class="line"></span><br><span class="line">sudo chmod -R 777 .&#x2F;</span><br><span class="line">cd rootfs_qtopia_qt4</span><br><span class="line">cd etc&#x2F;init.d&#x2F;</span><br><span class="line">rm ifconfig-eth0</span><br><span class="line"></span><br><span class="line">#创建虚拟网卡并配置ip</span><br><span class="line">sudo apt-get install -y uml-utilities #运行tunctl必须的工具</span><br><span class="line">sudo tunctl -u $USER -t tap0</span><br><span class="line">sudo ifconfig tap0 192.168.42.1</span><br><span class="line"></span><br><span class="line">#带网络方式启动qemu</span><br><span class="line">cd &#x2F;root&#x2F;flashimg</span><br><span class="line"></span><br><span class="line">qemu-system-arm -M mini2440 -serial stdio -mtdblock nand.bin -usbdevice mouse -kernel uImage -net nic,vlan&#x3D;0 -net tap,vlan&#x3D;0,ifname&#x3D;tap0,script&#x3D;no,downscript&#x3D;no</span><br><span class="line"></span><br><span class="line">#启动后进入uboot模式，此时的qemu还不能显示，输入下面指令加载内核和根文件系统</span><br><span class="line">set bootargs noinitrd root&#x3D;&#x2F;dev&#x2F;nfs rw nfsroot&#x3D;192.168.42.1:~&#x2F;work&#x2F;nfsroot&#x2F;rootfs_qtopia_qt4&#x2F;,proto&#x3D;tcp,nfsvers&#x3D;3,nolock ip&#x3D;192.168.42.2:192.168.42.1::255.255.255.0 console&#x3D;ttySAC0,115200</span><br><span class="line">bootm</span><br></pre></td></tr></table></figure>
+
+<p>安装交叉编译工具链：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#arm-linux-gcc-4.4.3.tar.gz</span><br><span class="line">apt-get install -y lib32stdc++6 lib32z1</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/maxwell_nc/article/details/44279553" target="_blank">嵌入式linux：通过qemu模拟mini2440开发环境</a><br><a href="https://blog.csdn.net/leon1741/category_9278077.html" target="_blank">玩转mini2440开发板</a><br><a href="https://github.com/kangear/MINI2440-NO_OS" target="_blank">MINI2440程序</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/17/1581936648000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/17/articles/2020/02/17/1581936648000.html/" class="article-date">
+      <time datetime="2020-02-17T10:50:48.000Z" itemprop="datePublished">2020-02-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/17/articles/2020/02/17/1581936648000.html/">[docker] nginx+vue+express</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="http://dockone.io/article/8834" target="_blank">手把手教你使用 Docker 部署 Vue.js 项目</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vue create vueclidemo</span><br><span class="line">yarn serve &#x2F; npm run serve</span><br></pre></td></tr></table></figure>
+
+<p>访问<br><a href="http://localhost:8081" target="_blank">http://localhost:8081</a></p>
+<p>修改vueclidemo/App.vue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import axios from &#39;axios&#39;;</span><br><span class="line">&#x2F;&#x2F;……</span><br><span class="line">axios.get(&#39;&#x2F;api&#x2F;json&#39;, &#123;</span><br><span class="line">	params: &#123;&#125;</span><br><span class="line">&#125;).then(</span><br><span class="line">	res &#x3D;&gt; &#123;</span><br><span class="line">		console.log(res);</span><br><span class="line">	&#125;</span><br><span class="line">).catch(</span><br><span class="line">	error &#x3D;&gt; &#123;</span><br><span class="line">		console.log(error);</span><br><span class="line">	&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn build &#x2F; npm run build</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull nginx</span><br></pre></td></tr></table></figure>
+
+<p>default.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">	listen       80;</span><br><span class="line">	server_name  localhost;</span><br><span class="line"></span><br><span class="line">	#charset koi8-r;</span><br><span class="line">	access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;host.access.log  main;</span><br><span class="line">	error_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log  error;</span><br><span class="line"></span><br><span class="line">	location &#x2F; &#123;</span><br><span class="line">	    root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line">	    index  index.html index.htm;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	#error_page  404              &#x2F;404.html;</span><br><span class="line"></span><br><span class="line">	# redirect server error pages to the static page &#x2F;50x.html</span><br><span class="line">	#</span><br><span class="line">	error_page   500 502 503 504  &#x2F;50x.html;</span><br><span class="line">	location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">	    root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Dockerfile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM nginx</span><br><span class="line">COPY dist&#x2F; &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html&#x2F;</span><br><span class="line">COPY nginx&#x2F;default.conf &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;default.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker build -t vuenginxcontainer .</span><br><span class="line">docker image ls | grep vuenginxcontainer</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">-p 3000:80 \</span><br><span class="line">-d --name vueApp \</span><br><span class="line">vuenginxcontainer</span><br></pre></td></tr></table></figure>
+
+<p>Server.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line"></span><br><span class="line">const express &#x3D; require(&#39;express&#39;);</span><br><span class="line">const PORT &#x3D; 8080;</span><br><span class="line">const HOST &#x3D; &#39;0.0.0.0&#39;;</span><br><span class="line"></span><br><span class="line">const app &#x3D; express();</span><br><span class="line">app.get(&#39;&#x2F;&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">	res.send(&#39;Hello world\n&#39;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(&#39;&#x2F;json&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">	res.json(&#123;</span><br><span class="line">	    code: 0,</span><br><span class="line">	    data :&#39;This is message from node container&#39;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(PORT, HOST);</span><br><span class="line">console.log(&#96;Running on http:&#x2F;&#x2F;$&#123;HOST&#125;:$&#123;PORT&#125;&#96;);</span><br></pre></td></tr></table></figure>
+
+<p>获取 Node 镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull node</span><br></pre></td></tr></table></figure>
+
+<p>Dockerfile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">FROM node</span><br><span class="line"></span><br><span class="line">WORKDIR &#x2F;usr&#x2F;src&#x2F;app</span><br><span class="line"></span><br><span class="line">COPY package*.json .&#x2F;</span><br><span class="line"></span><br><span class="line">RUN npm install</span><br><span class="line"></span><br><span class="line">COPY . .</span><br><span class="line"></span><br><span class="line">EXPOSE 8080</span><br><span class="line">CMD [ &quot;npm&quot;, &quot;start&quot; ]</span><br></pre></td></tr></table></figure>
+<p>.dockerignore</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node_modules</span><br><span class="line">npm-debug.log</span><br></pre></td></tr></table></figure>
+
+<p>构建 NodeWebServer 镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t nodewebserver .</span><br></pre></td></tr></table></figure>
+
+<p>启动 NodeServer 容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">-p 5000:8080 \</span><br><span class="line">-d --name nodeserver \</span><br><span class="line">nodewebserver</span><br></pre></td></tr></table></figure>
+
+<p>访问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost:5000&#x2F;json</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/02/17/1581936647000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -855,169 +1072,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker-compose/" rel="tag">docker-compose</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/15/1581738699000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/15/articles/2020/02/15/1581738699000.html/" class="article-date">
-      <time datetime="2020-02-15T03:51:39.000Z" itemprop="datePublished">2020-02-15</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/15/articles/2020/02/15/1581738699000.html/">[docker] mysql主从复制</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>master(主)：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3339:3306 --name mysql-master -e MYSQL_ROOT_PASSWORD&#x3D;123456 -d mysql:5.7</span><br></pre></td></tr></table></figure>
-
-<p>slave(从)：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3340:3306 --name mysql-slave -e MYSQL_ROOT_PASSWORD&#x3D;123456 -d mysql:5.7</span><br></pre></td></tr></table></figure>
-
-<p>master(主)：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mysql-master &#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">apt-get update;apt-get -y install vim</span><br><span class="line"></span><br><span class="line">cd &#x2F;etc&#x2F;mysql</span><br><span class="line"></span><br><span class="line">vi my.cnf</span><br><span class="line">[mysqld]</span><br><span class="line">## 同一局域网内注意要唯一</span><br><span class="line">server-id&#x3D;100  </span><br><span class="line">## 开启二进制日志功能，可以随便取（关键）</span><br><span class="line">log-bin&#x3D;mysql-bin</span><br><span class="line"></span><br><span class="line">service mysql restart</span><br><span class="line"></span><br><span class="line">docker start mysql-master;docker exec -it mysql-master &#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">mysql -uroot -p123456</span><br><span class="line">CREATE USER &#39;slave&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;;</span><br><span class="line">GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO &#39;slave&#39;@&#39;%&#39;;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
-
-<p>slave(从)：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mysql-slave &#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">apt-get update;apt-get -y install vim</span><br><span class="line"></span><br><span class="line">cd &#x2F;etc&#x2F;mysql</span><br><span class="line"></span><br><span class="line">vi my.cnf</span><br><span class="line">[mysqld]</span><br><span class="line">## 设置server_id,注意要唯一</span><br><span class="line">server-id&#x3D;101</span><br><span class="line">## 开启二进制日志功能，以备Slave作为其它Slave的Master时使用</span><br><span class="line">log-bin&#x3D;mysql-slave-bin</span><br><span class="line">## relay_log配置中继日志</span><br><span class="line">relay_log&#x3D;edu-mysql-relay-bin</span><br><span class="line"></span><br><span class="line">service mysql restart</span><br><span class="line"></span><br><span class="line">docker start mysql-slave;docker exec -it mysql-slave &#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">mysql -uroot -p123456</span><br></pre></td></tr></table></figure>
-
-<p>master(主)：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#为防止出现错误： Got fatal error 1236 from master when reading data from binary log</span><br><span class="line">#需记下 File, Position</span><br><span class="line">flush logs;</span><br><span class="line">show master status;</span><br></pre></td></tr></table></figure>
-
-<p>slave(从)：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CHANGE MASTER TO MASTER_LOG_FILE&#x3D;&#39;mysql-bin.000002&#39;,MASTER_LOG_POS&#x3D;154;</span><br><span class="line">slave start;</span><br><span class="line">show slave status \G;</span><br></pre></td></tr></table></figure>
-
-<p>查看master ip</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect --format&#x3D;&#39;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&#39; mysql-master</span><br></pre></td></tr></table></figure>
-
-<p>slave(从)：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">change master to master_host&#x3D;&#39;172.17.0.3&#39;, master_user&#x3D;&#39;slave&#39;, master_password&#x3D;&#39;123456&#39;, master_port&#x3D;3306, master_log_file&#x3D;&#39;mysql-bin.000002&#39;, master_log_pos&#x3D;154, master_connect_retry&#x3D;30;</span><br></pre></td></tr></table></figure>
-<p>命令说明：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">master_host ：Master的地址，指的是容器的独立ip,可以通过docker inspect --format&#x3D;&#39;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&#39; 容器名称|容器id查询容器的ip</span><br><span class="line"></span><br><span class="line">master_port：Master的端口号，指的是容器的端口号</span><br><span class="line"></span><br><span class="line">master_user：用于数据同步的用户</span><br><span class="line"></span><br><span class="line">master_password：用于同步的用户的密码</span><br><span class="line"></span><br><span class="line">master_log_file：指定 Slave 从哪个日志文件开始复制数据，即上文中提到的 File 字段的值</span><br><span class="line"></span><br><span class="line">master_log_pos：从哪个 Position 开始读，即上文中提到的 Position 字段的值</span><br><span class="line"></span><br><span class="line">master_connect_retry：如果连接失败，重试的时间间隔，单位是秒，默认是60秒</span><br></pre></td></tr></table></figure>
-
-<p>slave(从)，开启主从同步：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#开启主从复制过程</span><br><span class="line">start slave;</span><br><span class="line"></span><br><span class="line">show slave status \G</span><br><span class="line"></span><br><span class="line">#SlaveIORunning 和 SlaveSQLRunning 都是Yes，说明主从复制已经开启</span><br></pre></td></tr></table></figure>
-
-<p>slave(从)：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stop slave;</span><br></pre></td></tr></table></figure>
-
-<p>测试</p>
-<p>master(主)：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database test;</span><br></pre></td></tr></table></figure>
-
-<p>slave(从)：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.cnblogs.com/songwenjie/p/9371422.html" target="_blank">基于Docker的Mysql主从复制搭建</a><br><a href="https://lanjingling.github.io/2015/10/26/mysql-replication-master-slave/" target="_blank">Mysql 主从复制</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/15/1581731864000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/15/articles/2020/02/15/1581731864000.html/" class="article-date">
-      <time datetime="2020-02-15T01:57:44.000Z" itemprop="datePublished">2020-02-15</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/15/articles/2020/02/15/1581731864000.html/">[springboot] 集成MQTT</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://segmentfault.com/a/1190000017811919" target="_blank">SpringBoot集成MQTT</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
     </div>
 
       
