@@ -283,89 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/10/23/1571834852000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/23/articles/2019/10/23/1571834852000.html/" class="article-date">
-      <time datetime="2019-10-23T12:47:32.000Z" itemprop="datePublished">2019-10-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834852000.html/">[jfinal] 下载文件</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="" target="_blank"></a><br><a href="https://blog.csdn.net/m0_37934074/article/details/78130412" target="_blank">JFinal文件下载及设置路径</a></p>
-<p>一：利用超链接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;&#x2F;download&#x2F;a.docx&quot;&gt;download&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
-<p>二：java代码<br>1.页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;&#x2F;download&quot;&gt;下载&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
-<p>2.路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public void configConstant(Constants me) &#123;</span><br><span class="line">    me.setBaseUploadPath(&quot;upload&quot;);&#x2F;&#x2F; 配置文件上传路径</span><br><span class="line">    me.setBaseDownloadPath(&quot;&#x2F;download&quot;);&#x2F;&#x2F;配置文件下载路径</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3.代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public void download() &#123;</span><br><span class="line">    String path &#x3D; getSession().getServletContext().getRealPath(&quot;download&quot;);</span><br><span class="line">    File file &#x3D; new File(path + &quot;&#x2F;a.docx&quot;);</span><br><span class="line">    System.out.println(path);</span><br><span class="line">    System.out.println(file.exists());</span><br><span class="line">    if (file.exists()) &#123;</span><br><span class="line">        renderFile(file);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        renderJson(&quot;文件不存在&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://yq.aliyun.com/articles/662197" target="_blank">jfinal框架文件下载功能代码</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;jfinal文件下载，使用普通io流方式下载</span><br><span class="line">public void downloadFile() throws IOException&#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;通过pathkit.getwebrootpath获取项目的根目录，或者在config配置默认的文件下载根路径</span><br><span class="line">    String basePath &#x3D; PathKit.getWebRootPath() +&quot;&#x2F;upload&#x2F;jpg&quot;;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;获取前台的传递的文件名（包括文件格式，例如&quot;test.jpg&quot;）</span><br><span class="line">    String fileName &#x3D; getPara(&quot;downFileName&quot;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;根据根目录和文件名，拼接成完整的file路径</span><br><span class="line">    String targetPath &#x3D; basePath+File.separator+fileName;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;普通IO流实现下载的功能</span><br><span class="line">    HttpServletResponse res &#x3D; getResponse(); &#x2F;&#x2F;创建response回应</span><br><span class="line">    res.setContentType(&quot;text&#x2F;html; charset&#x3D;UTF-8&quot;); &#x2F;&#x2F;设置编码字符</span><br><span class="line">    res.setContentType(&quot;application&#x2F;x-msdownload&quot;); &#x2F;&#x2F;设置内容类型</span><br><span class="line">    res.setHeader(&quot;Content-disposition&quot;, &quot;attachment;filename&#x3D;&quot;+fileName);&#x2F;&#x2F;设置下载的文件名称</span><br><span class="line">    OutputStream out &#x3D; res.getOutputStream();   &#x2F;&#x2F;创建页面返回方式为输出流，可弹出下载框</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;创建输入流读取文件</span><br><span class="line">    InputStream is &#x3D; new FileInputStream(targetPath); </span><br><span class="line">    byte[] Buffer &#x3D; new byte[4096];</span><br><span class="line">    int size &#x3D; 0; </span><br><span class="line">    while((size&#x3D;is.read(Buffer)) !&#x3D; -1)&#123;</span><br><span class="line">        out.write(Buffer, 0, size); </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;关闭和释放流</span><br><span class="line">    out.flush();</span><br><span class="line">    out.close();</span><br><span class="line">    is.close();</span><br><span class="line">    renderNull();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HttpSession session &#x3D; getSession();</span><br></pre></td></tr></table></figure>
-
-
-
-<p><a href="https://blog.csdn.net/qq_36073929/article/details/78326881" target="_blank" rel="noopener">https://blog.csdn.net/qq_36073929/article/details/78326881</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;下载</span><br><span class="line">public void download()&#123;</span><br><span class="line">	String text &#x3D; this.getPara(&quot;text&quot;).replaceAll(&quot;&#x2F;&quot;, &quot;\\\\&quot;);</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;要导出的数据文件</span><br><span class="line">	String path&#x3D;JFinal.me().getServletContext().getRealPath(&quot;&#x2F;&quot;)+text;</span><br><span class="line"></span><br><span class="line">	File file &#x3D; new File(path);</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;判断文件是否存在</span><br><span class="line">	if(file.exists())&#123;</span><br><span class="line">		System.out.println(&quot;yes &quot;); </span><br><span class="line">		this.setAttr(&quot;state&quot;, &quot;0&quot;);</span><br><span class="line">		this.renderJson();</span><br><span class="line">		return;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		System.out.println(&quot;no &quot;);</span><br><span class="line">		this.setAttr(&quot;state&quot;, &quot;FAILED&quot;);</span><br><span class="line">		this.renderJson();</span><br><span class="line">		return ;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;下载成功</span><br><span class="line">public void downloadOk()&#123;</span><br><span class="line">	String text &#x3D; this.getPara(&quot;text&quot;).replaceAll(&quot;&#x2F;&quot;, &quot;\\\\&quot;);</span><br><span class="line">	</span><br><span class="line">	String path&#x3D;JFinal.me().getServletContext().getRealPath(&quot;&#x2F;&quot;)+text;&#x2F;&#x2F;要导出的数据文件</span><br><span class="line">	System.out.println(path);</span><br><span class="line">	</span><br><span class="line">	this.renderFile(new File(path));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;点击直接下载</span><br><span class="line">function clickDownload(text)&#123;</span><br><span class="line">    console.log(text);</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:&#39;$&#123;path&#125;&#x2F;qtxz&#x2F;download&#39;,</span><br><span class="line">        type:&#39;POST&#39;,</span><br><span class="line">        async:false,</span><br><span class="line">        data:&#123;&#39;text&#39;:text&#125;,</span><br><span class="line">        dataType:&#39;json&#39;,</span><br><span class="line">        success:function(obj)&#123;</span><br><span class="line">        	if(obj.state &#x3D;&#x3D; &quot;0&quot;)&#123;</span><br><span class="line">        		window.open(&#39;$&#123;path&#125;&#x2F;qtxz&#x2F;downloadOk?text&#x3D;&#39;+text);</span><br><span class="line">        	&#125;else&#123;</span><br><span class="line">        		alert(&quot;文件丢失&quot;);</span><br><span class="line">        	&#125;</span><br><span class="line">    	&#125;,</span><br><span class="line">        error:function(obj)&#123;</span><br><span class="line">            alert(&quot;系统错误!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfinal/" rel="tag">jfinal</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2019/10/23/1571834851000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -908,6 +825,68 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/23/1571831033000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/23/articles/2019/10/23/1571831033000.html/" class="article-date">
+      <time datetime="2019-10-23T11:43:53.000Z" itemprop="datePublished">2019-10-23</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571831033000.html/">[ui] 电气监控</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.zcool.com.cn/work/ZMjMwNTQwMjg=.html" target="_blank">ui 电气监控</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ui/" rel="tag">ui</a></li></ul>
     </div>
 
       
