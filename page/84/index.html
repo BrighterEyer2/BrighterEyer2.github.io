@@ -283,6 +283,163 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2019/09/25/1569418375000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/09/25/articles/2019/09/25/1569418375000.html/" class="article-date">
+      <time datetime="2019-09-25T13:32:55.000Z" itemprop="datePublished">2019-09-25</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/09/25/articles/2019/09/25/1569418375000.html/">[android] 监听usb插拔状态</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="" target="_blank"></a></p>
+<p>android 监听 USB 拔插广播消息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.iteye.com&#x2F;blog&#x2F;171151394-2197402</span><br></pre></td></tr></table></figure>
+
+<p>1、定义广播类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import android.content.BroadcastReceiver;  </span><br><span class="line">import android.content.Context;  </span><br><span class="line">import android.content.Intent;  </span><br><span class="line">import android.widget.Toast;  </span><br><span class="line"></span><br><span class="line">public class USBBroadcastReceiver extends BroadcastReceiver&#123;  </span><br><span class="line">      @Override  </span><br><span class="line">     public void onReceive(Context context, Intent intent) &#123;  </span><br><span class="line">         &#x2F;&#x2F; TODO Auto-generated method stub  </span><br><span class="line">         if(intent.getAction().equals(&quot;android.hardware.usb.action.USB_STATE&quot;))&#123;  </span><br><span class="line">              if (intent.getExtras().getBoolean(&quot;connected&quot;))&#123;  </span><br><span class="line">                 &#x2F;&#x2F; usb 插入  </span><br><span class="line">                  Toast.makeText(context, &quot;插入&quot;, Toast.LENGTH_LONG).show();  </span><br><span class="line">               &#125;else&#123;  </span><br><span class="line">                &#x2F;&#x2F;   usb 拔出  </span><br><span class="line">                   Toast.makeText(context, &quot;拔出&quot;, Toast.LENGTH_LONG).show();  </span><br><span class="line">               &#125;  </span><br><span class="line">         &#125;  </span><br><span class="line">     &#125;  </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、在AndroidManifest.xml中注册广播：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;receiver android:name&#x3D;&quot;.USBBroadcastReceiver&quot;&gt;    </span><br><span class="line">   &lt;intent-filter android:priority&#x3D;&quot;800&quot;&gt;    </span><br><span class="line">       &lt;action android:name&#x3D;&quot;android.hardware.usb.action.USB_STATE&quot;&#x2F;&gt;  </span><br><span class="line">    &lt;&#x2F;intent-filter&gt;    </span><br><span class="line">&lt;&#x2F;receiver&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/09/25/1569418374000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/09/25/articles/2019/09/25/1569418374000.html/" class="article-date">
+      <time datetime="2019-09-25T13:32:54.000Z" itemprop="datePublished">2019-09-25</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/09/25/articles/2019/09/25/1569418374000.html/">[android] 查错</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/dengweijunkedafu/article/details/80541104" target="_blank">Manifest merger failed with multiple errors, see logs问题处理</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#首先进入命令行,输入命令</span><br><span class="line">gradlew processDebugManifest --stacktrace</span><br></pre></td></tr></table></figure>
+
+<p>问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error:resource android:style&#x2F;TextAppearance.Material.Widget.Button.Borderless.Colored not found</span><br></pre></td></tr></table></figure>
+<p>修改方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将compileSdkVersion修改成25，并将对应的buildToolsVersion修改成25.0.2即可</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: resource android:attr&#x2F;fontVariationSettings not found.error: resource android:attr&#x2F;ttcIndex</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.pianshen.com/article/5082200802/" target="_blank">参考</a></p>
+<p><a href="https://blog.csdn.net/weixin_43465451/article/details/83185112" target="_blank">Android Studio：resource android:attr/dialogCornerRadius not found 出错解决方案</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">configurations.all &#123;</span><br><span class="line">    resolutionStrategy &#123;</span><br><span class="line">        force &quot;com.android.support:appcompat-v7:27.1.1&quot;</span><br><span class="line">        force &quot;com.android.support:support-v4:27.1.1&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">android&#123;</span><br><span class="line">    compileSdkVersion 28</span><br><span class="line">    buildToolsVersion &#39;28.0.3&#39;</span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        minSdkVersion 16</span><br><span class="line">        targetSdkVersion 28</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>INSTALL_FAILED_NO_MATCHING_ABIS<br><a href="https://blog.csdn.net/Leafage_M/article/details/86675699" target="_blank">解决参考</a><br>app/build.gradle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    splits &#123;</span><br><span class="line">        abi &#123;</span><br><span class="line">            enable true</span><br><span class="line">            reset()</span><br><span class="line">            include &#39;x86&#39;, &#39;armeabi-v7a&#39;, &#39;x86_64&#39;</span><br><span class="line">            universalApk true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/csdnfengli/article/details/80695769" target="_blank">unable to resolve dependency for app@debugcompileClasspath</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">%USERPROFILE%\.gradle\gradle.properties</span><br><span class="line"></span><br><span class="line">#注释掉systemProp前缀</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">File -&gt; Project Structure... -&gt; app -&gt; Properties -&gt; Compile Sdk Version API 28</span><br><span class="line"></span><br><span class="line">com.android.support:appcompat-v7:28.+</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://blog.csdn.net/waplyj/article/details/80604700" target="_blank">CreateProcess error=2, 系统找不到指定的文件。</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">packagingOptions &#123;</span><br><span class="line">    doNotStrip &#39;*&#x2F;mips&#x2F;*.so&#39;</span><br><span class="line">    doNotStrip &#39;*&#x2F;mips64&#x2F;*.so&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2019/09/25/1569418373000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -828,161 +985,9 @@
 
 
   
-    <article id="post-/articles/2019/09/22/1569133333000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/09/22/articles/2019/09/22/1569133333000.html/" class="article-date">
-      <time datetime="2019-09-22T06:22:13.000Z" itemprop="datePublished">2019-09-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/09/22/articles/2019/09/22/1569133333000.html/">[react-native] 文件系统</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="http://www.bubuko.com/infodetail-2960571.html" target="_blank">react-native中显示手机本地图片/视频</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#已知文件路径</span><br><span class="line">&#39;&#x2F;data&#x2F;user&#x2F;0&#x2F;com.ycdj&#x2F;files&#x2F;media&#x2F;218787782&#x2F;efa1d12f22d2&#x2F;1235.jpg&#39;</span><br><span class="line">#只需在路径前面拼上file:&#x2F;&#x2F;&#x2F;即可，如：</span><br><span class="line">&lt;Image source&#x3D;&#123;&#123;uri:&#96;file:&#x2F;&#x2F;&#x2F;$&#123;mediaPath&#125;&#96;&#125;&#125; style&#x3D;&#123;&#123;width:200, height:200&#125;&#125; resizeMode&#x3D;&#39;contain&#39;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.jianshu.com/p/d62fc3ede61c" target="_blank">react-native-fs文件创建、查看、上传、下载</a><br><a href="https://www.cnblogs.com/jackson-yqj/p/9554611.html" target="_blank">React Native之本地文件系统访问组件react-native-fs的介绍与使用</a><br><a href="https://blog.csdn.net/weixin_44187730/article/details/87729100" target="_blank">React Native集成react-native-fs(本地文件系统)</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#安装</span><br><span class="line">npm install --save react-native-fs</span><br><span class="line"></span><br><span class="line">#链接依赖</span><br><span class="line">react-native link react-native-fs</span><br></pre></td></tr></table></figure>
-<p>react-native-fs Demo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;chjwrr&#x2F;RN-react-native-fs</span><br></pre></td></tr></table></figure>
-
-
-<p><a href="https://www.jianshu.com/p/4f7296753013" target="_blank">React Native拍照、从相册选择、录像的实现</a><br><a href="https://github.com/gaoxiaosong/react-native-full-image-picker" target="_blank">github react-native-full-image-picker</a><br>一、功能介绍</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">使用相机拍照</span><br><span class="line">视频录制</span><br><span class="line">从相册选择</span><br><span class="line">iPhone X系列设备的安全区域</span><br><span class="line">竖屏和横屏模式</span><br><span class="line">多选或多拍模式</span><br><span class="line">拍照、选择或录像后预览功能</span><br><span class="line">最大数量限制</span><br></pre></td></tr></table></figure>
-<p>二、安装react-native-full-image-picker</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-native-full-image-picker</span><br><span class="line">yarn add react-native-full-image-picker</span><br><span class="line"></span><br><span class="line">npm install rn-camera-roll</span><br><span class="line">react-native link rn-camera-roll</span><br><span class="line"></span><br><span class="line">yarn add react-native-camera</span><br><span class="line">yarn add react-native-video</span><br><span class="line">yarn add react-native-fs</span><br></pre></td></tr></table></figure>
-<p>三、权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name&#x3D;&quot;android.permission.CAMERA&quot; &#x2F;&gt;</span><br><span class="line">&lt;uses-permission android:name&#x3D;&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
-<p>四、方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#拍照: </span><br><span class="line">ImagePicker.getCamera(options)</span><br><span class="line"></span><br><span class="line">#录像: </span><br><span class="line">ImagePicker.getVideo(options)</span><br><span class="line"></span><br><span class="line">#从相册选择: </span><br><span class="line">ImagePicker.getAlbum(options)</span><br></pre></td></tr></table></figure>
-<p>五、options</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">options是一个对象，包含如下键:</span><br><span class="line"></span><br><span class="line">#回调方法，传回照片或视频的数组: </span><br><span class="line">callback: (data: any[]) &#x3D;&gt; void</span><br><span class="line"></span><br><span class="line">#照片的最大数量，在拍照和从相册选择模式下生效:</span><br><span class="line">maxSize?: number</span><br><span class="line"></span><br><span class="line">#镜头，前置还是后置。在拍照和录像模式下生效: </span><br><span class="line">sideType?: RNCamera.Constants.Type</span><br><span class="line"></span><br><span class="line">#闪光灯，在拍照和录像模式下生效:</span><br><span class="line">flashMode?: RNCamera.Constants.FlashMode</span><br></pre></td></tr></table></figure>
-
-
-<p><a href="https://www.jianshu.com/p/727c9d4c080c" target="_blank">React Native的照相机和图片react-native-image-picker</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-native-image-picker</span><br><span class="line">react-native link react-native-image-picker</span><br></pre></td></tr></table></figure>
-<p>一、示例：<br>先定义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const photoOptions &#x3D; &#123;</span><br><span class="line">    title:&#39;请选择&#39;,</span><br><span class="line">    quality: 0.8,</span><br><span class="line">    cancelButtonTitle:&#39;取消&#39;,</span><br><span class="line">    takePhotoButtonTitle:&#39;拍照&#39;,</span><br><span class="line">    chooseFromLibraryButtonTitle:&#39;选择相册&#39;,</span><br><span class="line">    allowsEditing: true,</span><br><span class="line">    noData: false,</span><br><span class="line">    storageOptions: &#123;</span><br><span class="line">        skipBackup: true,</span><br><span class="line">        path: &#39;images&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>二、再使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">choosePicker&#x3D;()&#x3D;&gt;&#123;</span><br><span class="line">    ImagePicker.showImagePicker(photoOptions, (response) &#x3D;&gt; &#123;</span><br><span class="line">        console.log(&#39;Response &#x3D; &#39;, response);</span><br><span class="line">        if (response.didCancel) &#123;</span><br><span class="line">            console.log(&#39;User cancelled image picker&#39;);</span><br><span class="line">        &#125;</span><br><span class="line">        else if (response.error) &#123;</span><br><span class="line">            console.log(&#39;ImagePicker Error: &#39;, response.error);</span><br><span class="line">        &#125;</span><br><span class="line">        else if (response.customButton) &#123;</span><br><span class="line">            console.log(&#39;User tapped custom button: &#39;, response.customButton);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            let source &#x3D; &#123; uri: response.uri &#125;;</span><br><span class="line">            &#x2F;&#x2F; You can also display the image using data:</span><br><span class="line">            &#x2F;&#x2F; let source &#x3D; &#123; uri: &#39;data:image&#x2F;jpeg;base64,&#39; + response.data &#125;;</span><br><span class="line">            this.setState(&#123;</span><br><span class="line">                avatarSource: source</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/09/22/1569133332000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/09/22/articles/2019/09/22/1569133332000.html/" class="article-date">
-      <time datetime="2019-09-22T06:22:12.000Z" itemprop="datePublished">2019-09-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/09/22/articles/2019/09/22/1569133332000.html/">[react-native] 通过安卓Socket连接打印机推送指令</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://segmentfault.com/a/1190000013998316" target="_blank">React Native Socket 连接打印机推送指令</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import com.facebook.react.bridge.Promise;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @ReactMethod</span><br><span class="line">    public void print(String ip, Integer port, String msg, Promise promise) &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Socket socket &#x3D; new Socket(ip, port);</span><br><span class="line">            if (socket.isConnected()) &#123;</span><br><span class="line">                InputStream inputStream &#x3D; socket.getInputStream();</span><br><span class="line">                OutputStream os &#x3D; socket.getOutputStream();</span><br><span class="line">                BufferedWriter bw &#x3D; new BufferedWriter(new OutputStreamWriter(os));</span><br><span class="line">                bw.write(msg);</span><br><span class="line">                bw.flush();</span><br><span class="line">                promise.resolve(&quot;success&quot;);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                promise.reject(&quot;连接打印机失败&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (Exception ex) &#123;</span><br><span class="line">            promise.reject(ex.fillInStackTrace());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import &#123; NativeModules &#125; from &#39;react-native&#39;</span><br><span class="line">NativeModules.PrintExtension.print(</span><br><span class="line">	printAddr.split(&#39;:&#39;)[0],</span><br><span class="line"></span><br><span class="line">	printAddr.split(&#39;:&#39;)[1]*1,</span><br><span class="line"></span><br><span class="line">	&#39;^XA^FO100,75^BY3^B3N,N,100,Y,N^FD123ABC^XZ&#39;).then((c) &#x3D;&gt; &#123;</span><br><span class="line">        console.log(c)</span><br><span class="line">        if (c!&#x3D;&#x3D;&quot;success&quot;) &#123;</span><br><span class="line">            Modal.alert(&#39;打印失败&#39;, c, [</span><br><span class="line">                &#123; text: &#39;确定&#39;&#125;,</span><br><span class="line">              ])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    (c)&#x3D;&gt;&#123;</span><br><span class="line">        console.log(c)</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/83/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/82/">82</a><a class="page-number" href="/page/83/">83</a><span class="page-number current">84</span><a class="page-number" href="/page/85/">85</a><a class="page-number" href="/page/86/">86</a><span class="space">&hellip;</span><a class="page-number" href="/page/89/">89</a><a class="extend next" rel="next" href="/page/85/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/83/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/82/">82</a><a class="page-number" href="/page/83/">83</a><span class="page-number current">84</span><a class="page-number" href="/page/85/">85</a><a class="page-number" href="/page/86/">86</a><span class="space">&hellip;</span><a class="page-number" href="/page/90/">90</a><a class="extend next" rel="next" href="/page/85/">Next &amp;raquo;</a>
     </nav>
   
 

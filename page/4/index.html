@@ -283,6 +283,103 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/02/15/1581731060000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/15/articles/2020/02/15/1581731060000.html/" class="article-date">
+      <time datetime="2020-02-15T01:44:20.000Z" itemprop="datePublished">2020-02-15</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/15/articles/2020/02/15/1581731060000.html/">[arm] QEMU模拟mini2440开发环境</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.cnblogs.com/zwxwill/p/9431774.html" target="_blank">嵌入式linux：通过qemu模拟mini2440开发环境</a></p>
+<p>编译安装QEMU</p>
+<p>首先下载qemu for mini2440</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;repo.or.cz&#x2F;w&#x2F;qemu&#x2F;mini2440.git&#x2F;snapshot&#x2F;HEAD.tar.gz</span><br><span class="line">sudo apt-get install zlib1g-dev</span><br><span class="line">sudo apt-get install libsdl-dev</span><br><span class="line">.&#x2F;configure --target-list&#x3D;arm-softmmu --prefix&#x3D;$HOME&#x2F;work&#x2F;mini2440</span><br><span class="line">make -j4</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>安装完后，添加环境变量:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vim &#x2F;etc&#x2F;bash.bashrc</span><br><span class="line">export PATH&#x3D;$PATH:$HOME&#x2F;work&#x2F;mini2440&#x2F;bin</span><br><span class="line">source &#x2F;etc&#x2F;bash.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>测试是否正常:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm --version</span><br></pre></td></tr></table></figure>
+
+<p>使用buildroot一键生成uboot和linux内核及根文件系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;buildroot.org&#x2F;downloads&#x2F;buildroot-2012.05.tar.gz</span><br><span class="line">tar xvf buildroot-2012.05.tar.gz;mv buildroot-2012.05 buildroot;cd buildroot;</span><br><span class="line">sudo apt-get install -y libncurses5-dev</span><br><span class="line">patch configure &lt;..&#x2F;configure.patch    &#x2F;* 需要修改源码 打补丁 *&#x2F;</span><br><span class="line">make mini2440_defconfig</span><br><span class="line">make menuconfig</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y g++ bison flex gettext patch git-core xz-utils automake</span><br><span class="line">tar -zxvf texinfo-4.13a.tar.gz</span><br><span class="line">cd texinfo-4.13</span><br><span class="line">.&#x2F;configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#修改bug（注释下面文件中：_GL_WARN_ON_USE (gets,.......  这行代码）:</span><br><span class="line"></span><br><span class="line">vim output&#x2F;build&#x2F;host-m4-1.4.16&#x2F;lib&#x2F;stdio.in.h</span><br><span class="line">vim output&#x2F;build&#x2F;host-m4-1.4.16&#x2F;lib&#x2F;stdio.h</span><br></pre></td></tr></table></figure>
+
+<p>在安装 时间比较长（可以先用我提供的安装文件放到buildroot-2012.05/dl目录下，这样省去下载时间）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">链接：</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1PUxi_DejVo-bgChQH5bzmA</span><br><span class="line">密码：</span><br><span class="line">2dkz</span><br></pre></td></tr></table></figure>
+
+<p>Flashimg制作nand.bin并启动系统：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 下载flashimg源码 </span><br><span class="line">git clone http:&#x2F;&#x2F;gitorious.org&#x2F;flashimg&#x2F;flashimg.git</span><br><span class="line">cd flashimg;</span><br><span class="line">.&#x2F;autogen.sh  #（要求autoconf版本大于2.67）</span><br><span class="line">.&#x2F;configure </span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<p>然后把我们生成的三个文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">u-boot.bin</span><br><span class="line">uImage</span><br><span class="line">rootfs.jffs2</span><br><span class="line">flashimg</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;flashimg -s 64M -t nand -f nand.bin -p uboot.part -w boot,u-boot.bin -w kernel,uImage -w root,rootfs.jffs2 -z 512 </span><br><span class="line">即可生成nand.bin</span><br></pre></td></tr></table></figure>
+
+<p>启动方法为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M mini2440 -serial stdio -mtdblock nand.bin -usbdevice mouse</span><br></pre></td></tr></table></figure>
+<p>（若出现错误：浮点数例外启动不了qemu，请全屏最大化终端，再次执行，这是由于分辨率问题造成）</p>
+<p>输入下面指令加载内核和根文件系统：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nboot kernel </span><br><span class="line">setenv bootargs root&#x3D;&#x2F;dev&#x2F;mtdblock3 rootfstype&#x3D;jffs2 console&#x3D;ttySAC0,115200 </span><br><span class="line">saveenv </span><br><span class="line">bootm</span><br></pre></td></tr></table></figure>
+
+<p>启动后，输入默认密码root，即可成功登录，此时还没有配置网络。ifconfig发现没有网卡。<br>4 NFS挂在根文件系统<br>首先安装nfs服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nfs-kernel-server </span><br><span class="line"># 新建nfsroot文件夹</span><br><span class="line">mkdir ~work&#x2F;nfsroot </span><br><span class="line"># 然后配置nfs目录 </span><br><span class="line">sudo vi &#x2F;etc&#x2F;exports </span><br><span class="line"># 添加一行</span><br><span class="line">&#x2F;home&#x2F;zwx&#x2F;work&#x2F;nfsroot *(rw,sync,no_root_squash,no_subtree_check</span><br><span class="line"># 然后执行：</span><br><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;nfs-kernel-server restart</span><br><span class="line"># 进入NFS共享目录：</span><br><span class="line">cd &#x2F;home&#x2F;zwx&#x2F;work&#x2F;nfsroot&#x2F; </span><br><span class="line"># 修改权限</span><br><span class="line">sudo chmod -R 777 .&#x2F; </span><br><span class="line"># 解压根文件系统</span><br><span class="line">tar xvzf rootfs_qtopia_qt4-20140103.tar.gz</span><br><span class="line">注意：友善之臂提供的qtopia文件系统在挂载时会初始化网卡，但我们是由nfs挂载的文件系统，这会导致nfs连接中断，挂载失败，所以用nfs挂载之前需要把网卡的初始化过程取消，对应的文件是&#x2F;etc&#x2F;init.d&#x2F;if-config，只需把该文件内容删除即可（删除文件也可以）。</span><br><span class="line"></span><br><span class="line">sudo chmod -R 777 .&#x2F; </span><br><span class="line">cd rootfs_qtopia_qt4</span><br><span class="line">cd etc&#x2F;init.d&#x2F;</span><br><span class="line">rm ifconfig-eth0</span><br><span class="line">创建虚拟网卡并配置ip</span><br><span class="line"></span><br><span class="line">sudo apt-get install uml-utilities &#x2F;&#x2F;运行tunctl必须的工具</span><br><span class="line">sudo tunctl -u $USER -t tap0</span><br><span class="line">sudo ifconfig tap0 192.168.42.1</span><br><span class="line">带网络方式启动qemu</span><br><span class="line"></span><br><span class="line">cd &#x2F;home&#x2F;zwx&#x2F;work&#x2F;qemu&#x2F;flashimgflashimg-fb97139</span><br><span class="line">qemu-system-arm -M mini2440 -serial stdio -mtdblock nand.bin -usbdevice mouse -kernel uImage -net nic,vlan&#x3D;0 -net tap,vlan&#x3D;0,ifname&#x3D;tap0,script&#x3D;no,downscript&#x3D;no</span><br><span class="line">启动后进入uboot模式，此时的qemu还不能显示，输入下面指令加载内核和根文件系统。</span><br><span class="line"></span><br><span class="line">set bootargs noinitrd root&#x3D;&#x2F;dev&#x2F;nfs rw nfsroot&#x3D;192.168.42.1:&#x2F;home&#x2F;zwx&#x2F;work&#x2F;nfsroot&#x2F;rootfs_qtopia_qt4&#x2F;,proto&#x3D;tcp,nfsvers&#x3D;3,nolock  ip&#x3D;192.168.42.2:192.168.42.1::255.255.255.0 console&#x3D;ttySAC0,115200</span><br><span class="line">bootm</span><br><span class="line">然后就可以启动了</span><br><span class="line"></span><br><span class="line"> 5 安装交叉编译工具链：</span><br><span class="line"></span><br><span class="line">arm-linux-gcc-4.4.3.tar.gz </span><br><span class="line">安装库：</span><br></pre></td></tr></table></figure>
+<p>sudo apt-get install lib32stdc++6<br>sudo apt-get install lib32z1</p>
+<pre><code></code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/02/15/1581731059000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -992,83 +1089,9 @@
 
 
   
-    <article id="post-/articles/2020/02/14/1581643661000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/14/articles/2020/02/14/1581643661000.html/" class="article-date">
-      <time datetime="2020-02-14T01:27:41.000Z" itemprop="datePublished">2020-02-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/14/articles/2020/02/14/1581643661000.html/">[linux] tunctl添加虚拟网卡与brctl添加网桥</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/zhaihaifei/article/details/23168621" target="_blank">tunctl添加虚拟网卡TUN/TAP与brctl添加网桥</a></p>
-<p><a href="https://www.iteye.com/blog/fp-moon-1468650" target="_blank">Linux 网桥配置命令：brctl</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y bridge-utils</span><br></pre></td></tr></table></figure>
-
-<p>Linux添加虚拟网卡三种方法</p>
-<p>方法1:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#ifconfig命令创建\删除虚拟网卡</span><br><span class="line">ifconfig eth0:0 192.168.1.10 netmask 255.255.255.0 up</span><br><span class="line"></span><br><span class="line">#删除虚拟网卡:</span><br><span class="line">ifconfig eth0:0 down</span><br></pre></td></tr></table></figure>
-
-<p>tunctl安装与使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y uml-utilities</span><br></pre></td></tr></table></figure>
-
-<p>创建和配置虚拟网卡</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#确认是否有tunctl命令,如果没有通过yum安装即可</span><br><span class="line">sudo apt-get install -y uml-utilities tunctl</span><br><span class="line"></span><br><span class="line">#创建虚拟网卡设备</span><br><span class="line">tunctl -t tap0 -u root</span><br><span class="line"></span><br><span class="line">#设置虚拟网卡</span><br><span class="line">ifconfig tap0 192.168.0.1 netmask 255.255.255.0 promisc</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/89/">89</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/90/">90</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
     </nav>
   
 
