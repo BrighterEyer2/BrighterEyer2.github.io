@@ -283,6 +283,336 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2019/10/29/1572350129000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/29/articles/2019/10/29/1572350129000.html/" class="article-date">
+      <time datetime="2019-10-29T11:55:29.000Z" itemprop="datePublished">2019-10-29</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350129000.html/">[qt] QImage彩色图像转换为灰度图</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/liyuanbhu/article/details/46659725" target="_blank">Qt 中彩色图像转换为灰度图</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">QImage toGray( QImage image )</span><br><span class="line">&#123;</span><br><span class="line">    int height &#x3D; image.height();</span><br><span class="line">    int width &#x3D; image.width();</span><br><span class="line">    QImage ret(width, height, QImage::Format_Indexed8);</span><br><span class="line">    ret.setColorCount(256);</span><br><span class="line">    for(int i &#x3D; 0; i &lt; 256; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ret.setColor(i, qRgb(i, i, i));</span><br><span class="line">    &#125;</span><br><span class="line">    switch(image.format())</span><br><span class="line">    &#123;</span><br><span class="line">    case QImage::Format_Indexed8:</span><br><span class="line">        for(int i &#x3D; 0; i &lt; height; i ++)</span><br><span class="line">        &#123;</span><br><span class="line">            const uchar *pSrc &#x3D; (uchar *)image.constScanLine(i);</span><br><span class="line">            uchar *pDest &#x3D; (uchar *)ret.scanLine(i);</span><br><span class="line">            memcpy(pDest, pSrc, width);</span><br><span class="line">        &#125;</span><br><span class="line">        break;</span><br><span class="line">    case QImage::Format_RGB32:</span><br><span class="line">    case QImage::Format_ARGB32:</span><br><span class="line">    case QImage::Format_ARGB32_Premultiplied:</span><br><span class="line">        for(int i &#x3D; 0; i &lt; height; i ++)</span><br><span class="line">        &#123;</span><br><span class="line">            const QRgb *pSrc &#x3D; (QRgb *)image.constScanLine(i);</span><br><span class="line">            uchar *pDest &#x3D; (uchar *)ret.scanLine(i);</span><br><span class="line"> </span><br><span class="line">            for( int j &#x3D; 0; j &lt; width; j ++)</span><br><span class="line">            &#123;</span><br><span class="line">                 pDest[j] &#x3D; qGray(pSrc[j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">    return ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/29/1572350128000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/29/articles/2019/10/29/1572350128000.html/" class="article-date">
+      <time datetime="2019-10-29T11:55:28.000Z" itemprop="datePublished">2019-10-29</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350128000.html/">[qt] QGraphicsView平移缩放旋转</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/liang19890820/article/details/53543017" target="_blank">QGraphicsView平移缩放旋转</a></p>
+<p>interactive_view.h</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#ifndef INTERACTIVE_VIEW_H</span><br><span class="line">#define INTERACTIVE_VIEW_H</span><br><span class="line"></span><br><span class="line">#include &lt;QGraphicsView&gt;</span><br><span class="line"></span><br><span class="line">class QWheelEvent;</span><br><span class="line">class QKeyEvent;</span><br><span class="line"></span><br><span class="line">class InteractiveView : public QGraphicsView</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">public:</span><br><span class="line">    explicit InteractiveView(QWidget *parent &#x3D; 0);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 平移速度</span><br><span class="line">    void setTranslateSpeed(qreal speed);</span><br><span class="line">    qreal translateSpeed() const;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 缩放的增量</span><br><span class="line">    void setZoomDelta(qreal delta);</span><br><span class="line">    qreal zoomDelta() const;</span><br><span class="line"></span><br><span class="line">protected:</span><br><span class="line">    &#x2F;&#x2F; 上&#x2F;下&#x2F;左&#x2F;右键向各个方向移动、加&#x2F;减键进行缩放、空格&#x2F;回车键旋转</span><br><span class="line">    void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;</span><br><span class="line">    &#x2F;&#x2F; 平移</span><br><span class="line">    void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;</span><br><span class="line">    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;</span><br><span class="line">    void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;</span><br><span class="line">    &#x2F;&#x2F; 放大&#x2F;缩小</span><br><span class="line">    void wheelEvent(QWheelEvent *event) Q_DECL_OVERRIDE;</span><br><span class="line"></span><br><span class="line">public Q_SLOTS:</span><br><span class="line">    void zoomIn();  &#x2F;&#x2F; 放大</span><br><span class="line">    void zoomOut();  &#x2F;&#x2F; 缩小</span><br><span class="line">    void zoom(float scaleFactor); &#x2F;&#x2F; 缩放 - scaleFactor：缩放的比例因子</span><br><span class="line">    void translate(QPointF delta);  &#x2F;&#x2F; 平移</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    Qt::MouseButton m_translateButton;  &#x2F;&#x2F; 平移按钮</span><br><span class="line">    qreal m_translateSpeed;  &#x2F;&#x2F; 平移速度</span><br><span class="line">    qreal m_zoomDelta;  &#x2F;&#x2F; 缩放的增量</span><br><span class="line">    bool m_bMouseTranslate;  &#x2F;&#x2F; 平移标识</span><br><span class="line">    QPoint m_lastMousePos;  &#x2F;&#x2F; 鼠标最后按下的位置</span><br><span class="line">    qreal m_scale;  &#x2F;&#x2F; 缩放值</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif &#x2F;&#x2F; INTERACTIVE_VIEW_H</span><br></pre></td></tr></table></figure>
+
+<p>interactive_view.cpp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QWheelEvent&gt;</span><br><span class="line">#include &lt;QKeyEvent&gt;</span><br><span class="line">#include &quot;interactive_view.h&quot;</span><br><span class="line"></span><br><span class="line">#define VIEW_CENTER viewport()-&gt;rect().center()</span><br><span class="line">#define VIEW_WIDTH  viewport()-&gt;rect().width()</span><br><span class="line">#define VIEW_HEIGHT viewport()-&gt;rect().height()</span><br><span class="line"></span><br><span class="line">InteractiveView::InteractiveView(QWidget *parent)</span><br><span class="line">    : QGraphicsView(parent),</span><br><span class="line">      m_translateButton(Qt::LeftButton),</span><br><span class="line">      m_scale(1.0),</span><br><span class="line">      m_zoomDelta(0.1),</span><br><span class="line">      m_translateSpeed(1.0),</span><br><span class="line">      m_bMouseTranslate(false)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; 去掉滚动条</span><br><span class="line">    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);</span><br><span class="line">    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);</span><br><span class="line">    setCursor(Qt::PointingHandCursor);</span><br><span class="line">    setRenderHint(QPainter::Antialiasing);</span><br><span class="line"></span><br><span class="line">    setSceneRect(INT_MIN&#x2F;2, INT_MIN&#x2F;2, INT_MAX, INT_MAX);</span><br><span class="line">    centerOn(0, 0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 平移速度</span><br><span class="line">void InteractiveView::setTranslateSpeed(qreal speed)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; 建议速度范围</span><br><span class="line">    Q_ASSERT_X(speed &gt;&#x3D; 0.0 &amp;&amp; speed &lt;&#x3D; 2.0,</span><br><span class="line">               &quot;InteractiveView::setTranslateSpeed&quot;, &quot;Speed should be in range [0.0, 2.0].&quot;);</span><br><span class="line">    m_translateSpeed &#x3D; speed;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">qreal InteractiveView::translateSpeed() const</span><br><span class="line">&#123;</span><br><span class="line">    return m_translateSpeed;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 缩放的增量</span><br><span class="line">void InteractiveView::setZoomDelta(qreal delta)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; 建议增量范围</span><br><span class="line">    Q_ASSERT_X(delta &gt;&#x3D; 0.0 &amp;&amp; delta &lt;&#x3D; 1.0,</span><br><span class="line">               &quot;InteractiveView::setZoomDelta&quot;, &quot;Delta should be in range [0.0, 1.0].&quot;);</span><br><span class="line">    m_zoomDelta &#x3D; delta;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">qreal InteractiveView::zoomDelta() const</span><br><span class="line">&#123;</span><br><span class="line">    return m_zoomDelta;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 上&#x2F;下&#x2F;左&#x2F;右键向各个方向移动、加&#x2F;减键进行缩放、空格&#x2F;回车键旋转</span><br><span class="line">void InteractiveView::keyPressEvent(QKeyEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    switch (event-&gt;key()) &#123;</span><br><span class="line">    case Qt::Key_Up:</span><br><span class="line">        translate(QPointF(0, -2));  &#x2F;&#x2F; 上移</span><br><span class="line">        break;</span><br><span class="line">    case Qt::Key_Down:</span><br><span class="line">        translate(QPointF(0, 2));  &#x2F;&#x2F; 下移</span><br><span class="line">        break;</span><br><span class="line">    case Qt::Key_Left:</span><br><span class="line">        translate(QPointF(-2, 0));  &#x2F;&#x2F; 左移</span><br><span class="line">        break;</span><br><span class="line">    case Qt::Key_Right:</span><br><span class="line">        translate(QPointF(2, 0));  &#x2F;&#x2F; 右移</span><br><span class="line">        break;</span><br><span class="line">    case Qt::Key_Plus:  &#x2F;&#x2F; 放大</span><br><span class="line">        zoomIn();</span><br><span class="line">        break;</span><br><span class="line">    case Qt::Key_Minus:  &#x2F;&#x2F; 缩小</span><br><span class="line">        zoomOut();</span><br><span class="line">        break;</span><br><span class="line">    case Qt::Key_Space:  &#x2F;&#x2F; 逆时针旋转</span><br><span class="line">        rotate(-5);</span><br><span class="line">        break;</span><br><span class="line">    case Qt::Key_Enter:  &#x2F;&#x2F; 顺时针旋转</span><br><span class="line">    case Qt::Key_Return:</span><br><span class="line">        rotate(5);</span><br><span class="line">        break;</span><br><span class="line">    default:</span><br><span class="line">        QGraphicsView::keyPressEvent(event);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 平移</span><br><span class="line">void InteractiveView::mouseMoveEvent(QMouseEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    if (m_bMouseTranslate)&#123;</span><br><span class="line">        QPointF mouseDelta &#x3D; mapToScene(event-&gt;pos()) - mapToScene(m_lastMousePos);</span><br><span class="line">        translate(mouseDelta);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    m_lastMousePos &#x3D; event-&gt;pos();</span><br><span class="line"></span><br><span class="line">    QGraphicsView::mouseMoveEvent(event);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void InteractiveView::mousePressEvent(QMouseEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    if (event-&gt;button() &#x3D;&#x3D; m_translateButton) &#123;</span><br><span class="line">        &#x2F;&#x2F; 当光标底下没有 item 时，才能移动</span><br><span class="line">        QPointF point &#x3D; mapToScene(event-&gt;pos());</span><br><span class="line">        if (scene()-&gt;itemAt(point, transform()) &#x3D;&#x3D; NULL)  &#123;</span><br><span class="line">            m_bMouseTranslate &#x3D; true;</span><br><span class="line">            m_lastMousePos &#x3D; event-&gt;pos();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    QGraphicsView::mousePressEvent(event);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void InteractiveView::mouseReleaseEvent(QMouseEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    if (event-&gt;button() &#x3D;&#x3D; m_translateButton)</span><br><span class="line">        m_bMouseTranslate &#x3D; false;</span><br><span class="line"></span><br><span class="line">    QGraphicsView::mouseReleaseEvent(event);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 放大&#x2F;缩小</span><br><span class="line">void InteractiveView::wheelEvent(QWheelEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; 滚轮的滚动量</span><br><span class="line">    QPoint scrollAmount &#x3D; event-&gt;angleDelta();</span><br><span class="line">    &#x2F;&#x2F; 正值表示滚轮远离使用者（放大），负值表示朝向使用者（缩小）</span><br><span class="line">    scrollAmount.y() &gt; 0 ? zoomIn() : zoomOut();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 放大</span><br><span class="line">void InteractiveView::zoomIn()</span><br><span class="line">&#123;</span><br><span class="line">    zoom(1 + m_zoomDelta);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 缩小</span><br><span class="line">void InteractiveView::zoomOut()</span><br><span class="line">&#123;</span><br><span class="line">    zoom(1 - m_zoomDelta);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 缩放 - scaleFactor：缩放的比例因子</span><br><span class="line">void InteractiveView::zoom(float scaleFactor)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; 防止过小或过大</span><br><span class="line">    qreal factor &#x3D; transform().scale(scaleFactor, scaleFactor).mapRect(QRectF(0, 0, 1, 1)).width();</span><br><span class="line">    if (factor &lt; 0.07 || factor &gt; 100)</span><br><span class="line">        return;</span><br><span class="line"></span><br><span class="line">    scale(scaleFactor, scaleFactor);</span><br><span class="line">    m_scale *&#x3D; scaleFactor;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 平移</span><br><span class="line">void InteractiveView::translate(QPointF delta)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; 根据当前 zoom 缩放平移数</span><br><span class="line">    delta *&#x3D; m_scale;</span><br><span class="line">    delta *&#x3D; m_translateSpeed;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; view 根据鼠标下的点作为锚点来定位 scene</span><br><span class="line">    setTransformationAnchor(QGraphicsView::AnchorUnderMouse);</span><br><span class="line">    QPoint newCenter(VIEW_WIDTH &#x2F; 2 - delta.x(),  VIEW_HEIGHT &#x2F; 2 - delta.y());</span><br><span class="line">    centerOn(mapToScene(newCenter));</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; scene 在 view 的中心点作为锚点</span><br><span class="line">    setTransformationAnchor(QGraphicsView::AnchorViewCenter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/29/1572350127000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/29/articles/2019/10/29/1572350127000.html/" class="article-date">
+      <time datetime="2019-10-29T11:55:27.000Z" itemprop="datePublished">2019-10-29</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350127000.html/">[qt] QDesktopServices打开文件、文件夹</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/mrfanhaibin/article/details/54315301" target="_blank">Qt之QDesktopServices</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include  &lt;QDesktopServices&gt;</span><br></pre></td></tr></table></figure>
+
+<p>1、打开浏览器网页</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QDesktopServices desktopServices;</span><br><span class="line">QUrl url(QString(&quot;www.baidu.com&quot;));</span><br><span class="line">desktopServices.openUrl(url);</span><br></pre></td></tr></table></figure>
+
+<p>2、打开本地文件（夹）、可执行文件等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">QString local_path &#x3D; QString(&quot;E:&#x2F;新建文件夹&quot;); &#x2F;&#x2F;a.txt、a.exe、a.mp3、a.mp4、a.rmvb等</span><br><span class="line">QString path &#x3D; QString(&quot;file:&#x2F;&#x2F;&#x2F;&quot;) + local_path;</span><br><span class="line">bool is_open &#x3D; QDesktopServices::openUrl(QUrl(path, QUrl::TolerantMode));</span><br><span class="line"></span><br><span class="line">#注意：这里local_path可以是文件（夹）路径、可执行程序路径，当为文件时，会选择默认打开方式进行打开！</span><br></pre></td></tr></table></figure>
+
+<p>3、获取桌面、我的文档、Home等目录的路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">QString desktop_path &#x3D; QDesktopServices::storageLocation(QDesktopServices::DesktopLocation);</span><br><span class="line">QString document_path &#x3D; QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);</span><br><span class="line">QString home_path &#x3D; QDesktopServices::storageLocation(QDesktopServices::HomeLocation);</span><br><span class="line">QString application_path &#x3D; QDesktopServices::storageLocatio(QDesktopServices::ApplicationsLocation);</span><br><span class="line">QString temp_path &#x3D; QDesktopServices::storageLocation(QDesktopServices::TempLocation);</span><br></pre></td></tr></table></figure>
+
+<p>4、QProcess也可以打开文件（夹）、可执行程序等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QString local_path &#x3D; QString(&quot;E:\\新建文件夹&quot;);</span><br><span class="line">bool is_start &#x3D; QProcess::startDetached(&quot;explorer &quot; + local_path);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/26/1572099610000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/26/articles/2019/10/26/1572099610000.html/" class="article-date">
+      <time datetime="2019-10-26T14:20:10.000Z" itemprop="datePublished">2019-10-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/26/articles/2019/10/26/1572099610000.html/">[qt-qml] 博客专栏</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/zbw1185/article/category/6826425" target="_blank">QtQuick（QML）</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QML之自定义电池充电&#x2F;电量显示效果</span><br><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;zbw1185&#x2F;article&#x2F;details&#x2F;75042398</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt-qml/" rel="tag">qt-qml</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/26/1572099609000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/26/articles/2019/10/26/1572099609000.html/" class="article-date">
+      <time datetime="2019-10-26T14:20:09.000Z" itemprop="datePublished">2019-10-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/26/articles/2019/10/26/1572099609000.html/">[qt-android] 智能家居</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://github.com/zccrs/IntelligentHome" target="_blank">智能家居的客户端</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt-android/" rel="tag">qt-android</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2019/10/26/1572099608000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -586,328 +916,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;player.h&quot;</span><br><span class="line">#include &lt;QApplication&gt;</span><br><span class="line"> </span><br><span class="line">int main(int argc, char *argv[])&#123;</span><br><span class="line">    QApplication a(argc, argv);</span><br><span class="line">    player w;</span><br><span class="line">    w.show();</span><br><span class="line"> </span><br><span class="line">    return a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/26/1572099602000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/26/articles/2019/10/26/1572099602000.html/" class="article-date">
-      <time datetime="2019-10-26T14:20:02.000Z" itemprop="datePublished">2019-10-26</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/26/articles/2019/10/26/1572099602000.html/">[qt] 嵌入百度地图</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/qq_28877125/article/details/80561829" target="_blank">Qt5 - 嵌入百度地图</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/26/1572099601000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/26/articles/2019/10/26/1572099601000.html/" class="article-date">
-      <time datetime="2019-10-26T14:20:01.000Z" itemprop="datePublished">2019-10-26</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/26/articles/2019/10/26/1572099601000.html/">[qt] 浏览器</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://github.com/wurui1994/CefBrowser" target="_blank">CefBrowser</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/26/1572099600000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/26/articles/2019/10/26/1572099600000.html/" class="article-date">
-      <time datetime="2019-10-26T14:20:00.000Z" itemprop="datePublished">2019-10-26</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/26/articles/2019/10/26/1572099600000.html/">[qt] 雷达图</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/qq_28877125/article/details/78429699" target="_blank">Qt5–雷达图</a><br><a href="https://www.fearlazy.com/zb_users/upload/2017/09/CRadar.rar" target="_blank">CRadar.rar</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/26/1572099598000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/26/articles/2019/10/26/1572099598000.html/" class="article-date">
-      <time datetime="2019-10-26T14:19:58.000Z" itemprop="datePublished">2019-10-26</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/26/articles/2019/10/26/1572099598000.html/">[qt] 动画</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="" target="_blank"></a><br><a href="https://github.com/search?utf8=%E2%9C%93&q=qt+%E5%8A%A8%E7%94%BB&ref=simplesearch" target="_blank">github qt 动画</a><br><a href="https://github.com/IfanTsai/flowers" target="_blank">qt表白动画程序</a></p>
-<p>传统Qt C++开发应用程序（插件化框架搭建、酷炫的动画窗口、图表控件、多屏自适应、权限控制、VNC远程监控集成、WebEngine与Qt交互、按键声效）<br><a href="https://github.com/linuxzjh/traditionalDevelopment" target="_blank">traditionalDevelopment</a></p>
-<p><a href="https://github.com/YMhao/qt-animation" target="_blank">把链式图片做成动画</a><br><a href="https://github.com/LonelySilen/ship" target="_blank">QT 动画练习</a><br><a href="https://github.com/guochanglun/H5Creator-Qt" target="_blank">H5动画、声音贺卡</a><br><a href="https://github.com/MRXY001/Bezier-Wave" target="_blank">贝塞尔曲线波浪</a></p>
-<p><a href="https://github.com/historyme/Shin.SpriteImage" target="_blank">精灵图片类</a><br><a href="https://github.com/lsyefficient/qtfish" target="_blank">游动的鱼</a><br><a href="https://github.com/MRXY001/Notification-Manager-V2" target="_blank">仿Windows消息控件</a><br><a href="https://github.com/MRXY001/Notification-Manager" target="_blank">仿Windows消息，支持多通知、同时通知、开关动画</a></p>
-<p><a href="https://github.com/cyt2017/QGLViewer_animation" target="_blank">喷泉动画效果</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">使用qt上封装的opengl，实现喷泉动画效果。</span><br><span class="line">粒子：三个函数：</span><br><span class="line">1、初始化，粒子的位置和速度；</span><br><span class="line">2、绘制，粒子的位置和颜色（使用opengl函数实现绘制）；</span><br><span class="line">3、动画，根据改变粒子的位置和速度，实现粒子动起来的效果。</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://github.com/lsyefficient/StartSplash" target="_blank">启动页闪屏动画</a></p>
-<p><a href="https://github.com/MRXY001/Interactive-Windows-Buttons" target="_blank">带动画交互的菜单、最小化、最大化、关闭按钮，强大自定义</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">可交互的创意动态按钮</span><br><span class="line">特点</span><br><span class="line">所有颜色自定义</span><br><span class="line">鼠标悬浮渐变</span><br><span class="line">两种点击效果：鼠标点击渐变 &#x2F; 水波纹动画（可多层波纹叠加）</span><br><span class="line">鼠标悬浮图标位置主动变化</span><br><span class="line">鼠标拖动图标抖动反弹效果</span><br><span class="line">鼠标进入父控件时开启出现效果，或启动时出现</span><br><span class="line">延迟出现的动画效果（多个按钮连续）</span><br><span class="line">记录开关状态</span><br><span class="line">直接设置 x、y 的圆角显示</span><br><span class="line">边框颜色设置</span><br><span class="line">禁用时半透明+点击穿透效果</span><br><span class="line">添加额外的边缘角标</span><br><span class="line">三种前景模式：图标、文字、带遮罩的图标（任意变色）</span><br><span class="line">支持QSS直接设置部分属性</span><br><span class="line">与父类 QPushButton 兼容</span><br><span class="line">时间准确性：根据时间戳计算动画进度，即使在低性能机器上也可准时完成动画</span><br><span class="line">稳定性：一按钮多功能，完美兼容多种情况下焦点事件</span><br><span class="line">极其强大的可扩展性，继承该按钮后可任意修改显示效果和动画效果</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/26/1572099597000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/26/articles/2019/10/26/1572099597000.html/" class="article-date">
-      <time datetime="2019-10-26T14:19:57.000Z" itemprop="datePublished">2019-10-26</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/26/articles/2019/10/26/1572099597000.html/">[qt] 定时关机</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/what951006/article/details/53914877" target="_blank">Qt/C++ 定时关机-给女票用的</a></p>
-<pre><code></code></pre>
       
     </div>
     

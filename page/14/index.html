@@ -283,6 +283,334 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/01/16/1579174015000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/16/articles/2020/01/16/1579174015000.html/" class="article-date">
+      <time datetime="2020-01-16T11:26:55.000Z" itemprop="datePublished">2020-01-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/16/articles/2020/01/16/1579174015000.html/">[路由器] 桥接配置</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://jingyan.baidu.com/article/066074d6ff30eec3c21cb0ef.html" target="_blank">路由桥接配置</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="tag">路由器</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/01/16/1579174014000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/16/articles/2020/01/16/1579174014000.html/" class="article-date">
+      <time datetime="2020-01-16T11:26:54.000Z" itemprop="datePublished">2020-01-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/16/articles/2020/01/16/1579174014000.html/">[docker] network基础</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.cnblogs.com/jsonhc/p/7823286.html" target="_blank">docker network基础</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过容器间的选项--link指定容器名称进行不同容器间的通信（--link container_name或者将container_name取一个别名）</span><br><span class="line"></span><br><span class="line">现在使用另外一种方式替代--link来达到容器间的通信：docker network</span><br></pre></td></tr></table></figure>
+
+<p>查看local的网络信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br><span class="line"></span><br><span class="line">#创建一个网络名为mynetwork且driver为bridge的网络，默认为bridge</span><br><span class="line"></span><br><span class="line">docker network create --driver bridge --subnet 172.60.0.0&#x2F;16 mynetwork</span><br><span class="line">docker network rm mynetwork</span><br><span class="line">docker network inspect mynetwork</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/01/16/1579174013000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/16/articles/2020/01/16/1579174013000.html/" class="article-date">
+      <time datetime="2020-01-16T11:26:53.000Z" itemprop="datePublished">2020-01-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/16/articles/2020/01/16/1579174013000.html/">[arm] itop6818使用fastboot烧写+程序运行</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>确保通过RS232已经进入fastboot模式，接上OTG线（即usb线）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">拨码开关</span><br><span class="line">1、3 on</span><br><span class="line">2 off</span><br></pre></td></tr></table></figure>
+
+<details>
+<summary>烧写android</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fastboot.exe flash uboot u-boot-iTOP-6818.bin</span><br><span class="line">fastboot.exe flash boot boot.img</span><br><span class="line">fastboot.exe flash cache cache.img</span><br><span class="line">fastboot.exe flash system system.img</span><br><span class="line">fastboot.exe flash userdata userdata.img</span><br><span class="line">fastboot.exe flash recovery recovery.img</span><br><span class="line">fastboot reboot</span><br><span class="line"></span><br><span class="line">setenv bootsystem android</span><br><span class="line">setenv lcdtype 4.3</span><br><span class="line">saveenv</span><br><span class="line">reset</span><br><span class="line"></span><br><span class="line">adb devices</span><br><span class="line">adb push &lt;deviceId&gt; helloworld &#x2F;data</span><br></pre></td></tr></table></figure>
+</details>
+
+<details>
+<summary>烧写qt</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fastboot.exe flash uboot u-boot-iTOP-6818.bin</span><br><span class="line">fastboot.exe flash boot boot.img</span><br><span class="line">fastboot.exe flash system system.img</span><br><span class="line">fastboot reboot</span><br><span class="line"></span><br><span class="line">setenv bootsystem qt</span><br><span class="line">setenv lcdtype 4.3</span><br><span class="line">saveenv</span><br><span class="line">reset</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>烧写 Uboot 到 TF 卡</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#查看盘符</span><br><span class="line">df -l</span><br></pre></td></tr></table></figure>
+
+<details>
+<summary>TF 卡烧写 Android</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">TF 卡中建立目录“sdupdate”，sdupdate中放置boot.img、cache.img、system.img、u-boot-iTOP-6818.bin、userdata.img</span><br><span class="line">#一次性烧写</span><br><span class="line">sdfuse flashall</span><br><span class="line"></span><br><span class="line">#分别烧写----</span><br><span class="line">#单独烧写 uboot 镜像</span><br><span class="line">sdfuse flash uboot u-boot-iTOP-6818.bin</span><br><span class="line">#单独烧写内核镜像</span><br><span class="line">sdfuse flash boot boot.img</span><br><span class="line">#单独烧写 Android 文件系统镜像</span><br><span class="line">sdfuse flash cache cache.img</span><br><span class="line">sdfuse flash system system.img</span><br><span class="line">sdfuse flash userdata userdata.img</span><br><span class="line"></span><br><span class="line">setenv bootsystem android</span><br><span class="line">setenv lcdtype 4.3</span><br><span class="line">#设置参数和命令</span><br><span class="line">saveenv</span><br><span class="line">#设置拨码开关为 emmc 启动，取下 tf 卡</span><br><span class="line">reset</span><br></pre></td></tr></table></figure>
+</details>
+
+<details>
+<summary>TF 卡烧写 Qt</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">TF 卡中建立目录“sdupdate”，sdupdate中放置boot.img、system.img、u-boot-iTOP-6818.bin</span><br><span class="line">#一次性烧写</span><br><span class="line">sdfuse flashall</span><br><span class="line"></span><br><span class="line">#分别烧写----</span><br><span class="line">#单独烧写 uboot 镜像</span><br><span class="line">sdfuse flash uboot u-boot-iTOP-6818.bin</span><br><span class="line">#单独烧写内核镜像</span><br><span class="line">sdfuse flash boot boot.img</span><br><span class="line">#单独烧写 Android 文件系统镜像</span><br><span class="line">sdfuse flash system system.img</span><br><span class="line"></span><br><span class="line">setenv bootsystem qt</span><br><span class="line">setenv lcdtype 4.3</span><br><span class="line">#设置参数和命令</span><br><span class="line">saveenv</span><br><span class="line">#设置拨码开关为 emmc 启动，取下 tf 卡</span><br><span class="line">reset</span><br></pre></td></tr></table></figure>
+</details>
+
+<details>
+<summary>查看设备与执行程序</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ls &#x2F;dev&#x2F;u*</span><br><span class="line">ls &#x2F;dev&#x2F;mm*</span><br><span class="line"></span><br><span class="line">mkdir &#x2F;mnt&#x2F;udisk</span><br><span class="line">mount &#x2F;dev&#x2F;udisk &#x2F;mnt&#x2F;udisk&#x2F;</span><br><span class="line">ls &#x2F;mnt&#x2F;udisk&#x2F;</span><br><span class="line">chmod 777 helloworld</span><br><span class="line">helloworld -qws</span><br></pre></td></tr></table></figure>
+</details>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/01/16/1579174011000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/16/articles/2020/01/16/1579174011000.html/" class="article-date">
+      <time datetime="2020-01-16T11:26:51.000Z" itemprop="datePublished">2020-01-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/16/articles/2020/01/16/1579174011000.html/">[arm] itop6818烧写ubuntu</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>文件清单<br><a href="http://www.diskgenius.cn/" target="_blank">DiskGenius</a>将TF卡转成FAT32格式<br><a href="http://www.pc0359.cn/downinfo/52244.html" target="_blank">ATTO Disk Benchmark 32位/64位(硬盘速度测试软件)</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iTOP6818 开发板资料汇总（不含光盘内容）\05_iTOP-6818开发板 Ubuntu 系统\01_Ubuntu 镜像\iTOP4412_ubuntu_12.04_for_LCD_20141230.tar.gz</span><br><span class="line"></span><br><span class="line">iTOP-6818 光盘资料\05 镜像_QT文件系统\u-boot-iTOP-6818.bin</span><br><span class="line">iTOP-6818 光盘资料\05 镜像_QT文件系统\boot.img</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://pan.baidu.com/s/12V6yl21PeEdhKNiYFHKRnw" target="_blank">文件资料</a> 提取码：8n1e</p>
+<p>将 TF 卡接入 PC 机，打开硬盘速度测试软件软件，设置一下参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">“驱动器”选择接入 PC 的 TF 卡”</span><br><span class="line">“数据包大小”选择</span><br><span class="line">“1024-&gt;1024”</span><br><span class="line">“总长度”选择“32mb”</span><br><span class="line">单击按钮“开始”测试，结束后，会显示 TF 卡的测试结果</span><br><span class="line">若显示写入速度不够 5MB&#x2F;秒，不能用于烧写 Ubuntu</span><br></pre></td></tr></table></figure>
+
+<p>TF卡分区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#先在 TF 卡接入虚拟机Ubuntu 之前查看盘符</span><br><span class="line">df -l</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">TF 卡分三个区</span><br><span class="line">1、指定分区前面的自由空间大小为 32M</span><br><span class="line">2、新区大小为 2048M，“Linux Ext3”格式</span><br><span class="line">3、新区设置为 FAT32 格式</span><br></pre></td></tr></table></figure>
+
+<p>查看盘符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -l</span><br></pre></td></tr></table></figure>
+
+<p>解压到TF卡2G的盘符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;media&#x2F;NEW\ VOLUME_&#x2F;</span><br><span class="line">rm -rf *</span><br><span class="line">ls -a</span><br><span class="line">#ubuntu 解压到 2G 的盘符</span><br><span class="line">sudo tar zxvf iTOP4412_ubuntu_12.04_for_LCD_20141230.tar.gz -C &#x2F;media&#x2F;NEW\ VOLUME_&#x2F;</span><br><span class="line"></span><br><span class="line">#ubuntu压缩包放到 fat32 的盘符</span><br><span class="line">iTOP4412_ubuntu_12.04_for_LCD_20141230.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>fastboot目录下放置镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#烧写 uboot 和 kernel 镜像</span><br><span class="line">iTOP-6818 光盘资料\05 镜像_QT 文件系统\2G\u-boot-iTOP-6818.bin</span><br><span class="line">iTOP-6818 光盘资料\05 镜像_QT 文件系统\2G\boot.img</span><br></pre></td></tr></table></figure>
+
+
+<p>（在终端助手执行）将 TF 卡接到开发板上，开发板烧写QT镜像文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot</span><br></pre></td></tr></table></figure>
+
+<p>接上OTG</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash uboot u-boot-iTOP-6818.bin</span><br><span class="line">fastboot flash boot boot.img</span><br><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
+
+<p>设置 TF 启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setenv bootsystem ubuntu_tf</span><br><span class="line">saveenv</span><br><span class="line">reset</span><br></pre></td></tr></table></figure>
+
+<p>（在终端助手执行）查看盘符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df -l</span><br><span class="line">#ls &#x2F;dev&#x2F;sd*</span><br><span class="line">ls &#x2F;dev&#x2F;mmcblk1p*</span><br></pre></td></tr></table></figure>
+
+
+<p>将 Ubuntu 压缩包拷贝到 emmc 中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#emmc位置</span><br><span class="line">cd &#x2F;media&#x2F;57f8f4bc-abf4-655f-bf67-946fc0f9f25b_&#x2F;</span><br><span class="line">rm -rf *</span><br><span class="line">ls</span><br><span class="line">tar vxf &#x2F;media&#x2F;NEW\ VOLUME&#x2F;iTOP4412_ubuntu_12.04_for_LCD_20141230.tar.gz -C .&#x2F;</span><br><span class="line"></span><br><span class="line">#解压完成之后，开发板断电，拔掉 TF 卡（注意一定要拔掉 TF 卡），然后启动开发板，进入 uboot 模式</span><br></pre></td></tr></table></figure>
+
+<p>（在终端助手执行）设置emmc启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setenv bootsystem ubuntu_emmc</span><br><span class="line">saveenv</span><br><span class="line">reset</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://blog.csdn.net/wf19930209/article/details/73195055" target="_blank">virtualbox的USB识别</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vboxmanage -v</span><br><span class="line">6.0.10r132072</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://bbs.21ic.com/icview-1630956-1-3.html" target="_blank">学习4412开发板烧写Ubuntu系统</a><br><a href="https://blog.csdn.net/liboxiu/article/details/81772391" target="_blank">迅为itop4412烧写ubuntu，脱离tf卡启动</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/01/16/1579174010000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -330,6 +658,68 @@
 
 <p>烧写android</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fastboot.exe flash uboot u-boot-iTOP-6818.bin</span><br><span class="line">fastboot.exe flash boot boot.img</span><br><span class="line">fastboot.exe flash cache cache.img</span><br><span class="line">fastboot.exe flash system system.img</span><br><span class="line">fastboot.exe flash userdata userdata.img</span><br><span class="line">fastboot.exe flash recovery recovery.img</span><br><span class="line">fastboot reboot</span><br><span class="line"></span><br><span class="line">setenv bootsystem android</span><br><span class="line">setenv lcdtype 4.3</span><br><span class="line">saveenv</span><br><span class="line">reset</span><br><span class="line"></span><br><span class="line">adb devices</span><br><span class="line">adb push &lt;deviceId&gt; helloworld &#x2F;data</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/01/16/1579174009000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/16/articles/2020/01/16/1579174009000.html/" class="article-date">
+      <time datetime="2020-01-16T11:26:49.000Z" itemprop="datePublished">2020-01-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/16/articles/2020/01/16/1579174009000.html/">[arm] arm平台交叉编译Qt5源代码+iMX6Q</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.eefocus.com/toradex/blog/19-07/437561_8e24f.html" target="_blank">嵌入式 ARM 平台交叉编译Qt5源代码</a></p>
 
       
     </div>
@@ -592,433 +982,6 @@
 
 <p>5、修改Heap_Size</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这时候原则上就可以使用空间申请和释放的两个操作函数了，但是由于STM32在startup_stm32f429_439xx.s中分配的堆空间只有0x00000200个字节，所以很多时候调用malloc函数时如果申请空间超过0X200则返回了NULL，这时候就需要到该文件对这个值进行设置。</span><br><span class="line"> </span><br><span class="line">上面工作完成后，我们就可以愉快地尽情使用malloc和free两个函数了！！</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/01/14/1579000587000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/14/articles/2020/01/14/1579000587000.html/" class="article-date">
-      <time datetime="2020-01-14T11:16:27.000Z" itemprop="datePublished">2020-01-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/14/articles/2020/01/14/1579000587000.html/">[arm] windows平台交叉编译+arm+QT5.7</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/qq_41068712/article/details/89672143" target="_blank">Windows平台交叉编译Arm Linux平台的QT5.7库</a></p>
-<p>1、Qt库源代码<br><a href="http://download.qt.io/archive/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.zip" target="_blank">qt-everywhere-opensource-src-5.7.0.zip</a></p>
-<details>
-<summary>修改qmake.conf</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">qtbase\mkspecs\linux-arm-gnueabi-g++\qmake.conf</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># qmake configuration for building with arm-linux-gnueabi-g++</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">MAKEFILE_GENERATOR      &#x3D; UNIX</span><br><span class="line">CONFIG                 +&#x3D; incremental</span><br><span class="line">QMAKE_INCREMENTAL_STYLE &#x3D; sublib</span><br><span class="line"></span><br><span class="line">#QT_QPA_DEFAULT_PLATFORM &#x3D; linux #eglfs</span><br><span class="line">#QMAKE_CFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line">#QMAKE_CXXFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line"></span><br><span class="line">include(..&#x2F;common&#x2F;linux.conf)</span><br><span class="line">include(..&#x2F;common&#x2F;gcc-base-unix.conf)</span><br><span class="line">include(..&#x2F;common&#x2F;g++-unix.conf)</span><br><span class="line"></span><br><span class="line"># modifications to g++.conf</span><br><span class="line">QMAKE_CC                &#x3D; arm-linux-gnueabihf-gcc</span><br><span class="line">QMAKE_CXX               &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line">QMAKE_LINK              &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line">QMAKE_LINK_SHLIB        &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line"></span><br><span class="line"># modifications to linux.conf</span><br><span class="line">QMAKE_AR                &#x3D; arm-linux-gnueabihf-ar cqs</span><br><span class="line">QMAKE_OBJCOPY           &#x3D; arm-linux-gnueabihf-objcopy</span><br><span class="line">QMAKE_NM                &#x3D; arm-linux-gnueabihf-nm -P</span><br><span class="line">QMAKE_STRIP             &#x3D; arm-linux-gnueabihf-strip</span><br><span class="line">load(qt_config)</span><br></pre></td></tr></table></figure>
-</details>
-
-<p>修改kernel.pri</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">qtbase\src\corelib\kernel\kernel.pri</span><br><span class="line"></span><br><span class="line">SOURCES +&#x3D; \</span><br><span class="line">kernel&#x2F;qpoll.cpp \</span><br><span class="line">kernel&#x2F;qcore_unix.cpp \</span><br></pre></td></tr></table></figure>
-
-<p>2、Perl<br><a href="https://www.cr173.com/soft/14302.html" target="_blank">ActivePerl-5.26.1</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将其bin目录添加到环境变量PATH中</span><br></pre></td></tr></table></figure>
-
-<p>3、Python2.7以上<br><a href="https://www.python.org/downloads/" target="_blank">Python</a></p>
-<p>4、MinGW开发工具集（没用到）<br><a href="https://sourceforge.net/projects/mingw/" target="_blank">mingw-32</a><br><a href="https://sourceforge.net/projects/mingw-w64/files/mingw-w64/" target="_blank">mingw-w64</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将其bin目录添加到环境变量PATH中</span><br></pre></td></tr></table></figure>
-
-<p>5、交叉编译器<br><a href="http://releases.linaro.org/archive/14.07/components/toolchain/binaries/gcc-linaro-arm-linux-gnueabihf-4.9-2014.07-20140726_win32.exe" target="_blank">gcc-linaro-arm-linux-gnueabihf-4.9-2014.07-20140726_win32.exe</a><br><a href="https://blog.csdn.net/guodeqiangde/article/details/78239408" target="_blank">（可不下载）arm-none-linux-gnueabi</a><br><a href="https://www.veryarm.com/12506.html" target="_blank">【Linux开发】arm-linux-gnueabihf-gcc下载</a><br><a href="http://releases.linaro.org/archive/14.07/components/toolchain/binaries/" target="_blank">文件列表</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将其bin目录添加到环境变量PATH中</span><br></pre></td></tr></table></figure>
-
-<p>6、安装qt opensource</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd qt-everywhere-opensource-src-5.7.0</span><br><span class="line"></span><br><span class="line">configure.bat -release -opensource -prefix X:\Qt\Qt5.7.0_ARM_Linux -nomake tests -nomake examples -no-opengl -skip qtvirtualkeyboard  -xplatform linux-arm-gnueabi-g++</span><br><span class="line"></span><br><span class="line">mingw32-make</span><br><span class="line">mingw32-make install</span><br><span class="line"></span><br><span class="line">#可选</span><br><span class="line">qmake.exe程序所在目录增加一个qt.conf配置文件，内容为：</span><br><span class="line">[Paths]</span><br><span class="line">Prefix&#x3D;..</span><br></pre></td></tr></table></figure>
-
-<p>7、Qt Creator + ARM设置<br><a href="https://download.qt.io/archive/qt/5.12/5.12.2/qt-opensource-windows-x86-5.12.2.exe" target="_blank">qt-opensource-windows-x86-5.12.2.exe</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(1)</span><br><span class="line">工具(Tools) -&gt; 选项(options) -&gt; Kits -&gt; 编译器 -&gt; Manual -&gt; 添加，选GCC -&gt; arm-linux-gnueabihf-g++</span><br><span class="line"></span><br><span class="line">(2)</span><br><span class="line">CMake -&gt; Manual -&gt; 点击Add -&gt; 找到minGW安装目录bin里的 mingw32-make.exe，取个名后添加</span><br><span class="line"></span><br><span class="line">(3)调试功能</span><br><span class="line">Qt Versions -&gt; 手动设置 -&gt; 点击添加... -&gt; 找到Qt库安装目录bin里的qmake.exe，取名Qt5.70 for linux_armv7 后添加</span><br><span class="line"></span><br><span class="line">版本名称: Qt %&#123;Qt:Version&#125; for linux_armv7</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/01/14/1579000586000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/14/articles/2020/01/14/1579000586000.html/" class="article-date">
-      <time datetime="2020-01-14T11:16:26.000Z" itemprop="datePublished">2020-01-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/14/articles/2020/01/14/1579000586000.html/">[arm] iTop6818使用QtE5.7</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <details>
-<summary>文件清单</summary>
-
-<p><a href="https://pan.baidu.com/s/12V6yl21PeEdhKNiYFHKRnw" target="_blank">lollipop-5.1.1_r6_20170512.tar.gz</a> 提取码：8n1e</p>
-<p><a href="http://download.qt.io/archive/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run" target="_blank">qt-opensource-linux-x64-5.7.0.run</a><br><a href="http://download.qt.io/archive/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.gz" target="_blank">qt-everywhere-opensource-src-5.7.0.tar.gz</a><br><a href="http://www.codesourcery.com/sgpp/lite/arm/portal/package4571/public/arm-none-linux-gnueabi/arm-2014.05-29-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2" target="_blank">arm-2014.05-29-arm-none-Linux-gnueabi-i686-pc-linux-gnu.tar.bz2</a><br><a href="https://github.com/libts/tslib/releases/download/1.4/tslib-1.4.tar.bz2" target="_blank">tslib-1.4.tar.bz2</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linux_tools.tgz 中的 mkimage、make_ext_4fs</span><br></pre></td></tr></table></figure>
-</details>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y u-boot-tools</span><br><span class="line">mkimage -v</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/kwame211/article/details/83902851" target="_blank">ubuntu16.04镜像下载</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y default-jre default-jdk realpath gcc python</span><br><span class="line">apt-get install -y vim g++ lzop u-boot-tools autoconf automake make libtool libstdc++6 lib32c-dev lib32stdc++6 lib32z1 lib32ncurses5</span><br><span class="line"></span><br><span class="line">#Qt Creator报“&#x2F;usr&#x2F;bin&#x2F;ld: error: cannot find -lGL” 问题</span><br><span class="line">apt-get -y install libgl1-mesa-dev</span><br></pre></td></tr></table></figure>
-
-<p>uboot、kernel、Android 镜像的编译</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">tar xvf lollipop-5.1.1_r6_20170512.tar.gz -C ~&#x2F;</span><br><span class="line"></span><br><span class="line">#uboot</span><br><span class="line">cd ~&#x2F;lollipop-5.1.1_r6&#x2F;u-boot</span><br><span class="line">cp nsih-2G16b-6818.txt nsih.txt</span><br><span class="line">cd ..&#x2F;kernel</span><br><span class="line">cp -r config_for_iTOP6818_android .config</span><br><span class="line">export ARCH&#x3D;arm</span><br><span class="line">cd ..</span><br><span class="line">.&#x2F;build_android.sh</span><br><span class="line">ls result</span><br><span class="line">#显示 u-boot-iTOP-6818.bin</span><br><span class="line"></span><br><span class="line">#kernel</span><br><span class="line">cd kernel</span><br><span class="line">cp -r config_for_iTOP6818_linux .config</span><br><span class="line"></span><br><span class="line">#qt</span><br><span class="line">cd ..</span><br><span class="line">.&#x2F;build_android.sh qt</span><br><span class="line"></span><br><span class="line">ls result</span><br><span class="line">#u-boot-iTOP-6818.bin、boot.img、system.img</span><br><span class="line"></span><br><span class="line">ls ~&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;opt</span><br></pre></td></tr></table></figure>
-
-<p>iTOP6818 Qt 镜像编译（要先解压 linux_tools.tgz）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd kernel</span><br><span class="line">cp -r config_for_iTOP6818_linux .config</span><br><span class="line">cd ..</span><br><span class="line">.&#x2F;build_android.sh qt</span><br></pre></td></tr></table></figure>
-
-<p>安装arm-none-linux-gnueabi-gcc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;www.codesourcery.com&#x2F;sgpp&#x2F;lite&#x2F;arm&#x2F;portal&#x2F;package4571&#x2F;public&#x2F;arm-none-linux-gnueabi&#x2F;arm-2014.05-29-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2</span><br><span class="line">mkdir -p &#x2F;usr&#x2F;local&#x2F;arm</span><br><span class="line">tar jxvf arm-2014.05-29-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2 -C &#x2F;usr&#x2F;local&#x2F;arm&#x2F;</span><br><span class="line"></span><br><span class="line">#编辑.bashrc</span><br><span class="line">vim &#x2F;root&#x2F;.bashrc</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2014.05&#x2F;bin</span><br><span class="line">export CROSS_COMPILE&#x3D;arm-none-linux-gnueabi-</span><br><span class="line">source .bashrc</span><br><span class="line"></span><br><span class="line">#检验版本</span><br><span class="line">arm-none-linux-gnueabi-gcc -v</span><br></pre></td></tr></table></figure>
-
-<details>
-<summary>tslib-1.4.tar.gz安装和配置</summary>
-
-<p><a href="https://blog.csdn.net/lincuiting06/article/details/50352557" target="_blank">tslib-1.4.tar.gz安装和配置</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y autoconf automake libtool</span><br><span class="line">cd ~&#x2F;</span><br><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;libts&#x2F;tslib&#x2F;releases&#x2F;download&#x2F;1.4&#x2F;tslib-1.4.tar.bz2</span><br><span class="line">tar xvf tslib-1.4.tar.bz2;cd tslib;</span><br><span class="line">.&#x2F;autogen.sh</span><br><span class="line">.&#x2F;configure CC&#x3D;arm-none-linux-gnueabi-gcc CXX&#x3D;arm-none-linux-gnueabi-g++ --host&#x3D;arm-none-linux-gnueabi --prefix&#x3D;&#x2F;opt&#x2F;tslib1.4 ac_cv_func_malloc_0_nonnull&#x3D;yes</span><br><span class="line">make;make install</span><br><span class="line"></span><br><span class="line">#修改ts.conf</span><br><span class="line">vim &#x2F;opt&#x2F;tslib1.4&#x2F;etc&#x2F;ts.conf</span><br><span class="line">module_raw input</span><br></pre></td></tr></table></figure>
-</details>
-
-<details>
-<summary>qmake.conf</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;</span><br><span class="line">wget http:&#x2F;&#x2F;download.qt.io&#x2F;archive&#x2F;qt&#x2F;5.7&#x2F;5.7.0&#x2F;single&#x2F;qt-everywhere-opensource-src-5.7.0.tar.gz</span><br><span class="line">tar xvf qt-everywhere-opensource-src-5.7.0.tar.gz;cd qt-everywhere-opensource-src-5.7.0</span><br><span class="line"></span><br><span class="line">vi qtbase&#x2F;mkspecs&#x2F;linux-arm-gnueabi-g++&#x2F;qmake.conf</span><br><span class="line">## qmake configuration for building with arm-linux-gnueabi-g++</span><br><span class="line">#</span><br><span class="line">MAKEFILE_GENERATOR &#x3D; UNIX</span><br><span class="line">CONFIG +&#x3D; incremental</span><br><span class="line">QMAKE_INCREMENTAL_STYLE &#x3D; sublib</span><br><span class="line">QT_QPA_DEFAULT_PLATFORM &#x3D; linux #eglfs</span><br><span class="line">QMAKE_CFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line">QMAKE_CXXFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line">include(..&#x2F;common&#x2F;linux.conf)</span><br><span class="line">include(..&#x2F;common&#x2F;gcc-base-unix.conf)include(..&#x2F;common&#x2F;g++-unix.conf)</span><br><span class="line"># modifications to g++.conf</span><br><span class="line">QMAKE_CC &#x3D; arm-none-linux-gnueabi-gcc</span><br><span class="line">QMAKE_CXX &#x3D; arm-none-linux-gnueabi-g++</span><br><span class="line">QMAKE_LINK &#x3D; arm-none-linux-gnueabi-g++</span><br><span class="line">QMAKE_LINK_SHLIB &#x3D; arm-none-linux-gnueabi-g++</span><br><span class="line"># modifications to linux.conf</span><br><span class="line">QMAKE_AR &#x3D; arm-none-linux-gnueabi-ar cqs</span><br><span class="line">QMAKE_OBJCOPY &#x3D; arm-none-linux-gnueabi-objcopy</span><br><span class="line">QMAKE_NM &#x3D; arm-none-linux-gnueabi-nm -P</span><br><span class="line">QMAKE_STRIP &#x3D; arm-none-linux-gnueabi-strip</span><br><span class="line">load(qt_config)</span><br></pre></td></tr></table></figure>
-</details>
-
-<details>
-<summary>vi autoconfigure.sh</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">.&#x2F;configure \</span><br><span class="line">-v \</span><br><span class="line">-prefix &#x2F;opt&#x2F;qt5.7.0 \</span><br><span class="line">-release \</span><br><span class="line">-opensource \</span><br><span class="line">-make libs \</span><br><span class="line">-xplatform linux-arm-gnueabi-g++ \</span><br><span class="line">-optimized-qmake \</span><br><span class="line">-pch \</span><br><span class="line">-qt-sql-sqlite \</span><br><span class="line">-qt-libjpeg \</span><br><span class="line">-qt-zlib \</span><br><span class="line">-no-opengl \</span><br><span class="line">-skip qt3d \</span><br><span class="line">-skip qtcanvas3d \</span><br><span class="line">-skip qtpurchasing \</span><br><span class="line">-no-sse2 \</span><br><span class="line">-no-openssl \</span><br><span class="line">-no-nis \</span><br><span class="line">-no-cups \</span><br><span class="line">-no-glib \</span><br><span class="line">-no-iconv \</span><br><span class="line">-nomake examples \</span><br><span class="line">-nomake tools \</span><br><span class="line">-skip qtvirtualkeyboard \</span><br><span class="line">-I&#x2F;opt&#x2F;tslib1.4&#x2F;include \</span><br><span class="line">-L&#x2F;opt&#x2F;tslib1.4&#x2F;lib</span><br></pre></td></tr></table></figure>
-</details>
-
-<p>编译 QtE5.7 镜像<br>autoconfigure.sh</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 autoconfigure.sh</span><br><span class="line">./autoconfigure.sh</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">ls /opt/qt5.7.0</span><br></pre></td></tr></table></figure>
-
-<p>解压mkimage、make_ext_4fs</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -vxf linux_tools.tgz -C &#x2F;</span><br><span class="line">ls &#x2F;usr&#x2F;local&#x2F;bin&#x2F;</span><br></pre></td></tr></table></figure>
-
-<details>
-<summary>生成 QtE5.7 镜像 system.img</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system</span><br><span class="line"></span><br><span class="line">cp -r &#x2F;opt&#x2F;qt5.7.0 opt&#x2F;</span><br><span class="line">cp -r &#x2F;opt&#x2F;tslib1.4 opt&#x2F;</span><br><span class="line"></span><br><span class="line">rm -rf opt&#x2F;qt-4.7.1</span><br><span class="line">rm -rf opt&#x2F;Qtopia</span><br><span class="line"></span><br><span class="line"># libstdc</span><br><span class="line">unzip fonts.zip</span><br><span class="line">cp -r fonts ~&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;opt&#x2F;qt5.7.0&#x2F;lib&#x2F;</span><br><span class="line"></span><br><span class="line"># libstdc</span><br><span class="line">cp libstdc.tar.gz ~&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;lib&#x2F;</span><br><span class="line">cd ~&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;lib&#x2F;</span><br><span class="line">tar -xvf libstdc.tar.gz</span><br><span class="line">ln -s libstdc++.so.6.0.19 libstdc++.so.6</span><br></pre></td></tr></table></figure>
-</details>
-
-
-<details>
-<summary>修改环境变量</summary>
-
-<p>vim ~/lollipop-5.1.1_r6/qt_system/system/etc/profile</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># Ash profile</span><br><span class="line"># vim: syntax&#x3D;sh</span><br><span class="line"># No core files by default</span><br><span class="line">ulimit -S -c 0 &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1</span><br><span class="line">USER&#x3D;&quot;&#96;id -un&#96;&quot;</span><br><span class="line">LOGNAME&#x3D;$USER</span><br><span class="line">PS1&#x3D;&#39;[$USER@$HOSTNAME]# &#39;</span><br><span class="line">PATH&#x3D;$PATH</span><br><span class="line">HOSTNAME&#x3D;&#96;&#x2F;bin&#x2F;hostname&#96;</span><br><span class="line">export USER LOGNAME PS1 PATH</span><br><span class="line">export TSLIB_ROOT&#x3D;&#x2F;opt&#x2F;tslib1.4</span><br><span class="line">export QT_ROOT&#x3D;&#x2F;opt&#x2F;qt5.7.0</span><br><span class="line">export TSLIB_TSDEVICE&#x3D;&#x2F;dev&#x2F;input&#x2F;event2</span><br><span class="line">export TSLIB_TSEVENTTYPE&#x3D;input</span><br><span class="line">export TSLIB_CONFFILE&#x3D;&#x2F;opt&#x2F;tslib1.4&#x2F;etc&#x2F;ts.conf</span><br><span class="line">export TSLIB_PLUGINDIR&#x3D;&#x2F;opt&#x2F;tslib1.4&#x2F;lib&#x2F;ts</span><br><span class="line">export TSLIB_CONSOLEDEVICE&#x3D;none</span><br><span class="line">export TSLIB_FBDEVICE&#x3D;&#x2F;dev&#x2F;fb0</span><br><span class="line">export QWS_MOUSE_PROTO&#x3D;tslib:&#x2F;dev&#x2F;input&#x2F;event2</span><br><span class="line">export LD_LIBRARY_PATH&#x3D;&#x2F;lib:&#x2F;usr&#x2F;lib:&#x2F;usr&#x2F;local&#x2F;lib:$QT_ROOT&#x2F;lib:$TSLIB_ROOT&#x2F;lib:$TSLIB_ROOT&#x2F;lib&#x2F;</span><br><span class="line">export QT_QPA_PLATFORM_PLUGIN_PATH&#x3D;$QT_ROOT&#x2F;plugins</span><br><span class="line">export QT_QPA_PLATFORM&#x3D;linuxfb:tty&#x3D;&#x2F;dev&#x2F;fb0</span><br><span class="line">export QT_QPA_FONTDIR&#x3D;$QT_ROOT&#x2F;lib&#x2F;fonts</span><br><span class="line">export QT_QPA_GENERIC_PLUGINS&#x3D;tslib</span><br></pre></td></tr></table></figure>
-</details>
-
-
-<p>开机启动脚本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vi ~&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;etc&#x2F;init.d&#x2F;rcS</span><br><span class="line">#&#x2F;bin&#x2F;qt4 &amp;</span><br><span class="line">&#x2F;bin&#x2F;qt5.7 &amp;</span><br><span class="line"></span><br><span class="line">#将迅为提供的 “qt5.7” 文件拷贝到 “bin” 目录下，并修改 qt5.7 的权限为 777</span><br><span class="line">chmod 777 bin&#x2F;qt5.7</span><br></pre></td></tr></table></figure>
-
-<p>打包系统镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;lollipop-5.1.1_r6&#x2F;qt_system</span><br><span class="line">make_ext4fs -s -l 314572800 -a root -L linux system.img system</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.cnblogs.com/emouse/archive/2013/01/29/2881721.html" target="_blank">qt creator设置（可忽略）</a></p>
-<p>使用/usr/qt5.7.0/bin/qmake生成arm程序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd tuixiangzi</span><br><span class="line">&#x2F;usr&#x2F;qt5.7.0&#x2F;bin&#x2F;qmake</span><br><span class="line">make</span><br><span class="line">file tuixiangzi</span><br><span class="line"></span><br><span class="line">#显示以下信息</span><br><span class="line">tuixiangzi: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter &#x2F;lib&#x2F;ld-, for GNU&#x2F;Linux 2.6.16, not stripped</span><br></pre></td></tr></table></figure>
-
-<p>使用ubuntu在iTop-6818开发板上运行helloworld</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">cd helloworld</span><br><span class="line">&#x2F;opt&#x2F;qt5.7.0&#x2F;bin&#x2F;qmake</span><br><span class="line">ls</span><br><span class="line">#多了一个Makefile</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">file helloworld #查看文件信息</span><br><span class="line"></span><br><span class="line">#U盘挂载</span><br><span class="line">mdkir &#x2F;mnt&#x2F;udisk&#x2F;</span><br><span class="line">mount &#x2F;dev&#x2F;udisk &#x2F;mnt&#x2F;udisk&#x2F;</span><br><span class="line"></span><br><span class="line">#tf 卡挂载</span><br><span class="line">mount &#x2F;dev&#x2F;mmcblk1p1 &#x2F;mnt&#x2F;disk&#x2F;</span><br><span class="line"></span><br><span class="line">#运行</span><br><span class="line">chmod 777 helloworld</span><br><span class="line">helloworld -qws</span><br></pre></td></tr></table></figure>
-
-<p>使用iTop-6818开发板运行leds</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#创建U盘的设备节点</span><br><span class="line">mknod &#x2F;dev&#x2F;sda1 b 8 1</span><br><span class="line">#挂载U盘</span><br><span class="line">mount &#x2F;dev&#x2F;sda1 &#x2F;mnt&#x2F;udisk&#x2F;</span><br><span class="line">cd &#x2F;mnt&#x2F;udisk&#x2F;</span><br><span class="line">chmod 777 leds</span><br><span class="line">leds -qws</span><br><span class="line"></span><br><span class="line">#挂载tf卡</span><br><span class="line">mount &#x2F;dev&#x2F;mmcblk1p4 &#x2F;mnt&#x2F;udisk1</span><br><span class="line">ls &#x2F;mnt&#x2F;udisk1</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/wangliang0633/article/details/77217424" target="_blank">Qt5.7移植到ARM开发板</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/01/13/1578914091000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/13/articles/2020/01/13/1578914091000.html/" class="article-date">
-      <time datetime="2020-01-13T11:14:51.000Z" itemprop="datePublished">2020-01-13</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/13/articles/2020/01/13/1578914091000.html/">[windows] 启用组策略gpedit.msc</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>windows10启用组策略gpedit.msc</p>
-<p>exec.cmd</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">pushd &quot;%~dp0&quot;</span><br><span class="line">dir &#x2F;b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &gt;List.txt</span><br><span class="line">dir &#x2F;b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum &gt;&gt;List.txt</span><br><span class="line">for &#x2F;f %%i in (&#39;findstr &#x2F;i . List.txt 2^&gt;nul&#39;) do dism &#x2F;online &#x2F;norestart &#x2F;add-package:&quot;C:\Windows\servicing\Packages\%%i&quot;</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/01/13/1578914090000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/13/articles/2020/01/13/1578914090000.html/" class="article-date">
-      <time datetime="2020-01-13T11:14:50.000Z" itemprop="datePublished">2020-01-13</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/13/articles/2020/01/13/1578914090000.html/">[stm32] keil乱码问题</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/qlexcel/article/details/54929072" target="_blank">keil中文乱码解决和个人习惯字体设置</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/01/13/1578914089000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/13/articles/2020/01/13/1578914089000.html/" class="article-date">
-      <time datetime="2020-01-13T11:14:49.000Z" itemprop="datePublished">2020-01-13</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/13/articles/2020/01/13/1578914089000.html/">[stm32] 网络+串口字符串收发</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.jianshu.com/p/ce2a09d2dde9" target="_blank">stm32串口编程实例：实现数据的收发功能</a></p>
-<details>
-<summary>bsp_usart.h</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">#ifndef __BSP_USART_H</span><br><span class="line">#define	__BSP_USART_H</span><br><span class="line"></span><br><span class="line">#include &quot;stm32f4xx.h&quot;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;引脚定义</span><br><span class="line">&#x2F;*******************************************************&#x2F;</span><br><span class="line">#define DEBUG_USART                             USART1</span><br><span class="line">#define DEBUG_USART_CLK                         RCC_APB2Periph_USART1</span><br><span class="line"></span><br><span class="line">#define DEBUG_USART_RX_GPIO_PORT                GPIOA</span><br><span class="line">#define DEBUG_USART_RX_GPIO_CLK                 RCC_AHB1Periph_GPIOA</span><br><span class="line">#define DEBUG_USART_RX_PIN                      GPIO_Pin_10</span><br><span class="line">#define DEBUG_USART_RX_AF                       GPIO_AF_USART1</span><br><span class="line">#define DEBUG_USART_RX_SOURCE                   GPIO_PinSource10</span><br><span class="line"></span><br><span class="line">#define DEBUG_USART_TX_GPIO_PORT                GPIOA</span><br><span class="line">#define DEBUG_USART_TX_GPIO_CLK                 RCC_AHB1Periph_GPIOA</span><br><span class="line">#define DEBUG_USART_TX_PIN                      GPIO_Pin_9</span><br><span class="line">#define DEBUG_USART_TX_AF                       GPIO_AF_USART1</span><br><span class="line">#define DEBUG_USART_TX_SOURCE                   GPIO_PinSource9</span><br><span class="line">&#x2F;************************************************************&#x2F;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;串口波特率</span><br><span class="line">#define DEBUG_USART_BAUDRATE                    115200</span><br><span class="line"></span><br><span class="line">void Debug_USART_Config(void);</span><br><span class="line">&#x2F;&#x2F;int fputc(int ch, FILE *f);</span><br><span class="line"></span><br><span class="line">void Usart_SendByte(USART_TypeDef *pUSARTx, uint8_t Data);</span><br><span class="line"></span><br><span class="line">void Usart_SendArray(USART_TypeDef *pUSARTx, uint8_t *data, uint8_t num);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;接收字符</span><br><span class="line">char usart1_getc(void);</span><br><span class="line">&#x2F;&#x2F;接收字符串</span><br><span class="line">int usart1_getstr(unsigned char* buff, int len);</span><br><span class="line"></span><br><span class="line">#endif &#x2F;* __USART1_H *&#x2F;</span><br></pre></td></tr></table></figure>
-</details>
-
-<details>
-<summary>bsp_usart.c</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;.&#x2F;usart&#x2F;bsp_usart.h&quot;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @brief  DEBUG_USART GPIO 配置，工作模式配置。115200 8-N-1</span><br><span class="line"> * @param  无</span><br><span class="line"> * @retval 无</span><br><span class="line"> *&#x2F;</span><br><span class="line">void Debug_USART_Config(void)</span><br><span class="line">&#123;</span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">	USART_InitTypeDef USART_InitStructure;</span><br><span class="line"></span><br><span class="line">	RCC_AHB1PeriphClockCmd( DEBUG_USART_RX_GPIO_CLK | DEBUG_USART_TX_GPIO_CLK, ENABLE);</span><br><span class="line"></span><br><span class="line">	&#x2F;* 使能 UART 时钟 *&#x2F;</span><br><span class="line">	RCC_APB2PeriphClockCmd(DEBUG_USART_CLK, ENABLE);</span><br><span class="line"></span><br><span class="line">	&#x2F;* 连接 PXx 到 USARTx_Tx*&#x2F;</span><br><span class="line">	GPIO_PinAFConfig(DEBUG_USART_RX_GPIO_PORT, DEBUG_USART_RX_SOURCE, DEBUG_USART_RX_AF);</span><br><span class="line"></span><br><span class="line">	&#x2F;*  连接 PXx 到 USARTx__Rx*&#x2F;</span><br><span class="line">	GPIO_PinAFConfig(DEBUG_USART_TX_GPIO_PORT, DEBUG_USART_TX_SOURCE, DEBUG_USART_TX_AF);</span><br><span class="line"></span><br><span class="line">	&#x2F;* 配置Tx引脚为复用功能  *&#x2F;</span><br><span class="line">	GPIO_InitStructure.GPIO_OType &#x3D; GPIO_OType_PP;</span><br><span class="line">	GPIO_InitStructure.GPIO_PuPd &#x3D; GPIO_PuPd_UP;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode &#x3D; GPIO_Mode_AF;</span><br><span class="line"></span><br><span class="line">	GPIO_InitStructure.GPIO_Pin &#x3D; DEBUG_USART_TX_PIN  ;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed &#x3D; GPIO_Speed_50MHz;</span><br><span class="line">	GPIO_Init(DEBUG_USART_TX_GPIO_PORT, &amp;GPIO_InitStructure);</span><br><span class="line"></span><br><span class="line">	&#x2F;* 配置Rx引脚为复用功能 *&#x2F;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode &#x3D; GPIO_Mode_AF;</span><br><span class="line">	GPIO_InitStructure.GPIO_Pin &#x3D; DEBUG_USART_RX_PIN;</span><br><span class="line">	GPIO_Init(DEBUG_USART_RX_GPIO_PORT, &amp;GPIO_InitStructure);</span><br><span class="line"></span><br><span class="line">	&#x2F;* 配置串DEBUG_USART 模式 *&#x2F;</span><br><span class="line">	USART_InitStructure.USART_BaudRate &#x3D; DEBUG_USART_BAUDRATE;</span><br><span class="line">	USART_InitStructure.USART_WordLength &#x3D; USART_WordLength_8b;</span><br><span class="line">	USART_InitStructure.USART_StopBits &#x3D; USART_StopBits_1;</span><br><span class="line">	USART_InitStructure.USART_Parity &#x3D; USART_Parity_No ;</span><br><span class="line">	USART_InitStructure.USART_HardwareFlowControl &#x3D; USART_HardwareFlowControl_None;</span><br><span class="line">	USART_InitStructure.USART_Mode &#x3D; USART_Mode_Rx | USART_Mode_Tx;</span><br><span class="line">	USART_Init(DEBUG_USART, &amp;USART_InitStructure);</span><br><span class="line">	USART_Cmd(DEBUG_USART, ENABLE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F;重定向c库函数printf到串口DEBUG_USART，重定向后可使用printf函数</span><br><span class="line">int fputc(int ch, FILE *f)</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;* 发送一个字节数据到串口DEBUG_USART *&#x2F;</span><br><span class="line">	USART_SendData(DEBUG_USART, (uint8_t) ch);</span><br><span class="line"></span><br><span class="line">	&#x2F;* 等待发送完毕 *&#x2F;</span><br><span class="line">	while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) &#x3D;&#x3D; RESET);</span><br><span class="line"></span><br><span class="line">	return (ch);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F;重定向c库函数printf到串口DEBUG_USART，重定向后可使用scanf、getchar函数</span><br><span class="line">int fgetc(FILE *f)</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;* 等待串口输入数据 *&#x2F;</span><br><span class="line">	while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_RXNE) &#x3D;&#x3D; RESET);</span><br><span class="line"></span><br><span class="line">	return (int)USART_ReceiveData(DEBUG_USART);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Usart_SendByte(USART_TypeDef *pUSARTx, uint8_t Data)</span><br><span class="line">&#123;</span><br><span class="line">	USART_SendData(pUSARTx, Data);</span><br><span class="line">	while (USART_GetFlagStatus(pUSARTx, USART_FLAG_TXE) &#x3D;&#x3D; RESET);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Usart_SendArray(USART_TypeDef *pUSARTx, uint8_t *data, uint8_t num)</span><br><span class="line">&#123;</span><br><span class="line">	uint8_t t;</span><br><span class="line">	for (t &#x3D; 0; t &lt; num; t++) &#123;</span><br><span class="line">		Usart_SendByte(pUSARTx, data[t]);</span><br><span class="line">	&#125;</span><br><span class="line">	while (USART_GetFlagStatus(pUSARTx, USART_FLAG_TC) &#x3D;&#x3D; RESET);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;接收字符</span><br><span class="line">char usart1_getc(void) &#123;</span><br><span class="line">	char temp &#x3D; 0;</span><br><span class="line">	while (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) !&#x3D; SET);</span><br><span class="line">	temp &#x3D; USART_ReceiveData(USART1);</span><br><span class="line">	return temp;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;接收字符串</span><br><span class="line">int usart1_getstr(unsigned char* buff, int len) &#123;</span><br><span class="line">	int i &#x3D; 0;</span><br><span class="line">	for (i &#x3D; 0; i &lt; len; i++) &#123;</span><br><span class="line">		buff[i] &#x3D; usart1_getc();</span><br><span class="line">	&#125;</span><br><span class="line">	return len;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;*********************************************END OF FILE**********************&#x2F;</span><br></pre></td></tr></table></figure>
-</details>
-
 
       
     </div>
