@@ -702,6 +702,107 @@
 
 
   
+    <article id="post-/articles/2020/02/06/1580970870000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/06/articles/2020/02/06/1580970870000.html/" class="article-date">
+      <time datetime="2020-02-06T06:34:30.000Z" itemprop="datePublished">2020-02-06</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/06/articles/2020/02/06/1580970870000.html/">[arm] MQTT</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/qq_40452910/article/details/98781922" target="_blank">移植MQTT到ubuntu和ARM开发板</a><br><a href="https://blog.csdn.net/weixin_42661333/article/details/88078540" target="_blank">mqtt移植及arm端Qt使用</a><br><a href="https://blog.csdn.net/mycsdn_liruilin/article/details/88813037" target="_blank">LINUX–ubuntu移植MQTT并测试成功</a><br><a href="https://www.jianshu.com/p/411e01334231" target="_blank">linux下 mqtt源码交叉编译和应用</a><br><a href="https://blog.csdn.net/qq_28643619/article/details/86011212" target="_blank">基于i-mx287 ARM9的嵌入式linux上 交叉编译paho.mqtt.embedded-c库和嵌入式linux样例程序</a></p>
+<p>1，MQTT简介</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MQTT 是一个轻量级协议，使用基于 TCP&#x2F;IP 协议的发布&#x2F;订阅消息转发模式，在物联网应用中大规模使用。</span><br><span class="line">MQTT 协议的中心是 broker（ 服务器&#x2F;代理） ，客户端通过订阅消息和发布消息进行数据交互 ，如下图所示：</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20190326092145808.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215Y3Nkbl9saXJ1aWxpbg==,size_16,color_FFFFFF,t_70">
+（2）mosquitto依赖库安装
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y libssl-dev libc-ares-dev uuid-dev g++</span><br></pre></td></tr></table></figure>
+（3）mosquitto的安装
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https:&#x2F;&#x2F;mosquitto.org&#x2F;files&#x2F;source&#x2F;mosquitto-1.6.8.tar.gz</span><br><span class="line">tar xvf mosquitto-1.6.8.tar.gz;cd mosquitto-1.6.8</span><br><span class="line">make;make install</span><br></pre></td></tr></table></figure>
+（4）编译问题解决
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#如果出现error while loading shared libraries: libmosquitto.so.1: cannot open shared object file: No such file or directory</span><br><span class="line">#创建链接</span><br><span class="line">sudo ln -s &#x2F;usr&#x2F;local&#x2F;lib&#x2F;libmosquitto.so.1 &#x2F;usr&#x2F;lib&#x2F;libmosquitto.so.1</span><br><span class="line">#更新链接</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure>
+
+<p>3，mosquitto使用<br>进入命令行界面<br>（1）启动mosquitto服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto -v</span><br></pre></td></tr></table></figure>
+<p>（2）订阅消息（如topic）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -v -t topic</span><br></pre></td></tr></table></figure>
+<p>（3）发布消息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -t topic -m good</span><br></pre></td></tr></table></figure>
+
+<p>4，libmosquitto客户端编程（发布消息，订阅消息）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在安装mosquitto成功后，可以在&#x2F;usr&#x2F;local&#x2F;lib文件夹中有libmosquitto.so.1等文件</span><br></pre></td></tr></table></figure>
+
+<details>
+<summary>mosquitto_client_sub.c客户端（订阅消息）</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;mosquitto.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#define HOST &quot;localhost&quot;</span><br><span class="line">#define PORT 1883</span><br><span class="line">#define KEEP_ALIVE 60</span><br><span class="line"></span><br><span class="line">bool session &#x3D; true;</span><br><span class="line"></span><br><span class="line">void my_message_callback(struct mosquitto *mosq, void *userdata, const struct mosquitto_message *message)</span><br><span class="line">&#123;</span><br><span class="line">	if (message-&gt;payloadlen) &#123;</span><br><span class="line">		printf(&quot;%s %s&quot;, message-&gt;topic, message-&gt;payload);</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		printf(&quot;%s (null)\n&quot;, message-&gt;topic);</span><br><span class="line">	&#125;</span><br><span class="line">	fflush(stdout);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void my_connect_callback(struct mosquitto *mosq, void userdata, int result)</span><br><span class="line">&#123;</span><br><span class="line">	int i;</span><br><span class="line">	if (!result) &#123;</span><br><span class="line">		&#x2F;* Subscribe to broker information topics on successful connect. *&#x2F;</span><br><span class="line">		mosquitto_subscribe(mosq, NULL, &quot;Gai爷: &quot;, 2);</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		fprintf(stderr, &quot;Connect failed\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void my_subscribe_callback(struct mosquitto *mosq, void *userdata, int mid, int qos_count, const int *granted_qos)</span><br><span class="line">&#123;</span><br><span class="line">	int i;</span><br><span class="line">	printf(&quot;Subscribed (mid: % d): % d&quot;, mid, granted_qos[0]);</span><br><span class="line">	for (i &#x3D; 1; i &lt; qos_count; i++) &#123;</span><br><span class="line">		printf(&quot;, %d&quot;, granted_qos[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void my_log_callback(struct mosquitto *mosq, void *userdata, int level, const char* str)</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;* Pring all log messages regardless of level. *&#x2F;</span><br><span class="line">	printf(&quot;%s\n&quot;, str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	struct mosquitto *mosq &#x3D; NULL;</span><br><span class="line">	&#x2F;&#x2F;libmosquitto 库初始化</span><br><span class="line">	mosquitto_lib_init();</span><br><span class="line">	&#x2F;&#x2F;创建mosquitto客户端</span><br><span class="line">	mosq &#x3D; mosquitto_new(NULL, session, NULL);</span><br><span class="line">	if (!mosq) &#123;</span><br><span class="line">		printf(&quot;create client failed…\n&quot;);</span><br><span class="line">		mosquitto_lib_cleanup();</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;&#x2F;设置回调函数，需要时可使用</span><br><span class="line">	mosquitto_log_callback_set(mosq, my_log_callback);</span><br><span class="line">	mosquitto_connect_callback_set(mosq, my_connect_callback);</span><br><span class="line">	mosquitto_message_callback_set(mosq, my_message_callback);</span><br><span class="line">	mosquitto_subscribe_callback_set(mosq, my_subscribe_callback);</span><br><span class="line">	&#x2F;&#x2F;客户端连接服务器</span><br><span class="line">	if (mosquitto_connect(mosq, HOST, PORT, KEEP_ALIVE)) &#123;</span><br><span class="line">		fprintf(stderr, &quot;Unable to connect.\n&quot;);</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;&#x2F;循环处理网络消息</span><br><span class="line">	mosquitto_loop_forever(mosq, -1, 1);</span><br><span class="line"></span><br><span class="line">	mosquitto_destroy(mosq);</span><br><span class="line">	mosquitto_lib_cleanup();</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+
+<details>
+<summary>mosquitto_client_pub.c客户端（发布消息）</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;mosquitto.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#define HOST &quot;localhost&quot;</span><br><span class="line">#define PORT 1883</span><br><span class="line">#define KEEP_ALIVE 60</span><br><span class="line">#define MSG_MAX_SIZE 512</span><br><span class="line"></span><br><span class="line">bool session &#x3D; true;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	char buff[MSG_MAX_SIZE];</span><br><span class="line">	struct mosquitto *mosq &#x3D; NULL;</span><br><span class="line">	&#x2F;&#x2F;libmosquitto 库初始化</span><br><span class="line">	mosquitto_lib_init();</span><br><span class="line">	&#x2F;&#x2F;创建mosquitto客户端</span><br><span class="line">	mosq &#x3D; mosquitto_new(NULL, session, NULL);</span><br><span class="line">	if (!mosq) &#123;</span><br><span class="line">		printf(&quot;create client failed…\n&quot;);</span><br><span class="line">		mosquitto_lib_cleanup();</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;&#x2F;连接服务器</span><br><span class="line">	if (mosquitto_connect(mosq, HOST, PORT, KEEP_ALIVE)) &#123;</span><br><span class="line">		fprintf(stderr, &quot;Unable to connect.\n&quot;);</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;&#x2F;开启一个线程，在线程里不停的调用 mosquitto_loop() 来处理网络信息</span><br><span class="line">	int loop &#x3D; mosquitto_loop_start(mosq);</span><br><span class="line">	if (loop !&#x3D; MOSQ_ERR_SUCCESS)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;mosquitto loop error\n&quot;);</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	while (fgets(buff, MSG_MAX_SIZE, stdin) !&#x3D; NULL)</span><br><span class="line">	&#123;</span><br><span class="line">		&#x2F;* 发布消息 *&#x2F;</span><br><span class="line">		mosquitto_publish(mosq, NULL, &quot;Gai爷: &quot;, strlen(buff) + 1, buff, 0, 0);</span><br><span class="line">		memset(buff, 0, sizeof(buff));</span><br><span class="line">	&#125;</span><br><span class="line">	mosquitto_destroy(mosq);</span><br><span class="line">	mosquitto_lib_cleanup();</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>编译程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -o mosquitto_client_sub mosquitto_client_sub.c -lmosquitto</span><br><span class="line">gcc -o mosquitto_client_pub mosquitto_client_pub.c</span><br></pre></td></tr></table></figure>
+
+<p>5，客户端使用<br>（1）开启mosquitto服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto -v</span><br></pre></td></tr></table></figure>
+<p>（2）启动订阅消息客户端及发布消息客户端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;mosquitto_client_sub</span><br><span class="line">.&#x2F;mosquitto_client_pub</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/02/06/1580970869000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -917,68 +1018,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/06/1580970910000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/06/articles/2020/02/06/1580970910000.html/" class="article-date">
-      <time datetime="2020-02-06T06:34:10.000Z" itemprop="datePublished">2020-02-06</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/06/articles/2020/02/06/1580970910000.html/">[单片机] 51单片机专栏</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.cnblogs.com/ghostwu/category/1228994.html" target="_blank">51单片机专栏</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
     </div>
 
       
