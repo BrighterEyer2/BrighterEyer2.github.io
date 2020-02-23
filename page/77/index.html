@@ -283,10 +283,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/10/17/1571315279000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/10/20/1571573309000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/10/17/articles/2019/10/17/1571315279000.html/" class="article-date">
+      <a  href="/2019/10/17/articles/2019/10/20/1571573309000.html/" class="article-date">
       <time datetime="2019-10-17T12:27:59.000Z" itemprop="datePublished">2019-10-17</time>
 </a>
 
@@ -301,7 +301,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/17/articles/2019/10/17/1571315279000.html/">[android] 打印html</a>
+      <a  class="article-title" href="/2019/10/17/articles/2019/10/20/1571573309000.html/">[react-native] 解决真机闪退问题</a>
     </h1>
   
 
@@ -312,10 +312,77 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="" target="_blank"></a></p>
-<p><a href="https://www.w3cschool.cn/android_training_course/android_training_course-tbfl27f3.html" target="_blank">Android打印HTML文档</a></p>
-<p><a href="https://blog.csdn.net/qq_16810075/article/details/93752408" target="_blank">Android 5.0以上使用原生的打印功能的方式来实现将webview的html转pdf</a></p>
-<p><a href="https://blog.csdn.net/dengpeng_/article/details/60869509" target="_blank">android连接打印机打印(讲解)</a></p>
+        <p><a href="" target="_blank"></a><br><a href="https://blog.csdn.net/qq_35275233/article/details/89041647" target="_blank">参考一</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">手动cd到项目文件夹下该目录android&#x2F;app&#x2F;src&#x2F;main&#x2F;，创建一个名为assets的文件夹</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.jianshu.com/p/1a0c541ab156" target="_blank">react-native打包release版启动闪退的原因之一</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">debug版正常，release版一启动就闪退，没有一点提示。有一个原因就是代码检测工具哪个地方写错造成的，我的问题是：propTypes使用了View.PropTypes。文档上有说： 出于性能原因，propTypes 只在开发模式下进行检查。 但是这样写却造成了release版闪退。</span><br><span class="line"></span><br><span class="line">Tag.propTypes &#x3D; &#123;</span><br><span class="line">  containerStyle: View.PropTypes.style</span><br><span class="line">&#125;</span><br><span class="line">新版中View.propTypes已经被废弃使用ViewPropTypes替代，</span><br><span class="line">原文：ReactNative &#39;View.propTypes&#39; have been deprecated in favor of &#39;ViewPropTypes&#39;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/suwu150/article/details/81079093" target="_blank">react-native打包release版本闪退</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在发布版本的时候删掉代码中的propsType校验TextInput.propTypes.style和View.propTypes.style或者直接就不用</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/17/1571315278000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/17/articles/2019/10/17/1571315278000.html/" class="article-date">
+      <time datetime="2019-10-17T12:27:58.000Z" itemprop="datePublished">2019-10-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/17/articles/2019/10/17/1571315278000.html/">[android] usb打印</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>android 小票打印机（usb，蓝牙，wifi）<br><a href="https://github.com/wang2793312458/MyPinter" target="_blank">MyPinter</a></p>
+<p>github搜索： android usb 打印<br><a href="https://github.com/search?q=android+usb+%E6%89%93%E5%8D%B0&type=Repositories" target="_blank"></a></p>
+<p>Android USB、蓝牙、网口小票打印机开发示例<br><a href="https://github.com/beibe218/peripheral" target="_blank">peripheral</a></p>
 
       
     </div>
@@ -410,11 +477,11 @@
 
 
   
-    <article id="post-/articles/2019/10/17/1571315278000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2019/10/17/1571315277000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/10/17/articles/2019/10/17/1571315278000.html/" class="article-date">
-      <time datetime="2019-10-17T12:27:58.000Z" itemprop="datePublished">2019-10-17</time>
+      <a  href="/2019/10/17/articles/2019/10/17/1571315277000.html/" class="article-date">
+      <time datetime="2019-10-17T12:27:57.000Z" itemprop="datePublished">2019-10-17</time>
 </a>
 
     </div>
@@ -428,7 +495,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/17/articles/2019/10/17/1571315278000.html/">[android] usb打印</a>
+      <a  class="article-title" href="/2019/10/17/articles/2019/10/17/1571315277000.html/">[android] app上架</a>
     </h1>
   
 
@@ -439,9 +506,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>android 小票打印机（usb，蓝牙，wifi）<br><a href="https://github.com/wang2793312458/MyPinter" target="_blank">MyPinter</a></p>
-<p>github搜索： android usb 打印<br><a href="https://github.com/search?q=android+usb+%E6%89%93%E5%8D%B0&type=Repositories" target="_blank"></a></p>
-<p>Android USB、蓝牙、网口小票打印机开发示例<br><a href="https://github.com/beibe218/peripheral" target="_blank">peripheral</a></p>
+        <p><a href="" target="_blank"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;account.fir.im&#x2F;signin</span><br><span class="line"></span><br><span class="line">安卓APP发布上架的方法</span><br><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_31093755&#x2F;article&#x2F;details&#x2F;81735709</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">一、华为应用市场：</span><br><span class="line">https:&#x2F;&#x2F;developer.huawei.com&#x2F;consumer&#x2F;cn&#x2F;wiki&#x2F;index.php?title&#x3D;%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95 </span><br><span class="line">1. 先注册开发者账号，填写资料，提交审核； </span><br><span class="line">2. 审核通过后，首页-分发模块，上传应用。</span><br><span class="line"></span><br><span class="line">二、 小米应用商店：</span><br><span class="line">https:&#x2F;&#x2F;dev.mi.com&#x2F;docs&#x2F;appsmarket&#x2F;distribution&#x2F;account_register&#x2F; </span><br><span class="line">1. 先注册成为开发者，填写资料，同意开发协议并注册； </span><br><span class="line">2. 首页轮播图点击上传应用，或者首页-应用分发-小米应用商店-上传应用。</span><br><span class="line"></span><br><span class="line">三、 百度手机助手、安卓市场、91助手</span><br><span class="line">http:&#x2F;&#x2F;app.baidu.com&#x2F; </span><br><span class="line">1. 先注册开发者账号，填写资料，等待审核； </span><br><span class="line">2. 审核通过后，首页-发布应用。</span><br><span class="line"></span><br><span class="line">四、腾讯应用宝：</span><br><span class="line">http:&#x2F;&#x2F;wiki.open.qq.com&#x2F;wiki&#x2F;%E6%B3%A8%E5%86%8C%E5%BC%80%E5%8F%91%E8%80%85%E5%B8%90%E5%8F%B7 </span><br><span class="line">1. 注册开发者账号，填写资料-验证邮箱，邮箱验证成功后，如需创建应用，可点击“立即创建”，提交应用审核时，开发者资质会一并提交审核； </span><br><span class="line">2. 审核通过后，首页-应用接入。</span><br><span class="line"></span><br><span class="line">其他应用市场上架方法请参考： </span><br><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;niezhipeng8&#x2F;article&#x2F;details&#x2F;79103436</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -577,69 +643,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/" rel="tag">html</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/17/1571315277000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/17/articles/2019/10/17/1571315277000.html/" class="article-date">
-      <time datetime="2019-10-17T12:27:57.000Z" itemprop="datePublished">2019-10-17</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/17/articles/2019/10/17/1571315277000.html/">[android] app上架</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="" target="_blank"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;account.fir.im&#x2F;signin</span><br><span class="line"></span><br><span class="line">安卓APP发布上架的方法</span><br><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_31093755&#x2F;article&#x2F;details&#x2F;81735709</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">一、华为应用市场：</span><br><span class="line">https:&#x2F;&#x2F;developer.huawei.com&#x2F;consumer&#x2F;cn&#x2F;wiki&#x2F;index.php?title&#x3D;%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95 </span><br><span class="line">1. 先注册开发者账号，填写资料，提交审核； </span><br><span class="line">2. 审核通过后，首页-分发模块，上传应用。</span><br><span class="line"></span><br><span class="line">二、 小米应用商店：</span><br><span class="line">https:&#x2F;&#x2F;dev.mi.com&#x2F;docs&#x2F;appsmarket&#x2F;distribution&#x2F;account_register&#x2F; </span><br><span class="line">1. 先注册成为开发者，填写资料，同意开发协议并注册； </span><br><span class="line">2. 首页轮播图点击上传应用，或者首页-应用分发-小米应用商店-上传应用。</span><br><span class="line"></span><br><span class="line">三、 百度手机助手、安卓市场、91助手</span><br><span class="line">http:&#x2F;&#x2F;app.baidu.com&#x2F; </span><br><span class="line">1. 先注册开发者账号，填写资料，等待审核； </span><br><span class="line">2. 审核通过后，首页-发布应用。</span><br><span class="line"></span><br><span class="line">四、腾讯应用宝：</span><br><span class="line">http:&#x2F;&#x2F;wiki.open.qq.com&#x2F;wiki&#x2F;%E6%B3%A8%E5%86%8C%E5%BC%80%E5%8F%91%E8%80%85%E5%B8%90%E5%8F%B7 </span><br><span class="line">1. 注册开发者账号，填写资料-验证邮箱，邮箱验证成功后，如需创建应用，可点击“立即创建”，提交应用审核时，开发者资质会一并提交审核； </span><br><span class="line">2. 审核通过后，首页-应用接入。</span><br><span class="line"></span><br><span class="line">其他应用市场上架方法请参考： </span><br><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;niezhipeng8&#x2F;article&#x2F;details&#x2F;79103436</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li></ul>
     </div>
 
       
