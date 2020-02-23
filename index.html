@@ -283,86 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2020/02/23/1582469577000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/23/articles/2020/02/23/1582469577000.html/" class="article-date">
-      <time datetime="2020-02-23T14:52:57.000Z" itemprop="datePublished">2020-02-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/23/articles/2020/02/23/1582469577000.html/">[arm] itop4412基于web控制led</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <details>
-<summary>boa的移植和配置</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;www.boa.org&#x2F;boa-0.94.13.tar.gz</span><br><span class="line">mkdir ~&#x2F;work; tar xvf boa-0.94.13.tar.gz -C ~&#x2F;work;cd ~&#x2F;work&#x2F;boa-0.94.13&#x2F;src;</span><br><span class="line"></span><br><span class="line">#根据configure.in文件进行一系列的配置，生成config.status,configure和Makefile文件</span><br><span class="line">chmod 755 configure</span><br><span class="line">.&#x2F;configure</span><br><span class="line">apt-get install -y byacc flex</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
-
-<p>vim src/compat.h</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;#define TIMEZONE_OFFSET(foo) foo##-&gt;tm_gmtoff</span><br><span class="line">#define TIMEZONE_OFFSET(foo) (foo)-&gt;tm_gmtoff</span><br></pre></td></tr></table></figure>
-
-<p>vim boa.conf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">User nobody</span><br><span class="line">Group nogroup</span><br><span class="line">ErrorLog &#x2F;var&#x2F;log&#x2F;boa&#x2F;error_log</span><br><span class="line">AccessLog &#x2F;var&#x2F;log&#x2F;boa&#x2F;access_log</span><br><span class="line">DocumentRoot &#x2F;www   --web服务启动的目录在根目录下的&#x2F;www</span><br><span class="line">UserDir public_html</span><br><span class="line">DirectoryIndex index.html  --目录的索引文件 默认首页</span><br><span class="line">DirectoryMaker &#x2F;usr&#x2F;lib&#x2F;boa&#x2F;boa_indexer</span><br><span class="line">ScriptAlias &#x2F;cgi-bin&#x2F; &#x2F;usr&#x2F;lib&#x2F;cgi-bin&#x2F;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cp boa.conf &#x2F;etc&#x2F;boa</span><br><span class="line">cp -r www &#x2F;www</span><br><span class="line"></span><br><span class="line">#启动web服务</span><br><span class="line">.&#x2F;boa</span><br><span class="line">#出错:unable to dup2 the error log: Bad file descriptor</span><br><span class="line"></span><br><span class="line">vim log.c</span><br><span class="line">&#x2F;*</span><br><span class="line"> if (dup2(error_log, STDERR_FILENO) &#x3D;&#x3D; -1) &#123;</span><br><span class="line">  DIE(&quot;unable to dup2 the error log&quot;);</span><br><span class="line"> &#125;</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line">make clean    </span><br><span class="line">make</span><br></pre></td></tr></table></figure>
-</details>
-
-<details>
-<summary>CGIC库移植和配置</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;boutell&#x2F;cgic</span><br><span class="line">cd cgic</span><br><span class="line"></span><br><span class="line">vim Makefile</span><br><span class="line">CC&#x3D;gcc 改成 CC&#x3D;arm-none-linux-gnueabi-gcc</span><br><span class="line">AR&#x3D;ar 改成 AR&#x3D;arm-none-linux-gnueabi-ar</span><br><span class="line">RANLIB&#x3D;ranlib 改成 RANLIB&#x3D;arm-none-linux-gnueabi-ranlib</span><br><span class="line">gcc cgictest.o -o cgictest.cgi $&#123;LIBS&#125; 改成 $(CC) $(CFLAGS) cgictest.o -o cgictest.cgi $&#123;LIBS&#125;</span><br><span class="line">gcc capture.o -o capture $&#123;LIBS&#125; 改成 $(CC) $(CFLAGS) capture.o -o capture $&#123;LIBS&#125;</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">#来验证生成CGIC库的正确性</span><br><span class="line">CGIC库中的常用文件：</span><br><span class="line">cgic.h：头文件</span><br><span class="line">cgic.c：CGIC的源代码文件</span><br><span class="line">cgictest.c：CGIC库的作者提供的一个CGI程序例子</span><br><span class="line">capture.c：用于调试CGI程序的工具</span><br><span class="line">Makefile：安装CGIC的脚本文件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mkdir -p ~&#x2F;work&#x2F;cgictest;cd cgictest</span><br><span class="line">#cgic.h, cgic.c, cgictest.c</span><br><span class="line">vim Makefile</span><br><span class="line">test.cgi:cgictest.c cgic.h cgic.c</span><br><span class="line">gcc -wall cgictest.c cgic.c -o test.cgi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cp capture &#x2F;nfs&#x2F;www&#x2F;cgi-bin</span><br><span class="line">cp cgictest.cgi &#x2F;nfs&#x2F;www&#x2F;cgi-bin</span><br><span class="line"></span><br><span class="line"># 在工作站的浏览器地址栏输入</span><br><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;cgi-bin&#x2F;cgictest.cgi</span><br></pre></td></tr></table></figure>
-</details>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2020/02/23/1582469576000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -381,7 +301,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/23/articles/2020/02/23/1582469576000.html/">[arm] 基于web控制led</a>
+      <a  class="article-title" href="/2020/02/23/articles/2020/02/23/1582469576000.html/">[arm] itop6818基于web控制led</a>
     </h1>
   
 
@@ -392,25 +312,27 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="" target="_blank"></a></p>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install gcc-arm-linux-gnueabihf</span><br></pre></td></tr></table></figure>
+
 <details>
 <summary>boa的移植和配置</summary>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;www.boa.org&#x2F;boa-0.94.13.tar.gz</span><br><span class="line">mkdir ~&#x2F;work; tar xvf boa-0.94.13.tar.gz -C ~&#x2F;work;cd ~&#x2F;work&#x2F;boa-0.94.13&#x2F;src;</span><br><span class="line"></span><br><span class="line">#根据configure.in文件进行一系列的配置，生成config.status,configure和Makefile文件</span><br><span class="line">chmod 755 configure</span><br><span class="line">.&#x2F;configure</span><br><span class="line">apt-get install -y byacc flex</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;www.boa.org&#x2F;boa-0.94.13.tar.gz</span><br><span class="line">mkdir ~&#x2F;work; tar xvf boa-0.94.13.tar.gz -C ~&#x2F;work;cd ~&#x2F;work&#x2F;boa-0.94.13;</span><br><span class="line"></span><br><span class="line">#根据configure.in文件进行一系列的配置，生成config.status,configure和Makefile文件</span><br><span class="line">chmod 755 configure</span><br><span class="line">.&#x2F;configure</span><br><span class="line">apt-get install -y byacc flex</span><br></pre></td></tr></table></figure>
 
 <p>vim src/compat.h</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;#define TIMEZONE_OFFSET(foo) foo##-&gt;tm_gmtoff</span><br><span class="line">#define TIMEZONE_OFFSET(foo) (foo)-&gt;tm_gmtoff</span><br></pre></td></tr></table></figure>
 
-<p>vim boa.conf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">User nobody</span><br><span class="line">Group nogroup</span><br><span class="line">ErrorLog &#x2F;var&#x2F;log&#x2F;boa&#x2F;error_log</span><br><span class="line">AccessLog &#x2F;var&#x2F;log&#x2F;boa&#x2F;access_log</span><br><span class="line">DocumentRoot &#x2F;www   --web服务启动的目录在根目录下的&#x2F;www</span><br><span class="line">UserDir public_html</span><br><span class="line">DirectoryIndex index.html  --目录的索引文件 默认首页</span><br><span class="line">DirectoryMaker &#x2F;usr&#x2F;lib&#x2F;boa&#x2F;boa_indexer</span><br><span class="line">ScriptAlias &#x2F;cgi-bin&#x2F; &#x2F;usr&#x2F;lib&#x2F;cgi-bin&#x2F;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat boa.conf|grep -v &quot;#&quot;|grep -v &quot;^$&quot;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cp boa.conf &#x2F;etc&#x2F;boa</span><br><span class="line">cp -r www &#x2F;www</span><br><span class="line"></span><br><span class="line">#启动web服务</span><br><span class="line">.&#x2F;boa</span><br><span class="line">#出错:unable to dup2 the error log: Bad file descriptor</span><br><span class="line"></span><br><span class="line">vim log.c</span><br><span class="line">&#x2F;*</span><br><span class="line"> if (dup2(error_log, STDERR_FILENO) &#x3D;&#x3D; -1) &#123;</span><br><span class="line">  DIE(&quot;unable to dup2 the error log&quot;);</span><br><span class="line"> &#125;</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line">make clean    </span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;usr&#x2F;lib&#x2F;boa&#x2F; &#x2F;etc&#x2F;boa&#x2F; &#x2F;var&#x2F;log&#x2F;boa &#x2F;www</span><br><span class="line"></span><br><span class="line">cat &gt; &#x2F;etc&#x2F;boa&#x2F;boa.conf&lt;&lt;EOF</span><br><span class="line">Port 80</span><br><span class="line">User 0</span><br><span class="line">Group 0</span><br><span class="line">ErrorLog &#x2F;var&#x2F;log&#x2F;boa&#x2F;error_log</span><br><span class="line">AccessLog &#x2F;var&#x2F;log&#x2F;boa&#x2F;access_log</span><br><span class="line">DocumentRoot &#x2F;www</span><br><span class="line">UserDir public_html</span><br><span class="line">DirectoryIndex index.html</span><br><span class="line">DirectoryMaker &#x2F;usr&#x2F;lib&#x2F;boa&#x2F;boa_indexer</span><br><span class="line">KeepAliveMax 1000</span><br><span class="line">KeepAliveTimeout 10</span><br><span class="line">MimeTypes &#x2F;etc&#x2F;mime.types</span><br><span class="line">DefaultType text&#x2F;plain</span><br><span class="line">CGIPath &#x2F;bin:&#x2F;usr&#x2F;bin:&#x2F;usr&#x2F;local&#x2F;bin</span><br><span class="line">Alias &#x2F;doc &#x2F;usr&#x2F;doc</span><br><span class="line">ScriptAlias &#x2F;cgi-bin&#x2F; &#x2F;www&#x2F;cgi-bin&#x2F;</span><br><span class="line">ServerName localhost</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cd src;</span><br><span class="line">make</span><br><span class="line">arm-linux-gnueabihf-strip boa</span><br><span class="line"></span><br><span class="line">cp boa_indexer &#x2F;usr&#x2F;lib&#x2F;boa&#x2F;</span><br><span class="line">cp boa &#x2F;etc&#x2F;boa&#x2F;</span><br><span class="line"></span><br><span class="line">vim log.c</span><br><span class="line">&#x2F;*</span><br><span class="line"> if (dup2(error_log, STDERR_FILENO) &#x3D;&#x3D; -1) &#123;</span><br><span class="line">  DIE(&quot;unable to dup2 the error log&quot;);</span><br><span class="line"> &#125;</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#启动web服务</span><br><span class="line">.&#x2F;boa</span><br></pre></td></tr></table></figure>
 </details>
 
 <details>
 <summary>CGIC库移植和配置</summary>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;boutell&#x2F;cgic</span><br><span class="line">cd cgic</span><br><span class="line"></span><br><span class="line">vim Makefile</span><br><span class="line">CC&#x3D;gcc 改成 CC&#x3D;arm-none-linux-gnueabi-gcc</span><br><span class="line">AR&#x3D;ar 改成 AR&#x3D;arm-none-linux-gnueabi-ar</span><br><span class="line">RANLIB&#x3D;ranlib 改成 RANLIB&#x3D;arm-none-linux-gnueabi-ranlib</span><br><span class="line">gcc cgictest.o -o cgictest.cgi $&#123;LIBS&#125; 改成 $(CC) $(CFLAGS) cgictest.o -o cgictest.cgi $&#123;LIBS&#125;</span><br><span class="line">gcc capture.o -o capture $&#123;LIBS&#125; 改成 $(CC) $(CFLAGS) capture.o -o capture $&#123;LIBS&#125;</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">#来验证生成CGIC库的正确性</span><br><span class="line">CGIC库中的常用文件：</span><br><span class="line">cgic.h：头文件</span><br><span class="line">cgic.c：CGIC的源代码文件</span><br><span class="line">cgictest.c：CGIC库的作者提供的一个CGI程序例子</span><br><span class="line">capture.c：用于调试CGI程序的工具</span><br><span class="line">Makefile：安装CGIC的脚本文件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mkdir -p ~&#x2F;work&#x2F;cgictest;cd cgictest</span><br><span class="line">#cgic.h, cgic.c, cgictest.c</span><br><span class="line">vim Makefile</span><br><span class="line">test.cgi:cgictest.c cgic.h cgic.c</span><br><span class="line">gcc -wall cgictest.c cgic.c -o test.cgi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cp capture &#x2F;nfs&#x2F;www&#x2F;cgi-bin</span><br><span class="line">cp cgictest.cgi &#x2F;nfs&#x2F;www&#x2F;cgi-bin</span><br><span class="line"></span><br><span class="line"># 在工作站的浏览器地址栏输入</span><br><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;cgi-bin&#x2F;cgictest.cgi</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;boutell&#x2F;cgic</span><br><span class="line">cd cgic</span><br><span class="line"></span><br><span class="line">vim Makefile</span><br><span class="line">CC&#x3D;gcc 改成 CC&#x3D;arm-linux-gnueabihf-gcc</span><br><span class="line">#CPP&#x3D;gcc -E 改成 CCP&#x3D;arm-linux-gnueabihf-gcc -E</span><br><span class="line">AR&#x3D;ar 改成 AR&#x3D;arm-linux-gnueabihf-ar</span><br><span class="line">RANLIB&#x3D;ranlib 改成 RANLIB&#x3D;arm-linux-gnueabihf-ranlib</span><br><span class="line">gcc cgictest.o -o cgictest.cgi $&#123;LIBS&#125; 改成 $(CC) $(CFLAGS) cgictest.o -o cgictest.cgi $&#123;LIBS&#125;</span><br><span class="line">gcc capture.o -o capture $&#123;LIBS&#125; 改成 $(CC) $(CFLAGS) capture.o -o capture $&#123;LIBS&#125;</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">#来验证生成CGIC库的正确性</span><br><span class="line">CGIC库中的常用文件：</span><br><span class="line">cgic.h：头文件</span><br><span class="line">cgic.c：CGIC的源代码文件</span><br><span class="line">cgictest.c：CGIC库的作者提供的一个CGI程序例子</span><br><span class="line">capture.c：用于调试CGI程序的工具</span><br><span class="line">Makefile：安装CGIC的脚本文件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mkdir -p ~&#x2F;work&#x2F;cgictest;cd ~&#x2F;work&#x2F;cgictest</span><br><span class="line">ls ~&#x2F;work&#x2F;cgic&#x2F;</span><br><span class="line">cp ~&#x2F;work&#x2F;cgic&#x2F;cgic.h .</span><br><span class="line">cp ~&#x2F;work&#x2F;cgic&#x2F;cgic.c .</span><br><span class="line">cp ~&#x2F;work&#x2F;cgic&#x2F;cgictest.c .</span><br><span class="line">cp ~&#x2F;work&#x2F;cgic&#x2F;capture .</span><br><span class="line">cp ~&#x2F;work&#x2F;cgic&#x2F;cgictest.cgi .</span><br><span class="line">#LIBS</span><br><span class="line">cp ~&#x2F;work&#x2F;cgic&#x2F;libcgic.a .</span><br><span class="line"></span><br><span class="line">vim Makefile</span><br><span class="line">CFLAGS&#x3D;-g -Wall</span><br><span class="line">CC&#x3D;arm-linux-gnueabihf-gcc</span><br><span class="line">AR&#x3D;arm-linux-gnueabihf-ar</span><br><span class="line">RANLIB&#x3D;arm-linux-gnueabihf-ranlib</span><br><span class="line">LIBS&#x3D;-L.&#x2F; -lcgic</span><br><span class="line"></span><br><span class="line">test.cgi:cgictest.c cgic.h cgic.c</span><br><span class="line">（这里必有一个tab符）$(CC) $(CFLAGS) cgictest.c cgic.c -o test.cgi $&#123;LIBS&#125;</span><br><span class="line"></span><br><span class="line">mkdir -p &#x2F;www&#x2F;cgi-bin</span><br><span class="line">cp capture &#x2F;www&#x2F;cgi-bin&#x2F;</span><br><span class="line">cp test.cgi &#x2F;www&#x2F;cgi-bin&#x2F;</span><br><span class="line"></span><br><span class="line">apt-get install curl</span><br><span class="line">curl http:&#x2F;&#x2F;127.0.0.1&#x2F;cgi-bin&#x2F;cgictest.cgi</span><br></pre></td></tr></table></figure>
 </details>
 
 <details>
@@ -446,7 +368,7 @@
 <p>在开发板上启动boa，开启web服务</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在电脑上浏览器上输入，192.168.xxx.xxx&#x2F;myled.html，开始测试</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://blog.csdn.net/liuxu324/article/details/85383807" target="_blank">CGIC库移植及库函数使用总结</a><br><a href="https://blog.csdn.net/u013794365/article/details/52160353" target="_blank">linux下CGIC/CGI和BOA开发小记</a><br><a href="https://blog.csdn.net/qq_695538007/article/details/9153187" target="_blank">基于web的远程led控制</a><br><a href="https://blog.csdn.net/qq_41495871/article/details/100178807" target="_blank">iTOP4412基于Linux最小系统搭建Web服务器，实现Web远程控制LED</a><br><a href="https://www.jianshu.com/p/dafcf652baed" target="_blank">嵌入式设备web开发笔记：boa和cgic</a></p>
+<p><a href="https://www.cnblogs.com/dyllove98/p/3196559.html" target="_blank">排错([置顶] ARM-Linux下WEB服务器Boa的移植、配置和运行测试)</a><br><a href="https://www.linuxidc.com/Linux/2012-06/62844.htm" target="_blank">nfs</a><br><a href="https://www.jianshu.com/p/31679b93ccde" target="_blank">基于BOA搭建和移植服务器</a><br><a href="https://blog.csdn.net/liuxu324/article/details/85383807" target="_blank">CGIC库移植及库函数使用总结</a><br><a href="https://blog.csdn.net/u013794365/article/details/52160353" target="_blank">linux下CGIC/CGI和BOA开发小记</a><br><a href="https://blog.csdn.net/qq_695538007/article/details/9153187" target="_blank">基于web的远程led控制</a><br><a href="https://blog.csdn.net/qq_41495871/article/details/100178807" target="_blank">iTOP4412基于Linux最小系统搭建Web服务器，实现Web远程控制LED</a><br><a href="https://www.jianshu.com/p/dafcf652baed" target="_blank">嵌入式设备web开发笔记：boa和cgic</a></p>
 
       
     </div>
@@ -716,6 +638,25 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">deb http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports&#x2F; precise main universe</span><br><span class="line">deb-src http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports&#x2F; precise main universe</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mv &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br><span class="line"></span><br><span class="line">cat &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list &lt;&lt;EOF</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu-ports&#x2F; precise main universe</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu-ports&#x2F; precise main universe</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ls &#x2F;etc&#x2F;apt&#x2F;sources.list.d</span><br><span class="line">&#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;linaro-overlay-ppa.list</span><br><span class="line"></span><br><span class="line">cat &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;linaro-overlay-ppa.list</span><br><span class="line">deb http:&#x2F;&#x2F;ppa.launchpad.net&#x2F;linaro-maintainers&#x2F;overlay&#x2F;ubuntu precise main</span><br><span class="line">deb-src http:&#x2F;&#x2F;ppa.launchpad.net&#x2F;linaro-maintainers&#x2F;overlay&#x2F;ubuntu precise main</span><br><span class="line"></span><br><span class="line">mv &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;linaro-overlay-ppa.list &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;linaro-overlay-ppa.list.bak</span><br><span class="line"></span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
 
 <p><a href="https://www.cnblogs.com/wylnii/p/Ubuntu-mirrors-armhf.html" target="_blank">Ubuntu 的国内源（armhf）</a></p>
+<p>缺少linux kernel 头文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install linux-headers-generic</span><br><span class="line">apt-get install linux-headers-$(uname -r)</span><br><span class="line">apt-get install linux-source</span><br></pre></td></tr></table></figure>
+
+<p>更新内核</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">do-release-upgrade</span><br></pre></td></tr></table></figure>
+
+<p>armhf编译驱动程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arm-linux-gnueabihf-gcc -o hello hello.c -static</span><br></pre></td></tr></table></figure>
+
+<p>arm-linux-gcc的安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install gcc-arm-linux-gnueabihf</span><br></pre></td></tr></table></figure>
+
+<p>arm-linux-g++的安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install g++-arm-linux-gnueabihf</span><br></pre></td></tr></table></figure>
+
+<p>arm-linux-gcc-4.4.3.tar.gz</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;www.arm9.net&#x2F;download.asp</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/lg1259156776/article/details/52281323" target="_blank">arm-linux-gnueabihf-gcc下载</a><br><a href="https://launchpad.net/linaro-toolchain-binaries/trunk/2013.10/+download/gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_linux.tar.xz" target="_blank">gcc-linaro-arm-linux-gnueabihf-4.8-2013.10_linux.tar.xz</a><br><a href="http://pan.baidu.com/s/1o6HW8bS" target="_blank">gcc-linaro-arm-linux-gnueabihf-4.9-2014.07_linux.tar.xz</a></p>
 
       
     </div>
@@ -1049,6 +990,68 @@
 <p>然后执行以下指令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wpa_passphrase XXX &quot;YYY&quot; &gt; &#x2F;etc&#x2F;wpa_supplicant&#x2F;wpa_supplicant.conf</span><br><span class="line"></span><br><span class="line">#执行命令“ .&#x2F;etc&#x2F;init.d&#x2F;mt6620 ”即可连接到 WiFi 网络，配置时间大约 30 秒左右</span><br><span class="line">.&#x2F;etc&#x2F;init.d&#x2F;mt6620</span><br></pre></td></tr></table></figure>
 
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/19/1582105141000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/19/articles/2020/02/19/1582105141000.html/" class="article-date">
+      <time datetime="2020-02-19T09:39:01.000Z" itemprop="datePublished">2020-02-19</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/19/articles/2020/02/19/1582105141000.html/">[arm] 看云</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.kancloud.cn/lichee/lpi0/418897" target="_blank">移植tslib</a></p>
 
       
     </div>

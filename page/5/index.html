@@ -283,142 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2020/02/14/1581643663000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/14/articles/2020/02/14/1581643663000.html/" class="article-date">
-      <time datetime="2020-02-14T01:27:43.000Z" itemprop="datePublished">2020-02-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/14/articles/2020/02/14/1581643663000.html/">[linux] 虚拟网络设备之tun/tap</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://segmentfault.com/a/1190000009249039" target="_blank">Linux虚拟网络设备之tun/tap</a></p>
-<details>
-<summary>tun.c</summary>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;net/if.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ioctl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/if_tun.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">tun_alloc</span><span class="params">(<span class="keyword">int</span> flags)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ifreq</span> <span class="title">ifr</span>;</span></span><br><span class="line">    <span class="keyword">int</span> fd, err;</span><br><span class="line">    <span class="keyword">char</span> *clonedev = <span class="string">"/dev/net/tun"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((fd = <span class="built_in">open</span>(clonedev, O_RDWR)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> fd;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(&amp;ifr, <span class="number">0</span>, <span class="keyword">sizeof</span>(ifr));</span><br><span class="line">    ifr.ifr_flags = flags;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((err = ioctl(fd, TUNSETIFF, (<span class="keyword">void</span> *) &amp;ifr)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">close</span>(fd);</span><br><span class="line">        <span class="keyword">return</span> err;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Open tun/tap device: %s for reading...\n"</span>, ifr.ifr_name);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> fd;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> tun_fd, nread;</span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">buffer</span>[<span class="number">1500</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Flags: IFF_TUN   - TUN device (no Ethernet headers)</span></span><br><span class="line"><span class="comment">     *        IFF_TAP   - TAP device</span></span><br><span class="line"><span class="comment">     *        IFF_NO_PI - Do not provide packet information</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    tun_fd = tun_alloc(IFF_TUN | IFF_NO_PI);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (tun_fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"Allocating interface"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        nread = <span class="built_in">read</span>(tun_fd, <span class="built_in">buffer</span>, <span class="keyword">sizeof</span>(<span class="built_in">buffer</span>));</span><br><span class="line">        <span class="keyword">if</span> (nread &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            perror(<span class="string">"Reading from interface"</span>);</span><br><span class="line">            <span class="built_in">close</span>(tun_fd);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Read %d bytes from tun/tap device\n"</span>, nread);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>
-
-<p>执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc tun.c -o tun</span><br><span class="line">sudo .&#x2F;tun</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/14/1581643662000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/14/articles/2020/02/14/1581643662000.html/" class="article-date">
-      <time datetime="2020-02-14T01:27:42.000Z" itemprop="datePublished">2020-02-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/14/articles/2020/02/14/1581643662000.html/">[linux] 上网配置</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.cnblogs.com/xishaohui/p/8728848.html" target="_blank">Linux网络配置</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br><span class="line">#查看当前虚拟机的IP</span><br><span class="line">ip addr</span><br><span class="line"></span><br><span class="line">#如果虚拟机的ip是127.0.0.1的话，需要修改配置文件</span><br><span class="line">cd &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;</span><br><span class="line"></span><br><span class="line">vi ifcfg-ens33</span><br><span class="line">ONBOOT&#x3D;yes</span><br><span class="line"></span><br><span class="line">#重启网卡</span><br><span class="line">service network restart</span><br><span class="line"></span><br><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
-
-<p>ifcfg-eth0</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts</span><br><span class="line">vim ifcfg-eth0</span><br><span class="line"></span><br><span class="line">DEVICE&#x3D;eth0</span><br><span class="line">#重启生效</span><br><span class="line">ONBOOT&#x3D;yes</span><br><span class="line">#设置为静态IP</span><br><span class="line">BOOTPROTO&#x3D;static</span><br><span class="line"></span><br><span class="line">#ip地址</span><br><span class="line">IPADDR&#x3D;10.23.57.227</span><br><span class="line">#子网掩码</span><br><span class="line">NETMASK&#x3D;255.255.255.0</span><br><span class="line">#网关</span><br><span class="line">GATEWAY&#x3D;10.23.57.2</span><br><span class="line">#DNS1</span><br><span class="line">DNS1&#x3D;8.8.8.8</span><br><span class="line">#DNS2</span><br><span class="line">DNS2&#x3D;4.4.4.4</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2020/02/14/1581643661000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -944,6 +808,133 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/14/1581643351000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/14/articles/2020/02/14/1581643351000.html/" class="article-date">
+      <time datetime="2020-02-14T01:22:31.000Z" itemprop="datePublished">2020-02-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/14/articles/2020/02/14/1581643351000.html/">[android] AndroidStudio设置代理</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/u010164190/article/details/53168905" target="_blank">Android Studio设置HTTP代理（可用）</a> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">android SDK下载：http:&#x2F;&#x2F;www.androiddevtools.cn</span><br><span class="line">1. 禁止第一次启动</span><br><span class="line">    到AS安装目录，打开bin目录，编辑idea.properties, 在文件末尾添加:</span><br><span class="line">    disable.android.first.run&#x3D;true</span><br><span class="line"> </span><br><span class="line">2.设置HTTP代理</span><br><span class="line">   点击 ---&gt;File</span><br><span class="line">         ---&gt;Settings</span><br><span class="line">           ---&gt;System Settings</span><br><span class="line">            ---&gt;HTTP Proxy进行设置</span><br><span class="line">Host name: mirrors.neusoft.edu.cn</span><br><span class="line">Port number：80</span><br><span class="line"> </span><br><span class="line">3.找到SDK Manager即可下载</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.jianshu.com/p/6ba60be77855" target="_blank">android studio设置Http Proxy</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/14/1581643162000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/14/articles/2020/02/14/1581643162000.html/" class="article-date">
+      <time datetime="2020-02-14T01:19:22.000Z" itemprop="datePublished">2020-02-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/14/articles/2020/02/14/1581643162000.html/">[arm] linux嵌入式编程</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.veryarm.com/arm" target="_blank">arm</a><br><a href="https://www.cnblogs.com/wanghuaijun/p/9416641.html" target="_blank">Linux下的串口编程实例</a><br><a href="https://github.com/buchenglei/linux-c-study" target="_blank">linux-c-study</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
     </div>
 
       
