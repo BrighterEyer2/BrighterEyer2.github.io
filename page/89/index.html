@@ -283,68 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/09/22/1569133292000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/09/22/articles/2019/09/22/1569133292000.html/" class="article-date">
-      <time datetime="2019-09-22T06:21:32.000Z" itemprop="datePublished">2019-09-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/09/22/articles/2019/09/22/1569133292000.html/">[react-native] ActionSheet</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.jianshu.com/p/2377cca9a58c" target="_blank">React Native的ActionSheet实现</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ActionSheet.showActionSheetWithOptions(</span><br><span class="line">	&#123;</span><br><span class="line">	  options: [&#39;取消&#39;, &#39;删除&#39;],</span><br><span class="line">	  destructiveButtonIndex: 1,</span><br><span class="line">	  cancelButtonIndex: 0,</span><br><span class="line">	&#125;,</span><br><span class="line">	(buttonIndex) &#x3D;&gt; &#123;</span><br><span class="line">		if (buttonIndex &#x3D;&#x3D;&#x3D; 1) &#123;</span><br><span class="line">			&#x2F;* 当接收到的索引为1，即点击了删除按钮时，执行对应操作 *&#x2F;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2019/09/22/1569133291000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -916,6 +854,95 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/09/12/1568298533000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/09/12/articles/2019/09/12/1568298533000.html/" class="article-date">
+      <time datetime="2019-09-12T14:28:53.000Z" itemprop="datePublished">2019-09-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/09/12/articles/2019/09/12/1568298533000.html/">[react-native] 编译打包</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://reactnative.cn/docs/0.43/signed-apk-android.html" target="_blank">react-native官方打包</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd android &amp;&amp; .&#x2F;gradlew assembleRelease</span><br><span class="line">cd android &amp;&amp; .&#x2F;gradlew assembleDebug</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/u011272795/article/details/77161942" target="_blank">react-native 安卓离线包</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --entry-file index.js --platform android --dev false --bundle-output .&#x2F;android&#x2F;app&#x2F;src&#x2F;main&#x2F;assets&#x2F;index.android.bundle --assets-dest .&#x2F;android&#x2F;app&#x2F;src&#x2F;main&#x2F;res&#x2F;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#打安卓包的话，react-native bundle 可以替换为 react-native unbundle 做到拆分功能 </span><br><span class="line"></span><br><span class="line">react-native unbundle --entry-file index.js --platform android --dev false --bundle-output .&#x2F;android&#x2F;app&#x2F;src&#x2F;main&#x2F;assets&#x2F;index.android.bundle --assets-dest .&#x2F;android&#x2F;app&#x2F;src&#x2F;main&#x2F;res&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>生成.keystore文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000</span><br><span class="line"></span><br><span class="line">--alias别名参数后面 在 应用签名时需要用到</span><br><span class="line"></span><br><span class="line">Key store path : 签名文件路径</span><br><span class="line">Password : 签名密码</span><br><span class="line">Confirm : 确认密码</span><br><span class="line">Alias : 别名</span><br><span class="line">Validity ( years ) : 有限期 （年）</span><br><span class="line">First and Last Name : 全名</span><br><span class="line">Organizational Unit : 组织单位</span><br><span class="line">Organization : 组织</span><br><span class="line">City or Locality : 城市或地方</span><br><span class="line">State or Province : 州或省</span><br><span class="line">Country Code(XX) : 国家代码</span><br></pre></td></tr></table></figure>
+
+<p>gradle.properties</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;.gradle&#x2F;gradle.properties</span><br><span class="line">或</span><br><span class="line">%USERPROFILE%&#x2F;.gradle&#x2F;gradle.properties</span><br><span class="line"></span><br><span class="line">MYAPP_RELEASE_STORE_FILE&#x3D;my-release-key.keystore</span><br><span class="line">MYAPP_RELEASE_KEY_ALIAS&#x3D;my-key-alias</span><br><span class="line">MYAPP_RELEASE_STORE_PASSWORD&#x3D;*****</span><br><span class="line">MYAPP_RELEASE_KEY_PASSWORD&#x3D;*****</span><br></pre></td></tr></table></figure>
+
+<p>android/app/build.gradle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    defaultConfig &#123; ... &#125;</span><br><span class="line">    signingConfigs &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            storeFile file(MYAPP_RELEASE_STORE_FILE)</span><br><span class="line">            storePassword MYAPP_RELEASE_STORE_PASSWORD</span><br><span class="line">            keyAlias MYAPP_RELEASE_KEY_ALIAS</span><br><span class="line">            keyPassword MYAPP_RELEASE_KEY_PASSWORD</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            ...</span><br><span class="line">            signingConfig signingConfigs.release</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>生成签名apk</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#在RN项目根目录运行:</span><br><span class="line">#生产包</span><br><span class="line">cd android &amp;&amp; gradlew assembleRelease</span><br><span class="line">#测试包</span><br><span class="line">cd android &amp;&amp; gradlew assembleDebug</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.jianshu.com/p/d6af7197d49f" target="_blank">发布RN项目的安卓Release版本</a></p>
+<p><a href="https://www.cnblogs.com/weizhxa/p/9950696.html" target="_blank">gradlew命令打包详细讲解</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gradlew compileDebug --stacktrace -info </span><br><span class="line">#或</span><br><span class="line">gradlew compileDebug --stacktrace -debug </span><br><span class="line"></span><br><span class="line">#显示的错误信息最详细，建议直接用这个</span><br><span class="line">gradlew compileDebugSources --stacktrace -info</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/ddddwwww2/article/details/53085537" target="_blank">gradlew命令打包详细讲解</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1、全渠道release版本打包：</span><br><span class="line">.&#x2F;gradlew assembleRelease</span><br><span class="line"></span><br><span class="line">2、全渠道debug版本打包：</span><br><span class="line">.&#x2F;gradlew assembleDebug</span><br><span class="line"></span><br><span class="line">3、单个渠道release版本打包：</span><br><span class="line">.&#x2F;gradlew assembleGoogleRelease</span><br><span class="line"></span><br><span class="line">4、单个渠道debug版本打包：</span><br><span class="line">.&#x2F;gradlew assembleGoogleDebug</span><br><span class="line"></span><br><span class="line">5、单个渠道打包：</span><br><span class="line">.&#x2F;gradlew assembleGoogle</span><br><span class="line"></span><br><span class="line">这个会生成release和debug两个版本的apk</span><br></pre></td></tr></table></figure>
+
+<p>以下估计不管用，没试过；这边是将原先安装在手机上的测试包卸载，再重新运行打包安装上的<br>报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Unable to load script.Make sure you&#39;re either running a metro server</span><br><span class="line">（run &#39;react-native start&#39; ） or that</span><br><span class="line">your bundle &#39;index.android.bundle&#39; is packaged correctly for release.</span><br></pre></td></tr></table></figure>
+<p><a href="https://segmentfault.com/a/1190000019529044" target="_blank">segmentfault报以上错解决方案</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android&#x2F;app&#x2F;src&#x2F;main&#x2F;assets&#x2F;index.android.bundle --assets-dest android&#x2F;app&#x2F;src&#x2F;main&#x2F;res</span><br><span class="line"></span><br><span class="line">react-native run-android</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li></ul>
     </div>
 
       

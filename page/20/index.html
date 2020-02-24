@@ -283,84 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2020/01/01/1577823562000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/01/articles/2020/01/01/1577823562000.html/" class="article-date">
-      <time datetime="2019-12-31T20:19:22.000Z" itemprop="datePublished">2020-01-01</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/01/articles/2020/01/01/1577823562000.html/">[docker] 实用例子大全</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.jianshu.com/p/77af52a75ad8" target="_blank">使用docker搭建nexus并配置docker私有仓库</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mkdir nexus &amp;&amp; cd nexus</span><br><span class="line">mkdir nexus-data</span><br><span class="line"></span><br><span class="line">docker run -d --name nexus3  --privileged&#x3D;true \</span><br><span class="line">--restart&#x3D;always \</span><br><span class="line">-p 8088:8081 \</span><br><span class="line">-p 8082:8082 \</span><br><span class="line">-p 8083:8083 \</span><br><span class="line">-p 8084:8084 \</span><br><span class="line">-p 8085:8085 \</span><br><span class="line">-v .&#x2F;nexus-data:&#x2F;nexus-data \</span><br><span class="line">sonatype&#x2F;nexus3</span><br><span class="line"></span><br><span class="line">docker logs nexus3</span><br><span class="line"></span><br><span class="line">curl -u admin:admin123 http:&#x2F;&#x2F;192.168.2.101:8081&#x2F;service&#x2F;metrics&#x2F;ping</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/myNameIssls/article/details/99702877" target="_blank">基于 Docker 安装 RabbitMQ</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name rabbitmq -d -p 15672:15672 -p 5672:5672 rabbitmq:management</span><br></pre></td></tr></table></figure>
-<p>访问</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker-machine ip</span><br><span class="line">http:&#x2F;&#x2F;ip:15672</span><br><span class="line"></span><br><span class="line">RabbitMQ默认的用户名：</span><br><span class="line">guest</span><br><span class="line">密码：</span><br><span class="line">guest</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.jianshu.com/p/c486133a70e4" target="_blank">基于 Docker 安装 Zookeeper</a></p>
-<p><a href="https://github.com/wt-git-repository/zookeeper-sample" target="_blank">zookeeper-sample</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 集群启动命令</span><br><span class="line">COMPOSE_PROJECT_NAME&#x3D;zk_test docker-compose up</span><br><span class="line"></span><br><span class="line"># docker 作为客户端连接</span><br><span class="line">docker run -it --rm \</span><br><span class="line">--link zoo1:zk1 \</span><br><span class="line">--link zoo2:zk2 \</span><br><span class="line">--link zoo3:zk3 \</span><br><span class="line">--net zktest_default \</span><br><span class="line">--name zkClient \</span><br><span class="line">zookeeper</span><br><span class="line"></span><br><span class="line"># 进入容器执行</span><br><span class="line">zkCli.sh -server zk1:2181,zk2:2181,zk3:2181</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://segmentfault.com/a/1190000014325300" target="_blank">jenkins+maven+docker+github全自动化部署SpringBoot实例</a></p>
-<p><a href="https://blog.csdn.net/dandandeshangni/article/details/80041425" target="_blank">SpringBoot+Docker+Git+Jenkins实现简易的持续集成和持续部署</a><br><a href="https://github.com/longfeizheng/sso-merryyou" target="_blank">sso-merryyou</a></p>
-<p><a href="https://github.com/intomylife/Docker" target="_blank">github Docker</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#docker-compose 快速部署前后端分离项目</span><br><span class="line">docker-compose-rapid-deployment</span><br><span class="line"></span><br><span class="line">#docker-compose 部署 SpringBoot + Redis + MySQL + Nginx</span><br><span class="line">docker-compose</span><br><span class="line"></span><br><span class="line"># Docker 部署 SpringBoot + MySQL 项目</span><br><span class="line">docker-springboot-mysql</span><br><span class="line"></span><br><span class="line"># Docker 部署 SpringBoot + Nginx 实现负载均衡	</span><br><span class="line">docker-springboot-nginx</span><br><span class="line"></span><br><span class="line"># Docker 部署 SpringBoot + Redis 项目</span><br><span class="line">docker-springboot-redis</span><br><span class="line"></span><br><span class="line"># Docker 简单部署 SpringBoot 项目</span><br><span class="line">docker-springboot</span><br><span class="line"></span><br><span class="line">#Docker 简单部署 SpringCloud 项目</span><br><span class="line">docker-springcloud</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2020/01/01/1577823561000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -969,6 +891,69 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm8/" rel="tag">stm8</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/12/29/1577593136000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/12/29/articles/2019/12/29/1577593136000.html/" class="article-date">
+      <time datetime="2019-12-29T04:18:56.000Z" itemprop="datePublished">2019-12-29</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/12/29/articles/2019/12/29/1577593136000.html/">[springcloud] 启动顺序</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>启动顺序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">zuul-gateway</span><br><span class="line">service-provider</span><br><span class="line">hystrix-turbine</span><br><span class="line">feign-consumer</span><br><span class="line">eureka-server</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springcloud/" rel="tag">springcloud</a></li></ul>
     </div>
 
       
