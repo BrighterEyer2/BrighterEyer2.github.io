@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-02-23T14:52:56.000Z</updated>
+  <updated>2020-02-24T11:18:54.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[ubuntu] 安装指定版本gcc</title>
+    <link href="http://brightereyer.xyz/2020/02/24/articles/2020/02/24/1582543134000.html/"/>
+    <id>http://brightereyer.xyz/2020/02/24/articles/2020/02/24/1582543134000.html/</id>
+    <published>2020-02-24T11:18:54.000Z</published>
+    <updated>2020-02-24T11:18:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>安装指定版本gcc</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 查看ubuntu系统上g++的版本：</span><br><span class="line">ls &#x2F;usr&#x2F;bin&#x2F;g++*</span><br><span class="line"></span><br><span class="line"># 安装新版gcc和g++</span><br><span class="line">sudo apt-get install gcc-4.8 g++-4.8</span><br><span class="line"></span><br><span class="line"># 切换不同版本</span><br><span class="line">sudo update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;gcc gcc &#x2F;usr&#x2F;bin&#x2F;gcc-4.8 20</span><br><span class="line">sudo update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;gcc gcc &#x2F;usr&#x2F;bin&#x2F;gcc-6 50</span><br><span class="line"></span><br><span class="line"># 同理修改g++的方式类似：</span><br><span class="line">sudo update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;g++ g++ &#x2F;usr&#x2F;bin&#x2F;g++-4.8 20</span><br><span class="line">sudo update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;g++ g++ &#x2F;usr&#x2F;bin&#x2F;g++-6 50</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;安装指定版本gcc&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/spa
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
+    
+  </entry>
   
   <entry>
     <title>[arm] itop6818基于web控制led</title>
@@ -473,31 +498,6 @@
       
         &lt;p&gt;保存镜像&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br
-      
-    
-    </summary>
-    
-    
-    
-      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[docker] ubuntu+ssh</title>
-    <link href="http://brightereyer.xyz/2020/02/17/articles/2020/02/17/1581936650000.html/"/>
-    <id>http://brightereyer.xyz/2020/02/17/articles/2020/02/17/1581936650000.html/</id>
-    <published>2020-02-17T10:50:50.000Z</published>
-    <updated>2020-02-17T10:50:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_43914736/article/details/90608587" target="_blank">Docker Ubuntu上安装ssh和连接ssh</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker pull ubuntu</span><br><span class="line">docker run --privileged --name qemu -itd -p 8022:22 ubuntu</span><br><span class="line"></span><br><span class="line">docker attach qemu</span><br><span class="line">apt-get update;apt-get upgrade -y</span><br><span class="line">apt-get install -y vim openssh-server</span><br><span class="line"></span><br><span class="line">#设置一个root密码</span><br><span class="line">passwd</span><br><span class="line"></span><br><span class="line">#修改配置文件</span><br><span class="line">vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config</span><br><span class="line">#PermitRootLogin prohibit-password</span><br><span class="line">PermitRootLogin yes</span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;ssh restart</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/gezhonglei2007/article/details/51627821" target="_blank">Docker network命令</a><br><a href="https://www.cnblogs.com/jimmyhe/p/11310861.html" target="_blank">虚拟网卡与docker</a><br><a href="https://www.cnblogs.com/gispathfinder/p/5871043.html" target="_blank">Docker的4种网络模式</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_43914736/article/details/90608587&quot; target=&quot;_blank&quot;&gt;Docker Ubuntu上安装ssh和连接ssh&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;hig
       
     
     </summary>
