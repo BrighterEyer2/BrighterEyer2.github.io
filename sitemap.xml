@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://brightereyer.xyz/2020/02/24/articles/2020/02/24/1582543134000.html/</loc>
-    
-    <lastmod>2020-02-24T11:18:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://brightereyer.xyz/2020/02/23/articles/2020/02/23/1582469576000.html/</loc>
     
     <lastmod>2020-02-23T14:52:56.000Z</lastmod>
@@ -1020,6 +1013,13 @@
     <loc>http://brightereyer.xyz/2020/01/14/articles/2020/01/14/1579000587000.html/</loc>
     
     <lastmod>2020-01-14T11:16:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://brightereyer.xyz/2020/01/14/articles/2020/01/14/1579000586000.html/</loc>
+    
+    <lastmod>2020-01-14T11:16:26.000Z</lastmod>
     
   </url>
   
@@ -5224,13 +5224,6 @@
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573316000.html/</loc>
-    
-    <lastmod>2019-10-17T12:28:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315286000.html/</loc>
     
     <lastmod>2019-10-17T12:28:06.000Z</lastmod>
@@ -5238,14 +5231,21 @@
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315285000.html/</loc>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573316000.html/</loc>
+    
+    <lastmod>2019-10-17T12:28:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573315000.html/</loc>
     
     <lastmod>2019-10-17T12:28:05.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573315000.html/</loc>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315285000.html/</loc>
     
     <lastmod>2019-10-17T12:28:05.000Z</lastmod>
     
@@ -5266,14 +5266,14 @@
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573313000.html/</loc>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315283000.html/</loc>
     
     <lastmod>2019-10-17T12:28:03.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315283000.html/</loc>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573313000.html/</loc>
     
     <lastmod>2019-10-17T12:28:03.000Z</lastmod>
     
@@ -5287,14 +5287,14 @@
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573311000.html/</loc>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315281000.html/</loc>
     
     <lastmod>2019-10-17T12:28:01.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315281000.html/</loc>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573311000.html/</loc>
     
     <lastmod>2019-10-17T12:28:01.000Z</lastmod>
     
@@ -5329,14 +5329,14 @@
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573308000.html/</loc>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315278000.html/</loc>
     
     <lastmod>2019-10-17T12:27:58.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315278000.html/</loc>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573308000.html/</loc>
     
     <lastmod>2019-10-17T12:27:58.000Z</lastmod>
     
