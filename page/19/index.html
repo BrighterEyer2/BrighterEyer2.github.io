@@ -763,7 +763,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/01/articles/2020/01/01/1577823565000.html/">[linux] 常用命令</a>
+      <a  class="article-title" href="/2020/01/01/articles/2020/01/01/1577823565000.html/">[linux] jar包启动与发布脚本</a>
     </h1>
   
 
@@ -774,9 +774,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://www.cnblogs.com/xuxinstyle/p/9609551.html" target="_blank">linux常用命令（50个）</a></p>
-<p><a href="https://blog.csdn.net/qq_23329167/article/details/83856430" target="_blank">Linux常用命令</a></p>
-<p><a href="https://www.cnblogs.com/guanbin-529/p/11227069.html" target="_blank">Linux添加用户组和添加用户</a></p>
+        <p>start.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash </span><br><span class="line">nohup java -Xms512m -Xmx512m -jar app.jar &gt; app.log 2&gt;&amp;1 &amp;</span><br><span class="line">#record the process id</span><br><span class="line">echo $!&gt;pid</span><br></pre></td></tr></table></figure>
+
+<p>stop.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill &#96;cat pid&#96;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -827,7 +829,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/01/articles/2020/01/01/1577823565000.html/">[linux] jar包启动与发布脚本</a>
+      <a  class="article-title" href="/2020/01/01/articles/2020/01/01/1577823565000.html/">[linux] 常用命令</a>
     </h1>
   
 
@@ -838,11 +840,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>start.sh</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash </span><br><span class="line">nohup java -Xms512m -Xmx512m -jar app.jar &gt; app.log 2&gt;&amp;1 &amp;</span><br><span class="line">#record the process id</span><br><span class="line">echo $!&gt;pid</span><br></pre></td></tr></table></figure>
-
-<p>stop.sh</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill &#96;cat pid&#96;</span><br></pre></td></tr></table></figure>
+        <p><a href="https://www.cnblogs.com/xuxinstyle/p/9609551.html" target="_blank">linux常用命令（50个）</a></p>
+<p><a href="https://blog.csdn.net/qq_23329167/article/details/83856430" target="_blank">Linux常用命令</a></p>
+<p><a href="https://www.cnblogs.com/guanbin-529/p/11227069.html" target="_blank">Linux添加用户组和添加用户</a></p>
 
       
     </div>
