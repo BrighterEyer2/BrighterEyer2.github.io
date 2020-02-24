@@ -283,6 +283,68 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2019/12/27/1577447588000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/12/27/articles/2019/12/27/1577447588000.html/" class="article-date">
+      <time datetime="2019-12-27T11:53:08.000Z" itemprop="datePublished">2019-12-27</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/12/27/articles/2019/12/27/1577447588000.html/">[单片机] 程序网站</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="http://news.eeworld.com.cn/mcu/51mcu/" target="_blank">电子工程世界</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2019/12/27/1577447587000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -849,70 +911,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyQt5/" rel="tag">PyQt5</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/12/25/1577275294000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/12/25/articles/2019/12/25/1577275294000.html/" class="article-date">
-      <time datetime="2019-12-25T12:01:34.000Z" itemprop="datePublished">2019-12-25</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/25/articles/2019/12/25/1577275294000.html/">[单片机] 直流电机正反转</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>使用到芯片L293D，含接线<br><a href="https://blog.csdn.net/XiaoCaiDaYong/article/details/82354311" target="_blank">STC单片机简单控制直流电机正反转</a></p>
-<p><a href="https://wenku.baidu.com/view/03d48a05f111f18583d05a9a.html" target="_blank">继电器控制直流电机正反转</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;reg51.h&gt;</span><br><span class="line"></span><br><span class="line">sbit zheng &#x3D; P1 ^ 0;    &#x2F;&#x2F;正转按钮</span><br><span class="line">sbit fan &#x3D; P1 ^ 1;      &#x2F;&#x2F;反转按钮</span><br><span class="line">sbit JD &#x3D; P3 ^ 0;       &#x2F;&#x2F;继电器控制引脚</span><br><span class="line">void delay1ms(int);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;*****************************主函数*********************************&#x2F;&#x2F;</span><br><span class="line">void main() &#123;</span><br><span class="line"></span><br><span class="line">        JD &#x3D; 0;</span><br><span class="line">        P1 &#x3D; 0xff;   </span><br><span class="line"></span><br><span class="line">        while (1) &#123;</span><br><span class="line">                if (zheng &#x3D;&#x3D; 0) &#123;                       &#x2F;&#x2F;如果正转按钮按下  </span><br><span class="line">                         delay1ms(10);                  &#x2F;&#x2F;延时去抖</span><br><span class="line">                         if (zheng &#x3D;&#x3D; 0) </span><br><span class="line">                                 while (zheng &#x3D;&#x3D; 0);    &#x2F;&#x2F;判按键松开</span><br><span class="line">                         delay1ms(10);</span><br><span class="line">                         while (zheng &#x3D;&#x3D; 0);  </span><br><span class="line">                         JD &#x3D; 1;    </span><br><span class="line">                &#125; </span><br><span class="line">                if (fan &#x3D;&#x3D; 0)  &#123;                        &#x2F;&#x2F;如果反转按钮按下 </span><br><span class="line">                        delay1ms(10);                   &#x2F;&#x2F;延时去抖</span><br><span class="line">                        if (fan &#x3D;&#x3D; 0) &#123;</span><br><span class="line">                                while (fan &#x3D;&#x3D; 0);       &#x2F;&#x2F;判按键松开</span><br><span class="line">                        &#125;</span><br><span class="line">                        delay1ms(10);</span><br><span class="line">                        while (fan &#x3D;&#x3D; 0);</span><br><span class="line">                        JD &#x3D; 0;</span><br><span class="line">                &#125; </span><br><span class="line">        &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;*****************************延时子函数*********************************&#x2F;&#x2F;</span><br><span class="line">void delay1ms(int x)  &#123; </span><br><span class="line">          int i, j;  </span><br><span class="line">          for (i &#x3D; x; i &gt; 0; i--)  </span><br><span class="line">                 for (j &#x3D; 120; j &gt; 0; j--);</span><br><span class="line">         </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
     </div>
 
       

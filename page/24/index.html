@@ -283,6 +283,84 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2019/12/24/1577183652000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/12/24/articles/2019/12/24/1577183652000.html/" class="article-date">
+      <time datetime="2019-12-24T10:33:52.000Z" itemprop="datePublished">2019-12-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/12/24/articles/2019/12/24/1577183652000.html/">[PyQt5] Python3.7+Pycharm+Opencv3</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>【注意】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">需要注意PyQt5的版本，5.11版的暂时没问题，5.14版有问题</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/zyngoo/article/details/85880572" target="_blank">PyQt5安装教程</a><br>Path追加变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">G:\python\python37</span><br><span class="line">G:\python\python37\Scripts</span><br><span class="line">G:\python\python37\lib\site-packages\pyqt5_tools</span><br><span class="line">G:\Python\Python37\Lib\site-packages\PyQt5\Qt\bin</span><br><span class="line">G:\Python\Python37\Lib\site-packages\pyqt5_tools\Qt\bin</span><br></pre></td></tr></table></figure>
+
+<p>Scripts目录下执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pip3 install sip</span><br><span class="line"></span><br><span class="line">pip uninstall PyQt5</span><br><span class="line">pip uninstall pyqt5-tools</span><br><span class="line">pip uninstall pyqt5-stubs</span><br><span class="line"></span><br><span class="line">pip install PyQt5&#x3D;&#x3D;5.11.3 -i http:&#x2F;&#x2F;pypi.douban.com&#x2F;simple --trusted-host&#x3D;pypi.douban.com</span><br><span class="line">pip install pyqt5-tools&#x3D;&#x3D;5.11.3.1.4 -i http:&#x2F;&#x2F;pypi.douban.com&#x2F;simple --trusted-host&#x3D;pypi.douban.com</span><br><span class="line">pip install PyQt5-stubs&#x3D;&#x3D;5.11.3.0 -i http:&#x2F;&#x2F;pypi.douban.com&#x2F;simple --trusted-host&#x3D;pypi.douban.com</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/stormdony/article/details/80400032" target="_blank">pyqt5安装与pycharm配置</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">Name：</span><br><span class="line">QtDesigner</span><br><span class="line">Program：</span><br><span class="line">G:\Python\Python37\Lib\site-packages\pyqt5_tools\Qt\bin\designer.exe</span><br><span class="line">Work directory：</span><br><span class="line">$FileDir$</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Name：</span><br><span class="line">PyUIC</span><br><span class="line">Program：</span><br><span class="line">G:\Python\Python37\python.exe</span><br><span class="line">Arguments：</span><br><span class="line">-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py</span><br><span class="line">Work directory：</span><br><span class="line">$FileDir$</span><br><span class="line"></span><br><span class="line">Name：</span><br><span class="line">PyUIC</span><br><span class="line">Program：</span><br><span class="line">G:\Python\Python37\python.exe</span><br><span class="line">Arguments：</span><br><span class="line">-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py</span><br><span class="line">Work directory：</span><br><span class="line">$FileDir$</span><br><span class="line"></span><br><span class="line">Name：</span><br><span class="line">assistant</span><br><span class="line">Program：</span><br><span class="line">G:\Python\Python37\Lib\site-packages\pyqt5_tools\Qt\bin\assistant.exe</span><br><span class="line">Work directory：</span><br><span class="line">$FileDir$</span><br><span class="line"></span><br><span class="line">Name：</span><br><span class="line">linguist</span><br><span class="line">Program：</span><br><span class="line">G:\Python\Python37\Lib\site-packages\pyqt5_tools\Qt\bin\linguist.exe</span><br><span class="line">Work directory：</span><br><span class="line">$FileDir$</span><br><span class="line"></span><br><span class="line">Name：</span><br><span class="line">Pyrcc</span><br><span class="line">Program：</span><br><span class="line">G:\Python\Python37\Scripts\pyrcc5.exe</span><br><span class="line">Work directory：</span><br><span class="line">$FileDir$</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/qq_33485434/article/details/80606359" target="_blank">PyQt5安装及ModuleNotFoundError No module named ‘PyQt5’问题解决</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在已有项目的最后面找到External Libraries，然后找到venv目录，把pyvenv.cfg文件中的如下参数改成true</span><br><span class="line">include-system-site-packages &#x3D; true</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/The_Time_Runner/article/details/93761511" target="_blank">（已解决）ImportError: DLL load failed: 找不到指定的模块</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">G:\ProgramData\Anaconda3</span><br><span class="line">G:\ProgramData\Anaconda3\Scripts</span><br><span class="line">G:\ProgramData\Anaconda3\Library\bin</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyQt5/" rel="tag">PyQt5</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2019/12/24/1577183631000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -836,99 +914,6 @@
           
         <p><a href="https://blog.csdn.net/jkfaklfjal/article/details/82800324" target="_blank">react-native ios打包教程</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --entry-file .&#x2F;index.ios.js --bundle-output .&#x2F;ios&#x2F;bundle&#x2F;index.ios.jsbundle --platform ios --assets-dest .&#x2F;ios&#x2F;bundle --dev false</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/12/22/1577026518000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/12/22/articles/2019/12/22/1577026518000.html/" class="article-date">
-      <time datetime="2019-12-22T14:55:18.000Z" itemprop="datePublished">2019-12-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/22/articles/2019/12/22/1577026518000.html/">[react-native] mac环境配置</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://reactnative.cn/docs/next/getting-started.html" target="_blank">环境</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install)&quot;</span><br></pre></td></tr></table></figure>
-
-<p>安装Xcode Command Line Tool</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.jianshu.com/p/ab6411a05bc2" target="_blank">CocoaPods安装</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xcode-select --switch &#x2F;Applications&#x2F;Xcode.app</span><br></pre></td></tr></table></figure>
-
-<p><a href="http://www.code4app.com/article/cocoapods-install-usage" target="_blank">安装CocosPods</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo gem install cocoapods</span><br><span class="line">gem sources --remove https:&#x2F;&#x2F;rubygems.org&#x2F;</span><br><span class="line">gem sources -a http:&#x2F;&#x2F;ruby.taobao.org&#x2F;</span><br><span class="line"></span><br><span class="line">sudo npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org --global</span><br><span class="line">sudo npm config set disturl https:&#x2F;&#x2F;npm.taobao.org&#x2F;dist --global</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/jkfaklfjal/article/details/82800324" target="_blank">react-native ios打包教程</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --entry-file .&#x2F;index.ios.js --bundle-output .&#x2F;ios&#x2F;bundle&#x2F;index.ios.jsbundle --platform ios --assets-dest .&#x2F;ios&#x2F;bundle --dev false</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;xwartz&#x2F;wechat-app-demo</span><br><span class="line">美团客户端</span><br><span class="line">Github: </span><br><span class="line">https:&#x2F;&#x2F;github.com&#x2F;huanxsd&#x2F;MeiTuan</span><br><span class="line">简书:</span><br><span class="line">http:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;9211f42d5c25</span><br></pre></td></tr></table></figure>
-
-<p>高仿美团客户端 React-Native版，支持iOS、Android</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;huanxsd&#x2F;MeiTuan.git</span><br><span class="line">cd MeiTuan</span><br><span class="line"></span><br><span class="line">#Install dependencies (npm v3+)</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">#Running on iOS</span><br><span class="line">react-native run-ios</span><br><span class="line"></span><br><span class="line">#常见问题</span><br><span class="line">Could not connect to development server</span><br><span class="line"></span><br><span class="line">#打开新的terminal窗口，并执行:</span><br><span class="line">react-native start</span><br></pre></td></tr></table></figure>
-
-<p>漂亮的示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># download repo</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;SmallStoneSK&#x2F;rn-components-kit.git</span><br><span class="line"># install dependencies</span><br><span class="line">npm install</span><br><span class="line"># for iOS</span><br><span class="line">react-native run-ios</span><br><span class="line"># for android</span><br><span class="line">react-native run-android</span><br></pre></td></tr></table></figure>
-
-<p>运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xcrun simctl list devices</span><br><span class="line">react-native run-ios --simulator&#x3D;&quot;iPhone 8 (12.0)&quot;</span><br></pre></td></tr></table></figure>
-
-<p>打开iphone模拟器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xcrun instruments -w &#39;iPhone 8 (12.0)&#39;</span><br><span class="line">xcrun instruments -w &#39;iPhone 6 Plus&#39; </span><br><span class="line">xcrun instruments -w &#39;iPhone 8 (13.3)&#39;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">【RN】运行ios后 报错Could not find iPhone X simulator</span><br><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;yangsen0927&#x2F;article&#x2F;details&#x2F;89880869</span><br><span class="line"></span><br><span class="line">1.找到项目中&#x2F;node_modules&#x2F;react-native&#x2F;local-cli&#x2F;runIOS&#x2F;findMatchingSimulator.js</span><br><span class="line">if (!version.startsWith(&#39;iOS&#39;) &amp;&amp; !version.startsWith(&#39;tvOS&#39;)) </span><br><span class="line">&#x2F;&#x2F;改为</span><br><span class="line"> if (!version.startsWith(&#39;com.apple.CoreSimulator.SimRuntime.iOS&#39;) &amp;&amp; !version.startsWith(&#39;com.apple.CoreSimulator.SimRuntime.tvOS&#39;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">react-native run-ios无法启动app</span><br><span class="line">https:&#x2F;&#x2F;segmentfault.com&#x2F;q&#x2F;1010000012225930</span><br><span class="line"></span><br><span class="line">react-native init MyApp --version 0.44.3</span><br><span class="line"></span><br><span class="line">https:&#x2F;&#x2F;www.cnblogs.com&#x2F;codechange&#x2F;p&#x2F;11415280.html</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
