@@ -283,6 +283,69 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2019/11/27/1574808590000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/11/27/articles/2019/11/27/1574808590000.html/" class="article-date">
+      <time datetime="2019-11-26T22:49:50.000Z" itemprop="datePublished">2019-11-27</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/11/27/articles/2019/11/27/1574808590000.html/">[qt] qt4.8转qt5.4变化</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="http://www.manongjc.com/article/76149.html" target="_blank">qt4.8转qt5.4变化</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">1、头文件包含</span><br><span class="line">    #include &lt;QtGui&#x2F;QProgressBar&gt;</span><br><span class="line">    #include &lt;QtGui&#x2F;QProgressDialog&gt;</span><br><span class="line">    #include &lt;QtGui&#x2F;QMessageBox&gt;</span><br><span class="line">    等类似包含QtGui的包含文件，全部将QtGui取消掉。即</span><br><span class="line">    #include &lt;QProgressBar&gt;</span><br><span class="line">    #include &lt;QProgressDialog&gt;</span><br><span class="line">    #include &lt;QMessageBox&gt;</span><br><span class="line">   </span><br><span class="line">2、Qt::WFlags 替换为Qt::WindowFlags</span><br><span class="line"></span><br><span class="line">3、qInstallMsgHandler 函数废弃</span><br><span class="line">    可修改为： qInstallMessageHandler ，</span><br><span class="line">    MessageOutput 要多加一个参数 : QMessageLogContext&amp; Context</span><br><span class="line">    void  MessageOutput( QtMsgType type, const QMessageLogContext&amp; Context, const QString &amp;sMsg )   </span><br><span class="line">    QtMsgHandler  改为  QtMessageHandler</span><br><span class="line"></span><br><span class="line">4、QDesktopServices::storageLocation(QDesktopServices::xxxx) 来获取一些系统目录，</span><br><span class="line">    Qt5则要改成QStandardPaths::writableLocation(QStandardPaths::xxxx)。</span><br><span class="line"></span><br><span class="line">5、error: &#39;UnicodeUTF8&#39; is not a member of &#39;QApplication&#39;</span><br><span class="line">    原因是：QCoreApplication::UnicodeUTF8已被弃用</span><br><span class="line">    解决方案如下：</span><br><span class="line">    修改</span><br><span class="line">    setText(QApplication::translate(&quot;MainWindow&quot;, &quot;&amp;Quitar&quot;, 0, QApplication::UnicodeUTF8));</span><br><span class="line">    为</span><br><span class="line">    setText(QApplication::translate(&quot;MainWindow&quot;, &quot;&amp;Quitar&quot;, 0);</span><br><span class="line"></span><br><span class="line">6、toAscii() 和 fromAscii() 方法已经被舍弃</span><br><span class="line">    可以使用 fromLatin1() 和 toLatin1() 代替</span><br><span class="line"></span><br><span class="line">7、nullptr启用，改用为NULL</span><br><span class="line"></span><br><span class="line">8、QHBoxLayout启用，可更改为QFrame</span><br><span class="line"></span><br><span class="line">9、构建时发生如下错误：</span><br><span class="line">    问题：error: undefined reference to &#96;_imp__glClearColor@16&#39;</span><br><span class="line">    解决办法：这是相关库文件没有链接，在 .pro 文件中加入 openGL相关库即可：</span><br><span class="line">                win32:LIBS +&#x3D; -lOpengl32 \</span><br><span class="line">                                -lglu32 \</span><br><span class="line">                                -lglut</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2019/11/27/1574807154000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -823,69 +886,6 @@
 <p><a href="https://github.com/hurley25/shadow.git" target="_blank">一款 Windows 下的远程控制软件的实现，界面基于Qt 4.x图形库</a></p>
 <p>传统Qt C++开发应用程序（插件化框架搭建、酷炫的动画窗口、图表控件、多屏自适应、权限控制、VNC远程监控集成、WebEngine与Qt交互、按键声效）<br><a href="https://github.com/linuxzjh/traditionalDevelopment" target="_blank">traditionalDevelopment</a></p>
 <p><a href="https://github.com/mengps/RemoteControl" target="_blank">Qt Quick/Qml 做的一款屏幕控制(远程控制)</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/11/26/1574765785000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/11/26/articles/2019/11/26/1574765785000.html/" class="article-date">
-      <time datetime="2019-11-26T10:56:25.000Z" itemprop="datePublished">2019-11-26</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/11/26/articles/2019/11/26/1574765785000.html/">[qt] 扫码登录</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/tanglj86/article/details/79208246" target="_blank">window下基于libqrencode库，采用QT开发环境实现一个简单的QR二维码生成</a></p>
-<p><a href="https://fukuchi.org/works/qrencode/" target="_blank">官网上下载libqrencode源代码</a></p>
 
       
     </div>

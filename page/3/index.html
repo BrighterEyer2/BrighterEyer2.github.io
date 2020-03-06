@@ -283,6 +283,68 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/02/22/1582385680000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/22/articles/2020/02/22/1582385680000.html/" class="article-date">
+      <time datetime="2020-02-22T15:34:40.000Z" itemprop="datePublished">2020-02-22</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/22/articles/2020/02/22/1582385680000.html/">[git] 下载一个仓库单个文件夹</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 新建仓库并进入文件夹</span><br><span class="line">git init test &amp;&amp; cd test</span><br><span class="line"># 设置允许克隆子目录</span><br><span class="line">git config core.sparsecheckout true</span><br><span class="line"># 设置要克隆的仓库的子目录路径  空格别漏</span><br><span class="line">echo &#39;tt*&#39; &gt;&gt; .git&#x2F;info&#x2F;sparse-checkout</span><br><span class="line"># 这里换成你要克隆的项目和库</span><br><span class="line">git remote add origin git@github.com:mygithub&#x2F;test.git</span><br><span class="line"># 下载</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/02/22/1582370137000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -980,71 +1042,6 @@
 <p>6）减少镜像大小</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo resize2fs -M ubuntu.img</span><br><span class="line">du -sh ubuntu.img</span><br><span class="line">ubuntu, arm, rk3288</span><br></pre></td></tr></table></figure>
 
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/19/1582105139000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/19/articles/2020/02/19/1582105139000.html/" class="article-date">
-      <time datetime="2020-02-19T09:38:59.000Z" itemprop="datePublished">2020-02-19</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/19/articles/2020/02/19/1582105139000.html/">[arm] qemu+u-boot</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="http://ftp.denx.de/pub/u-boot/" target="_blank">u-boot</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;root</span><br><span class="line">wget https:&#x2F;&#x2F;ftp.denx.de&#x2F;pub&#x2F;u-boot&#x2F;u-boot-2015.10.tar.bz2;</span><br><span class="line">tar xvf u-boot-2015.10.tar.bz2;cd u-boot-2015.10;</span><br><span class="line">make ARCH&#x3D;arm CROSS_COMPILE&#x3D;arm-linux-gnueabi- vexpress_ca9x4_defconfig</span><br><span class="line">make ARCH&#x3D;arm CROSS_COMPILE&#x3D;arm-linux-gnueabi-</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M vexpress-a9 \</span><br><span class="line">     -kernel u-boot \</span><br><span class="line">     -nographic \</span><br><span class="line">     -m 512M</span><br></pre></td></tr></table></figure>
 
       
     </div>

@@ -283,6 +283,69 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/03/05/1583413629000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/03/05/articles/2020/03/05/1583413629000.html/" class="article-date">
+      <time datetime="2020-03-05T13:07:09.000Z" itemprop="datePublished">2020-03-05</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/03/05/articles/2020/03/05/1583413629000.html/">[maven] 引用jar</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.cnblogs.com/lukelook/p/8673778.html" target="_blank">在Maven项目中引入自己的jar包</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.maven.plugins&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;maven-compiler-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;3.3&lt;&#x2F;version&gt;</span><br><span class="line">            &lt;configuration&gt;</span><br><span class="line">                &lt;source&gt;1.8&lt;&#x2F;source&gt;</span><br><span class="line">                &lt;target&gt;1.8&lt;&#x2F;target&gt;</span><br><span class="line">                &lt;encoding&gt;UTF-8&lt;&#x2F;encoding&gt;</span><br><span class="line">                &lt;compilerArguments&gt;</span><br><span class="line">                    &lt;extdirs&gt;$&#123;project.basedir&#125;&#x2F;src&#x2F;main&#x2F;resources&#x2F;lib&lt;&#x2F;extdirs&gt;</span><br><span class="line">                &lt;&#x2F;compilerArguments&gt;</span><br><span class="line">            &lt;&#x2F;configuration&gt;</span><br><span class="line">        &lt;&#x2F;plugin&gt;</span><br><span class="line">    &lt;&#x2F;plugins&gt;</span><br><span class="line">&lt;&#x2F;build&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/" rel="tag">maven</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/03/05/1583413628000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -929,68 +992,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/22/1582385680000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/22/articles/2020/02/22/1582385680000.html/" class="article-date">
-      <time datetime="2020-02-22T15:34:40.000Z" itemprop="datePublished">2020-02-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/22/articles/2020/02/22/1582385680000.html/">[git] 下载一个仓库单个文件夹</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 新建仓库并进入文件夹</span><br><span class="line">git init test &amp;&amp; cd test</span><br><span class="line"># 设置允许克隆子目录</span><br><span class="line">git config core.sparsecheckout true</span><br><span class="line"># 设置要克隆的仓库的子目录路径  空格别漏</span><br><span class="line">echo &#39;tt*&#39; &gt;&gt; .git&#x2F;info&#x2F;sparse-checkout</span><br><span class="line"># 这里换成你要克隆的项目和库</span><br><span class="line">git remote add origin git@github.com:mygithub&#x2F;test.git</span><br><span class="line"># 下载</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
     </div>
 
       
