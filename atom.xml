@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-03-07T07:51:22.000Z</updated>
+  <updated>2020-03-08T11:00:36.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -17,20 +17,172 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[ubuntu] ubuntu18内核降级</title>
+    <link href="http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583665236000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583665236000.html/</id>
+    <published>2020-03-08T11:00:36.000Z</published>
+    <updated>2020-03-08T11:00:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">sudo cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br><span class="line"></span><br><span class="line">vi &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line"></span><br><span class="line">在文件最后面增加一行并保存</span><br><span class="line">deb http:&#x2F;&#x2F;security.ubuntu.com&#x2F;ubuntu trusty-security main</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line">apt-cache search linux-image</span><br><span class="line"></span><br><span class="line">apt-get install -y linux-image-extra-4.4.0-109-generic</span><br><span class="line"></span><br><span class="line">#安装4.4版本内核</span><br><span class="line">dpkg -l |grep linux-image</span><br><span class="line"></span><br><span class="line">#查看是否安装成功</span><br><span class="line">vim &#x2F;etc&#x2F;default&#x2F;grub</span><br><span class="line"></span><br><span class="line">#找到</span><br><span class="line">GRUB_DEFAULT&#x3D;0</span><br><span class="line">#修改为：</span><br><span class="line">GRUB_DEFAULT&#x3D;&quot;Advanced options for Ubuntu&gt;Ubuntu, with Linux 4.4.0-109-generic&quot;</span><br><span class="line"></span><br><span class="line">#更新grub</span><br><span class="line">update-grub</span><br><span class="line"></span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[zigbee] 终端采集发送到远程云服务器网页ONENET</title>
+    <link href="http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583644251000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583644251000.html/</id>
+    <published>2020-03-08T05:10:51.000Z</published>
+    <updated>2020-03-08T05:10:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>zigbee终端采集发送到远程云服务器网页ONENET 手机随时随地看数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">链接：</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1QGzDqBgry-QNC_9ucb5yrg</span><br><span class="line">提取码：</span><br><span class="line">tn6g</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;zigbee终端采集发送到远程云服务器网页ONENET 手机随时随地看数据&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="zigbee" scheme="http://brightereyer.xyz/tags/zigbee/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[zigbee] 开发板驱动ESP8266的WiFi模块</title>
+    <link href="http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583644250000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583644250000.html/</id>
+    <published>2020-03-08T05:10:50.000Z</published>
+    <updated>2020-03-08T05:10:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>zigbee开发板驱动ESP8266的WiFi模块</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">链接：</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1GKHgJ7SG8lNYIDq9fBVLfg</span><br><span class="line">提取码：</span><br><span class="line">9nz2</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;zigbee开发板驱动ESP8266的WiFi模块&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span cla
+      
+    
+    </summary>
+    
+    
+    
+      <category term="zigbee" scheme="http://brightereyer.xyz/tags/zigbee/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[zigbee] 原理与图解</title>
+    <link href="http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583633565000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583633565000.html/</id>
+    <published>2020-03-08T02:12:45.000Z</published>
+    <updated>2020-03-08T02:12:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/ALittleBee/p/7463239.html" target="_blank">一图读懂ZStack协议栈的核心思想与工作机理</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/ALittleBee/p/7463239.html&quot; target=&quot;_blank&quot;&gt;一图读懂ZStack协议栈的核心思想与工作机理&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="zigbee" scheme="http://brightereyer.xyz/tags/zigbee/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] jpa与tk.mybatis冲突</title>
+    <link href="http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583574855000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583574855000.html/</id>
+    <published>2020-03-07T09:54:15.000Z</published>
+    <updated>2020-03-07T09:54:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>排除tk.mybatis中的javax.persistence</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;tk.mybatis&lt;&#x2F;groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;mapper-spring-boot-starter&lt;&#x2F;artifactId&gt;</span><br><span class="line">     &lt;version&gt;1.1.4&lt;&#x2F;version&gt;</span><br><span class="line">     &lt;exclusions&gt;</span><br><span class="line">         &lt;exclusion&gt;</span><br><span class="line">             &lt;groupId&gt;javax.persistence&lt;&#x2F;groupId&gt;</span><br><span class="line">             &lt;artifactId&gt;persistence-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">         &lt;&#x2F;exclusion&gt;</span><br><span class="line">     &lt;&#x2F;exclusions&gt;</span><br><span class="line"> &lt;&#x2F;dependency&gt;</span><br><span class="line"> &lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;&#x2F;artifactId&gt;</span><br><span class="line"> &lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;排除tk.mybatis中的javax.persistence&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;sp
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[mysql] 修改某表引擎和编码</title>
+    <link href="http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583574854000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583574854000.html/</id>
+    <published>2020-03-07T09:54:14.000Z</published>
+    <updated>2020-03-07T09:54:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/zyb2017/article/details/79565741" target="_blank">Mysql修改表引擎</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show engines;   -- 查看该数据库下支持的存储引擎</span><br><span class="line">show variables like &#39;%storage_engine%&#39;; -- 查看当前默认的存储引擎</span><br><span class="line">ALTER TABLE user ENGINE&#x3D;InnoDB DEFAULT CHARSET&#x3D;utf8;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/zyb2017/article/details/79565741&quot; target=&quot;_blank&quot;&gt;Mysql修改表引擎&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;tabl
+      
+    
+    </summary>
+    
+    
+    
+      <category term="mysql" scheme="http://brightereyer.xyz/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[springboot] jsp+thymeleaf双视图</title>
     <link href="http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583567482000.html/"/>
     <id>http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583567482000.html/</id>
     <published>2020-03-07T07:51:22.000Z</published>
     <updated>2020-03-07T07:51:22.000Z</updated>
     
-    <content type="html"><![CDATA[<p>一、首先必须去除starter-web中的内置tomcat,并引入外部的tomcat包<br>pom.xml</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;exclusions&gt;</span><br><span class="line">&lt;exclusion&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-tomcat&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;exclusion&gt;</span><br><span class="line">&lt;&#x2F;exclusions&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-tomcat&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.apache.tomcat.embed&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;tomcat-embed-jasper&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;javax.servlet&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;jstl&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;javax.servlet&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;javax.servlet-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt; </span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br><span class="line">&lt;build&gt;</span><br><span class="line">&lt;plugins&gt;</span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;executions&gt;</span><br><span class="line">&lt;execution&gt;</span><br><span class="line">&lt;goals&gt;</span><br><span class="line">&lt;goal&gt;repackage&lt;&#x2F;goal&gt;</span><br><span class="line">&lt;&#x2F;goals&gt;</span><br><span class="line">&lt;&#x2F;execution&gt;</span><br><span class="line">&lt;&#x2F;executions&gt;</span><br><span class="line">&lt;&#x2F;plugin&gt;</span><br><span class="line">&lt;&#x2F;plugins&gt;</span><br><span class="line">&lt;&#x2F;build&gt;</span><br></pre></td></tr></table></figure><p>二、修改启动类<br>以war部署必须实现org.springframework.boot.web.servlet.support.SpringBootServletInitializer的configure方法<br>//1.方式一，启动类继承SpringBootServletInitializer实现configure：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">public class Application extends SpringBootServletInitializer &#123;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">SpringApplication.run(Application.class, args);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) &#123;</span><br><span class="line">return builder.sources(Application.class);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.方式二，新增加一个类继承SpringBootServletInitializer实现configure：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class ServletInitializer extends SpringBootServletInitializer &#123;</span><br><span class="line">@Override</span><br><span class="line">protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) &#123;</span><br><span class="line">&#x2F;&#x2F;此处的Application.class为带有@SpringBootApplication注解的启动类</span><br><span class="line">return builder.sources(Application.class);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>application.properties</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server.port&#x3D;</span><br><span class="line">server.servlet.context-path&#x3D;</span><br></pre></td></tr></table></figure><p>四、配置多视图解析器</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">package com.haiyu.manager.config;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.ComponentScan;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.web.servlet.ViewResolver;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.EnableWebMvc;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;</span><br><span class="line">import org.springframework.web.servlet.view.InternalResourceViewResolver;</span><br><span class="line">import org.thymeleaf.spring5.SpringTemplateEngine;</span><br><span class="line">import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;</span><br><span class="line">import org.thymeleaf.spring5.view.ThymeleafViewResolver;</span><br><span class="line">import org.thymeleaf.templateresolver.ITemplateResolver;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">@EnableWebMvc</span><br><span class="line">@ComponentScan</span><br><span class="line">public class WebViewConfig extends WebMvcConfigurerAdapter &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: 注册jsp视图解析器</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Bean</span><br><span class="line">    public ViewResolver viewResolver() &#123;</span><br><span class="line">        InternalResourceViewResolver resolver &#x3D; new InternalResourceViewResolver();</span><br><span class="line">        resolver.setPrefix(&quot;classpath:&#x2F;view&#x2F;&quot;); &#x2F;&#x2F;配置放置jsp文件夹</span><br><span class="line">        resolver.setSuffix(&quot;.jsp&quot;);</span><br><span class="line">        resolver.setViewNames(&quot;jsp&#x2F;*&quot;);  &#x2F;&#x2F;重要 setViewNames 通过它识别为jsp页面引擎</span><br><span class="line">        resolver.setOrder(2);</span><br><span class="line">        return resolver;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: 注册html视图解析器</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Bean</span><br><span class="line">    public ITemplateResolver templateResolver() &#123;</span><br><span class="line">        SpringResourceTemplateResolver templateResolver &#x3D; new SpringResourceTemplateResolver();</span><br><span class="line">        templateResolver.setTemplateMode(&quot;HTML&quot;);</span><br><span class="line">        templateResolver.setPrefix(&quot;classpath:&#x2F;templates&#x2F;&quot;);</span><br><span class="line">        templateResolver.setSuffix(&quot;.html&quot;);</span><br><span class="line">        templateResolver.setCharacterEncoding(&quot;utf-8&quot;);</span><br><span class="line">        templateResolver.setCacheable(false);</span><br><span class="line">        return templateResolver;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: 将自定义tml视图解析器添加到模板引擎并主持到ioc</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Bean</span><br><span class="line">    public SpringTemplateEngine templateEngine() &#123;</span><br><span class="line">        SpringTemplateEngine templateEngine &#x3D; new SpringTemplateEngine();</span><br><span class="line">        templateEngine.setTemplateResolver(templateResolver());</span><br><span class="line">        return templateEngine;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: Thymeleaf视图解析器配置</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Bean</span><br><span class="line">    public ThymeleafViewResolver viewResolverThymeLeaf() &#123;</span><br><span class="line">        ThymeleafViewResolver viewResolver &#x3D; new ThymeleafViewResolver();</span><br><span class="line">        viewResolver.setTemplateEngine(templateEngine());</span><br><span class="line">        viewResolver.setCharacterEncoding(&quot;utf-8&quot;);</span><br><span class="line">        viewResolver.setViewNames(new String[]&#123;&quot;thymeleaf&quot;&#125;);</span><br><span class="line">        viewResolver.setOrder(1);</span><br><span class="line">        return viewResolver;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) &#123;</span><br><span class="line">        configurer.enable();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: 配置静态文件映射</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public void addResourceHandlers(ResourceHandlerRegistry registry) &#123;</span><br><span class="line">        registry.addResourceHandler(&quot;&#x2F;**&quot;).addResourceLocations(&quot;classpath:&#x2F;static&#x2F;&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<details><summary>一、首先必须去除starter-web中的内置tomcat,并引入外部的tomcat包</summary><p>pom.xml</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;exclusions&gt;</span><br><span class="line">&lt;exclusion&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-tomcat&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;exclusion&gt;</span><br><span class="line">&lt;&#x2F;exclusions&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-tomcat&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.apache.tomcat.embed&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;tomcat-embed-jasper&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;javax.servlet&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;jstl&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;javax.servlet&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;javax.servlet-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt; </span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br><span class="line">&lt;build&gt;</span><br><span class="line">&lt;plugins&gt;</span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;executions&gt;</span><br><span class="line">&lt;execution&gt;</span><br><span class="line">&lt;goals&gt;</span><br><span class="line">&lt;goal&gt;repackage&lt;&#x2F;goal&gt;</span><br><span class="line">&lt;&#x2F;goals&gt;</span><br><span class="line">&lt;&#x2F;execution&gt;</span><br><span class="line">&lt;&#x2F;executions&gt;</span><br><span class="line">&lt;&#x2F;plugin&gt;</span><br><span class="line">&lt;&#x2F;plugins&gt;</span><br><span class="line">&lt;&#x2F;build&gt;</span><br></pre></td></tr></table></figure></details><details><summary>二、修改启动类</summary><p>以war部署必须实现org.springframework.boot.web.servlet.support.SpringBootServletInitializer的configure方法<br>1.方式一，启动类继承SpringBootServletInitializer实现configure：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">public class Application extends SpringBootServletInitializer &#123;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">SpringApplication.run(Application.class, args);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) &#123;</span><br><span class="line">return builder.sources(Application.class);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.方式二，新增加一个类继承SpringBootServletInitializer实现configure：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class ServletInitializer extends SpringBootServletInitializer &#123;</span><br><span class="line">@Override</span><br><span class="line">protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) &#123;</span><br><span class="line">&#x2F;&#x2F;此处的Application.class为带有@SpringBootApplication注解的启动类</span><br><span class="line">return builder.sources(Application.class);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details><p>三、application.properties</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server.port&#x3D;</span><br><span class="line">server.servlet.context-path&#x3D;</span><br></pre></td></tr></table></figure><details><summary>四、配置多视图解析器</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">package com.haiyu.manager.config;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.ComponentScan;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.web.servlet.ViewResolver;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.EnableWebMvc;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;</span><br><span class="line">import org.springframework.web.servlet.view.InternalResourceViewResolver;</span><br><span class="line">import org.thymeleaf.spring5.SpringTemplateEngine;</span><br><span class="line">import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;</span><br><span class="line">import org.thymeleaf.spring5.view.ThymeleafViewResolver;</span><br><span class="line">import org.thymeleaf.templateresolver.ITemplateResolver;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">@EnableWebMvc</span><br><span class="line">@ComponentScan</span><br><span class="line">public class WebViewConfig extends WebMvcConfigurerAdapter &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: 注册jsp视图解析器</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Bean</span><br><span class="line">    public ViewResolver viewResolver() &#123;</span><br><span class="line">        InternalResourceViewResolver resolver &#x3D; new InternalResourceViewResolver();</span><br><span class="line">        resolver.setPrefix(&quot;classpath:&#x2F;view&#x2F;&quot;); &#x2F;&#x2F;配置放置jsp文件夹</span><br><span class="line">        resolver.setSuffix(&quot;.jsp&quot;);</span><br><span class="line">        resolver.setViewNames(&quot;jsp&#x2F;*&quot;);  &#x2F;&#x2F;重要 setViewNames 通过它识别为jsp页面引擎</span><br><span class="line">        resolver.setOrder(2);</span><br><span class="line">        return resolver;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: 注册html视图解析器</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Bean</span><br><span class="line">    public ITemplateResolver templateResolver() &#123;</span><br><span class="line">        SpringResourceTemplateResolver templateResolver &#x3D; new SpringResourceTemplateResolver();</span><br><span class="line">        templateResolver.setTemplateMode(&quot;HTML&quot;);</span><br><span class="line">        templateResolver.setPrefix(&quot;classpath:&#x2F;templates&#x2F;&quot;);</span><br><span class="line">        templateResolver.setSuffix(&quot;.html&quot;);</span><br><span class="line">        templateResolver.setCharacterEncoding(&quot;utf-8&quot;);</span><br><span class="line">        templateResolver.setCacheable(false);</span><br><span class="line">        return templateResolver;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: 将自定义tml视图解析器添加到模板引擎并主持到ioc</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Bean</span><br><span class="line">    public SpringTemplateEngine templateEngine() &#123;</span><br><span class="line">        SpringTemplateEngine templateEngine &#x3D; new SpringTemplateEngine();</span><br><span class="line">        templateEngine.setTemplateResolver(templateResolver());</span><br><span class="line">        return templateEngine;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: Thymeleaf视图解析器配置</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Bean</span><br><span class="line">    public ThymeleafViewResolver viewResolverThymeLeaf() &#123;</span><br><span class="line">        ThymeleafViewResolver viewResolver &#x3D; new ThymeleafViewResolver();</span><br><span class="line">        viewResolver.setTemplateEngine(templateEngine());</span><br><span class="line">        viewResolver.setCharacterEncoding(&quot;utf-8&quot;);</span><br><span class="line">        viewResolver.setViewNames(new String[]&#123;&quot;thymeleaf&quot;&#125;);</span><br><span class="line">        viewResolver.setOrder(1);</span><br><span class="line">        return viewResolver;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) &#123;</span><br><span class="line">        configurer.enable();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: 配置静态文件映射</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public void addResourceHandlers(ResourceHandlerRegistry registry) &#123;</span><br><span class="line">        registry.addResourceHandler(&quot;&#x2F;**&quot;).addResourceLocations(&quot;classpath:&#x2F;static&#x2F;&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;一、首先必须去除starter-web中的内置tomcat,并引入外部的tomcat包&lt;br&gt;pom.xml&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class
+        &lt;details&gt;
+&lt;summary&gt;一、首先必须去除starter-web中的内置tomcat,并引入外部的tomcat包&lt;/summary&gt;
+
+&lt;p&gt;pom.xml&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas
       
     
     </summary>
@@ -63,31 +215,6 @@
     
     
       <category term="window" scheme="http://brightereyer.xyz/tags/window/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[arm] ubuntu12安装mosquito开发包</title>
-    <link href="http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583547577000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583547577000.html/</id>
-    <published>2020-03-07T02:19:37.000Z</published>
-    <updated>2020-03-07T02:19:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/u012999810/article/details/86287522" target="_blank">ubuntu安装桌面-完美版</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#安装xfce和xfce-terminal和supervisor</span><br><span class="line">apt-get install -y supervisor xfce4 xfce4-terminal</span><br><span class="line"></span><br><span class="line">#安装电源管理模块（pm-utils）和锁屏工具（screensaver）</span><br><span class="line">apt-get purge -y pm-utils xscreensaver*</span><br><span class="line"></span><br><span class="line">#安装tigervnc</span><br><span class="line">wget -qO- https:&#x2F;&#x2F;dl.bintray.com&#x2F;tigervnc&#x2F;stable&#x2F;tigervnc-1.8.0.x86_64.tar.gz | tar xz --strip 1 -C &#x2F;</span><br><span class="line"></span><br><span class="line">#安装工具模块</span><br><span class="line">apt-get install -y cewm xterm xfonts-base xauth xinit</span><br><span class="line"></span><br><span class="line">#切换apt源为华为源(可选，根据自己的需要选择)</span><br><span class="line">cp -a &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br><span class="line">sed -i &quot;s@http:&#x2F;&#x2F;archive.ubuntu.com@https:&#x2F;&#x2F;mirrors.huaweicloud.com@g&quot; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">sed -i &quot;s@http:&#x2F;&#x2F;security.ubuntu.com@https:&#x2F;&#x2F;mirrors.huaweicloud.com@g&quot; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#根据用户的窗口大小调整桌面的分辨率，还需要安装xrandr</span><br><span class="line">xserver-xorg-video-vesa</span><br><span class="line">#普通用户下</span><br><span class="line">apt-get install -y xserver-xorg-video-vesa</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#创建后台程序运行文件夹</span><br><span class="line">mkdir -p &#x2F;usr&#x2F;local&#x2F;share&#x2F;dev&#x2F;start&#x2F;</span><br><span class="line">#创建日志文件夹</span><br><span class="line">mkdir -p &#x2F;var&#x2F;log&#x2F;techsaas</span><br><span class="line"></span><br><span class="line">#火狐浏览器62.0b5&#x2F;linux-x86_64&#x2F;zh-CN&#x2F;版本下载地址：</span><br><span class="line">http:&#x2F;&#x2F;ftp.mozilla.org&#x2F;pub&#x2F;firefox&#x2F;releases&#x2F;62.0b5&#x2F;linux-x86_64&#x2F;zh-CN&#x2F;firefox-62.0b5.tar.bz2</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/fanqisoft/p/8671166.html" target="_blank">ubuntu安装桌面环境</a><br>Ubuntu安装gnome桌面有两种：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#1.完全安装gnome桌面及应用</span><br><span class="line">sudo apt-get install gnome</span><br><span class="line"></span><br><span class="line">#2.最简化安装使用gnome桌面</span><br><span class="line">#gnome桌面窗口管理程序、面板、菜单、会话、gdm会话切换器</span><br><span class="line">sudo apt-get install gnome-shell gnome-panel gnome-menus gnome-seesion gdm</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/u012999810/article/details/86287522&quot; target=&quot;_blank&quot;&gt;ubuntu安装桌面-完美版&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain
-      
-    
-    </summary>
-    
-    
-    
-      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
     
   </entry>
   
@@ -189,31 +316,6 @@
   </entry>
   
   <entry>
-    <title>[ubuntu] 找不到apt-get的解决办法</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413635000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413635000.html/</id>
-    <published>2020-03-05T13:07:15.000Z</published>
-    <updated>2020-03-05T13:07:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/zhezhebie/article/details/100535405" target="_blank">下载apt.deb</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;security.ubuntu.com&#x2F;ubuntu&#x2F;pool&#x2F;main&#x2F;a&#x2F;apt&#x2F;apt_1.9.3_amd64.deb</span><br><span class="line">dpkg -i apt_1.4_amd64.deb</span><br><span class="line">apt-get install htop</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/zhezhebie/article/details/100535405&quot; target=&quot;_blank&quot;&gt;下载apt.deb&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;ta
-      
-    
-    </summary>
-    
-    
-    
-      <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
     <title>[vbox] USB识别</title>
     <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413635000.html/"/>
     <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413635000.html/</id>
@@ -239,27 +341,27 @@
   </entry>
   
   <entry>
-    <title>[springboot] swagger2使用指南</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413634000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413634000.html/</id>
-    <published>2020-03-05T13:07:14.000Z</published>
-    <updated>2020-03-05T13:07:14.000Z</updated>
+    <title>[ubuntu] 找不到apt-get的解决办法</title>
+    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413635000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413635000.html/</id>
+    <published>2020-03-05T13:07:15.000Z</published>
+    <updated>2020-03-05T13:07:15.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/sanyaoxu_2/article/details/80555328" target="_blank">Swagger使用指南</a></p>]]></content>
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/zhezhebie/article/details/100535405" target="_blank">下载apt.deb</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;security.ubuntu.com&#x2F;ubuntu&#x2F;pool&#x2F;main&#x2F;a&#x2F;apt&#x2F;apt_1.9.3_amd64.deb</span><br><span class="line">dpkg -i apt_1.4_amd64.deb</span><br><span class="line">apt-get install htop</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/sanyaoxu_2/article/details/80555328&quot; target=&quot;_blank&quot;&gt;Swagger使用指南&lt;/a&gt;&lt;/p&gt;
-
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/zhezhebie/article/details/100535405&quot; target=&quot;_blank&quot;&gt;下载apt.deb&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;ta
       
     
     </summary>
     
     
     
-      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+      <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
     
   </entry>
   
@@ -285,6 +387,31 @@
     
     
       <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] swagger2使用指南</title>
+    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413634000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413634000.html/</id>
+    <published>2020-03-05T13:07:14.000Z</published>
+    <updated>2020-03-05T13:07:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/sanyaoxu_2/article/details/80555328" target="_blank">Swagger使用指南</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/sanyaoxu_2/article/details/80555328&quot; target=&quot;_blank&quot;&gt;Swagger使用指南&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
     
   </entry>
   
@@ -386,130 +513,6 @@
     
     
       <category term="maven" scheme="http://brightereyer.xyz/tags/maven/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[linux] RFID卡</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413627000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413627000.html/</id>
-    <published>2020-03-05T13:07:07.000Z</published>
-    <updated>2020-03-05T13:07:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/topeet/p/9299591.html" target="_blank">iTOP-6818开发板-Android4.4系统下RFID射频模块测试例程</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/topeet/p/9299591.html&quot; target=&quot;_blank&quot;&gt;iTOP-6818开发板-Android4.4系统下RFID射频模块测试例程&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[java] 默认时间</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413626000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413626000.html/</id>
-    <published>2020-03-05T13:07:06.000Z</published>
-    <updated>2020-03-05T13:07:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_35272054/article/details/90691896" target="_blank">JPA当中实现时间设置默认值(取当前时间)</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.hibernate&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;hibernate-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;version&gt;5.2.1.Final&lt;&#x2F;version&gt;</span><br><span class="line">&lt;exclusions&gt;</span><br><span class="line">&lt;exclusion&gt;</span><br><span class="line">&lt;artifactId&gt;el-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;groupId&gt;javax.el&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;&#x2F;exclusion&gt;</span><br><span class="line">&lt;&#x2F;exclusions&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import lombok.Data;</span><br><span class="line">import org.hibernate.annotations.CreationTimestamp;</span><br><span class="line">import org.hibernate.annotations.UpdateTimestamp;</span><br><span class="line"></span><br><span class="line">import javax.persistence.*;</span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">@Entity</span><br><span class="line">@Table(name &#x3D; &quot;test_data_time_default&quot;)</span><br><span class="line">@Data</span><br><span class="line">public class TestDateTimeDefault &#123;</span><br><span class="line">    @Id</span><br><span class="line">    @GeneratedValue(strategy &#x3D; GenerationType.IDENTITY)</span><br><span class="line">    private Integer id;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;默认创建时间</span><br><span class="line">    @Temporal(TemporalType.TIMESTAMP)</span><br><span class="line">    @Column(name &#x3D; &quot;t_time&quot;)</span><br><span class="line">    @CreationTimestamp</span><br><span class="line">    private Date time;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;默认更新时间</span><br><span class="line">    @Column(name &#x3D; &quot;t_update_time&quot;)</span><br><span class="line">    @UpdateTimestamp</span><br><span class="line">    @Temporal(TemporalType.TIMESTAMP)</span><br><span class="line">    private Date updateTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_35272054/article/details/90691896&quot; target=&quot;_blank&quot;&gt;JPA当中实现时间设置默认值(取当前时间)&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlig
-      
-    
-    </summary>
-    
-    
-    
-      <category term="java" scheme="http://brightereyer.xyz/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[java] 加载dll文件</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413625000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413625000.html/</id>
-    <published>2020-03-05T13:07:05.000Z</published>
-    <updated>2020-03-05T13:07:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>springboot加载dll文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">static &#123;</span><br><span class="line">    File tempLibraryFile &#x3D; copyResourceToTempDirFile(&quot;&#x2F;path&#x2F;to&#x2F;dll&#x2F;in&#x2F;JAR&quot;, &quot;my.dll&quot;);</span><br><span class="line">    System.load(tempLibraryFile.getAbsolutePath());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static File copyResourceToTempDirFile(String resourcePath, String destinationFileName) &#123;</span><br><span class="line">    File tempDir &#x3D; new File(System.getProperty(&quot;java.io.tmpdir&quot;));</span><br><span class="line">    File tempDirFile &#x3D; new File(tempDir, destinationFileName);</span><br><span class="line">    try (InputStream input &#x3D; FaceVideo.class.getResourceAsStream(resourcePath);</span><br><span class="line">         OutputStream output &#x3D; new FileOutputStream(tempDirFile)) &#123;</span><br><span class="line">        IOUtils.copy(input, output);</span><br><span class="line">        tempDirFile.deleteOnExit();</span><br><span class="line">        return tempDirFile;</span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line">        throw new RuntimeException(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;springboot加载dll文件&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line
-      
-    
-    </summary>
-    
-    
-    
-      <category term="java" scheme="http://brightereyer.xyz/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[java] 对象转json</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413624000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413624000.html/</id>
-    <published>2020-03-05T13:07:04.000Z</published>
-    <updated>2020-03-05T13:07:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.fasterxml.jackson.core&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;jackson-databind&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.8.3&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;net.sf.json-lib&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;json-lib&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.2.3&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;classifier&gt;jdk15&lt;&#x2F;classifier&gt;&lt;!-- 指定jdk版本 --&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static String obj2Json(Object resultobj) &#123;</span><br><span class="line">    if (resultobj !&#x3D; null) &#123;</span><br><span class="line">        JSONObject obj &#x3D; JSONObject.fromObject(resultobj);</span><br><span class="line">        return obj.toString();</span><br><span class="line">    &#125;</span><br><span class="line">    return &quot;&#123;&#125;&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static String list2Json(Object resultobj) &#123;</span><br><span class="line">    if (resultobj !&#x3D; null) &#123;</span><br><span class="line">        JSONArray obj &#x3D; JSONArray.fromObject(resultobj);</span><br><span class="line">        return (obj.toString());</span><br><span class="line">    &#125;</span><br><span class="line">    return &quot;[]&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;json字符串转换为MAP</span><br><span class="line">public static Map jsonStrToMap(String s) &#123;</span><br><span class="line">    Map map &#x3D; new HashMap();</span><br><span class="line">    &#x2F;&#x2F;注意这里JSONObject引入的是net.sf.json</span><br><span class="line">    net.sf.json.JSONObject json &#x3D; net.sf.json.JSONObject.fromObject(s);</span><br><span class="line">    Iterator keys &#x3D; json.keys();</span><br><span class="line">    while (keys.hasNext()) &#123;</span><br><span class="line">        String key &#x3D; (String) keys.next();</span><br><span class="line">        String value &#x3D; json.get(key).toString();</span><br><span class="line">        if (value.startsWith(&quot;&#123;&quot;) &amp;&amp; value.endsWith(&quot;&#125;&quot;)) &#123;</span><br><span class="line">            map.put(key, jsonStrToMap(value));</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            map.put(key, value);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    return map;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 将jsonArray字符串转换成List集合</span><br><span class="line">public static List jsonToList(String json, Class beanClass) &#123;</span><br><span class="line">    if (!StringUtils.isBlank(json)) &#123;</span><br><span class="line">        &#x2F;&#x2F;这里的JSONObject引入的是 com.alibaba.fastjson.JSONObject;</span><br><span class="line">        return JSONObject.parseArray(json, beanClass);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;List集合转换为json</span><br><span class="line">public static JSON listToJson(List list) &#123;</span><br><span class="line">    JSON json&#x3D;(JSON)JSON.toJSON(list);</span><br><span class="line">    return json;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
-      
-    
-    </summary>
-    
-    
-    
-      <category term="java" scheme="http://brightereyer.xyz/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[java] springbootsecurity拦截post请求</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413623000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413623000.html/</id>
-    <published>2020-03-05T13:07:03.000Z</published>
-    <updated>2020-03-05T13:07:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://bbs.csdn.net/topics/392172607" target="_blank">参考</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.csrf().disable();</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://bbs.csdn.net/topics/392172607&quot; target=&quot;_blank&quot;&gt;参考&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="java" scheme="http://brightereyer.xyz/tags/java/"/>
     
   </entry>
   
