@@ -537,23 +537,34 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>添加对热插拔事件响应</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;mdev.conf &lt;&lt;EOF</span><br><span class="line">sd[a-z][0-9] 0:0 666 @&#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_insert</span><br><span class="line">sd[a-z] 0:0 666 $&#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_remove</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">#注释掉以下内容：</span><br><span class="line">sda1	0:0 0600 &#x3D;udisk * &#x2F;bin&#x2F;hotplug</span><br></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp &#x2F;proc&#x2F;sys&#x2F;kernel&#x2F;hotplug &#x2F;bin&#x2F;</span><br><span class="line">chmod +x &#x2F;bin&#x2F;hotplug</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br><span class="line">Filesystem                Size      Used Available Use% Mounted on</span><br><span class="line">&#x2F;dev&#x2F;root               393.7M    236.4M    157.3M  60% &#x2F;</span><br><span class="line">devtmpfs                932.6M         0    932.6M   0% &#x2F;dev</span><br><span class="line">&#x2F;dev&#x2F;mmcblk1p1           13.1G    358.3M     12.8G   3% &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">&#x2F;dev&#x2F;mmcblk1p2           13.1G    358.3M     12.8G   3% &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">&#x2F;dev&#x2F;mmcblk1p3           13.1G    358.3M     12.8G   3% &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">&#x2F;dev&#x2F;mmcblk1p7           13.1G    358.3M     12.8G   3% &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">tmpfs                   932.7M         0    932.7M   0% &#x2F;dev&#x2F;shm</span><br><span class="line"></span><br><span class="line">#执行4次</span><br><span class="line">umount &#x2F;dev&#x2F;mmcblk1p1</span><br><span class="line"></span><br><span class="line">#然后</span><br><span class="line">df -h</span><br><span class="line">Filesystem                Size      Used Available Use% Mounted on</span><br><span class="line">&#x2F;dev&#x2F;root               393.7M    236.4M    157.3M  60% &#x2F;</span><br><span class="line">devtmpfs                932.6M         0    932.6M   0% &#x2F;dev</span><br><span class="line">tmpfs                   932.7M         0    932.7M   0% &#x2F;dev&#x2F;shm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#手动挂载tf卡</span><br><span class="line">mount &#x2F;dev&#x2F;mmcblk0p1 &#x2F;mnt&#x2F;sdcard</span><br><span class="line">ls &#x2F;mnt&#x2F;sdcard</span><br></pre></td></tr></table></figure>
+
+<p>添加对热插拔事件响应</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;mdev.conf &lt;&lt;EOF</span><br><span class="line">sd[a-z][0-9]      0:0 666        @&#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_insert  </span><br><span class="line">sd[a-z]           0:0 666        $&#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_remove</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">#注释掉以下内容：</span><br><span class="line">sda1	0:0 0600 &#x3D;udisk * &#x2F;bin&#x2F;hotplug</span><br></pre></td></tr></table></figure>
 
 
 <p>udisk_insert</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;etc&#x2F;hotplug&#x2F;usb</span><br><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_insert&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;usbdisk insert!&quot; &gt; &#x2F;dev&#x2F;console</span><br><span class="line">if [ -e &quot;&#x2F;dev&#x2F;$MDEV&quot; ] ; then</span><br><span class="line">mkdir -p &#x2F;mnt&#x2F;usbdisk&#x2F;$MDEV</span><br><span class="line">mount &#x2F;dev&#x2F;$MDEV &#x2F;mnt&#x2F;usbdisk&#x2F;$MDEV</span><br><span class="line">fi</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;etc&#x2F;hotplug&#x2F;usb</span><br><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_insert&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh  </span><br><span class="line">echo &quot;usbdisk insert!&quot; &gt; &#x2F;dev&#x2F;console  </span><br><span class="line">if [ -e &quot;&#x2F;dev&#x2F;$MDEV&quot;  ]  ; then  </span><br><span class="line">    mkdir -p &#x2F;mnt&#x2F;usbdisk&#x2F;$MDEV  </span><br><span class="line">    mount &#x2F;dev&#x2F;$MDEV &#x2F;mnt&#x2F;usbdisk&#x2F;$MDEV </span><br><span class="line">    echo &quot;&#x2F;dev&#x2F;$MDEV mounted in &#x2F;mnt&#x2F;usbdisk&#x2F;$MDEV&quot;&gt;&#x2F;dev&#x2F;console</span><br><span class="line">fi  </span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 
 <p>udisk_remove</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_remove&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;usbdisk remove!&quot; &gt; &#x2F;dev&#x2F;console</span><br><span class="line">umount -l &#x2F;mnt&#x2F;usbdisk&#x2F;sd*</span><br><span class="line">rm -rf &#x2F;mnt&#x2F;usbdisk&#x2F;sd*</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">chmod 755 &#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;*</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#插上 U 盘</span><br><span class="line">ls &#x2F;mnt&#x2F;usbdisk&#x2F;sda1</span><br></pre></td></tr></table></figure>
 
+<p>创建 U盘的设备节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mknod &#x2F;dev&#x2F;sda1 b 8 1</span><br></pre></td></tr></table></figure>
+
+<p>插入 U 盘之后会弹出加载信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;sda1 &#x2F;mnt&#x2F;udisk&#x2F;</span><br><span class="line">ls &#x2F;mnt&#x2F;udisk</span><br></pre></td></tr></table></figure>
+
+
 <p>SD/TF 卡的自动挂载</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;mdev.conf &lt;&lt;EOF</span><br><span class="line">mmcblk1p[0-9] 0:0 666 @&#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_insert</span><br><span class="line">mmcblk1 0:0 666 $&#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_remove</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;mdev.conf &lt;&lt;EOF</span><br><span class="line">mmcblk1p[0-9]     0:0 666        @&#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_insert  </span><br><span class="line">mmcblk1           0:0 666        $&#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_remove</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 
 <p>创建 sd_insert 文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;etc&#x2F;hotplug&#x2F;sd</span><br><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_insert&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;sd card insert!&quot; &gt; &#x2F;dev&#x2F;console</span><br><span class="line">if [ -e &quot;&#x2F;dev&#x2F;$MDEV&quot; ]; then</span><br><span class="line">mkdir -p &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">mount -rw &#x2F;dev&#x2F;$MDEV &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;etc&#x2F;hotplug&#x2F;sd</span><br><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_insert&lt;&lt;EOF</span><br><span class="line">echo &quot;sd card insert!&quot; &gt; &#x2F;dev&#x2F;console  </span><br><span class="line">if [ -e &quot;&#x2F;dev&#x2F;$MDEV&quot;  ]; then  </span><br><span class="line">    mkdir -p &#x2F;mnt&#x2F;sdcard&#x2F;sd  </span><br><span class="line">    mount -rw &#x2F;dev&#x2F;$MDEV &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">    echo &quot;&#x2F;dev&#x2F;$MDEV mounted in &#x2F;mnt&#x2F;sdcard&#x2F;sd&quot; &gt;&#x2F;dev&#x2F;console   </span><br><span class="line">fi</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 
 <p>创建 sd_remove 文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_remove&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;sd card remove!&quot; &gt; &#x2F;dev&#x2F;console</span><br><span class="line">umount -l &#x2F;mnt&#x2F;sdcard&#x2F;sd*</span><br><span class="line">rm -rf &#x2F;mnt&#x2F;sdcard&#x2F;sd*</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
@@ -759,6 +770,70 @@
         
   
     <h1 itemprop="name">
+      <a  class="article-title" href="/2020/03/05/articles/2020/03/05/1583413635000.html/">[ubuntu] 找不到apt-get的解决办法</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/zhezhebie/article/details/100535405" target="_blank">下载apt.deb</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;security.ubuntu.com&#x2F;ubuntu&#x2F;pool&#x2F;main&#x2F;a&#x2F;apt&#x2F;apt_1.9.3_amd64.deb</span><br><span class="line">dpkg -i apt_1.4_amd64.deb</span><br><span class="line">apt-get install htop</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/03/05/1583413635000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/03/05/articles/2020/03/05/1583413635000.html/" class="article-date">
+      <time datetime="2020-03-05T13:07:15.000Z" itemprop="datePublished">2020-03-05</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
       <a  class="article-title" href="/2020/03/05/articles/2020/03/05/1583413635000.html/">[vbox] USB识别</a>
     </h1>
   
@@ -804,11 +879,11 @@
 
 
   
-    <article id="post-/articles/2020/03/05/1583413635000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2020/03/05/1583413634000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2020/03/05/articles/2020/03/05/1583413635000.html/" class="article-date">
-      <time datetime="2020-03-05T13:07:15.000Z" itemprop="datePublished">2020-03-05</time>
+      <a  href="/2020/03/05/articles/2020/03/05/1583413634000.html/" class="article-date">
+      <time datetime="2020-03-05T13:07:14.000Z" itemprop="datePublished">2020-03-05</time>
 </a>
 
     </div>
@@ -822,7 +897,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2020/03/05/articles/2020/03/05/1583413635000.html/">[ubuntu] 找不到apt-get的解决办法</a>
+      <a  class="article-title" href="/2020/03/05/articles/2020/03/05/1583413634000.html/">[springboot] swagger2使用指南</a>
     </h1>
   
 
@@ -833,9 +908,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://blog.csdn.net/zhezhebie/article/details/100535405" target="_blank">下载apt.deb</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;security.ubuntu.com&#x2F;ubuntu&#x2F;pool&#x2F;main&#x2F;a&#x2F;apt&#x2F;apt_1.9.3_amd64.deb</span><br><span class="line">dpkg -i apt_1.4_amd64.deb</span><br><span class="line">apt-get install htop</span><br></pre></td></tr></table></figure>
-
+        <p><a href="https://blog.csdn.net/sanyaoxu_2/article/details/80555328" target="_blank">Swagger使用指南</a></p>
 
       
     </div>
@@ -846,7 +919,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
     </div>
 
       
@@ -917,68 +990,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/03/05/1583413634000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/03/05/articles/2020/03/05/1583413634000.html/" class="article-date">
-      <time datetime="2020-03-05T13:07:14.000Z" itemprop="datePublished">2020-03-05</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/03/05/articles/2020/03/05/1583413634000.html/">[springboot] swagger2使用指南</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/sanyaoxu_2/article/details/80555328" target="_blank">Swagger使用指南</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
     </div>
 
       
