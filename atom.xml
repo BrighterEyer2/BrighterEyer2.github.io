@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-03-08T11:00:36.000Z</updated>
+  <updated>2020-03-11T13:24:45.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -17,13 +17,112 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[git] clone速度太慢问题</title>
+    <link href="http://brightereyer.xyz/2020/03/11/articles/2020/03/11/1583933085000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/11/articles/2020/03/11/1583933085000.html/</id>
+    <published>2020-03-11T13:24:45.000Z</published>
+    <updated>2020-03-11T13:24:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/shahuhu000/article/details/83965642" target="_blank">git clone速度太慢的解决办法</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">思路：</span><br><span class="line">git clone特别慢是因为github.global.ssl.fastly.net域名被限制了。</span><br><span class="line">只要找到这个域名对应的ip地址，然后在hosts文件中加上ip–&gt;域名的映射，刷新DNS缓存便可。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">在网站 https:&#x2F;&#x2F;www.ipaddress.com&#x2F; 分别搜索：</span><br><span class="line">github.global.ssl.fastly.net</span><br><span class="line">github.com</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Windows\System32\drivers\etc\hosts</span><br><span class="line"></span><br><span class="line">199.232.5.194 github.global-ssl.fastly.net</span><br><span class="line">192.30.253.113 github.com</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ipconfig &#x2F;flushdns</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/shahuhu000/article/details/83965642&quot; target=&quot;_blank&quot;&gt;git clone速度太慢的解决办法&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight p
+      
+    
+    </summary>
+    
+    
+    
+      <category term="git" scheme="http://brightereyer.xyz/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[adb] 开启USB调试</title>
+    <link href="http://brightereyer.xyz/2020/03/11/articles/2020/03/11/1583933050000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/11/articles/2020/03/11/1583933050000.html/</id>
+    <published>2020-03-11T13:24:10.000Z</published>
+    <updated>2020-03-11T13:24:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/huil0925/article/details/94883661" target="_blank">默认开启adb模式(USB调试)</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\frameworks\base\services\usb\java\com\android\server\usb\UsbDeviceManager.java下的</span><br><span class="line"></span><br><span class="line">Settings.Global.putInt(mContentResolver, Settings.Global.ADB_ENABLED, mAdbEnabled ? 1 : 0);</span><br></pre></td></tr></table></figure><p>改为：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Settings.Global.putInt(mContentResolver, Settings.Global.ADB_ENABLED, 1);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/huil0925/article/details/94883661&quot; target=&quot;_blank&quot;&gt;默认开启adb模式(USB调试)&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain
+      
+    
+    </summary>
+    
+    
+    
+      <category term="adb" scheme="http://brightereyer.xyz/tags/adb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[刷机] 刷机帮</title>
+    <link href="http://brightereyer.xyz/2020/03/10/articles/2020/03/10/1583837484000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/10/articles/2020/03/10/1583837484000.html/</id>
+    <published>2020-03-10T10:51:24.000Z</published>
+    <updated>2020-03-10T10:51:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.shuajibang.net" target="_blank">刷机帮</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://www.shuajibang.net&quot; target=&quot;_blank&quot;&gt;刷机帮&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="刷机" scheme="http://brightereyer.xyz/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[arm] itop6818-QtE4.7联网</title>
+    <link href="http://brightereyer.xyz/2020/03/09/articles/2020/03/09/1583753704000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/09/articles/2020/03/09/1583753704000.html/</id>
+    <published>2020-03-09T11:35:04.000Z</published>
+    <updated>2020-03-09T11:35:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/BrighterEyer/itop6818-mt6620-4g-files/tree/master/mt6620/itop6818_RT_Qt_wifi_mt6620" target="_blank">itop6818_RT_Qt_wifi_mt6620</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cp wpa_lib&#x2F;* &#x2F;lib&#x2F;</span><br><span class="line">cp wpa_supplicant &#x2F;usr&#x2F;sbin</span><br><span class="line">cp 6620_launcher &#x2F;usr&#x2F;bin&#x2F;</span><br><span class="line">cp wpa_drivers&#x2F;* &#x2F;lib&#x2F;modules&#x2F;mt6620&#x2F;</span><br><span class="line">cp make_mt6620.sh &#x2F;root&#x2F;</span><br></pre></td></tr></table></figure><p>开发板连接 WiFi<br>在开发板执行下面的指令，更新 WiFi 开机启动脚本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt; EOF &gt; &#x2F;etc&#x2F;init.d&#x2F;mt6620</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">#support MT6620 WIFI Module</span><br><span class="line">mknod &#x2F;dev&#x2F;stpwmt c 190 0</span><br><span class="line">mknod &#x2F;dev&#x2F;stpgps c 191 0</span><br><span class="line">mknod &#x2F;dev&#x2F;fm c 193 0</span><br><span class="line">mknod &#x2F;dev&#x2F;wmtWifi c 194 0</span><br><span class="line">insmod &#x2F;lib&#x2F;modules&#x2F;mt6620&#x2F;mtk_hif_sdio.ko</span><br><span class="line">insmod &#x2F;lib&#x2F;modules&#x2F;mt6620&#x2F;mtk_stp_wmt.ko</span><br><span class="line">insmod &#x2F;lib&#x2F;modules&#x2F;mt6620&#x2F;mtk_stp_uart.ko</span><br><span class="line">insmod &#x2F;lib&#x2F;modules&#x2F;mt6620&#x2F;mtk_stp_gps.ko</span><br><span class="line">#insmod &#x2F;lib&#x2F;modules&#x2F;mt6620&#x2F;hci_stp.ko</span><br><span class="line">#insmod &#x2F;lib&#x2F;modules&#x2F;mt6620&#x2F;mt6620_fm_drv.ko</span><br><span class="line">#insmod &#x2F;lib&#x2F;modules&#x2F;mt6620&#x2F;mtk_fm_priv.ko</span><br><span class="line">insmod &#x2F;lib&#x2F;modules&#x2F;mt6620&#x2F;mtk_wmt_wifi.ko WIFI_major&#x3D;194</span><br><span class="line">insmod &#x2F;lib&#x2F;modules&#x2F;mt6620&#x2F;wlan_mt6620.ko</span><br><span class="line">chmod 0666 &#x2F;dev&#x2F;stpwmt</span><br><span class="line">chmod 0666 &#x2F;dev&#x2F;stpgps</span><br><span class="line">chmod 0666 &#x2F;dev&#x2F;fm</span><br><span class="line">chmod 0666 &#x2F;dev&#x2F;wmtWifi</span><br><span class="line">chmod 0666 &#x2F;dev&#x2F;gps</span><br><span class="line">chmod 0660 &#x2F;dev&#x2F;ttySAC2</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;6620_launcher -m 1 -b 921600 -n &#x2F;etc&#x2F;firmware&#x2F;mt6620_patch_hdr.bin -d &#x2F;dev&#x2F;ttySAC2 &amp;</span><br><span class="line">sleep 4</span><br><span class="line">echo 1 &gt; &#x2F;dev&#x2F;wmtWifi</span><br><span class="line">wpa_supplicant -iwlan0 -Dnl80211 -c&#x2F;etc&#x2F;wpa_supplicant.conf &amp;</span><br><span class="line">sleep 3</span><br><span class="line">udhcpc -i wlan0 &gt;&#x2F;var&#x2F;udhcpc_log &amp;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wpa_passphrase XXX &quot;YYY&quot; &gt; &#x2F;etc&#x2F;wpa_supplicant.conf</span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;mt6620</span><br><span class="line">ping www.baidu.com - c 4</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://github.com/BrighterEyer/itop6818-mt6620-4g-files/tree/master/mt6620/itop6818_RT_Qt_wifi_mt6620&quot; target=&quot;_blank&quot;&gt;itop6818
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[ubuntu] ubuntu18内核降级</title>
     <link href="http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583665236000.html/"/>
     <id>http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583665236000.html/</id>
     <published>2020-03-08T11:00:36.000Z</published>
     <updated>2020-03-08T11:00:36.000Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">sudo cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br><span class="line"></span><br><span class="line">vi &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line"></span><br><span class="line">在文件最后面增加一行并保存</span><br><span class="line">deb http:&#x2F;&#x2F;security.ubuntu.com&#x2F;ubuntu trusty-security main</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line">apt-cache search linux-image</span><br><span class="line"></span><br><span class="line">apt-get install -y linux-image-extra-4.4.0-109-generic</span><br><span class="line"></span><br><span class="line">#安装4.4版本内核</span><br><span class="line">dpkg -l |grep linux-image</span><br><span class="line"></span><br><span class="line">#查看是否安装成功</span><br><span class="line">vim &#x2F;etc&#x2F;default&#x2F;grub</span><br><span class="line"></span><br><span class="line">#找到</span><br><span class="line">GRUB_DEFAULT&#x3D;0</span><br><span class="line">#修改为：</span><br><span class="line">GRUB_DEFAULT&#x3D;&quot;Advanced options for Ubuntu&gt;Ubuntu, with Linux 4.4.0-109-generic&quot;</span><br><span class="line"></span><br><span class="line">#更新grub</span><br><span class="line">update-grub</span><br><span class="line"></span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">sudo cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br><span class="line"></span><br><span class="line">vi &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line"></span><br><span class="line">在文件最后面增加一行并保存</span><br><span class="line">deb http:&#x2F;&#x2F;security.ubuntu.com&#x2F;ubuntu trusty-security main</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line">apt-cache search linux-image</span><br><span class="line"></span><br><span class="line">apt-get install -y linux-image-extra-4.4.0-109-generic</span><br><span class="line"></span><br><span class="line">#安装4.4版本内核</span><br><span class="line">dpkg -l |grep linux-image</span><br><span class="line"></span><br><span class="line">#查看是否安装成功</span><br><span class="line">vim &#x2F;etc&#x2F;default&#x2F;grub</span><br><span class="line"></span><br><span class="line">#找到</span><br><span class="line">GRUB_DEFAULT&#x3D;0</span><br><span class="line">#修改为：</span><br><span class="line">GRUB_DEFAULT&#x3D;&quot;Advanced options for Ubuntu&gt;Ubuntu, with Linux 4.4.0-109-generic&quot;</span><br><span class="line"></span><br><span class="line">#更新grub</span><br><span class="line">update-grub</span><br><span class="line"></span><br><span class="line">reboot</span><br><span class="line"></span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -249,7 +348,7 @@
     <published>2020-03-07T02:19:35.000Z</published>
     <updated>2020-03-07T02:19:35.000Z</updated>
     
-    <content type="html"><![CDATA[<p>添加对热插拔事件响应</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; &#x2F;etc&#x2F;mdev.conf &lt;&lt;EOF</span><br><span class="line">sd[a-z][0-9] 0:0 666 @&#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_insert</span><br><span class="line">sd[a-z] 0:0 666 $&#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_remove</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">#注释掉以下内容：</span><br><span class="line">sda10:0 0600 &#x3D;udisk * &#x2F;bin&#x2F;hotplug</span><br></pre></td></tr></table></figure><p>udisk_insert</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;etc&#x2F;hotplug&#x2F;usb</span><br><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_insert&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;usbdisk insert!&quot; &gt; &#x2F;dev&#x2F;console</span><br><span class="line">if [ -e &quot;&#x2F;dev&#x2F;$MDEV&quot; ] ; then</span><br><span class="line">mkdir -p &#x2F;mnt&#x2F;usbdisk&#x2F;$MDEV</span><br><span class="line">mount &#x2F;dev&#x2F;$MDEV &#x2F;mnt&#x2F;usbdisk&#x2F;$MDEV</span><br><span class="line">fi</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>udisk_remove</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_remove&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;usbdisk remove!&quot; &gt; &#x2F;dev&#x2F;console</span><br><span class="line">umount -l &#x2F;mnt&#x2F;usbdisk&#x2F;sd*</span><br><span class="line">rm -rf &#x2F;mnt&#x2F;usbdisk&#x2F;sd*</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">chmod 755 &#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;*</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#插上 U 盘</span><br><span class="line">ls &#x2F;mnt&#x2F;usbdisk&#x2F;sda1</span><br></pre></td></tr></table></figure><p>SD/TF 卡的自动挂载</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; &#x2F;etc&#x2F;mdev.conf &lt;&lt;EOF</span><br><span class="line">mmcblk1p[0-9] 0:0 666 @&#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_insert</span><br><span class="line">mmcblk1 0:0 666 $&#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_remove</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>创建 sd_insert 文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;etc&#x2F;hotplug&#x2F;sd</span><br><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_insert&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;sd card insert!&quot; &gt; &#x2F;dev&#x2F;console</span><br><span class="line">if [ -e &quot;&#x2F;dev&#x2F;$MDEV&quot; ]; then</span><br><span class="line">mkdir -p &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">mount -rw &#x2F;dev&#x2F;$MDEV &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">fi</span><br></pre></td></tr></table></figure><p>创建 sd_remove 文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_remove&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;sd card remove!&quot; &gt; &#x2F;dev&#x2F;console</span><br><span class="line">umount -l &#x2F;mnt&#x2F;sdcard&#x2F;sd*</span><br><span class="line">rm -rf &#x2F;mnt&#x2F;sdcard&#x2F;sd*</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 &#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;*</span><br><span class="line">ls &#x2F;mnt&#x2F;sdcard</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>添加对热插拔事件响应</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;mdev.conf &lt;&lt;EOF</span><br><span class="line">sd[a-z][0-9] 0:0 666 @&#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_insert</span><br><span class="line">sd[a-z] 0:0 666 $&#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_remove</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">#注释掉以下内容：</span><br><span class="line">sda10:0 0600 &#x3D;udisk * &#x2F;bin&#x2F;hotplug</span><br></pre></td></tr></table></figure><p>udisk_insert</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;etc&#x2F;hotplug&#x2F;usb</span><br><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_insert&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;usbdisk insert!&quot; &gt; &#x2F;dev&#x2F;console</span><br><span class="line">if [ -e &quot;&#x2F;dev&#x2F;$MDEV&quot; ] ; then</span><br><span class="line">mkdir -p &#x2F;mnt&#x2F;usbdisk&#x2F;$MDEV</span><br><span class="line">mount &#x2F;dev&#x2F;$MDEV &#x2F;mnt&#x2F;usbdisk&#x2F;$MDEV</span><br><span class="line">fi</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>udisk_remove</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_remove&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;usbdisk remove!&quot; &gt; &#x2F;dev&#x2F;console</span><br><span class="line">umount -l &#x2F;mnt&#x2F;usbdisk&#x2F;sd*</span><br><span class="line">rm -rf &#x2F;mnt&#x2F;usbdisk&#x2F;sd*</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">chmod 755 &#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;*</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#插上 U 盘</span><br><span class="line">ls &#x2F;mnt&#x2F;usbdisk&#x2F;sda1</span><br></pre></td></tr></table></figure><p>SD/TF 卡的自动挂载</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;mdev.conf &lt;&lt;EOF</span><br><span class="line">mmcblk1p[0-9] 0:0 666 @&#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_insert</span><br><span class="line">mmcblk1 0:0 666 $&#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_remove</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>创建 sd_insert 文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;etc&#x2F;hotplug&#x2F;sd</span><br><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_insert&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;sd card insert!&quot; &gt; &#x2F;dev&#x2F;console</span><br><span class="line">if [ -e &quot;&#x2F;dev&#x2F;$MDEV&quot; ]; then</span><br><span class="line">mkdir -p &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">mount -rw &#x2F;dev&#x2F;$MDEV &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">fi</span><br></pre></td></tr></table></figure><p>创建 sd_remove 文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_remove&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;sd card remove!&quot; &gt; &#x2F;dev&#x2F;console</span><br><span class="line">umount -l &#x2F;mnt&#x2F;sdcard&#x2F;sd*</span><br><span class="line">rm -rf &#x2F;mnt&#x2F;sdcard&#x2F;sd*</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 &#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;*</span><br><span class="line">ls &#x2F;mnt&#x2F;sdcard</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -412,107 +511,6 @@
     
     
       <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[springboot] QueryDSL动态投影</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413633000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413633000.html/</id>
-    <published>2020-03-05T13:07:13.000Z</published>
-    <updated>2020-03-05T13:07:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/Phapha1996/article/details/83614975" target="_blank">SpringDataJPA+QueryDSL玩转态动条件/投影查询</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/Phapha1996/article/details/83614975&quot; target=&quot;_blank&quot;&gt;SpringDataJPA+QueryDSL玩转态动条件/投影查询&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[springboot] mybatis自动生成数据库表</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413632000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413632000.html/</id>
-    <published>2020-03-05T13:07:12.000Z</published>
-    <updated>2020-03-05T13:07:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/dreamyoung/p/11776426.html" target="_blank">Mybatis如何自动生成数据库表结构</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/dreamyoung/p/11776426.html&quot; target=&quot;_blank&quot;&gt;Mybatis如何自动生成数据库表结构&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[mysql] 列拼接</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413630000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413630000.html/</id>
-    <published>2020-03-05T13:07:10.000Z</published>
-    <updated>2020-03-05T13:07:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/liaokaichang/p/7457525.html" target="_blank">MYSQL实现列拼接，即同一个字段，多条记录拼接成一条</a></p><p>GROUP_CONCAT</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">    t1.*,GROUP_CONCAT(tag_name) tag_name,GROUP_CONCAT(tag_desc) tag_desc</span><br><span class="line">FROM</span><br><span class="line">    &#96;article&#96; t1</span><br><span class="line">LEFT JOIN article_tag t2 ON t1.id &#x3D; t2.article_id</span><br><span class="line">LEFT JOIN tag t3 ON t2.tag_id &#x3D; t3.id</span><br><span class="line">GROUP BY t1.id</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/liaokaichang/p/7457525.html&quot; target=&quot;_blank&quot;&gt;MYSQL实现列拼接，即同一个字段，多条记录拼接成一条&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;GROUP_CONCAT&lt;/p&gt;
-&lt;fi
-      
-    
-    </summary>
-    
-    
-    
-      <category term="mysql" scheme="http://brightereyer.xyz/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[maven] 引用jar</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413629000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413629000.html/</id>
-    <published>2020-03-05T13:07:09.000Z</published>
-    <updated>2020-03-05T13:07:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/lukelook/p/8673778.html" target="_blank">在Maven项目中引入自己的jar包</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.maven.plugins&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;maven-compiler-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;3.3&lt;&#x2F;version&gt;</span><br><span class="line">            &lt;configuration&gt;</span><br><span class="line">                &lt;source&gt;1.8&lt;&#x2F;source&gt;</span><br><span class="line">                &lt;target&gt;1.8&lt;&#x2F;target&gt;</span><br><span class="line">                &lt;encoding&gt;UTF-8&lt;&#x2F;encoding&gt;</span><br><span class="line">                &lt;compilerArguments&gt;</span><br><span class="line">                    &lt;extdirs&gt;$&#123;project.basedir&#125;&#x2F;src&#x2F;main&#x2F;resources&#x2F;lib&lt;&#x2F;extdirs&gt;</span><br><span class="line">                &lt;&#x2F;compilerArguments&gt;</span><br><span class="line">            &lt;&#x2F;configuration&gt;</span><br><span class="line">        &lt;&#x2F;plugin&gt;</span><br><span class="line">    &lt;&#x2F;plugins&gt;</span><br><span class="line">&lt;&#x2F;build&gt;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/lukelook/p/8673778.html&quot; target=&quot;_blank&quot;&gt;在Maven项目中引入自己的jar包&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;tab
-      
-    
-    </summary>
-    
-    
-    
-      <category term="maven" scheme="http://brightereyer.xyz/tags/maven/"/>
     
   </entry>
   
