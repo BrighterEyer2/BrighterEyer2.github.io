@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-03-11T13:24:45.000Z</updated>
+  <updated>2020-03-21T16:31:21.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,405 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[ubuntu] ubuntu16安装openjdk7</title>
+    <link href="http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808281000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808281000.html/</id>
+    <published>2020-03-21T16:31:21.000Z</published>
+    <updated>2020-03-21T16:31:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/bluestorm/p/5677625.html" target="_blank">Ubuntu16.04 安装openjdk-7-jdk</a></p><p>oracle openjdk ppa source</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:openjdk-r&#x2F;ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install openjdk-7-jdk</span><br><span class="line">sudo apt-get install openjdk-7-jre</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/bluestorm/p/5677625.html&quot; target=&quot;_blank&quot;&gt;Ubuntu16.04 安装openjdk-7-jdk&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;oracle openjdk ppa sour
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] jpa建表指定charset</title>
+    <link href="http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808279000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808279000.html/</id>
+    <published>2020-03-21T16:31:19.000Z</published>
+    <updated>2020-03-21T16:31:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/u011930705/article/details/89155489" target="_blank">1.关于jpa自动建表 DEFAULT CHARSET=latin1 的简单解决方法</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">@SuppressWarnings(&quot;deprecation&quot;)</span><br><span class="line">public class MysqlConfig extends MySQL5InnoDBDialect &#123;</span><br><span class="line">@Override</span><br><span class="line">public String getTableTypeString() &#123;</span><br><span class="line">return &quot;ENGINE&#x3D;InnoDB DEFAULT CHARSET&#x3D;utf8&quot;;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.把application.properties文件中的下面第一句注释替换为上面新建类就可以了：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#spring.jpa.properties.hibernate.dialect&#x3D;org.hibernate.dialect.MySQL5InnoDBDialect</span><br><span class="line">spring.jpa.properties.hibernate.dialect&#x3D;com.neo.util.MysqlConfig</span><br></pre></td></tr></table></figure><p>3.然后去mysql看看show create table 表名：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DEFAULT CHARSET&#x3D;utf8</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/u011930705/article/details/89155489&quot; target=&quot;_blank&quot;&gt;1.关于jpa自动建表 DEFAULT CHARSET=latin1 的简单解决方法&lt;/a&gt;&lt;/p&gt;
+&lt;f
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] docker+fastdfs</title>
+    <link href="http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808278000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808278000.html/</id>
+    <published>2020-03-21T16:31:18.000Z</published>
+    <updated>2020-03-21T16:31:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>拉取镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull morunchang&#x2F;fastdfs</span><br></pre></td></tr></table></figure><p>运行tracker</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name tracker -p 22122:22122 --restart&#x3D;always --privileged&#x3D;true --net&#x3D;host --network&#x3D;bridge morunchang&#x2F;fastdfs sh tracker.sh</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it tracker &#x2F;bin&#x2F;bash</span><br><span class="line">ps -ef|grep fdfs</span><br><span class="line">&#x2F;data&#x2F;fastdfs&#x2F;tracker&#x2F;fdfs_trackerd &#x2F;etc&#x2F;fdfs&#x2F;tracker.conf</span><br><span class="line">cat &#x2F;etc&#x2F;fdfs&#x2F;tracker.conf | grep -v &quot;#&quot; | grep -v &quot;^$&quot;</span><br><span class="line">cat &#x2F;etc&#x2F;fdfs&#x2F;mod_fastdfs.conf | grep -v &quot;#&quot; | grep -v &quot;^$&quot;</span><br></pre></td></tr></table></figure><p>用于查看tracker ip，方便storage指定tracker地址</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -f&#x3D;&#39;&#123;&#123;.Name&#125;&#125; &#123;&#123;.NetworkSettings.IPAddress&#125;&#125; &#123;&#123;.HostConfig.PortBindings&#125;&#125;&#39; $(docker ps -aq)</span><br></pre></td></tr></table></figure><p>运行storage</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name storage -p 18080:8080 --restart&#x3D;always --privileged&#x3D;true --net&#x3D;host -e TRACKER_IP&#x3D;&lt;your tracker server address&gt;:22122 -e GROUP_NAME&#x3D;&lt;group name&gt; morunchang&#x2F;fastdfs sh storage.sh</span><br></pre></td></tr></table></figure><p>解释</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;your tracker server address&gt; is the tracker server&#39;s host</span><br><span class="line">&lt;group name&gt; is the storage server&#39;s group name</span><br></pre></td></tr></table></figure><p>执行示例</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name storage -p 18080:8080 --restart&#x3D;always --privileged&#x3D;true --net&#x3D;host --network&#x3D;bridge -e TRACKER_IP&#x3D;172.17.0.2:22122 -e GROUP_NAME&#x3D;group1 morunchang&#x2F;fastdfs sh storage.sh</span><br><span class="line"></span><br><span class="line">docker exec -it storage &#x2F;bin&#x2F;bash</span><br><span class="line">cat &#x2F;etc&#x2F;fdfs&#x2F;storage.conf | grep -v &quot;^#&quot; | grep -v &quot;^$&quot;</span><br><span class="line">cat &#x2F;etc&#x2F;fdfs&#x2F;client.conf | grep -v &quot;^#&quot; | grep -v &quot;^$&quot;</span><br><span class="line">cat &#x2F;etc&#x2F;fdfs&#x2F;http.conf | grep -v &quot;^#&quot; | grep -v &quot;^$&quot;</span><br><span class="line"></span><br><span class="line">ps -ef|grep -v grep|grep nginx</span><br><span class="line"></span><br><span class="line">netstat -anp|grep -v grep|grep nginx</span><br><span class="line">netstat -anp|grep -v grep|grep 22122</span><br><span class="line">netstat -anp|grep -v grep|grep 23000</span><br></pre></td></tr></table></figure><p><a href="https://www.funtl.com/zh/apache-dubbo-codeing/FastDFS-%E5%AE%89%E8%A3%85.html#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87" target="_blank">基于 Docker 安装 FastDFS</a><br><a href="https://blog.csdn.net/W_Meng_H/article/details/85402879" target="_blank">fastDFS+SpringBoot实现文件上传和下载(防盗链)</a></p><p><a href="https://www.jianshu.com/p/1038b4d95912" target="_blank">基于 Docker 安装 FastDFS</a><br><a href="http://www.ityouknow.com/springboot/2018/01/16/spring-boot-fastdfs.html" target="_blank">使用 Spring Boot 集成 FastDFS</a><br><a href="https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-fastDFS" target="_blank">spring-boot-fastDFS</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;拉取镜像&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;p
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[mysql] 永久设置编码utf8</title>
+    <link href="http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808277000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808277000.html/</id>
+    <published>2020-03-21T16:31:17.000Z</published>
+    <updated>2020-03-21T16:31:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;my.cnf</span><br><span class="line">[mysqld]</span><br><span class="line">character_set_server&#x3D;utf8  </span><br><span class="line">init_connect&#x3D;&#39;SET NAMES utf8&#39;  </span><br><span class="line"></span><br><span class="line">service mysqld restart</span><br><span class="line"></span><br><span class="line">mysql -uroot -p</span><br><span class="line">show variables like &#39;%char%&#39;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+    
+    
+      <category term="mysql" scheme="http://brightereyer.xyz/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[mysql] 修改数据库表格式</title>
+    <link href="http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808276000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808276000.html/</id>
+    <published>2020-03-21T16:31:16.000Z</published>
+    <updated>2020-03-21T16:31:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/hai_chao/article/details/79209408" target="_blank">修改数据库表编码格式</a></p><p>============== 查看表</p><p>查看数据库编码格式：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show variables like &#39;character_set_database&#39;;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">show variables like &quot;char%&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">SET character_set_server&#x3D;&#39;utf8&#39;;</span><br><span class="line">SET character_set_database&#x3D;&#39;utf8&#39;;</span><br><span class="line"></span><br><span class="line">SET character_set_client&#x3D;&#39;utf8&#39;;</span><br><span class="line">SET character_set_connection&#x3D;&#39;utf8&#39;;</span><br><span class="line">SET character_set_database&#x3D;&#39;utf8&#39;;</span><br><span class="line"></span><br><span class="line">SET character_set_results&#x3D;&#39;utf8&#39;;</span><br><span class="line">SET character_set_server&#x3D;&#39;utf8&#39;;</span><br><span class="line">SET character_set_system&#x3D;&#39;utf8&#39;;</span><br></pre></td></tr></table></figure><p>查看数据表的编码格式：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create table &lt;表名&gt;;</span><br></pre></td></tr></table></figure><p>============== 数据库</p><p>创建数据库时指定数据库的字符集：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database &lt;数据库名&gt; character set utf8;</span><br></pre></td></tr></table></figure><p>修改数据库的编码格式：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter database &lt;数据库名&gt; character set utf8;</span><br></pre></td></tr></table></figure><p>查看数据库编码格式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create database &lt;数据库名&gt;</span><br></pre></td></tr></table></figure><p>============== 变更表</p><p>创建数据表时指定数据表的编码格式：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table tb_books (</span><br><span class="line">    name varchar(45) not null,</span><br><span class="line">    price double,</span><br><span class="line">    bookCount int,</span><br><span class="line">    author varchar(45)</span><br><span class="line">) default charset &#x3D; utf8;</span><br></pre></td></tr></table></figure><p>将具体表的编码格式转换为utf8：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table &lt;表名&gt; CONVERT TO CHARACTER SET utf8;</span><br></pre></td></tr></table></figure><p>============== 字段</p><p>修改字段编码格式：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alter table &lt;表名&gt; change &lt;字段名&gt; &lt;字段名&gt; &lt;类型&gt; character set utf8;</span><br><span class="line">alter table user change username username varchar(20) character set utf8 not null;</span><br></pre></td></tr></table></figure><p>在JDBC链接数据库时转换编码格式：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;db_test?useUnicode&#x3D;true&amp;characterEncoding&#x3D;UTF-8</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/hai_chao/article/details/79209408&quot; target=&quot;_blank&quot;&gt;修改数据库表编码格式&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;============== 查看表&lt;/p&gt;
+&lt;p&gt;查看数据库编码
+      
+    
+    </summary>
+    
+    
+    
+      <category term="mysql" scheme="http://brightereyer.xyz/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[docker] 单机配置fastdfs</title>
+    <link href="http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808275000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808275000.html/</id>
+    <published>2020-03-21T16:31:15.000Z</published>
+    <updated>2020-03-21T16:31:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.huaweicloud.com/kunpeng/software/fastdfs.html" target="_blank">鲲鹏社区 FastDFS</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --name test-fastdfs -p 10080:80 -p 22122:22122 --restart&#x3D;always --privileged&#x3D;true -d -i -t centos &#x2F;bin&#x2F;bash</span><br><span class="line">docker attach test-fastdfs</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/wswind/p/11751829.html" target="_blank">CentOS 8 换源，设置dnf / yum镜像</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#aliyun更新了centos8的说明</span><br><span class="line">curl -o &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;repo&#x2F;Centos-8.repo</span><br><span class="line"></span><br><span class="line">cd &#x2F;etc&#x2F;yum.repos.d</span><br><span class="line">#备份</span><br><span class="line">cp CentOS-Base.repo CentOS-Base.repo.bak</span><br><span class="line">cp CentOS-AppStream.repo CentOS-AppStream.repo.bak</span><br><span class="line">cp CentOS-Extras.repo CentOS-Extras.repo.bak</span><br><span class="line"></span><br><span class="line">sed -i &#39;s&#x2F;mirrorlist&#x3D;&#x2F;#mirrorlist&#x3D;&#x2F;g&#39; CentOS-Base.repo CentOS-AppStream.repo CentOS-Extras.repo</span><br><span class="line">sed -i &#39;s&#x2F;#baseurl&#x3D;&#x2F;baseurl&#x3D;&#x2F;g&#39; CentOS-Base.repo CentOS-AppStream.repo CentOS-Extras.repo</span><br><span class="line">sed -i &#39;s&#x2F;http:\&#x2F;\&#x2F;mirror.centos.org&#x2F;https:\&#x2F;\&#x2F;mirrors.aliyun.com&#x2F;g&#39; CentOS-Base.repo CentOS-AppStream.repo CentOS-Extras.repo</span><br><span class="line"></span><br><span class="line">yum update -y</span><br></pre></td></tr></table></figure><p>2.配置编译环境<br>1)安装FastDFS依赖环境</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc-c++</span><br><span class="line">yum install -y pcre pcre-devel openssl openssl-devel perl-devel net-tools wget make vim</span><br></pre></td></tr></table></figure><p>2)安装FastDFS依赖包libfastcommon</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src</span><br><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;happyfish100&#x2F;libfastcommon&#x2F;archive&#x2F;V1.0.38.tar.gz</span><br><span class="line">tar -zxvf V1.0.38.tar.gz</span><br><span class="line">cd libfastcommon-1.0.38&#x2F;</span><br><span class="line">.&#x2F;make.sh</span><br><span class="line">.&#x2F;make.sh install</span><br></pre></td></tr></table></figure><p>3)安装FastDFS</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src</span><br><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;happyfish100&#x2F;fastdfs&#x2F;archive&#x2F;V5.11.tar.gz</span><br><span class="line">tar -zxvf V5.11.tar.gz</span><br><span class="line">cd fastdfs-5.11&#x2F;</span><br><span class="line">.&#x2F;make.sh</span><br><span class="line">.&#x2F;make.sh install</span><br></pre></td></tr></table></figure><p>4)将配置文件复制到系统为fdfs预设的目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;fastdfs-5.11&#x2F;conf</span><br><span class="line">cp mime.types http.conf &#x2F;etc&#x2F;fdfs&#x2F;</span><br></pre></td></tr></table></figure><p>5)查看安装FastDFS过程中产生的可执行文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -la &#x2F;usr&#x2F;bin&#x2F;fdfs*</span><br></pre></td></tr></table></figure><p>6)配置FastDFS<br>分别对tracker，storage，client进行配置</p><p>a.创建目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;home&#x2F;fastdfs&#x2F;tracker -p</span><br><span class="line">mkdir &#x2F;home&#x2F;fastdfs&#x2F;storage -p</span><br></pre></td></tr></table></figure><p>b.配置tracker</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;fdfs&#x2F;</span><br><span class="line">cp tracker.conf.sample tracker.conf</span><br><span class="line"></span><br><span class="line">vim tracker.conf</span><br><span class="line">port&#x3D;22122</span><br><span class="line">base_path&#x3D;&#x2F;home&#x2F;fastdfs&#x2F;tracker</span><br><span class="line">thread_stack_size &#x3D; 128KB</span><br></pre></td></tr></table></figure><p>c.启动tracker</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;fdfs_trackerd &#x2F;etc&#x2F;fdfs&#x2F;tracker.conf start</span><br></pre></td></tr></table></figure><p>d.配置storage</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br><span class="line">cd &#x2F;etc&#x2F;fdfs&#x2F;</span><br><span class="line">cp storage.conf.sample storage.conf</span><br><span class="line"></span><br><span class="line">vim storage.conf</span><br><span class="line">base_path&#x3D;&#x2F;home&#x2F;fastdfs&#x2F;storage</span><br><span class="line">store_path0&#x3D;&#x2F;home&#x2F;fastdfs&#x2F;storage</span><br><span class="line">tracker_server&#x3D;XX.XX.XX.XX:22122</span><br></pre></td></tr></table></figure><p>e.启动storage</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;fdfs_storaged &#x2F;etc&#x2F;fdfs&#x2F;storage.conf start</span><br></pre></td></tr></table></figure><p>f.查看storage启动日志</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f &#x2F;home&#x2F;fastdfs&#x2F;storage&#x2F;logs&#x2F;storaged.log</span><br></pre></td></tr></table></figure><p>g.配置client</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br><span class="line">cd &#x2F;etc&#x2F;fdfs&#x2F;</span><br><span class="line">cp client.conf.sample client.conf</span><br><span class="line"></span><br><span class="line">vim client.conf</span><br><span class="line">base_path&#x3D;&#x2F;home&#x2F;fastdfs&#x2F;tracker</span><br><span class="line">tracker_server&#x3D;XX.XX.XX.XX:22122</span><br></pre></td></tr></table></figure><p>7)安装和配置fastdfs-nginx-module<br>a.安装fastdfs-nginx-module</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src</span><br><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;happyfish100&#x2F;fastdfs-nginx-module&#x2F;archive&#x2F;V1.20.tar.gz</span><br><span class="line">tar -zxvf V1.20.tar.gz</span><br></pre></td></tr></table></figure><p>b.配置fastdfs-nginx-module的“config”文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;fastdfs-nginx-module-1.20&#x2F;src&#x2F;</span><br><span class="line"></span><br><span class="line">vim config</span><br><span class="line">    ...</span><br><span class="line">    ngx_module_incs&#x3D;&quot;&#x2F;usr&#x2F;include&#x2F;fastdfs &#x2F;usr&#x2F;include&#x2F;fastcommon&#x2F;&quot;</span><br><span class="line">    ...</span><br><span class="line">    CORE_INCS&#x3D;&quot;$CORE_INCS &#x2F;usr&#x2F;include&#x2F;fastdfs &#x2F;usr&#x2F;include&#x2F;fastcommon&#x2F;&quot;</span><br></pre></td></tr></table></figure><p>c.配置fastdfs-nginx-module的“mod_fastdfs.conf”文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br><span class="line">cp &#x2F;usr&#x2F;local&#x2F;src&#x2F;fastdfs-nginx-module-1.20&#x2F;src&#x2F;mod_fastdfs.conf &#x2F;etc&#x2F;fdfs&#x2F;</span><br><span class="line"></span><br><span class="line">vim &#x2F;etc&#x2F;fdfs&#x2F;mod_fastdfs.conf</span><br><span class="line">base_path&#x3D;&#x2F;home&#x2F;fastdfs</span><br><span class="line">tracker_server&#x3D;XX.XX.XX.XX:22122</span><br><span class="line">url_have_group_name &#x3D; true</span><br><span class="line">store_path0&#x3D;&#x2F;home&#x2F;fastdfs&#x2F;storage</span><br></pre></td></tr></table></figure><p>8)安装和配置Nginx<br>a.安装Nginx</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;</span><br><span class="line">wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.15.2.tar.gz</span><br><span class="line">tar -zxvf nginx-1.15.2.tar.gz;cd nginx-1.15.2</span><br><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx --add-module&#x3D;&#x2F;usr&#x2F;local&#x2F;src&#x2F;fastdfs-nginx-module-1.20&#x2F;src&#x2F;</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure><p>b.配置Nginx</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;conf&#x2F;</span><br><span class="line"></span><br><span class="line">grep -v &quot;#&quot; nginx.conf | grep -v &quot;^$&quot;</span><br><span class="line"></span><br><span class="line">vim nginx.conf</span><br><span class="line"></span><br><span class="line">worker_processes  1;</span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application&#x2F;octet-stream;</span><br><span class="line">    sendfile        on;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost;</span><br><span class="line">        location &#x2F; &#123;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        location ~&#x2F;M00 &#123;</span><br><span class="line">            root   &#x2F;home&#x2F;fastdfs&#x2F;storage&#x2F;data;</span><br><span class="line">            ngx_fastdfs_module;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page   500 502 503 504  &#x2F;50x.html;</span><br><span class="line">        location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.测试已完成编译的软件<br>1)启动nginx</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;</span><br><span class="line">.&#x2F;nginx</span><br></pre></td></tr></table></figure><p>2)测试<br>a.生成测试文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src</span><br><span class="line">echo &quot;kungpeng test fastdfs ok!&quot; &gt; a.txt</span><br></pre></td></tr></table></figure><p>b.生成文件链接</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;fdfs_upload_file &#x2F;etc&#x2F;fdfs&#x2F;client.conf a.txt</span><br><span class="line"></span><br><span class="line">fdfs_test &#x2F;etc&#x2F;fdfs&#x2F;client.conf upload a.txt</span><br><span class="line"></span><br><span class="line">curl http:&#x2F;&#x2F;127.0.0.1:80&#x2F;group1&#x2F;M00&#x2F;00&#x2F;00&#x2F;rBEAAl50zWSAQw3dAAAAGmbRVtQ766.txt</span><br></pre></td></tr></table></figure><p>c.在浏览器中输入以下网址，查看返回的“a.txt”相关信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#nginx地址</span><br><span class="line">http:&#x2F;&#x2F;192.168.99.103:10080&#x2F;</span><br><span class="line"></span><br><span class="line">http:&#x2F;&#x2F;192.168.99.103:10080&#x2F;group1&#x2F;M00&#x2F;00&#x2F;00&#x2F;rBEAAl50zWSAQw3dAAAAGmbRVtQ766.txt</span><br></pre></td></tr></table></figure><p>查看</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;fdfs_monitor &#x2F;etc&#x2F;fdfs&#x2F;storage.conf</span><br></pre></td></tr></table></figure><p>配置文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;fdfs&#x2F;tracker.conf</span><br><span class="line">&#x2F;etc&#x2F;fdfs&#x2F;storage.conf</span><br><span class="line">&#x2F;etc&#x2F;fdfs&#x2F;client.conf</span><br><span class="line">&#x2F;etc&#x2F;fdfs&#x2F;mod_fastdfs.conf</span><br><span class="line">#防盗链</span><br><span class="line">&#x2F;etc&#x2F;fdfs&#x2F;http.conf</span><br></pre></td></tr></table></figure><p>log文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tail -f &#x2F;home&#x2F;fastdfs&#x2F;tracker&#x2F;logs&#x2F;trackerd.log</span><br><span class="line">tail -f &#x2F;home&#x2F;fastdfs&#x2F;storage&#x2F;logs&#x2F;storaged.log</span><br><span class="line">tail -f &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;logs&#x2F;error.log</span><br></pre></td></tr></table></figure><p>重启</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#重新启动 tracker</span><br><span class="line">ps -ef | grep fdfs_ | grep -v grep |awk &#39;&#123;print $2&#125;&#39;|xargs kill -9</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;fdfs_trackerd &#x2F;etc&#x2F;fdfs&#x2F;tracker.conf start</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;fdfs_storaged &#x2F;etc&#x2F;fdfs&#x2F;storage.conf start</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#重新启动nginx</span><br><span class="line">ps -ef | grep nginx | grep -v grep |awk &#39;&#123;print $2&#125;&#39;|xargs kill -9</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/xiaolinstudy/p/9341779.html" target="_blank">防盗链配置</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;home&#x2F;fastdfs&#x2F;fastdfs&#x2F;conf&#x2F;</span><br><span class="line">wget https:&#x2F;&#x2F;img.zcool.cn&#x2F;community&#x2F;016d2355e50e606ac7251df85a9695.jpg@2o.jpg</span><br><span class="line">mv *.jpg anti-steal.jpg</span><br><span class="line"></span><br><span class="line">cd &#x2F;etc&#x2F;fdfs&#x2F;</span><br><span class="line">grep -v &quot;#&quot; http.conf | grep -v &quot;^$&quot;</span><br><span class="line"></span><br><span class="line">vim &#x2F;etc&#x2F;fdfs&#x2F;http.conf</span><br><span class="line">http.default_content_type &#x3D; application&#x2F;octet-stream</span><br><span class="line">http.mime_types_filename&#x3D;mime.types</span><br><span class="line">http.anti_steal.check_token&#x3D;false</span><br><span class="line">http.anti_steal.token_ttl&#x3D;900</span><br><span class="line">http.anti_steal.secret_key&#x3D;FastDFS1234567890</span><br><span class="line">http.anti_steal.token_check_fail&#x3D;&#x2F;home&#x2F;fastdfs&#x2F;fastdfs&#x2F;conf&#x2F;anti-steal.jpg</span><br><span class="line">http.multi_range.enabed &#x3D; true</span><br><span class="line"></span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -s reload</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.huaweicloud.com/kunpeng/software/fastdfs.html&quot; target=&quot;_blank&quot;&gt;鲲鹏社区 FastDFS&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[docker] windows下docker追加端口映射</title>
+    <link href="http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808274000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808274000.html/</id>
+    <published>2020-03-21T16:31:14.000Z</published>
+    <updated>2020-03-21T16:31:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/richerdyoung/p/10154753.html" target="_blank">追加docker容器端口映射的方法</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker commit test-fastdfs test-fastdfs:v1</span><br><span class="line">docker rm test-fastdfs</span><br><span class="line">docker run -d --name&#x3D;test-fastdfs -p 10080:80 test-fastdfs:v1</span><br><span class="line">docker exec -it test-fastdfs &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/richerdyoung/p/10154753.html&quot; target=&quot;_blank&quot;&gt;追加docker容器端口映射的方法&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[arm] itop6818+QtE5.7移植</title>
+    <link href="http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808273000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808273000.html/</id>
+    <published>2020-03-21T16:31:13.000Z</published>
+    <updated>2020-03-21T16:31:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://gitee.com/BrighterEyer/itop6818-QtE5.7-files" target="_blank">itop6818-QtE5.7-files</a></p><p>安装编译器</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install lib32z1 lib32ncurses5</span><br><span class="line"></span><br><span class="line">wget -c http:&#x2F;&#x2F;www.codesourcery.com&#x2F;sgpp&#x2F;lite&#x2F;arm&#x2F;portal&#x2F;package4571&#x2F;public&#x2F;arm-none-linux-gnueabi&#x2F;arm-2014.05-29-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2</span><br><span class="line">mkdir -p &#x2F;usr&#x2F;local&#x2F;arm</span><br><span class="line">tar jxvf arm-2014.05-29-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2 -C &#x2F;usr&#x2F;local&#x2F;arm&#x2F;</span><br><span class="line"></span><br><span class="line">#编辑.bashrc</span><br><span class="line">vim &#x2F;etc&#x2F;profile</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2014.05&#x2F;bin</span><br><span class="line">export CROSS_COMPILE&#x3D;arm-none-linux-gnueabi-</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">#检验版本</span><br><span class="line">arm-none-linux-gnueabi-gcc -v</span><br></pre></td></tr></table></figure><p>itop6818-QtE5.7-files中的qt5.7+tslib1.4</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">tar xvf itop6818-QtE5.7-files&#x2F;qt5.7+tslib1.4&#x2F;qt5.7.tar.gz</span><br><span class="line">rm -rf &#x2F;opt&#x2F;qt5.7.0</span><br><span class="line">mv qt-5.7.0 &#x2F;opt&#x2F;qt5.7.0</span><br><span class="line"></span><br><span class="line">tar xvf itop6818-QtE5.7-files&#x2F;qt5.7+tslib1.4&#x2F;tslib1.4.tar.gz</span><br><span class="line">rm -rf &#x2F;opt&#x2F;tslib1.4</span><br><span class="line">mv tslib1.4 &#x2F;opt&#x2F;tslib1.4</span><br><span class="line"></span><br><span class="line">unzip itop6818-QtE5.7-files&#x2F;fonts.zip</span><br><span class="line">mv fonts &#x2F;opt&#x2F;qt5.7.0&#x2F;lib&#x2F;</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2014.05&#x2F;arm-none-linux-gnueabi&#x2F;libc&#x2F;usr&#x2F;lib&#x2F;</span><br><span class="line"></span><br><span class="line">cp libstdc++.a &#x2F;opt&#x2F;qt5.7.0&#x2F;lib&#x2F;</span><br><span class="line">cp libstdc++.so &#x2F;opt&#x2F;qt5.7.0&#x2F;lib&#x2F;</span><br><span class="line">cp libstdc++.so.6.0.19 &#x2F;opt&#x2F;qt5.7.0&#x2F;lib&#x2F;</span><br><span class="line"></span><br><span class="line">cd &#x2F;opt&#x2F;qt5.7.0&#x2F;lib&#x2F;</span><br><span class="line">ln -s libstdc++.so.6.0.19 libstdc++.so.6</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y lib32c-dev lib32stdc++6</span><br></pre></td></tr></table></figure><p>解压源码 tslib-1.4.tar.gz</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y autoconf automake libtool</span><br><span class="line"></span><br><span class="line">git clone https:&#x2F;&#x2F;gitee.com&#x2F;BrighterEyer&#x2F;itop6818-QtE5.7-files;cd itop6818-QtE5.7-files</span><br><span class="line">tar xvf tslib-1.4.tar.gz;cd tslib</span><br><span class="line">.&#x2F;autogen.sh</span><br><span class="line">.&#x2F;configure CC&#x3D;arm-none-linux-gnueabi-gcc CXX&#x3D;arm-none-linux-gnueabi-g++ --host&#x3D;arm-none-linux-gnueabi --prefix&#x3D;&#x2F;opt&#x2F;tslib1.4 ac_cv_func_malloc_0_nonnull&#x3D;yes</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"></span><br><span class="line">sudo vim &#x2F;opt&#x2F;tslib1.4&#x2F;etc&#x2F;ts.conf</span><br><span class="line">#第一行</span><br><span class="line">module_raw input</span><br><span class="line"></span><br><span class="line">#追加宏：</span><br><span class="line">vim &#x2F;opt&#x2F;tslib1.4&#x2F;include&#x2F;tslib.h</span><br><span class="line">#define SYN_MT_REPORT           2</span><br><span class="line">#define ABS_MT_SLOT             0x2f    &#x2F;* MT slot being modified *&#x2F;</span><br><span class="line">#define ABS_MT_TOUCH_MAJOR      0x30    &#x2F;* Major axis of touching ellipse *&#x2F;</span><br><span class="line">#define ABS_MT_TOUCH_MINOR      0x31    &#x2F;* Minor axis (omit if circular) *&#x2F;</span><br><span class="line">#define ABS_MT_WIDTH_MAJOR      0x32    &#x2F;* Major axis of approaching ellipse *&#x2F;</span><br><span class="line">#define ABS_MT_WIDTH_MINOR      0x33    &#x2F;* Minor axis (omit if circular) *&#x2F;</span><br><span class="line">#define ABS_MT_ORIENTATION      0x34    &#x2F;* Ellipse orientation *&#x2F;</span><br><span class="line">#define ABS_MT_POSITION_X       0x35    &#x2F;* Center X touch position *&#x2F;</span><br><span class="line">#define ABS_MT_POSITION_Y       0x36    &#x2F;* Center Y touch position *&#x2F;</span><br><span class="line">#define ABS_MT_TOOL_TYPE        0x37    &#x2F;* Type of touching device *&#x2F;</span><br><span class="line">#define ABS_MT_BLOB_ID          0x38    &#x2F;* Group a set of packets as a blob *&#x2F;</span><br><span class="line">#define ABS_MT_TRACKING_ID      0x39    &#x2F;* Unique ID of initiated contact *&#x2F;</span><br><span class="line">#define ABS_MT_PRESSURE         0x3a    &#x2F;* Pressure on contact area *&#x2F;</span><br><span class="line">#define ABS_MT_DISTANCE         0x3b    &#x2F;* Contact hover distance *&#x2F;</span><br><span class="line">#define ABS_MT_TOOL_X           0x3c    &#x2F;* Center X tool position *&#x2F;</span><br><span class="line">#define ABS_MT_TOOL_Y           0x3d    &#x2F;* Center Y tool position *&#x2F;</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/ZHUQIUSHI123/article/details/90670126" target="_blank">安装gcc指定版本</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 查看ubuntu系统上g++的版本：</span><br><span class="line">ls &#x2F;usr&#x2F;bin&#x2F;g++*</span><br><span class="line"></span><br><span class="line"># 安装新版gcc和g++</span><br><span class="line">sudo apt-get install gcc-4.8 g++-4.8</span><br><span class="line"></span><br><span class="line"># 切换不同版本</span><br><span class="line">sudo update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;gcc gcc &#x2F;usr&#x2F;bin&#x2F;gcc-4.8 20</span><br><span class="line"></span><br><span class="line"># 同理修改g++的方式类似：</span><br><span class="line">sudo update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;g++ g++ &#x2F;usr&#x2F;bin&#x2F;g++-4.8 20</span><br></pre></td></tr></table></figure><details><summary>qmake.conf</summary><p>qt-everywhere-opensource-src-5.7.0</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;</span><br><span class="line">wget http:&#x2F;&#x2F;download.qt.io&#x2F;new_archive&#x2F;qt&#x2F;5.7&#x2F;5.7.0&#x2F;single&#x2F;qt-everywhere-opensource-src-5.7.0.tar.gz</span><br><span class="line">tar xvf qt-everywhere-opensource-src-5.7.0.tar.gz;cd qt-everywhere-opensource-src-5.7.0</span><br><span class="line"></span><br><span class="line">vim qtbase&#x2F;mkspecs&#x2F;linux-arm-gnueabi-g++&#x2F;qmake.conf</span><br></pre></td></tr></table></figure><p>qtbase/mkspecs/linux-arm-gnueabi-g++/qmake.conf</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">## qmake configuration for building with arm-linux-gnueabi-g++</span><br><span class="line">#</span><br><span class="line">MAKEFILE_GENERATOR &#x3D; UNIX</span><br><span class="line">CONFIG +&#x3D; incremental</span><br><span class="line">QMAKE_INCREMENTAL_STYLE &#x3D; sublib</span><br><span class="line">QT_QPA_DEFAULT_PLATFORM &#x3D; linux #eglfs</span><br><span class="line">QMAKE_CFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line">QMAKE_CXXFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line">include(..&#x2F;common&#x2F;linux.conf)</span><br><span class="line">include(..&#x2F;common&#x2F;gcc-base-unix.conf)include(..&#x2F;common&#x2F;g++-unix.conf)</span><br><span class="line"># modifications to g++.conf</span><br><span class="line">QMAKE_CC &#x3D; arm-none-linux-gnueabi-gcc</span><br><span class="line">QMAKE_CXX &#x3D; arm-none-linux-gnueabi-g++</span><br><span class="line">QMAKE_LINK &#x3D; arm-none-linux-gnueabi-g++</span><br><span class="line">QMAKE_LINK_SHLIB &#x3D; arm-none-linux-gnueabi-g++</span><br><span class="line"># modifications to linux.conf</span><br><span class="line">QMAKE_AR &#x3D; arm-none-linux-gnueabi-ar cqs</span><br><span class="line">QMAKE_OBJCOPY &#x3D; arm-none-linux-gnueabi-objcopy</span><br><span class="line">QMAKE_NM &#x3D; arm-none-linux-gnueabi-nm -P</span><br><span class="line">QMAKE_STRIP &#x3D; arm-none-linux-gnueabi-strip</span><br><span class="line">load(qt_config)</span><br></pre></td></tr></table></figure></details><details><summary>编译 QtE5.7 源码 之 autoconfigure.sh</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#39;s&#x2F;\r$&#x2F;&#x2F;&#39; configure</span><br></pre></td></tr></table></figure><p>qt-everywhere-opensource-src-5.7.0/autoconfigure.sh</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">.&#x2F;configure \</span><br><span class="line">-v \</span><br><span class="line">-prefix &#x2F;opt&#x2F;qt5.7.0 \</span><br><span class="line">-release \</span><br><span class="line">-opensource \</span><br><span class="line">-make libs \</span><br><span class="line">-xplatform linux-arm-gnueabi-g++ \</span><br><span class="line">-optimized-qmake \</span><br><span class="line">-pch \</span><br><span class="line">-qt-sql-sqlite \</span><br><span class="line">-qt-libjpeg \</span><br><span class="line">-qt-zlib \</span><br><span class="line">-no-opengl \</span><br><span class="line">-skip qt3d \</span><br><span class="line">-skip qtcanvas3d \</span><br><span class="line">-skip qtpurchasing \</span><br><span class="line">-no-sse2 \</span><br><span class="line">-no-openssl \</span><br><span class="line">-no-nis \</span><br><span class="line">-no-cups \</span><br><span class="line">-no-glib \</span><br><span class="line">-no-iconv \</span><br><span class="line">-nomake examples \</span><br><span class="line">-nomake tools \</span><br><span class="line">-skip qtvirtualkeyboard \</span><br><span class="line">-I&#x2F;opt&#x2F;tslib1.4&#x2F;include \</span><br><span class="line">-L&#x2F;opt&#x2F;tslib1.4&#x2F;lib</span><br></pre></td></tr></table></figure><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y python</span><br><span class="line">chmod 777 autoconfigure.sh</span><br><span class="line">./autoconfigure.sh</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">ls /opt/qt5.7.0</span><br></pre></td></tr></table></figure></details><p>开发工具qt-opensource-linux-x64-5.7.0.run</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;download.qt.io&#x2F;new_archive&#x2F;qt&#x2F;5.7&#x2F;5.7.0&#x2F;qt-opensource-linux-x64-5.7.0.run</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://gitee.com/BrighterEyer/itop6818-QtE5.7-files&quot; target=&quot;_blank&quot;&gt;itop6818-QtE5.7-files&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;安装编译器&lt;/p&gt;
+&lt;figure class=&quot;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[AndroidStudio] 问题INSTALL_FAILED_NO_MATCHING_ABIS</title>
+    <link href="http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808272000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808272000.html/</id>
+    <published>2020-03-21T16:31:12.000Z</published>
+    <updated>2020-03-21T16:31:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>AndroidStudio 解决Installation failed with message INSTALL_FAILED_NO_MATCHING_ABIS</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        ndk &#123;</span><br><span class="line">            &#x2F;&#x2F;设置支持的SO库架构</span><br><span class="line">            abiFilters &#39;armeabi&#39;, &#39;x86&#39;, &#39;armeabi-v7a&#39;, &#39;x86_64&#39;, &#39;arm64-v8a&#39;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    splits &#123;</span><br><span class="line">        abi &#123;</span><br><span class="line">            enable true</span><br><span class="line">            reset()</span><br><span class="line">            include &#39;armeabi&#39;, &#39;x86&#39;, &#39;armeabi-v7a&#39;, &#39;x86_64&#39;, &#39;arm64-v8a&#39;</span><br><span class="line">            universalApk true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/heijinbaitu/article/details/80504019" target="_blank">Error:In declare-styleable FontFamilyFont, unable to find attribute android:font</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gradle :app:dependencies --configuration compile</span><br><span class="line">gradlew build --debug</span><br><span class="line"></span><br><span class="line">compile &#39;com.android.support:design:26.0.0-alpha1&#39;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;AndroidStudio 解决Installation failed with message INSTALL_FAILED_NO_MATCHING_ABIS&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class
+      
+    
+    </summary>
+    
+    
+    
+      <category term="AndroidStudio" scheme="http://brightereyer.xyz/tags/AndroidStudio/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[android] 实现拍照上传</title>
+    <link href="http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808271000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808271000.html/</id>
+    <published>2020-03-21T16:31:11.000Z</published>
+    <updated>2020-03-21T16:31:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_37564086/article/details/80662101" target="_blank">Android实现拍照相册图片上传功能</a></p><p><a href="https://www.cnblogs.com/andzhang/p/6075814.html" target="_blank">文件上传</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_37564086/article/details/80662101&quot; target=&quot;_blank&quot;&gt;Android实现拍照相册图片上传功能&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.
+      
+    
+    </summary>
+    
+    
+    
+      <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] logging配置</title>
+    <link href="http://brightereyer.xyz/2020/03/16/articles/2020/03/16/1584355559000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/16/articles/2020/03/16/1584355559000.html/</id>
+    <published>2020-03-16T10:45:59.000Z</published>
+    <updated>2020-03-16T10:45:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/1fa12b92d5c4" target="_blank">Spring Boot Logging 配置</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">logging.level.root&#x3D; WARN</span><br><span class="line">logging.level.org.springframework.security&#x3D; DEBUG</span><br><span class="line">logging.level.org.springframework.web&#x3D; ERROR</span><br><span class="line">logging.level.org.hibernate&#x3D; DEBUG</span><br><span class="line">logging.level.org.apache.commons.dbcp2&#x3D; DEBUG</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">logging:</span><br><span class="line">  level:</span><br><span class="line">    root: WARN  </span><br><span class="line">    org:</span><br><span class="line">      springframework:</span><br><span class="line">        security: DEBUG</span><br><span class="line">        web: ERROR  </span><br><span class="line">      hibernate: DEBUG</span><br><span class="line">      apache:</span><br><span class="line">        commons:</span><br><span class="line">          dbcp2: DEBUG</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/1fa12b92d5c4&quot; target=&quot;_blank&quot;&gt;Spring Boot Logging 配置&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;t
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[java] 封装返回结果集</title>
+    <link href="http://brightereyer.xyz/2020/03/16/articles/2020/03/16/1584355558000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/16/articles/2020/03/16/1584355558000.html/</id>
+    <published>2020-03-16T10:45:58.000Z</published>
+    <updated>2020-03-16T10:45:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/weixin_34233856/article/details/85989773" target="_blank">java返回结果集封装</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">import com.fasterxml.jackson.core.JsonProcessingException;</span><br><span class="line">import com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"></span><br><span class="line">import java.io.Serializable;</span><br><span class="line"></span><br><span class="line">public class Result&lt;T&gt; implements Serializable &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 版本</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private static final long serialVersionUID &#x3D; 1L;</span><br><span class="line"></span><br><span class="line">    private final static ObjectMapper objectMapper &#x3D; new ObjectMapper();</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 返回状态码</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private int code;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 返回信息</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private String msg;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 返回数据</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private T data;</span><br><span class="line"></span><br><span class="line">    public Result() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;构造方法</span><br><span class="line">    public Result(int code, String msg, T data) &#123;</span><br><span class="line">        this.code &#x3D; code;</span><br><span class="line">        this.msg &#x3D; msg;</span><br><span class="line">        this.data &#x3D; data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;如果返回数据直接成功</span><br><span class="line">    public Result(T data) &#123;</span><br><span class="line">        this.code &#x3D; 200;</span><br><span class="line">        this.data &#x3D; data;</span><br><span class="line">        this.msg &#x3D; &quot;OK&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;失败调用</span><br><span class="line">    public Result(int code, String msg) &#123;</span><br><span class="line">        this.code &#x3D; code;</span><br><span class="line">        this.msg &#x3D; msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;成功直接返回数据和状态</span><br><span class="line">    public static &lt;T&gt; Result&lt;T&gt; ok(T data) &#123;</span><br><span class="line">        return new Result&lt;T&gt;(data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;失败的时候调用</span><br><span class="line">    public static &lt;T&gt; Result&lt;T&gt; error(int code, String msg) &#123;</span><br><span class="line">        return new Result&lt;T&gt;(code, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;转为JSON</span><br><span class="line">    public static &lt;T&gt; String toJSON(Result&lt;T&gt; result) &#123;</span><br><span class="line">        String jsonStr &#x3D; null;</span><br><span class="line">        try &#123;</span><br><span class="line">            jsonStr &#x3D; objectMapper.writeValueAsString(result);</span><br><span class="line">        &#125; catch (JsonProcessingException e) &#123;</span><br><span class="line">            &#x2F;&#x2F; TODO Auto-generated catch block</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return jsonStr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Integer getCode() &#123;</span><br><span class="line">        return code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setCode(Integer code) &#123;</span><br><span class="line">        this.code &#x3D; code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getMsg() &#123;</span><br><span class="line">        return msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setMsg(String msg) &#123;</span><br><span class="line">        this.msg &#x3D; msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public T getData() &#123;</span><br><span class="line">        return data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setData(T data) &#123;</span><br><span class="line">        this.data &#x3D; data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/weixin_34233856/article/details/85989773&quot; target=&quot;_blank&quot;&gt;java返回结果集封装&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight pla
+      
+    
+    </summary>
+    
+    
+    
+      <category term="java" scheme="http://brightereyer.xyz/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[极光推送] springboot+react-native+android</title>
+    <link href="http://brightereyer.xyz/2020/03/16/articles/2020/03/16/1584355562000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/16/articles/2020/03/16/1584355562000.html/</id>
+    <published>2020-03-16T10:45:02.000Z</published>
+    <updated>2020-03-16T10:45:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/x541211190/article/details/81123829" target="_blank">【使用】极光推送Springboot微服务搭建教程</a><br><a href="https://github.com/yindz/jpush-spring-boot-starter" target="_blank">jpush-spring-boot-starter</a><br>引入依赖：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.apifan.framework&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;jpush-spring-boot-starter&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0.0-SNAPSHOT&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jpush:</span><br><span class="line">  app-key: 123456789</span><br><span class="line">  master-secret: 123456789</span><br></pre></td></tr></table></figure><p>使用范例</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private JPushHelper jPushHelper;</span><br><span class="line"></span><br><span class="line">public void push()&#123;</span><br><span class="line">    &#x2F;&#x2F;消息内容    </span><br><span class="line">    String content &#x3D; &quot;这是一条测试消息！&quot;;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F;附加业务参数</span><br><span class="line">    Map&lt;String, String&gt; extras &#x3D; new HashMap&lt;&gt;();</span><br><span class="line">    extras.put(&quot;bizCode&quot;, &quot;123&quot;);</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F;根据设备ID推送</span><br><span class="line">    List&lt;String&gt; deviceIdList &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">    deviceIdList.add(&quot;asdfghjkl&quot;);</span><br><span class="line">    jPushHelper.pushToDevices(deviceIdList, content, extras);</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F;根据别名推送</span><br><span class="line">    List&lt;String&gt; aliasList &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">    aliasList.add(&quot;poiuytreqw&quot;);</span><br><span class="line">    jPushHelper.pushToAliases(aliasList, content, extras);</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F;根据标签推送</span><br><span class="line">    List&lt;String&gt; tagsList &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">    tagsList.add(&quot;test-tag1&quot;);</span><br><span class="line">    jPushHelper.pushToTags(tagsList, content, extras);</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F;推送给全部客户端</span><br><span class="line">    jPushHelper.pushToAll(content, extras);    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/weixin_41888813/article/details/101534866" target="_blank">基于SpringBoot搭建极光推送 Android 和 IOS 消息的简单Demo</a></p><p><a href="https://www.jianshu.com/p/ba2c56727c0e" target="_blank">Android集成JPush极光推送</a><br><a href="https://github.com/duoheshui/JpushAndroid" target="_blank">github eclipse JpushAndroid</a></p><p><a href="https://www.jianshu.com/p/a71512a8f921" target="_blank">React Native 集成极光推送 jpush-react-native</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/x541211190/article/details/81123829&quot; target=&quot;_blank&quot;&gt;【使用】极光推送Springboot微服务搭建教程&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://git
+      
+    
+    </summary>
+    
+    
+    
+      <category term="极光推送" scheme="http://brightereyer.xyz/tags/%E6%9E%81%E5%85%89%E6%8E%A8%E9%80%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] 验证码</title>
+    <link href="http://brightereyer.xyz/2020/03/16/articles/2020/03/16/1584355561000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/16/articles/2020/03/16/1584355561000.html/</id>
+    <published>2020-03-16T10:45:01.000Z</published>
+    <updated>2020-03-16T10:45:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://segmentfault.com/a/1190000018742857" target="_blank">springboot登陆页面图片验证码简单的web项目</a><br><a href="https://github.com/charmsongo/pictureverifycode" target="_blank">pictureverifycode</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000018742857&quot; target=&quot;_blank&quot;&gt;springboot登陆页面图片验证码简单的web项目&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/char
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] freeemarker</title>
+    <link href="http://brightereyer.xyz/2020/03/12/articles/2020/03/12/1584008546000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/12/articles/2020/03/12/1584008546000.html/</id>
+    <published>2020-03-12T10:22:26.000Z</published>
+    <updated>2020-03-12T10:22:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/u011197448/article/details/83901306" target="_blank">springboot整合Freemark模板(详尽版)</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/u011197448/article/details/83901306&quot; target=&quot;_blank&quot;&gt;springboot整合Freemark模板(详尽版)&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] redis配置</title>
+    <link href="http://brightereyer.xyz/2020/03/12/articles/2020/03/12/1584007015000.html/"/>
+    <id>http://brightereyer.xyz/2020/03/12/articles/2020/03/12/1584007015000.html/</id>
+    <published>2020-03-12T09:56:55.000Z</published>
+    <updated>2020-03-12T09:56:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/gwd1154978352/article/details/79630245" target="_blank">redis配置</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># REDIS (RedisProperties)</span><br><span class="line"># Redis数据库索引（默认为0）</span><br><span class="line">spring.redis.database&#x3D;0</span><br><span class="line"># Redis服务器地址</span><br><span class="line">spring.redis.host&#x3D;192.168.30.103</span><br><span class="line"># Redis服务器连接端口</span><br><span class="line">spring.redis.port&#x3D;6379</span><br><span class="line"># Redis服务器连接密码（默认为空）</span><br><span class="line">spring.redis.password&#x3D;</span><br><span class="line"># 连接池最大连接数（使用负值表示没有限制）</span><br><span class="line">spring.redis.jedis.pool.max-active&#x3D;8</span><br><span class="line"># 连接池最大阻塞等待时间（使用负值表示没有限制）</span><br><span class="line">spring.redis.jedis.pool.max-wait&#x3D;-1</span><br><span class="line"># 连接池中的最大空闲连接</span><br><span class="line">spring.redis.jedis.pool.max-idle&#x3D;8</span><br><span class="line"># 连接池中的最小空闲连接</span><br><span class="line">spring.redis.jedis.pool.min-idle&#x3D;0</span><br><span class="line"># 连接超时时间（毫秒）</span><br><span class="line">spring.redis.timeout&#x3D;5000</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/gwd1154978352/article/details/79630245&quot; target=&quot;_blank&quot;&gt;redis配置&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;t
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
   
   <entry>
     <title>[git] clone速度太慢问题</title>
@@ -112,404 +511,6 @@
     
     
       <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[ubuntu] ubuntu18内核降级</title>
-    <link href="http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583665236000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583665236000.html/</id>
-    <published>2020-03-08T11:00:36.000Z</published>
-    <updated>2020-03-08T11:00:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">sudo cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br><span class="line"></span><br><span class="line">vi &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line"></span><br><span class="line">在文件最后面增加一行并保存</span><br><span class="line">deb http:&#x2F;&#x2F;security.ubuntu.com&#x2F;ubuntu trusty-security main</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line">apt-cache search linux-image</span><br><span class="line"></span><br><span class="line">apt-get install -y linux-image-extra-4.4.0-109-generic</span><br><span class="line"></span><br><span class="line">#安装4.4版本内核</span><br><span class="line">dpkg -l |grep linux-image</span><br><span class="line"></span><br><span class="line">#查看是否安装成功</span><br><span class="line">vim &#x2F;etc&#x2F;default&#x2F;grub</span><br><span class="line"></span><br><span class="line">#找到</span><br><span class="line">GRUB_DEFAULT&#x3D;0</span><br><span class="line">#修改为：</span><br><span class="line">GRUB_DEFAULT&#x3D;&quot;Advanced options for Ubuntu&gt;Ubuntu, with Linux 4.4.0-109-generic&quot;</span><br><span class="line"></span><br><span class="line">#更新grub</span><br><span class="line">update-grub</span><br><span class="line"></span><br><span class="line">reboot</span><br><span class="line"></span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
-      
-    
-    </summary>
-    
-    
-    
-      <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[zigbee] 终端采集发送到远程云服务器网页ONENET</title>
-    <link href="http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583644251000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583644251000.html/</id>
-    <published>2020-03-08T05:10:51.000Z</published>
-    <updated>2020-03-08T05:10:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>zigbee终端采集发送到远程云服务器网页ONENET 手机随时随地看数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">链接：</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1QGzDqBgry-QNC_9ucb5yrg</span><br><span class="line">提取码：</span><br><span class="line">tn6g</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;zigbee终端采集发送到远程云服务器网页ONENET 手机随时随地看数据&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="zigbee" scheme="http://brightereyer.xyz/tags/zigbee/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[zigbee] 开发板驱动ESP8266的WiFi模块</title>
-    <link href="http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583644250000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583644250000.html/</id>
-    <published>2020-03-08T05:10:50.000Z</published>
-    <updated>2020-03-08T05:10:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>zigbee开发板驱动ESP8266的WiFi模块</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">链接：</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1GKHgJ7SG8lNYIDq9fBVLfg</span><br><span class="line">提取码：</span><br><span class="line">9nz2</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;zigbee开发板驱动ESP8266的WiFi模块&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span cla
-      
-    
-    </summary>
-    
-    
-    
-      <category term="zigbee" scheme="http://brightereyer.xyz/tags/zigbee/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[zigbee] 原理与图解</title>
-    <link href="http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583633565000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/08/articles/2020/03/08/1583633565000.html/</id>
-    <published>2020-03-08T02:12:45.000Z</published>
-    <updated>2020-03-08T02:12:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/ALittleBee/p/7463239.html" target="_blank">一图读懂ZStack协议栈的核心思想与工作机理</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/ALittleBee/p/7463239.html&quot; target=&quot;_blank&quot;&gt;一图读懂ZStack协议栈的核心思想与工作机理&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="zigbee" scheme="http://brightereyer.xyz/tags/zigbee/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[springboot] jpa与tk.mybatis冲突</title>
-    <link href="http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583574855000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583574855000.html/</id>
-    <published>2020-03-07T09:54:15.000Z</published>
-    <updated>2020-03-07T09:54:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>排除tk.mybatis中的javax.persistence</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;tk.mybatis&lt;&#x2F;groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;mapper-spring-boot-starter&lt;&#x2F;artifactId&gt;</span><br><span class="line">     &lt;version&gt;1.1.4&lt;&#x2F;version&gt;</span><br><span class="line">     &lt;exclusions&gt;</span><br><span class="line">         &lt;exclusion&gt;</span><br><span class="line">             &lt;groupId&gt;javax.persistence&lt;&#x2F;groupId&gt;</span><br><span class="line">             &lt;artifactId&gt;persistence-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">         &lt;&#x2F;exclusion&gt;</span><br><span class="line">     &lt;&#x2F;exclusions&gt;</span><br><span class="line"> &lt;&#x2F;dependency&gt;</span><br><span class="line"> &lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;&#x2F;artifactId&gt;</span><br><span class="line"> &lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;排除tk.mybatis中的javax.persistence&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;sp
-      
-    
-    </summary>
-    
-    
-    
-      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[mysql] 修改某表引擎和编码</title>
-    <link href="http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583574854000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583574854000.html/</id>
-    <published>2020-03-07T09:54:14.000Z</published>
-    <updated>2020-03-07T09:54:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/zyb2017/article/details/79565741" target="_blank">Mysql修改表引擎</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show engines;   -- 查看该数据库下支持的存储引擎</span><br><span class="line">show variables like &#39;%storage_engine%&#39;; -- 查看当前默认的存储引擎</span><br><span class="line">ALTER TABLE user ENGINE&#x3D;InnoDB DEFAULT CHARSET&#x3D;utf8;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/zyb2017/article/details/79565741&quot; target=&quot;_blank&quot;&gt;Mysql修改表引擎&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;tabl
-      
-    
-    </summary>
-    
-    
-    
-      <category term="mysql" scheme="http://brightereyer.xyz/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[springboot] jsp+thymeleaf双视图</title>
-    <link href="http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583567482000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583567482000.html/</id>
-    <published>2020-03-07T07:51:22.000Z</published>
-    <updated>2020-03-07T07:51:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<details><summary>一、首先必须去除starter-web中的内置tomcat,并引入外部的tomcat包</summary><p>pom.xml</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;exclusions&gt;</span><br><span class="line">&lt;exclusion&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-tomcat&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;exclusion&gt;</span><br><span class="line">&lt;&#x2F;exclusions&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-tomcat&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.apache.tomcat.embed&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;tomcat-embed-jasper&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;javax.servlet&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;jstl&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;javax.servlet&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;javax.servlet-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt; </span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br><span class="line">&lt;build&gt;</span><br><span class="line">&lt;plugins&gt;</span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;executions&gt;</span><br><span class="line">&lt;execution&gt;</span><br><span class="line">&lt;goals&gt;</span><br><span class="line">&lt;goal&gt;repackage&lt;&#x2F;goal&gt;</span><br><span class="line">&lt;&#x2F;goals&gt;</span><br><span class="line">&lt;&#x2F;execution&gt;</span><br><span class="line">&lt;&#x2F;executions&gt;</span><br><span class="line">&lt;&#x2F;plugin&gt;</span><br><span class="line">&lt;&#x2F;plugins&gt;</span><br><span class="line">&lt;&#x2F;build&gt;</span><br></pre></td></tr></table></figure></details><details><summary>二、修改启动类</summary><p>以war部署必须实现org.springframework.boot.web.servlet.support.SpringBootServletInitializer的configure方法<br>1.方式一，启动类继承SpringBootServletInitializer实现configure：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">public class Application extends SpringBootServletInitializer &#123;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">SpringApplication.run(Application.class, args);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) &#123;</span><br><span class="line">return builder.sources(Application.class);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.方式二，新增加一个类继承SpringBootServletInitializer实现configure：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class ServletInitializer extends SpringBootServletInitializer &#123;</span><br><span class="line">@Override</span><br><span class="line">protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) &#123;</span><br><span class="line">&#x2F;&#x2F;此处的Application.class为带有@SpringBootApplication注解的启动类</span><br><span class="line">return builder.sources(Application.class);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details><p>三、application.properties</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server.port&#x3D;</span><br><span class="line">server.servlet.context-path&#x3D;</span><br></pre></td></tr></table></figure><details><summary>四、配置多视图解析器</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">package com.haiyu.manager.config;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.ComponentScan;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.web.servlet.ViewResolver;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.EnableWebMvc;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;</span><br><span class="line">import org.springframework.web.servlet.view.InternalResourceViewResolver;</span><br><span class="line">import org.thymeleaf.spring5.SpringTemplateEngine;</span><br><span class="line">import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;</span><br><span class="line">import org.thymeleaf.spring5.view.ThymeleafViewResolver;</span><br><span class="line">import org.thymeleaf.templateresolver.ITemplateResolver;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">@EnableWebMvc</span><br><span class="line">@ComponentScan</span><br><span class="line">public class WebViewConfig extends WebMvcConfigurerAdapter &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: 注册jsp视图解析器</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Bean</span><br><span class="line">    public ViewResolver viewResolver() &#123;</span><br><span class="line">        InternalResourceViewResolver resolver &#x3D; new InternalResourceViewResolver();</span><br><span class="line">        resolver.setPrefix(&quot;classpath:&#x2F;view&#x2F;&quot;); &#x2F;&#x2F;配置放置jsp文件夹</span><br><span class="line">        resolver.setSuffix(&quot;.jsp&quot;);</span><br><span class="line">        resolver.setViewNames(&quot;jsp&#x2F;*&quot;);  &#x2F;&#x2F;重要 setViewNames 通过它识别为jsp页面引擎</span><br><span class="line">        resolver.setOrder(2);</span><br><span class="line">        return resolver;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: 注册html视图解析器</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Bean</span><br><span class="line">    public ITemplateResolver templateResolver() &#123;</span><br><span class="line">        SpringResourceTemplateResolver templateResolver &#x3D; new SpringResourceTemplateResolver();</span><br><span class="line">        templateResolver.setTemplateMode(&quot;HTML&quot;);</span><br><span class="line">        templateResolver.setPrefix(&quot;classpath:&#x2F;templates&#x2F;&quot;);</span><br><span class="line">        templateResolver.setSuffix(&quot;.html&quot;);</span><br><span class="line">        templateResolver.setCharacterEncoding(&quot;utf-8&quot;);</span><br><span class="line">        templateResolver.setCacheable(false);</span><br><span class="line">        return templateResolver;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: 将自定义tml视图解析器添加到模板引擎并主持到ioc</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Bean</span><br><span class="line">    public SpringTemplateEngine templateEngine() &#123;</span><br><span class="line">        SpringTemplateEngine templateEngine &#x3D; new SpringTemplateEngine();</span><br><span class="line">        templateEngine.setTemplateResolver(templateResolver());</span><br><span class="line">        return templateEngine;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: Thymeleaf视图解析器配置</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Bean</span><br><span class="line">    public ThymeleafViewResolver viewResolverThymeLeaf() &#123;</span><br><span class="line">        ThymeleafViewResolver viewResolver &#x3D; new ThymeleafViewResolver();</span><br><span class="line">        viewResolver.setTemplateEngine(templateEngine());</span><br><span class="line">        viewResolver.setCharacterEncoding(&quot;utf-8&quot;);</span><br><span class="line">        viewResolver.setViewNames(new String[]&#123;&quot;thymeleaf&quot;&#125;);</span><br><span class="line">        viewResolver.setOrder(1);</span><br><span class="line">        return viewResolver;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) &#123;</span><br><span class="line">        configurer.enable();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @Description: 配置静态文件映射</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public void addResourceHandlers(ResourceHandlerRegistry registry) &#123;</span><br><span class="line">        registry.addResourceHandler(&quot;&#x2F;**&quot;).addResourceLocations(&quot;classpath:&#x2F;static&#x2F;&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;details&gt;
-&lt;summary&gt;一、首先必须去除starter-web中的内置tomcat,并引入外部的tomcat包&lt;/summary&gt;
-
-&lt;p&gt;pom.xml&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas
-      
-    
-    </summary>
-    
-    
-    
-      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[window] 批量替换LF成CRLF</title>
-    <link href="http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583556226000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583556226000.html/</id>
-    <published>2020-03-07T04:43:46.000Z</published>
-    <updated>2020-03-07T04:43:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/panda1234lee/article/details/89289097" target="_blank">批量转换 LF 和 CRLF 的小技巧</a></p><p><a href="https://nchc.dl.sourceforge.net/project/dos2unix/dos2unix/7.4.1/dos2unix-7.4.1-win64.zip" target="_blank">系统环境变量的 Path 中添加它的bin路径</a></p><p>cd 到你想要转换的文件夹目录下</p><p>LF -&gt; CRLF</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for &#x2F;R %G in (*.c *.cc *.h *.mk *.properties *.xml *.java *.sh *.txt *.conf *.ui *.user *.la *.cpp *.pro *.sh) do unix2dos &quot;%G&quot; # *.c *.cc *.h *.mk *.cfg *.properties *.xml *.java *.sh *.txt *.conf *.ui *.user *.la *.cpp *.pro *.sh</span><br></pre></td></tr></table></figure><p>CRLF -&gt; LF</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for &#x2F;R %G in (*.c *.cc *.h *.mk) do dos2unix &quot;%G&quot; # *.c *.cc *.h *.mk</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/panda1234lee/article/details/89289097&quot; target=&quot;_blank&quot;&gt;批量转换 LF 和 CRLF 的小技巧&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://nch
-      
-    
-    </summary>
-    
-    
-    
-      <category term="window" scheme="http://brightereyer.xyz/tags/window/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[arm] ubuntu12安装mosquito开发包</title>
-    <link href="http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583547576000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583547576000.html/</id>
-    <published>2020-03-07T02:19:36.000Z</published>
-    <updated>2020-03-07T02:19:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">apt-get install gcc libssl-dev g++ uuid-dev</span><br><span class="line">apt-get install cmake g++ libssl-dev libc-ares-dev uuid-dev xsltproc docbook-xsl</span><br><span class="line"></span><br><span class="line">export GIT_SSL_NO_VERIFY&#x3D;1</span><br><span class="line">#</span><br><span class="line">git config --global http.sslverify false</span><br><span class="line"></span><br><span class="line">apt-get install --reinstall ca-certificates</span><br><span class="line"></span><br><span class="line">apt-get install python-software-properties</span><br><span class="line"></span><br><span class="line">update-ca-certificates</span><br><span class="line">apt-get remove curl</span><br><span class="line">apt-get install curl</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/suiyueshentou/p/7798340.html" target="_blank">linux修改时间</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#同步网络时间</span><br><span class="line">apt-get install ntp</span><br><span class="line">ntpdate -dv ntp.api.bz</span><br><span class="line">date -R</span><br><span class="line">date -s &quot;2020-03-05 22:38:00&quot;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apt-add-repository ppa:mosquitto-dev&#x2F;mosquitto-ppa</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install mosquitto</span><br><span class="line">#安装mosquitto开发包</span><br><span class="line">apt-get install libmosquitto-dev</span><br><span class="line">#安装mosquitto客户端</span><br><span class="line">apt-get install mosquitto-clients</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
-      
-    
-    </summary>
-    
-    
-    
-      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[arm] QtE系统TF卡、SD卡热插拔</title>
-    <link href="http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583547575000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/07/articles/2020/03/07/1583547575000.html/</id>
-    <published>2020-03-07T02:19:35.000Z</published>
-    <updated>2020-03-07T02:19:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp &#x2F;proc&#x2F;sys&#x2F;kernel&#x2F;hotplug &#x2F;bin&#x2F;</span><br><span class="line">chmod +x &#x2F;bin&#x2F;hotplug</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br><span class="line">Filesystem                Size      Used Available Use% Mounted on</span><br><span class="line">&#x2F;dev&#x2F;root               393.7M    236.4M    157.3M  60% &#x2F;</span><br><span class="line">devtmpfs                932.6M         0    932.6M   0% &#x2F;dev</span><br><span class="line">&#x2F;dev&#x2F;mmcblk1p1           13.1G    358.3M     12.8G   3% &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">&#x2F;dev&#x2F;mmcblk1p2           13.1G    358.3M     12.8G   3% &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">&#x2F;dev&#x2F;mmcblk1p3           13.1G    358.3M     12.8G   3% &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">&#x2F;dev&#x2F;mmcblk1p7           13.1G    358.3M     12.8G   3% &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">tmpfs                   932.7M         0    932.7M   0% &#x2F;dev&#x2F;shm</span><br><span class="line"></span><br><span class="line">#执行4次</span><br><span class="line">umount &#x2F;dev&#x2F;mmcblk1p1</span><br><span class="line"></span><br><span class="line">#然后</span><br><span class="line">df -h</span><br><span class="line">Filesystem                Size      Used Available Use% Mounted on</span><br><span class="line">&#x2F;dev&#x2F;root               393.7M    236.4M    157.3M  60% &#x2F;</span><br><span class="line">devtmpfs                932.6M         0    932.6M   0% &#x2F;dev</span><br><span class="line">tmpfs                   932.7M         0    932.7M   0% &#x2F;dev&#x2F;shm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#手动挂载tf卡</span><br><span class="line">mount &#x2F;dev&#x2F;mmcblk0p1 &#x2F;mnt&#x2F;sdcard</span><br><span class="line">ls &#x2F;mnt&#x2F;sdcard</span><br></pre></td></tr></table></figure><p>添加对热插拔事件响应</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;mdev.conf &lt;&lt;EOF</span><br><span class="line">sd[a-z][0-9]      0:0 666        @&#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_insert  </span><br><span class="line">sd[a-z]           0:0 666        $&#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_remove</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">#注释掉以下内容：</span><br><span class="line">sda10:0 0600 &#x3D;udisk * &#x2F;bin&#x2F;hotplug</span><br></pre></td></tr></table></figure><p>udisk_insert</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;etc&#x2F;hotplug&#x2F;usb</span><br><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_insert&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh  </span><br><span class="line">echo &quot;usbdisk insert!&quot; &gt; &#x2F;dev&#x2F;console  </span><br><span class="line">if [ -e &quot;&#x2F;dev&#x2F;$MDEV&quot;  ]  ; then  </span><br><span class="line">    mkdir -p &#x2F;mnt&#x2F;usbdisk&#x2F;$MDEV  </span><br><span class="line">    mount &#x2F;dev&#x2F;$MDEV &#x2F;mnt&#x2F;usbdisk&#x2F;$MDEV </span><br><span class="line">    echo &quot;&#x2F;dev&#x2F;$MDEV mounted in &#x2F;mnt&#x2F;usbdisk&#x2F;$MDEV&quot;&gt;&#x2F;dev&#x2F;console</span><br><span class="line">fi  </span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>udisk_remove</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;udisk_remove&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;usbdisk remove!&quot; &gt; &#x2F;dev&#x2F;console</span><br><span class="line">umount -l &#x2F;mnt&#x2F;usbdisk&#x2F;sd*</span><br><span class="line">rm -rf &#x2F;mnt&#x2F;usbdisk&#x2F;sd*</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">chmod 755 &#x2F;etc&#x2F;hotplug&#x2F;usb&#x2F;*</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#插上 U 盘</span><br><span class="line">ls &#x2F;mnt&#x2F;usbdisk&#x2F;sda1</span><br></pre></td></tr></table></figure><p>创建 U盘的设备节点</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mknod &#x2F;dev&#x2F;sda1 b 8 1</span><br></pre></td></tr></table></figure><p>插入 U 盘之后会弹出加载信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;sda1 &#x2F;mnt&#x2F;udisk&#x2F;</span><br><span class="line">ls &#x2F;mnt&#x2F;udisk</span><br></pre></td></tr></table></figure><p>SD/TF 卡的自动挂载</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;mdev.conf &lt;&lt;EOF</span><br><span class="line">mmcblk1p[0-9]     0:0 666        @&#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_insert  </span><br><span class="line">mmcblk1           0:0 666        $&#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_remove</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>创建 sd_insert 文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;etc&#x2F;hotplug&#x2F;sd</span><br><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_insert&lt;&lt;EOF</span><br><span class="line">echo &quot;sd card insert!&quot; &gt; &#x2F;dev&#x2F;console  </span><br><span class="line">if [ -e &quot;&#x2F;dev&#x2F;$MDEV&quot;  ]; then  </span><br><span class="line">    mkdir -p &#x2F;mnt&#x2F;sdcard&#x2F;sd  </span><br><span class="line">    mount -rw &#x2F;dev&#x2F;$MDEV &#x2F;mnt&#x2F;sdcard&#x2F;sd</span><br><span class="line">    echo &quot;&#x2F;dev&#x2F;$MDEV mounted in &#x2F;mnt&#x2F;sdcard&#x2F;sd&quot; &gt;&#x2F;dev&#x2F;console   </span><br><span class="line">fi</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>创建 sd_remove 文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; &#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;sd_remove&lt;&lt;EOF</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;sd card remove!&quot; &gt; &#x2F;dev&#x2F;console</span><br><span class="line">umount -l &#x2F;mnt&#x2F;sdcard&#x2F;sd*</span><br><span class="line">rm -rf &#x2F;mnt&#x2F;sdcard&#x2F;sd*</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 &#x2F;etc&#x2F;hotplug&#x2F;sd&#x2F;*</span><br><span class="line">ls &#x2F;mnt&#x2F;sdcard</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[arm] itop6818声卡移植ALSA</title>
-    <link href="http://brightereyer.xyz/2020/03/06/articles/2020/03/06/1583503267000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/06/articles/2020/03/06/1583503267000.html/</id>
-    <published>2020-03-06T14:01:07.000Z</published>
-    <updated>2020-03-06T14:01:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://github.com/BrighterEyer/itop6818-linux-programs/tree/master/%E5%A3%B0%E5%8D%A1%E7%A7%BB%E6%A4%8DALSA" target="_blank">声卡移植ALSA</a></p><p>源码编译</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;root&#x2F;ALSA</span><br><span class="line">tar -xvf alsa-lib-1.1.5.tar.bz2;cd alsa-lib-1.1.5</span><br><span class="line">CC&#x3D;arm-linux-gnueabihf-gcc .&#x2F;configure --host&#x3D;arm-linux --prefix&#x3D;&#x2F;root&#x2F;ALSA&#x2F;install&#x2F;</span><br><span class="line">make;make install</span><br><span class="line"></span><br><span class="line">ls &#x2F;root&#x2F;ALSA&#x2F;install&#x2F;</span><br><span class="line"></span><br><span class="line">tar -xvf alsa-utils-1.1.5.tar.bz2;cd alsa-utils-1.1.5</span><br><span class="line">CC&#x3D;arm-linux-gnueabihf-gcc .&#x2F;configure --prefix&#x3D;&#x2F;root&#x2F;ALSA&#x2F;install&#x2F; --host&#x3D;arm-linux --with-alsa-inc-prefix&#x3D;&#x2F;root&#x2F;ALSA&#x2F;install&#x2F;include --with-alsa-prefix&#x3D;&#x2F;root&#x2F;ALSA&#x2F;install&#x2F;lib --disable-alsamixer</span><br><span class="line">--disable-xmlto --disable-nls</span><br><span class="line">make;cd aplay;ls;make</span><br><span class="line">#用 ls 命令可以看到生成的aplay可执行文件</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp binary&#x2F;* &#x2F;bin&#x2F;</span><br></pre></td></tr></table></figure><p>在开发板上使用 ALSA，将 U 盘插到运行 qt 系统的开发板上</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;sda1 &#x2F;mnt&#x2F;disk</span><br><span class="line">cp &#x2F;mnt&#x2F;disk&#x2F;ALSA&#x2F;* &#x2F;bin</span><br></pre></td></tr></table></figure><p>插上耳机，使用以下命令检测耳机</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">speaker-test -c 2 &amp;</span><br><span class="line"></span><br><span class="line">killall speaker-test</span><br></pre></td></tr></table></figure><p>此时的 ALSA 并不完全，如果通过 apaly 直接播放音频的话会发现不能控制音量；<br>创建了一个名为 ‘pcm’ 的从设备，隶属于音量控制插件 primary，通过!default 选项将该插件设置成默认 PCM 输出设备</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;asound.conf</span><br><span class="line">pcm.!default &quot;plug:primary&quot;</span><br><span class="line">pcm.primary &#123;</span><br><span class="line">type softvol</span><br><span class="line">slave.pcm &quot;plughw:0&quot;</span><br><span class="line">control.name &quot;master&quot;</span><br><span class="line">control.card 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>重启开发板</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure><p>用 aplay 进行音频播放，音频文件放在/root 目录中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">aplay &#x2F;root&#x2F;VenusMars1.wav &amp;</span><br><span class="line"></span><br><span class="line">#默认255，将音量设置为 100，音量值可取 0-255</span><br><span class="line">amixer set &#39;master&#39; 100</span><br></pre></td></tr></table></figure><p>录音测试</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#filename 用户自己指定，&amp;不可省略</span><br><span class="line">arecord filename &amp;</span><br></pre></td></tr></table></figure><p>aplay 播放测试</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://github.com/BrighterEyer/itop6818-linux-programs/tree/master/%E5%A3%B0%E5%8D%A1%E7%A7%BB%E6%A4%8DALSA&quot; target=&quot;_blank&quot;&gt;声卡
-      
-    
-    </summary>
-    
-    
-    
-      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[java] springsecurity+权限数据库设计</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413636000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413636000.html/</id>
-    <published>2020-03-05T13:07:16.000Z</published>
-    <updated>2020-03-05T13:07:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/u012373815/article/details/54632176" target="_blank">SpringBoot + SpringSecurity 数据库动态管理用户、角色、权限（一）</a><br><a href="https://blog.csdn.net/u012373815/article/details/54633046" target="_blank">SpringBoot + SpringSecurity 数据库动态管理用户、角色、权限（二）</a></p><p><a href="https://github.com/527515025/springBoot" target="_blank">springBoot</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/u012373815/article/details/54632176&quot; target=&quot;_blank&quot;&gt;SpringBoot + SpringSecurity 数据库动态管理用户、角色、权限（一）&lt;/a&gt;&lt;br
-      
-    
-    </summary>
-    
-    
-    
-      <category term="java" scheme="http://brightereyer.xyz/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[ubuntu] 找不到apt-get的解决办法</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413635000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413635000.html/</id>
-    <published>2020-03-05T13:07:15.000Z</published>
-    <updated>2020-03-05T13:07:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/zhezhebie/article/details/100535405" target="_blank">下载apt.deb</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;security.ubuntu.com&#x2F;ubuntu&#x2F;pool&#x2F;main&#x2F;a&#x2F;apt&#x2F;apt_1.9.3_amd64.deb</span><br><span class="line">dpkg -i apt_1.4_amd64.deb</span><br><span class="line">apt-get install htop</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/zhezhebie/article/details/100535405&quot; target=&quot;_blank&quot;&gt;下载apt.deb&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;ta
-      
-    
-    </summary>
-    
-    
-    
-      <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[vbox] USB识别</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413635000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413635000.html/</id>
-    <published>2020-03-05T13:07:15.000Z</published>
-    <updated>2020-03-05T13:07:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/wf19930209/article/details/73195055" target="_blank">virtualbox的USB识别</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vboxmanage -v</span><br><span class="line">6.0.10r132072</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/wf19930209/article/details/73195055&quot; target=&quot;_blank&quot;&gt;virtualbox的USB识别&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight pla
-      
-    
-    </summary>
-    
-    
-    
-      <category term="vbox" scheme="http://brightereyer.xyz/tags/vbox/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[springboot] swagger2使用指南</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413634000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413634000.html/</id>
-    <published>2020-03-05T13:07:14.000Z</published>
-    <updated>2020-03-05T13:07:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/sanyaoxu_2/article/details/80555328" target="_blank">Swagger使用指南</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/sanyaoxu_2/article/details/80555328&quot; target=&quot;_blank&quot;&gt;Swagger使用指南&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[ubuntu] sshd超时问题</title>
-    <link href="http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413634000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/05/articles/2020/03/05/1583413634000.html/</id>
-    <published>2020-03-05T13:07:14.000Z</published>
-    <updated>2020-03-05T13:07:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>1配置服务器</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config </span><br><span class="line"># 数值是秒，比如你设置为540，就是9分钟</span><br><span class="line">ClientAliveInterval 540</span><br><span class="line"></span><br><span class="line"># 如果发现客户端没有相应，则判断一次超时，这个参数设置允许超时的次数 </span><br><span class="line">ClientAliveCountMax 10</span><br><span class="line"></span><br><span class="line">#则代表允许超时 5400秒 &#x3D; 90分钟</span><br></pre></td></tr></table></figure><p>ssh重启</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;init.d&#x2F;ssh restart</span><br></pre></td></tr></table></figure><p>2配置客户端 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;ssh&#x2F;ssh_config</span><br><span class="line"></span><br><span class="line">ServerAliveInterval 540</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;1配置服务器&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
     
   </entry>
   
