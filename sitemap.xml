@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://brightereyer.xyz/2020/03/26/articles/2020/03/26/1585231059000.html/</loc>
+    
+    <lastmod>2020-03-26T13:57:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://brightereyer.xyz/2020/03/26/articles/2020/03/26/1585231058000.html/</loc>
+    
+    <lastmod>2020-03-26T13:57:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://brightereyer.xyz/2020/03/26/articles/2020/03/26/1585230861000.html/</loc>
+    
+    <lastmod>2020-03-26T13:54:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://brightereyer.xyz/2020/03/26/articles/2020/03/26/1585230860000.html/</loc>
+    
+    <lastmod>2020-03-26T13:54:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://brightereyer.xyz/2020/03/26/articles/2020/03/26/1585230859000.html/</loc>
+    
+    <lastmod>2020-03-26T13:54:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://brightereyer.xyz/2020/03/22/articles/2020/03/22/1584808281000.html/</loc>
     
     <lastmod>2020-03-21T16:31:21.000Z</lastmod>
@@ -516,13 +551,6 @@
     <loc>http://brightereyer.xyz/2020/02/17/articles/2020/02/17/1581936640000.html/</loc>
     
     <lastmod>2020-02-17T10:50:40.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://brightereyer.xyz/2019/12/23/opencv/[ubuntu]_opencv3.4.1%E5%AE%89%E8%A3%85/</loc>
-    
-    <lastmod>2020-02-15T07:19:17.129Z</lastmod>
     
   </url>
   
@@ -5518,13 +5546,6 @@
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573316000.html/</loc>
-    
-    <lastmod>2019-10-17T12:28:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315286000.html/</loc>
     
     <lastmod>2019-10-17T12:28:06.000Z</lastmod>
@@ -5532,9 +5553,9 @@
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573315000.html/</loc>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573316000.html/</loc>
     
-    <lastmod>2019-10-17T12:28:05.000Z</lastmod>
+    <lastmod>2019-10-17T12:28:06.000Z</lastmod>
     
   </url>
   
@@ -5546,14 +5567,21 @@
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573314000.html/</loc>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573315000.html/</loc>
+    
+    <lastmod>2019-10-17T12:28:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315284000.html/</loc>
     
     <lastmod>2019-10-17T12:28:04.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315284000.html/</loc>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573314000.html/</loc>
     
     <lastmod>2019-10-17T12:28:04.000Z</lastmod>
     
@@ -5581,13 +5609,6 @@
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315281000.html/</loc>
-    
-    <lastmod>2019-10-17T12:28:01.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573311000.html/</loc>
     
     <lastmod>2019-10-17T12:28:01.000Z</lastmod>
@@ -5595,9 +5616,9 @@
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573310000.html/</loc>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315281000.html/</loc>
     
-    <lastmod>2019-10-17T12:28:00.000Z</lastmod>
+    <lastmod>2019-10-17T12:28:01.000Z</lastmod>
     
   </url>
   
@@ -5609,14 +5630,21 @@
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315279000.html/</loc>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573310000.html/</loc>
+    
+    <lastmod>2019-10-17T12:28:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573309000.html/</loc>
     
     <lastmod>2019-10-17T12:27:59.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/20/1571573309000.html/</loc>
+    <loc>http://brightereyer.xyz/2019/10/17/articles/2019/10/17/1571315279000.html/</loc>
     
     <lastmod>2019-10-17T12:27:59.000Z</lastmod>
     
