@@ -283,11 +283,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2020/02/15/1581738699000.html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-/articles/2020/02/17/1581936640000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2020/02/15/articles/2020/02/15/1581738699000.html/" class="article-date">
-      <time datetime="2020-02-15T03:51:39.000Z" itemprop="datePublished">2020-02-15</time>
+      <a  href="/2020/02/17/articles/2020/02/17/1581936640000.html/" class="article-date">
+      <time datetime="2020-02-17T10:50:40.000Z" itemprop="datePublished">2020-02-17</time>
 </a>
 
     </div>
@@ -301,7 +301,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/15/articles/2020/02/15/1581738699000.html/">[docker-compose] 分布式websocket</a>
+      <a  class="article-title" href="/2020/02/17/articles/2020/02/17/1581936640000.html/">[arm] OpenJTAG+openocd烧写环境</a>
     </h1>
   
 
@@ -312,7 +312,44 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://gitee.com/holynyll/dockerWeb/blob/master/webapp/docker/docker-compose.yml" target="_blank">分布式websocket</a></p>
+        <p><a href="https://blog.csdn.net/techping/article/details/53159844" target="_blank">在Ubuntu下搭建ARM处理器 arm-linux-gcc 交叉编译环境以及OpenJTAG + openocd 烧写环境</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y gcc-arm-linux</span><br></pre></td></tr></table></figure>
+
+<p>Makefile（点亮led的例子）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">led.bin:start.o</span><br><span class="line">        arm-linux-ld -Ttext 0 -o led.elf start.o</span><br><span class="line">        arm-linux-objcopy -O binary led.elf led.bin</span><br><span class="line">        arm-linux-objdump -D led.elf &gt; led.dis</span><br><span class="line">start.o:start.s</span><br><span class="line">        arm-linux-gcc -o start.o start.s -c</span><br></pre></td></tr></table></figure>
+
+<p>生成文件 led.bin</p>
+<p>OpenJTAG可以用在Windows、Linux、MAC下，而JLink只能用在Windows</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt install -y libusb-dev</span><br><span class="line">.&#x2F;configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y libconfuse-dev</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openocd是一个开源的JTAG上位机程序，目前支持很多种芯片了，并且支持的芯片还在不断增加中。</span><br><span class="line">当然，由于源代码都是公开的，并且可以自己编译，所以增加自定义的工具驱动程序也是相当容易的。</span><br></pre></td></tr></table></figure>
+
+<p>安装openocd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y git</span><br><span class="line">git clone git:&#x2F;&#x2F;openocd.git.sourceforge.net&#x2F;gitroot&#x2F;openocd&#x2F;openocd</span><br><span class="line">cd openocd;</span><br><span class="line">sudo .&#x2F;bootstrap</span><br><span class="line">sudo .&#x2F;configure --enable-ftdi --enable-usb_blaster_libftdi --enable-openjtag_ftdi --enable-maintainer-mode --enable-legacy-ft2232_libftdi</span><br><span class="line">sudo make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure --help</span><br></pre></td></tr></table></figure>
+
+<p>版本信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openocd -v</span><br></pre></td></tr></table></figure>
+
+<p>配置 openocd.cfg (具体视硬件而定)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>将开发板连接的OpenJTAG的USB接口接入PC，启动openocd，在终端输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openocd -f openocd.cfg</span><br></pre></td></tr></table></figure>
+
+<p>成功接入之后，打开另一个终端，输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet localhost 4444</span><br></pre></td></tr></table></figure>
+
+<p>进入操控指令方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Trying 127.0.0.1...</span><br><span class="line">Connected to localhost.</span><br><span class="line">Escape character is &#39;^]&#39;.</span><br><span class="line">Open On-Chip Debugger</span><br><span class="line">&gt; </span><br><span class="line"></span><br><span class="line"># 输入 poll ，显示开发板当前信息</span><br><span class="line"># 输入 halt ，暂停</span><br><span class="line"># 输入 resume ，恢复</span><br><span class="line"># 输入 reset ，复位</span><br></pre></td></tr></table></figure>
+
+<p>以烧写以个点亮LED的程序为例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">halt   #先暂停当前程序的运行</span><br><span class="line"></span><br><span class="line">nand probe 0   #识别出Nand Flash</span><br><span class="line"></span><br><span class="line">nand erase 0 0 0x20000   #擦除0地址开始的128K内容</span><br><span class="line"></span><br><span class="line">nand write 0 led.bin 0   #写入LED.bin</span><br><span class="line"></span><br><span class="line">reset   #复位</span><br></pre></td></tr></table></figure>
+
+<p>然后就可以看到LED亮了！</p>
 
       
     </div>
@@ -323,7 +360,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker-compose/" rel="tag">docker-compose</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
     </div>
 
       
@@ -425,6 +462,68 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/15/1581738699000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/15/articles/2020/02/15/1581738699000.html/" class="article-date">
+      <time datetime="2020-02-15T03:51:39.000Z" itemprop="datePublished">2020-02-15</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/15/articles/2020/02/15/1581738699000.html/">[docker-compose] 分布式websocket</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://gitee.com/holynyll/dockerWeb/blob/master/webapp/docker/docker-compose.yml" target="_blank">分布式websocket</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker-compose/" rel="tag">docker-compose</a></li></ul>
     </div>
 
       
@@ -1005,68 +1104,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/14/1581643665000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/14/articles/2020/02/14/1581643665000.html/" class="article-date">
-      <time datetime="2020-02-14T01:27:45.000Z" itemprop="datePublished">2020-02-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/14/articles/2020/02/14/1581643665000.html/">[springboot] jqgrid</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://gitee.com/z77z/springboot_mybatisplus" target="_blank">springboot_mybatisplus</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
     </div>
 
       

@@ -283,6 +283,108 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/02/17/1581936652000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/17/articles/2020/02/17/1581936652000.html/" class="article-date">
+      <time datetime="2020-02-17T10:50:52.000Z" itemprop="datePublished">2020-02-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/17/articles/2020/02/17/1581936652000.html/">[arm] 移植QtE4.8</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.kancloud.cn/lichee/lpi0/428123" target="_blank">QtE4.8</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --name qte4 -itd -p 8022:22 ubuntu</span><br><span class="line">apt-get update;apt-get upgrade -y</span><br><span class="line">docker attach qte4</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.linuxidc.com/Linux/2013-07/87576.htm" target="_blank">Linux系统下Qt环境搭建</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y build-essential</span><br><span class="line">#openGL相关</span><br><span class="line">apt-get install -y libx11-dev libxau-dev libxaw7-dev libxcb1-dev libxcomposite-dev libxcursor-dev libxdamage-dev libxdmcp-dev</span><br><span class="line">apt-get install -y libxext-dev libxfixes-dev libxfont-dev libxft-dev libxi-dev libxinerama-dev libxkbfile-dev libxmu-dev libxmuu-dev</span><br><span class="line">apt-get install -y libxpm-dev libxrandr-dev libxrender-dev libxres-dev libxss-dev libxt-dev libxtst-dev libxv-dev libxvmc-dev</span><br><span class="line">apt-get install -y libglib2.0-dev</span><br><span class="line">apt-get install -y libssl-dev</span><br><span class="line">apt-get install -y libgtk2.0-dev</span><br><span class="line">apt-get install -y libcups2-dev</span><br><span class="line">apt-get install -y libgl1-mesa-dev libglu1-mesa-dev</span><br><span class="line">apt-get install -y libgstreamer0.10-dev</span><br><span class="line">apt-get install -y ia32-libs libc6-i386</span><br><span class="line">apt-get install -y libc6-i386</span><br><span class="line">apt-get install -y automake libtool</span><br><span class="line">apt-get install -y ia32-libs</span><br><span class="line">apt-get install -y lib32ncurses5 lib32bz2-1.0</span><br><span class="line">apt-get install -y vim</span><br><span class="line">apt-get install -y libc6-dev</span><br><span class="line">apt-get install -y build-essential </span><br><span class="line">apt-get install -y --reinstall binutils</span><br><span class="line">apt-get install -y lib32stdc++6</span><br><span class="line">apt-get install -y lib32z1 lib32ncurses5</span><br></pre></td></tr></table></figure>
+
+<p>安装automake、libtool 和主机上的 Qt 工具：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y git vim wget unzip automake</span><br><span class="line"></span><br><span class="line">apt-get install -y automake autoconf libtool m4</span><br><span class="line">apt-get install -y libX11-dev libXext-dev libXtst-dev libXrender-dev </span><br><span class="line">apt-get install -y libqt4-core libqt4-dev libqt4-webkit qt4-demos</span><br><span class="line"></span><br><span class="line">apt-get install -y pkg-config</span><br><span class="line">apt-get install -y gcc</span><br><span class="line">apt-get install -y libc6-dev</span><br><span class="line">apt-get install -y linux-libc-dev</span><br><span class="line">apt-get install -y build-essential</span><br><span class="line">apt-get install -y libpcre3</span><br><span class="line">apt-get install -y libpcre3-dev</span><br><span class="line">apt-get install -y openssl</span><br><span class="line">apt-get install -y libssl-dev</span><br><span class="line">apt-get install -y lib32ncurses5</span><br><span class="line">apt-get install -y lib32z1</span><br><span class="line">apt-get install -y gcc-multilib</span><br><span class="line">apt-get install -y g++-multilib</span><br><span class="line">apt-get install -y gdb</span><br><span class="line"></span><br><span class="line">apt-get install -y libglib2.0-dev libxrender-dev libfontconfig1-dev libxext-dev</span><br></pre></td></tr></table></figure>
+
+<p>安装arm-none-linux-gnueabi-gcc<br><a href="http://www.codesourcery.com/sgpp/lite/arm/portal/package4571/public/arm-none-linux-gnueabi/arm-2010q1-202-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2" target="_blank">arm-2010q1-202-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local</span><br><span class="line">wget http:&#x2F;&#x2F;www.codesourcery.com&#x2F;sgpp&#x2F;lite&#x2F;arm&#x2F;portal&#x2F;package4571&#x2F;public&#x2F;arm-none-linux-gnueabi&#x2F;arm-2010q1-202-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2</span><br><span class="line">tar xvf arm-2010q1-202-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2</span><br><span class="line">ls arm-2010q1;</span><br><span class="line"></span><br><span class="line"># PATH添加交叉编译器路径：</span><br><span class="line">vim &#x2F;etc&#x2F;profile</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;arm-2010q1&#x2F;bin</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.kancloud.cn/lichee/lpi0/418897" target="_blank">移植tslib</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"># 建立工作目录</span><br><span class="line">cd ~</span><br><span class="line">mkdir &#x2F;usr&#x2F;local&#x2F;tslib</span><br><span class="line">mkdir &#x2F;usr&#x2F;local&#x2F;qt4.8.5-arm</span><br><span class="line">mkdir qt;cd qt</span><br><span class="line"></span><br><span class="line"># 下载与解压</span><br><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;libts&#x2F;tslib&#x2F;archive&#x2F;master.zip;</span><br><span class="line">unzip master.zip;cd tslib-master</span><br><span class="line"></span><br><span class="line">apt-get install -y libtool automake autogen autoconf libsysfs-dev pkg-config</span><br><span class="line">apt-get install -y lib32z1 lib32ncurses5 lib32stdc++6</span><br><span class="line"></span><br><span class="line"># 解决方法</span><br><span class="line">vi src&#x2F;tslib.h</span><br><span class="line">#加入下面这行定义</span><br><span class="line">#define EVIOCGPROP(len)          _IOC(_IOC_READ, &#39;E&#39;, 0x09, len)</span><br><span class="line"></span><br><span class="line">vim config.h.in</span><br><span class="line">&#x2F;&#x2F;#undef malloc</span><br><span class="line">&#x2F;&#x2F;#undef realloc</span><br><span class="line"></span><br><span class="line"># 编译</span><br><span class="line">.&#x2F;autogen.sh</span><br><span class="line">.&#x2F;configure CC&#x3D;arm-none-linux-gnueabi-gcc CXX&#x3D;arm-none-linux-gnueabi-g++ --host&#x3D;arm-none-linux-gnueabi  --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;tslib ac_cv_func_malloc_0_nonnull&#x3D;yes --enable-static&#x3D;yes --with-gnu-ld</span><br><span class="line"></span><br><span class="line"># 安装</span><br><span class="line">make -j32;make install</span><br><span class="line"></span><br><span class="line">ls &#x2F;usr&#x2F;local&#x2F;tslib</span><br><span class="line"></span><br><span class="line">vim &#x2F;usr&#x2F;local&#x2F;tslib&#x2F;etc&#x2F;ts.conf</span><br><span class="line">module_raw input</span><br></pre></td></tr></table></figure>
+
+<p>4 编译安装qt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># 解压</span><br><span class="line">mkdir ~&#x2F;qt-arm;cd ~&#x2F;qt-arm</span><br><span class="line">wget http:&#x2F;&#x2F;download.qt-project.org&#x2F;archive&#x2F;qt&#x2F;4.8&#x2F;4.8.5&#x2F;qt-everywhere-opensource-src-4.8.5.tar.gz</span><br><span class="line">tar xvf qt-everywhere-opensource-src-4.8.5.tar.gz;cd qt-everywhere-opensource-src-4.8.5</span><br><span class="line"></span><br><span class="line"># 指定交叉编译器</span><br><span class="line">sed -i &quot;s&#x2F;arm-linux-&#x2F;arm-none-linux-gnueabi-&#x2F;g&quot; mkspecs&#x2F;qws&#x2F;linux-arm-g++&#x2F;qmake.conf</span><br><span class="line"></span><br><span class="line">vim mkspecs&#x2F;qws&#x2F;linux-arm-g++&#x2F;qmake.conf</span><br><span class="line">#加上 -lts</span><br><span class="line"># modifications to g++.conf</span><br><span class="line">QMAKE_CC &#x3D; arm-none-linux-gnueabi-gcc -lts</span><br><span class="line">QMAKE_CXX &#x3D; arm-none-linux-gnueabi-g++ -lts</span><br><span class="line">QMAKE_LINK &#x3D; arm-none-linux-gnueabi-g++ -lts</span><br><span class="line">QMAKE_LINK_SHLIB &#x3D; arm-none-linux-gnueabi-g++ -lts</span><br><span class="line"># modifications to linux.conf</span><br><span class="line">QMAKE_AR &#x3D; arm-none-linux-gnueabi-ar cqs</span><br><span class="line">QMAKE_OBJCOPY &#x3D; arm-none-linux-gnueabi-objcopy</span><br><span class="line">QMAKE_STRIP &#x3D; arm-none-linux-gnueabi-strip</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mkdir &#x2F;usr&#x2F;local&#x2F;qt4.8.5-arm;</span><br><span class="line"></span><br><span class="line"># 查看参数的详细说明</span><br><span class="line">#.&#x2F;configure --help</span><br></pre></td></tr></table></figure>
+
+<details>
+<summary>配置Qt</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure \</span><br><span class="line">--prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;qt4.8.5-arm \</span><br><span class="line">-opensource \</span><br><span class="line">-release \</span><br><span class="line">-shared \</span><br><span class="line">-Declarative \</span><br><span class="line">-importdir &#x2F;opt&#x2F;imports \</span><br><span class="line">-fast \</span><br><span class="line">-no-largefile \</span><br><span class="line">-qt-sql-sqlite \</span><br><span class="line">-qt3support \</span><br><span class="line">-exceptions \</span><br><span class="line">-xmlpatterns \</span><br><span class="line">-no-glib \</span><br><span class="line">-no-phonon \</span><br><span class="line">-no-mmx \</span><br><span class="line">-no-3dnow \</span><br><span class="line">-no-sse \</span><br><span class="line">-no-sse2 \</span><br><span class="line">-svg \</span><br><span class="line">-no-webkit \</span><br><span class="line">-qt-zlib \</span><br><span class="line">-qt-libtiff \</span><br><span class="line">-qt-libpng \</span><br><span class="line">-qt-libjpeg \</span><br><span class="line">-make libs \</span><br><span class="line">-make tools \</span><br><span class="line">-nomake examples \</span><br><span class="line">-nomake docs \</span><br><span class="line">-nomake demo \</span><br><span class="line">-no-nis \</span><br><span class="line">-no-cups \</span><br><span class="line">-iconv \</span><br><span class="line">-no-dbus \</span><br><span class="line">-xplatform qws&#x2F;linux-arm-g++ \</span><br><span class="line">-embedded arm \</span><br><span class="line">-little-endian \</span><br><span class="line">-qt-freetype \</span><br><span class="line">-depths 16,24,32 \</span><br><span class="line">-qt-gfx-linuxfb \</span><br><span class="line">-qt-gfx-transformed \</span><br><span class="line">-qt-gfx-multiscreen \</span><br><span class="line">-no-gfx-vnc \</span><br><span class="line">-no-gfx-qvfb \</span><br><span class="line">-qt-kbd-linuxinput \</span><br><span class="line">-no-kbd-qvfb \</span><br><span class="line">-armfpa \</span><br><span class="line">-no-mouse-qvfb \</span><br><span class="line">-qt-mouse-linuxtp \</span><br><span class="line">-qt-mouse-tslib \</span><br><span class="line">-DQT_QLOCALE_USES_FCVT \</span><br><span class="line">-DQT_NO_QWS_CURSOR \</span><br><span class="line">-no-pch \</span><br><span class="line">-I&#x2F;usr&#x2F;local&#x2F;tslib&#x2F;include \</span><br><span class="line">-L&#x2F;usr&#x2F;local&#x2F;tslib&#x2F;lib \</span><br><span class="line">-confirm-license \</span><br><span class="line">-no-openssl</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>编译安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make -j32;make install</span><br><span class="line">ls &#x2F;usr&#x2F;local&#x2F;qt4.8.5-arm</span><br></pre></td></tr></table></figure>
+
+<p>5 配置主机Qt<br>（1）设置环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;profile</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;qt4.8.5-arm&#x2F;bin</span><br><span class="line">export LD_LIBRARY_PATH&#x3D;$LD_LIBRARY_PATH:&#x2F;usr&#x2F;local&#x2F;qt4.8.5-arm&#x2F;lib</span><br><span class="line"></span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+
+<p>6 移植Qt到开发板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">开发板上要使用的东西就2个，一个是编译后的tslib，一个是编译后qt目录下的lib目录</span><br></pre></td></tr></table></figure>
+<p>（1）打包lib<br>我们Qt 安装完成之后，为解决符号链接的问题，可以利用先打包，然后直接解压到开发板的做法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;qt4.8.5-arm;tar -zcf lib.tar.gz lib;mv lib.tar.gz &#x2F;root&#x2F;</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local;tar -zcf tslib.tar.gz tslib;mv tslib.tar.gz &#x2F;root&#x2F;</span><br><span class="line"></span><br><span class="line">cd &#x2F;root;</span><br><span class="line">ls lib.tar.gz tslib.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>连接开发板，在终端助手上执行<br>（1）将打包好的压缩文件 lib.tar.gz 和 tslib.tar.gz 复制到开发板，然后解压：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;usr&#x2F;local&#x2F;qt4.8.5-arm</span><br><span class="line">tar xzvf lib.tar.gz -C &#x2F;usr&#x2F;local&#x2F;qt4.8.5-arm</span><br><span class="line">tar xzvf tslib.tar.gz -C &#x2F;usr&#x2F;local</span><br></pre></td></tr></table></figure>
+<p>（2）设置开发板上的环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vi setqtenv</span><br><span class="line">export LD_LIBRARY_PATH&#x3D;&#x2F;lib:$LD_LIBRARY_PATH</span><br><span class="line">export QTDIR&#x3D;&#x2F;usr&#x2F;local&#x2F;qt4.8.5-arm</span><br><span class="line">export T_ROOT&#x3D;&#x2F;usr&#x2F;local&#x2F;tslib</span><br><span class="line">export PATH&#x3D;$T_ROOT&#x2F;bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH&#x3D;$T_ROOT&#x2F;lib:$QTDIR&#x2F;lib:$LD_LIBRARY_PATH</span><br><span class="line">export TSLIB_CONSOLEDEVICE&#x3D;none</span><br><span class="line">export TSLIB_FBDEVICE&#x3D;&#x2F;dev&#x2F;fb0</span><br><span class="line">export TSLIB_TSDEVICE&#x3D;&#x2F;dev&#x2F;input&#x2F;event0</span><br><span class="line">export TSLIB_PLUGINDIR&#x3D;$T_ROOT&#x2F;lib&#x2F;ts</span><br><span class="line">export TSLIB_CONFFILE&#x3D;$T_ROOT&#x2F;etc&#x2F;ts.conf</span><br><span class="line">export TSLIB_CALIBFILE&#x3D;&#x2F;etc&#x2F;pointercal</span><br><span class="line">export QWS_KEYBOARD&#x3D;USB:&#x2F;dev&#x2F;input&#x2F;event1</span><br><span class="line">export QWS_MOUSE_PROTO&#x3D;Tslib:&#x2F;dev&#x2F; input&#x2F;event0</span><br><span class="line">export QT_QWS_FONTDIR&#x3D;$QTDIR&#x2F;lib&#x2F;fonts</span><br></pre></td></tr></table></figure>
+<p>（3）执行以下命令设置好qt环境变量的设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source setqtenv</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/02/17/1581936651000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -968,105 +1070,6 @@
       
           
         <p><a href="https://blog.csdn.net/mucheni/article/details/82378400" target="_blank">iTOP-4418/6818开发板-Android-串口测试文档（升级版）</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/17/1581936640000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/17/articles/2020/02/17/1581936640000.html/" class="article-date">
-      <time datetime="2020-02-17T10:50:40.000Z" itemprop="datePublished">2020-02-17</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/17/articles/2020/02/17/1581936640000.html/">[arm] OpenJTAG+openocd烧写环境</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/techping/article/details/53159844" target="_blank">在Ubuntu下搭建ARM处理器 arm-linux-gcc 交叉编译环境以及OpenJTAG + openocd 烧写环境</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y gcc-arm-linux</span><br></pre></td></tr></table></figure>
-
-<p>Makefile（点亮led的例子）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">led.bin:start.o</span><br><span class="line">        arm-linux-ld -Ttext 0 -o led.elf start.o</span><br><span class="line">        arm-linux-objcopy -O binary led.elf led.bin</span><br><span class="line">        arm-linux-objdump -D led.elf &gt; led.dis</span><br><span class="line">start.o:start.s</span><br><span class="line">        arm-linux-gcc -o start.o start.s -c</span><br></pre></td></tr></table></figure>
-
-<p>生成文件 led.bin</p>
-<p>OpenJTAG可以用在Windows、Linux、MAC下，而JLink只能用在Windows</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt install -y libusb-dev</span><br><span class="line">.&#x2F;configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y libconfuse-dev</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openocd是一个开源的JTAG上位机程序，目前支持很多种芯片了，并且支持的芯片还在不断增加中。</span><br><span class="line">当然，由于源代码都是公开的，并且可以自己编译，所以增加自定义的工具驱动程序也是相当容易的。</span><br></pre></td></tr></table></figure>
-
-<p>安装openocd</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y git</span><br><span class="line">git clone git:&#x2F;&#x2F;openocd.git.sourceforge.net&#x2F;gitroot&#x2F;openocd&#x2F;openocd</span><br><span class="line">cd openocd;</span><br><span class="line">sudo .&#x2F;bootstrap</span><br><span class="line">sudo .&#x2F;configure --enable-ftdi --enable-usb_blaster_libftdi --enable-openjtag_ftdi --enable-maintainer-mode --enable-legacy-ft2232_libftdi</span><br><span class="line">sudo make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure --help</span><br></pre></td></tr></table></figure>
-
-<p>版本信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openocd -v</span><br></pre></td></tr></table></figure>
-
-<p>配置 openocd.cfg (具体视硬件而定)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>将开发板连接的OpenJTAG的USB接口接入PC，启动openocd，在终端输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openocd -f openocd.cfg</span><br></pre></td></tr></table></figure>
-
-<p>成功接入之后，打开另一个终端，输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet localhost 4444</span><br></pre></td></tr></table></figure>
-
-<p>进入操控指令方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Trying 127.0.0.1...</span><br><span class="line">Connected to localhost.</span><br><span class="line">Escape character is &#39;^]&#39;.</span><br><span class="line">Open On-Chip Debugger</span><br><span class="line">&gt; </span><br><span class="line"></span><br><span class="line"># 输入 poll ，显示开发板当前信息</span><br><span class="line"># 输入 halt ，暂停</span><br><span class="line"># 输入 resume ，恢复</span><br><span class="line"># 输入 reset ，复位</span><br></pre></td></tr></table></figure>
-
-<p>以烧写以个点亮LED的程序为例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">halt   #先暂停当前程序的运行</span><br><span class="line"></span><br><span class="line">nand probe 0   #识别出Nand Flash</span><br><span class="line"></span><br><span class="line">nand erase 0 0 0x20000   #擦除0地址开始的128K内容</span><br><span class="line"></span><br><span class="line">nand write 0 led.bin 0   #写入LED.bin</span><br><span class="line"></span><br><span class="line">reset   #复位</span><br></pre></td></tr></table></figure>
-
-<p>然后就可以看到LED亮了！</p>
 
       
     </div>

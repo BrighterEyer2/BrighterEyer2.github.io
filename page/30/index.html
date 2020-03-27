@@ -283,6 +283,76 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2019/12/25/1577274703000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/12/25/articles/2019/12/25/1577274703000.html/" class="article-date">
+      <time datetime="2019-12-25T11:51:43.000Z" itemprop="datePublished">2019-12-25</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/12/25/articles/2019/12/25/1577274703000.html/">[单片机] ESP8266和APP通讯</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/qimi923511491/article/details/79284625" target="_blank">51单片机通过ESP8266模块与手机进行通讯（单片机）</a></p>
+<p><a href="https://www.jianshu.com/p/1809c471db39" target="_blank">智能家居简单实现—使用ESP8266简单实现和APP通讯</a></p>
+<p>用AP模式就够了，指令有下面这几个就够了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1、设置wifi模式：</span><br><span class="line">AT+CWMODE&#x3D;2</span><br><span class="line"></span><br><span class="line">2、重启生效：</span><br><span class="line">AT+RST</span><br><span class="line"></span><br><span class="line">3、启动多连接：</span><br><span class="line">AT+CIPMUX&#x3D;1</span><br><span class="line"></span><br><span class="line">4、建立server：</span><br><span class="line">AT+CIPSERVER&#x3D;1</span><br></pre></td></tr></table></figure>
+
+<p>ESP8266发送数据到APP。首先ESP要使用到的指令有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、建立TCP连接：</span><br><span class="line">AT+CIPSTART&#x3D;0,&quot;TCP&quot;,&quot;192.168.4.2&quot;,5000</span><br><span class="line"></span><br><span class="line">2、确定发送数据的长度：</span><br><span class="line">AT+CIPSEND&#x3D;0,19</span><br><span class="line"></span><br><span class="line">3、发送信息：</span><br><span class="line">Sent to the Android</span><br></pre></td></tr></table></figure>
+
+<img src="https://upload-images.jianshu.io/upload_images/5147222-98a0e58fe398fbc9?imageMogr2/auto-orient/strip|imageView2/2/w/548/format/webp">
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2019/12/24/1577183653000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -850,69 +920,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/12/22/1577026519000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/12/22/articles/2019/12/22/1577026519000.html/" class="article-date">
-      <time datetime="2019-12-22T14:55:19.000Z" itemprop="datePublished">2019-12-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/12/22/articles/2019/12/22/1577026519000.html/">[react-native] ios打包</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/jkfaklfjal/article/details/82800324" target="_blank">react-native ios打包教程</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --entry-file .&#x2F;index.ios.js --bundle-output .&#x2F;ios&#x2F;bundle&#x2F;index.ios.jsbundle --platform ios --assets-dest .&#x2F;ios&#x2F;bundle --dev false</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
     </div>
 
       
