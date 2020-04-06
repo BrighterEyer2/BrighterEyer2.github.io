@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-04-05T09:10:09.000Z</updated>
+  <updated>2020-04-06T13:05:02.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,152 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[linux] 指定文件系统格式化分区</title>
+    <link href="http://brightereyer.xyz/2020/04/06/articles/2020/04/06/1586178302000.html/"/>
+    <id>http://brightereyer.xyz/2020/04/06/articles/2020/04/06/1586178302000.html/</id>
+    <published>2020-04-06T13:05:02.000Z</published>
+    <updated>2020-04-06T13:05:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 显示硬盘、U盘等及所属分区情况</span><br><span class="line">sudo fdisk -lu</span><br><span class="line"></span><br><span class="line"># 对硬盘进行分区</span><br><span class="line">sudo fdisk &#x2F;dev&#x2F;sdb</span><br><span class="line"></span><br><span class="line"># 硬盘格式化</span><br><span class="line">sudo mkfs -t ext4 &#x2F;dev&#x2F;sdb</span><br></pre></td></tr></table></figure><p>挂载硬盘分区</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 显示硬盘挂载情况</span><br><span class="line">sudo df -lh</span><br><span class="line"></span><br><span class="line"># 指定硬盘分区文件系统类型为ext4 ，同时将 &#x2F;dev&#x2F;sdb 分区挂载到目录 &#x2F;devdata</span><br><span class="line">sudo mount -t ext4 &#x2F;dev&#x2F;sdb &#x2F;devdata</span><br><span class="line"></span><br><span class="line"># 再次显示硬盘挂载情况</span><br><span class="line">sudo df -lh</span><br><span class="line"></span><br><span class="line"># 配置硬盘在系统启动自动挂载</span><br><span class="line">&#x2F;etc&#x2F;fstab</span><br><span class="line"></span><br><span class="line"># &#x2F;devdata was on &#x2F;dev&#x2F;sdb</span><br><span class="line">UUID&#x3D;37eaa526-5d96-4237-8468-603df5216ce9     &#x2F;devdata     ext4     defaults     0     3</span><br></pre></td></tr></table></figure><p>U盘分区、指定文件系统类型</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#查看设备分区和挂载目录</span><br><span class="line">sudo df -lh | grep media</span><br><span class="line"></span><br><span class="line">#如果目录被占用，查看进程</span><br><span class="line">sudo lsof &#x2F;media&#x2F;$(whoami)</span><br><span class="line"></span><br><span class="line">#格式化之前要先卸载分区</span><br><span class="line">sudo umount &#x2F;dev&#x2F;sdb1</span><br><span class="line"></span><br><span class="line">sudo mkfs -t ext3 &#x2F;dev&#x2F;sdb1</span><br><span class="line">#或</span><br><span class="line">sudo mke2fs -t ext3 &#x2F;dev&#x2F;sdb1</span><br><span class="line">#或</span><br><span class="line">sudo mkfs.ext3 &#x2F;dev&#x2F;sdb1</span><br></pre></td></tr></table></figure><p>查看硬盘分区uuid和文件系统类型</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid | grep &#x2F;dev&#x2F;sdb1</span><br></pre></td></tr></table></figure><p>再次挂载U盘一个分区</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir &#x2F;media&#x2F;$(whoami)&#x2F;58140d27</span><br><span class="line">sudo mount -t ext3 &#x2F;dev&#x2F;sdb1 &#x2F;media&#x2F;$(whoami)&#x2F;58140d27</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[ubuntu] glibc</title>
+    <link href="http://brightereyer.xyz/2020/04/06/articles/2020/04/06/1586178301000.html/"/>
+    <id>http://brightereyer.xyz/2020/04/06/articles/2020/04/06/1586178301000.html/</id>
+    <published>2020-04-06T13:05:01.000Z</published>
+    <updated>2020-04-06T13:05:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>查看GLIBC列表</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings &#x2F;lib&#x2F;libc.so.6 | grep GLIBC</span><br></pre></td></tr></table></figure><p>ubuntu查看glibc版本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#方法1：</span><br><span class="line">ldd --version</span><br><span class="line">#方法2：</span><br><span class="line">getconf GNU_LIBC_VERSION</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;glibc&#x2F;glibc-2.9.tar.bz2</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~&#x2F;work&#x2F;glibc_bulid;cd ~&#x2F;work&#x2F;glibc_bulid</span><br><span class="line"></span><br><span class="line">wget -c http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;glibc&#x2F;glibc-2.9.tar.bz2</span><br><span class="line">wget -c http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;glibc&#x2F;glibc-linuxthreads-2.5.tar.bz2</span><br><span class="line"></span><br><span class="line"># 解压</span><br><span class="line">tar -jxvf glibc-2.9.tar.bz2;mv glibc-linuxthreads-2.5.tar.bz2 glibc-2.9;cd cd glibc-2.9</span><br><span class="line">tar -jxvf glibc-linuxthreads-2.5.tar.bz2</span><br><span class="line"></span><br><span class="line">mkdir build;cd build</span><br><span class="line"></span><br><span class="line">export CFLAGS&#x3D;&quot;-g -O2 -march&#x3D;arm&quot;</span><br><span class="line">..&#x2F;configure --prefix&#x3D;&#x2F;usr --disable-profile --enable-add-ons --with-headers&#x3D;&#x2F;usr&#x2F;include --with-binutils&#x3D;&#x2F;usr&#x2F;bin  </span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;查看GLIBC列表&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;cod
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[linux] 查看文件夹大小</title>
+    <link href="http://brightereyer.xyz/2020/04/06/articles/2020/04/06/1586178300000.html/"/>
+    <id>http://brightereyer.xyz/2020/04/06/articles/2020/04/06/1586178300000.html/</id>
+    <published>2020-04-06T13:05:00.000Z</published>
+    <updated>2020-04-06T13:05:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -h --max-depth&#x3D;0</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[linux] img文件解压</title>
+    <link href="http://brightereyer.xyz/2020/04/06/articles/2020/04/06/1586178299000.html/"/>
+    <id>http://brightereyer.xyz/2020/04/06/articles/2020/04/06/1586178299000.html/</id>
+    <published>2020-04-06T13:04:59.000Z</published>
+    <updated>2020-04-06T13:04:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mv system.img system.img.gz</span><br><span class="line">gunzip system.img.gz</span><br><span class="line">mkdir system</span><br><span class="line">mv system.img system</span><br><span class="line">ls system</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[busybox] tftp的使用</title>
+    <link href="http://brightereyer.xyz/2020/04/06/articles/2020/04/06/1586178298000.html/"/>
+    <id>http://brightereyer.xyz/2020/04/06/articles/2020/04/06/1586178298000.html/</id>
+    <published>2020-04-06T13:04:58.000Z</published>
+    <updated>2020-04-06T13:04:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tftp -g -l B.txt -r A.txt 192.168.1.101</span><br></pre></td></tr></table></figure><p>tftp使用方法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 1.从设备上下载1.jpg到PC端：</span><br><span class="line">tftp -p -l 1.jpg 192.168.213.128</span><br><span class="line"></span><br><span class="line"># 2.从PC端上传输ZKDB.db文件到设备：</span><br><span class="line">tftp -g 192.168.213.128 -r ZKDB.db</span><br><span class="line"></span><br><span class="line">参数说明：</span><br><span class="line">         -l   是local的缩写，后跟存在于Client的源文件名，或下载Client后重命名的文件名。</span><br><span class="line">         -r   是remote的缩写，后跟Server即PC机tftp服务器根目录中的源文件名，或上传Server后重命名后的文件名。</span><br><span class="line">         -g   是get的缩写，下载文件时用，</span><br><span class="line">         -p   是put的缩写，上传文件时用，</span><br><span class="line"></span><br><span class="line">tftp 默认占用的是69端口</span><br></pre></td></tr></table></figure><p>1、根据上述参数，tftp的命令格式如下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">tftp -g&#x2F;-p 目标文件名  源文件名  服务器地址</span><br><span class="line"></span><br><span class="line">说明</span><br><span class="line">  -g表示下载  </span><br><span class="line">  -p表示上传</span><br><span class="line"></span><br><span class="line">可与源文件名相同或不同</span><br><span class="line">   下载时加参数-l</span><br><span class="line">   上传时加参数-r   不可更名</span><br><span class="line"></span><br><span class="line">   下载时加参数-r</span><br><span class="line">   上传时加参数-l </span><br><span class="line">             </span><br><span class="line">从上述表格说明可知:</span><br><span class="line"></span><br><span class="line">#从Server下载文件到Client时，命令格式：</span><br><span class="line">tftp -g -l 目标文件名 -r 源文件名 服务器地址</span><br><span class="line"></span><br><span class="line">#从server中的tftp根目录下，下载文件A.txt到Client并更名为B.txt，若不更名，B.txt就改为A.txt</span><br><span class="line">tftp -g -l B.txt -r A.txt 192.168.1.2</span><br><span class="line">      </span><br><span class="line">#从Clinet上传文件到Server时，命令格式：</span><br><span class="line">tftp -p -r 目标文件名 -l 源文件名 服务器地址</span><br><span class="line"></span><br><span class="line">#从Client上传文件C.txt到Server的tftp根目标下，并更名为D.txt，若不更名，D.txt就改为C.txt</span><br><span class="line">tftp -p -r D.txt -l C.txt 192.168.1.2</span><br><span class="line"></span><br><span class="line">这个命令一般是用于下载或上传后进行更改文件名</span><br></pre></td></tr></table></figure><p>2、如若不更改文件名，可使用以下简单命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#不更名下载命令：   </span><br><span class="line">tftp -g -l&#x2F;-r 源文件名 服务器地址  </span><br><span class="line"> </span><br><span class="line">此时参数-l与-r等效，使用时只使用其中一个： </span><br><span class="line">如</span><br><span class="line">tftp -g -l A.txt 192.168.1.2</span><br><span class="line">或</span><br><span class="line">tftp -g -r A.txt 192.168.1.2</span><br><span class="line"> </span><br><span class="line">作用相同，都表示Client从Server下载文件A.txt，且不更名。</span><br><span class="line">tftp -p -l&#x2F;-r 源文件名 服务器地址   </span><br><span class="line"></span><br><span class="line">此时参数-l与-r等效，使用时只使用其中一个：</span><br><span class="line">如</span><br><span class="line">tftp -p -l B.txt 192.168.1.2</span><br><span class="line">或</span><br><span class="line">tftp -p -r B.txt 192.168.1.2</span><br><span class="line">作用相同，都表示从Client上传文件B.txt到Server，且不更名。</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla
+      
+    
+    </summary>
+    
+    
+    
+      <category term="busybox" scheme="http://brightereyer.xyz/tags/busybox/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[arm] Qt程序glibc问题</title>
+    <link href="http://brightereyer.xyz/2020/04/06/articles/2020/04/06/1586178297000.html/"/>
+    <id>http://brightereyer.xyz/2020/04/06/articles/2020/04/06/1586178297000.html/</id>
+    <published>2020-04-06T13:04:57.000Z</published>
+    <updated>2020-04-06T13:04:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/yaoyefengchen/article/details/22806157" target="_blank">运行Qt程序glibc</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls &#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2014.05&#x2F;arm-none-linux-gnueabi&#x2F;libc</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/yaoyefengchen/article/details/22806157&quot; target=&quot;_blank&quot;&gt;运行Qt程序glibc&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
   
   <entry>
     <title>[linux] 模拟can</title>
@@ -361,154 +507,6 @@
     
     
       <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[qt] windows平台opencv</title>
-    <link href="http://brightereyer.xyz/2020/03/27/articles/2020/03/27/1585304010000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/27/articles/2020/03/27/1585304010000.html/</id>
-    <published>2020-03-27T10:13:30.000Z</published>
-    <updated>2020-03-27T10:13:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/c244c9d01fe0" target="_blank">Qt+OpenCV环境搭建</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/c244c9d01fe0&quot; target=&quot;_blank&quot;&gt;Qt+OpenCV环境搭建&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[qt] opencv图像文字识别</title>
-    <link href="http://brightereyer.xyz/2020/03/27/articles/2020/03/27/1585304009000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/27/articles/2020/03/27/1585304009000.html/</id>
-    <published>2020-03-27T10:13:29.000Z</published>
-    <updated>2020-03-27T10:13:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/bingkuoluo/article/details/103793240#comments" target="_blank">OpenCV 文字识别（一）：图像预处理</a></p><p><a href="https://blog.csdn.net/xuxunjie147/article/details/87178774" target="_blank">OpenCV 文字检测与识别模块</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/bingkuoluo/article/details/103793240#comments&quot; target=&quot;_blank&quot;&gt;OpenCV 文字识别（一）：图像预处理&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;ht
-      
-    
-    </summary>
-    
-    
-    
-      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[qt] opencv图片相似度对比</title>
-    <link href="http://brightereyer.xyz/2020/03/27/articles/2020/03/27/1585304008000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/27/articles/2020/03/27/1585304008000.html/</id>
-    <published>2020-03-27T10:13:28.000Z</published>
-    <updated>2020-03-27T10:13:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_33548747/article/details/88089575" target="_blank">判断两张图的相似度</a></p><p><a href="https://blog.csdn.net/bingkuoluo/article/details/89318372" target="_blank">OpenCV(2)：用Vs+Qt制作一个显示两张图片的窗口程序</a><br><a href="https://blog.csdn.net/bingkuoluo/article/details/89389035" target="_blank">OpenCV(3)：用Vs+Qt制作一个查看图片相似度的窗口程序</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_33548747/article/details/88089575&quot; target=&quot;_blank&quot;&gt;判断两张图的相似度&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/
-      
-    
-    </summary>
-    
-    
-    
-      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[opencv] 图片相似度对比</title>
-    <link href="http://brightereyer.xyz/2020/03/27/articles/2020/03/27/1585304007000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/27/articles/2020/03/27/1585304007000.html/</id>
-    <published>2020-03-27T10:13:27.000Z</published>
-    <updated>2020-03-27T10:13:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/wangyaninglm/article/details/43853435" target="_blank">OpenCV进行图像相似度对比的几种办法</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/wangyaninglm/article/details/43853435&quot; target=&quot;_blank&quot;&gt;OpenCV进行图像相似度对比的几种办法&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="opencv" scheme="http://brightereyer.xyz/tags/opencv/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[nginx] 支持websocket</title>
-    <link href="http://brightereyer.xyz/2020/03/27/articles/2020/03/27/1585304006000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/27/articles/2020/03/27/1585304006000.html/</id>
-    <published>2020-03-27T10:13:26.000Z</published>
-    <updated>2020-03-27T10:13:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">proxy_http_version 1.1;</span><br><span class="line">proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">proxy_read_timeout; #表明连接成功以后等待服务器响应的时候，如果不配置默认为60s；</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
-      
-    
-    </summary>
-    
-    
-    
-      <category term="nginx" scheme="http://brightereyer.xyz/tags/nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[android] opencv图片相似度对比</title>
-    <link href="http://brightereyer.xyz/2020/03/27/articles/2020/03/27/1585304005000.html/"/>
-    <id>http://brightereyer.xyz/2020/03/27/articles/2020/03/27/1585304005000.html/</id>
-    <published>2020-03-27T10:13:25.000Z</published>
-    <updated>2020-03-27T10:13:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_27378951/article/details/101543122" target="_blank">android 使用opencv4 图片相似度对比</a><br><a href="https://pan.baidu.com/s/1R1bJdPmqJkPue5pgryGAEw" target="_blank">OpenCv2.zip</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">us1f</span><br></pre></td></tr></table></figure><p>库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;opencv.org&#x2F;releases&#x2F;</span><br><span class="line">https:&#x2F;&#x2F;sourceforge.net&#x2F;projects&#x2F;opencvlibrary&#x2F;files&#x2F;4.2.0&#x2F;opencv-4.2.0-android-sdk.zip</span><br></pre></td></tr></table></figure><p><a href="https://www.jianshu.com/p/7aad275745e1" target="_blank">AndroidStudio+OpenCv开发环境搭建</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_27378951/article/details/101543122&quot; target=&quot;_blank&quot;&gt;android 使用opencv4 图片相似度对比&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://p
-      
-    
-    </summary>
-    
-    
-    
-      <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
     
   </entry>
   
