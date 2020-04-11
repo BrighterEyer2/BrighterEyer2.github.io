@@ -283,133 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/09/25/1569418384000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/09/25/articles/2019/09/25/1569418384000.html/" class="article-date">
-      <time datetime="2019-09-25T13:33:04.000Z" itemprop="datePublished">2019-09-25</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/09/25/articles/2019/09/25/1569418384000.html/">[react-native] 像素工具</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>react-native屏幕适配</p>
-<p>px.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Dimesions, Platform, PixelRatio &#125; from &#39;react-native&#39;;</span><br><span class="line"></span><br><span class="line">const deviceWidth &#x3D; Dimension.get(&#39;window&#39;).width;</span><br><span class="line"></span><br><span class="line">export default function px(size) &#123;</span><br><span class="line">    if (PixelRatio.get() &gt;&#x3D; 3 &amp;&amp; Platform.Os &#x3D;&#x3D;&#x3D; &#39;ios&#39; &amp;&amp; size &#x3D;&#x3D;&#x3D; 1) &#123;</span><br><span class="line">        return size;</span><br><span class="line">    &#125;</span><br><span class="line">    return deviceWidth &#x2F; 750 * size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/09/25/1569418383000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/09/25/articles/2019/09/25/1569418383000.html/" class="article-date">
-      <time datetime="2019-09-25T13:33:03.000Z" itemprop="datePublished">2019-09-25</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/09/25/articles/2019/09/25/1569418383000.html/">[react-native] 网络状态监听</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.cnblogs.com/yz1311/p/7651252.html" target="_blank">React Native组件系列之NetInfo</a></p>
-<p>贡献者为了不造成breaking changes，所以直接新增新的api，将前面的api改为黄色警告</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- &#96;fetch&#96;方法过时了，用&#96;getConnection&#96;替代</span><br><span class="line">- &#96;change&#96;事件过时了，用&#96;connectionchange&#96;替代.</span><br><span class="line">- &#96;fetch&#96;&#x2F;&#96;change&#96;过时了，用&#96;getConnection&#96;&#x2F;&#96;connectionchange&#96;替代。返回的枚举值也变了。具体查看下面的值</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2019/09/25/1569418382000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -932,6 +805,76 @@
       
           
         <p><a href="" target="_blank"></a></p>
+<p>xd的动效<br><a href="https://www.bilibili.com/video/av41378467" target="_blank">超人的电话亭公开课 - XD高级交互动画详解</a><br><a href="https://www.zcool.com.cn/article/ZODY1OTQ4.html" target="_blank">酸梅干超人</a></p>
+<p>素材<br><a href="" target="_blank"></a><br><a href="https://xd.94xy.com/sucai/list/1.html" target="_blank" rel="noopener">https://xd.94xy.com/sucai/list/1.html</a></p>
+<p>XD中文网<br><a href="" target="_blank"></a><br><a href="https://xd.94xy.com/" target="_blank" rel="noopener">https://xd.94xy.com/</a></p>
+<p>XD资源网<br><a href="" target="_blank"></a><br><a href="https://www.xdccpro.com/archives/1740" target="_blank" rel="noopener">https://www.xdccpro.com/archives/1740</a></p>
+<p>ui巴巴<br><a href="" target="_blank"></a><br><a href="http://www.uibaba.com/category/747.html" target="_blank" rel="noopener">http://www.uibaba.com/category/747.html</a></p>
+<p>爱果果<br><a href="" target="_blank"></a><br><a href="https://www.iguoguo.net/tag/xd" target="_blank" rel="noopener">https://www.iguoguo.net/tag/xd</a><br>爱果果新网站<br><a href="" target="_blank"></a><br><a href="https://www.doupir.com/downloads/xd/" target="_blank" rel="noopener">https://www.doupir.com/downloads/xd/</a></p>
+<p>按钮切换素材<br><a href="" target="_blank"></a><br><a href="https://www.doupir.com/%e6%98%bc%e5%a4%9c%e5%88%87%e6%8d%a2%e5%bc%80%e5%85%b3%e6%8c%89%e9%92%ae-xd%e7%b4%a0%e6%9d%90%e4%b8%8b%e8%bd%bd/" target="_blank" rel="noopener">https://www.doupir.com/%e6%98%bc%e5%a4%9c%e5%88%87%e6%8d%a2%e5%bc%80%e5%85%b3%e6%8c%89%e9%92%ae-xd%e7%b4%a0%e6%9d%90%e4%b8%8b%e8%bd%bd/</a></p>
+<p><a href="https://pan.baidu.com/s/1d7xRG4HtV4KJa0kreEeHQw" target="_blank" rel="noopener">https://pan.baidu.com/s/1d7xRG4HtV4KJa0kreEeHQw</a><br>v9de</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/09/25/1569418375000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/09/25/articles/2019/09/25/1569418375000.html/" class="article-date">
+      <time datetime="2019-09-25T13:32:55.000Z" itemprop="datePublished">2019-09-25</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/09/25/articles/2019/09/25/1569418375000.html/">[android] 监听usb插拔状态</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="" target="_blank"></a></p>
 <p>android 监听 USB 拔插广播消息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.iteye.com&#x2F;blog&#x2F;171151394-2197402</span><br></pre></td></tr></table></figure>
 
@@ -972,9 +915,96 @@
 
 
   
+    <article id="post-/articles/2019/09/25/1569418374000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/09/25/articles/2019/09/25/1569418374000.html/" class="article-date">
+      <time datetime="2019-09-25T13:32:54.000Z" itemprop="datePublished">2019-09-25</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/09/25/articles/2019/09/25/1569418374000.html/">[android] 查错</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/dengweijunkedafu/article/details/80541104" target="_blank">Manifest merger failed with multiple errors, see logs问题处理</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#首先进入命令行,输入命令</span><br><span class="line">gradlew processDebugManifest --stacktrace</span><br></pre></td></tr></table></figure>
+
+<p>问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error:resource android:style&#x2F;TextAppearance.Material.Widget.Button.Borderless.Colored not found</span><br></pre></td></tr></table></figure>
+<p>修改方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将compileSdkVersion修改成25，并将对应的buildToolsVersion修改成25.0.2即可</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: resource android:attr&#x2F;fontVariationSettings not found.error: resource android:attr&#x2F;ttcIndex</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.pianshen.com/article/5082200802/" target="_blank">参考</a></p>
+<p><a href="https://blog.csdn.net/weixin_43465451/article/details/83185112" target="_blank">Android Studio：resource android:attr/dialogCornerRadius not found 出错解决方案</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">configurations.all &#123;</span><br><span class="line">    resolutionStrategy &#123;</span><br><span class="line">        force &quot;com.android.support:appcompat-v7:27.1.1&quot;</span><br><span class="line">        force &quot;com.android.support:support-v4:27.1.1&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">android&#123;</span><br><span class="line">    compileSdkVersion 28</span><br><span class="line">    buildToolsVersion &#39;28.0.3&#39;</span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        minSdkVersion 16</span><br><span class="line">        targetSdkVersion 28</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>INSTALL_FAILED_NO_MATCHING_ABIS<br><a href="https://blog.csdn.net/Leafage_M/article/details/86675699" target="_blank">解决参考</a><br>app/build.gradle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    splits &#123;</span><br><span class="line">        abi &#123;</span><br><span class="line">            enable true</span><br><span class="line">            reset()</span><br><span class="line">            include &#39;x86&#39;, &#39;armeabi-v7a&#39;, &#39;x86_64&#39;</span><br><span class="line">            universalApk true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/csdnfengli/article/details/80695769" target="_blank">unable to resolve dependency for app@debugcompileClasspath</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">%USERPROFILE%\.gradle\gradle.properties</span><br><span class="line"></span><br><span class="line">#注释掉systemProp前缀</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">File -&gt; Project Structure... -&gt; app -&gt; Properties -&gt; Compile Sdk Version API 28</span><br><span class="line"></span><br><span class="line">com.android.support:appcompat-v7:28.+</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://blog.csdn.net/waplyj/article/details/80604700" target="_blank">CreateProcess error=2, 系统找不到指定的文件。</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">packagingOptions &#123;</span><br><span class="line">    doNotStrip &#39;*&#x2F;mips&#x2F;*.so&#39;</span><br><span class="line">    doNotStrip &#39;*&#x2F;mips64&#x2F;*.so&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/90/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/89/">89</a><a class="page-number" href="/page/90/">90</a><span class="page-number current">91</span><a class="page-number" href="/page/92/">92</a><a class="page-number" href="/page/93/">93</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><a class="extend next" rel="next" href="/page/92/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/90/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/89/">89</a><a class="page-number" href="/page/90/">90</a><span class="page-number current">91</span><a class="page-number" href="/page/92/">92</a><a class="page-number" href="/page/93/">93</a><span class="space">&hellip;</span><a class="page-number" href="/page/97/">97</a><a class="extend next" rel="next" href="/page/92/">Next &amp;raquo;</a>
     </nav>
   
 

@@ -283,143 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/09/22/1569133323000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/09/22/articles/2019/09/22/1569133323000.html/" class="article-date">
-      <time datetime="2019-09-22T06:22:03.000Z" itemprop="datePublished">2019-09-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/09/22/articles/2019/09/22/1569133323000.html/">[react-native] 屏幕适配工具</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/qq_20032995/article/details/78783889" target="_blank">宽、高，字体大小屏幕适配工具</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&#39;use strict&#39;</span><br><span class="line">import React from &#39;react&#39;;</span><br><span class="line">import &#123;Dimensions, PixelRatio&#125; from &#39;react-native&#39;;</span><br><span class="line"></span><br><span class="line">var utils &#x3D; &#123;</span><br><span class="line">    uiWidth: 375,&#x2F;&#x2F;这里的值，是设计稿中的宽度，你们根据自己的设计稿改动，本人拿到的设计稿是iphone6的</span><br><span class="line">    uiHeight: 667,&#x2F;&#x2F;这里的值，是设计稿中的高度，你们根据自己的设计稿改动，本人拿到的设计稿是iphone6的</span><br><span class="line">    pixel: 1 &#x2F; PixelRatio.get(),</span><br><span class="line">    screenWidth: Dimensions.get(&#39;window&#39;).width,</span><br><span class="line">    screenHeith: Dimensions.get(&#39;window&#39;).height,</span><br><span class="line">    pixelRatio: PixelRatio.get(),</span><br><span class="line">    fontScale: PixelRatio.getFontScale(),</span><br><span class="line">    scale: Math.min(Dimensions.get(&#39;window&#39;).height &#x2F; 667, Dimensions.get(&#39;window&#39;).width &#x2F; 375),</span><br><span class="line"></span><br><span class="line">    &#x2F;*宽度适配，例如我的设计稿某个样式宽度是50pt，那么使用就是：utils.autoWidth(50)*&#x2F;</span><br><span class="line">    autoWidth: function (value) &#123;</span><br><span class="line">        return Dimensions.get(&#39;window&#39;).width * value &#x2F; this.uiWidth;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x2F;*高度适配，例如我的设计稿某个样式高度是50pt，那么使用就是：utils.autoheight(50)*&#x2F;</span><br><span class="line">    autoheight: function (value) &#123;</span><br><span class="line">        return Dimensions.get(&#39;window&#39;).height * value &#x2F; this.uiHeight;</span><br><span class="line">    &#125;,</span><br><span class="line">    get: function (url, successCallback, failCallback) &#123;</span><br><span class="line">        fetch(url).then((response) &#x3D;&gt; response.text())</span><br><span class="line">            .then((responseText) &#x3D;&gt; &#123;</span><br><span class="line">                successCallback(JSON.parse(responseText));</span><br><span class="line">            &#125;).catch(function (err) &#123;</span><br><span class="line">            failCallback(err);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x2F;*字体大小适配，例如我的设计稿字体大小是17pt，那么使用就是：utils.setSpText(17)*&#x2F;</span><br><span class="line">    setSpText: function (number) &#123;</span><br><span class="line">        number &#x3D; Math.round((number * this.scale + 0.5) * this.pixelRatio &#x2F; this.fontScale);</span><br><span class="line">        return number &#x2F; PixelRatio.get();</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x2F;*通过value删除数组元素*&#x2F;</span><br><span class="line">    removeByValue: function (arr, value) &#123;</span><br><span class="line">        let i &#x3D; arr.length;</span><br><span class="line">        while (i--) &#123;</span><br><span class="line">            if (arr[i] &#x3D;&#x3D;&#x3D; value) &#123;</span><br><span class="line">                arr.splice(i, 1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x2F;*判断是否存在数组*&#x2F;</span><br><span class="line">    isInArray: function (arr, value) &#123;</span><br><span class="line">        let i &#x3D; arr.length;</span><br><span class="line">        while (i--) &#123;</span><br><span class="line">            if (arr[i] &#x3D;&#x3D;&#x3D; value) &#123;</span><br><span class="line">                return true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">module.exports &#x3D; utils;</span><br></pre></td></tr></table></figure>
-
-<p>ScreenUtil.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;lizhuoyuan&#x2F;ReactNativeScreenUtil&#x2F;blob&#x2F;master&#x2F;ScreenUtil.js</span><br></pre></td></tr></table></figure>
-
-<p>react-native 屏幕尺寸和文字大小适配<br><a href="https://blog.csdn.net/u011272795/article/details/73824558" target="_blank" rel="noopener">https://blog.csdn.net/u011272795/article/details/73824558</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * Created by zhuoy on 2017&#x2F;6&#x2F;27.</span><br><span class="line"> * 屏幕工具类</span><br><span class="line"> * ui设计基准,iphone 6</span><br><span class="line"> * width:750</span><br><span class="line"> * height:1334</span><br><span class="line"> *&#x2F;</span><br><span class="line"> </span><br><span class="line">&#x2F;**</span><br><span class="line"> 设备的像素密度，例如：</span><br><span class="line"> PixelRatio.get() &#x3D;&#x3D;&#x3D; 1          mdpi Android 设备 (160 dpi)</span><br><span class="line"> PixelRatio.get() &#x3D;&#x3D;&#x3D; 1.5        hdpi Android 设备 (240 dpi)</span><br><span class="line"> PixelRatio.get() &#x3D;&#x3D;&#x3D; 2          iPhone 4, 4S,iPhone 5, 5c, 5s,iPhone 6,xhdpi Android 设备 (320 dpi)</span><br><span class="line"> PixelRatio.get() &#x3D;&#x3D;&#x3D; 3          iPhone 6 plus , xxhdpi Android 设备 (480 dpi)</span><br><span class="line"> PixelRatio.get() &#x3D;&#x3D;&#x3D; 3.5        Nexus 6</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line">import &#123;</span><br><span class="line">    Dimensions,</span><br><span class="line">    PixelRatio,</span><br><span class="line">&#125; from &#39;react-native&#39;;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">export const deviceWidth &#x3D; Dimensions.get(&#39;window&#39;).width;      &#x2F;&#x2F;设备的宽度</span><br><span class="line">export const deviceHeight &#x3D; Dimensions.get(&#39;window&#39;).height;    &#x2F;&#x2F;设备的高度</span><br><span class="line">let fontScale &#x3D; PixelRatio.getFontScale();                      &#x2F;&#x2F;返回字体大小缩放比例</span><br><span class="line"> </span><br><span class="line">let pixelRatio &#x3D; PixelRatio.get();      &#x2F;&#x2F;当前设备的像素密度</span><br><span class="line">const defaultPixel &#x3D; 2;                           &#x2F;&#x2F;iphone6的像素密度</span><br><span class="line">&#x2F;&#x2F;px转换成dp</span><br><span class="line">const w2 &#x3D; 750 &#x2F; defaultPixel;</span><br><span class="line">const h2 &#x3D; 1334 &#x2F; defaultPixel;</span><br><span class="line">const scale &#x3D; Math.min(deviceHeight &#x2F; h2, deviceWidth &#x2F; w2);   &#x2F;&#x2F;获取缩放比例</span><br><span class="line">&#x2F;**</span><br><span class="line"> * 设置text为sp</span><br><span class="line"> * @param size sp</span><br><span class="line"> * return number dp</span><br><span class="line"> *&#x2F;</span><br><span class="line">export function setSpText(size: number) &#123;</span><br><span class="line">    size &#x3D; Math.round((size * scale + 0.5) * pixelRatio &#x2F; fontScale);</span><br><span class="line">    return size &#x2F; defaultPixel;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">export function scaleSize(size: number) &#123;</span><br><span class="line"> </span><br><span class="line">    size &#x3D; Math.round(size * scale + 0.5);</span><br><span class="line">    return size &#x2F; defaultPixel;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/09/22/1569133322000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/09/22/articles/2019/09/22/1569133322000.html/" class="article-date">
-      <time datetime="2019-09-22T06:22:02.000Z" itemprop="datePublished">2019-09-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/09/22/articles/2019/09/22/1569133322000.html/">[react-native] 轮播图</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.npmjs.com/package/react-native-snap-carousel" target="_blank">npmjs介绍 react-native-snap-carousel</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-native-snap-carousel</span><br></pre></td></tr></table></figure>
-
-<p>MyCarousel.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import Carousel from &#39;react-native-snap-carousel&#39;;</span><br><span class="line"> </span><br><span class="line">export class MyCarousel extends Component &#123;</span><br><span class="line"> </span><br><span class="line">    _renderItem (&#123;item, index&#125;) &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;View style&#x3D;&#123;styles.slide&#125;&gt;</span><br><span class="line">                &lt;Text style&#x3D;&#123;styles.title&#125;&gt;&#123; item.title &#125;&lt;&#x2F;Text&gt;</span><br><span class="line">            &lt;&#x2F;View&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    render () &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;Carousel</span><br><span class="line">              ref&#x3D;&#123;(c) &#x3D;&gt; &#123; this._carousel &#x3D; c; &#125;&#125;</span><br><span class="line">              data&#x3D;&#123;this.state.entries&#125;</span><br><span class="line">              renderItem&#x3D;&#123;this._renderItem&#125;</span><br><span class="line">              sliderWidth&#x3D;&#123;sliderWidth&#125;</span><br><span class="line">              itemWidth&#x3D;&#123;itemWidth&#125;</span><br><span class="line">            &#x2F;&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.jianshu.com/p/84294bf95f3a" target="_blank">轮播切换图片显示白屏(react-native-swiper|react-native-snap-carousel)</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2019/09/22/1569133319000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -935,9 +798,137 @@
 
 
   
+    <article id="post-/articles/2019/09/22/1569133311000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/09/22/articles/2019/09/22/1569133311000.html/" class="article-date">
+      <time datetime="2019-09-22T06:21:51.000Z" itemprop="datePublished">2019-09-22</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/09/22/articles/2019/09/22/1569133311000.html/">[react-native] 倒计时组件</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="ttps://jsonz1993.github.io/2017/06/react-native-countdown-RN%E7%9A%84%E5%80%92%E8%AE%A1%E6%97%B6%E7%BB%84%E4%BB%B6/" target="_blank">react-native-countdown RN的倒计时组件</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/09/22/1569133310000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/09/22/articles/2019/09/22/1569133310000.html/" class="article-date">
+      <time datetime="2019-09-22T06:21:50.000Z" itemprop="datePublished">2019-09-22</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/09/22/articles/2019/09/22/1569133310000.html/">[react-native] 倒计时工具</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.jb51.net/article/126670.htm" target="_blank">React Native验证码倒计时工具类分享</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">export default class CountdownUtil &#123;</span><br><span class="line"></span><br><span class="line">  &#x2F;** 定时器 *&#x2F;</span><br><span class="line">  interval &#x3D; null;</span><br><span class="line"></span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 创建定时器</span><br><span class="line">   *</span><br><span class="line">   *&#x2F;</span><br><span class="line">  static setTimer(countdownDate, callbak) &#123;</span><br><span class="line">    this.interval &#x3D; setInterval(() &#x3D;&gt; &#123;</span><br><span class="line">      let time &#x3D; this.getDateData(countdownDate)</span><br><span class="line">      callbak &amp;&amp; callbak(time)</span><br><span class="line">    &#125;, 1000)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 侄计时计算 --&gt; 通过此方法计算,可以解决应用退出后台的时候,定时器不走</span><br><span class="line">   * @param countdownDate</span><br><span class="line">   * @return &#123;*&#125;</span><br><span class="line">   *&#x2F;</span><br><span class="line">  static getDateData(countdownDate) &#123;</span><br><span class="line">    let diff &#x3D; (Date.parse(new Date(countdownDate)) - Date.parse(new Date)) &#x2F; 1000;</span><br><span class="line"></span><br><span class="line">    if (diff &lt;&#x3D; 0) &#123;</span><br><span class="line">     this.stop() &#x2F;&#x2F; 倒计时为0的时候, 将计时器清除</span><br><span class="line">      return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    const timeLeft &#x3D; &#123;</span><br><span class="line">      years: 0,</span><br><span class="line">      days: 0,</span><br><span class="line">      hours: 0,</span><br><span class="line">      min: 0,</span><br><span class="line">      sec: 0,</span><br><span class="line">      millisec: 0,</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    if (diff &gt;&#x3D; (365.25 * 86400)) &#123;</span><br><span class="line">      timeLeft.years &#x3D; Math.floor(diff &#x2F; (365.25 * 86400));</span><br><span class="line">      diff -&#x3D; timeLeft.years * 365.25 * 86400;</span><br><span class="line">    &#125;</span><br><span class="line">    if (diff &gt;&#x3D; 86400) &#123;</span><br><span class="line">      timeLeft.days &#x3D; Math.floor(diff &#x2F; 86400);</span><br><span class="line">      diff -&#x3D; timeLeft.days * 86400;</span><br><span class="line">    &#125;</span><br><span class="line">    if (diff &gt;&#x3D; 3600) &#123;</span><br><span class="line">      timeLeft.hours &#x3D; Math.floor(diff &#x2F; 3600);</span><br><span class="line">      diff -&#x3D; timeLeft.hours * 3600;</span><br><span class="line">    &#125;</span><br><span class="line">    if (diff &gt;&#x3D; 60) &#123;</span><br><span class="line">      timeLeft.min &#x3D; Math.floor(diff &#x2F; 60);</span><br><span class="line">      diff -&#x3D; timeLeft.min * 60;</span><br><span class="line">    &#125;</span><br><span class="line">    timeLeft.sec &#x3D; diff;</span><br><span class="line">    return timeLeft;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 数字补零 --&gt; 例: 00时01分59秒</span><br><span class="line">   * @param num</span><br><span class="line">   * @param length</span><br><span class="line">   * @return &#123;*&#125;</span><br><span class="line">   *&#x2F;</span><br><span class="line">  static leadingZeros(num, length &#x3D; null) &#123;</span><br><span class="line"></span><br><span class="line">    let length_ &#x3D; length;</span><br><span class="line">    let num_ &#x3D; num;</span><br><span class="line">    if (length_ &#x3D;&#x3D;&#x3D; null) &#123;</span><br><span class="line">      length_ &#x3D; 2;</span><br><span class="line">    &#125;</span><br><span class="line">    num_ &#x3D; String(num_);</span><br><span class="line">    while (num_.length &lt; length_) &#123;</span><br><span class="line">      num_ &#x3D; &#39;0&#39; + num_;</span><br><span class="line">    &#125;</span><br><span class="line">    return num_;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &#x2F;** 清除定时器 *&#x2F;</span><br><span class="line">  static stop() &#123;</span><br><span class="line">    clearInterval(this.interval);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 倒计时时间</span><br><span class="line">let countdownDate &#x3D; new Date(new Date().getTime() + 60 * 1000)</span><br><span class="line"></span><br><span class="line">CountdownUtil.settimer(countdownDate, (time) &#x3D;&gt; &#123;</span><br><span class="line">  this.setState(&#123;</span><br><span class="line">    timerTitle: time.sec &gt; 0 ? time.sec + &#39;s&#39; : &#39;重新获取&#39;</span><br><span class="line">  &#125;, () &#x3D;&gt; &#123;</span><br><span class="line">    if (this.state.timerTitle &#x3D;&#x3D; &quot;重新获取&quot;) &#123;</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">        isSentVerify: true</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">componentWillUnmount() &#123;</span><br><span class="line">   CountdownUtil.stop()</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/93/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/92/">92</a><a class="page-number" href="/page/93/">93</a><span class="page-number current">94</span><a class="page-number" href="/page/95/">95</a><a class="page-number" href="/page/96/">96</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><a class="extend next" rel="next" href="/page/95/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/93/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/92/">92</a><a class="page-number" href="/page/93/">93</a><span class="page-number current">94</span><a class="page-number" href="/page/95/">95</a><a class="page-number" href="/page/96/">96</a><a class="page-number" href="/page/97/">97</a><a class="extend next" rel="next" href="/page/95/">Next &amp;raquo;</a>
     </nav>
   
 

@@ -283,152 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2019/10/29/1572350154000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/29/articles/2019/10/29/1572350154000.html/" class="article-date">
-      <time datetime="2019-10-29T11:55:54.000Z" itemprop="datePublished">2019-10-29</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350154000.html/">[qt] 图片预览</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/douzhq/article/details/84933222" target="_blank">Qt 图片预览（等比例显示、放大、缩小、平移图像）显示</a></p>
-<pre><code></code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/29/1572350153000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/29/articles/2019/10/29/1572350153000.html/" class="article-date">
-      <time datetime="2019-10-29T11:55:53.000Z" itemprop="datePublished">2019-10-29</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350153000.html/">[qt] 通讯录</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/qq_37233607/article/details/79119867" target="_blank">通讯录小demo(附全源码)</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">该程序主要实现了以下几个功能: </span><br><span class="line">1.对QListWidget子项的显示进行了修改,同时显示了姓名,电话,地址,头像等</span><br><span class="line">2.在QListWidget控件的不同位置点击右键菜单,产生不同的菜单提供给用户操作</span><br><span class="line">3.在添加用户的对话框中,对电话输入框进行了输入限制</span><br><span class="line">4.用户可以自己提供图片作为头像,窗口对外来图片的操作</span><br></pre></td></tr></table></figure>
-
-<p>c.h</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#ifndef C_H</span><br><span class="line">#define C_H</span><br><span class="line"></span><br><span class="line">#include &lt;QtWidgets&#x2F;QWidget&gt;</span><br><span class="line">#include &quot;ui_c.h&quot;</span><br><span class="line">#include &lt;QListWidget&gt;</span><br><span class="line">#include &lt;QListWidgetItem&gt;</span><br><span class="line">#include &lt;QHBoxLayout&gt;</span><br><span class="line">#include &quot;MyItemDrawer.h&quot;</span><br><span class="line">#include &lt;QMenu&gt;</span><br><span class="line">#include &quot;PeopleMesDialog.h&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class c : public QWidget</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    c(QWidget *parent &#x3D; 0);</span><br><span class="line">    ~c();</span><br><span class="line">    QListWidgetItem* c::setItemValue(QString name, QString phone, QString address, QString pixmap);</span><br><span class="line">    void c::insertPeoMes(QString name, QString phone, QString address, QString pixmap);</span><br><span class="line">    void c::addPeoMes(QString name, QString phone, QString address, QString pixmap);</span><br><span class="line">private slots:</span><br><span class="line">    void showContextMenuSlot(const QPoint&amp;);</span><br><span class="line">    void addItemSlot();</span><br><span class="line">    void insertItemSlot();</span><br><span class="line">    void delItemSlot();</span><br><span class="line">private:</span><br><span class="line">    Ui::cClass ui;</span><br><span class="line">    QListWidget *m_listWidget;</span><br><span class="line">    QMenu *m_menu;</span><br><span class="line">    QAction *m_addAction;</span><br><span class="line">    QAction *m_delAction;</span><br><span class="line">    QAction *m_insertAction;</span><br><span class="line">    PeopleMesDialog *m_dialog;</span><br><span class="line"></span><br><span class="line">    QListWidgetItem *m_selectedItem;</span><br><span class="line">    int m_insertIndex;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif &#x2F;&#x2F; C_H</span><br></pre></td></tr></table></figure>
-
-<p>c.cpp</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;c.h&quot;</span><br><span class="line"></span><br><span class="line">c::c(QWidget *parent)</span><br><span class="line">    : QWidget(parent)</span><br><span class="line">&#123;</span><br><span class="line">    ui.setupUi(this);</span><br><span class="line"></span><br><span class="line">    this-&gt;setWindowTitle(QString::fromLocal8Bit(&quot;通讯录&quot;));</span><br><span class="line">    this-&gt;setFixedSize(300,600);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;初始化对象.</span><br><span class="line">    m_dialog &#x3D; new PeopleMesDialog(this);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;初始化容器和布局.</span><br><span class="line">    m_listWidget &#x3D; new QListWidget();</span><br><span class="line">    QHBoxLayout *layout &#x3D; new QHBoxLayout(this);</span><br><span class="line">    layout-&gt;addWidget(m_listWidget);</span><br><span class="line"></span><br><span class="line">    addPeoMes(&quot;st&quot;, &quot;15158047646&quot;, QString::fromLocal8Bit(&quot;杭州滨江xxx号&quot;), &quot;&quot;);</span><br><span class="line">    addPeoMes(QString::fromLocal8Bit(&quot;成龙&quot;), &quot;15158047647&quot;, QString::fromLocal8Bit(&quot;北京xxx号&quot;), &quot;&quot;);</span><br><span class="line">    addPeoMes(QString::fromLocal8Bit(&quot;刘德华&quot;), &quot;15158047648&quot;, QString::fromLocal8Bit(&quot;香港xxx号&quot;), &quot;&quot;);</span><br><span class="line">    addPeoMes(QString::fromLocal8Bit(&quot;古天乐&quot;), &quot;15158047649&quot;, QString::fromLocal8Bit(&quot;湖南滨江xxx号&quot;), &quot;&quot;);</span><br><span class="line">    addPeoMes(QString::fromLocal8Bit(&quot;张家辉&quot;), &quot;15158047650&quot;, QString::fromLocal8Bit(&quot;贪玩蓝月xxx号&quot;), &quot;&quot;);</span><br><span class="line"></span><br><span class="line">    m_listWidget-&gt;setItemDelegate(new MyItemDrawer(m_listWidget));</span><br><span class="line">    m_listWidget-&gt;setContextMenuPolicy(Qt::CustomContextMenu);</span><br><span class="line"></span><br><span class="line">    m_addAction &#x3D; new QAction(QString::fromLocal8Bit(&quot;新增&quot;), this);</span><br><span class="line">    m_delAction &#x3D; new QAction(QString::fromLocal8Bit(&quot;删除&quot;), this);</span><br><span class="line">    m_insertAction &#x3D; new QAction(QString::fromLocal8Bit(&quot;插入&quot;), this);</span><br><span class="line"></span><br><span class="line">    connect(m_listWidget, SIGNAL(customContextMenuRequested(const QPoint&amp;)), this, SLOT(showContextMenuSlot(const QPoint&amp;)));</span><br><span class="line">    connect(m_addAction, SIGNAL(triggered()), this, SLOT(addItemSlot()));</span><br><span class="line">    connect(m_insertAction, SIGNAL(triggered()), this, SLOT(insertItemSlot()));</span><br><span class="line">    connect(m_delAction, SIGNAL(triggered()), this, SLOT(delItemSlot()));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">c::~c()</span><br><span class="line">&#123;</span><br><span class="line">    delete m_listWidget;</span><br><span class="line">&#125;</span><br><span class="line">void c::showContextMenuSlot(const QPoint&amp; pos)</span><br><span class="line">&#123;</span><br><span class="line">    m_menu &#x3D; new QMenu;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;如果鼠标在项上.</span><br><span class="line">    if (m_listWidget-&gt;itemAt(pos))</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;记录.</span><br><span class="line">        m_selectedItem &#x3D; m_listWidget-&gt;itemAt(pos);</span><br><span class="line">        m_insertIndex &#x3D; m_listWidget-&gt;row(m_selectedItem);</span><br><span class="line"></span><br><span class="line">        m_menu-&gt;addAction(m_insertAction);</span><br><span class="line">        m_menu-&gt;addAction(m_delAction);</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        m_menu-&gt;addAction(m_addAction);</span><br><span class="line">    &#125;</span><br><span class="line">    m_menu-&gt;exec(QCursor::pos());</span><br><span class="line">&#125;</span><br><span class="line">void c::addItemSlot()</span><br><span class="line">&#123;</span><br><span class="line">    int status &#x3D; m_dialog-&gt;exec();</span><br><span class="line">    &#x2F;&#x2F;如果用户选择的是保存.</span><br><span class="line">    if (status &#x3D;&#x3D; QDialog::Accepted)</span><br><span class="line">    &#123;</span><br><span class="line">        QString name &#x3D; m_dialog-&gt;getName();</span><br><span class="line">        QString phone &#x3D; m_dialog-&gt;getPhone();</span><br><span class="line">        QString address &#x3D; m_dialog-&gt;getAddress();</span><br><span class="line">        QString image &#x3D; m_dialog-&gt;getImage();</span><br><span class="line">        auto item &#x3D; setItemValue(name, phone, address, image);</span><br><span class="line">        m_listWidget-&gt;addItem(item);</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;进行清空处理.</span><br><span class="line">    m_dialog-&gt;clear();</span><br><span class="line">&#125;</span><br><span class="line">void c::insertItemSlot()</span><br><span class="line">&#123;</span><br><span class="line">    int status &#x3D; m_dialog-&gt;exec();</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;如果用户选择的是保存.</span><br><span class="line">    if (status &#x3D;&#x3D; QDialog::Accepted)</span><br><span class="line">    &#123;</span><br><span class="line">        QString name &#x3D; m_dialog-&gt;getName();</span><br><span class="line">        QString phone &#x3D; m_dialog-&gt;getPhone();</span><br><span class="line">        QString address &#x3D; m_dialog-&gt;getAddress();</span><br><span class="line">        QString image &#x3D; m_dialog-&gt;getImage();</span><br><span class="line">        auto item &#x3D; setItemValue(name, phone, address, image);</span><br><span class="line">        m_listWidget-&gt;insertItem(m_insertIndex - 1, item);</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;进行清空处理.</span><br><span class="line">    m_dialog-&gt;clear();</span><br><span class="line">&#125;</span><br><span class="line">void c::delItemSlot()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;删除选中项.</span><br><span class="line">    int index &#x3D; m_listWidget-&gt;row(m_selectedItem);</span><br><span class="line">    QListWidgetItem *tempItem &#x3D; m_listWidget-&gt;takeItem(index);</span><br><span class="line">    delete tempItem;</span><br><span class="line">    m_selectedItem &#x3D; NULL;</span><br><span class="line">&#125;</span><br><span class="line">QListWidgetItem* c::setItemValue(QString name, QString phone, QString address, QString pixmap)</span><br><span class="line">&#123;</span><br><span class="line">    QListWidgetItem *item &#x3D; new QListWidgetItem();</span><br><span class="line"></span><br><span class="line">    item-&gt;setData(Qt::UserRole, name);</span><br><span class="line">    item-&gt;setData(Qt::UserRole + 1, phone);</span><br><span class="line">    item-&gt;setData(Qt::UserRole + 2, address);</span><br><span class="line">    item-&gt;setData(Qt::UserRole + 3, pixmap);</span><br><span class="line"></span><br><span class="line">    return item;</span><br><span class="line">&#125;</span><br><span class="line">void c::insertPeoMes(QString name, QString phone, QString address, QString pixmap)</span><br><span class="line">&#123;</span><br><span class="line">    auto item &#x3D; setItemValue(name, phone, address, pixmap);</span><br><span class="line">    m_listWidget-&gt;insertItem(m_insertIndex, item);</span><br><span class="line">&#125;</span><br><span class="line">void c::addPeoMes(QString name, QString phone, QString address, QString pixmap)</span><br><span class="line">&#123;</span><br><span class="line">    auto item &#x3D; setItemValue(name, phone, address, pixmap);</span><br><span class="line">    m_listWidget-&gt;addItem(item);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对委托的自定义操作<br>MyItemDrawer.h</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#ifndef MYITEMDRAWER_H</span><br><span class="line">#define MYITEMDRAWER_H</span><br><span class="line"></span><br><span class="line">#include &lt;QStyledItemDelegate&gt;</span><br><span class="line">#include &lt;QPainter&gt;</span><br><span class="line"></span><br><span class="line">class MyItemDrawer : public QStyledItemDelegate</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    MyItemDrawer(QObject *parent &#x3D; 0);</span><br><span class="line">    ~MyItemDrawer();</span><br><span class="line">private:</span><br><span class="line">    &#x2F;&#x2F; 决定该单元格的推荐大小</span><br><span class="line">    virtual QSize  sizeHint(const QStyleOptionViewItem &amp; option,const QModelIndex &amp; index) const;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 决定如何绘图</span><br><span class="line">    virtual void  paint(QPainter * painter,const QStyleOptionViewItem &amp; option,const QModelIndex &amp; index) const;</span><br><span class="line">private:</span><br><span class="line">    mutable QPixmap m_defaultPixmap;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif &#x2F;&#x2F; MYITEMDRAWER_H</span><br></pre></td></tr></table></figure>
-
-<p>MyItemDrawer.cpp</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;MyItemDrawer.h&quot;</span><br><span class="line"></span><br><span class="line">MyItemDrawer::MyItemDrawer(QObject *parent)</span><br><span class="line">    : QStyledItemDelegate(parent)</span><br><span class="line">&#123;</span><br><span class="line">    m_defaultPixmap.load(&quot;.&#x2F;Pixmaps&#x2F;default.png&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyItemDrawer::~MyItemDrawer()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">QSize MyItemDrawer::sizeHint(const QStyleOptionViewItem &amp; option, const QModelIndex &amp; index) const</span><br><span class="line">&#123;</span><br><span class="line">    QSize  size &#x3D; QStyledItemDelegate::sizeHint(option, index);</span><br><span class="line">    size.setHeight(80);</span><br><span class="line">    return size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 决定如何绘图</span><br><span class="line">void MyItemDrawer::paint(QPainter * painter, const QStyleOptionViewItem &amp; option, const QModelIndex &amp; index) const</span><br><span class="line">&#123;</span><br><span class="line">    QRect rect &#x3D; option.rect; &#x2F;&#x2F; 目标矩形</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 取得该项对应的数据</span><br><span class="line">    QString name &#x3D; index.data(Qt::UserRole).toString();</span><br><span class="line">    QString address &#x3D; index.data(Qt::UserRole + 1).toString();</span><br><span class="line">    QString phone &#x3D; index.data(Qt::UserRole + 2).toString();</span><br><span class="line">    QString fileName &#x3D; index.data(Qt::UserRole + 3).toString();</span><br><span class="line"></span><br><span class="line">    if (fileName.trimmed().isEmpty())</span><br><span class="line">        m_defaultPixmap.load(&quot;.&#x2F;Pixmaps&#x2F;default.png&quot;);</span><br><span class="line">    else</span><br><span class="line">        m_defaultPixmap.load(fileName);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;在进行图片处理.</span><br><span class="line">    m_defaultPixmap &#x3D; m_defaultPixmap.scaled(70, 70);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 状态显示: 若该项被选中</span><br><span class="line">    if (option.state &amp; QStyle::State_Selected)</span><br><span class="line">    &#123;</span><br><span class="line">        painter-&gt;setBrush(Qt::gray);</span><br><span class="line">        painter-&gt;drawRoundedRect(rect, 2, 2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;画头像.头像长和高都为70.</span><br><span class="line">    QRect area(rect.topLeft(),QPoint(70, 70));</span><br><span class="line">    painter-&gt;drawPixmap(area, m_defaultPixmap);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 画名字.</span><br><span class="line">    QPoint pos &#x3D; rect.topLeft() + QPoint(100, 20);</span><br><span class="line">    painter-&gt;drawText(pos, QString::fromLocal8Bit(&quot;姓名:&quot;) + name);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;画电话.</span><br><span class="line">    pos &#x3D; rect.topLeft() + QPoint(100, 40);</span><br><span class="line">    painter-&gt;drawText(pos, QString::fromLocal8Bit(&quot;电话:&quot;) + phone);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;画地址.</span><br><span class="line">    pos &#x3D; rect.topLeft() + QPoint(100, 60);</span><br><span class="line">    painter-&gt;drawText(pos, QString::fromLocal8Bit(&quot;地址:&quot;) + address);</span><br><span class="line"></span><br><span class="line">    m_defaultPixmap.load(&quot;.&#x2F;Pixmaps&#x2F;default.png&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>添加用户对话框<br>PeopleMesDialog.h</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">#ifndef PEOPLEMESDIALOG_H</span><br><span class="line">#define PEOPLEMESDIALOG_H</span><br><span class="line"></span><br><span class="line">#include &lt;QDialog&gt;</span><br><span class="line">#include &quot;ui_PeopleMesDialog.h&quot;</span><br><span class="line">#include &lt;QIntValidator&gt;</span><br><span class="line">#include &lt;QRegExp&gt;</span><br><span class="line">#include &lt;QMessageBox&gt;</span><br><span class="line">#include &lt;QMimeData&gt;</span><br><span class="line">#include &lt;QDragEnterEvent&gt;</span><br><span class="line">#include &lt;QDropEvent&gt;</span><br><span class="line"></span><br><span class="line">class PeopleMesDialog : public QDialog</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">    typedef enum</span><br><span class="line">    &#123;</span><br><span class="line">        tag_Cancel &#x3D; 0,</span><br><span class="line">        tag_Saved &#x3D; 1</span><br><span class="line">    &#125;Tag_status;</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    PeopleMesDialog(QWidget *parent &#x3D; 0);</span><br><span class="line">    ~PeopleMesDialog();</span><br><span class="line">    QString getName();</span><br><span class="line">    QString getPhone();</span><br><span class="line">    QString getAddress();</span><br><span class="line">    QString getImage();</span><br><span class="line">    void clear();</span><br><span class="line">protected:</span><br><span class="line">    void dragEnterEvent(QDragEnterEvent *event);</span><br><span class="line">    void dragMoveEvent(QDragMoveEvent *event);</span><br><span class="line">    void dropEvent(QDropEvent *event);</span><br><span class="line">private slots:</span><br><span class="line">    void onSaveButtonSlot();</span><br><span class="line">    void clearPictureSlot();</span><br><span class="line">private:</span><br><span class="line">    Ui::PeopleMesDialog ui;</span><br><span class="line">    int m_status;</span><br><span class="line">    QString m_picturePath;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif &#x2F;&#x2F; PEOPLEMESDIALOG_H</span><br></pre></td></tr></table></figure>
-
-<p>PeopleMesDialog.cpp</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;PeopleMesDialog.h&quot;</span><br><span class="line"></span><br><span class="line">PeopleMesDialog::PeopleMesDialog(QWidget *parent)</span><br><span class="line">    : QDialog(parent)</span><br><span class="line">&#123;</span><br><span class="line">    ui.setupUi(this);</span><br><span class="line">    this-&gt;setAcceptDrops(true);</span><br><span class="line">    this-&gt;setWindowTitle(QString::fromLocal8Bit(&quot;增加用户&quot;));</span><br><span class="line">    m_status &#x3D; 0;</span><br><span class="line">    m_picturePath &#x3D; &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    ui.pictureLabel-&gt;setAlignment(Qt::AlignCenter);</span><br><span class="line">    ui.pictureLabel-&gt;setText(QString::fromLocal8Bit(&quot;你可以拖动图片进来&quot;));</span><br><span class="line">    ui.pictureLabel-&gt;setFrameShape(QFrame::StyledPanel);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;设置简单的验证器.</span><br><span class="line">    QIntValidator *validator &#x3D; new QIntValidator();</span><br><span class="line">    QRegExp regexp(&quot;[0-9]&#123;11,11&#125;&quot;);</span><br><span class="line">    ui.phoneLineEdit-&gt;setValidator(new QRegExpValidator(regexp));</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;连接信号与槽.</span><br><span class="line">    connect(ui.saveButton, SIGNAL(clicked()), this, SLOT(onSaveButtonSlot()));</span><br><span class="line">    connect(ui.cancelButton, SIGNAL(clicked()), this, SLOT(close()));</span><br><span class="line">    connect(ui.clearButton,SIGNAL(clicked()), this, SLOT(clearPictureSlot()));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">PeopleMesDialog::~PeopleMesDialog()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">void PeopleMesDialog::onSaveButtonSlot()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;对用户的输入进行判断.</span><br><span class="line">    if (ui.addressLineEdit-&gt;text().trimmed().isEmpty())</span><br><span class="line">    &#123;</span><br><span class="line">        QMessageBox::warning(this, &quot;warning&quot;, QString::fromLocal8Bit(&quot;地址不能为空!&quot;));</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    if (ui.nameLineEdit-&gt;text().trimmed().isEmpty())</span><br><span class="line">    &#123;</span><br><span class="line">        QMessageBox::warning(this, &quot;warning&quot;, QString::fromLocal8Bit(&quot;姓名不能为空!&quot;));</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    if (!ui.phoneLineEdit-&gt;hasAcceptableInput())</span><br><span class="line">    &#123;</span><br><span class="line">        QMessageBox::warning(this, &quot;warning&quot;, QString::fromLocal8Bit(&quot;手机号码必须为11位的!&quot;));</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;对标识符进行修改.</span><br><span class="line">    m_status &#x3D; tag_Saved;</span><br><span class="line">    this-&gt;accept();</span><br><span class="line">&#125;</span><br><span class="line">QString PeopleMesDialog::getName()</span><br><span class="line">&#123;</span><br><span class="line">    if (m_status)</span><br><span class="line">        return ui.nameLineEdit-&gt;text().trimmed();</span><br><span class="line">    return NULL;</span><br><span class="line">&#125;</span><br><span class="line">QString PeopleMesDialog::getPhone()</span><br><span class="line">&#123;</span><br><span class="line">    if (m_status)</span><br><span class="line">        return ui.phoneLineEdit-&gt;text().trimmed();</span><br><span class="line">    return NULL;</span><br><span class="line">&#125;</span><br><span class="line">QString PeopleMesDialog::getAddress()</span><br><span class="line">&#123;</span><br><span class="line">    if (m_status)</span><br><span class="line">        return ui.addressLineEdit-&gt;text().trimmed();</span><br><span class="line">    return NULL;</span><br><span class="line">&#125;</span><br><span class="line">QString PeopleMesDialog::getImage()</span><br><span class="line">&#123;</span><br><span class="line">    if (m_status)</span><br><span class="line">    &#123;</span><br><span class="line">        return m_picturePath;</span><br><span class="line">    &#125;</span><br><span class="line">    return NULL;</span><br><span class="line">&#125;</span><br><span class="line">void PeopleMesDialog::clear()</span><br><span class="line">&#123;</span><br><span class="line">    m_status &#x3D; 0;</span><br><span class="line">    m_picturePath &#x3D; &quot;&quot;;</span><br><span class="line">    ui.nameLineEdit-&gt;clear();</span><br><span class="line">    ui.addressLineEdit-&gt;clear();</span><br><span class="line">    ui.phoneLineEdit-&gt;clear();</span><br><span class="line">    ui.pictureLabel-&gt;clear();</span><br><span class="line">&#125;</span><br><span class="line">void PeopleMesDialog::dragEnterEvent(QDragEnterEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    if (event-&gt;mimeData()-&gt;hasUrls())</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;设置为移动动作,并且接受.</span><br><span class="line">        event-&gt;setDropAction(Qt::MoveAction);</span><br><span class="line">        event-&gt;accept();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void PeopleMesDialog::dragMoveEvent(QDragMoveEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    if (event-&gt;mimeData()-&gt;hasUrls())</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;设置为移动动作,并且接受.</span><br><span class="line">        event-&gt;setDropAction(Qt::MoveAction);</span><br><span class="line">        event-&gt;accept();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void PeopleMesDialog::dropEvent(QDropEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    QPoint baseMapPoint &#x3D; ui.pictureLabel-&gt;mapFromParent(event-&gt;pos());</span><br><span class="line">    QSize size &#x3D; ui.pictureLabel-&gt;size();</span><br><span class="line">    QRect rect(QPoint(0,0),QPoint(size.width(),size.height()));</span><br><span class="line">    if (rect.contains(baseMapPoint))</span><br><span class="line">    &#123;</span><br><span class="line">        QString path &#x3D; event-&gt;mimeData()-&gt;urls().at(0).toLocalFile();</span><br><span class="line">        QPixmap pixmap(path);</span><br><span class="line">        if (pixmap.isNull())</span><br><span class="line">            return;</span><br><span class="line">        m_picturePath &#x3D; path;</span><br><span class="line">        ui.pictureLabel-&gt;setPixmap(QPixmap(path));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void PeopleMesDialog::clearPictureSlot()</span><br><span class="line">&#123;</span><br><span class="line">    ui.pictureLabel-&gt;clear();</span><br><span class="line">    ui.pictureLabel-&gt;setText(QString::fromLocal8Bit(&quot;你可以拖动图片进来&quot;));</span><br><span class="line">    m_picturePath &#x3D; &quot;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>main.cpp</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;c.h&quot;</span><br><span class="line">#include &lt;QtWidgets&#x2F;QApplication&gt;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    QApplication a(argc, argv);</span><br><span class="line">    c w;</span><br><span class="line">    w.show();</span><br><span class="line">    return a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2019/10/29/1572350152000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -935,9 +789,137 @@
 
 
   
+    <article id="post-/articles/2019/10/29/1572350143000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/29/articles/2019/10/29/1572350143000.html/" class="article-date">
+      <time datetime="2019-10-29T11:55:43.000Z" itemprop="datePublished">2019-10-29</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350143000.html/">[qt] 局域网五子棋游戏</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/qq_32815807/article/details/78389453" target="_blank">csdn - Qt实现的局域网对战五子棋</a><br><a href="https://segmentfault.com/a/1190000011769956" target="_blank">segmentfault - Qt实现的局域网对战五子棋</a><br><a href="https://github.com/BENULL/GoBang" target="_blank">github GoBang</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/29/1572350141000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/29/articles/2019/10/29/1572350141000.html/" class="article-date">
+      <time datetime="2019-10-29T11:55:41.000Z" itemprop="datePublished">2019-10-29</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/29/articles/2019/10/29/1572350141000.html/">[qt] 基本图形绘制：圆、圆角矩形、圆弧、椭圆、扇形</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.cnblogs.com/lifexy/p/9203929.html" target="_blank">QT-QPainter介绍</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/qq_40194498/article/details/79650641" target="_blank">Qt基本图形绘制（圆、圆角矩形、圆弧、椭圆、扇形等）</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/69/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/68/">68</a><a class="page-number" href="/page/69/">69</a><span class="page-number current">70</span><a class="page-number" href="/page/71/">71</a><a class="page-number" href="/page/72/">72</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><a class="extend next" rel="next" href="/page/71/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/69/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/68/">68</a><a class="page-number" href="/page/69/">69</a><span class="page-number current">70</span><a class="page-number" href="/page/71/">71</a><a class="page-number" href="/page/72/">72</a><span class="space">&hellip;</span><a class="page-number" href="/page/97/">97</a><a class="extend next" rel="next" href="/page/71/">Next &amp;raquo;</a>
     </nav>
   
 

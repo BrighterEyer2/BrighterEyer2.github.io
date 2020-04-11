@@ -283,131 +283,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-/articles/2020/03/08/1583665236000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/03/08/articles/2020/03/08/1583665236000.html/" class="article-date">
-      <time datetime="2020-03-08T11:00:36.000Z" itemprop="datePublished">2020-03-08</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/03/08/articles/2020/03/08/1583665236000.html/">[ubuntu] ubuntu18内核降级</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">sudo cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br><span class="line"></span><br><span class="line">vi &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line"></span><br><span class="line">在文件最后面增加一行并保存</span><br><span class="line">deb http:&#x2F;&#x2F;security.ubuntu.com&#x2F;ubuntu trusty-security main</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line">apt-cache search linux-image</span><br><span class="line"></span><br><span class="line">apt-get install -y linux-image-extra-4.4.0-109-generic</span><br><span class="line"></span><br><span class="line">#安装4.4版本内核</span><br><span class="line">dpkg -l |grep linux-image</span><br><span class="line"></span><br><span class="line">#查看是否安装成功</span><br><span class="line">vim &#x2F;etc&#x2F;default&#x2F;grub</span><br><span class="line"></span><br><span class="line">#找到</span><br><span class="line">GRUB_DEFAULT&#x3D;0</span><br><span class="line">#修改为：</span><br><span class="line">GRUB_DEFAULT&#x3D;&quot;Advanced options for Ubuntu&gt;Ubuntu, with Linux 4.4.0-109-generic&quot;</span><br><span class="line"></span><br><span class="line">#更新grub</span><br><span class="line">update-grub</span><br><span class="line"></span><br><span class="line">reboot</span><br><span class="line"></span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/03/08/1583644251000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/03/08/articles/2020/03/08/1583644251000.html/" class="article-date">
-      <time datetime="2020-03-08T05:10:51.000Z" itemprop="datePublished">2020-03-08</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/03/08/articles/2020/03/08/1583644251000.html/">[zigbee] 终端采集发送到远程云服务器网页ONENET</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>zigbee终端采集发送到远程云服务器网页ONENET 手机随时随地看数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">链接：</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1QGzDqBgry-QNC_9ucb5yrg</span><br><span class="line">提取码：</span><br><span class="line">tn6g</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/zigbee/" rel="tag">zigbee</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-/articles/2020/03/08/1583644250000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -995,9 +870,159 @@
 
 
   
+    <article id="post-/articles/2020/03/06/1583503267000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/03/06/articles/2020/03/06/1583503267000.html/" class="article-date">
+      <time datetime="2020-03-06T14:01:07.000Z" itemprop="datePublished">2020-03-06</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/03/06/articles/2020/03/06/1583503267000.html/">[arm] itop6818声卡移植ALSA</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://github.com/BrighterEyer/itop6818-linux-programs/tree/master/%E5%A3%B0%E5%8D%A1%E7%A7%BB%E6%A4%8DALSA" target="_blank">声卡移植ALSA</a></p>
+<p>源码编译</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;root&#x2F;ALSA</span><br><span class="line">tar -xvf alsa-lib-1.1.5.tar.bz2;cd alsa-lib-1.1.5</span><br><span class="line">CC&#x3D;arm-linux-gnueabihf-gcc .&#x2F;configure --host&#x3D;arm-linux --prefix&#x3D;&#x2F;root&#x2F;ALSA&#x2F;install&#x2F;</span><br><span class="line">make;make install</span><br><span class="line"></span><br><span class="line">ls &#x2F;root&#x2F;ALSA&#x2F;install&#x2F;</span><br><span class="line"></span><br><span class="line">tar -xvf alsa-utils-1.1.5.tar.bz2;cd alsa-utils-1.1.5</span><br><span class="line">CC&#x3D;arm-linux-gnueabihf-gcc .&#x2F;configure --prefix&#x3D;&#x2F;root&#x2F;ALSA&#x2F;install&#x2F; --host&#x3D;arm-linux --with-alsa-inc-prefix&#x3D;&#x2F;root&#x2F;ALSA&#x2F;install&#x2F;include --with-alsa-prefix&#x3D;&#x2F;root&#x2F;ALSA&#x2F;install&#x2F;lib --disable-alsamixer</span><br><span class="line">--disable-xmlto --disable-nls</span><br><span class="line">make;cd aplay;ls;make</span><br><span class="line">#用 ls 命令可以看到生成的aplay可执行文件</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp binary&#x2F;* &#x2F;bin&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+<p>在开发板上使用 ALSA，将 U 盘插到运行 qt 系统的开发板上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;sda1 &#x2F;mnt&#x2F;disk</span><br><span class="line">cp &#x2F;mnt&#x2F;disk&#x2F;ALSA&#x2F;* &#x2F;bin</span><br></pre></td></tr></table></figure>
+
+<p>插上耳机，使用以下命令检测耳机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">speaker-test -c 2 &amp;</span><br><span class="line"></span><br><span class="line">killall speaker-test</span><br></pre></td></tr></table></figure>
+
+<p>此时的 ALSA 并不完全，如果通过 apaly 直接播放音频的话会发现不能控制音量；<br>创建了一个名为 ‘pcm’ 的从设备，隶属于音量控制插件 primary，通过!default 选项将该插件设置成默认 PCM 输出设备</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;asound.conf</span><br><span class="line">pcm.!default &quot;plug:primary&quot;</span><br><span class="line">pcm.primary &#123;</span><br><span class="line">	type softvol</span><br><span class="line">	slave.pcm &quot;plughw:0&quot;</span><br><span class="line">	control.name &quot;master&quot;</span><br><span class="line">	control.card 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重启开发板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<p>用 aplay 进行音频播放，音频文件放在/root 目录中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">aplay &#x2F;root&#x2F;VenusMars1.wav &amp;</span><br><span class="line"></span><br><span class="line">#默认255，将音量设置为 100，音量值可取 0-255</span><br><span class="line">amixer set &#39;master&#39; 100</span><br></pre></td></tr></table></figure>
+
+<p>录音测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#filename 用户自己指定，&amp;不可省略</span><br><span class="line">arecord filename &amp;</span><br></pre></td></tr></table></figure>
+
+<p>aplay 播放测试</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/03/05/1583413635000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/03/05/articles/2020/03/05/1583413635000.html/" class="article-date">
+      <time datetime="2020-03-05T13:07:15.000Z" itemprop="datePublished">2020-03-05</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/03/05/articles/2020/03/05/1583413635000.html/">[vbox] USB识别</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/wf19930209/article/details/73195055" target="_blank">virtualbox的USB识别</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vboxmanage -v</span><br><span class="line">6.0.10r132072</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vbox/" rel="tag">vbox</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/97/">97</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
     </nav>
   
 
