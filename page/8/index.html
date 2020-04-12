@@ -365,7 +365,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2020/03/05/articles/2020/03/05/1583413634000.html/">[springboot] swagger2使用指南</a>
+      <a  class="article-title" href="/2020/03/05/articles/2020/03/05/1583413634000.html/">[ubuntu] sshd超时问题</a>
     </h1>
   
 
@@ -376,7 +376,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://blog.csdn.net/sanyaoxu_2/article/details/80555328" target="_blank">Swagger使用指南</a></p>
+        <p>1配置服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config </span><br><span class="line"># 数值是秒，比如你设置为540，就是9分钟</span><br><span class="line">ClientAliveInterval 540</span><br><span class="line"></span><br><span class="line"># 如果发现客户端没有相应，则判断一次超时，这个参数设置允许超时的次数 </span><br><span class="line">ClientAliveCountMax 10</span><br><span class="line"></span><br><span class="line">#则代表允许超时 5400秒 &#x3D; 90分钟</span><br></pre></td></tr></table></figure>
+
+<p>ssh重启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;init.d&#x2F;ssh restart</span><br></pre></td></tr></table></figure>
+
+<p>2配置客户端 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;ssh&#x2F;ssh_config</span><br><span class="line"></span><br><span class="line">ServerAliveInterval 540</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -387,7 +395,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
     </div>
 
       
@@ -427,7 +435,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2020/03/05/articles/2020/03/05/1583413634000.html/">[ubuntu] sshd超时问题</a>
+      <a  class="article-title" href="/2020/03/05/articles/2020/03/05/1583413634000.html/">[springboot] swagger2使用指南</a>
     </h1>
   
 
@@ -438,15 +446,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>1配置服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config </span><br><span class="line"># 数值是秒，比如你设置为540，就是9分钟</span><br><span class="line">ClientAliveInterval 540</span><br><span class="line"></span><br><span class="line"># 如果发现客户端没有相应，则判断一次超时，这个参数设置允许超时的次数 </span><br><span class="line">ClientAliveCountMax 10</span><br><span class="line"></span><br><span class="line">#则代表允许超时 5400秒 &#x3D; 90分钟</span><br></pre></td></tr></table></figure>
-
-<p>ssh重启</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;init.d&#x2F;ssh restart</span><br></pre></td></tr></table></figure>
-
-<p>2配置客户端 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;ssh&#x2F;ssh_config</span><br><span class="line"></span><br><span class="line">ServerAliveInterval 540</span><br></pre></td></tr></table></figure>
-
+        <p><a href="https://blog.csdn.net/sanyaoxu_2/article/details/80555328" target="_blank">Swagger使用指南</a></p>
 
       
     </div>
@@ -457,7 +457,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
     </div>
 
       
