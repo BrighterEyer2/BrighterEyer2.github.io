@@ -434,7 +434,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2020/04/06/articles/2020/04/06/1586178298000.html/">[busybox] tftp的使用</a>
+      <a  class="article-title" href="/2020/04/06/articles/2020/04/06/1586178298000.html/">[busybox] tftp、tftpd的使用</a>
     </h1>
   
 
@@ -445,9 +445,22 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tftp -g -l B.txt -r A.txt 192.168.1.101</span><br></pre></td></tr></table></figure>
+        <details>
+<summary>tftpd使用方法</summary>
 
-<p>tftp使用方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#方法1:</span><br><span class="line">#0表示对所有ip地址都进行侦听</span><br><span class="line">udpsvd -vE 0 69 tftpd -c &#x2F;root &amp;</span><br><span class="line"></span><br><span class="line">#tftp server服务器配置:</span><br><span class="line">vi &#x2F;etc&#x2F;inetd.conf</span><br><span class="line">69 dgram udp nowait root tftpd tftpd -c &#x2F;root</span><br><span class="line"></span><br><span class="line">#执行命令</span><br><span class="line">inetd</span><br></pre></td></tr></table></figure>
+
+<p>注意:必须使用i386版本busybox的tftp程序才可以进行数据传输<br>server服务器配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 方法1:</span><br><span class="line">mkdir &#x2F;gliethttp_tftpd_dir</span><br><span class="line">cp &#x2F;bin&#x2F;busybox &#x2F;gliethttp_tftpd_dir</span><br><span class="line">udpsvd -vE 0 69 tftpd -c &#x2F;gliethttp_tftpd_dir &amp;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 上面的0表示对所有ip地址都进行侦听</span><br><span class="line">&#x2F;&#x2F; 如果设置为127.0.0.1那么只能开发板本地arm可以进行ftp</span><br><span class="line">&#x2F;&#x2F; 比如开发板eth0的的ip地址设为192.168.1.102,那么就不能通过该ip登录</span><br><span class="line">&#x2F;&#x2F; 所以上面指定ip等于0,那么无论来自127.0.0.1还是192.168.1.102网络地址的</span><br><span class="line">&#x2F;&#x2F; 数据都能使用tftpd服务器.</span><br><span class="line">&#x2F;&#x2F; 参数-c表示允许client客户端上传文件到&#x2F;gliethttp_tftpd_dir根目录[luther.gliethttp]</span><br><span class="line"></span><br><span class="line"># 方法2:</span><br><span class="line">mkdir &#x2F;gliethttp_tftpd_dir</span><br><span class="line">cp &#x2F;bin&#x2F;busybox &#x2F;gliethttp_tftpd_dir</span><br><span class="line"></span><br><span class="line">vi &#x2F;etc&#x2F;inetd.conf</span><br><span class="line">69 dgram udp nowait root tftpd tftpd -c &#x2F;gliethttp_tftpd_dir</span><br><span class="line"></span><br><span class="line">#ftpd就作为daemon运行</span><br><span class="line">inetd</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/xdw1985829/article/details/6676097" target="_blank">busybox自带的tftp服务器</a></p>
+</details>
+
+<details>
+<summary>tftp使用方法</summary>
+
+<p>示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tftp -g -l B.txt -r A.txt 192.168.1.101</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 1.从设备上下载1.jpg到PC端：</span><br><span class="line">tftp -p -l 1.jpg 192.168.213.128</span><br><span class="line"></span><br><span class="line"># 2.从PC端上传输ZKDB.db文件到设备：</span><br><span class="line">tftp -g 192.168.213.128 -r ZKDB.db</span><br><span class="line"></span><br><span class="line">参数说明：</span><br><span class="line">         -l   是local的缩写，后跟存在于Client的源文件名，或下载Client后重命名的文件名。</span><br><span class="line">         -r   是remote的缩写，后跟Server即PC机tftp服务器根目录中的源文件名，或上传Server后重命名后的文件名。</span><br><span class="line">         -g   是get的缩写，下载文件时用，</span><br><span class="line">         -p   是put的缩写，上传文件时用，</span><br><span class="line"></span><br><span class="line">tftp 默认占用的是69端口</span><br></pre></td></tr></table></figure>
 
 <p>1、根据上述参数，tftp的命令格式如下</p>
@@ -455,6 +468,8 @@
 
 <p>2、如若不更改文件名，可使用以下简单命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#不更名下载命令：   </span><br><span class="line">tftp -g -l&#x2F;-r 源文件名 服务器地址  </span><br><span class="line"> </span><br><span class="line">此时参数-l与-r等效，使用时只使用其中一个： </span><br><span class="line">如</span><br><span class="line">tftp -g -l A.txt 192.168.1.2</span><br><span class="line">或</span><br><span class="line">tftp -g -r A.txt 192.168.1.2</span><br><span class="line"> </span><br><span class="line">作用相同，都表示Client从Server下载文件A.txt，且不更名。</span><br><span class="line">tftp -p -l&#x2F;-r 源文件名 服务器地址   </span><br><span class="line"></span><br><span class="line">此时参数-l与-r等效，使用时只使用其中一个：</span><br><span class="line">如</span><br><span class="line">tftp -p -l B.txt 192.168.1.2</span><br><span class="line">或</span><br><span class="line">tftp -p -r B.txt 192.168.1.2</span><br><span class="line">作用相同，都表示从Client上传文件B.txt到Server，且不更名。</span><br></pre></td></tr></table></figure>
+</details>
+
       
     </div>
     
