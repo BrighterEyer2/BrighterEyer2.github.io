@@ -283,6 +283,142 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2019/09/22/1569133300000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/09/22/articles/2019/09/22/1569133300000.html/" class="article-date">
+      <time datetime="2019-09-22T06:21:40.000Z" itemprop="datePublished">2019-09-22</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/09/22/articles/2019/09/22/1569133300000.html/">[react-native] React-Native与Android、iOS原生代码交互，完成JS发给原生</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.jianshu.com/p/edeb052740b2" target="_blank">React-Native与Android、iOS原生代码交互，完成JS发给原生</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/09/22/1569133299000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/09/22/articles/2019/09/22/1569133299000.html/" class="article-date">
+      <time datetime="2019-09-22T06:21:39.000Z" itemprop="datePublished">2019-09-22</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/09/22/articles/2019/09/22/1569133299000.html/">[react-native] react-native-camera</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.jianshu.com/p/5e7307408a8e" target="_blank">react-native 使用 react-native-camera 实现录制视频</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install react-native-camera --save</span><br><span class="line"></span><br><span class="line">#接着运行如下命令链接相关的依赖库：</span><br><span class="line">react-native link react-native-camera</span><br></pre></td></tr></table></figure>
+
+<p>报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Found react-native-camera &#39;mlkit&#39; but wasn&#39;t required</span><br></pre></td></tr></table></figure>
+<p>参考解决</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;react-native-community&#x2F;react-native-camera&#x2F;issues&#x2F;2150</span><br><span class="line">https:&#x2F;&#x2F;www.e-learn.cn&#x2F;content&#x2F;qita&#x2F;2365749</span><br></pre></td></tr></table></figure>
+<p>解决办法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">android&#x2F;app&#x2F;build.gradle</span><br><span class="line"></span><br><span class="line">#增加：</span><br><span class="line"></span><br><span class="line">defaultConfig&#123;</span><br><span class="line">	missingDimensionStrategy &#39;react-native-camera&#39;, &#39;general&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同时在android/build.gradle文件的配置allprojects/repositories 中增加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">maven &#123; url &quot;https:&#x2F;&#x2F;jitpack.io&quot; &#125; </span><br><span class="line">maven &#123; url &quot;https:&#x2F;&#x2F;maven.google.com&quot; &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        mavenLocal()</span><br><span class="line">        jcenter()</span><br><span class="line">        maven &#123;</span><br><span class="line">            &#x2F;&#x2F; All of React Native (JS, Obj-C sources, Android binaries) is installed from npm</span><br><span class="line">            url &quot;$rootDir&#x2F;..&#x2F;node_modules&#x2F;react-native&#x2F;android&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        google()</span><br><span class="line"></span><br><span class="line">		maven &#123; url &quot;https:&#x2F;&#x2F;jitpack.io&quot; &#125; </span><br><span class="line">		maven &#123; url &quot;https:&#x2F;&#x2F;maven.google.com&quot; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2019/09/22/1569133298000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -751,134 +887,6 @@
           
         <p><a href="https://blog.csdn.net/silencezmz/article/details/84678517" target="_blank">React Native 调用Android原生控件 传递数据</a> </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Boolean -&gt; Bool</span><br><span class="line">Integer -&gt; Number</span><br><span class="line">Double -&gt; Number</span><br><span class="line">Float -&gt; Number</span><br><span class="line">String -&gt; String</span><br><span class="line">Callback -&gt; function</span><br><span class="line">ReadableMap -&gt; Object</span><br><span class="line">ReadableArray -&gt; Array</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/09/22/1569133290000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/09/22/articles/2019/09/22/1569133290000.html/" class="article-date">
-      <time datetime="2019-09-22T06:21:30.000Z" itemprop="datePublished">2019-09-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/09/22/articles/2019/09/22/1569133290000.html/">[react-native] @ReactMethod方法事例</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/asddavid/article/details/53338616" target="_blank">React-Native 与原生的3种交互通信（Android）</a> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;延迟0.1秒获取时间。</span><br><span class="line">@ReactMethod</span><br><span class="line">public void getTime() &#123;</span><br><span class="line">    new Thread(new Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                Thread.sleep(100);</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            SimpleDateFormat formatDate &#x3D; new SimpleDateFormat(&quot;yyyy年MM月dd日  HH:mm:ss&quot;);</span><br><span class="line">            Date date &#x3D; new Date(System.currentTimeMillis());   </span><br><span class="line">            String time &#x3D; formatDate.format(date);</span><br><span class="line"></span><br><span class="line">            WritableMap writableMap &#x3D; new WritableNativeMap();</span><br><span class="line">            writableMap.putString(&quot;key&quot;, time);</span><br><span class="line">            sendTransMisson(mReactContext, &quot;EventName&quot;, writableMap);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @param reactContext</span><br><span class="line"> * @param eventName    事件名</span><br><span class="line"> * @param params       传惨</span><br><span class="line"> *&#x2F;</span><br><span class="line">public void sendTransMisson(ReactContext reactContext, String eventName, @Nullable WritableMap params) &#123;</span><br><span class="line">    reactContext</span><br><span class="line">                .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)</span><br><span class="line">             .emit(eventName, params);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/u011068702/article/details/82719163" target="_blank">完整流程</a> </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/09/14/1568425728000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/09/14/articles/2019/09/14/1568425728000.html/" class="article-date">
-      <time datetime="2019-09-14T01:48:48.000Z" itemprop="datePublished">2019-09-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/09/14/articles/2019/09/14/1568425728000.html/">[react-native] 隐藏状态栏</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/qq_28484355/article/details/81320019" target="_blank">ReactNative——如何隐藏状态栏（实现沉浸式）</a><br><a href="https://blog.csdn.net/changsimeng/article/details/68068240" target="_blank">react-native沉浸式状态栏</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import React,&#123;Component&#125; from &#39;react&#39;;</span><br><span class="line">import &#123;Text,View, StatusBar&#125; from &#39;react-native&#39;;</span><br><span class="line"></span><br><span class="line">export default class MainPage extends Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return(</span><br><span class="line">            &lt;View style&#x3D;&#123;&#123;flex: 1&#125;&#125;&gt;</span><br><span class="line">                &lt;StatusBar backgroundColor&#x3D;&quot;#ff0000&quot;</span><br><span class="line">                           translucent&#x3D;&#123;true&#125;</span><br><span class="line">                           hidden&#x3D;&#123;true&#125;</span><br><span class="line">                           animated&#x3D;&#123;true&#125;&#x2F;&gt;</span><br><span class="line">                &lt;Text&gt;HelloWord&lt;&#x2F;&gt;</span><br><span class="line">            &lt;&#x2F;View&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
       
     </div>
     

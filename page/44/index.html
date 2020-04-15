@@ -283,6 +283,132 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2019/11/26/1574765788000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/11/26/articles/2019/11/26/1574765788000.html/" class="article-date">
+      <time datetime="2019-11-26T10:56:28.000Z" itemprop="datePublished">2019-11-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/11/26/articles/2019/11/26/1574765788000.html/">[qt] 作品展</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="http://www.qtcn.org/bbs/simple/?f44.html" target="_blank">作品展</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzIxMTE5ODM2NQ==&mid=2247484283&idx=1&sn=3e8267a05183cd6aab9a36228e700611&chksm=97584b89a02fc29fa472c559074e18979750b0cdc34afaa79857a2aca4a2d35dd7bd900f88b3&scene=21#wechat_redirect" target="_blank">Qt 纯属娱乐-模拟一个导航定位系统</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/11/26/1574765787000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/11/26/articles/2019/11/26/1574765787000.html/" class="article-date">
+      <time datetime="2019-11-26T10:56:27.000Z" itemprop="datePublished">2019-11-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/11/26/articles/2019/11/26/1574765787000.html/">[qt] 长按与短按</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/pengweimei4769/article/details/83752138" target="_blank">QKeyPressEvent在按键长按与短按的情况</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">void QKeyPressEvent(QKeyEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">	switch(event-&gt;key())</span><br><span class="line">	&#123;</span><br><span class="line">		case Qt::Key_F2:</span><br><span class="line">		if(event-&gt;isAutoRepeat())</span><br><span class="line">			return;</span><br><span class="line">		if(m_bIsF2PressFlag)&#x2F;&#x2F;m_bIsF2PressFlag为全局变量，默认为true</span><br><span class="line">		&#123;</span><br><span class="line">			&#x2F;&#x2F;do something</span><br><span class="line">			&#x2F;&#x2F;使用某个操作</span><br><span class="line">			m_bIsF2PressFlag &#x3D; false;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			&#x2F;&#x2F;do something</span><br><span class="line">			&#x2F;&#x2F;取消该操作</span><br><span class="line">			m_bIsF2PressFlag &#x3D; true;</span><br><span class="line">		&#125;</span><br><span class="line">		break;</span><br><span class="line">		&#x2F;&#x2F;...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2019/11/26/1574765786000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -850,142 +976,6 @@
       
           
         <p><a href="https://github.com/xuzhonglin/UpperMonitor" target="_blank">基于Qt5.12的上位机</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/11/25/1574677922000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/11/25/articles/2019/11/25/1574677922000.html/" class="article-date">
-      <time datetime="2019-11-25T10:32:02.000Z" itemprop="datePublished">2019-11-25</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/11/25/articles/2019/11/25/1574677922000.html/">[qt] opencv示例</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>含有opencv文件<br><a href="https://github.com/hanxi/check_system" target="_blank">人脸识别签到Qt+OpenCV</a></p>
-<p><a href="https://github.com/Dante-Go/Fact_detect_recognizer_QT" target="_blank">基于QT5.12+OpenCV3.4.6人脸识别</a><br><a href="https://github.com/Artcircles/qt_word_query" target="_blank">基于Qt5.12 的电子词典查询项目，数据库为Sqlite实现</a></p>
-<p><a href="https://github.com/528787067/FaceRecognition" target="_blank">FaceRecognition</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用Qt和OpenCV实现人脸识别</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/qq_27605099/article/details/86740876" target="_blank">QT5+vs2017+opencv3.4的打开摄像头和图片的例子</a><br><a href="https://github.com/sc779733661/qtcamera" target="_blank">qtcamera</a></p>
-<p><a href="https://blog.csdn.net/qq_30139269/article/details/86700337" target="_blank">QT5.9+OpenCV3.44调用摄像头</a></p>
-<p><a href="https://github.com/vincent007jdx/OpencvDevelop" target="_blank">Qt+Opencv预览图片</a></p>
-<p><a href="https://github.com/vincent007jdx/QtOpencvQzxing.git" target="_blank">qt+opencv+qzxing的二维码识别程序</a></p>
-<p><a href="https://github.com/Dante-Go/Fact_detect_recognizer_QT.git" target="_blank">基于QT5.12+OpenCV3.4.6人脸识别</a></p>
-<p>Qt5.9.7OpenCV人脸识别<br><a href="https://gitee.com/wangzhenglin/facedetection" target="_blank">facedetection</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/11/25/1574677922000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/11/25/articles/2019/11/25/1574677922000.html/" class="article-date">
-      <time datetime="2019-11-25T10:32:02.000Z" itemprop="datePublished">2019-11-25</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/11/25/articles/2019/11/25/1574677922000.html/">[qt] opencv人脸识别流程</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>OpenCV人脸识别流程：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.人脸采集;</span><br><span class="line">2.人脸处理;</span><br><span class="line">3.模型训练;</span><br><span class="line">4.人脸识别</span><br></pre></td></tr></table></figure>
-
 
       
     </div>

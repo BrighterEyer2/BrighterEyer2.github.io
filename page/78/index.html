@@ -283,6 +283,134 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2019/10/23/1571834850000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/23/articles/2019/10/23/1571834850000.html/" class="article-date">
+      <time datetime="2019-10-23T12:47:30.000Z" itemprop="datePublished">2019-10-23</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834850000.html/">[jfinal] 日志打印</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="" target="_blank"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;u013727805&#x2F;article&#x2F;details&#x2F;79939643</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import org.apache.log4j.Logger;</span><br><span class="line">import com.jfinal.log.Log;</span><br><span class="line"></span><br><span class="line">private final static Logger LOGGER &#x3D; Logger.getLogger(LogController.class);</span><br><span class="line">private final static Log LOG &#x3D; Log.getLog(LogController.class);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfinal/" rel="tag">jfinal</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/10/23/1571834849000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/10/23/articles/2019/10/23/1571834849000.html/" class="article-date">
+      <time datetime="2019-10-23T12:47:29.000Z" itemprop="datePublished">2019-10-23</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571834849000.html/">[jfinal] excel导出</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://my.oschina.net/superzhu/blog/597915" target="_blank">JFinal学习-Excel导出</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jfinal实现点击a标签直接下载文件</span><br><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_36073929&#x2F;article&#x2F;details&#x2F;78326881</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public void download()&#123;</span><br><span class="line">	String text &#x3D; this.getPara(&quot;text&quot;).replaceAll(&quot;&#x2F;&quot;, &quot;\\\\&quot;);</span><br><span class="line">	String path&#x3D;JFinal.me().getServletContext().getRealPath(&quot;&#x2F;&quot;)+text;&#x2F;&#x2F;要导出的数据文件</span><br><span class="line">	</span><br><span class="line">	 File file &#x3D; new File(path);</span><br><span class="line">	 if(file.exists())&#123;&#x2F;&#x2F;判断文件是否存在</span><br><span class="line">		 System.out.println(&quot;yes &quot;); </span><br><span class="line">		 this.setAttr(&quot;state&quot;, &quot;0&quot;);</span><br><span class="line">		 this.renderJson();</span><br><span class="line">		 return;</span><br><span class="line">	 &#125;else&#123;</span><br><span class="line">		 System.out.println(&quot;no &quot;);</span><br><span class="line">		 this.setAttr(&quot;state&quot;, &quot;FAILED&quot;);</span><br><span class="line">		 this.renderJson();</span><br><span class="line">		 return ;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfinal/" rel="tag">jfinal</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2019/10/23/1571834848000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -764,130 +892,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/23/1571831029000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/23/articles/2019/10/23/1571831029000.html/" class="article-date">
-      <time datetime="2019-10-23T11:43:49.000Z" itemprop="datePublished">2019-10-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571831029000.html/">[qt] 编译android产生的问题</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error: cannot find -lc++</span><br><span class="line">linker command failed with exit code 1 (use -v to see invocation)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/10/23/1571831028000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/10/23/articles/2019/10/23/1571831028000.html/" class="article-date">
-      <time datetime="2019-10-23T11:43:48.000Z" itemprop="datePublished">2019-10-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/10/23/articles/2019/10/23/1571831028000.html/">[office_word] 创建目录</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/keepiss/article/details/79651999" target="_blank">office_word_如何创建目录</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/office-word/" rel="tag">office_word</a></li></ul>
     </div>
 
       

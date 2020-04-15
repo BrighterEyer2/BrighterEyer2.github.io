@@ -283,6 +283,145 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2019/11/21/1574339075000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/11/21/articles/2019/11/21/1574339075000.html/" class="article-date">
+      <time datetime="2019-11-21T12:24:35.000Z" itemprop="datePublished">2019-11-21</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/11/21/articles/2019/11/21/1574339075000.html/">[qt] 小软件</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/wsj18808050/category_2809867.html" target="_blank">Qt小软件</a></p>
+<p><a href="https://blog.csdn.net/wsj18808050/article/details/49208623" target="_blank">基于Qt开发的远程关机小助手</a><br><a href="http://pan.baidu.com/s/1pJBviLd" target="_blank">下载地址－PC受控端（电脑）</a><br><a href="http://pan.baidu.com/s/1hqB9zI8" target="_blank">下载地址－控制端（手机）</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">AppStore链接：</span><br><span class="line">美区：</span><br><span class="line">https:&#x2F;&#x2F;itunes.apple.com&#x2F;us&#x2F;app&#x2F;shutdownhelper&#x2F;id1050208430?l&#x3D;en&amp;mt&#x3D;8</span><br><span class="line"></span><br><span class="line">中国区：</span><br><span class="line">https:&#x2F;&#x2F;itunes.apple.com&#x2F;cn&#x2F;app&#x2F;shutdownhelper&#x2F;id1050208430?l&#x3D;en&amp;mt&#x3D;8</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/11/21/1574339074000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/11/21/articles/2019/11/21/1574339074000.html/" class="article-date">
+      <time datetime="2019-11-21T12:24:34.000Z" itemprop="datePublished">2019-11-21</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/11/21/articles/2019/11/21/1574339074000.html/">[qt] 文本转语音</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/woniulx2014/article/details/83313428" target="_blank">QT文本转语音模块（TTS）QTextToSpeech</a></p>
+<p>QTextToSpeech是QT5.8以上的文本转语音模块<br>使用方法，在.pro工程文件中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QT +&#x3D; texttospeech</span><br></pre></td></tr></table></figure>
+
+<p>添加头文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QTextToSpeech&gt;</span><br></pre></td></tr></table></figure>
+
+<p>源文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">QTextToSpeech *tts &#x3D; new QTextToSpeech(this);</span><br><span class="line">tts -&gt;setRate(0.3);</span><br><span class="line">tts -&gt;setPitch(0.5);</span><br><span class="line">tts -&gt;setVolume(1);</span><br><span class="line">if(tts-&gt;state()&#x3D;&#x3D;QTextToSpeech::Ready)</span><br><span class="line">&#123;</span><br><span class="line">    tts-&gt;say(&quot;hello world&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在linux下，它是调用speech-dispatcher。在其它不同的平台上，调用各自平台的TTS引擎。所以在使用的时候，要确保本地的TTS引擎是可用的。</p>
+<p><a href="https://blog.csdn.net/luoyayun361/article/details/80728112" target="_blank">Qt 字符串合成语音并播放（QTextToSpeech）</a></p>
+<p><a href="https://blog.csdn.net/mars_xiaolei/article/details/84570698" target="_blank">《Qt5+语音功能（QTextToSpeech类）》</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">代码实现功能：</span><br><span class="line"></span><br><span class="line">1.选择引擎</span><br><span class="line">2.选择语言</span><br><span class="line">3.选择声音类型</span><br><span class="line">4.设置音高、音速、音量</span><br><span class="line">5.阅读、暂停、继续、停止</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Qt官方示例完整代码下载链接：</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1ryMHLF_d0sAlLPPyoFBYfQ </span><br><span class="line">提取码：</span><br><span class="line">iqt3</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2019/11/21/1574339072000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -487,7 +626,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/11/21/articles/2019/11/21/1574339069000.html/">[单片机] 红外线测距仿真</a>
+      <a  class="article-title" href="/2019/11/21/articles/2019/11/21/1574339069000.html/">[jfinal] idea+maven+jfinal</a>
     </h1>
   
 
@@ -498,8 +637,19 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://blog.csdn.net/kabuto_hui/article/details/53573343" target="_blank">基于51单片机的红外线测距仿真</a></p>
+        <p>JFinal极速开发企业应用管理系统<br><a href="https://gitee.com/QinHaiSenLin/Jfinal-layui" target="_blank">Jfinal-layui</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;gitee.com&#x2F;QinHaiSenLin&#x2F;Jfinal-layui</span><br><span class="line"></span><br><span class="line">一、在线演示</span><br><span class="line">http:&#x2F;&#x2F;www.qinhaisenlin.com:8080&#x2F;</span><br><span class="line">登录账号：</span><br><span class="line">admin&#x2F;123456</span><br><span class="line"></span><br><span class="line">二、JFinal-layui代码在线生成器</span><br><span class="line">http:&#x2F;&#x2F;www.qinhaisenlin.com&#x2F;code</span><br><span class="line"></span><br><span class="line">三、该项目的核心功能有：</span><br><span class="line">(1) 登录、</span><br><span class="line">(2) 功能管理、</span><br><span class="line">(3) 角色管理（包含了权限管理）、</span><br><span class="line">(4) 用户管理、</span><br><span class="line">(5) 部门管理、</span><br><span class="line">(6) 系统日志、</span><br><span class="line">(7) 业务字典，通用的附件上传、</span><br><span class="line">(8) 下载、</span><br><span class="line">(9) 导入、</span><br><span class="line">(10)导出，</span><br><span class="line">(11)echart图表统计，</span><br><span class="line">(12)缓存、</span><br><span class="line">(13)druid的sql监控、</span><br><span class="line">(14)基本满足企业应用管理系统的需求、</span><br><span class="line">(15)简化了前段代码</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">四、安装教程</span><br><span class="line">新建数据库,执行doc目录下的jfinal-layui.sql</span><br><span class="line">修改resources下面的config-dev.txt配置文件,修改数据库配置</span><br><span class="line">运行com.qinhailin.common.config.ManiConfig的main方法</span><br><span class="line">访问地址：</span><br><span class="line">http:&#x2F;&#x2F;localhost</span><br><span class="line">登录账号：</span><br><span class="line">admin&#x2F;123456</span><br></pre></td></tr></table></figure>
 
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;gitee.com&#x2F;jfinal&#x2F;jfinal</span><br></pre></td></tr></table></figure>
+
+<p>JFinal有如下主要特点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">MVC 架构，设计精巧，使用简单</span><br><span class="line">遵循 COC 原则，零配置，无 XML</span><br><span class="line">独创 Db + Record 模式，灵活便利</span><br><span class="line">ActiveRecord 支持，使数据库开发极致快速</span><br><span class="line">极简、强大、高性能模板引擎 Enjoy，十分钟内掌握 90% 用法</span><br><span class="line">自动加载修改后的 Java 文件，开发过程中无需重启服务</span><br><span class="line">AOP支持，拦截器配置灵活，功能强大</span><br><span class="line">Plugin 体系结构，扩展性强</span><br><span class="line">多视图支持，支持 Enjoy、FreeMarker、JSP、Velocity</span><br><span class="line">强大的 Validator 后端校验功能</span><br><span class="line">功能齐全，拥有传统 SSH 框架的绝大部分核心功能</span><br><span class="line">体积小仅 723 KB，并且无第三方依赖</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://gitee.com/wukongcrm" target="_blank">悟空CRM-基于jfinal+vue+ElementUI的前后端分离CRM系统</a></p>
+<p><a href="https://gitee.com/xiaoxustudent/JFinal-vue-element-admin" target="_blank">后台基于JFinal，前端实现：Vue+Element</a></p>
+<p><a href="https://gitee.com/596392912/JFinal-oauth2.0-login" target="_blank">jfinal集成第三方登录</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">oauth2.0第三方 qq、sina、baidu、renren、osc、豆瓣 等，登陆的简易封装！</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -509,7 +659,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfinal/" rel="tag">jfinal</a></li></ul>
     </div>
 
       
@@ -549,7 +699,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2019/11/21/articles/2019/11/21/1574339069000.html/">[jfinal] idea+maven+jfinal</a>
+      <a  class="article-title" href="/2019/11/21/articles/2019/11/21/1574339069000.html/">[单片机] 红外线测距仿真</a>
     </h1>
   
 
@@ -560,19 +710,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>JFinal极速开发企业应用管理系统<br><a href="https://gitee.com/QinHaiSenLin/Jfinal-layui" target="_blank">Jfinal-layui</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;gitee.com&#x2F;QinHaiSenLin&#x2F;Jfinal-layui</span><br><span class="line"></span><br><span class="line">一、在线演示</span><br><span class="line">http:&#x2F;&#x2F;www.qinhaisenlin.com:8080&#x2F;</span><br><span class="line">登录账号：</span><br><span class="line">admin&#x2F;123456</span><br><span class="line"></span><br><span class="line">二、JFinal-layui代码在线生成器</span><br><span class="line">http:&#x2F;&#x2F;www.qinhaisenlin.com&#x2F;code</span><br><span class="line"></span><br><span class="line">三、该项目的核心功能有：</span><br><span class="line">(1) 登录、</span><br><span class="line">(2) 功能管理、</span><br><span class="line">(3) 角色管理（包含了权限管理）、</span><br><span class="line">(4) 用户管理、</span><br><span class="line">(5) 部门管理、</span><br><span class="line">(6) 系统日志、</span><br><span class="line">(7) 业务字典，通用的附件上传、</span><br><span class="line">(8) 下载、</span><br><span class="line">(9) 导入、</span><br><span class="line">(10)导出，</span><br><span class="line">(11)echart图表统计，</span><br><span class="line">(12)缓存、</span><br><span class="line">(13)druid的sql监控、</span><br><span class="line">(14)基本满足企业应用管理系统的需求、</span><br><span class="line">(15)简化了前段代码</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">四、安装教程</span><br><span class="line">新建数据库,执行doc目录下的jfinal-layui.sql</span><br><span class="line">修改resources下面的config-dev.txt配置文件,修改数据库配置</span><br><span class="line">运行com.qinhailin.common.config.ManiConfig的main方法</span><br><span class="line">访问地址：</span><br><span class="line">http:&#x2F;&#x2F;localhost</span><br><span class="line">登录账号：</span><br><span class="line">admin&#x2F;123456</span><br></pre></td></tr></table></figure>
+        <p><a href="https://blog.csdn.net/kabuto_hui/article/details/53573343" target="_blank">基于51单片机的红外线测距仿真</a></p>
 
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;gitee.com&#x2F;jfinal&#x2F;jfinal</span><br></pre></td></tr></table></figure>
-
-<p>JFinal有如下主要特点</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">MVC 架构，设计精巧，使用简单</span><br><span class="line">遵循 COC 原则，零配置，无 XML</span><br><span class="line">独创 Db + Record 模式，灵活便利</span><br><span class="line">ActiveRecord 支持，使数据库开发极致快速</span><br><span class="line">极简、强大、高性能模板引擎 Enjoy，十分钟内掌握 90% 用法</span><br><span class="line">自动加载修改后的 Java 文件，开发过程中无需重启服务</span><br><span class="line">AOP支持，拦截器配置灵活，功能强大</span><br><span class="line">Plugin 体系结构，扩展性强</span><br><span class="line">多视图支持，支持 Enjoy、FreeMarker、JSP、Velocity</span><br><span class="line">强大的 Validator 后端校验功能</span><br><span class="line">功能齐全，拥有传统 SSH 框架的绝大部分核心功能</span><br><span class="line">体积小仅 723 KB，并且无第三方依赖</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://gitee.com/wukongcrm" target="_blank">悟空CRM-基于jfinal+vue+ElementUI的前后端分离CRM系统</a></p>
-<p><a href="https://gitee.com/xiaoxustudent/JFinal-vue-element-admin" target="_blank">后台基于JFinal，前端实现：Vue+Element</a></p>
-<p><a href="https://gitee.com/596392912/JFinal-oauth2.0-login" target="_blank">jfinal集成第三方登录</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">oauth2.0第三方 qq、sina、baidu、renren、osc、豆瓣 等，登陆的简易封装！</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -582,7 +721,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfinal/" rel="tag">jfinal</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
     </div>
 
       
@@ -771,133 +910,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B7%AF%E7%94%B1/" rel="tag">路由</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/11/21/1574339067000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/11/21/articles/2019/11/21/1574339067000.html/" class="article-date">
-      <time datetime="2019-11-21T12:24:27.000Z" itemprop="datePublished">2019-11-21</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/11/21/articles/2019/11/21/1574339067000.html/">[android] AndroidCamera</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://github.com/aserbao/AndroidCamera" target="_blank">自定义Android相机(仿抖音)</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">视频人脸识别贴纸，</span><br><span class="line">分段录制，</span><br><span class="line">回滚删除，</span><br><span class="line">倒计时录制，</span><br><span class="line">视频裁剪，</span><br><span class="line">视频帧处理，</span><br><span class="line">获取视频第一帧，</span><br><span class="line">关键帧，</span><br><span class="line">视频旋转，</span><br><span class="line">滤镜添加，</span><br><span class="line">水印添加，</span><br><span class="line">动态贴纸添加，</span><br><span class="line">文字转视频，</span><br><span class="line">图片转视频。</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/11/21/1574339066000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/11/21/articles/2019/11/21/1574339066000.html/" class="article-date">
-      <time datetime="2019-11-21T12:24:26.000Z" itemprop="datePublished">2019-11-21</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/11/21/articles/2019/11/21/1574339066000.html/">[单片机] 仿真+github示例</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>51单片机入门资料<br><a href="https://github.com/Lighter-z/51-Single-chip" target="_blank">51-Single-chip</a></p>
-<p>一些简单的51单片机示例程序<br><a href="https://github.com/zhao-gao-sheng/89C51" target="_blank">89C51</a></p>
-<p><a href="https://github.com/search?utf8=%E2%9C%93&q=+51%E5%8D%95%E7%89%87%E6%9C%BA&ref=simplesearch" target="_blank">github搜索51单片机</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
     </div>
 
       

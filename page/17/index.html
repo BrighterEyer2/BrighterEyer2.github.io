@@ -283,6 +283,138 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/02/08/1581150591000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/08/articles/2020/02/08/1581150591000.html/" class="article-date">
+      <time datetime="2020-02-08T08:29:51.000Z" itemprop="datePublished">2020-02-08</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/08/articles/2020/02/08/1581150591000.html/">[docker] toolbox切换源</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>镜像加速地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;registry.docker-cn.com</span><br><span class="line">https:&#x2F;&#x2F;docker.mirrors.ustc.edu.cn</span><br><span class="line">http:&#x2F;&#x2F;hub-mirror.c.163.com</span><br><span class="line">https:&#x2F;&#x2F;docker.mirrors.ustc.edu.cn</span><br><span class="line">https:&#x2F;&#x2F;cr.console.aliyun.com&#x2F;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker-machine ssh default</span><br><span class="line">sudo sed -i &quot;s|EXTRA_ARGS&#x3D;&#39;|EXTRA_ARGS&#x3D;&#39;--registry-mirror&#x3D;https:&#x2F;&#x2F;registry.docker-cn.com |g&quot; &#x2F;var&#x2F;lib&#x2F;boot2docker&#x2F;profile</span><br><span class="line">exit</span><br><span class="line">docker-machine restart default</span><br></pre></td></tr></table></figure>
+
+
+<p>创建docker-machine</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-machine.exe create --driver virtualbox --virtualbox-boot2docker-url&#x3D;boot2docker.iso default</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/08/1581150589000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/08/articles/2020/02/08/1581150589000.html/" class="article-date">
+      <time datetime="2020-02-08T08:29:49.000Z" itemprop="datePublished">2020-02-08</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/08/articles/2020/02/08/1581150589000.html/">[adb] 查看android设备ip</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.cnblogs.com/tangsong41/p/11069125.html" target="_blank">利用adb查看手机设备ip和连接手机的两种方式</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br><span class="line">adb shell netcfg</span><br><span class="line">adb shell ifconfig wlan0</span><br><span class="line">adb connect 192.168.1.101:5555</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/" rel="tag">adb</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/02/06/1580970899000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -779,131 +911,6 @@
       
           
         <p><a href="https://github.com/suvvm/StudentManagementSystem_Qt/tree/master/StudentManagementSystem_Qt_5(all)" target="_blank">Qt教程——从零开始的学生管理系统（文件）</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/06/1580970891000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/06/articles/2020/02/06/1580970891000.html/" class="article-date">
-      <time datetime="2020-02-06T06:34:51.000Z" itemprop="datePublished">2020-02-06</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/06/articles/2020/02/06/1580970891000.html/">[qt] 天气</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://gitee.com/Barryda/Weather" target="_blank">Weather</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/06/1580970890000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/06/articles/2020/02/06/1580970890000.html/" class="article-date">
-      <time datetime="2020-02-06T06:34:50.000Z" itemprop="datePublished">2020-02-06</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/06/articles/2020/02/06/1580970890000.html/">[qt] 数据库操作</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/y____xiang/article/details/80412247" target="_blank">MySQL数据库</a></p>
-<p><a href="https://blog.csdn.net/qq_43333395/article/details/91126477" target="_blank">静态数据库（.db）</a></p>
 
       
     </div>

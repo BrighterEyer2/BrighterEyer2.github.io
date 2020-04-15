@@ -283,6 +283,135 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/03/05/1583413626000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/03/05/articles/2020/03/05/1583413626000.html/" class="article-date">
+      <time datetime="2020-03-05T13:07:06.000Z" itemprop="datePublished">2020-03-05</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/03/05/articles/2020/03/05/1583413626000.html/">[java] 默认时间</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/qq_35272054/article/details/90691896" target="_blank">JPA当中实现时间设置默认值(取当前时间)</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">	&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;org.hibernate&lt;&#x2F;groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;hibernate-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">		&lt;version&gt;5.2.1.Final&lt;&#x2F;version&gt;</span><br><span class="line">		&lt;exclusions&gt;</span><br><span class="line">			&lt;exclusion&gt;</span><br><span class="line">				&lt;artifactId&gt;el-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">				&lt;groupId&gt;javax.el&lt;&#x2F;groupId&gt;</span><br><span class="line">			&lt;&#x2F;exclusion&gt;</span><br><span class="line">		&lt;&#x2F;exclusions&gt;</span><br><span class="line">	&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import lombok.Data;</span><br><span class="line">import org.hibernate.annotations.CreationTimestamp;</span><br><span class="line">import org.hibernate.annotations.UpdateTimestamp;</span><br><span class="line"></span><br><span class="line">import javax.persistence.*;</span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">@Entity</span><br><span class="line">@Table(name &#x3D; &quot;test_data_time_default&quot;)</span><br><span class="line">@Data</span><br><span class="line">public class TestDateTimeDefault &#123;</span><br><span class="line">    @Id</span><br><span class="line">    @GeneratedValue(strategy &#x3D; GenerationType.IDENTITY)</span><br><span class="line">    private Integer id;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;默认创建时间</span><br><span class="line">    @Temporal(TemporalType.TIMESTAMP)</span><br><span class="line">    @Column(name &#x3D; &quot;t_time&quot;)</span><br><span class="line">    @CreationTimestamp</span><br><span class="line">    private Date time;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;默认更新时间</span><br><span class="line">    @Column(name &#x3D; &quot;t_update_time&quot;)</span><br><span class="line">    @UpdateTimestamp</span><br><span class="line">    @Temporal(TemporalType.TIMESTAMP)</span><br><span class="line">    private Date updateTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/03/05/1583413625000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/03/05/articles/2020/03/05/1583413625000.html/" class="article-date">
+      <time datetime="2020-03-05T13:07:05.000Z" itemprop="datePublished">2020-03-05</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/03/05/articles/2020/03/05/1583413625000.html/">[java] 加载dll文件</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>springboot加载dll文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">static &#123;</span><br><span class="line">    File tempLibraryFile &#x3D; copyResourceToTempDirFile(&quot;&#x2F;path&#x2F;to&#x2F;dll&#x2F;in&#x2F;JAR&quot;, &quot;my.dll&quot;);</span><br><span class="line">    System.load(tempLibraryFile.getAbsolutePath());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static File copyResourceToTempDirFile(String resourcePath, String destinationFileName) &#123;</span><br><span class="line">    File tempDir &#x3D; new File(System.getProperty(&quot;java.io.tmpdir&quot;));</span><br><span class="line">    File tempDirFile &#x3D; new File(tempDir, destinationFileName);</span><br><span class="line">    try (InputStream input &#x3D; FaceVideo.class.getResourceAsStream(resourcePath);</span><br><span class="line">         OutputStream output &#x3D; new FileOutputStream(tempDirFile)) &#123;</span><br><span class="line">        IOUtils.copy(input, output);</span><br><span class="line">        tempDirFile.deleteOnExit();</span><br><span class="line">        return tempDirFile;</span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line">        throw new RuntimeException(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/03/05/1583413624000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -865,166 +994,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">如没有出错，进行安装：</span><br><span class="line">sudo make install</span><br><span class="line">没出错的话，重启后就可以用了。</span><br><span class="line"></span><br><span class="line">不过也可以让它立刻生效：</span><br><span class="line">sudo modprobe 8188eu</span><br></pre></td></tr></table></figure>
 
 <p><a href="https://github.com/minibear0523/RTL8188eu_deb" target="_blank">RTL8188eu_deb</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/22/1582368954000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/22/articles/2020/02/22/1582368954000.html/" class="article-date">
-      <time datetime="2020-02-22T10:55:54.000Z" itemprop="datePublished">2020-02-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/22/articles/2020/02/22/1582368954000.html/">[arm] armhf源</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>配置永久DNS(追加)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; &#x2F;etc&#x2F;resolvconf&#x2F;resolv.conf.d&#x2F;base &lt;&lt;EOF</span><br><span class="line">nameserver 114.114.114.114</span><br><span class="line">nameserver 8.8.8.8</span><br><span class="line">nameserver 8.8.4.4</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &gt; &#x2F;etc&#x2F;resolv.conf &lt;&lt;EOF</span><br><span class="line">nameserver 114.114.114.114</span><br><span class="line">nameserver 8.8.8.8</span><br><span class="line">nameserver 8.8.4.4</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">resolvconf -u</span><br><span class="line">cat &#x2F;etc&#x2F;resolv.conf</span><br></pre></td></tr></table></figure>
-
-<p>重启服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;init.d&#x2F;networking restart</span><br></pre></td></tr></table></figure>
-
-
-<p>wily镜像源参考</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu-ports&#x2F; wily main restricted universe multiverse </span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu-ports&#x2F; wily-updates main restricted universe multiverse </span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu-ports&#x2F; wily-security main restricted universe multiverse </span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu-ports&#x2F; wily-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-
-<p>批量替换</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sed -i &quot;s&#x2F;ports.ubuntu.com&#x2F;mirrors.ustc.edu.cn&#x2F;g&quot; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">#sed -i &quot;s&#x2F;cn.archive.ubuntu.com&#x2F;mirrors.ustc.edu.cn&#x2F;g&quot; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">sed -i &quot;s&#x2F;security.ubuntu.com&#x2F;mirrors.ustc.edu.cn&#x2F;g&quot; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">deb http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports&#x2F; precise main universe</span><br><span class="line">deb-src http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports&#x2F; precise main universe</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mv &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br><span class="line"></span><br><span class="line">cat &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list &lt;&lt;EOF</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu-ports&#x2F; precise main universe</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu-ports&#x2F; precise main universe</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ls &#x2F;etc&#x2F;apt&#x2F;sources.list.d</span><br><span class="line">&#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;linaro-overlay-ppa.list</span><br><span class="line"></span><br><span class="line">cat &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;linaro-overlay-ppa.list</span><br><span class="line">deb http:&#x2F;&#x2F;ppa.launchpad.net&#x2F;linaro-maintainers&#x2F;overlay&#x2F;ubuntu precise main</span><br><span class="line">deb-src http:&#x2F;&#x2F;ppa.launchpad.net&#x2F;linaro-maintainers&#x2F;overlay&#x2F;ubuntu precise main</span><br><span class="line"></span><br><span class="line">mv &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;linaro-overlay-ppa.list &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;linaro-overlay-ppa.list.bak</span><br><span class="line"></span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
-
-
-<p><a href="https://www.cnblogs.com/wylnii/p/Ubuntu-mirrors-armhf.html" target="_blank">Ubuntu 的国内源（armhf）</a></p>
-<p>缺少linux kernel 头文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install linux-headers-generic</span><br><span class="line">apt-get install linux-headers-$(uname -r)</span><br><span class="line">apt-get install linux-source</span><br></pre></td></tr></table></figure>
-
-<p>更新内核</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">do-release-upgrade</span><br></pre></td></tr></table></figure>
-
-<p>armhf编译驱动程序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arm-linux-gnueabihf-gcc -o hello hello.c -static</span><br></pre></td></tr></table></figure>
-
-<p>arm-linux-gcc的安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install gcc-arm-linux-gnueabihf</span><br></pre></td></tr></table></figure>
-
-<p>arm-linux-g++的安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install g++-arm-linux-gnueabihf</span><br></pre></td></tr></table></figure>
-
-<p>arm-linux-gcc-4.4.3.tar.gz</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;www.arm9.net&#x2F;download.asp</span><br></pre></td></tr></table></figure>
-
-<p><a href="http://releases.linaro.org/archive/14.09/components/toolchain/binaries/gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.bz2" target="_blank">gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.bz2</a><br><a href="https://blog.csdn.net/lg1259156776/article/details/52281323" target="_blank">arm-linux-gnueabihf-gcc下载</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/22/1582348152000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/22/articles/2020/02/22/1582348152000.html/" class="article-date">
-      <time datetime="2020-02-22T05:09:12.000Z" itemprop="datePublished">2020-02-22</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/22/articles/2020/02/22/1582348152000.html/">[linux] 安装arm交叉编译工具</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#下载arm-none-linux-gnueabi-gcc安装包</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;BrighterEyer&#x2F;arm-none-linux-gnueabi-gcc-files</span><br><span class="line"></span><br><span class="line">#wget -c http:&#x2F;&#x2F;www.codesourcery.com&#x2F;sgpp&#x2F;lite&#x2F;arm&#x2F;portal&#x2F;package4571&#x2F;public&#x2F;arm-none-linux-gnueabi&#x2F;arm-2009q1-203-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#解压arm-none-linux-gnueabi-gcc安装包</span><br><span class="line">cp arm-2009q1-203-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2 &#x2F;usr&#x2F;local</span><br><span class="line">tar -jxvf arm-2009q1-203-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2</span><br><span class="line"></span><br><span class="line">#添加交叉编译工具路径</span><br><span class="line">vi &#x2F;etc&#x2F;bash.bashrc</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;arm-2009q1&#x2F;bin&#x2F;</span><br><span class="line">source &#x2F;etc&#x2F;bash.bashrc</span><br></pre></td></tr></table></figure>
 
       
     </div>
