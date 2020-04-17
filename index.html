@@ -283,6 +283,232 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/04/17/1587122928000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/04/17/articles/2020/04/17/1587122928000.html/" class="article-date">
+      <time datetime="2020-04-17T11:28:48.000Z" itemprop="datePublished">2020-04-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/04/17/articles/2020/04/17/1587122928000.html/">[qt] pro文件静态编译</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>pro文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CONFIG +&#x3D; static</span><br><span class="line"></span><br><span class="line">win32&#123;</span><br><span class="line">	QMAKE_LFLAGS &#x3D; -static</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>debug版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CONFIG +&#x3D; debug</span><br></pre></td></tr></table></figure>
+<p>release版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CONFIG +&#x3D; release</span><br></pre></td></tr></table></figure>
+
+
+<p>静态链接库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATE &#x3D; lib</span><br><span class="line">CONFIG +&#x3D; staticlib</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/04/17/1587122927000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/04/17/articles/2020/04/17/1587122927000.html/" class="article-date">
+      <time datetime="2020-04-17T11:28:47.000Z" itemprop="datePublished">2020-04-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/04/17/articles/2020/04/17/1587122927000.html/">[arm] 交叉编译</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/cnsword/article/details/9959515" target="_blank">交叉编译git</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">mkdir git;cd git</span><br><span class="line">mkdir openssl.install</span><br><span class="line">mkdir zlib.install</span><br><span class="line">mkdir curl.install</span><br><span class="line">mkdir expat.install</span><br><span class="line">mkdir build</span><br><span class="line"></span><br><span class="line">wget -c http:&#x2F;&#x2F;www.openssl.org&#x2F;source&#x2F;openssl-1.0.1h.tar.gz</span><br><span class="line">wget -c https:&#x2F;&#x2F;jaist.dl.sourceforge.net&#x2F;project&#x2F;libpng&#x2F;zlib&#x2F;1.2.8&#x2F;zlib-1.2.8.tar.gz</span><br><span class="line">wget -c https:&#x2F;&#x2F;curl.haxx.se&#x2F;download&#x2F;curl-7.55.1.tar.gz</span><br><span class="line">wget -c http:&#x2F;&#x2F;downloads.sourceforge.net&#x2F;expat&#x2F;expat-2.0.1.tar.gz</span><br><span class="line">wget -c https:&#x2F;&#x2F;www.kernel.org&#x2F;pub&#x2F;software&#x2F;scm&#x2F;git&#x2F;git-2.11.1.tar.gz</span><br><span class="line"></span><br><span class="line">tar zxvf openssl-1.0.1h.tar.gz</span><br><span class="line">tar zxvf zlib-1.2.8.tar.gz</span><br><span class="line">tar xvf curl-7.55.1.tar.bz2</span><br><span class="line">tar xvf expat-2.0.1.tar.gz</span><br><span class="line">tar xvf git-2.11.1.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>git依赖openssl、zlib、curl、expat</p>
+<p><a href="https://blog.csdn.net/weixin_42432281/article/details/87189341" target="_blank">编译openssl(ok)</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">cd openssl-1.0.1h</span><br><span class="line">cat Makefile</span><br><span class="line"># 修改Makefile，CC、RANLIB、MAKEDEPPROG为对应的交叉编译器</span><br><span class="line">cat Makefile|grep CC</span><br><span class="line">cat Makefile|grep RANLIB</span><br><span class="line">cat Makefile|grep MAKEDEPPROG</span><br><span class="line"></span><br><span class="line">export CROSS_COMPILE&#x3D;</span><br><span class="line"></span><br><span class="line">CC&#x3D;arm-linux-gnueabihf-gcc</span><br><span class="line">.&#x2F;config -fPIC no-shared no-asm -static --prefix&#x3D;&#x2F;home&#x2F;machine&#x2F;git&#x2F;openssl.install&#x2F;</span><br><span class="line"></span><br><span class="line">cat Makefile | grep &quot;\-m64&quot;</span><br><span class="line">sed -i &quot;s&#x2F;\-m64&#x2F; &#x2F;g&quot; Makefile</span><br><span class="line">#sed -i &quot;s&#x2F;\-m64&#x2F;\-fPIC&#x2F;g&quot; Makefile</span><br><span class="line"></span><br><span class="line">.&#x2F;Configure \</span><br><span class="line">--prefix&#x3D;&#x2F;home&#x2F;machine&#x2F;git&#x2F;openssl.install \</span><br><span class="line">os&#x2F;compiler:&#x2F;usr&#x2F;bin&#x2F;arm-linux-gnueabihf-gcc</span><br><span class="line"></span><br><span class="line">make -j 8;make install</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#拷贝libssl.so和libcrypto.so到相应目录</span><br><span class="line">#拷贝include文件到对应目录</span><br></pre></td></tr></table></figure>
+
+<p>编译zlib(ok)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd ..&#x2F;zlib-1.2.8</span><br><span class="line"></span><br><span class="line">.&#x2F;configure \</span><br><span class="line">CC&#x3D;&#x2F;usr&#x2F;bin&#x2F;arm-linux-gnueabihf-gcc \</span><br><span class="line">--prefix&#x3D;&#x2F;home&#x2F;machine&#x2F;git&#x2F;zlib.install</span><br><span class="line"></span><br><span class="line">make -j 8;make install</span><br><span class="line"></span><br><span class="line">#拷贝libzlib.so到相应目录，拷贝zlib.h、zconf.h到include目录</span><br></pre></td></tr></table></figure>
+
+<p>编译curl(ok)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">cd ..&#x2F;curl-7.55.1</span><br><span class="line"></span><br><span class="line">.&#x2F;buildconf</span><br><span class="line"></span><br><span class="line">CPPFLAGS&#x3D;&quot;-I&#x2F;home&#x2F;machine&#x2F;git&#x2F;openssl.install -I&#x2F;home&#x2F;machine&#x2F;git&#x2F;openssl.install&#x2F;include&quot; \</span><br><span class="line">LDFLAGS&#x3D;&quot;-L&#x2F;home&#x2F;machine&#x2F;git&#x2F;openssl.install&#x2F;lib&quot; \</span><br><span class="line">LIBS&#x3D;&quot;-ldl&quot; \</span><br><span class="line">CC&#x3D;arm-linux-gnueabihf-gcc \</span><br><span class="line">CXX&#x3D;arm-linux-gnueabihf-g++ \</span><br><span class="line">.&#x2F;configure \</span><br><span class="line">--host&#x3D;arm-linux-gnueabihf \</span><br><span class="line">--prefix&#x3D;&#x2F;home&#x2F;machine&#x2F;git&#x2F;curl.install \</span><br><span class="line">--with-ssl&#x3D;&#x2F;home&#x2F;machine&#x2F;git&#x2F;openssl.install \</span><br><span class="line">--with-zlib&#x3D;&#x2F;home&#x2F;machine&#x2F;git&#x2F;zlib.install \</span><br><span class="line">--enable-shared \</span><br><span class="line">--enable-static \</span><br><span class="line">--disable-dict \</span><br><span class="line">--disable-ftp \</span><br><span class="line">--disable-imap \</span><br><span class="line">--disable-ldap \</span><br><span class="line">--disable-ldaps \</span><br><span class="line">--disable-pop3 \</span><br><span class="line">--disable-proxy \</span><br><span class="line">--disable-rtsp \</span><br><span class="line">--disable-smtp \</span><br><span class="line">--disable-telnet \</span><br><span class="line">--disable-tftp \</span><br><span class="line">--disable-zlib \</span><br><span class="line">--without-ca-bundle \</span><br><span class="line">--without-gnutls \</span><br><span class="line">--without-libidn \</span><br><span class="line">--without-librtmp \</span><br><span class="line">--without-libssh2 \</span><br><span class="line">--without-nss</span><br><span class="line"></span><br><span class="line">make -j 8;make install</span><br><span class="line"></span><br><span class="line">#拷贝libcurl.so到相应的目录</span><br></pre></td></tr></table></figure>
+
+<p>编译expat(ok)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd ..&#x2F;expat-2.0.1</span><br><span class="line"></span><br><span class="line">CC&#x3D;&#x2F;usr&#x2F;bin&#x2F;arm-linux-gnueabihf-gcc \</span><br><span class="line">.&#x2F;configure \</span><br><span class="line">--host&#x3D;arm-linux-gnueabihf \</span><br><span class="line">--prefix&#x3D;&#x2F;home&#x2F;machine&#x2F;git&#x2F;expat.install</span><br><span class="line"></span><br><span class="line">make -j 8;make install;</span><br></pre></td></tr></table></figure>
+
+<p>编译git(ok)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cd ..&#x2F;git-2.11.1</span><br><span class="line"></span><br><span class="line">CC&#x3D;&#x2F;usr&#x2F;bin&#x2F;arm-linux-gnueabihf-gcc \</span><br><span class="line">.&#x2F;configure \</span><br><span class="line">--host&#x3D;arm-linux-gnueabihf \</span><br><span class="line">--prefix&#x3D;&#x2F;home&#x2F;machine&#x2F;git&#x2F;git.install \</span><br><span class="line">--with-curl&#x3D;&#x2F;home&#x2F;machine&#x2F;git&#x2F;curl.install \</span><br><span class="line">--with-expat&#x3D;&#x2F;home&#x2F;machine&#x2F;git&#x2F;expat.install</span><br><span class="line"></span><br><span class="line">make NO_EXPAT&#x3D;1</span><br><span class="line">#或</span><br><span class="line">make config</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/04/17/1587072558000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/04/17/articles/2020/04/17/1587072558000.html/" class="article-date">
+      <time datetime="2020-04-16T21:29:18.000Z" itemprop="datePublished">2020-04-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/04/17/articles/2020/04/17/1587072558000.html/">[linux] 批量依赖库拷贝(ldd)</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>1、通过LDD查看依赖的动态库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ldd &#x2F;opt&#x2F;qt5.7.0&#x2F;bin&#x2F;qmake</span><br></pre></td></tr></table></figure>
+
+<p>2、写一个SHELL脚本，自动拷贝依赖的动态库<br>vi outlib.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deplist&#x3D;$( ldd $1 | awk &#39;&#123;if (match($3,&quot;&#x2F;&quot;))&#123; print $3&#125;&#125;&#39; )</span><br><span class="line">cp -L -n $deplist $2</span><br><span class="line"></span><br><span class="line">#-L 表示拷贝文件（如果是软链，会拷贝到最终的文件）</span><br><span class="line">#-n 表示不覆盖已有文件</span><br></pre></td></tr></table></figure>
+
+<p>3、创建目标目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;tmp&#x2F;lib</span><br></pre></td></tr></table></figure>
+
+<p>4、将qmake依赖的动态库拷贝到目标目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x outlib.sh</span><br><span class="line">.&#x2F;outlib.sh &#x2F;opt&#x2F;qt5.7.0&#x2F;bin&#x2F;qmake &#x2F;tmp&#x2F;lib&#x2F;</span><br><span class="line">ll &#x2F;tmp&#x2F;lib</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/04/15/1586950113000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -338,7 +564,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"># 确保目标板上有以下目录，若没有，则新建：</span><br><span class="line"></span><br><span class="line">mkdir -p \</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;bin \</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;etc \</span><br><span class="line">&#x2F;usr&#x2F;libexec \</span><br><span class="line">&#x2F;var&#x2F;run \</span><br><span class="line">&#x2F;var&#x2F;empty</span><br><span class="line"></span><br><span class="line"># 将PC机 &#x2F;home&#x2F;machine&#x2F;ssh&#x2F;openssh-6.6p1&#x2F; 目录下文件拷贝到目标板系统中，具体为：</span><br><span class="line">scp、sftp、ssh sshd、ssh-add、ssh-agent、ssh-keygen、ssh-keyscan 共8个文件拷贝到目标板 &#x2F;usr&#x2F;local&#x2F;bin</span><br><span class="line">moduli、ssh_config、sshd_config 共3个文件拷贝到目标板 &#x2F;usr&#x2F;local&#x2F;etc</span><br><span class="line">sftp-server、ssh-keysign 共2个文件拷贝到目标板 &#x2F;usr&#x2F;libexec&#x2F;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git clone https:&#x2F;&#x2F;gitee.com&#x2F;BrighterEyer&#x2F;itop6818-transplant-openssh;</span><br><span class="line">cd itop6818-transplant-openssh&#x2F;</span><br><span class="line">mkdir -p \</span><br><span class="line">usr&#x2F;local&#x2F;bin \</span><br><span class="line">usr&#x2F;local&#x2F;etc \</span><br><span class="line">usr&#x2F;libexec \</span><br><span class="line">var&#x2F;run \</span><br><span class="line">var&#x2F;empty</span><br><span class="line">cd ..</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cp scp itop6818-transplant-openssh&#x2F;usr&#x2F;local&#x2F;bin&#x2F;;</span><br><span class="line">cp sftp itop6818-transplant-openssh&#x2F;usr&#x2F;local&#x2F;bin&#x2F;;</span><br><span class="line">cp ssh itop6818-transplant-openssh&#x2F;usr&#x2F;local&#x2F;bin&#x2F;;</span><br><span class="line">cp sshd itop6818-transplant-openssh&#x2F;usr&#x2F;local&#x2F;bin&#x2F;;</span><br><span class="line">cp ssh-add itop6818-transplant-openssh&#x2F;usr&#x2F;local&#x2F;bin&#x2F;;</span><br><span class="line">cp ssh-agent itop6818-transplant-openssh&#x2F;usr&#x2F;local&#x2F;bin&#x2F;;</span><br><span class="line">cp ssh-keygen itop6818-transplant-openssh&#x2F;usr&#x2F;local&#x2F;bin&#x2F;;</span><br><span class="line">cp ssh-keyscan itop6818-transplant-openssh&#x2F;usr&#x2F;local&#x2F;bin&#x2F;;</span><br><span class="line"></span><br><span class="line">cp moduli itop6818-transplant-openssh&#x2F;usr&#x2F;local&#x2F;etc&#x2F;;</span><br><span class="line">cp ssh_config itop6818-transplant-openssh&#x2F;usr&#x2F;local&#x2F;etc&#x2F;;</span><br><span class="line">cp sshd_config itop6818-transplant-openssh&#x2F;usr&#x2F;local&#x2F;etc&#x2F;;</span><br><span class="line"></span><br><span class="line">cp sftp-server itop6818-transplant-openssh&#x2F;usr&#x2F;libexec&#x2F;;</span><br><span class="line">cp ssh-keysign itop6818-transplant-openssh&#x2F;usr&#x2F;libexec&#x2F;;</span><br><span class="line"></span><br><span class="line">cd itop6818-transplant-openssh;</span><br><span class="line">git add *</span><br><span class="line">git commit -m &quot;tansplant openssh&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
 
 <p>8 生成Key文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p \</span><br><span class="line">&#x2F;var&#x2F;run \</span><br><span class="line">&#x2F;var&#x2F;empty</span><br><span class="line"></span><br><span class="line"># 在开发板 &#x2F;usr&#x2F;local&#x2F;etc&#x2F; 目录下生成key文件：</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;etc&#x2F;</span><br><span class="line">ssh-keygen -t rsa -f ssh_host_rsa_key -N &quot;&quot;</span><br><span class="line">ssh-keygen -t dsa -f ssh_host_dsa_key -N &quot;&quot;</span><br><span class="line">ssh-keygen -t ecdsa -f ssh_host_ecdsa_key -N &quot;&quot;</span><br><span class="line">ssh-keygen -t dsa -f ssh_host_ed25519_key -N &quot;&quot;</span><br><span class="line"></span><br><span class="line"># 修改 ssh_host_ed25519_key 权限为 600：</span><br><span class="line">chmod 600 ssh_host_ed25519_key</span><br><span class="line"></span><br><span class="line"># 其中 ssh_host_ed25519_key 是SSH第二版协议用到的key，需要修改权限，否则会提示以下错误：</span><br><span class="line"></span><br><span class="line">Permissions 0644 for &#39;&#x2F;usr&#x2F;local&#x2F;etc&#x2F;ssh_host_ed25519_key&#39; are too open.</span><br><span class="line">It is required that your private key files are NOT accessible by others.</span><br><span class="line">This private key will be ignored.</span><br><span class="line">bad permissions: ignore key: &#x2F;usr&#x2F;local&#x2F;etc&#x2F;ssh_host_ed25519_key</span><br><span class="line">Could not load host key: &#x2F;usr&#x2F;local&#x2F;etc&#x2F;ssh_host_ed25519_key</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p \</span><br><span class="line">&#x2F;var&#x2F;run \</span><br><span class="line">&#x2F;var&#x2F;empty</span><br><span class="line"></span><br><span class="line"># 在开发板 &#x2F;usr&#x2F;local&#x2F;etc&#x2F; 目录下生成key文件：</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;etc&#x2F;</span><br><span class="line">ssh-keygen -t rsa -f ssh_host_rsa_key -N &quot;&quot;</span><br><span class="line">ssh-keygen -t dsa -f ssh_host_dsa_key -N &quot;&quot;</span><br><span class="line">ssh-keygen -t ecdsa -f ssh_host_ecdsa_key -N &quot;&quot;</span><br><span class="line">ssh-keygen -t dsa -f ssh_host_ed25519_key -N &quot;&quot;</span><br><span class="line"></span><br><span class="line"># 修改 ssh_host_ed25519_key 权限为 600：</span><br><span class="line">chmod 600 ssh_host_ed25519_key</span><br><span class="line"></span><br><span class="line">chmod 700 &#x2F;usr&#x2F;local&#x2F;etc&#x2F;ssh_host_*</span><br><span class="line"></span><br><span class="line"># 其中 ssh_host_ed25519_key 是SSH第二版协议用到的key，需要修改权限，否则会提示以下错误：</span><br><span class="line"></span><br><span class="line">Permissions 0644 for &#39;&#x2F;usr&#x2F;local&#x2F;etc&#x2F;ssh_host_ed25519_key&#39; are too open.</span><br><span class="line">It is required that your private key files are NOT accessible by others.</span><br><span class="line">This private key will be ignored.</span><br><span class="line">bad permissions: ignore key: &#x2F;usr&#x2F;local&#x2F;etc&#x2F;ssh_host_ed25519_key</span><br><span class="line">Could not load host key: &#x2F;usr&#x2F;local&#x2F;etc&#x2F;ssh_host_ed25519_key</span><br></pre></td></tr></table></figure>
 
 <p>9 开发板用户信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 打开 &#x2F;etc&#x2F;passwd 文件，在最后添加下面这一行：</span><br><span class="line">sshd:x:74:74:Privilege-separated SSH:&#x2F;var&#x2F;empty&#x2F;sshd:&#x2F;sbin&#x2F;nologin</span><br><span class="line"></span><br><span class="line"># 如果开发板的 root 用户还没有密码，键入以下命令然输入两次密码来修改，否其他设备无法连：</span><br><span class="line">passwd root</span><br></pre></td></tr></table></figure>
@@ -349,9 +575,8 @@
 <p>主机上：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.1.250（开发板的ip）</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -R 192.168.1.102</span><br><span class="line">cat &#x2F;usr&#x2F;local&#x2F;etc&#x2F;sshd_config</span><br></pre></td></tr></table></figure>
 </details>
-
-
 
 
       
@@ -415,7 +640,7 @@
       
           
         <p><a href="https://gitee.com/BrighterEyer/itop6818-mt6620-4g-files/blob/master/mt6620/AP" target="_blank">gitee 交叉编译完成的iptables路径</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 文件清单</span><br><span class="line">ib_iptables.tar.gz</span><br><span class="line">xtables-multi</span><br><span class="line"></span><br><span class="line"># 在开发板上解压和放置</span><br><span class="line">tar xvf lib_iptables.tar.gz -C &#x2F;bin&#x2F;</span><br><span class="line"></span><br><span class="line"># 在开发板上修改权限、放置与重命名</span><br><span class="line">chmod 777 xtables-multi;</span><br><span class="line">mv xtables-multi &#x2F;bin&#x2F;iptables</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 文件清单</span><br><span class="line">lib_iptables.tar.gz</span><br><span class="line">xtables-multi</span><br><span class="line"></span><br><span class="line"># 在开发板上解压和放置</span><br><span class="line">tar xvf lib_iptables.tar.gz -C &#x2F;bin&#x2F;</span><br><span class="line"></span><br><span class="line"># 在开发板上修改权限、放置与重命名</span><br><span class="line">chmod 777 xtables-multi;</span><br><span class="line">mv xtables-multi &#x2F;bin&#x2F;iptables</span><br></pre></td></tr></table></figure>
 
 <details>
 <summary>移植iptables</summary>
@@ -559,8 +784,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y lib32ncurses5 lib32z1 lib32stdc++6</span><br><span class="line">cd ~&#x2F;work&#x2F;</span><br></pre></td></tr></table></figure>
-
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#支持32位</span><br><span class="line">sudo apt-get install -y lib32ncurses5 lib32z1 lib32stdc++6</span><br><span class="line">cd ~&#x2F;work&#x2F;</span><br></pre></td></tr></table></figure>
 
 <details>
 <summary>安装gcc指定版本</summary>
@@ -570,12 +794,12 @@
 </details>
 
 <details>
-<summary>arm-linux-gnueabihf-4.9</summary>
+<summary>arm-linux-gnueabihf</summary>
 
-<p>命令安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#会依照gcc版本下载</span><br><span class="line">sudo apt install -y gcc-arm-linux-gnueabi</span><br><span class="line">sudo apt install -y g++-arm-linux-gnueabi</span><br><span class="line"></span><br><span class="line">#会依照gcc版本下载</span><br><span class="line">sudo apt install -y gcc-arm-linux-gnueabihf</span><br><span class="line">sudo apt install -y g++-arm-linux-gnueabihf</span><br></pre></td></tr></table></figure>
+<p>命令安装方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#会依照目前gcc版本下载</span><br><span class="line">sudo apt install -y gcc-arm-linux-gnueabihf</span><br><span class="line">sudo apt install -y g++-arm-linux-gnueabihf</span><br></pre></td></tr></table></figure>
 
-<p>源码安装+环境变量设置<br><a href="http://releases.linaro.org/archive/14.09/components/toolchain/binaries/gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.bz2" target="_blank">gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.xz</a></p>
+<p>源码安装方式+环境变量设置<br><a href="http://releases.linaro.org/archive/14.09/components/toolchain/binaries/gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.bz2" target="_blank">gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.xz</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget -c http:&#x2F;&#x2F;releases.linaro.org&#x2F;archive&#x2F;14.09&#x2F;components&#x2F;toolchain&#x2F;binaries&#x2F;gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.bz2</span><br><span class="line">mkdir &#x2F;usr&#x2F;local&#x2F;arm&#x2F;</span><br><span class="line">tar -xvf gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.xz -C &#x2F;usr&#x2F;local&#x2F;arm&#x2F;</span><br><span class="line">mv &#x2F;usr&#x2F;local&#x2F;arm&#x2F;gcc-linaro* &#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-linux-gnueabihf-4.9&#x2F;</span><br></pre></td></tr></table></figure>
 <p>环境变量</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-linux-gnueabihf-4.9&#x2F;bin</span><br><span class="line">export CROSS_COMPILE&#x3D;arm-linux-gnueabihf-</span><br><span class="line"></span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
@@ -593,10 +817,13 @@
 <summary>qmake.conf</summary>
 
 <p>qt-everywhere-opensource-src-5.7.0文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;work&#x2F;</span><br><span class="line">wget -c http:&#x2F;&#x2F;download.qt.io&#x2F;new_archive&#x2F;qt&#x2F;5.7&#x2F;5.7.0&#x2F;single&#x2F;qt-everywhere-opensource-src-5.7.0.tar.gz</span><br><span class="line">tar xvf qt-everywhere-opensource-src-5.7.0.tar.gz;cd qt-everywhere-opensource-src-5.7.0</span><br><span class="line"></span><br><span class="line">vim qtbase&#x2F;mkspecs&#x2F;linux-arm-gnueabi-g++&#x2F;qmake.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;work&#x2F;</span><br><span class="line">wget -c http:&#x2F;&#x2F;download.qt.io&#x2F;new_archive&#x2F;qt&#x2F;5.7&#x2F;5.7.0&#x2F;single&#x2F;qt-everywhere-opensource-src-5.7.0.tar.gz</span><br><span class="line">tar xvf qt-everywhere-opensource-src-5.7.0.tar.gz;cd qt-everywhere-opensource-src-5.7.0</span><br></pre></td></tr></table></figure>
+
+<p>sed替换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i &quot;s&#x2F;arm-linux-gnueabi&#x2F;arm-linux-gnueabihf&#x2F;g&quot; qtbase&#x2F;mkspecs&#x2F;linux-arm-gnueabi-g++&#x2F;qmake.conf</span><br><span class="line">cat qtbase&#x2F;mkspecs&#x2F;linux-arm-gnueabi-g++&#x2F;qmake.conf</span><br></pre></td></tr></table></figure>
 
 <p>qtbase/mkspecs/linux-arm-gnueabi-g++/qmake.conf<br>注意：经实测，arm-linux-gnueabihf工具要制定绝对路径，才能编译通过</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">## qmake configuration for building with arm-linux-gnueabi-g++</span><br><span class="line">#</span><br><span class="line">MAKEFILE_GENERATOR &#x3D; UNIX</span><br><span class="line">CONFIG +&#x3D; incremental</span><br><span class="line">QMAKE_INCREMENTAL_STYLE &#x3D; sublib</span><br><span class="line"></span><br><span class="line">#QT_QPA_DEFAULT_PLATFORM &#x3D; linux #eglfs</span><br><span class="line">#QT_QPA_DEFAULT_PLATFORM &#x3D; linux #linux</span><br><span class="line"></span><br><span class="line"># 支持OPENGL设备的,选择eglfs</span><br><span class="line"># 无硬件加速设备的,选择linuxfb</span><br><span class="line"></span><br><span class="line">QT_QPA_DEFAULT_PLATFORM &#x3D; linuxfb</span><br><span class="line"></span><br><span class="line">QMAKE_CFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line">QMAKE_CXXFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line"></span><br><span class="line">include(..&#x2F;common&#x2F;linux.conf)</span><br><span class="line">include(..&#x2F;common&#x2F;gcc-base-unix.conf)</span><br><span class="line">include(..&#x2F;common&#x2F;g++-unix.conf)</span><br><span class="line"></span><br><span class="line">QMAKE_INCDIR +&#x3D; &#x2F;opt&#x2F;tslib1.4&#x2F;include</span><br><span class="line">QMAKE_LIBDIR +&#x3D; &#x2F;opt&#x2F;tslib1.4&#x2F;lib</span><br><span class="line"></span><br><span class="line"># modifications to g++.conf</span><br><span class="line"># QMAKE_CC &#x3D; arm-linux-gnueabihf-gcc -lts</span><br><span class="line"># QMAKE_CXX &#x3D; arm-linux-gnueabihf-g++ -lts</span><br><span class="line"># QMAKE_LINK &#x3D; arm-linux-gnueabihf-g++ -lts</span><br><span class="line"># QMAKE_LINK_SHLIB &#x3D; arm-linux-gnueabihf-g++ -lts</span><br><span class="line"></span><br><span class="line"># 不使用-lts，ts代表tslib，从而使编译通过</span><br><span class="line">modifications to g++.conf</span><br><span class="line">QMAKE_CC &#x3D; arm-linux-gnueabihf-gcc</span><br><span class="line">QMAKE_CXX &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line">QMAKE_LINK &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line">QMAKE_LINK_SHLIB &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line"></span><br><span class="line"># modifications to linux.conf</span><br><span class="line">QMAKE_AR &#x3D; arm-linux-gnueabihf-ar cqs</span><br><span class="line">QMAKE_OBJCOPY &#x3D; arm-linux-gnueabihf-objcopy</span><br><span class="line">QMAKE_NM &#x3D; arm-linux-gnueabihf-nm -P</span><br><span class="line">QMAKE_STRIP &#x3D; arm-linux-gnueabihf-strip</span><br><span class="line">load(qt_config)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">vim qtbase&#x2F;mkspecs&#x2F;linux-arm-gnueabi-g++&#x2F;qmake.conf</span><br><span class="line"></span><br><span class="line">## qmake configuration for building with arm-linux-gnueabi-g++</span><br><span class="line">#</span><br><span class="line">MAKEFILE_GENERATOR &#x3D; UNIX</span><br><span class="line">CONFIG +&#x3D; incremental</span><br><span class="line">QMAKE_INCREMENTAL_STYLE &#x3D; sublib</span><br><span class="line"></span><br><span class="line">#QT_QPA_DEFAULT_PLATFORM &#x3D; linux #eglfs</span><br><span class="line">#QT_QPA_DEFAULT_PLATFORM &#x3D; linux #linux</span><br><span class="line"></span><br><span class="line"># 支持OPENGL设备的,选择eglfs</span><br><span class="line"># 无硬件加速设备的,选择linuxfb</span><br><span class="line"></span><br><span class="line">QT_QPA_DEFAULT_PLATFORM &#x3D; linuxfb</span><br><span class="line"></span><br><span class="line">QMAKE_CFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line">QMAKE_CXXFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line"></span><br><span class="line">include(..&#x2F;common&#x2F;linux.conf)</span><br><span class="line">include(..&#x2F;common&#x2F;gcc-base-unix.conf)</span><br><span class="line">include(..&#x2F;common&#x2F;g++-unix.conf)</span><br><span class="line"></span><br><span class="line">QMAKE_INCDIR +&#x3D; &#x2F;opt&#x2F;tslib1.4&#x2F;include</span><br><span class="line">QMAKE_LIBDIR +&#x3D; &#x2F;opt&#x2F;tslib1.4&#x2F;lib</span><br><span class="line"></span><br><span class="line"># modifications to g++.conf</span><br><span class="line"># QMAKE_CC &#x3D; arm-linux-gnueabihf-gcc -lts</span><br><span class="line"># QMAKE_CXX &#x3D; arm-linux-gnueabihf-g++ -lts</span><br><span class="line"># QMAKE_LINK &#x3D; arm-linux-gnueabihf-g++ -lts</span><br><span class="line"># QMAKE_LINK_SHLIB &#x3D; arm-linux-gnueabihf-g++ -lts</span><br><span class="line"></span><br><span class="line"># 不使用-lts，ts代表tslib，从而使编译通过</span><br><span class="line">modifications to g++.conf</span><br><span class="line">QMAKE_CC &#x3D; arm-linux-gnueabihf-gcc</span><br><span class="line">QMAKE_CXX &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line">QMAKE_LINK &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line">QMAKE_LINK_SHLIB &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line"></span><br><span class="line"># modifications to linux.conf</span><br><span class="line">QMAKE_AR &#x3D; arm-linux-gnueabihf-ar cqs</span><br><span class="line">QMAKE_OBJCOPY &#x3D; arm-linux-gnueabihf-objcopy</span><br><span class="line">QMAKE_NM &#x3D; arm-linux-gnueabihf-nm -P</span><br><span class="line">QMAKE_STRIP &#x3D; arm-linux-gnueabihf-strip</span><br><span class="line">load(qt_config)</span><br></pre></td></tr></table></figure>
 </details>
 
 <details>
@@ -608,14 +835,6 @@
 <details>
 <summary>编译 QtE5.7 源码 之 autoconfigure.sh</summary>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#39;s&#x2F;\r$&#x2F;&#x2F;&#39; configure</span><br></pre></td></tr></table></figure>
-
-
-<p><a href="https://blog.csdn.net/carefordsp/article/details/51822792" target="_blank">注意qt5.7不支持c++11,且编译的时候要gcc编译器支持c++11</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"># g++</span><br><span class="line">sudo apt-get install -y build-essential</span><br><span class="line"></span><br><span class="line"># xcb</span><br><span class="line">sudo apt-get install -y \</span><br><span class="line">libxcb1 \</span><br><span class="line">libxcb1-dev \</span><br><span class="line">libx11-xcb1 \</span><br><span class="line">libx11-xcb-dev \</span><br><span class="line">libxcb-keysyms1 \</span><br><span class="line">libxcb-keysyms1-dev \</span><br><span class="line">libxcb-image0 \</span><br><span class="line">libxcb-image0-dev \</span><br><span class="line">libxcb-shm0 \</span><br><span class="line">libxcb-shm0-dev \</span><br><span class="line">libxcb-icccm4 \</span><br><span class="line">libxcb-icccm4-dev \</span><br><span class="line">libxcb-sync-dev \</span><br><span class="line">libxcb-xfixes0-dev \</span><br><span class="line">libxrender-dev \</span><br><span class="line">libxcb-shape0-dev \</span><br><span class="line">libxcb-randr0-dev \</span><br><span class="line">libxcb-render-util0 \</span><br><span class="line">libxcb-render-util0-dev \</span><br><span class="line">libxcb-glx0-dev</span><br><span class="line"></span><br><span class="line"># opengl</span><br><span class="line">sudo apt-get install -y \</span><br><span class="line">mesa-common-dev \</span><br><span class="line">libgl1-mesa-dev \</span><br><span class="line">libglu1-mesa-dev \</span><br><span class="line">freeglut3-dev</span><br><span class="line"></span><br><span class="line"># dbus</span><br><span class="line">sudo apt-get install -y dbus-*dev</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y libxcb-xinerama0-dev:i386</span><br><span class="line"></span><br><span class="line">a.安装gl库：</span><br><span class="line">sudo apt-get install -y libqt4-dev</span><br><span class="line">#或者</span><br><span class="line">sudo apt-get install -y libgl1-mesa-dev</span><br><span class="line">#或者</span><br><span class="line">sudo apt-get install -y libgl1-mesa-dev</span><br><span class="line">#或者</span><br><span class="line">sudo apt-get install -y libglu1-mesa-dev</span><br><span class="line"></span><br><span class="line">b.安装xcb库：</span><br><span class="line">sudo apt-get install -y &#39;^libxcb.*-dev&#39; libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev</span><br><span class="line"></span><br><span class="line">c.安装工具:</span><br><span class="line">sudo apt-get install build-essential perl python git</span><br><span class="line"></span><br><span class="line">d.64位需要另外安装的：</span><br><span class="line">sudo apt-get install -y gcc-multilib g++-multilib libc6:i386 lib32z1</span><br><span class="line">sudo dpkg --add-architecture i386</span><br><span class="line">sudo apt-get -y dist-upgrade</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo apt-get install -y openssl libssl-dev</span><br><span class="line">sudo apt-get install -y libpcre3 libpcre3-dev</span><br><span class="line">sudo apt-get install -y zlib1g-dev</span><br></pre></td></tr></table></figure>
-
 <p>qt-everywhere-opensource-src-5.7.0/autoconfigure.sh</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">.&#x2F;configure \</span><br><span class="line">-v \</span><br><span class="line">-confirm-license \</span><br><span class="line">-prefix &#x2F;opt&#x2F;qt5.7.0 \</span><br><span class="line">-release \</span><br><span class="line">-opensource \</span><br><span class="line">-make libs \</span><br><span class="line">-xplatform linux-arm-gnueabi-g++ \</span><br><span class="line">-optimized-qmake \</span><br><span class="line">-pch \</span><br><span class="line">-qt-sql-sqlite \</span><br><span class="line">-qt-libjpeg \</span><br><span class="line">-qt-zlib \</span><br><span class="line">-no-opengl \</span><br><span class="line">-skip qt3d \</span><br><span class="line">-skip qtcanvas3d \</span><br><span class="line">-skip qtpurchasing \</span><br><span class="line">-no-sse2 \</span><br><span class="line">-no-openssl \</span><br><span class="line">-no-nis \</span><br><span class="line">-no-cups \</span><br><span class="line">-no-glib \</span><br><span class="line">-no-iconv \</span><br><span class="line">-c++std c++11 \</span><br><span class="line">-no-opengl \</span><br><span class="line">-no-dbus \</span><br><span class="line">-skip qtdeclarative \</span><br><span class="line">-skip qtpurchasing \</span><br><span class="line">-nomake examples \</span><br><span class="line">-nomake tools \</span><br><span class="line">-skip qtvirtualkeyboard \</span><br><span class="line">-I&#x2F;opt&#x2F;tslib1.4&#x2F;include \</span><br><span class="line">-L&#x2F;opt&#x2F;tslib1.4&#x2F;lib</span><br><span class="line"></span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
 
@@ -626,6 +845,23 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y python</span><br><span class="line">chmod 777 autoconfigure.sh</span><br><span class="line"><span class="built_in">export</span> ARCH=arm</span><br><span class="line"><span class="built_in">export</span> CFG_HOST_ARCH=arm</span><br><span class="line">sudo sh autoconfigure.sh</span><br><span class="line">make -j16</span><br><span class="line">sudo make install</span><br><span class="line">ls /opt/qt5.7.0</span><br></pre></td></tr></table></figure>
 </details>
 
+<details>
+<summary>linux 静态编译qt程序</summary>
+
+<p><a href="https://www.jianshu.com/p/63bf259f1aa1" target="_blank">静态编译qt程序</a><br>/etc/profile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">QTDIR&#x3D;&#x2F;opt&#x2F;qt5.7.0_static&#x2F;</span><br><span class="line">PATH&#x3D;$QTDIR&#x2F;bin:$PATH</span><br><span class="line">MANPATH&#x3D;$QTDIR&#x2F;doc&#x2F;man:$MANPATH</span><br><span class="line">LD_LIBRARY_PATH&#x3D;$QTDIR&#x2F;lib:$LD_LIBRARY_PATH</span><br><span class="line">export QTDIR PATH MANPATH LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure>
+<p>1.比如现在有一个test.cpp文件</p>
+<p>2.生成.pro文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qmake -project</span><br></pre></td></tr></table></figure>
+<p>3.修改.pro文件，在里面加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CONFIG+&#x3D;static</span><br></pre></td></tr></table></figure>
+<p>4.生成Makefile文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qmake</span><br></pre></td></tr></table></figure>
+<p>5.修改Makefile文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在CXXflags选项后面加上 -static</span><br></pre></td></tr></table></figure>
+<p>6.生成可执行二进制文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+</details>
 
 <details>
 <summary>解压qt镜像，移植其中的qt5.7.0</summary>
@@ -877,228 +1113,9 @@
 
 
   
-    <article id="post-/articles/2020/04/08/1586341339000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/04/08/articles/2020/04/08/1586341339000.html/" class="article-date">
-      <time datetime="2020-04-08T10:22:19.000Z" itemprop="datePublished">2020-04-08</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/04/08/articles/2020/04/08/1586341339000.html/">[shell] jar启动日志文件</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar xxx&#x2F;xxx&#x2F;xx.jar |tee -a xxx&#x2F;xxx&#x2F;Tem&#x2F;xxxApp.log</span><br></pre></td></tr></table></figure>
-
-<p>输出到标准输出的同时，保存到文件file中。如果文件不存在，则创建；如果已经存在，则覆盖之</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tee file</span><br></pre></td></tr></table></figure>
-
-<p>追加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tee -a file</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/04/08/1586341338000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/04/08/articles/2020/04/08/1586341338000.html/" class="article-date">
-      <time datetime="2020-04-08T10:22:18.000Z" itemprop="datePublished">2020-04-08</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/04/08/articles/2020/04/08/1586341338000.html/">[docker] rabbitmq</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/myNameIssls/article/details/99702877" target="_blank">基于 Docker 安装 RabbitMQ</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#镜像未配有控制台</span><br><span class="line">#docker pull rabbitmq</span><br><span class="line"></span><br><span class="line">#镜像配有控制台</span><br><span class="line">docker pull rabbitmq:management</span><br><span class="line"></span><br><span class="line"># 安装 RabbitMQ</span><br><span class="line">docker run --name rabbitmq -d -p 15672:15672 -p 5672:5672 rabbitmq:management</span><br><span class="line"></span><br><span class="line"># 查看 RabbitMQ 容器进程信息</span><br><span class="line">docker top rabbitmq</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#浏览器中访问</span><br><span class="line">#http:&#x2F;&#x2F;192.168.99.100:15672</span><br><span class="line">#来查看控制台信息</span><br><span class="line"></span><br><span class="line"># RabbitMQ默认的用户名：</span><br><span class="line">guest</span><br><span class="line"># 密码：</span><br><span class="line">guest</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/04/06/1586183309000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/04/06/articles/2020/04/06/1586183309000.html/" class="article-date">
-      <time datetime="2020-04-06T14:28:29.000Z" itemprop="datePublished">2020-04-06</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/04/06/articles/2020/04/06/1586183309000.html/">[arm] 开发板与ubuntu虚拟机通过NFS共享目录</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>在ubuntu虚拟机上搭建 NFS 服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line"></span><br><span class="line">apt-get install -y nfs-kernel-server</span><br><span class="line">mkdir &#x2F;home&#x2F;minilinux&#x2F;</span><br><span class="line"></span><br><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;exports &lt;&lt;EOF</span><br><span class="line">&#x2F;home&#x2F;minilinux&#x2F; *(rw,sync,no_root_squash)</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<p>请注意：<br>如果使用的是 Ubuntu12.04 系统则执行这一步重启</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 重启 portmap 服务</span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;portmap restart</span><br></pre></td></tr></table></figure>
-
-<p>如果使用的是 Ubuntu14.04 或者 Ubuntu16.02 系统则执行这一步重启</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 重启 rpcbind 服务</span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;rpcbind restart</span><br></pre></td></tr></table></figure>
-
-<p>最后重启 nfs 服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;init.d&#x2F;nfs-kernel-server restart</span><br></pre></td></tr></table></figure>
-
-<p>测试 NFS 服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 在虚拟机 Ubuntu 本机上验证一下，把&#x2F;home&#x2F;minilinux 挂载到&#x2F;mnt 目录下</span><br><span class="line"></span><br><span class="line">mount -t nfs localhost:&#x2F;home&#x2F;minilinux &#x2F;mnt</span><br><span class="line"></span><br><span class="line"># 查看是否挂载成功</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
-
-<p>卸载 NFS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount &#x2F;mnt</span><br></pre></td></tr></table></figure>
-
-
-<p>查看开发板 ip</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-
-<p>再查看一下 NFS 服务器的 ip</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-
-<p>需要开发板和服务器在同一网段，如果不在同一网段然后修改开发板的 ip</p>
-<p>在开发板的/mnt 目录下，使用命令“mkdir nfs”新建一个目录，作为开发板的 NFS 同步目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;mnt&#x2F;nfs</span><br><span class="line"></span><br><span class="line">#挂载到 nfs 服务器</span><br><span class="line">mount -t nfs -o nolock 192.168.2.185:&#x2F;home&#x2F;minilinux &#x2F;mnt&#x2F;nfs</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/97/">97</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 

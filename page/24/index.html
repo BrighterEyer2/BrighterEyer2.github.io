@@ -283,6 +283,343 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/01/14/1579000587000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/14/articles/2020/01/14/1579000587000.html/" class="article-date">
+      <time datetime="2020-01-14T11:16:27.000Z" itemprop="datePublished">2020-01-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/14/articles/2020/01/14/1579000587000.html/">[arm] windows平台交叉编译+arm+QT5.7</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/qq_41068712/article/details/89672143" target="_blank">Windows平台交叉编译Arm Linux平台的QT5.7库（1）</a><br><a href="https://www.cnblogs.com/qinwanlin/p/6956833.html" target="_blank">Windows平台交叉编译Arm Linux平台的QT5.7库（2）</a></p>
+<p>1、Qt库源代码<br><a href="http://download.qt.io/archive/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.zip" target="_blank">qt-everywhere-opensource-src-5.7.0.zip</a></p>
+<details>
+<summary>修改qmake.conf</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">qtbase\mkspecs\linux-arm-gnueabi-g++\qmake.conf</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># qmake configuration for building with arm-linux-gnueabi-g++</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">MAKEFILE_GENERATOR      &#x3D; UNIX</span><br><span class="line">CONFIG                 +&#x3D; incremental</span><br><span class="line">QMAKE_INCREMENTAL_STYLE &#x3D; sublib</span><br><span class="line"></span><br><span class="line">#QT_QPA_DEFAULT_PLATFORM &#x3D; linux #eglfs</span><br><span class="line">#QMAKE_CFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line">#QMAKE_CXXFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line"></span><br><span class="line">include(..&#x2F;common&#x2F;linux.conf)</span><br><span class="line">include(..&#x2F;common&#x2F;gcc-base-unix.conf)</span><br><span class="line">include(..&#x2F;common&#x2F;g++-unix.conf)</span><br><span class="line"></span><br><span class="line"># modifications to g++.conf</span><br><span class="line">QMAKE_CC                &#x3D; arm-linux-gnueabihf-gcc</span><br><span class="line">QMAKE_CXX               &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line">QMAKE_LINK              &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line">QMAKE_LINK_SHLIB        &#x3D; arm-linux-gnueabihf-g++</span><br><span class="line"></span><br><span class="line"># modifications to linux.conf</span><br><span class="line">QMAKE_AR                &#x3D; arm-linux-gnueabihf-ar cqs</span><br><span class="line">QMAKE_OBJCOPY           &#x3D; arm-linux-gnueabihf-objcopy</span><br><span class="line">QMAKE_NM                &#x3D; arm-linux-gnueabihf-nm -P</span><br><span class="line">QMAKE_STRIP             &#x3D; arm-linux-gnueabihf-strip</span><br><span class="line">load(qt_config)</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>修改kernel.pri</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">qtbase\src\corelib\kernel\kernel.pri</span><br><span class="line"></span><br><span class="line">SOURCES +&#x3D; \</span><br><span class="line">kernel&#x2F;qpoll.cpp \</span><br><span class="line">kernel&#x2F;qcore_unix.cpp \</span><br></pre></td></tr></table></figure>
+
+<p>2、Perl<br><a href="https://www.cr173.com/soft/14302.html" target="_blank">ActivePerl-5.26.1</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将其bin目录添加到环境变量PATH中</span><br></pre></td></tr></table></figure>
+
+<p>3、Python2.7以上<br><a href="https://www.python.org/downloads/" target="_blank">Python</a></p>
+<p>4、MinGW开发工具集（没用到）<br><a href="https://sourceforge.net/projects/mingw/" target="_blank">mingw-32</a><br><a href="https://sourceforge.net/projects/mingw-w64/files/mingw-w64/" target="_blank">mingw-w64</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将其bin目录添加到环境变量PATH中</span><br></pre></td></tr></table></figure>
+
+<p>5、交叉编译器<br><a href="http://releases.linaro.org/archive/14.07/components/toolchain/binaries/gcc-linaro-arm-linux-gnueabihf-4.9-2014.07-20140726_win32.exe" target="_blank">gcc-linaro-arm-linux-gnueabihf-4.9-2014.07-20140726_win32.exe</a><br><a href="https://blog.csdn.net/guodeqiangde/article/details/78239408" target="_blank">（可不下载）arm-none-linux-gnueabi</a><br><a href="https://www.veryarm.com/12506.html" target="_blank">【Linux开发】arm-linux-gnueabihf-gcc下载</a><br><a href="http://releases.linaro.org/archive/14.07/components/toolchain/binaries/" target="_blank">文件列表</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将其bin目录添加到环境变量PATH中</span><br></pre></td></tr></table></figure>
+
+<p>6、安装qt opensource</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd qt-everywhere-opensource-src-5.7.0</span><br><span class="line"></span><br><span class="line">configure.bat -release -opensource -prefix X:\Qt\Qt5.7.0_ARM_Linux -nomake tests -nomake examples -no-opengl -skip qtvirtualkeyboard  -xplatform linux-arm-gnueabi-g++</span><br><span class="line"></span><br><span class="line">mingw32-make</span><br><span class="line">mingw32-make install</span><br><span class="line"></span><br><span class="line">#可选</span><br><span class="line">qmake.exe程序所在目录增加一个qt.conf配置文件，内容为：</span><br><span class="line">[Paths]</span><br><span class="line">Prefix&#x3D;..</span><br></pre></td></tr></table></figure>
+
+<p>7、Qt Creator + ARM设置<br><a href="https://download.qt.io/archive/qt/5.12/5.12.2/qt-opensource-windows-x86-5.12.2.exe" target="_blank">qt-opensource-windows-x86-5.12.2.exe</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(1)</span><br><span class="line">工具(Tools) -&gt; 选项(options) -&gt; Kits -&gt; 编译器 -&gt; Manual -&gt; 添加，选GCC -&gt; arm-linux-gnueabihf-g++</span><br><span class="line"></span><br><span class="line">(2)</span><br><span class="line">CMake -&gt; Manual -&gt; 点击Add -&gt; 找到minGW安装目录bin里的 mingw32-make.exe，取个名后添加</span><br><span class="line"></span><br><span class="line">(3)调试功能</span><br><span class="line">Qt Versions -&gt; 手动设置 -&gt; 点击添加... -&gt; 找到Qt库安装目录bin里的qmake.exe，取名Qt5.70 for linux_armv7 后添加</span><br><span class="line"></span><br><span class="line">版本名称: Qt %&#123;Qt:Version&#125; for linux_armv7</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/01/14/1579000586000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/14/articles/2020/01/14/1579000586000.html/" class="article-date">
+      <time datetime="2020-01-14T11:16:26.000Z" itemprop="datePublished">2020-01-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/14/articles/2020/01/14/1579000586000.html/">[arm] itop6818使用QtE5.7</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>程序文件<br><a href="https://gitee.com/BrighterEyer/itop6818-QtE5.7-programs" target="_blank">itop6818-QtE5.7-programs</a></p>
+<p>环境、编译、配置相关文件<br><a href="https://gitee.com/BrighterEyer/itop6818-QtE5.7-files" target="_blank">itop6818-QtE5.7-files</a></p>
+<details>
+<summary>文件清单</summary>
+
+<p><a href="https://pan.baidu.com/s/12V6yl21PeEdhKNiYFHKRnw" target="_blank">lollipop-5.1.1_r6_20170512.tar.gz</a> 提取码：8n1e</p>
+<p><a href="http://download.qt.io/new_archive/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run" target="_blank">qt-opensource-linux-x64-5.7.0.run</a><br><a href="http://download.qt.io/new_archive/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.gz" target="_blank">qt-everywhere-opensource-src-5.7.0.tar.gz</a><br><a href="http://www.codesourcery.com/sgpp/lite/arm/portal/package4571/public/arm-none-linux-gnueabi/arm-2014.05-29-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2" target="_blank">arm-2014.05-29-arm-none-Linux-gnueabi-i686-pc-linux-gnu.tar.bz2</a><br><a href="https://github.com/libts/tslib/releases/download/1.4/tslib-1.4.tar.bz2" target="_blank">tslib-1.4.tar.bz2</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linux_tools.tgz 中的 mkimage、make_ext_4fs</span><br></pre></td></tr></table></figure>
+</details>
+
+
+<p><a href="https://blog.csdn.net/ZHUQIUSHI123/article/details/90670126" target="_blank">安装gcc指定版本</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 查看ubuntu系统上g++的版本：</span><br><span class="line">ls &#x2F;usr&#x2F;bin&#x2F;g++*</span><br><span class="line"></span><br><span class="line"># 安装新版gcc和g++</span><br><span class="line">sudo apt-get install gcc-4.8 g++-4.8</span><br><span class="line"></span><br><span class="line"># 切换不同版本</span><br><span class="line">sudo update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;gcc gcc &#x2F;usr&#x2F;bin&#x2F;gcc-4.8 20</span><br><span class="line"></span><br><span class="line"># 同理修改g++的方式类似：</span><br><span class="line">sudo update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;g++ g++ &#x2F;usr&#x2F;bin&#x2F;g++-4.8 20</span><br></pre></td></tr></table></figure>
+
+<p>通过编号选择gcc版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config gcc</span><br><span class="line">sudo update-alternatives --config g++</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#tar xvf android_env.tgz -C &#x2F;</span><br><span class="line">#cd &#x2F;android_env&#x2F;ubuntu</span><br><span class="line">#.&#x2F;install-devel-packages.sh</span><br><span class="line">#sudo apt-get install -y default-jre default-jdk realpath</span><br><span class="line">sudo apt-get install -y autoconf automake libtool</span><br><span class="line">sudo apt-get install -y lib32c-dev lib32stdc++6 lib32z1 lib32ncurses5</span><br><span class="line">sudo apt-get install -y lzop u-boot-tools make libstdc++6</span><br><span class="line"></span><br><span class="line">#Qt Creator报“&#x2F;usr&#x2F;bin&#x2F;ld: error: cannot find -lGL” 问题</span><br><span class="line">sudo apt-get -y install libgl1-mesa-dev</span><br></pre></td></tr></table></figure>
+
+<p>uboot、kernel 和 qt 编译</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">tar xvf lollipop-5.1.1_r6_20170512.tar.gz -C ~&#x2F;work&#x2F;</span><br><span class="line"></span><br><span class="line">#uboot</span><br><span class="line">cd ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;u-boot</span><br><span class="line">cp nsih-2G16b-6818.txt nsih.txt</span><br><span class="line">cd ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;kernel</span><br><span class="line">cp -r config_for_iTOP6818_linux .config</span><br><span class="line">export ARCH&#x3D;arm</span><br><span class="line"></span><br><span class="line">#如果是 2G 核心板，则打开 kernel 目录下</span><br><span class="line">vim ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;linux&#x2F;kernel&#x2F;kernel-3.4.39&#x2F;arch&#x2F;arm&#x2F;plat-s5p6818&#x2F;topeet&#x2F;include&#x2F;cfg_mem.h</span><br><span class="line">#if 1   &#x2F;&#x2F;对应 1G 内核</span><br><span class="line">&#x2F;&#x2F;改为</span><br><span class="line">#if 0   &#x2F;&#x2F;对应 2G 内核</span><br><span class="line"></span><br><span class="line">cd ..</span><br><span class="line">.&#x2F;build_android.sh qt</span><br><span class="line"></span><br><span class="line">ls result</span><br><span class="line">boot.img  sd_fusing_uboot.sh  system.img  u-boot-iTOP-6818.bin</span><br><span class="line">mkuboot   system              u-boot.bin</span><br><span class="line"></span><br><span class="line">#其中有用的是</span><br><span class="line">zip boot.zip boot.img</span><br><span class="line">zip u-boot-iTOP-6818.zip u-boot-iTOP-6818.bin</span><br><span class="line"></span><br><span class="line"># 注意：关于system.img</span><br><span class="line">#android的用result下的system.img</span><br><span class="line">#而qt的是用make_ext4fs后，在目录~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;qt_system下产生的system.img</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Qt 的单独编译可以参考 Android，通过注释 “build_uboot”，“build_kernel” 等来实现。</span><br></pre></td></tr></table></figure>
+
+<p>QtE4.7 与 QtE5.7</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># opt文件夹在上述操作中已删除，底下自然也没有了 Qtopia 和 Qt&#x2F;E4.7 文件夹</span><br><span class="line">ls ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;opt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 在“iTOP-6818开发板之全功能版使用手册_v2.2.pdf”第六章、第七章分别介绍了 Qtopia、Qt&#x2F;E4.7与Qt&#x2F;E5.7 的编译</span><br><span class="line"></span><br><span class="line"># QtE4.7 需要用到“qt-everywhere-opensource-src-4.7.1.tar.gz”、“arm-linux-gcc-4.3.2.tar.gz”文件，即arm-none-linux-gnueabi-gcc-4.3.2环境</span><br><span class="line"></span><br><span class="line"># QtE5.7 必须在 Ubuntu16.04 上编译，需要用到“arm-2014.05-29-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2”、gcc版本4.8</span><br></pre></td></tr></table></figure>
+
+
+<p>安装arm-none-linux-gnueabi-gcc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">wget -c http:&#x2F;&#x2F;www.codesourcery.com&#x2F;sgpp&#x2F;lite&#x2F;arm&#x2F;portal&#x2F;package4571&#x2F;public&#x2F;arm-none-linux-gnueabi&#x2F;arm-2014.05-29-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2</span><br><span class="line">mkdir -p &#x2F;usr&#x2F;local&#x2F;arm</span><br><span class="line">tar jxvf arm-2014.05-29-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2 -C &#x2F;usr&#x2F;local&#x2F;arm&#x2F;</span><br><span class="line"></span><br><span class="line">#编辑.bashrc</span><br><span class="line">vim &#x2F;etc&#x2F;profile</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2014.05&#x2F;bin</span><br><span class="line">export CROSS_COMPILE&#x3D;arm-none-linux-gnueabi-</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">#检验版本</span><br><span class="line">arm-none-linux-gnueabi-gcc -v</span><br></pre></td></tr></table></figure>
+
+
+<details>
+<summary>tslib-1.4.tar.gz编译和安装，产生/opt/tslib1.4</summary>
+
+<p><a href="https://blog.csdn.net/lincuiting06/article/details/50352557" target="_blank">tslib-1.4.tar.gz安装和配置</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y autoconf automake libtool</span><br><span class="line">cd ~&#x2F;work</span><br><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;libts&#x2F;tslib&#x2F;releases&#x2F;download&#x2F;1.4&#x2F;tslib-1.4.tar.bz2</span><br><span class="line">tar xvf tslib-1.4.tar.bz2;cd tslib-1.4;</span><br><span class="line">.&#x2F;autogen.sh</span><br><span class="line">.&#x2F;configure CC&#x3D;arm-none-linux-gnueabi-gcc CXX&#x3D;arm-none-linux-gnueabi-g++ --host&#x3D;arm-none-linux-gnueabi --prefix&#x3D;&#x2F;opt&#x2F;tslib1.4 ac_cv_func_malloc_0_nonnull&#x3D;yes</span><br><span class="line">make -j 8;sudo make install</span><br><span class="line"></span><br><span class="line">#修改ts.conf</span><br><span class="line">sudo vim &#x2F;opt&#x2F;tslib1.4&#x2F;etc&#x2F;ts.conf</span><br><span class="line">#第一行</span><br><span class="line">module_raw input</span><br><span class="line"></span><br><span class="line">#追加宏：</span><br><span class="line">sudo vim &#x2F;opt&#x2F;tslib1.4&#x2F;include&#x2F;tslib.h</span><br><span class="line">#define SYN_MT_REPORT           2</span><br><span class="line">#define ABS_MT_SLOT             0x2f    &#x2F;* MT slot being modified *&#x2F;</span><br><span class="line">#define ABS_MT_TOUCH_MAJOR      0x30    &#x2F;* Major axis of touching ellipse *&#x2F;</span><br><span class="line">#define ABS_MT_TOUCH_MINOR      0x31    &#x2F;* Minor axis (omit if circular) *&#x2F;</span><br><span class="line">#define ABS_MT_WIDTH_MAJOR      0x32    &#x2F;* Major axis of approaching ellipse *&#x2F;</span><br><span class="line">#define ABS_MT_WIDTH_MINOR      0x33    &#x2F;* Minor axis (omit if circular) *&#x2F;</span><br><span class="line">#define ABS_MT_ORIENTATION      0x34    &#x2F;* Ellipse orientation *&#x2F;</span><br><span class="line">#define ABS_MT_POSITION_X       0x35    &#x2F;* Center X touch position *&#x2F;</span><br><span class="line">#define ABS_MT_POSITION_Y       0x36    &#x2F;* Center Y touch position *&#x2F;</span><br><span class="line">#define ABS_MT_TOOL_TYPE        0x37    &#x2F;* Type of touching device *&#x2F;</span><br><span class="line">#define ABS_MT_BLOB_ID          0x38    &#x2F;* Group a set of packets as a blob *&#x2F;</span><br><span class="line">#define ABS_MT_TRACKING_ID      0x39    &#x2F;* Unique ID of initiated contact *&#x2F;</span><br><span class="line">#define ABS_MT_PRESSURE         0x3a    &#x2F;* Pressure on contact area *&#x2F;</span><br><span class="line">#define ABS_MT_DISTANCE         0x3b    &#x2F;* Contact hover distance *&#x2F;</span><br><span class="line">#define ABS_MT_TOOL_X           0x3c    &#x2F;* Center X tool position *&#x2F;</span><br><span class="line">#define ABS_MT_TOOL_Y           0x3d    &#x2F;* Center Y tool position *&#x2F;</span><br></pre></td></tr></table></figure>
+</details>
+
+<details>
+<summary>修改qmake.conf，用于指定arm-none-linux-gnueabi-gcc交叉编译环境</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;work</span><br><span class="line">wget http:&#x2F;&#x2F;download.qt.io&#x2F;new_archive&#x2F;qt&#x2F;5.7&#x2F;5.7.0&#x2F;single&#x2F;qt-everywhere-opensource-src-5.7.0.tar.gz</span><br><span class="line">tar xvf qt-everywhere-opensource-src-5.7.0.tar.gz;cd qt-everywhere-opensource-src-5.7.0</span><br><span class="line"></span><br><span class="line">vi qtbase&#x2F;mkspecs&#x2F;linux-arm-gnueabi-g++&#x2F;qmake.conf</span><br><span class="line">## qmake configuration for building with arm-linux-gnueabi-g++</span><br><span class="line">#</span><br><span class="line">MAKEFILE_GENERATOR &#x3D; UNIX</span><br><span class="line">CONFIG +&#x3D; incremental</span><br><span class="line">QMAKE_INCREMENTAL_STYLE &#x3D; sublib</span><br><span class="line">QT_QPA_DEFAULT_PLATFORM &#x3D; linux #eglfs</span><br><span class="line"></span><br><span class="line">QMAKE_CFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line">QMAKE_CXXFLAGS_RELEASE +&#x3D; -O2 -march&#x3D;armv7-a</span><br><span class="line"></span><br><span class="line">include(..&#x2F;common&#x2F;linux.conf)</span><br><span class="line">include(..&#x2F;common&#x2F;gcc-base-unix.conf)</span><br><span class="line">include(..&#x2F;common&#x2F;g++-unix.conf)</span><br><span class="line"></span><br><span class="line"># modifications to g++.conf</span><br><span class="line">QMAKE_CC &#x3D; arm-none-linux-gnueabi-gcc</span><br><span class="line">QMAKE_CXX &#x3D; arm-none-linux-gnueabi-g++</span><br><span class="line">QMAKE_LINK &#x3D; arm-none-linux-gnueabi-g++</span><br><span class="line">QMAKE_LINK_SHLIB &#x3D; arm-none-linux-gnueabi-g++</span><br><span class="line"></span><br><span class="line"># modifications to linux.conf</span><br><span class="line">QMAKE_AR &#x3D; arm-none-linux-gnueabi-ar cqs</span><br><span class="line">QMAKE_OBJCOPY &#x3D; arm-none-linux-gnueabi-objcopy</span><br><span class="line">QMAKE_NM &#x3D; arm-none-linux-gnueabi-nm -P</span><br><span class="line">QMAKE_STRIP &#x3D; arm-none-linux-gnueabi-strip</span><br><span class="line">load(qt_config)</span><br></pre></td></tr></table></figure>
+</details>
+
+<details>
+<summary>执行脚本文件autoconfigure.sh编译QtE5.7源码，产生/opt/qt5.7.0</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2014.05&#x2F;bin</span><br><span class="line">export CROSS_COMPILE&#x3D;arm-none-linux-gnueabi-</span><br><span class="line"></span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+
+<p>qt-everywhere-opensource-src-5.7.0/autoconfigure.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">.&#x2F;configure \</span><br><span class="line">-v \</span><br><span class="line">-confirm-license \</span><br><span class="line">-prefix &#x2F;opt&#x2F;qt5.7.0 \</span><br><span class="line">-release \</span><br><span class="line">-opensource \</span><br><span class="line">-make libs \</span><br><span class="line">-xplatform linux-arm-gnueabi-g++ \</span><br><span class="line">-optimized-qmake \</span><br><span class="line">-pch \</span><br><span class="line">-qt-sql-sqlite \</span><br><span class="line">-qt-libjpeg \</span><br><span class="line">-qt-zlib \</span><br><span class="line">-no-opengl \</span><br><span class="line">-skip qt3d \</span><br><span class="line">-skip qtcanvas3d \</span><br><span class="line">-skip qtpurchasing \</span><br><span class="line">-no-sse2 \</span><br><span class="line">-no-openssl \</span><br><span class="line">-no-nis \</span><br><span class="line">-no-cups \</span><br><span class="line">-no-glib \</span><br><span class="line">-no-iconv \</span><br><span class="line">-nomake examples \</span><br><span class="line">-nomake tools \</span><br><span class="line">-skip qtvirtualkeyboard \</span><br><span class="line">-I&#x2F;opt&#x2F;tslib1.4&#x2F;include \</span><br><span class="line">-L&#x2F;opt&#x2F;tslib1.4&#x2F;lib</span><br><span class="line"></span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<p>执行autoconfigure.sh</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/work/qt-everywhere-opensource-src-5.7.0</span><br><span class="line">apt-get install -y python</span><br><span class="line">chmod 777 autoconfigure.sh</span><br><span class="line">./autoconfigure.sh</span><br><span class="line">make -j8</span><br><span class="line">make install</span><br><span class="line">ls /opt/qt5.7.0</span><br></pre></td></tr></table></figure>
+</details>
+
+
+<details>
+<summary>生成 QtE5.7 镜像 system.img</summary>
+
+<p>itop6818-QtE5.7-files中的fonts、编译好的qt5.7和tslib1.4</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tar xvf ~&#x2F;work&#x2F;itop6818-QtE5.7-files&#x2F;qt5.7+tslib1.4&#x2F;qt5.7.tar.gz</span><br><span class="line">#rm -rf &#x2F;opt&#x2F;qt5.7.0</span><br><span class="line">mv qt-5.7.0&#x2F;* &#x2F;opt&#x2F;qt5.7.0</span><br><span class="line">rm -rf qt-5.7.0</span><br><span class="line"></span><br><span class="line">tar xvf ~&#x2F;work&#x2F;itop6818-QtE5.7-files&#x2F;qt5.7+tslib1.4&#x2F;tslib1.4.tar.gz</span><br><span class="line">#rm -rf &#x2F;opt&#x2F;tslib1.4</span><br><span class="line">mv tslib1.4&#x2F;* &#x2F;opt&#x2F;tslib1.4</span><br><span class="line">rm -rf tslib1.4</span><br><span class="line"></span><br><span class="line">unzip ~&#x2F;work&#x2F;itop6818-QtE5.7-files&#x2F;fonts.zip</span><br><span class="line">mv fonts &#x2F;opt&#x2F;qt5.7.0&#x2F;lib&#x2F;</span><br><span class="line">rm -rf fonts</span><br></pre></td></tr></table></figure>
+
+<p>libstdc++</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2014.05&#x2F;arm-none-linux-gnueabi&#x2F;libc&#x2F;usr&#x2F;lib&#x2F;</span><br><span class="line"></span><br><span class="line">cp libstdc++.a &#x2F;opt&#x2F;qt5.7.0&#x2F;lib&#x2F;</span><br><span class="line">cp libstdc++.so &#x2F;opt&#x2F;qt5.7.0&#x2F;lib&#x2F;</span><br><span class="line">cp libstdc++.so.6.0.19 &#x2F;opt&#x2F;qt5.7.0&#x2F;lib&#x2F;</span><br><span class="line"></span><br><span class="line">cd &#x2F;opt&#x2F;qt5.7.0&#x2F;lib&#x2F;</span><br><span class="line">ln -s libstdc++.so.6.0.19 libstdc++.so.6</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y lib32c-dev lib32stdc++6</span><br></pre></td></tr></table></figure>
+
+<p>libc.so.6含有glibc2.9</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;lib&#x2F;</span><br><span class="line">strings libc.so.6 | grep GLIBC_2.9</span><br><span class="line"></span><br><span class="line">mv libc.so.6 libc.so.6.bak</span><br><span class="line">cp -r &#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2014.05&#x2F;arm-none-linux-gnueabi&#x2F;libc&#x2F;lib&#x2F;* .</span><br></pre></td></tr></table></figure>
+
+<p>Qt platform plugin “linux #eglfs”问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">This application failed to start because it could not find or load the Qt platform plugin &quot;linux #eglfs&quot;</span><br><span class="line">in &quot;&quot;.</span><br><span class="line"></span><br><span class="line">Available platform plugins are: linuxfb, minimal, offscreen.</span><br><span class="line"></span><br><span class="line">Reinstalling the application may fix this problem.</span><br><span class="line">Aborted</span><br></pre></td></tr></table></figure>
+<p>解决办法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># &#x2F;etc&#x2F;profile结尾追加：</span><br><span class="line"></span><br><span class="line">#export QT_ROOT&#x3D;&#x2F;opt&#x2F;qt5.7.0&#x2F;</span><br><span class="line">export LD_LIBRARY_PATH&#x3D;$LD_LIBRARY_PATH:$QT_ROOT&#x2F;plugins&#x2F;imageformats:$QT_ROOT&#x2F;plugins&#x2F;platforms</span><br><span class="line"></span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/qq_38639612/article/details/90646791" target="_blank">Qt platform plugin “linux #eglfs”</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">locate plugins&#x2F;platforms | grep qt</span><br><span class="line">ls &#x2F;opt&#x2F;qt5.7.0&#x2F;plugins&#x2F;platforms</span><br></pre></td></tr></table></figure>
+
+<p>解压mkimage、make_ext_4fs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -vxf ~&#x2F;work&#x2F;itop6818-QtE5.7-files&#x2F;linux_tools.tgz -C &#x2F;</span><br><span class="line">ls &#x2F;usr&#x2F;local&#x2F;bin&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>放置qt5.7.0、tslib1.4</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system</span><br><span class="line"></span><br><span class="line">cp -r &#x2F;opt&#x2F;qt5.7.0&#x2F;* opt&#x2F;qt5.7.0&#x2F;*</span><br><span class="line">cp -r &#x2F;opt&#x2F;tslib1.4&#x2F;* opt&#x2F;tslib1.4&#x2F;*</span><br><span class="line"></span><br><span class="line">rm -rf opt&#x2F;qt-4.7.1</span><br><span class="line">rm -rf opt&#x2F;Qtopia</span><br></pre></td></tr></table></figure>
+
+<p>修改环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#mkdir -p ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;etc</span><br><span class="line">vim ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line"># Ash profile</span><br><span class="line"># vim: syntax&#x3D;sh</span><br><span class="line"># No core files by default</span><br><span class="line">ulimit -S -c 0 &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1</span><br><span class="line">USER&#x3D;&quot;&#96;id -un&#96;&quot;</span><br><span class="line">LOGNAME&#x3D;$USER</span><br><span class="line">PS1&#x3D;&#39;[$USER@$HOSTNAME]# &#39;</span><br><span class="line">PATH&#x3D;$PATH</span><br><span class="line">HOSTNAME&#x3D;&#96;&#x2F;bin&#x2F;hostname&#96;</span><br><span class="line">export USER LOGNAME PS1 PATH</span><br><span class="line">export TSLIB_ROOT&#x3D;&#x2F;opt&#x2F;tslib1.4</span><br><span class="line">export QT_ROOT&#x3D;&#x2F;opt&#x2F;qt5.7.0</span><br><span class="line">export TSLIB_TSDEVICE&#x3D;&#x2F;dev&#x2F;input&#x2F;event2</span><br><span class="line">export TSLIB_TSEVENTTYPE&#x3D;input</span><br><span class="line">export TSLIB_CONFFILE&#x3D;&#x2F;opt&#x2F;tslib1.4&#x2F;etc&#x2F;ts.conf</span><br><span class="line">export TSLIB_PLUGINDIR&#x3D;&#x2F;opt&#x2F;tslib1.4&#x2F;lib&#x2F;ts</span><br><span class="line">export TSLIB_CONSOLEDEVICE&#x3D;none</span><br><span class="line">export TSLIB_FBDEVICE&#x3D;&#x2F;dev&#x2F;fb0</span><br><span class="line">export QWS_MOUSE_PROTO&#x3D;tslib:&#x2F;dev&#x2F;input&#x2F;event2</span><br><span class="line">export LD_LIBRARY_PATH&#x3D;&#x2F;lib:&#x2F;usr&#x2F;lib:&#x2F;usr&#x2F;local&#x2F;lib:$QT_ROOT&#x2F;lib:$TSLIB_ROOT&#x2F;lib:$TSLIB_ROOT&#x2F;lib&#x2F;</span><br><span class="line">export QT_QPA_PLATFORM_PLUGIN_PATH&#x3D;$QT_ROOT&#x2F;plugins</span><br><span class="line">export QT_QPA_PLATFORM&#x3D;linuxfb:tty&#x3D;&#x2F;dev&#x2F;fb0</span><br><span class="line">export QT_QPA_FONTDIR&#x3D;$QT_ROOT&#x2F;lib&#x2F;fonts</span><br><span class="line">export QT_QPA_GENERIC_PLUGINS&#x3D;tslib</span><br></pre></td></tr></table></figure>
+
+<p>修改开机启动脚本，并放置qt5.7到/bin/qt5.7</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#mkdir -p ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;etc&#x2F;init.d&#x2F;</span><br><span class="line">vim ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;etc&#x2F;init.d&#x2F;rcS</span><br><span class="line">#&#x2F;bin&#x2F;qt4 &amp;</span><br><span class="line">&#x2F;bin&#x2F;qt5.7 &amp;</span><br><span class="line"></span><br><span class="line">#将迅为提供的 “qt5.7” 文件拷贝到 “bin” 目录下，并修改 qt5.7 的权限为 777</span><br><span class="line">cp ~&#x2F;work&#x2F;itop6818-QtE5.7-files&#x2F;qt5.7 ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;bin&#x2F;</span><br><span class="line">cd ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;bin&#x2F;</span><br><span class="line">chmod 777 qt5.7</span><br></pre></td></tr></table></figure>
+
+<p>打包qt系统镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;qt_system</span><br><span class="line">make_ext4fs -s -l 314572800 -a root -L linux system.img system</span><br><span class="line"># 1024 * 1024 * 300 &#x3D; 314572800</span><br><span class="line">make_ext4fs -s -l 300M -a root -L linux system.img system</span><br><span class="line"></span><br><span class="line">du -h --max-depth&#x3D;1</span><br><span class="line">make_ext4fs -s -l 420M -a root -L linux system.img system</span><br><span class="line"></span><br><span class="line">xdg-open ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;qt_system</span><br><span class="line">xdg-open ~&#x2F;work&#x2F;lollipop-5.1.1_r6&#x2F;result</span><br></pre></td></tr></table></figure>
+</details>
+
+<p><a href="https://brightereyer2.github.io/2020/03/07//articles/2020/03/07/1583547575000.html/" target="_blank">QtE系统TF卡、SD卡热插拔</a> </p>
+<p>wifi上网</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wpa_passphrase XXX &quot;YYY&quot; &gt; &#x2F;etc&#x2F;wpa_supplicant.conf</span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;mt6620 &amp;</span><br><span class="line"></span><br><span class="line"># 开机连wifi</span><br><span class="line">vi &#x2F;etc&#x2F;init.d&#x2F;rcS</span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;mt6620 &amp;</span><br><span class="line"></span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+<p>4G手机卡上网</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 先插上手机卡</span><br><span class="line">&#x2F;etc&#x2F;ppp&#x2F;peers&#x2F;netec20</span><br><span class="line"></span><br><span class="line"># 详细</span><br><span class="line">pppd call wcdma &amp;</span><br><span class="line">echo &quot;nameserver 111.11.1.3&quot; &gt;&gt; &#x2F;etc&#x2F;resolv.conf</span><br><span class="line">route add default gw 10.14.165.1</span><br></pre></td></tr></table></figure>
+
+<p>测试上网</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com -c 4</span><br></pre></td></tr></table></figure>
+
+<p>开发工具<a href="http://download.qt.io/new_archive/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run" target="_blank">qt-opensource-linux-x64-5.7.0.run</a></p>
+<p><a href="https://brightereyer2.github.io/2020/03/26/articles/2020/03/26/1585230859000.html/" target="_blank">[arm] qt5.7配置arm开发环境</a></p>
+<p>拉取程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;work</span><br><span class="line">git clone https:&#x2F;&#x2F;gitee.com&#x2F;BrighterEyer&#x2F;itop6818-QtE5.7-programs</span><br><span class="line">cd ~&#x2F;work&#x2F;itop6818-QtE5.7-programs</span><br></pre></td></tr></table></figure>
+
+<p>使用/opt/qt5.7.0/bin/qmake生成arm程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd tuixiangzi</span><br><span class="line">&#x2F;opt&#x2F;qt5.7.0&#x2F;bin&#x2F;qmake</span><br><span class="line">make</span><br><span class="line">file tuixiangzi</span><br><span class="line"></span><br><span class="line">#显示以下信息</span><br><span class="line">tuixiangzi: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter &#x2F;lib&#x2F;ld-, for GNU&#x2F;Linux 2.6.16, not stripped</span><br></pre></td></tr></table></figure>
+
+<details>
+<summary>烧写镜像后，在itop6818开发板终端执行/opt/qt5.7.0/bin/qmake</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x &#x2F;opt&#x2F;qt5.7.0&#x2F;bin&#x2F;qmake</span><br><span class="line"></span><br><span class="line">mkdir helloworld;cd helloworld</span><br><span class="line"></span><br><span class="line">cat &gt; main.cpp &lt;&lt;EOF</span><br><span class="line">#include &lt;QCoreApplication&gt;</span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    QCoreApplication a(argc, argv);</span><br><span class="line"></span><br><span class="line">    return a.exec();</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &gt; helloworld.pro &lt;&lt;EOF</span><br><span class="line">QT +&#x3D; core</span><br><span class="line">QT -&#x3D; gui</span><br><span class="line"></span><br><span class="line">CONFIG +&#x3D; c++11</span><br><span class="line"></span><br><span class="line">TARGET &#x3D; helloworld</span><br><span class="line">CONFIG +&#x3D; console</span><br><span class="line">CONFIG -&#x3D; app_bundle</span><br><span class="line"></span><br><span class="line">TEMPLATE &#x3D; app</span><br><span class="line"></span><br><span class="line">SOURCES +&#x3D; main.cpp</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;opt&#x2F;qt5.7.0&#x2F;bin&#x2F;qmake</span><br><span class="line">ls</span><br><span class="line">#多了一个Makefile</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">#查看文件信息</span><br><span class="line">file helloworld</span><br><span class="line"></span><br><span class="line">#U盘挂载</span><br><span class="line">mdkir &#x2F;mnt&#x2F;udisk&#x2F;</span><br><span class="line">mount &#x2F;dev&#x2F;sda1 &#x2F;mnt&#x2F;udisk&#x2F;</span><br><span class="line"></span><br><span class="line">#tf 卡挂载</span><br><span class="line">mount &#x2F;dev&#x2F;mmcblk0p1 &#x2F;mnt&#x2F;sdcard&#x2F;</span><br><span class="line"></span><br><span class="line">#运行</span><br><span class="line">chmod 777 helloworld</span><br><span class="line">helloworld -qws</span><br></pre></td></tr></table></figure>
+</details>
+
+<details>
+<summary>使用itop6818开发板运行leds</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#创建U盘的设备节点</span><br><span class="line">mknod &#x2F;dev&#x2F;sda1 b 8 1</span><br><span class="line">#挂载U盘</span><br><span class="line">mount &#x2F;dev&#x2F;sda1 &#x2F;mnt&#x2F;udisk&#x2F;</span><br><span class="line">cd &#x2F;mnt&#x2F;udisk&#x2F;</span><br><span class="line">chmod 777 leds</span><br><span class="line">leds -qws</span><br><span class="line"></span><br><span class="line">#挂载tf卡</span><br><span class="line">mount &#x2F;dev&#x2F;mmcblk0p1 &#x2F;mnt&#x2F;sdcard</span><br><span class="line">ls &#x2F;mnt&#x2F;sdcard</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>其它<br><a href="https://blog.csdn.net/wangliang0633/article/details/77217424" target="_blank">Qt5.7移植到ARM开发板</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/01/13/1578914091000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/01/13/articles/2020/01/13/1578914091000.html/" class="article-date">
+      <time datetime="2020-01-13T11:14:51.000Z" itemprop="datePublished">2020-01-13</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/01/13/articles/2020/01/13/1578914091000.html/">[windows] 启用组策略gpedit.msc</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>windows10启用组策略gpedit.msc</p>
+<p>exec.cmd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">pushd &quot;%~dp0&quot;</span><br><span class="line">dir &#x2F;b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &gt;List.txt</span><br><span class="line">dir &#x2F;b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum &gt;&gt;List.txt</span><br><span class="line">for &#x2F;f %%i in (&#39;findstr &#x2F;i . List.txt 2^&gt;nul&#39;) do dism &#x2F;online &#x2F;norestart &#x2F;add-package:&quot;C:\Windows\servicing\Packages\%%i&quot;</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/01/13/1578914090000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -732,204 +1069,9 @@
 
 
   
-    <article id="post-/articles/2020/01/10/1578670558000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/10/articles/2020/01/10/1578670558000.html/" class="article-date">
-      <time datetime="2020-01-10T15:35:58.000Z" itemprop="datePublished">2020-01-10</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/10/articles/2020/01/10/1578670558000.html/">[stm32] VM8978_MP3模块</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/wangzibigan/article/details/88428910" target="_blank">STM32：I2S驱动WM8978</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/01/10/1578670556000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/10/articles/2020/01/10/1578670556000.html/" class="article-date">
-      <time datetime="2020-01-10T15:35:56.000Z" itemprop="datePublished">2020-01-10</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/10/articles/2020/01/10/1578670556000.html/">[stm32] keil5添加HAL库</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.cnblogs.com/lzh666/p/11279066.html" target="_blank">使用HAL库建立STM32工程</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">7.编译出错</span><br><span class="line">  我们提供的例程有可能编译出错，提示找不到tftpc.o文件，</span><br><span class="line"></span><br><span class="line">--原因如下：</span><br><span class="line">  程序发布时使用killkeil工具删除mdk生成的多余文件时，会把本目录下的tftpc.o文件也删除掉，导致编译出错，MDK编译错误提示如下：</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">..\..\..\..\Build\demo\MICO-Fire_F429\obj_RVMDK\mdk_demo.axf: error: L6002U: Could not open file ..\..\..\..\MICO\system\tftp_ota\tftpc.o: No such file or directory</span><br><span class="line">-----------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">--解决方法：</span><br><span class="line">  把“tftpc_o文件备份.zip”压缩包的“tftpc.o”备份文件复制到工程目录下的“\MICO\system\tftp_ota\tftp_ota”目录下，重新编译即可。</span><br></pre></td></tr></table></figure>
-
-<p>问题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cannot read jlink version number</span><br></pre></td></tr></table></figure>
-<p>参考<br><a href="https://blog.csdn.net/dxxdxpdxy/article/details/85101210" target="_blank">任意版本JLink驱动官方下载指引</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/01/10/1578670555000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/01/10/articles/2020/01/10/1578670555000.html/" class="article-date">
-      <time datetime="2020-01-10T15:35:55.000Z" itemprop="datePublished">2020-01-10</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/01/10/articles/2020/01/10/1578670555000.html/">[stm32] keil5_ARM-MDK包</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/weixin_42911200/article/details/81590158" target="_blank">Keil5的安装破解,包含MDK-ARM和C51</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">同时提供所需安装包</span><br><span class="line"></span><br><span class="line">链接：</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1Ycsv1v4d10mtvuaMjhYCGg</span><br><span class="line">密码：</span><br><span class="line">dggh</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/qq_41639829/article/details/81813992" target="_blank">MDK5安装破解以及安装stm32与C51支持包(附安装包)</a><br>MD5.14安装包与破解工具</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">链接：</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;14I0zwdvKlbR5PbrsAlxMDQ</span><br><span class="line">密码：</span><br><span class="line">d1cs</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/23/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><span class="space">&hellip;</span><a class="page-number" href="/page/97/">97</a><a class="extend next" rel="next" href="/page/25/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/23/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><a class="extend next" rel="next" href="/page/25/">Next &amp;raquo;</a>
     </nav>
   
 

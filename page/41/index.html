@@ -283,6 +283,200 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2019/12/02/1575285382000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/12/02/articles/2019/12/02/1575285382000.html/" class="article-date">
+      <time datetime="2019-12-02T11:16:22.000Z" itemprop="datePublished">2019-12-02</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/12/02/articles/2019/12/02/1575285382000.html/">[springboot] docker+rabbitmq</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/hsg_happylearning/article/details/82314082" target="_blank">SpringBoot利用Docker整合RabbitMQ</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/12/02/1575285381000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/12/02/articles/2019/12/02/1575285381000.html/" class="article-date">
+      <time datetime="2019-12-02T11:16:21.000Z" itemprop="datePublished">2019-12-02</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/12/02/articles/2019/12/02/1575285381000.html/">[springboot] docker+ftp</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>基于springboot的FtpUtil工具类<br><a href="https://github.com/mmzsblog/springboot-FtpUtil" target="_blank">github springboot-FtpUtil</a></p>
+<p><a href="https://www.jianshu.com/p/e51fe1975c29" target="_blank">使用 Docker 快速搭建 FTP 服务</a><br><a href="https://www.hangge.com/blog/cache/detail_2449.html" target="_blank">Docker - 在容器中搭建运行FTP服务器（vsftpd）</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#寻找vsftpd的镜像</span><br><span class="line">docker search vsftpd</span><br><span class="line">#把镜像pull到本地</span><br><span class="line">docker pull fauria&#x2F;vsftpd</span><br><span class="line"></span><br><span class="line">docker run -d -v &#x2F;home&#x2F;vsftpd:&#x2F;G&#x2F;MyEtcs&#x2F;vsftpd -p 20:20 -p 21:21 -p 21100-21110:21100-21110 -e FTP_USER&#x3D;test -e FTP_PASS&#x3D;test --name vsftpd -e LOG_STDOUT&#x3D;1 --restart&#x3D;always fauria&#x2F;vsftpd</span><br><span class="line"></span><br><span class="line">#1、我们先进入container里面</span><br><span class="line">docker exec -i -t vsftpd bash</span><br><span class="line"> </span><br><span class="line">#2、修改并生成虚拟用户模式下的用户db文件</span><br><span class="line">#编辑配置文件写入用户跟密码</span><br><span class="line">vi &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.txt</span><br><span class="line"></span><br><span class="line">#假如我们添加了user用户</span><br><span class="line">#建立新用户文件夹</span><br><span class="line">chown -R ftp:ftp &#x2F;home&#x2F;vsftpd</span><br><span class="line">mkdir -p &#x2F;home&#x2F;vsftpd&#x2F;test</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;db_load -T -t hash -f &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.txt &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.db</span><br><span class="line"></span><br><span class="line">docker restart vsftpd</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -f&#x3D;&#39;&#123;&#123;.Name&#125;&#125;&#39; $(docker ps -a -q)</span><br><span class="line">docker inspect -f&#x3D;&#39;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&#39; $(docker ps -a -q)</span><br><span class="line">docker inspect -f&#x3D;&#39;&#123;&#123;.Name&#125;&#125; &#123;&#123;.NetworkSettings.IPAddress&#125;&#125; &#123;&#123;.HostConfig.PortBindings&#125;&#125;&#39; $(docker ps -aq)</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/a453380532/article/details/86560207" target="_blank">Docker搭建ftp服务</a><br><a href="https://www.cnblogs.com/sxqjava/p/10335451.html" target="_blank">springboot集成ftp</a><br><a href="https://github.com/yoandypv/springboot-ftpclient" target="_blank">github springboot-ftpclient</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2019/12/02/1575285379000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/12/02/articles/2019/12/02/1575285379000.html/" class="article-date">
+      <time datetime="2019-12-02T11:16:19.000Z" itemprop="datePublished">2019-12-02</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/12/02/articles/2019/12/02/1575285379000.html/">[qt] 人脸考勤</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/qq_40602000/article/details/99674066" target="_blank">【QT】基于人脸识别的打卡系统（QT+Opencv + SQLite）–设计过程</a></p>
+<p><a href="https://blog.csdn.net/qq_40602000/article/details/99677604" target="_blank">【QT】基于人脸识别的打卡系统（QT+Opencv + SQLite）–实现过程</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2019/12/02/1575285378000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -738,198 +932,9 @@
 
 
   
-    <article id="post-/articles/2019/11/28/1574935188000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/11/28/articles/2019/11/28/1574935188000.html/" class="article-date">
-      <time datetime="2019-11-28T09:59:48.000Z" itemprop="datePublished">2019-11-28</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/11/28/articles/2019/11/28/1574935188000.html/">[单片机] DHT11温度湿度检测仪</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="" target="_blank"></a></p>
-<p><a href="https://blog.csdn.net/qq_28796345/article/details/53075590" target="_blank">51-DHT11实现温湿度的检测显示于Lcd1602</a><br><a href="https://blog.csdn.net/heroybc/article/details/89377146" target="_blank">51单片机+1602+dht11显示温湿度</a></p>
-<p><a href="http://www.51hei.com/bbs/dpj-109404-1.html" target="_blank">51单片机控制DHT11在1602上显示温湿度的程序</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/11/28/1574897989000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/11/28/articles/2019/11/28/1574897989000.html/" class="article-date">
-      <time datetime="2019-11-27T23:39:49.000Z" itemprop="datePublished">2019-11-28</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/11/28/articles/2019/11/28/1574897989000.html/">[单片机] 视频-hc05和hc06蓝牙设置简介</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.bilibili.com/video/av76720438" target="_blank">hc05和hc06蓝牙设置简介</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1ymkei82uZHjdVLd2Z_iqyg</span><br><span class="line">提取码：</span><br><span class="line">bl1u</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2019/11/28/1574897988000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2019/11/28/articles/2019/11/28/1574897988000.html/" class="article-date">
-      <time datetime="2019-11-27T23:39:48.000Z" itemprop="datePublished">2019-11-28</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2019/11/28/articles/2019/11/28/1574897988000.html/">[单片机] 普中科技各型号开发板资料下载链接</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="http://www.prechin.net/forum.php?mod=viewthread&tid=35264" target="_blank">普中科技–各型号开发板资料下载链接</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/40/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><a class="page-number" href="/page/43/">43</a><span class="space">&hellip;</span><a class="page-number" href="/page/97/">97</a><a class="extend next" rel="next" href="/page/42/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/40/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><a class="page-number" href="/page/43/">43</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><a class="extend next" rel="next" href="/page/42/">Next &amp;raquo;</a>
     </nav>
   
 

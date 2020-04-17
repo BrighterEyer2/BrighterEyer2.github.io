@@ -283,6 +283,216 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/02/14/1581643661000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/14/articles/2020/02/14/1581643661000.html/" class="article-date">
+      <time datetime="2020-02-14T01:27:41.000Z" itemprop="datePublished">2020-02-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/14/articles/2020/02/14/1581643661000.html/">[linux] tunctl添加虚拟网卡与brctl添加网桥</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/zhaihaifei/article/details/23168621" target="_blank">tunctl添加虚拟网卡TUN/TAP与brctl添加网桥</a></p>
+<p><a href="https://www.iteye.com/blog/fp-moon-1468650" target="_blank">Linux 网桥配置命令：brctl</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y bridge-utils</span><br></pre></td></tr></table></figure>
+
+<p>Linux添加虚拟网卡三种方法</p>
+<p>方法1:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#ifconfig命令创建\删除虚拟网卡</span><br><span class="line">ifconfig eth0:0 192.168.1.10 netmask 255.255.255.0 up</span><br><span class="line"></span><br><span class="line">#删除虚拟网卡:</span><br><span class="line">ifconfig eth0:0 down</span><br></pre></td></tr></table></figure>
+
+<p>tunctl安装与使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y uml-utilities</span><br></pre></td></tr></table></figure>
+
+<p>创建和配置虚拟网卡</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#确认是否有tunctl命令,如果没有通过yum安装即可</span><br><span class="line">sudo apt-get install -y uml-utilities tunctl</span><br><span class="line"></span><br><span class="line">#创建虚拟网卡设备</span><br><span class="line">tunctl -t tap0 -u root</span><br><span class="line"></span><br><span class="line">#设置虚拟网卡</span><br><span class="line">ifconfig tap0 192.168.0.1 netmask 255.255.255.0 promisc</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/14/1581643521000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/14/articles/2020/02/14/1581643521000.html/" class="article-date">
+      <time datetime="2020-02-14T01:25:21.000Z" itemprop="datePublished">2020-02-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/14/articles/2020/02/14/1581643521000.html/">[maven] 命令行构建多模块项目</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://www.jianshu.com/p/61837ae06d22" target="_blank">maven 命令行构建多模块项目</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">分层大概如下图：</span><br><span class="line">　odin-parent</span><br><span class="line">　　　　|----pom.xml</span><br><span class="line">　　　　|----odin-domain</span><br><span class="line">　　　　　　　　|----pom.xml</span><br><span class="line">　　　　|----odin-dao</span><br><span class="line">　　　　　　　　|----pom.xml</span><br><span class="line">　　　　|----odin-service</span><br><span class="line">　　　　　　　　|----pom.xml</span><br><span class="line">　　　　|----odin-web</span><br><span class="line">　　　　　　　　|----pom.xml</span><br></pre></td></tr></table></figure>
+
+<p>odin-parent</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn archetype:generate -DgroupId&#x3D;com.java.odin -DartifactId&#x3D;odin-parent -DarchetypeArtifactId&#x3D;maven-archetype-quickstart -DinteractiveMode&#x3D;false -Dpackaging&#x3D;pom</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd odin-parent</span><br><span class="line">mkdir domain dao service web</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd domain</span><br><span class="line">mvn archetype:generate -DgroupId&#x3D;com.java.odin -DartifactId&#x3D;odin-domain -DarchetypeArtifactId&#x3D;maven-archetype-quickstart -DinteractiveMode&#x3D;false</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ..&#x2F;dao</span><br><span class="line">mvn archetype:generate -DgroupId&#x3D;com.java.odin -DartifactId&#x3D;odin-dao -DarchetypeArtifactId&#x3D;maven-archetype-quickstart -DinteractiveMode&#x3D;false</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ..&#x2F;service</span><br><span class="line">mvn archetype:generate -DgroupId&#x3D;com.java.odin -DartifactId&#x3D;odin-service -DarchetypeArtifactId&#x3D;maven-archetype-quickstart -DinteractiveMode&#x3D;false</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/" rel="tag">maven</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/14/1581643520000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/14/articles/2020/02/14/1581643520000.html/" class="article-date">
+      <time datetime="2020-02-14T01:25:20.000Z" itemprop="datePublished">2020-02-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/14/articles/2020/02/14/1581643520000.html/">[maven] 命令创建java工程</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn archetype:generate -DgroupId&#x3D;com.mycompany.app -DartifactId&#x3D;my-app -DarchetypeArtifactId&#x3D;maven-archetype-quickstart -DarchetypeVersion&#x3D;1.4 -DinteractiveMode&#x3D;false</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/" rel="tag">maven</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/02/14/1581643519000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -743,205 +953,9 @@
 
 
   
-    <article id="post-/articles/2020/02/12/1581506201000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/12/articles/2020/02/12/1581506201000.html/" class="article-date">
-      <time datetime="2020-02-12T11:16:41.000Z" itemprop="datePublished">2020-02-12</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/12/articles/2020/02/12/1581506201000.html/">[vmware] 设置NAT模式上网</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/lavendyu/article/details/80373708" target="_blank">VMware 虚拟机如何连接网络</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/12/1581506200000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/12/articles/2020/02/12/1581506200000.html/" class="article-date">
-      <time datetime="2020-02-12T11:16:40.000Z" itemprop="datePublished">2020-02-12</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/12/articles/2020/02/12/1581506200000.html/">[vmware] 扩展硬盘空间</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/Nonpc123/article/details/90098267" target="_blank">VMware 虚拟机扩展Ubuntu系统磁盘空间</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#查看添加的新的硬盘 &#x2F;dev&#x2F;sdb</span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line">#把新添加的硬盘格式化成 ext3</span><br><span class="line">mkfs -t ext3 &#x2F;dev&#x2F;sdb</span><br><span class="line"></span><br><span class="line">#在&#x2F;home 目录下建立 work 文件夹</span><br><span class="line">mkdir &#x2F;home&#x2F;work</span><br><span class="line">mount &#x2F;dev&#x2F;sdb work&#x2F;</span><br><span class="line"></span><br><span class="line">#设置开机启动自动挂载</span><br><span class="line">vim &#x2F;etc&#x2F;fstab</span><br><span class="line">&#x2F;dev&#x2F;sdb &#x2F;home&#x2F;work ext3 defaults 0 0</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/12/1581506199000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/12/articles/2020/02/12/1581506199000.html/" class="article-date">
-      <time datetime="2020-02-12T11:16:39.000Z" itemprop="datePublished">2020-02-12</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/12/articles/2020/02/12/1581506199000.html/">[ubuntu14] 更新源</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>(1)备份原来的源列表文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;apt&#x2F;</span><br><span class="line">mv sources.list sources.list.bak</span><br></pre></td></tr></table></figure>
-
-<p>(2)<br>nano sources.list</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -r &#x2F;var&#x2F;lib&#x2F;apt&#x2F;lists&#x2F;*</span><br></pre></td></tr></table></figure>
-
-<p>更新源文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu14/" rel="tag">ubuntu14</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/13/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/97/">97</a><a class="extend next" rel="next" href="/page/15/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/13/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><a class="extend next" rel="next" href="/page/15/">Next &amp;raquo;</a>
     </nav>
   
 

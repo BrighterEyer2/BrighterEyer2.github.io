@@ -283,6 +283,278 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/02/17/1581936648000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/17/articles/2020/02/17/1581936648000.html/" class="article-date">
+      <time datetime="2020-02-17T10:50:48.000Z" itemprop="datePublished">2020-02-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/17/articles/2020/02/17/1581936648000.html/">[docker] nginx+vue+express</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="http://dockone.io/article/8834" target="_blank">手把手教你使用 Docker 部署 Vue.js 项目</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vue create vueclidemo</span><br><span class="line">yarn serve &#x2F; npm run serve</span><br></pre></td></tr></table></figure>
+
+<p>访问<br><a href="http://localhost:8081" target="_blank">http://localhost:8081</a></p>
+<p>修改vueclidemo/App.vue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import axios from &#39;axios&#39;;</span><br><span class="line">&#x2F;&#x2F;……</span><br><span class="line">axios.get(&#39;&#x2F;api&#x2F;json&#39;, &#123;</span><br><span class="line">	params: &#123;&#125;</span><br><span class="line">&#125;).then(</span><br><span class="line">	res &#x3D;&gt; &#123;</span><br><span class="line">		console.log(res);</span><br><span class="line">	&#125;</span><br><span class="line">).catch(</span><br><span class="line">	error &#x3D;&gt; &#123;</span><br><span class="line">		console.log(error);</span><br><span class="line">	&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn build &#x2F; npm run build</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull nginx</span><br></pre></td></tr></table></figure>
+
+<p>default.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">	listen       80;</span><br><span class="line">	server_name  localhost;</span><br><span class="line"></span><br><span class="line">	#charset koi8-r;</span><br><span class="line">	access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;host.access.log  main;</span><br><span class="line">	error_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log  error;</span><br><span class="line"></span><br><span class="line">	location &#x2F; &#123;</span><br><span class="line">	    root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line">	    index  index.html index.htm;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	#error_page  404              &#x2F;404.html;</span><br><span class="line"></span><br><span class="line">	# redirect server error pages to the static page &#x2F;50x.html</span><br><span class="line">	#</span><br><span class="line">	error_page   500 502 503 504  &#x2F;50x.html;</span><br><span class="line">	location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">	    root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Dockerfile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM nginx</span><br><span class="line">COPY dist&#x2F; &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html&#x2F;</span><br><span class="line">COPY nginx&#x2F;default.conf &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;default.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker build -t vuenginxcontainer .</span><br><span class="line">docker image ls | grep vuenginxcontainer</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">-p 3000:80 \</span><br><span class="line">-d --name vueApp \</span><br><span class="line">vuenginxcontainer</span><br></pre></td></tr></table></figure>
+
+<p>Server.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line"></span><br><span class="line">const express &#x3D; require(&#39;express&#39;);</span><br><span class="line">const PORT &#x3D; 8080;</span><br><span class="line">const HOST &#x3D; &#39;0.0.0.0&#39;;</span><br><span class="line"></span><br><span class="line">const app &#x3D; express();</span><br><span class="line">app.get(&#39;&#x2F;&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">	res.send(&#39;Hello world\n&#39;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(&#39;&#x2F;json&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">	res.json(&#123;</span><br><span class="line">	    code: 0,</span><br><span class="line">	    data :&#39;This is message from node container&#39;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(PORT, HOST);</span><br><span class="line">console.log(&#96;Running on http:&#x2F;&#x2F;$&#123;HOST&#125;:$&#123;PORT&#125;&#96;);</span><br></pre></td></tr></table></figure>
+
+<p>获取 Node 镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull node</span><br></pre></td></tr></table></figure>
+
+<p>Dockerfile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">FROM node</span><br><span class="line"></span><br><span class="line">WORKDIR &#x2F;usr&#x2F;src&#x2F;app</span><br><span class="line"></span><br><span class="line">COPY package*.json .&#x2F;</span><br><span class="line"></span><br><span class="line">RUN npm install</span><br><span class="line"></span><br><span class="line">COPY . .</span><br><span class="line"></span><br><span class="line">EXPOSE 8080</span><br><span class="line">CMD [ &quot;npm&quot;, &quot;start&quot; ]</span><br></pre></td></tr></table></figure>
+<p>.dockerignore</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node_modules</span><br><span class="line">npm-debug.log</span><br></pre></td></tr></table></figure>
+
+<p>构建 NodeWebServer 镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t nodewebserver .</span><br></pre></td></tr></table></figure>
+
+<p>启动 NodeServer 容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">-p 5000:8080 \</span><br><span class="line">-d --name nodeserver \</span><br><span class="line">nodewebserver</span><br></pre></td></tr></table></figure>
+
+<p>访问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost:5000&#x2F;json</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/17/1581936647000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/17/articles/2020/02/17/1581936647000.html/" class="article-date">
+      <time datetime="2020-02-17T10:50:47.000Z" itemprop="datePublished">2020-02-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/17/articles/2020/02/17/1581936647000.html/">[arm] 交叉编译相关文件下载链接</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="http://www.arm9.net/download.asp" target="_blank">Linux嵌入式交叉编译相关文件</a></p>
+<p><a href="ftp://ftp.denx.de/pub/u-boot/" target="_blank">u-boot</a></p>
+<p><a href="http://112.124.9.243/arm9net/mini2440/linux/arm-linux-gcc-4.4.3-20100728.tar.gz" target="_blank">arm-linux-gcc-4.4.3-20100728.tar.gz</a><br><a href="http://112.124.9.243/arm9net/mini2440/linux/arm-linux-gcc-4.3.2.tgz" target="_blank">arm-linux-gcc-4.3.2.tgz</a><br><a href="http://112.124.9.243/arm9net/linux/arm-qtopia-20100108.tar.gz" target="_blank">arm-qtopia-20100108.tar.gz</a><br>Qtopia-2.2.0和QtE-4.6.3双图形系统，可以自由切换运行<br><a href="http://112.124.9.243/arm9net/mini2440/linux/rootfs_qtopia_qt4-20100816.tar.gz" target="_blank">rootfs_qtopia_qt4-20100816.tar.gz</a></p>
+<p>Linux应用编程示例代码，包含串口，PWM，I2C，LED, 线程，数学库等示例<br><a href="http://112.124.9.243/arm9net/linux/examples-20100108.tar.gz" target="_blank">examples-20100108.tar.gz</a></p>
+<p><a href="ftp://ftp.arm.linux.org.uk/pub/linux/arm/toolchain/cross-2.95.3.tar.bz2" target="_blank">cross-2.95.3.tar.bz2</a></p>
+<p><a href="ftp://ftp.qtopia.org.cn/mirror/ftp.trolltech.com/qtopia/source/qtopia-free-src-2.2.0.tar.gz" target="_blank">qtopia-free-src-2.2.0.tar.gz</a><br><a href="http://www.qtopia.org.cn/ftp/mirror/ftp.trolltech.com/qtopia/source/qtopia-free-src-2.2.0.tar.gz" target="_blank">qtopia-free-src-2.2.0.tar.gz</a><br><a href="ftp://ftp.trolltech.com/pub/qt/source/qtopia-free-src-2.2.0.tar.gz" target="_blank">qtopia-free-src-2.2.0.tar.gz</a></p>
+<p><a href="http://nchc.dl.sourceforge.net/sourceforge/e2fsprogs/e2fsprogs-1.39.tar.gz" target="_blank">e2fsprogs-1.39.tar.gz</a><br><a href="http://superb-east.dl.sourceforge.net/sourceforge/libpng/libpng-1.2.14.tar.bz2" target="_blank">jpegsrc.v6b.tar.gz</a><br><a href="http://superb-east.dl.sourceforge.net/sourceforge/libpng/libpng-1.2.14.tar.bz2" target="_blank">libpng-1.2.14.tar.bz2</a><br><a href="http://mail.pdaxrom.org/download/1.1.0beta4/src/tslib-1.3.tar.bz2" target="_blank">tslib-1.3.tar.bz2</a>(触摸屏校正工具：也可以用QT自带的，这样就不必下载)<br><a href="http://www.zlib.net/zlib-1.2.3.tar.gz" target="_blank">zlib-1.2.3.tar.bz2</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/02/17/1581936644000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/02/17/articles/2020/02/17/1581936644000.html/" class="article-date">
+      <time datetime="2020-02-17T10:50:44.000Z" itemprop="datePublished">2020-02-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/02/17/articles/2020/02/17/1581936644000.html/">[arm] itop6818+Qtopia2.2.0</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>docker+ubuntu</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker pull ubuntu</span><br><span class="line">docker run --privileged --name qtopia2 -itd -p 8023:22 ubuntu</span><br><span class="line"></span><br><span class="line">docker attach qtopia2</span><br><span class="line">apt-get update;apt-get upgrade -y</span><br><span class="line">apt-get install -y vim openssh-server</span><br><span class="line"></span><br><span class="line">#设置一个root密码</span><br><span class="line">passwd</span><br><span class="line"></span><br><span class="line">#修改配置文件</span><br><span class="line">vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config</span><br><span class="line">#PermitRootLogin prohibit-password</span><br><span class="line">PermitRootLogin yes</span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;ssh restart</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://pan.baidu.com/s/12V6yl21PeEdhKNiYFHKRnw" target="_blank">文件资料</a>提取码：8n1e</p>
+<p>文件清单</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arm-linux-4.4.1.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://pan.baidu.com/s/1AeqzkboWkJDJjU9HxtXhrA" target="_blank">arm-linux-gcc-5.4.0.tar.gz</a>提取码：uzup<br>源码方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;usr&#x2F;local&#x2F;arm;cd &#x2F;usr&#x2F;local&#x2F;arm;</span><br><span class="line">tar xvf arm-linux-4.4.1.tar.gz;ls 4.4.1;</span><br><span class="line">vim &#x2F;etc&#x2F;profile</span><br><span class="line">#export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2009q3&#x2F;bin</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;arm&#x2F;4.4.1&#x2F;bin</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line">arm-none-linux-gnueabi-gcc -v</span><br></pre></td></tr></table></figure>
+<p>apt-get方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y libx11-dev libxext-dev libxtst-dev</span><br><span class="line">apt-get install -y gcc-arm-linux-gnueabi</span><br><span class="line">arm-linux-gnueabi-gcc -v</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://pan.baidu.com/s/1PUxi_DejVo-bgChQH5bzmA" target="_blank">rootfs_qtopia_qt4-20140103.tar.gz</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">2dkz</span><br></pre></td></tr></table></figure>
+
+<p>Qtopia2.2.0 源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;root&#x2F;yizhi;cd &#x2F;root&#x2F;yizhi</span><br><span class="line">tar xvf rootfs_qtopia_qt4-20140103.tar.gz</span><br><span class="line">ls qtopia-free-src-2.2.0.tar.gz;ls build</span><br></pre></td></tr></table></figure>
+
+<p>触摸的库文件<a href="https://github.com/libts/tslib/releases" target="_blank">tslib</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;arm</span><br><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;libts&#x2F;tslib&#x2F;releases&#x2F;download&#x2F;1.21&#x2F;tslib-1.21.tar.gz</span><br><span class="line">tar xvf tslib-1.21.tar.gz;mv tslib-1.21 tslib;ls tslib</span><br></pre></td></tr></table></figure>
+
+<p>02-Qtopia 补丁包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">cp \</span><br><span class="line">libXext.so.6.4.0 \</span><br><span class="line">libXmu.so.6.2.0 \</span><br><span class="line">libSM.so.6.0.1 \</span><br><span class="line">libICE.so.6.3.0 \</span><br><span class="line">libXt.so.6.0.0 \</span><br><span class="line">libuuid.so.1.3.0 \</span><br><span class="line">&#x2F;usr&#x2F;lib32&#x2F;</span><br><span class="line"></span><br><span class="line">ln -s libXext.so.6.4.0 libXext.so.6</span><br><span class="line">ln -s libXext.so.6 libXext.so</span><br><span class="line">ln -s libXmu.so.6.2.0 libXmu.so.6</span><br><span class="line">ln -s libXmu.so.6 libXmu.so</span><br><span class="line">ln -s libSM.so.6.0.1 libSM.so.6</span><br><span class="line">ln -s libSM.so.6 libSM.so</span><br><span class="line">ln -s libICE.so.6.3.0 libICE.so.6</span><br><span class="line">ln -s libICE.so.6 libICE.so</span><br><span class="line">ln -s libXt.so.6.0.0 libXt.so.6</span><br><span class="line">ln -s libXt.so.6 libXt.so</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;lib32</span><br><span class="line">ln -s libuuid.so.1.3.0 libuuid.so.1</span><br><span class="line">ln -s libuuid.so.1 libuuid.so</span><br></pre></td></tr></table></figure>
+
+<p>编译 Qtopia2.2.0 源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;root&#x2F;yizhi</span><br><span class="line">.&#x2F;build</span><br><span class="line">ls qtopia-free-2.2.0</span><br></pre></td></tr></table></figure>
+
+<p>处理一下字库文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r &#x2F;root&#x2F;yizhi&#x2F;qtopia-free-2.2.0&#x2F;qt2&#x2F;lib&#x2F;fonts&#x2F;helvetica* &#x2F;root&#x2F;yizhi&#x2F;qtopia-free-2.2.0&#x2F;qtopia&#x2F;image&#x2F;opt&#x2F;Qtopia&#x2F;lib&#x2F;fonts&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>Qtopia</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r &#x2F;root&#x2F;yizhi&#x2F;qtopia-free-2.2.0&#x2F;qtopia&#x2F;image&#x2F;opt&#x2F;Qtopia &#x2F;opt</span><br></pre></td></tr></table></figure>
+
+<p>打包工具的安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;</span><br><span class="line">tar xvf linux_tools.tgz</span><br><span class="line">ls &#x2F;usr&#x2F;local&#x2F;bin&#x2F;</span><br><span class="line">sudo apt-get install -y uboot-mkimage</span><br></pre></td></tr></table></figure>
+
+<p>生成文件系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;opt;ls;</span><br><span class="line">cp -r &#x2F;root&#x2F;yizhi&#x2F;qtopia-free-2.2.0&#x2F;qtopia&#x2F;image&#x2F;opt&#x2F;Qtopia ~&#x2F;lollipop-5.1.1_r6&#x2F;qt_system&#x2F;system&#x2F;opt</span><br><span class="line">cd ~&#x2F;lollipop-5.1.1_r6;</span><br><span class="line">build_android.sh qt</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.cnblogs.com/wenyihu/articles/7380144.html" target="_blank">迅为6818开发板Qtopia2.2.0开发环境搭建以及编译镜像</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/02/17/1581936643000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -833,234 +1105,9 @@
 
 
   
-    <article id="post-/articles/2020/02/15/1581731060000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/15/articles/2020/02/15/1581731060000.html/" class="article-date">
-      <time datetime="2020-02-15T01:44:20.000Z" itemprop="datePublished">2020-02-15</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/15/articles/2020/02/15/1581731060000.html/">[arm] QEMU模拟mini2440开发环境</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.cnblogs.com/zwxwill/p/9431774.html" target="_blank">嵌入式linux：通过qemu模拟mini2440开发环境</a></p>
-<p>编译安装QEMU</p>
-<p>首先下载qemu for mini2440</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;repo.or.cz&#x2F;w&#x2F;qemu&#x2F;mini2440.git&#x2F;snapshot&#x2F;HEAD.tar.gz</span><br><span class="line">sudo apt-get install zlib1g-dev</span><br><span class="line">sudo apt-get install libsdl-dev</span><br><span class="line">.&#x2F;configure --target-list&#x3D;arm-softmmu --prefix&#x3D;$HOME&#x2F;work&#x2F;mini2440</span><br><span class="line">make -j4</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-
-<p>安装完后，添加环境变量:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vim &#x2F;etc&#x2F;bash.bashrc</span><br><span class="line">export PATH&#x3D;$PATH:$HOME&#x2F;work&#x2F;mini2440&#x2F;bin</span><br><span class="line">source &#x2F;etc&#x2F;bash.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>测试是否正常:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm --version</span><br></pre></td></tr></table></figure>
-
-<p>使用buildroot一键生成uboot和linux内核及根文件系统</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;buildroot.org&#x2F;downloads&#x2F;buildroot-2012.05.tar.gz</span><br><span class="line">tar xvf buildroot-2012.05.tar.gz;mv buildroot-2012.05 buildroot;cd buildroot;</span><br><span class="line">sudo apt-get install -y libncurses5-dev</span><br><span class="line">patch configure &lt;..&#x2F;configure.patch    &#x2F;* 需要修改源码 打补丁 *&#x2F;</span><br><span class="line">make mini2440_defconfig</span><br><span class="line">make menuconfig</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y g++ bison flex gettext patch git-core xz-utils automake</span><br><span class="line">tar -zxvf texinfo-4.13a.tar.gz</span><br><span class="line">cd texinfo-4.13</span><br><span class="line">.&#x2F;configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#修改bug（注释下面文件中：_GL_WARN_ON_USE (gets,.......  这行代码）:</span><br><span class="line"></span><br><span class="line">vim output&#x2F;build&#x2F;host-m4-1.4.16&#x2F;lib&#x2F;stdio.in.h</span><br><span class="line">vim output&#x2F;build&#x2F;host-m4-1.4.16&#x2F;lib&#x2F;stdio.h</span><br></pre></td></tr></table></figure>
-
-<p>在安装 时间比较长（可以先用我提供的安装文件放到buildroot-2012.05/dl目录下，这样省去下载时间）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">链接：</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1PUxi_DejVo-bgChQH5bzmA</span><br><span class="line">密码：</span><br><span class="line">2dkz</span><br></pre></td></tr></table></figure>
-
-<p>Flashimg制作nand.bin并启动系统：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 下载flashimg源码 </span><br><span class="line">git clone http:&#x2F;&#x2F;gitorious.org&#x2F;flashimg&#x2F;flashimg.git</span><br><span class="line">cd flashimg;</span><br><span class="line">.&#x2F;autogen.sh  #（要求autoconf版本大于2.67）</span><br><span class="line">.&#x2F;configure </span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-
-<p>然后把我们生成的三个文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">u-boot.bin</span><br><span class="line">uImage</span><br><span class="line">rootfs.jffs2</span><br><span class="line">flashimg</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;flashimg -s 64M -t nand -f nand.bin -p uboot.part -w boot,u-boot.bin -w kernel,uImage -w root,rootfs.jffs2 -z 512 </span><br><span class="line">即可生成nand.bin</span><br></pre></td></tr></table></figure>
-
-<p>启动方法为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-arm -M mini2440 -serial stdio -mtdblock nand.bin -usbdevice mouse</span><br></pre></td></tr></table></figure>
-<p>（若出现错误：浮点数例外启动不了qemu，请全屏最大化终端，再次执行，这是由于分辨率问题造成）</p>
-<p>输入下面指令加载内核和根文件系统：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nboot kernel </span><br><span class="line">setenv bootargs root&#x3D;&#x2F;dev&#x2F;mtdblock3 rootfstype&#x3D;jffs2 console&#x3D;ttySAC0,115200 </span><br><span class="line">saveenv </span><br><span class="line">bootm</span><br></pre></td></tr></table></figure>
-
-<p>启动后，输入默认密码root，即可成功登录，此时还没有配置网络。ifconfig发现没有网卡。<br>4 NFS挂在根文件系统<br>首先安装nfs服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nfs-kernel-server </span><br><span class="line"># 新建nfsroot文件夹</span><br><span class="line">mkdir ~work&#x2F;nfsroot </span><br><span class="line"># 然后配置nfs目录 </span><br><span class="line">sudo vi &#x2F;etc&#x2F;exports </span><br><span class="line"># 添加一行</span><br><span class="line">&#x2F;home&#x2F;zwx&#x2F;work&#x2F;nfsroot *(rw,sync,no_root_squash,no_subtree_check</span><br><span class="line"># 然后执行：</span><br><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;nfs-kernel-server restart</span><br><span class="line"># 进入NFS共享目录：</span><br><span class="line">cd &#x2F;home&#x2F;zwx&#x2F;work&#x2F;nfsroot&#x2F; </span><br><span class="line"># 修改权限</span><br><span class="line">sudo chmod -R 777 .&#x2F; </span><br><span class="line"># 解压根文件系统</span><br><span class="line">tar xvzf rootfs_qtopia_qt4-20140103.tar.gz</span><br><span class="line">注意：友善之臂提供的qtopia文件系统在挂载时会初始化网卡，但我们是由nfs挂载的文件系统，这会导致nfs连接中断，挂载失败，所以用nfs挂载之前需要把网卡的初始化过程取消，对应的文件是&#x2F;etc&#x2F;init.d&#x2F;if-config，只需把该文件内容删除即可（删除文件也可以）。</span><br><span class="line"></span><br><span class="line">sudo chmod -R 777 .&#x2F; </span><br><span class="line">cd rootfs_qtopia_qt4</span><br><span class="line">cd etc&#x2F;init.d&#x2F;</span><br><span class="line">rm ifconfig-eth0</span><br><span class="line">创建虚拟网卡并配置ip</span><br><span class="line"></span><br><span class="line">sudo apt-get install uml-utilities &#x2F;&#x2F;运行tunctl必须的工具</span><br><span class="line">sudo tunctl -u $USER -t tap0</span><br><span class="line">sudo ifconfig tap0 192.168.42.1</span><br><span class="line">带网络方式启动qemu</span><br><span class="line"></span><br><span class="line">cd &#x2F;home&#x2F;zwx&#x2F;work&#x2F;qemu&#x2F;flashimgflashimg-fb97139</span><br><span class="line">qemu-system-arm -M mini2440 -serial stdio -mtdblock nand.bin -usbdevice mouse -kernel uImage -net nic,vlan&#x3D;0 -net tap,vlan&#x3D;0,ifname&#x3D;tap0,script&#x3D;no,downscript&#x3D;no</span><br><span class="line">启动后进入uboot模式，此时的qemu还不能显示，输入下面指令加载内核和根文件系统。</span><br><span class="line"></span><br><span class="line">set bootargs noinitrd root&#x3D;&#x2F;dev&#x2F;nfs rw nfsroot&#x3D;192.168.42.1:&#x2F;home&#x2F;zwx&#x2F;work&#x2F;nfsroot&#x2F;rootfs_qtopia_qt4&#x2F;,proto&#x3D;tcp,nfsvers&#x3D;3,nolock  ip&#x3D;192.168.42.2:192.168.42.1::255.255.255.0 console&#x3D;ttySAC0,115200</span><br><span class="line">bootm</span><br><span class="line">然后就可以启动了</span><br><span class="line"></span><br><span class="line"> 5 安装交叉编译工具链：</span><br><span class="line"></span><br><span class="line">arm-linux-gcc-4.4.3.tar.gz </span><br><span class="line">安装库：</span><br></pre></td></tr></table></figure>
-<p>sudo apt-get install lib32stdc++6<br>sudo apt-get install lib32z1</p>
-<pre><code></code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/15/1581731059000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/15/articles/2020/02/15/1581731059000.html/" class="article-date">
-      <time datetime="2020-02-15T01:44:19.000Z" itemprop="datePublished">2020-02-15</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/15/articles/2020/02/15/1581731059000.html/">[arm] C语言实现MQTT客户端</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://www.jianshu.com/p/d309de966379" target="_blank">C语言实现MQTT客户端</a></p>
-<p><a href="https://pan.baidu.com/s/1S1pT_ZZURg21DF5mIBg3pw" target="_blank">mqtt.rar</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">密码：</span><br><span class="line">tqgh</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://d11.baidupcs.com/file/fada27557853c8302f21c77a45e4ae34?bkt=en-9917cc7abd88e3cb55911c6a71bdeb39b5939b2039db9c2c052ee4537f2c2068a118379e5e163269903753b718d1060fc4515b78a300bab8707fa75b7e1fad07&xcode=8e99d166e44d324f4432763491238b6238345e6f8c78da06394cd546e4a8f611f72214a19b28b7e9a1cdde04df6ff5f83dc35a89c1f2d779&fid=3680693024-250528-838572210121299&time=1581827271&sign=FDTAXGERLQlBHSKf-DCb740ccc5511e5e8fedcff06b081203-vLQsY7DPMNr0kQFEwTog9eWZUxk%3D&to=d11&size=53910&sta_dx=53910&sta_cs=1507&sta_ft=rar&sta_ct=7&sta_mt=7&fm2=MH%2CQingdao%2CAnywhere%2C%2Cguangdong%2Ccnc&ctime=1536202005&mtime=1536202005&resv0=-1&resv1=0&resv2=rlim&resv3=5&resv4=53910&vuk=1310677397&iv=0&htype=&randtype=&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=en-bbb5749a9b9f3af2baafc39b353bd5ea41c25c231635bf23c7f1b6f760814ee407b07b1f1a5b4c9bf7d0aef386766c4face4d23606e80fe6305a5e1275657320&sl=68616270&expires=8h&rt=sh&r=907057816&vbdid=1344347567&fin=mqtt.rar&fn=mqtt.rar&rtype=1&dp-logid=1078914879964644065&dp-callid=0.1&hps=1&tsl=200&csl=200&fsl=-1&csign=GWi3CtPKSSyB8b%2FWlP%2FsxelxRRA%3D&so=0&ut=6&uter=4&serv=0&uc=738096701&ti=34c17094e7d5a0c972457cf7e65d6c489863bd1c89ef3a1f&reqlabel=250528_f_22296a95af88adac14005d60d860113d_-1_53981c99d3aec0dcecff3c1aa7e032d6&by=themis" target="_blank" rel="noopener">mqtt.rar</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/02/15/1581730500000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/02/15/articles/2020/02/15/1581730500000.html/" class="article-date">
-      <time datetime="2020-02-15T01:35:00.000Z" itemprop="datePublished">2020-02-15</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/02/15/articles/2020/02/15/1581730500000.html/">[linux] 程序员</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://segmentfault.com/blog/wuyangchun" target="_blank">segmentfault Linux程序员</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/11/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/97/">97</a><a class="extend next" rel="next" href="/page/13/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/11/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><a class="extend next" rel="next" href="/page/13/">Next &amp;raquo;</a>
     </nav>
   
 

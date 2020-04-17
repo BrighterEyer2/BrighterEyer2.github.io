@@ -283,6 +283,225 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-/articles/2020/04/08/1586341339000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/04/08/articles/2020/04/08/1586341339000.html/" class="article-date">
+      <time datetime="2020-04-08T10:22:19.000Z" itemprop="datePublished">2020-04-08</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/04/08/articles/2020/04/08/1586341339000.html/">[shell] jar启动日志文件</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar xxx&#x2F;xxx&#x2F;xx.jar |tee -a xxx&#x2F;xxx&#x2F;Tem&#x2F;xxxApp.log</span><br></pre></td></tr></table></figure>
+
+<p>输出到标准输出的同时，保存到文件file中。如果文件不存在，则创建；如果已经存在，则覆盖之</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tee file</span><br></pre></td></tr></table></figure>
+
+<p>追加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tee -a file</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/04/08/1586341338000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/04/08/articles/2020/04/08/1586341338000.html/" class="article-date">
+      <time datetime="2020-04-08T10:22:18.000Z" itemprop="datePublished">2020-04-08</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/04/08/articles/2020/04/08/1586341338000.html/">[docker] rabbitmq</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://blog.csdn.net/myNameIssls/article/details/99702877" target="_blank">基于 Docker 安装 RabbitMQ</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#镜像未配有控制台</span><br><span class="line">#docker pull rabbitmq</span><br><span class="line"></span><br><span class="line">#镜像配有控制台</span><br><span class="line">docker pull rabbitmq:management</span><br><span class="line"></span><br><span class="line"># 安装 RabbitMQ</span><br><span class="line">docker run --name rabbitmq -d -p 15672:15672 -p 5672:5672 rabbitmq:management</span><br><span class="line"></span><br><span class="line"># 查看 RabbitMQ 容器进程信息</span><br><span class="line">docker top rabbitmq</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#浏览器中访问</span><br><span class="line">#http:&#x2F;&#x2F;192.168.99.100:15672</span><br><span class="line">#来查看控制台信息</span><br><span class="line"></span><br><span class="line"># RabbitMQ默认的用户名：</span><br><span class="line">guest</span><br><span class="line"># 密码：</span><br><span class="line">guest</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-/articles/2020/04/06/1586183309000.html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2020/04/06/articles/2020/04/06/1586183309000.html/" class="article-date">
+      <time datetime="2020-04-06T14:28:29.000Z" itemprop="datePublished">2020-04-06</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2020/04/06/articles/2020/04/06/1586183309000.html/">[arm] 开发板与ubuntu虚拟机通过NFS共享目录</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>在ubuntu虚拟机上搭建 NFS 服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line"></span><br><span class="line">apt-get install -y nfs-kernel-server</span><br><span class="line">mkdir &#x2F;home&#x2F;minilinux&#x2F;</span><br><span class="line"></span><br><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;exports &lt;&lt;EOF</span><br><span class="line">&#x2F;home&#x2F;minilinux&#x2F; *(rw,sync,no_root_squash)</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>请注意：<br>如果使用的是 Ubuntu12.04 系统则执行这一步重启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 重启 portmap 服务</span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;portmap restart</span><br></pre></td></tr></table></figure>
+
+<p>如果使用的是 Ubuntu14.04 或者 Ubuntu16.02 系统则执行这一步重启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 重启 rpcbind 服务</span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;rpcbind restart</span><br></pre></td></tr></table></figure>
+
+<p>最后重启 nfs 服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;init.d&#x2F;nfs-kernel-server restart</span><br></pre></td></tr></table></figure>
+
+<p>测试 NFS 服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 在虚拟机 Ubuntu 本机上验证一下，把&#x2F;home&#x2F;minilinux 挂载到&#x2F;mnt 目录下</span><br><span class="line"></span><br><span class="line">mount -t nfs localhost:&#x2F;home&#x2F;minilinux &#x2F;mnt</span><br><span class="line"></span><br><span class="line"># 查看是否挂载成功</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<p>卸载 NFS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount &#x2F;mnt</span><br></pre></td></tr></table></figure>
+
+
+<p>查看开发板 ip</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+<p>再查看一下 NFS 服务器的 ip</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+<p>需要开发板和服务器在同一网段，如果不在同一网段然后修改开发板的 ip</p>
+<p>在开发板的/mnt 目录下，使用命令“mkdir nfs”新建一个目录，作为开发板的 NFS 同步目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;mnt&#x2F;nfs</span><br><span class="line"></span><br><span class="line">#挂载到 nfs 服务器</span><br><span class="line">mount -t nfs -o nolock 192.168.2.185:&#x2F;home&#x2F;minilinux &#x2F;mnt&#x2F;nfs</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-/articles/2020/04/06/1586183308000.html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -770,251 +989,9 @@
 
 
   
-    <article id="post-/articles/2020/03/31/1585659019000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/03/31/articles/2020/03/31/1585659019000.html/" class="article-date">
-      <time datetime="2020-03-31T12:50:19.000Z" itemprop="datePublished">2020-03-31</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/03/31/articles/2020/03/31/1585659019000.html/">[linux] 查看cpu、磁盘占用信息</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 查看CPU</span><br><span class="line">cat &#x2F;proc&#x2F;cpuinfo</span><br><span class="line"></span><br><span class="line"># 查看CPU个数</span><br><span class="line"># uniq命令：删除重复行;wc –l命令：统计行数**</span><br><span class="line">cat &#x2F;proc&#x2F;cpuinfo | grep &quot;physical id&quot; | uniq | wc -l</span><br><span class="line"></span><br><span class="line"># 查看CPU核数</span><br><span class="line">cat &#x2F;proc&#x2F;cpuinfo | grep &quot;cpu cores&quot; | uniq</span><br><span class="line"></span><br><span class="line"># 查看CPU型号</span><br><span class="line">cat &#x2F;proc&#x2F;cpuinfo | grep &#39;model name&#39; |uniq</span><br><span class="line"></span><br><span class="line"># 查看内存总数</span><br><span class="line">cat &#x2F;proc&#x2F;meminfo | grep MemTotal</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 查看硬盘大小</span><br><span class="line">fdisk -l | grep Disk</span><br><span class="line"></span><br><span class="line"># 查看磁盘占用</span><br><span class="line">df -h</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/03/31/1585657878000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/03/31/articles/2020/03/31/1585657878000.html/" class="article-date">
-      <time datetime="2020-03-31T12:31:18.000Z" itemprop="datePublished">2020-03-31</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/03/31/articles/2020/03/31/1585657878000.html/">[arm] itop6818修改开发板emmc用户区大小</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（1）在build_android.sh文件中搜索关键字“make_qt_system”，找到 Qt 文件系统的编译命令行，将“314572800”修改为“13958643712”</span><br><span class="line"></span><br><span class="line">（2）在qt_system目录下执行：</span><br><span class="line">make_ext4fs -s -l 13958643712 -a root -L linux system.img system</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#按回车，进入 uboot 模式，显示配置</span><br><span class="line">printenv</span><br><span class="line"></span><br><span class="line">#其中fastboot</span><br><span class="line">fastboot&#x3D;flash&#x3D;mmc,2:uboot:2nd:0x200,0x78000;flash&#x3D;mmc,2:2ndboot:2nd:0x200,0x4000;flash&#x3D;mmc,2:bootloader:boot:0x8000,0x70000;flash&#x3D;mmc,2:boot:ext4:0x00100000,0x04000000;flash&#x3D;mmc,2:system:ext4:0x04100000,0x2F200000;flash&#x3D;mmc,2:cache:ext4:0x33300000,0x1AC00000;flash&#x3D;mmc,2:misc:emmc:0x4E000000,0x00800000;flash&#x3D;mmc,2:recovery:emmc:0x4E900000,0x01600000;flash&#x3D;mmc,2:userdata:ext4:0x50000000,0x0;</span><br><span class="line"></span><br><span class="line">#推出恢复命令</span><br><span class="line">setenv fastboot &quot;flash&#x3D;mmc,2:uboot:2nd:0x200,0x78000;flash&#x3D;mmc,2:2ndboot:2nd:0x200,0x4000;flash&#x3D;mmc,2:bootloader:boot:0x8000,0x70000;flash&#x3D;mmc,2:boot:ext4:0x00100000,0x04000000;flash&#x3D;mmc,2:system:ext4:0x04100000,0x2F200000;flash&#x3D;mmc,2:cache:ext4:0x33300000,0x1AC00000;flash&#x3D;mmc,2:misc:emmc:0x4E000000,0x00800000;flash&#x3D;mmc,2:recovery:emmc:0x4E900000,0x01600000;flash&#x3D;mmc,2:userdata:ext4:0x50000000,0x0;&quot;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://tool.oschina.net/hexconvert/" target="_blank">在线进制转换工具</a></p>
-<p>十六进制的0x34000000 等于 十进制的13958643712</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">setenv fastboot &quot;flash&#x3D;mmc,2:uboot:2nd:0x200,0x78000;flash&#x3D;mmc,2:2ndboot:2nd:0x200,0x4000;flash&#x3D;mmc,2:bootloader:boot:0x8000,0x70000;flash&#x3D;mmc,2:boot:ext4:0x00100000,0x04000000;flash&#x3D;mmc,2:system:ext4:0x04100000,0x34000000;&quot;</span><br><span class="line">saveenv</span><br><span class="line">reset</span><br><span class="line"></span><br><span class="line">#按回车，再次进入 uboot 模式</span><br><span class="line"></span><br><span class="line">fastboot</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-/articles/2020/03/28/1585397713000.html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2020/03/28/articles/2020/03/28/1585397713000.html/" class="article-date">
-      <time datetime="2020-03-28T12:15:13.000Z" itemprop="datePublished">2020-03-28</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2020/03/28/articles/2020/03/28/1585397713000.html/">[vbox] 设置与wifi同一个局域网+含DHCP配置</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><a href="https://blog.csdn.net/dkfajsldfsdfsd/article/details/79441874" target="_blank">VirtualBox网络之仅主机(Host-Only)网络</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在此之前，先关闭宿主机的防火墙，否则PING不通宿主机</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">只需要 &quot;控制面板\网络和 Internet\网络连接&quot; 面板，配置VirtualBox Host-Only Network的Internet 协议版本4（TCP&#x2F;IPv4）</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line"></span><br><span class="line">在vbox主机网络管理器 配置 网卡和DHCP即可</span><br><span class="line"></span><br><span class="line">然后配置虚拟机网络：</span><br><span class="line">连接方式：仅主机(Host-Only)网络</span><br><span class="line">界面名称：Virtual Host-Only Ethernet Adapter</span><br></pre></td></tr></table></figure>
-
-<details>
-<summary>Host-Only虚拟机上网</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#打开虚拟机终端，查看到路由表为空</span><br><span class="line">route -n</span><br><span class="line"></span><br><span class="line">#ifconfig命令查看到，网卡1就是enp0s3已分配到IP地址</span><br><span class="line">192.168.1.124</span><br><span class="line"></span><br><span class="line">#192.168.1.124与192.168.1.xxx同属一个网段，网关地址为：192.168.1.1，</span><br><span class="line">#添加默认网关</span><br><span class="line">route add defalut gw 192.168.1.1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#查看使用的域名解析配置：</span><br><span class="line">cat &#x2F;etc&#x2F;resolv.conf</span><br><span class="line"># Dynamic resolv.conf(5) file for glibc resolver(3) generated by resolvconf(8)</span><br><span class="line">#     DO NOT EDIT THIS FILE BY HAND -- YOUR CHANGES WILL BE OVERWRITTEN</span><br><span class="line">nameserver 127.0.1.1</span><br><span class="line"></span><br><span class="line">#增加一条可用的域名服务器，如nameserver 8.8.8.8：</span><br><span class="line">ls &#x2F;etc&#x2F;resolvconf&#x2F;resolv.conf.d&#x2F;</span><br><span class="line">cat &gt; &#x2F;etc&#x2F;resolvconf&#x2F;resolv.conf.d&#x2F;base &lt;&lt;EOF</span><br><span class="line">nameserver 8.8.8.8</span><br><span class="line">nameserver 8.8.4.4</span><br><span class="line">EOF</span><br><span class="line">#保存后执行 </span><br><span class="line">sudo resolvconf -u</span><br><span class="line"></span><br><span class="line">cat &#x2F;etc&#x2F;resolvconf&#x2F;resolv.conf.d&#x2F;base</span><br><span class="line">cat &#x2F;etc&#x2F;resolv.conf</span><br><span class="line"></span><br><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;networking restart</span><br><span class="line"></span><br><span class="line">#确认一下连接外网的能力</span><br><span class="line">ping 8.8.8.8</span><br></pre></td></tr></table></figure>
-</details>
-
-<details>
-<summary>解决connect: network is unreachable</summary>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;network&#x2F;interfaces</span><br><span class="line"></span><br><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"></span><br><span class="line">auto enp0s3</span><br><span class="line">iface enp0s3 inet static</span><br><span class="line">address 192.168.1.200</span><br><span class="line">netmask 255.255.255.0</span><br><span class="line">gateway 192.168.1.1</span><br><span class="line">dns-nameserver 114.114.114.114</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 增加默认网关</span><br><span class="line">sudo route add default gw 192.168.1.1 dev enp0s3</span><br><span class="line"></span><br><span class="line"># 重新启动网络配置</span><br><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;networking restart</span><br><span class="line"></span><br><span class="line">journalctl -xe</span><br></pre></td></tr></table></figure>
-</details>
-
-<p><a href="https://blog.csdn.net/w18mc0431/article/details/79661869" target="_blank">RTNETLINK answers: File exists问题</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo ifconfig</span><br><span class="line">sudo ip addr flush enp0s3</span><br><span class="line">sudo ifconfig enp0s3 192.168.1.200 netmask 255.255.255.0 broadcast 192.168.1.255</span><br><span class="line">sudo route add default gw 192.168.1.1</span><br><span class="line">route -n</span><br><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;networking restart</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-
-<details>
-<summary>使用以下方法建立 网桥，会上不了网，且ping不通，仅供参考</summary>
-
-<p><a href="https://blog.csdn.net/zhouzme/article/details/80663432" target="_blank">Win10系统中VirtualBox网络桥接与主机直链同一wifi局域网互通并可连接外网</a><br>1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">devmgmt.msc</span><br></pre></td></tr></table></figure>
-
-<p>2.查看wifi默认网关</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig</span><br></pre></td></tr></table></figure>
-
-<p>3.配置网络4 Internet 协议版本4（TCP/IPv4）属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">IP 地址：192.168.1.200</span><br><span class="line">子网掩码：255.255.255.0</span><br><span class="line">默认网关：192.168.1.1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DNS服务器</span><br><span class="line">首选DNS服务器：</span><br><span class="line">8.8.8.8</span><br><span class="line">备选DNS服务器：</span><br><span class="line">8.8.4.4</span><br></pre></td></tr></table></figure>
-
-<p>4.桥接操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">按住 Ctrl 键 或 直接框选 这两个连接, 右键点击任意图标则会出现桥接选项, 选择桥接 系统机会生成一个网桥连接的网络适配器</span><br></pre></td></tr></table></figure>
-
-<p>5.进入虚拟主机</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">设置面板网络配置项, </span><br><span class="line"></span><br><span class="line">连接方式： 仅主机(host-only)网络,</span><br><span class="line"></span><br><span class="line">#以下名称在ipconfig、网络连接面板 显示为 网桥，而在 vbox-&gt;网络 的面显示为 Virtual Host-Only Ethernet Adapter #（数字）</span><br><span class="line">界面名称：Virtual Host-Only Ethernet Adapter #5</span><br></pre></td></tr></table></figure>
-
-<p>6.进入虚拟机终端</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改为局域网IP或 DHCP 获取IP 即可联网</span><br></pre></td></tr></table></figure>
-</details>
-
-<details>
-<summary>ubuntu自动获取ip</summary>
-
-<p>(1)ubuntu以命令方式自动获取ip：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 释放IP</span><br><span class="line">sudo dhclient -r</span><br><span class="line"># 获取IP</span><br><span class="line">sudo dhclient</span><br><span class="line"></span><br><span class="line">sudo dhclient eth0</span><br></pre></td></tr></table></figure>
-
-<p>(2)ubuntu以DHCP方式配置网卡自动获取ip：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#用下面的行来替换有关eth0的行：</span><br><span class="line">sudo vim &#x2F;etc&#x2F;network&#x2F;interfaces</span><br><span class="line"># The primary network interface - use DHCP to find our address</span><br><span class="line">auto eth0</span><br><span class="line">iface eth0 inet dhcp</span><br><span class="line"></span><br><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;networking restart</span><br></pre></td></tr></table></figure>
-</details>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vbox/" rel="tag">vbox</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/97/">97</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
