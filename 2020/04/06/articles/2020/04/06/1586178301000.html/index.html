@@ -9,12 +9,12 @@
   
   <title>[ubuntu] glibc | BrighterEyer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="查看GLIBC列表 1strings &#x2F;lib&#x2F;libc.so.6 | grep GLIBC  ubuntu查看glibc版本 1234#方法1：ldd --version#方法2：getconf GNU_LIBC_VERSION  1http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;glibc&#x2F;glibc-2.9.tar.bz2">
+  <meta name="description" content="查看GLIBC列表 1strings &#x2F;lib&#x2F;libc.so.6 | grep GLIBC  ubuntu查看glibc版本 1234#方法1：ldd --version#方法2：getconf GNU_LIBC_VERSION   安装glibc  1234567891011121314mkdir -p ~&#x2F;work&#x2F;glibc_bulid;cd ~&amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[ubuntu] glibc">
 <meta property="og:url" content="http://brightereyer.xyz/2020/04/06/articles/2020/04/06/1586178301000.html/index.html">
 <meta property="og:site_name" content="BrighterEyer">
-<meta property="og:description" content="查看GLIBC列表 1strings &#x2F;lib&#x2F;libc.so.6 | grep GLIBC  ubuntu查看glibc版本 1234#方法1：ldd --version#方法2：getconf GNU_LIBC_VERSION  1http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;glibc&#x2F;glibc-2.9.tar.bz2">
+<meta property="og:description" content="查看GLIBC列表 1strings &#x2F;lib&#x2F;libc.so.6 | grep GLIBC  ubuntu查看glibc版本 1234#方法1：ldd --version#方法2：getconf GNU_LIBC_VERSION   安装glibc  1234567891011121314mkdir -p ~&#x2F;work&#x2F;glibc_bulid;cd ~&amp;#">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-06T13:05:01.000Z">
 <meta property="article:modified_time" content="2020-04-06T13:05:01.000Z">
@@ -327,10 +327,11 @@
 <p>ubuntu查看glibc版本</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#方法1：</span><br><span class="line">ldd --version</span><br><span class="line">#方法2：</span><br><span class="line">getconf GNU_LIBC_VERSION</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;glibc&#x2F;glibc-2.9.tar.bz2</span><br></pre></td></tr></table></figure>
-
+<details>
+<summary>安装glibc</summary>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~&#x2F;work&#x2F;glibc_bulid;cd ~&#x2F;work&#x2F;glibc_bulid</span><br><span class="line"></span><br><span class="line">wget -c http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;glibc&#x2F;glibc-2.9.tar.bz2</span><br><span class="line">wget -c http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;glibc&#x2F;glibc-linuxthreads-2.5.tar.bz2</span><br><span class="line"></span><br><span class="line"># 解压</span><br><span class="line">tar -jxvf glibc-2.9.tar.bz2;mv glibc-linuxthreads-2.5.tar.bz2 glibc-2.9;cd cd glibc-2.9</span><br><span class="line">tar -jxvf glibc-linuxthreads-2.5.tar.bz2</span><br><span class="line"></span><br><span class="line">mkdir build;cd build</span><br><span class="line"></span><br><span class="line">export CFLAGS&#x3D;&quot;-g -O2 -march&#x3D;arm&quot;</span><br><span class="line">..&#x2F;configure --prefix&#x3D;&#x2F;usr --disable-profile --enable-add-ons --with-headers&#x3D;&#x2F;usr&#x2F;include --with-binutils&#x3D;&#x2F;usr&#x2F;bin  </span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+</details>
 
       
     </div>
