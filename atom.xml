@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-05-03T09:58:33.000Z</updated>
+  <updated>2020-05-05T15:54:57.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,332 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[linux] 手册</title>
+    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588694097000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588694097000.html/</id>
+    <published>2020-05-05T15:54:57.000Z</published>
+    <updated>2020-05-05T15:54:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://man.linuxde.net/" target="_blank">Linux命令大全</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://man.linuxde.net/&quot; target=&quot;_blank&quot;&gt;Linux命令大全&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[ubuntu] 热插拔</title>
+    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588692845000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588692845000.html/</id>
+    <published>2020-05-05T15:34:05.000Z</published>
+    <updated>2020-05-05T15:34:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.linuxidc.com/Linux/2017-06/145100.htm" target="_blank">Linux上磁盘热插拔</a></p><details><summary>过程整理</summary><p>首先获取scsi设备的信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">lsscsi</span><br><span class="line"></span><br><span class="line"># 有些操作系统没有lsscsi命令，则可以使用下面的方法获取scsi设备信息：</span><br><span class="line">ll &#x2F;sys&#x2F;bus&#x2F;scsi&#x2F;drivers&#x2F;sd&#x2F;</span><br><span class="line">ll &#x2F;sys&#x2F;bus&#x2F;scsi&#x2F;drivers&#x2F;sd&#x2F;2\:0\:0\:0&#x2F;block&#x2F;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 查看&#x2F;proc&#x2F;scsi&#x2F;scsi文件，获取对应scsi设备的详细信息：</span><br><span class="line">cat &#x2F;proc&#x2F;scsi&#x2F;scsi</span><br><span class="line"></span><br><span class="line">在此处，有两块直连(Direct-Access)的scsi磁盘，一块通过光驱cd-rom连接的光盘。</span><br><span class="line">我们只考虑scsi磁盘，所以这两块磁盘在scsi中的定位符为2:0:0:0和2:0:1:0。</span><br><span class="line">如果继续插入一块盘，那么新盘在scsi中的定位符为2:0:2:0，这个数值串非常重要。</span><br></pre></td></tr></table></figure><p>热插</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">在向计算机中插入一块磁盘后，内核因为识别不了它所以不会产生任何事件通知，因此在&#x2F;sys目录中不会产生任何文件，任何工具也就读取不了它。</span><br><span class="line">重启系统肯定是可以解决的，但是Linux支持热插。</span><br><span class="line"></span><br><span class="line">热插新盘的方式是向&#x2F;proc&#x2F;scsi&#x2F;scsi中写入新scsi设备的信息，方式如下：</span><br><span class="line"></span><br><span class="line">echo &quot;scsi add-single-device a b c d&quot; &gt;&#x2F;proc&#x2F;scsi&#x2F;scsi</span><br><span class="line"></span><br><span class="line"># 其中：</span><br><span class="line"># a &#x3D;&#x3D; hostadapter id (first one being 0)</span><br><span class="line"># b &#x3D;&#x3D; SCSI channel on hostadapter (first one being 0)</span><br><span class="line"># c &#x3D;&#x3D; ID</span><br><span class="line"># d &#x3D;&#x3D; LUN (first one being 0)</span><br><span class="line"></span><br><span class="line">echo &quot;scsi add-single-device 2:0:2:0&quot; &gt; &#x2F;proc&#x2F;scsi&#x2F;scsi</span><br><span class="line"></span><br><span class="line"># 重新扫描scsi总线也可以实现热插的功能</span><br><span class="line">echo &quot;- - -&quot; &gt; &#x2F;sys&#x2F;class&#x2F;scsi_host&#x2F;host2&#x2F;scan</span><br><span class="line"></span><br><span class="line"># 如果不知道要扫描哪个host，直接使用循环全部扫描。</span><br><span class="line">for i in &#96;ls &#x2F;sys&#x2F;class&#x2F;scsi_host&#x2F;&#96;;do echo &quot;- - -&quot; &gt;&#x2F;sys&#x2F;class&#x2F;scsi_host&#x2F;$i&#x2F;scan;done</span><br><span class="line"></span><br><span class="line"># 热插之后，fdisk -l等命令就可以识别到该磁盘了：</span><br><span class="line">fdisk -l</span><br></pre></td></tr></table></figure><p>热拔</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 热拔磁盘的方式是在&#x2F;proc&#x2F;scsi&#x2F;scsi中移除对应scsi设备的信息，方式如下：</span><br><span class="line">echo &quot;scsi remove-single-device a b c d&quot; &gt; &#x2F;proc&#x2F;scsi&#x2F;scsi</span><br><span class="line"></span><br><span class="line"># 例如删除2:0:2:0这块磁盘：</span><br><span class="line">echo &quot;scsi remove-single-device 2 0 2 0&quot; &gt; &#x2F;proc&#x2F;scsi&#x2F;scsi</span><br><span class="line"></span><br><span class="line"># 因为要删除的设备已经存在，&#x2F;sys中已经有它完整的信息，所以也从其自身设备上进行删除。</span><br><span class="line"></span><br><span class="line"># 首先查看scsi设备信息：</span><br><span class="line">lsscsi</span><br><span class="line">[2:0:0:0]    disk    VMware,  VMware Virtual S 1.0   &#x2F;dev&#x2F;sda</span><br><span class="line">[2:0:1:0]    disk    VMware,  VMware Virtual S 1.0   &#x2F;dev&#x2F;sdb</span><br><span class="line">[4:0:0:0]    cd&#x2F;dvd  NECVMWar VMware SATA CD01 1.00  &#x2F;dev&#x2F;sr0</span><br><span class="line"></span><br><span class="line"># 例如要删除&#x2F;dev&#x2F;sdb，即2:0:1:0。先看看它的文件信息：</span><br><span class="line">ls &#x2F;sys&#x2F;bus&#x2F;scsi&#x2F;drivers&#x2F;sd&#x2F;2\:0\:1\:0&#x2F;</span><br><span class="line"></span><br><span class="line"># 在其中有3个文件：delete、rescan和state。</span><br><span class="line"># 其中state记录了该设备是否正在运行中，而delete和rescan文件则用于删除和重新扫描该设备。</span><br><span class="line"></span><br><span class="line"># 删除该设备，即热拔：</span><br><span class="line">echo 1 &gt; &#x2F;sys&#x2F;bus&#x2F;scsi&#x2F;drivers&#x2F;sd&#x2F;2\:0\:1\:0&#x2F;delete</span><br></pre></td></tr></table></figure><p>其它<br><a href="https://blog.csdn.net/weixin_33883178/article/details/92310356" target="_blank">Linux下关于热插拔硬盘的指令</a></p></details><details><summary>手动挂载硬盘，解压ubuntu.tgz到指定分区</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">lsscsi</span><br><span class="line">[2:0:0:0]    disk    Mass     Storage Device   1.00  &#x2F;dev&#x2F;sda</span><br><span class="line"></span><br><span class="line">ls &#x2F;dev&#x2F;sda*</span><br><span class="line">&#x2F;dev&#x2F;sda  &#x2F;dev&#x2F;sda1  &#x2F;dev&#x2F;sda2</span><br><span class="line"></span><br><span class="line">dmesg | tail</span><br><span class="line"></span><br><span class="line">mkdir -p &#x2F;mnt&#x2F;udisk&#x2F;sda1 &#x2F;mnt&#x2F;udisk&#x2F;sda2</span><br><span class="line">mount -t ext3 &#x2F;dev&#x2F;sda1 &#x2F;mnt&#x2F;udisk&#x2F;sda1</span><br><span class="line">mount -t vfat &#x2F;dev&#x2F;sda2 &#x2F;mnt&#x2F;udisk&#x2F;sda2</span><br><span class="line">ls &#x2F;mnt&#x2F;udisk&#x2F;sda1</span><br><span class="line">ls &#x2F;mnt&#x2F;udisk&#x2F;sda2</span><br><span class="line"></span><br><span class="line">tar xvf &#x2F;mnt&#x2F;udisk&#x2F;sda2&#x2F;ubuntu.tgz -C &#x2F;mnt&#x2F;udisk&#x2F;sda1&#x2F;</span><br><span class="line"></span><br><span class="line">umount -l &#x2F;mnt&#x2F;udisk&#x2F;*</span><br><span class="line">#umount -a &#x2F;mnt&#x2F;udisk</span><br><span class="line">rm -rf &#x2F;mnt&#x2F;udisk</span><br></pre></td></tr></table></figure></details>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.linuxidc.com/Linux/2017-06/145100.htm&quot; target=&quot;_blank&quot;&gt;Linux上磁盘热插拔&lt;/a&gt;&lt;/p&gt;
+&lt;details&gt;
+&lt;summary&gt;过程整理&lt;/summary&gt;
+
+&lt;p&gt;首先获
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[arm] itop6818+android系统移植</title>
+    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588688283000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588688283000.html/</id>
+    <published>2020-05-05T14:18:03.000Z</published>
+    <updated>2020-05-05T14:18:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<details><summary>参考</summary><p><a href="" target="_blank"></a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iTOP-6818开发板之全功能版使用手册_v2.2.pdf</span><br><span class="line"></span><br><span class="line"># 章节</span><br><span class="line">5.5 Android4.4 的编译以及烧写</span><br><span class="line"></span><br><span class="line">Android4.4 的编译需要使用 Ubuntu12.04.2 版本</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Android4.4 的编译以及烧写</span><br><span class="line"></span><br><span class="line">iTOP-6818 开发板可以支持 Android4.4 版本。需要注意的是 Android4.4 和 Android5.1的版本，需要的编译环境不一样，烧写也有区别，具体的参考本节内容。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Android4.4 的编译需要使用 Ubuntu12.04.2 版本（以下简称 Ubuntu12.04）。</span><br><span class="line">5.5.1 使用搭建好的编译环境</span><br><span class="line">用户如果使用搭建好的编译环境，直接加载运行 Ubuntu，经过简单配置之后，可以直接用于编译 Android4.4。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">5.5.1.2 环境变量和 javap 路径的修改</span><br><span class="line">根据不同的编译需要更新环境变量，这里以 arm-2009q3 编译器为例，简单介绍如何修改</span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;profile</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;ndk&#x2F;android-ndk-r8b&#x2F;</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2009q3&#x2F;bin</span><br><span class="line"></span><br><span class="line">update-alternatives --install &quot;&#x2F;usr&#x2F;bin&#x2F;javap&quot; &quot;javap&quot; &quot;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;jdk1.6.0_43&#x2F;bin&#x2F;javap&quot; 1</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install -y vim install ssh uboot-mkimage</span><br><span class="line">tar xvf arm-2009q3.tar.bz2 -C &#x2F;usr&#x2F;local&#x2F;arm&#x2F;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“\02_iTOP-6818 开发板编译系统所需要的工具包等\03_tools”文件夹下的压缩包“Android_JDK.tar.bz2”</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tar xvf Android_JDK.tar.bz;cd Android_JDK&#x2F;jdk6&#x2F;</span><br><span class="line">.&#x2F;install-sun-java6.sh</span><br><span class="line">cd ..&#x2F;;</span><br><span class="line">.&#x2F;install-devel-packages.sh</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line">.&#x2F;install-devel-packages.sh</span><br></pre></td></tr></table></figure><p>降低 GCC 版本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">使用 Ubuntu 编译 Android 的时候需要用到 Ubuntu 系统自带的 GCC4.4.7 编译器，但是安装的 Ubuntu12.04.2 版本，它的 GCC 版本过高，所以这里需将要 GCC 编译的版本降低到4.4.7。</span><br><span class="line"></span><br><span class="line">进入前面解压的文件夹“Android_JDK”中，会看到一个文本“update_gcc.txt”，打开文本“update_gcc.txt”，会看到里面有 8 条命令，这 8 条命令需要在 Ubuntu 命令行中依次执行</span><br><span class="line"></span><br><span class="line">cat update_gcc.txt</span><br><span class="line"></span><br><span class="line">gcc -v</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">“02_iTOP-6818 开发板编译系统所需要的工具包等\03_tools”下有个压缩包“linux_tools.tgz”，将其拷贝到到 Ubuntu 的“&#x2F;”目录下</span><br><span class="line"></span><br><span class="line">tar -vxf linux_tools.tgz -C &#x2F;</span><br><span class="line"></span><br><span class="line">编译 Android 还缺少一个 javap 命令，在 Ubuntu 命令行中，任意目录下，使用命令：</span><br><span class="line">update-alternatives --install &quot;&#x2F;usr&#x2F;bin&#x2F;javap&quot; &quot;javap&quot; &quot;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;jdk1.6.0_43&#x2F;bin&#x2F;javap&quot; 1</span><br></pre></td></tr></table></figure><p>编译</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">搭建好编译环境之后，就可以编译 Android5.1.1 的源码了。</span><br><span class="line">Android4.4 的源码</span><br><span class="line">“iTOP6818 开发板资料汇总（不含光盘内容）\07_iTOP-4418开发板 Android 应用开发环境软件以及源码\06_Android4.4 镜像和源码\02_源码</span><br><span class="line">_Android4.4 文件系统”</span><br><span class="line"></span><br><span class="line">如下图所示，源码采用分卷压缩，全部下载到 Windows 下之后，然后点击其中一个解压。</span><br><span class="line">解压得到的压缩包“android_for_4G_20180711.tar.gz”拷贝到 Ubuntu 下（注意是编译Android4.4 的环境，Android4.4 和 Android5.1 的编译环境不一样）。</span><br><span class="line"></span><br><span class="line">解压得到“android”文件夹：</span><br><span class="line">tar -vxf android_for_4G_20180711.tar.gz</span><br><span class="line"></span><br><span class="line">进入“android”目录，如下图所示。</span><br><span class="line"></span><br><span class="line">接着需要配置 uboot 和 kernel 的配置文件。</span><br><span class="line">如上图所示，“u-boot”目录下的是 uboot的源码，“kernel”目录下的是内核的源码。</span><br><span class="line"></span><br><span class="line">进入“u-boot”目录。</span><br><span class="line">cd u-boot</span><br><span class="line"></span><br><span class="line">如果 6818 核心板是 1G 的，则使用命令“cp nsih-1G16b-6818.txt nsih.txt”</span><br><span class="line">如果 6818 核心板是 2G 的，则使用命令“cp nsih-2G16b-6818.txt nsih.txt”</span><br><span class="line"></span><br><span class="line">cd ..&#x2F;kernel</span><br><span class="line"># 配置缺省文件</span><br><span class="line">cp -r config_for_iTOP6818_android .config</span><br><span class="line"></span><br><span class="line"># 将目标平台配置为arm：</span><br><span class="line">export ARCH&#x3D;arm</span><br><span class="line"></span><br><span class="line"># 另外，如果是 2G 核心板，则打开 kernel</span><br><span class="line">vim arch&#x2F;arm&#x2F;plat-s5p6818&#x2F;topeet&#x2F;include&#x2F;cfg_mem.h</span><br><span class="line"></span><br><span class="line">#if 0</span><br><span class="line"></span><br><span class="line"># 编译镜像</span><br><span class="line">cd ..&#x2F;android</span><br><span class="line">.&#x2F;build_android.sh_6818</span><br><span class="line"></span><br><span class="line"># 烧写</span><br><span class="line">ls ..&#x2F;result</span><br><span class="line">u-boot-iTOP-6818.bin boot.img cache.img recovery.img system.img userdata.img</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">“iTOP6818 开发板资料汇总（不含光盘内容）\07_iTOP-6818 开发板 Android 应用开发环境软件以及源码\06_Android4.4 镜像和源码\01_镜像_Android4.4 文件系统”</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 更新 uboot 镜像</span><br><span class="line"># 注意：如果用户是 2017 年 3 月以及之后购买的，则不需要更新 uboot，直接使用默认的uboot 就可以支持。</span><br><span class="line"></span><br><span class="line"># 首先进入 uboot 模式，烧写支持 Android4.4 镜像的 uboot。</span><br><span class="line"># 这里需要注意的是，支持Android4.4 的 uboot 和其它系统的 uboot 不一样，如果要使用其它系统，则需要重新烧写</span><br><span class="line">uboot 镜像和配置。</span><br><span class="line"></span><br><span class="line"># 在串口控制台使用命令“fastboot”，连接 OTG 线，打开 cmd.exe</span><br><span class="line">fastboot.exe flash uboot u-boot-iTOP-6818.bin</span><br><span class="line">fastboot reboot</span><br><span class="line"></span><br><span class="line"># 在串口控制台中设置参数</span><br><span class="line">setenv bootsystem android</span><br><span class="line">saveenv</span><br><span class="line">setenv fastboot</span><br><span class="line">setenv androidversion 4.4</span><br><span class="line">saveenv</span><br><span class="line"></span><br><span class="line">烧写Android5.1，需要先烧写 Android5.1 的 uboot 镜像，重启开发板之后使用命令</span><br><span class="line">setenv fastboot</span><br><span class="line">setenv androidversion 5.1</span><br><span class="line">saveenv</span><br><span class="line"></span><br><span class="line">setenv lcdtype 4.9</span><br><span class="line">saveenv</span><br><span class="line">reset</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 烧写镜像</span><br><span class="line">fastboot.exe flash boot boot.img</span><br><span class="line">fastboot.exe flash cache cache.img</span><br><span class="line">fastboot.exe flash system system.img</span><br><span class="line"></span><br><span class="line">fastboot.exe flash userdata userdata.img</span><br><span class="line">fastboot.exe flash recovery recovery.img</span><br><span class="line"></span><br><span class="line"># 重启开发板</span><br><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure></details>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;details&gt;
+&lt;summary&gt;参考&lt;/summary&gt;
+
+&lt;p&gt;&lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[嵌入式] 野火</title>
+    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588687408000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588687408000.html/</id>
+    <published>2020-05-05T14:03:28.000Z</published>
+    <updated>2020-05-05T14:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://gitee.com/Embedfire" target="_blank">Embedfire</a><br><a href="https://gitee.com/organizations/Embedfire/projects" target="_blank">Embedfire/projects</a></p><p><a href="https://gitee.com/wildfireteam" target="_blank">Embedfire-old</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://gitee.com/Embedfire&quot; target=&quot;_blank&quot;&gt;Embedfire&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://gitee.com/organizations/Embedfire/projects&quot; targe
+      
+    
+    </summary>
+    
+    
+    
+      <category term="嵌入式" scheme="http://brightereyer.xyz/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[docker] 扩容</title>
+    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588680062000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588680062000.html/</id>
+    <published>2020-05-05T12:01:02.000Z</published>
+    <updated>2020-05-05T12:01:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/mingbai/p/dockerclean.html" target="_blank">docker 清理容器的一些命令，彻底或选择清理</a><br><a href="https://www.runoob.com/w3cnote/docker-clear-command.html" target="_blank">runoob - Docker 清理命令</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/mingbai/p/dockerclean.html&quot; target=&quot;_blank&quot;&gt;docker 清理容器的一些命令，彻底或选择清理&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.runoob.
+      
+    
+    </summary>
+    
+    
+    
+      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[docker] 扩容</title>
+    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588680061000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588680061000.html/</id>
+    <published>2020-05-05T12:01:01.000Z</published>
+    <updated>2020-05-05T12:01:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>问题</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--storage-opt is supported only for overlay over xfs with &#39;pquota&#39; mount option.</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;var&#x2F;lib&#x2F;docker&#x2F;overlay2 占用很大，清理Docker占用的磁盘空间，迁移 &#x2F;var&#x2F;lib&#x2F;docker 目录</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/weixin_32820767/article/details/81196250" target="_blank">参考</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 查看Docker的磁盘使用情况:</span><br><span class="line">docker system df</span><br><span class="line"></span><br><span class="line"># 将没有容器使用Docker镜像都删掉:</span><br><span class="line">docker system prune -a</span><br></pre></td></tr></table></figure><details><summary>其它</summary><p><a href="https://blog.csdn.net/weixin_42697074/article/details/105688078" target="_blank">docker容器扩容</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--storage-opt  只支持覆盖在xfs与&#39;pquota&#39;挂载选项</span><br></pre></td></tr></table></figure><p>开启xfs的pquota特性</p><p>查看 docker 的驱动程序类型</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker info |grep &quot;Storage Driver&quot;</span><br><span class="line">Storage Driver: overlay2</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># docker 获取容器id</span><br><span class="line">docker ps -aqf &#39;name&#x3D;qemu&#39;</span><br><span class="line"></span><br><span class="line">docker inspect -f &#39;&#123;&#123; .GraphDriver.Data.DeviceName &#125;&#125;&#39; $(docker ps -aqf &#39;name&#x3D;qemu&#39;)</span><br></pre></td></tr></table></figure><p>查看 docker 的工作目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker info |grep &quot;Docker Root Dir&quot;</span><br><span class="line">Docker Root Dir: &#x2F;mnt&#x2F;sda1&#x2F;var&#x2F;lib&#x2F;docker</span><br></pre></td></tr></table></figure><p>查看 docker 的文件系统</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker-machine ssh default</span><br><span class="line">sudo df -h &#x2F;mnt&#x2F;sda1&#x2F;</span><br><span class="line">Filesystem                Size      Used Available Use% Mounted on</span><br><span class="line">&#x2F;dev&#x2F;sda1                17.8G     11.9G      5.0G  70% &#x2F;mnt&#x2F;sda1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo cat &#x2F;etc&#x2F;sysconfig&#x2F;docker-storage</span><br></pre></td></tr></table></figure><p>为XFS文件系统上的用户启用配额，在文件系统的 /etc/fstab条目中包括pquota选项</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo cat &#x2F;etc&#x2F;fstab | grep &#x2F;dev&#x2F;sda1</span><br><span class="line">&#x2F;dev&#x2F;sda1       &#x2F;mnt&#x2F;sda1       ext4     noauto,users,exec    0 0 # Added by TC</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo vi &#x2F;etc&#x2F;fstab</span><br><span class="line"># 追加 pquota 选项</span><br><span class="line">&#x2F;dev&#x2F;sda1       &#x2F;mnt&#x2F;sda1       xfs     noauto,users,exec,pquota    0 0 # Added by TC</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/weixin_42273374/article/details/82144484" target="_blank">windows下docker的重启</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">打开Oracle VM VirtualBox管理器启动docker</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 统计共有多少容器</span><br><span class="line">docker ps -a | awk &#39;&#123; print $1&#125;&#39; | wc -l</span><br><span class="line"></span><br><span class="line"># 删除倒数num个容器</span><br><span class="line">docker rm $(docker ps -a | awk &#39;&#123; print $1&#125;&#39; | tail -n -num)</span><br><span class="line"></span><br><span class="line"># 启动所有docker容器</span><br><span class="line">docker start $(docker ps -a | awk &#39;&#123; print $1&#125;&#39; | tail -n +2)</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fuser &#x2F;mnt&#x2F;sda1</span><br><span class="line"></span><br><span class="line"># 查看已经被挂载的目录和参数</span><br><span class="line">cat &#x2F;proc&#x2F;mounts |grep &#x2F;mnt&#x2F;sda1</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--storage-driver devicemapper --storage-opt dm.loopdatasize&#x3D;2000G --storage-opt dm.loopmetadatasize&#x3D;10G --storage-opt dm.fs&#x3D;ext4 --storage-opt dm.basesize&#x3D;20G</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker run --privileged --storage-opt dm.basesize&#x3D;30G --name qemu2 -itd -p 180:180 ubuntu</span><br><span class="line"></span><br><span class="line">docker run --privileged --storage-opt dm.loopdatasize&#x3D;30G --storage-opt dm.loopmetadatasize&#x3D;10G --storage-opt dm.fs&#x3D;xfs --storage-opt dm.basesize&#x3D;20G --name qemu2 -itd -p 180:180 ubuntu</span><br><span class="line"></span><br><span class="line">docker run --privileged --storage-opt dm.basesize&#x3D;30G --name qemu -itd -p 80:80 ubuntu</span><br><span class="line">docker run --privileged --storage-opt size&#x3D;30G --name qemu -itd -p 80:80 ubuntu</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker update --help</span><br><span class="line"></span><br><span class="line">docker update qemu --storage-opt size&#x3D;30G</span><br><span class="line"></span><br><span class="line">docker update --restart&#x3D;always qemu</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/supertor/article/details/83143816" target="_blank">windows下修改docker私库的地址</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;var&#x2F;lib&#x2F;boot2docker&#x2F;profile</span><br><span class="line"></span><br><span class="line">docker-machine ssh default</span><br><span class="line">sudo sed -i &quot;s|EXTRA_ARGS&#x3D;&#39;|EXTRA_ARGS&#x3D;&#39;--insecure-registry&#x3D;ip:port |g&quot; &#x2F;var&#x2F;lib&#x2F;boot2docker&#x2F;profile</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在linux系统上用到dmsetup命令</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/Honeycomb/p/10022200.html" target="_blank">docker 存储扩容和存放路径修改</a></p><p><a href="https://blog.csdn.net/Max_Cong/article/details/94594827" target="_blank">限制docker container 最大磁盘</a></p><p><a href="https://www.jianshu.com/p/ccae16d60107" target="_blank">docker容器磁盘扩容</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 新版本dm字段有了改变</span><br><span class="line">DOCKER_STORAGE_OPTIONS&#x3D;&quot;--storage-driver devicemapper --storage-opt dm.loopdatasize&#x3D;2000G --storage-opt dm.loopmetadatasize&#x3D;10G --storage-opt dm.fs&#x3D;ext4 --storage-opt dm.basesize&#x3D;20G&quot;</span><br></pre></td></tr></table></figure></details>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;问题&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre
+      
+    
+    </summary>
+    
+    
+    
+      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[系统] 爱好者</title>
+    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588678274000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588678274000.html/</id>
+    <published>2020-05-05T11:31:14.000Z</published>
+    <updated>2020-05-05T11:31:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://msdn.itellyou.cn/" target="_blank">正版镜像</a><br><a href="https://www.sysfans.com/" target="_blank">系统爱好者</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://msdn.itellyou.cn/&quot; target=&quot;_blank&quot;&gt;正版镜像&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.sysfans.com/&quot; target=&quot;_blank&quot;&gt;系统爱好者&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="系统" scheme="http://brightereyer.xyz/tags/%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[全栈] 扫码登录</title>
+    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588672122000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588672122000.html/</id>
+    <published>2020-05-05T09:48:42.000Z</published>
+    <updated>2020-05-05T09:48:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/HeyJC/QRCodeLogin" target="_blank">QRCodeLogin</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">基于SpringBoot+Vue+Android的二维码扫码登录；服务器端、网页前端和安卓端源码</span><br></pre></td></tr></table></figure><p>聊天IM springboot+android<br><a href="https://github.com/yetel/EasyChatServer" target="_blank">EasyChatServer</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EasyChatServer是一个简单的聊天IM软件后端程序，采用SpringBoot + Netty框架。</span><br><span class="line">提供了单聊 群聊 发送消息 发送图片等简单功能</span><br></pre></td></tr></table></figure><p><a href="https://github.com/yetel/EasyChatAndroidClient" target="_blank">EasyChatAndroidClient</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EasyChat是一个开源的社交类的App。</span><br><span class="line">主要包含消息、好友、群组等相关的IM核心功能。</span><br><span class="line">部分界面参照了QQ、微信等相关社交APP。</span><br><span class="line">EasyChat APP整体采用MVVM模式，基于JetPack(Lifecycle，LiveData，ViewModel，Room)构建</span><br></pre></td></tr></table></figure><p>web+vue+springboot<br><a href="https://github.com/xiaojinlai/vue-login-java" target="_blank">vue-login-java</a><br><a href="https://github.com/xiaojinlai/vue-spring-login-summed" target="_blank">vue-spring-login-summed</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.js 高仿饿了么外卖 + 微信授权登录</span><br></pre></td></tr></table></figure><p><a href="https://github.com/sqmax/springboot-project" target="_blank">springboot-project</a><br><a href="https://github.com/sqmax/springboot-project/blob/master/sqmax.sql" target="_blank">sql文件</a><br><a href="https://github.com/sqmax/vuejs-project" target="_blank">vuejs-project</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://github.com/HeyJC/QRCodeLogin&quot; target=&quot;_blank&quot;&gt;QRCodeLogin&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="全栈" scheme="http://brightereyer.xyz/tags/%E5%85%A8%E6%A0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[vue] 滑动验证码</title>
+    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664417000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664417000.html/</id>
+    <published>2020-05-05T07:40:17.000Z</published>
+    <updated>2020-05-05T07:40:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/monoplasty/article/details/85016089" target="_blank" rel="noopener">Vue插件之滑动验证码</a><br><a href="https://gitee.com/monoplasty/vue-monoplasty-slide-verify" target="_blank">vue-monoplasty-slide-verify</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/monoplasty/article/details/85016089&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Vue插件之滑动验证码&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://gi
+      
+    
+    </summary>
+    
+    
+    
+      <category term="vue" scheme="http://brightereyer.xyz/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[android] 小程序点餐</title>
+    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664415000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664415000.html/</id>
+    <published>2020-05-05T07:40:15.000Z</published>
+    <updated>2020-05-05T07:40:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/qiushi123/sell" target="_blank">小程序sell</a><br><a href="https://github.com/qiushi123/weixin_sell" target="_blank">weixin_sell</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://github.com/qiushi123/sell&quot; target=&quot;_blank&quot;&gt;小程序sell&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/qiushi123/weixin_sell&quot; target=&quot;_bl
+      
+    
+    </summary>
+    
+    
+    
+      <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] Snowy小程序短视频</title>
+    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664414000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664414000.html/</id>
+    <published>2020-05-05T07:40:14.000Z</published>
+    <updated>2020-05-05T07:40:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Snowy短视频——基于uni-app 与 Springboot开发（后端部分）<br><a href="https://github.com/LIsemd/Snowy-video-server" target="_blank">Snowy-video-server</a></p><p>Snowy短视频——基于uni-app 与 Springboot开发（前端部分）<br><a href="https://github.com/LIsemd/Snowy-video-web" target="_blank">Snowy-video-web</a></p><p>秀视频–小程序社交软件<br><a href="https://github.com/RAOE/show-videos" target="_blank">show-videos</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Snowy短视频——基于uni-app 与 Springboot开发（后端部分）&lt;br&gt;&lt;a href=&quot;https://github.com/LIsemd/Snowy-video-server&quot; target=&quot;_blank&quot;&gt;Snowy-video-server&lt;/a&gt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[linux] sed换行转换</title>
+    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664413000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664413000.html/</id>
+    <published>2020-05-05T07:40:13.000Z</published>
+    <updated>2020-05-05T07:40:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>LF 转 CRLF</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># sed -i &#39;s&#x2F;$&#x2F;\n\n&#x2F;g&#39; file</span><br><span class="line">sed -i &#39;s&#x2F;$&#x2F;\r&#x2F;g&#39; file</span><br></pre></td></tr></table></figure><p>CRLF转LF</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 将每行中\r变成空</span><br><span class="line">sed -i &#39;s&#x2F;\r&#x2F;&#x2F;g&#39; file</span><br></pre></td></tr></table></figure><p>递归替换</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -print0 | xargs -0 sed -i &#39;s&#x2F;\r&#x2F;&#x2F;g&#39;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;LF 转 CRLF&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/spa
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[android] 自动更新</title>
+    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664412000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664412000.html/</id>
+    <published>2020-05-05T07:40:12.000Z</published>
+    <updated>2020-05-05T07:40:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/qiushi123/AutomaticUpdate" target="_blank">AutomaticUpdate</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://github.com/qiushi123/AutomaticUpdate&quot; target=&quot;_blank&quot;&gt;AutomaticUpdate&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
+    
+  </entry>
   
   <entry>
     <title>[工具] tcp+udp+socket</title>
@@ -38,31 +364,6 @@
     
     
       <category term="工具" scheme="http://brightereyer.xyz/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[全栈] android+springboot</title>
-    <link href="http://brightereyer.xyz/2020/05/02/articles/2020/05/02/1588429604000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/02/articles/2020/05/02/1588429604000.html/</id>
-    <published>2020-05-02T14:26:44.000Z</published>
-    <updated>2020-05-02T14:26:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://github.com/Wangxy9527/Android-springboot-mysql" target="_blank">解忧社区—Android客户端+springboot接口+mysql数据库</a></p><p><a href="https://github.com/HeyJC/QRCodeLogin" target="_blank">二维码扫码登录；服务器端、网页前端、移动端源码</a></p><p><a href="https://github.com/yetel/EasyChatAndroidClient" target="_blank">EasyChatAndroidClient</a><br><a href="https://github.com/yetel/EasyChatServer" target="_blank">EasyChatServer</a></p><p><a href="https://github.com/qiushi123/androidApp" target="_blank">androidApp</a><br><a href="https://github.com/qiushi123/wuyehoutai2" target="_blank">wuyehoutai2</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://github.com/Wangxy9527/Android-springboot-mysql&quot; target=&quot;_blank&quot;&gt;解忧社区—Android客户端+springboot接口+mysql数据库&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href
-      
-    
-    </summary>
-    
-    
-    
-      <category term="全栈" scheme="http://brightereyer.xyz/tags/%E5%85%A8%E6%A0%88/"/>
     
   </entry>
   
@@ -210,307 +511,6 @@
     
     
       <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[android] 日志</title>
-    <link href="http://brightereyer.xyz/2020/04/27/articles/2020/04/27/1587985339000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/27/articles/2020/04/27/1587985339000.html/</id>
-    <published>2020-04-27T11:02:19.000Z</published>
-    <updated>2020-04-27T11:02:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/salary/article/details/82686550" target="_blank">Android Studio中的日志输出</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb logcat -v time&gt; D:\1111.txt</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/salary/article/details/82686550&quot; target=&quot;_blank&quot;&gt;Android Studio中的日志输出&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight pla
-      
-    
-    </summary>
-    
-    
-    
-      <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[stm32] 野火F429V1版</title>
-    <link href="http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906619000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906619000.html/</id>
-    <published>2020-04-26T13:10:19.000Z</published>
-    <updated>2020-04-26T13:10:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://pan.baidu.com/s/1x7VkGEJIp8RQ3kshzD-smw" target="_blank">资料盘</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">bjd8</span><br></pre></td></tr></table></figure><p><a href="https://pan.baidu.com/s/1MgjvUyFR1e9UPbRlw9coLw" target="_blank">视频盘</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码：</span><br><span class="line">e2cp</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://pan.baidu.com/s/1x7VkGEJIp8RQ3kshzD-smw&quot; target=&quot;_blank&quot;&gt;资料盘&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas
-      
-    
-    </summary>
-    
-    
-    
-      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[硬件] PCB硬件制作</title>
-    <link href="http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906618000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906618000.html/</id>
-    <published>2020-04-26T13:10:18.000Z</published>
-    <updated>2020-04-26T13:10:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://gitee.com/little_young5280/opencode" target="_blank">PCB硬件制作</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://gitee.com/little_young5280/opencode&quot; target=&quot;_blank&quot;&gt;PCB硬件制作&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="硬件" scheme="http://brightereyer.xyz/tags/%E7%A1%AC%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[shell] 在指定行的前后插入指定内容</title>
-    <link href="http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906617000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906617000.html/</id>
-    <published>2020-04-26T13:10:17.000Z</published>
-    <updated>2020-04-26T13:10:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在指定行的前/后插入指定内容</p><p>准备文件a.txt、b.txt：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># a.txt</span></span><br><span class="line">cat &gt; a.txt &lt;&lt;EOF</span><br><span class="line">aaaa</span><br><span class="line">bbbb</span><br><span class="line">cccc</span><br><span class="line">dddd</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># b.txt</span></span><br><span class="line">cat &gt; b.txt &lt;&lt;EOF</span><br><span class="line">AAA</span><br><span class="line">BBB</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>如果知道行号可以用下面的方法：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">'2 r b.txt'</span> a.txt    <span class="comment">#在a.txt的第2行插入文件b.txt</span></span><br><span class="line">awk <span class="string">'1;NR==2&#123;system("cat b.txt")&#125;'</span> a.txt &gt; c.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#注意，如果写成以下，则a.txt文件为空</span></span><br><span class="line"><span class="comment">#awk '1;NR==2&#123;system("cat b.txt")&#125;' a.txt &gt; a.txt</span></span><br></pre></td></tr></table></figure><p>如果不知道行号，可以用正則匹配：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">'/regex/ r b.txt'</span> a.txt <span class="comment"># regex是正则表达式</span></span><br><span class="line">awk <span class="string">'/target/&#123;system("cat b.txt")&#125;'</span> a.txt &gt; c.txt</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#sed的話如果不改变源文件，可以去掉-i开关，修改会输出到STDOUT：</span><br></pre></td></tr></table></figure><p>原文件：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat -n a.txt </span><br><span class="line">1  aaaa</span><br><span class="line">2  bbbb</span><br><span class="line">3  cccc</span><br><span class="line">4  dddd</span><br></pre></td></tr></table></figure><p>现在要在第二行即“bbbb”行的下面添加一行，内容为“xiaowu”：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">'/bbbb/a\xiaowu'</span> a.txt </span><br><span class="line">aaaa</span><br><span class="line">bbbb</span><br><span class="line">xiaowu</span><br><span class="line">cccc</span><br><span class="line">dddd</span><br></pre></td></tr></table></figure><p>如果要加两行“xiaowu”可以用一下语句，注意用“\n”换行：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">'/bbbb/a\xiaowu\nxiaowu'</span> a.txt </span><br><span class="line">aaaa</span><br><span class="line">bbbb</span><br><span class="line">xiaowu</span><br><span class="line">xiaowu</span><br><span class="line">cccc</span><br><span class="line">dddd</span><br></pre></td></tr></table></figure><p>如果要在第二行即“bbbb”行的上添加一行，内容为“xiaowu”，可以把参数“a”换成“i”：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">'/b/i\xiaowu'</span> a.txt </span><br><span class="line">aaaa</span><br><span class="line">xiaowu</span><br><span class="line">bbbb</span><br><span class="line">cccc</span><br><span class="line">dddd</span><br></pre></td></tr></table></figure><p>以上文件中只有一行匹配，如果文件中有两行或者多行匹配，结果有是如何呢？</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cat -n a.txt </span><br><span class="line">1  aaaa</span><br><span class="line">2  bbbb</span><br><span class="line">3  cccc</span><br><span class="line">4  bbbb</span><br><span class="line">5  dddd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 每个匹配行的下一行添加“xiaowu”</span></span><br><span class="line">sed <span class="string">'/bbbb/a\xiaowu'</span> a.txt </span><br><span class="line">aaaa</span><br><span class="line">bbbb</span><br><span class="line">xiaowu</span><br><span class="line">cccc</span><br><span class="line">bbbb</span><br><span class="line">xiaowu</span><br><span class="line">dddd</span><br></pre></td></tr></table></figure><p>那么如果指向在第二个“bbbb”的下一行添加内容“xiaowu”，该如何操作呢？</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可以考虑先获取第二个“bbbb”行的行号，然后根据行号在此行的下一行添加“xiaowu”</span><br></pre></td></tr></table></figure><p>获取第二个“bbbb”行的行号的方法：<br>方法一：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat -n a.txt |grep bbbb |awk <span class="string">'&#123;print $1&#125;'</span>|sed -n <span class="string">"2"</span>p</span><br><span class="line">4</span><br></pre></td></tr></table></figure><p>方法二：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -n <span class="string">'/bbbb/='</span> a.txt |sed -n <span class="string">"2"</span>p</span><br><span class="line">4</span><br></pre></td></tr></table></figure><p>由结果可知第二个“bbbb”行的行号为4，然后再在第四行的前或后添加相应的内容:</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sed -e <span class="string">'4a\xiaowu'</span> a.txt </span><br><span class="line">aaaa</span><br><span class="line">bbbb</span><br><span class="line">cccc</span><br><span class="line">bbbb</span><br><span class="line">xiaowu</span><br><span class="line">dddd</span><br><span class="line"></span><br><span class="line">sed -e <span class="string">'4a\xiaowu\nxiaowu'</span> a.txt </span><br><span class="line">aaaa</span><br><span class="line">bbbb</span><br><span class="line">cccc</span><br><span class="line">bbbb</span><br><span class="line">xiaowu</span><br><span class="line">xiaowu</span><br><span class="line">dddd</span><br></pre></td></tr></table></figure><p>向指定行的末尾添加指定内容，比如在“ccccc”行的行尾介绍“ eeeee”</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cat a.txt</span><br><span class="line">aaaaa</span><br><span class="line">bbbbb</span><br><span class="line">ccccc</span><br><span class="line">ddddd</span><br><span class="line"></span><br><span class="line">sed <span class="string">'s/cc.*/&amp; eeeee/g'</span> a.txt</span><br><span class="line">aaaaa</span><br><span class="line">bbbbb</span><br><span class="line">ccccc eeeee</span><br><span class="line">ddddd</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/weiyuefei/article/details/68943857" target="_blank">SHELL 在指定行的前/后插入指定内容</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在指定行的前/后插入指定内容&lt;/p&gt;
-&lt;p&gt;准备文件a.txt、b.txt：&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br
-      
-    
-    </summary>
-    
-    
-    
-      <category term="shell" scheme="http://brightereyer.xyz/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[qt] 控制台下的tcp</title>
-    <link href="http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906616000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906616000.html/</id>
-    <published>2020-04-26T13:10:16.000Z</published>
-    <updated>2020-04-26T13:10:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/u013232740/article/details/74999884" target="_blank">QT在控制台下实现TCP网口通信</a></p><p>服务端server：</p><details><summary>main.cpp</summary><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QtCore/QCoreApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"tcpserver.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QCoreApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line">    <span class="comment">//从class的类构造函数调用套接字</span></span><br><span class="line">    TcpServer server;</span><br><span class="line">    <span class="comment">//显示状态</span></span><br><span class="line">    server.<span class="built_in">begin</span>();</span><br><span class="line">    <span class="keyword">return</span> a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details><details><summary>tcpserver.cpp</summary><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"tcpserver.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QHostAddress&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line">TcpServer::TcpServer(QObject* parent): QObject(parent)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//将newConnection()与acceptConnection()连结</span></span><br><span class="line">    <span class="built_in">connect</span>(&amp;server, SIGNAL(newConnection()),<span class="keyword">this</span>,SLOT(acceptConnection()));</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"listening..."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//bool QTcpServer::listen ( const QHostAddress &amp; address = QHostAddress::Any, quint16 port = 0 )</span></span><br><span class="line">    <span class="comment">//Tells the server to listen for incoming connections on address address and port port.</span></span><br><span class="line">    <span class="comment">//If port is 0, a port is chosen automatically.</span></span><br><span class="line">    <span class="comment">//If address is QHostAddress::Any, the server will listen on all network interfaces.</span></span><br><span class="line">    <span class="comment">//在任意网络接口监听</span></span><br><span class="line">    <span class="comment">//server.listen(QHostAddress::Any,8888);</span></span><br><span class="line">    <span class="comment">//在服务端IP地址172.18.218.2的端口8888监听</span></span><br><span class="line">    <span class="function">QHostAddress <span class="title">addr</span><span class="params">(<span class="string">"172.18.218.2"</span>)</span></span>;</span><br><span class="line">    server.<span class="built_in">listen</span>(addr, <span class="number">8888</span>);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"listen..."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">TcpServer::~TcpServer()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"closing..."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//关闭服务器</span></span><br><span class="line">    server.<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> TcpServer::acceptConnection()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//返回等待的连接</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"connecting..."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    client = server.nextPendingConnection();</span><br><span class="line">    <span class="comment">//将readyRead()与startRead()连结</span></span><br><span class="line">    <span class="built_in">connect</span>(client, SIGNAL(readyRead()),<span class="keyword">this</span>, SLOT(startRead()));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> TcpServer::startRead()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">buffer</span>[<span class="number">1024</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="comment">//读入数据</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"reading..."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    client-&gt;<span class="built_in">read</span>(<span class="built_in">buffer</span>, client-&gt;bytesAvailable());</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"outputing..."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//显示数据</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">buffer</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//关闭客户端</span></span><br><span class="line">    client-&gt;<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> TcpServer::<span class="built_in">begin</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//显示状态</span></span><br><span class="line">     <span class="built_in">cout</span>&lt;&lt;<span class="string">"try to connect..."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details><details><summary>tcpserver.h</summary><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> TCPSERVER_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TCPSERVER_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QtNetwork&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QObject&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QTcpServer&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QTcpSocket&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TcpServer</span>:</span> <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    TcpServer(QObject * parent = <span class="number">0</span>);</span><br><span class="line">    ~TcpServer();</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">begin</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">acceptConnection</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">startRead</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    QTcpServer server;</span><br><span class="line">    QTcpSocket* client;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// TCPSERVER_H</span></span></span><br></pre></td></tr></table></figure></details><p>客户端client：</p><details><summary>main.cpp</summary><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QtCore/QCoreApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"tcpclient.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QCoreApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line">    TcpClient client;</span><br><span class="line">    <span class="comment">//开始建立TCP连接，发送数据</span></span><br><span class="line">    <span class="comment">//本机环回通信</span></span><br><span class="line">    <span class="comment">//client.start("127.0.0.1", 8888);</span></span><br><span class="line">    <span class="comment">//服务端/客户端通信，填入服务端IP地址与端口号</span></span><br><span class="line">    client.start(<span class="string">"172.18.216.230"</span>, <span class="number">8888</span>);</span><br><span class="line">    <span class="keyword">return</span> a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details><details><summary>tcpclient.cpp</summary><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"tcpclient.h"</span></span></span><br><span class="line"></span><br><span class="line">TcpClient::TcpClient(QObject* parent): QObject(parent)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//建立connected()函数与startTransfer()函数的连结</span></span><br><span class="line">    <span class="built_in">connect</span>(&amp;client, SIGNAL(<span class="built_in">connected</span>()),<span class="keyword">this</span>, SLOT(startTransfer()));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">TcpClient::~TcpClient()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//关闭客户端</span></span><br><span class="line">    client.<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> TcpClient::start(QString address, quint16 port)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//显示状态</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"client begins to connect..."</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//The QHostAddress class provides an IP address.</span></span><br><span class="line">    <span class="comment">//This class holds an IPv4 or IPv6 address in a platform- and protocol-independent manner.</span></span><br><span class="line">    <span class="comment">//创建QHostAddress类的对象</span></span><br><span class="line">    <span class="function">QHostAddress <span class="title">addr</span><span class="params">(address)</span></span>;</span><br><span class="line">    <span class="comment">//跟服务端连接</span></span><br><span class="line">    <span class="comment">//Attempts to make a connection to hostName on the given port.</span></span><br><span class="line">    client.connectToHost(addr, port);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> TcpClient::startTransfer()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//qint64 QIODevice::write ( const char * data, qint64 maxSize )</span></span><br><span class="line">    <span class="comment">//Writes at most maxSize bytes of data from data to the device.</span></span><br><span class="line">    <span class="comment">//Returns the number of bytes that were actually written, or -1 if an error occurred.</span></span><br><span class="line">    <span class="comment">//写入数据到设备</span></span><br><span class="line">    client.<span class="built_in">write</span>(<span class="string">"hello qt!"</span>, <span class="number">9</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details><details><summary>tcpclient.h</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#ifndef TCPCLIENT_H</span><br><span class="line">#define TCPCLIENT_H</span><br><span class="line"></span><br><span class="line">#include &lt;QtNetwork&gt;</span><br><span class="line">#include &lt;QObject&gt;</span><br><span class="line">#include &lt;QString&gt;</span><br><span class="line">#include &lt;QTcpSocket&gt;</span><br><span class="line">#include &lt;QHostAddress&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class TcpClient: public QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">public:</span><br><span class="line">    TcpClient(QObject* parent &#x3D; 0);</span><br><span class="line">    ~TcpClient();</span><br><span class="line">    void start(QString address, quint16 port);</span><br><span class="line"></span><br><span class="line">public slots:</span><br><span class="line">    void startTransfer();</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    QTcpSocket client;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line">#endif &#x2F;&#x2F; TCPCLIENT_H</span><br></pre></td></tr></table></figure></details>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/u013232740/article/details/74999884&quot; target=&quot;_blank&quot;&gt;QT在控制台下实现TCP网口通信&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;服务端server：&lt;/p&gt;
-&lt;details&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[qt] 定时器</title>
-    <link href="http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906615000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906615000.html/</id>
-    <published>2020-04-26T13:10:15.000Z</published>
-    <updated>2020-04-26T13:10:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/andy_93/article/details/52776283" target="_blank">Qt中定时器使用的两种方法</a><br>mytimer.h</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> MY_TIMER_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MY_TIMER_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QObject&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QDebug&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QTimer&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTimer</span> :</span> <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//Q_OBJECT</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">MyTimer(QObject* parent = <span class="literal">NULL</span>);</span><br><span class="line">~MyTimer();</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">handleTimeout</span><span class="params">()</span></span>;  <span class="comment">//超时处理函数</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">QTimer *m_pTimer;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">//MY_TIMER_H</span></span></span><br></pre></td></tr></table></figure><p>mytimer.cpp</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"mytimer.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TIMER_TIMEOUT(5*1000)</span></span><br><span class="line"> </span><br><span class="line">MyTimer::MyTimer(QObject *parent)</span><br><span class="line">:QObject(parent)</span><br><span class="line">&#123;</span><br><span class="line">m_pTimer = <span class="keyword">new</span> QTimer(<span class="keyword">this</span>);</span><br><span class="line"><span class="built_in">connect</span>(m_pTimer, SIGNAL(timeout()), <span class="keyword">this</span>, SLOT(handleTimeout()));</span><br><span class="line">m_pTimer-&gt;start(TIMER_TIMEOUT);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyTimer::~MyTimer()</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> MyTimer::handleTimeout()</span><br><span class="line">&#123;</span><br><span class="line">qDebug()&lt;&lt;<span class="string">"Enter timeout processing function\n"</span>;</span><br><span class="line"><span class="keyword">if</span>(m_pTimer-&gt;isActive())&#123;</span><br><span class="line">m_pTimer-&gt;<span class="built_in">stop</span>();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/andy_93/article/details/52776283&quot; target=&quot;_blank&quot;&gt;Qt中定时器使用的两种方法&lt;/a&gt;&lt;br&gt;mytimer.h&lt;/p&gt;
-&lt;figure class=&quot;highli
-      
-    
-    </summary>
-    
-    
-    
-      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[qt] char[]与QString相互转换支持中文</title>
-    <link href="http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906614000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906614000.html/</id>
-    <published>2020-04-26T13:10:14.000Z</published>
-    <updated>2020-04-26T13:10:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/zhangxuechao_/article/details/81700266" target="_blank">Qt 字符串截取 获取指定字符位置</a></p><p><a href="https://blog.csdn.net/sinat_37269729/article/details/98201051" target="_blank">char[]与QString相互转换支持中文</a></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> path[<span class="number">50</span>];</span><br><span class="line">    QString str = <span class="string">"D:\\搜狗高速下载\\weka-3-8-3jre-x64.exe"</span>;</span><br><span class="line">    QByteArray ba = str.toLocal8Bit();</span><br><span class="line">    <span class="built_in">memcpy</span>(path,ba.data(),ba.<span class="built_in">size</span>()+<span class="number">1</span>);<span class="comment">//加1是为了最后的终结符，否则转换回来的时候不知道什么时候截止</span></span><br><span class="line"></span><br><span class="line">    QString str2;</span><br><span class="line">    str2 = QString::fromLocal8Bit(path);</span><br><span class="line">    qDebug()&lt;&lt;str2;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>QString转化成为char数组</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QString str=<span class="string">"12fff"</span>;</span><br><span class="line">QByteArray ba=str.toLatin1();</span><br><span class="line"><span class="keyword">char</span> *c=ba.data();</span><br></pre></td></tr></table></figure><p>char数组转化成为QString</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c[]=<span class="string">"12ff"</span>;</span><br><span class="line">QString str=QString(QLatin1String(c));</span><br></pre></td></tr></table></figure><p>这里再对这俩中类型的输出总结一下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">qDebug()&lt;&lt;<span class="string">"print"</span>;</span><br><span class="line">qDebug()&lt;&lt;tr(<span class="string">"print"</span>);</span><br><span class="line">qDebug()&lt;&lt;ch;(ch为<span class="keyword">char</span>类型)</span><br><span class="line">qDebug()&lt;&lt;tr(ch);</span><br><span class="line">qDebug()&lt;&lt;byteArray;(byteArray是QByteArray类型)</span><br><span class="line">qDebug()&lt;&lt;tr(byteArray);</span><br><span class="line">qDebug()&lt;&lt;str;(str为Qstring类型)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 但是qDebug()&lt;&lt;tr(str);是不可以的，要想用tr()函数输出QString类型的字符则要如下：</span></span><br><span class="line">qDebug()&lt;&lt;tr(str.toLatin1);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/zhangxuechao_/article/details/81700266&quot; target=&quot;_blank&quot;&gt;Qt 字符串截取 获取指定字符位置&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog
-      
-    
-    </summary>
-    
-    
-    
-      <category term="qt" scheme="http://brightereyer.xyz/tags/qt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[c++] try-catch命令</title>
-    <link href="http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906613000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906613000.html/</id>
-    <published>2020-04-26T13:10:13.000Z</published>
-    <updated>2020-04-26T13:10:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/xiamentingtao/article/details/45222827" target="_blank">c++中try catch的用法</a></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;exception&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span>* myarray= <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100000</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (exception&amp; e)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Standard exception: "</span> &lt;&lt; e.what() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/xiamentingtao/article/details/45222827&quot; target=&quot;_blank&quot;&gt;c++中try catch的用法&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight 
-      
-    
-    </summary>
-    
-    
-    
-      <category term="c++" scheme="http://brightereyer.xyz/tags/c/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[c++] cat命令</title>
-    <link href="http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906612000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906612000.html/</id>
-    <published>2020-04-26T13:10:12.000Z</published>
-    <updated>2020-04-26T13:10:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://gitee.com/BrighterEyer/itop6818-linux-programs/blob/master/cpu-readuid/iTOP-4418%E5%92%8C6818-Linuxc-readuid/readuuid.c" target="_blank">readuuid.c</a></p><p><a href="https://www.cnblogs.com/aaronLinux/p/6944966.html" target="_blank">[system]c/c++调用cat命令</a></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[] )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">  FILE *fp;</span><br><span class="line">  <span class="keyword">char</span> path[<span class="number">1035</span>];</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Open the command for reading. */</span></span><br><span class="line">  fp = popen(<span class="string">"/bin/ls /etc/"</span>, <span class="string">"r"</span>);</span><br><span class="line">  <span class="keyword">if</span> (fp == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Failed to run command\n"</span> );</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Read the output a line at a time - output it. */</span></span><br><span class="line">  <span class="keyword">while</span> (fgets(path, <span class="keyword">sizeof</span>(path)<span class="number">-1</span>, fp) != <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s"</span>, path);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* close */</span></span><br><span class="line">  pclose(fp);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://gitee.com/BrighterEyer/itop6818-linux-programs/blob/master/cpu-readuid/iTOP-4418%E5%92%8C6818-Linuxc-readuid/readuuid.c&quot;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="c++" scheme="http://brightereyer.xyz/tags/c/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[arm] python</title>
-    <link href="http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906611000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906611000.html/</id>
-    <published>2020-04-26T13:10:11.000Z</published>
-    <updated>2020-04-26T13:10:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/Colin_xuan/article/details/81109328" target="_blank">Python3版本移植到ARM的通用方法（一键移植）</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -c https:&#x2F;&#x2F;www.python.org&#x2F;ftp&#x2F;python&#x2F;3.4.5&#x2F;Python-3.4.5.tgz</span><br><span class="line">tar xvf Python-3.4.5.tgz;cd Python-3.4.5</span><br></pre></td></tr></table></figure><p>cross_compile_python.sh</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#prepare</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"prepare stage"</span></span><br><span class="line">arm_install=/tmp/arm_python</span><br><span class="line">arm_build=`<span class="built_in">pwd</span>`/arm_build</span><br><span class="line">mkdir <span class="variable">$arm_build</span></span><br><span class="line">mkdir <span class="variable">$arm_install</span></span><br><span class="line"><span class="built_in">cd</span> `<span class="built_in">pwd</span>`</span><br><span class="line"><span class="comment">#arm comfigure</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"arm confiure stage"</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$arm_build</span></span><br><span class="line"><span class="built_in">echo</span> ac_cv_file__dev_ptmx=yes &gt; config.site</span><br><span class="line"><span class="built_in">echo</span> ac_cv_file__dev_ptc=yes &gt;&gt; config.site</span><br><span class="line"><span class="built_in">export</span> CONFIG_SITE=config.site</span><br><span class="line">../configure --host=arm-none-linux-gnueabi --build=i686-linux-gnu --target=arm-none-linux-gnueabi --<span class="built_in">disable</span>-ipv6 --prefix=<span class="variable">$arm_install</span> --<span class="built_in">enable</span>-shared --silent</span><br><span class="line"> </span><br><span class="line"><span class="comment">#pc pgen</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"pc pgen stage"</span></span><br><span class="line"><span class="built_in">cd</span> - </span><br><span class="line">./configure --silent</span><br><span class="line"><span class="keyword">for</span> args <span class="keyword">in</span> <span class="variable">$@</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$args</span> = <span class="string">"all"</span> ];<span class="keyword">then</span></span><br><span class="line">make --silent &amp;&amp; make install --silent</span><br><span class="line"><span class="built_in">break</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">make Parser/pgen --silent</span><br><span class="line"><span class="built_in">cd</span> -</span><br><span class="line">cp ../Parser/pgen Parser</span><br><span class="line"><span class="comment">#change the pgen time,</span></span><br><span class="line"><span class="comment"># or else the cross compile will replace this pc version pgen. important!!</span></span><br><span class="line">touch -t 12312359 Parser/pgen</span><br><span class="line"> </span><br><span class="line"><span class="comment">#make</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"make stage"</span></span><br><span class="line">make python --silent &amp;&amp; make -i install</span><br><span class="line"> </span><br><span class="line"><span class="comment">#make it smaller</span></span><br><span class="line"><span class="comment">#arm-none-linux-gnueabi-strip -s $arm_install/bin/python3.3</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure><p>执行脚本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x cross_compile_python.sh</span><br><span class="line">sh cross_compile_python.sh</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/Colin_xuan/article/details/81109328&quot; target=&quot;_blank&quot;&gt;Python3版本移植到ARM的通用方法（一键移植）&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;hig
-      
-    
-    </summary>
-    
-    
-    
-      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[arm] 移植java</title>
-    <link href="http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906610000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906610000.html/</id>
-    <published>2020-04-26T13:10:10.000Z</published>
-    <updated>2020-04-26T13:10:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.oracle.com/java/technologies/javaseembedded8u211-downloads.html#license-lightbox" target="_blank">javaseembedded8u211</a><br><a href="https://blog.csdn.net/qihsming/article/details/85008371" target="_blank">JRE移植到嵌入式ARM平台</a><br><a href="https://pan.baidu.com/s/1Faoi5uVvWVPRKwRutIGk4g" target="_blank">ejdk-8u191-linux-arm-sflt.tar.gz</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提取码:</span><br><span class="line">m35v</span><br></pre></td></tr></table></figure><p>从tar包中提取软件</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr</span><br><span class="line">gunzip *.gz</span><br><span class="line">tar -xvf *.tar</span><br></pre></td></tr></table></figure><p>设置环境变量，在/etc/profile的末尾添加</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> EJDK_HOME=/usr/ejdk1.8.0_191</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$EJDK_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure><p>验证安装</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$EJDK_HOME</span></span><br><span class="line">bin/jrecreate.sh --<span class="built_in">help</span></span><br></pre></td></tr></table></figure><p>使用jrecreate来创建JRE</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/ejdk1.8.0_151/bin/jrecreate.sh \</span><br><span class="line">--profile compact1 \</span><br><span class="line">--dest /tmp/defaultJRE/</span><br></pre></td></tr></table></figure><p>移植至嵌入式设备<br>1.复制文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将虚拟机中生成的整个defaultJRE目录复制至嵌入式设备中的&#x2F;usr&#x2F;jvm目录下</span><br></pre></td></tr></table></figure><p>2.添加环境变量<br>在/etc/profile的末尾添加</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;jvm&#x2F;defJRE&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure><p>3.验证安装</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.oracle.com/java/technologies/javaseembedded8u211-downloads.html#license-lightbox&quot; target=&quot;_blank&quot;&gt;javaseembedded8u21
-      
-    
-    </summary>
-    
-    
-    
-      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[arm] 蓝牙</title>
-    <link href="http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906609000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/26/articles/2020/04/26/1587906609000.html/</id>
-    <published>2020-04-26T13:10:09.000Z</published>
-    <updated>2020-04-26T13:10:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/gatieme/article/details/48751743" target="_blank">ARM平台上蓝牙协议栈Bluez的移植使用和配置</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/gatieme/article/details/48751743&quot; target=&quot;_blank&quot;&gt;ARM平台上蓝牙协议栈Bluez的移植使用和配置&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
     
   </entry>
   
