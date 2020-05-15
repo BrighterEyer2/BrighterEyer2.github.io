@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-05-05T15:54:57.000Z</updated>
+  <updated>2020-05-15T15:31:58.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -17,271 +17,46 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>[linux] 手册</title>
-    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588694097000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588694097000.html/</id>
-    <published>2020-05-05T15:54:57.000Z</published>
-    <updated>2020-05-05T15:54:57.000Z</updated>
+    <title>[小程序] 二维码组件</title>
+    <link href="http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556718000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556718000.html/</id>
+    <published>2020-05-15T15:31:58.000Z</published>
+    <updated>2020-05-15T15:31:58.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://man.linuxde.net/" target="_blank">Linux命令大全</a></p>]]></content>
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/xyyt/p/10945435.html" target="_blank">小程序二维码组件</a></p><p>小程序片段</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;developers.weixin.qq.com&#x2F;s&#x2F;KGgJ2Jmy7n84</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;https://man.linuxde.net/&quot; target=&quot;_blank&quot;&gt;Linux命令大全&lt;/a&gt;&lt;/p&gt;
-
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/xyyt/p/10945435.html&quot; target=&quot;_blank&quot;&gt;小程序二维码组件&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;小程序片段&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;tab
       
     
     </summary>
     
     
     
-      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+      <category term="小程序" scheme="http://brightereyer.xyz/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
-    <title>[ubuntu] 热插拔</title>
-    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588692845000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588692845000.html/</id>
-    <published>2020-05-05T15:34:05.000Z</published>
-    <updated>2020-05-05T15:34:05.000Z</updated>
+    <title>[springboot] 反向的配置文件hibernate.reveng.xml</title>
+    <link href="http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556717000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556717000.html/</id>
+    <published>2020-05-15T15:31:57.000Z</published>
+    <updated>2020-05-15T15:31:57.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://www.linuxidc.com/Linux/2017-06/145100.htm" target="_blank">Linux上磁盘热插拔</a></p><details><summary>过程整理</summary><p>首先获取scsi设备的信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">lsscsi</span><br><span class="line"></span><br><span class="line"># 有些操作系统没有lsscsi命令，则可以使用下面的方法获取scsi设备信息：</span><br><span class="line">ll &#x2F;sys&#x2F;bus&#x2F;scsi&#x2F;drivers&#x2F;sd&#x2F;</span><br><span class="line">ll &#x2F;sys&#x2F;bus&#x2F;scsi&#x2F;drivers&#x2F;sd&#x2F;2\:0\:0\:0&#x2F;block&#x2F;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 查看&#x2F;proc&#x2F;scsi&#x2F;scsi文件，获取对应scsi设备的详细信息：</span><br><span class="line">cat &#x2F;proc&#x2F;scsi&#x2F;scsi</span><br><span class="line"></span><br><span class="line">在此处，有两块直连(Direct-Access)的scsi磁盘，一块通过光驱cd-rom连接的光盘。</span><br><span class="line">我们只考虑scsi磁盘，所以这两块磁盘在scsi中的定位符为2:0:0:0和2:0:1:0。</span><br><span class="line">如果继续插入一块盘，那么新盘在scsi中的定位符为2:0:2:0，这个数值串非常重要。</span><br></pre></td></tr></table></figure><p>热插</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">在向计算机中插入一块磁盘后，内核因为识别不了它所以不会产生任何事件通知，因此在&#x2F;sys目录中不会产生任何文件，任何工具也就读取不了它。</span><br><span class="line">重启系统肯定是可以解决的，但是Linux支持热插。</span><br><span class="line"></span><br><span class="line">热插新盘的方式是向&#x2F;proc&#x2F;scsi&#x2F;scsi中写入新scsi设备的信息，方式如下：</span><br><span class="line"></span><br><span class="line">echo &quot;scsi add-single-device a b c d&quot; &gt;&#x2F;proc&#x2F;scsi&#x2F;scsi</span><br><span class="line"></span><br><span class="line"># 其中：</span><br><span class="line"># a &#x3D;&#x3D; hostadapter id (first one being 0)</span><br><span class="line"># b &#x3D;&#x3D; SCSI channel on hostadapter (first one being 0)</span><br><span class="line"># c &#x3D;&#x3D; ID</span><br><span class="line"># d &#x3D;&#x3D; LUN (first one being 0)</span><br><span class="line"></span><br><span class="line">echo &quot;scsi add-single-device 2:0:2:0&quot; &gt; &#x2F;proc&#x2F;scsi&#x2F;scsi</span><br><span class="line"></span><br><span class="line"># 重新扫描scsi总线也可以实现热插的功能</span><br><span class="line">echo &quot;- - -&quot; &gt; &#x2F;sys&#x2F;class&#x2F;scsi_host&#x2F;host2&#x2F;scan</span><br><span class="line"></span><br><span class="line"># 如果不知道要扫描哪个host，直接使用循环全部扫描。</span><br><span class="line">for i in &#96;ls &#x2F;sys&#x2F;class&#x2F;scsi_host&#x2F;&#96;;do echo &quot;- - -&quot; &gt;&#x2F;sys&#x2F;class&#x2F;scsi_host&#x2F;$i&#x2F;scan;done</span><br><span class="line"></span><br><span class="line"># 热插之后，fdisk -l等命令就可以识别到该磁盘了：</span><br><span class="line">fdisk -l</span><br></pre></td></tr></table></figure><p>热拔</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 热拔磁盘的方式是在&#x2F;proc&#x2F;scsi&#x2F;scsi中移除对应scsi设备的信息，方式如下：</span><br><span class="line">echo &quot;scsi remove-single-device a b c d&quot; &gt; &#x2F;proc&#x2F;scsi&#x2F;scsi</span><br><span class="line"></span><br><span class="line"># 例如删除2:0:2:0这块磁盘：</span><br><span class="line">echo &quot;scsi remove-single-device 2 0 2 0&quot; &gt; &#x2F;proc&#x2F;scsi&#x2F;scsi</span><br><span class="line"></span><br><span class="line"># 因为要删除的设备已经存在，&#x2F;sys中已经有它完整的信息，所以也从其自身设备上进行删除。</span><br><span class="line"></span><br><span class="line"># 首先查看scsi设备信息：</span><br><span class="line">lsscsi</span><br><span class="line">[2:0:0:0]    disk    VMware,  VMware Virtual S 1.0   &#x2F;dev&#x2F;sda</span><br><span class="line">[2:0:1:0]    disk    VMware,  VMware Virtual S 1.0   &#x2F;dev&#x2F;sdb</span><br><span class="line">[4:0:0:0]    cd&#x2F;dvd  NECVMWar VMware SATA CD01 1.00  &#x2F;dev&#x2F;sr0</span><br><span class="line"></span><br><span class="line"># 例如要删除&#x2F;dev&#x2F;sdb，即2:0:1:0。先看看它的文件信息：</span><br><span class="line">ls &#x2F;sys&#x2F;bus&#x2F;scsi&#x2F;drivers&#x2F;sd&#x2F;2\:0\:1\:0&#x2F;</span><br><span class="line"></span><br><span class="line"># 在其中有3个文件：delete、rescan和state。</span><br><span class="line"># 其中state记录了该设备是否正在运行中，而delete和rescan文件则用于删除和重新扫描该设备。</span><br><span class="line"></span><br><span class="line"># 删除该设备，即热拔：</span><br><span class="line">echo 1 &gt; &#x2F;sys&#x2F;bus&#x2F;scsi&#x2F;drivers&#x2F;sd&#x2F;2\:0\:1\:0&#x2F;delete</span><br></pre></td></tr></table></figure><p>其它<br><a href="https://blog.csdn.net/weixin_33883178/article/details/92310356" target="_blank">Linux下关于热插拔硬盘的指令</a></p></details><details><summary>手动挂载硬盘，解压ubuntu.tgz到指定分区</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">lsscsi</span><br><span class="line">[2:0:0:0]    disk    Mass     Storage Device   1.00  &#x2F;dev&#x2F;sda</span><br><span class="line"></span><br><span class="line">ls &#x2F;dev&#x2F;sda*</span><br><span class="line">&#x2F;dev&#x2F;sda  &#x2F;dev&#x2F;sda1  &#x2F;dev&#x2F;sda2</span><br><span class="line"></span><br><span class="line">dmesg | tail</span><br><span class="line"></span><br><span class="line">mkdir -p &#x2F;mnt&#x2F;udisk&#x2F;sda1 &#x2F;mnt&#x2F;udisk&#x2F;sda2</span><br><span class="line">mount -t ext3 &#x2F;dev&#x2F;sda1 &#x2F;mnt&#x2F;udisk&#x2F;sda1</span><br><span class="line">mount -t vfat &#x2F;dev&#x2F;sda2 &#x2F;mnt&#x2F;udisk&#x2F;sda2</span><br><span class="line">ls &#x2F;mnt&#x2F;udisk&#x2F;sda1</span><br><span class="line">ls &#x2F;mnt&#x2F;udisk&#x2F;sda2</span><br><span class="line"></span><br><span class="line">tar xvf &#x2F;mnt&#x2F;udisk&#x2F;sda2&#x2F;ubuntu.tgz -C &#x2F;mnt&#x2F;udisk&#x2F;sda1&#x2F;</span><br><span class="line"></span><br><span class="line">umount -l &#x2F;mnt&#x2F;udisk&#x2F;*</span><br><span class="line">#umount -a &#x2F;mnt&#x2F;udisk</span><br><span class="line">rm -rf &#x2F;mnt&#x2F;udisk</span><br></pre></td></tr></table></figure></details>]]></content>
+    <content type="html"><![CDATA[<p>hibernate.cfg.xml</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">hibernate-configuration</span> <span class="meta-keyword">PUBLIC</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">"-//Hibernate/Hibernate Configuration DTD 3.0//EN"</span></span></span><br><span class="line"><span class="meta"><span class="meta-string">"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">session-factory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.driver_class"</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.url"</span>&gt;</span>jdbc:mysql://localhost/basejpa<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.username"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.password"</span>&gt;</span>123456<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.dialect"</span>&gt;</span>org.hibernate.dialect.MySQL5InnoDBDialect<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">session-factory</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-configuration</span>&gt;</span></span><br></pre></td></tr></table></figure><p>hibernate.reveng.xml</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">hibernate-reverse-engineering</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">"-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN"</span> <span class="meta-string">"http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd"</span> &gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-reverse-engineering</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table-filter</span> <span class="attr">match-catalog</span>=<span class="string">"basejpa"</span> <span class="attr">match-name</span>=<span class="string">"account"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-reverse-engineering</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;https://www.linuxidc.com/Linux/2017-06/145100.htm&quot; target=&quot;_blank&quot;&gt;Linux上磁盘热插拔&lt;/a&gt;&lt;/p&gt;
-&lt;details&gt;
-&lt;summary&gt;过程整理&lt;/summary&gt;
-
-&lt;p&gt;首先获
-      
-    
-    </summary>
-    
-    
-    
-      <category term="ubuntu" scheme="http://brightereyer.xyz/tags/ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[arm] itop6818+android系统移植</title>
-    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588688283000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588688283000.html/</id>
-    <published>2020-05-05T14:18:03.000Z</published>
-    <updated>2020-05-05T14:18:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<details><summary>参考</summary><p><a href="" target="_blank"></a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iTOP-6818开发板之全功能版使用手册_v2.2.pdf</span><br><span class="line"></span><br><span class="line"># 章节</span><br><span class="line">5.5 Android4.4 的编译以及烧写</span><br><span class="line"></span><br><span class="line">Android4.4 的编译需要使用 Ubuntu12.04.2 版本</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Android4.4 的编译以及烧写</span><br><span class="line"></span><br><span class="line">iTOP-6818 开发板可以支持 Android4.4 版本。需要注意的是 Android4.4 和 Android5.1的版本，需要的编译环境不一样，烧写也有区别，具体的参考本节内容。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Android4.4 的编译需要使用 Ubuntu12.04.2 版本（以下简称 Ubuntu12.04）。</span><br><span class="line">5.5.1 使用搭建好的编译环境</span><br><span class="line">用户如果使用搭建好的编译环境，直接加载运行 Ubuntu，经过简单配置之后，可以直接用于编译 Android4.4。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">5.5.1.2 环境变量和 javap 路径的修改</span><br><span class="line">根据不同的编译需要更新环境变量，这里以 arm-2009q3 编译器为例，简单介绍如何修改</span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;profile</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;ndk&#x2F;android-ndk-r8b&#x2F;</span><br><span class="line">export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2009q3&#x2F;bin</span><br><span class="line"></span><br><span class="line">update-alternatives --install &quot;&#x2F;usr&#x2F;bin&#x2F;javap&quot; &quot;javap&quot; &quot;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;jdk1.6.0_43&#x2F;bin&#x2F;javap&quot; 1</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install -y vim install ssh uboot-mkimage</span><br><span class="line">tar xvf arm-2009q3.tar.bz2 -C &#x2F;usr&#x2F;local&#x2F;arm&#x2F;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“\02_iTOP-6818 开发板编译系统所需要的工具包等\03_tools”文件夹下的压缩包“Android_JDK.tar.bz2”</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tar xvf Android_JDK.tar.bz;cd Android_JDK&#x2F;jdk6&#x2F;</span><br><span class="line">.&#x2F;install-sun-java6.sh</span><br><span class="line">cd ..&#x2F;;</span><br><span class="line">.&#x2F;install-devel-packages.sh</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line">.&#x2F;install-devel-packages.sh</span><br></pre></td></tr></table></figure><p>降低 GCC 版本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">使用 Ubuntu 编译 Android 的时候需要用到 Ubuntu 系统自带的 GCC4.4.7 编译器，但是安装的 Ubuntu12.04.2 版本，它的 GCC 版本过高，所以这里需将要 GCC 编译的版本降低到4.4.7。</span><br><span class="line"></span><br><span class="line">进入前面解压的文件夹“Android_JDK”中，会看到一个文本“update_gcc.txt”，打开文本“update_gcc.txt”，会看到里面有 8 条命令，这 8 条命令需要在 Ubuntu 命令行中依次执行</span><br><span class="line"></span><br><span class="line">cat update_gcc.txt</span><br><span class="line"></span><br><span class="line">gcc -v</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">“02_iTOP-6818 开发板编译系统所需要的工具包等\03_tools”下有个压缩包“linux_tools.tgz”，将其拷贝到到 Ubuntu 的“&#x2F;”目录下</span><br><span class="line"></span><br><span class="line">tar -vxf linux_tools.tgz -C &#x2F;</span><br><span class="line"></span><br><span class="line">编译 Android 还缺少一个 javap 命令，在 Ubuntu 命令行中，任意目录下，使用命令：</span><br><span class="line">update-alternatives --install &quot;&#x2F;usr&#x2F;bin&#x2F;javap&quot; &quot;javap&quot; &quot;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;jdk1.6.0_43&#x2F;bin&#x2F;javap&quot; 1</span><br></pre></td></tr></table></figure><p>编译</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">搭建好编译环境之后，就可以编译 Android5.1.1 的源码了。</span><br><span class="line">Android4.4 的源码</span><br><span class="line">“iTOP6818 开发板资料汇总（不含光盘内容）\07_iTOP-4418开发板 Android 应用开发环境软件以及源码\06_Android4.4 镜像和源码\02_源码</span><br><span class="line">_Android4.4 文件系统”</span><br><span class="line"></span><br><span class="line">如下图所示，源码采用分卷压缩，全部下载到 Windows 下之后，然后点击其中一个解压。</span><br><span class="line">解压得到的压缩包“android_for_4G_20180711.tar.gz”拷贝到 Ubuntu 下（注意是编译Android4.4 的环境，Android4.4 和 Android5.1 的编译环境不一样）。</span><br><span class="line"></span><br><span class="line">解压得到“android”文件夹：</span><br><span class="line">tar -vxf android_for_4G_20180711.tar.gz</span><br><span class="line"></span><br><span class="line">进入“android”目录，如下图所示。</span><br><span class="line"></span><br><span class="line">接着需要配置 uboot 和 kernel 的配置文件。</span><br><span class="line">如上图所示，“u-boot”目录下的是 uboot的源码，“kernel”目录下的是内核的源码。</span><br><span class="line"></span><br><span class="line">进入“u-boot”目录。</span><br><span class="line">cd u-boot</span><br><span class="line"></span><br><span class="line">如果 6818 核心板是 1G 的，则使用命令“cp nsih-1G16b-6818.txt nsih.txt”</span><br><span class="line">如果 6818 核心板是 2G 的，则使用命令“cp nsih-2G16b-6818.txt nsih.txt”</span><br><span class="line"></span><br><span class="line">cd ..&#x2F;kernel</span><br><span class="line"># 配置缺省文件</span><br><span class="line">cp -r config_for_iTOP6818_android .config</span><br><span class="line"></span><br><span class="line"># 将目标平台配置为arm：</span><br><span class="line">export ARCH&#x3D;arm</span><br><span class="line"></span><br><span class="line"># 另外，如果是 2G 核心板，则打开 kernel</span><br><span class="line">vim arch&#x2F;arm&#x2F;plat-s5p6818&#x2F;topeet&#x2F;include&#x2F;cfg_mem.h</span><br><span class="line"></span><br><span class="line">#if 0</span><br><span class="line"></span><br><span class="line"># 编译镜像</span><br><span class="line">cd ..&#x2F;android</span><br><span class="line">.&#x2F;build_android.sh_6818</span><br><span class="line"></span><br><span class="line"># 烧写</span><br><span class="line">ls ..&#x2F;result</span><br><span class="line">u-boot-iTOP-6818.bin boot.img cache.img recovery.img system.img userdata.img</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">“iTOP6818 开发板资料汇总（不含光盘内容）\07_iTOP-6818 开发板 Android 应用开发环境软件以及源码\06_Android4.4 镜像和源码\01_镜像_Android4.4 文件系统”</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 更新 uboot 镜像</span><br><span class="line"># 注意：如果用户是 2017 年 3 月以及之后购买的，则不需要更新 uboot，直接使用默认的uboot 就可以支持。</span><br><span class="line"></span><br><span class="line"># 首先进入 uboot 模式，烧写支持 Android4.4 镜像的 uboot。</span><br><span class="line"># 这里需要注意的是，支持Android4.4 的 uboot 和其它系统的 uboot 不一样，如果要使用其它系统，则需要重新烧写</span><br><span class="line">uboot 镜像和配置。</span><br><span class="line"></span><br><span class="line"># 在串口控制台使用命令“fastboot”，连接 OTG 线，打开 cmd.exe</span><br><span class="line">fastboot.exe flash uboot u-boot-iTOP-6818.bin</span><br><span class="line">fastboot reboot</span><br><span class="line"></span><br><span class="line"># 在串口控制台中设置参数</span><br><span class="line">setenv bootsystem android</span><br><span class="line">saveenv</span><br><span class="line">setenv fastboot</span><br><span class="line">setenv androidversion 4.4</span><br><span class="line">saveenv</span><br><span class="line"></span><br><span class="line">烧写Android5.1，需要先烧写 Android5.1 的 uboot 镜像，重启开发板之后使用命令</span><br><span class="line">setenv fastboot</span><br><span class="line">setenv androidversion 5.1</span><br><span class="line">saveenv</span><br><span class="line"></span><br><span class="line">setenv lcdtype 4.9</span><br><span class="line">saveenv</span><br><span class="line">reset</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 烧写镜像</span><br><span class="line">fastboot.exe flash boot boot.img</span><br><span class="line">fastboot.exe flash cache cache.img</span><br><span class="line">fastboot.exe flash system system.img</span><br><span class="line"></span><br><span class="line">fastboot.exe flash userdata userdata.img</span><br><span class="line">fastboot.exe flash recovery recovery.img</span><br><span class="line"></span><br><span class="line"># 重启开发板</span><br><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure></details>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;details&gt;
-&lt;summary&gt;参考&lt;/summary&gt;
-
-&lt;p&gt;&lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[嵌入式] 野火</title>
-    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588687408000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588687408000.html/</id>
-    <published>2020-05-05T14:03:28.000Z</published>
-    <updated>2020-05-05T14:03:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://gitee.com/Embedfire" target="_blank">Embedfire</a><br><a href="https://gitee.com/organizations/Embedfire/projects" target="_blank">Embedfire/projects</a></p><p><a href="https://gitee.com/wildfireteam" target="_blank">Embedfire-old</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://gitee.com/Embedfire&quot; target=&quot;_blank&quot;&gt;Embedfire&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://gitee.com/organizations/Embedfire/projects&quot; targe
-      
-    
-    </summary>
-    
-    
-    
-      <category term="嵌入式" scheme="http://brightereyer.xyz/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[docker] 扩容</title>
-    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588680062000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588680062000.html/</id>
-    <published>2020-05-05T12:01:02.000Z</published>
-    <updated>2020-05-05T12:01:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/mingbai/p/dockerclean.html" target="_blank">docker 清理容器的一些命令，彻底或选择清理</a><br><a href="https://www.runoob.com/w3cnote/docker-clear-command.html" target="_blank">runoob - Docker 清理命令</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/mingbai/p/dockerclean.html&quot; target=&quot;_blank&quot;&gt;docker 清理容器的一些命令，彻底或选择清理&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.runoob.
-      
-    
-    </summary>
-    
-    
-    
-      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[docker] 扩容</title>
-    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588680061000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588680061000.html/</id>
-    <published>2020-05-05T12:01:01.000Z</published>
-    <updated>2020-05-05T12:01:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>问题</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--storage-opt is supported only for overlay over xfs with &#39;pquota&#39; mount option.</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;var&#x2F;lib&#x2F;docker&#x2F;overlay2 占用很大，清理Docker占用的磁盘空间，迁移 &#x2F;var&#x2F;lib&#x2F;docker 目录</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/weixin_32820767/article/details/81196250" target="_blank">参考</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 查看Docker的磁盘使用情况:</span><br><span class="line">docker system df</span><br><span class="line"></span><br><span class="line"># 将没有容器使用Docker镜像都删掉:</span><br><span class="line">docker system prune -a</span><br></pre></td></tr></table></figure><details><summary>其它</summary><p><a href="https://blog.csdn.net/weixin_42697074/article/details/105688078" target="_blank">docker容器扩容</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--storage-opt  只支持覆盖在xfs与&#39;pquota&#39;挂载选项</span><br></pre></td></tr></table></figure><p>开启xfs的pquota特性</p><p>查看 docker 的驱动程序类型</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker info |grep &quot;Storage Driver&quot;</span><br><span class="line">Storage Driver: overlay2</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># docker 获取容器id</span><br><span class="line">docker ps -aqf &#39;name&#x3D;qemu&#39;</span><br><span class="line"></span><br><span class="line">docker inspect -f &#39;&#123;&#123; .GraphDriver.Data.DeviceName &#125;&#125;&#39; $(docker ps -aqf &#39;name&#x3D;qemu&#39;)</span><br></pre></td></tr></table></figure><p>查看 docker 的工作目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker info |grep &quot;Docker Root Dir&quot;</span><br><span class="line">Docker Root Dir: &#x2F;mnt&#x2F;sda1&#x2F;var&#x2F;lib&#x2F;docker</span><br></pre></td></tr></table></figure><p>查看 docker 的文件系统</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker-machine ssh default</span><br><span class="line">sudo df -h &#x2F;mnt&#x2F;sda1&#x2F;</span><br><span class="line">Filesystem                Size      Used Available Use% Mounted on</span><br><span class="line">&#x2F;dev&#x2F;sda1                17.8G     11.9G      5.0G  70% &#x2F;mnt&#x2F;sda1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo cat &#x2F;etc&#x2F;sysconfig&#x2F;docker-storage</span><br></pre></td></tr></table></figure><p>为XFS文件系统上的用户启用配额，在文件系统的 /etc/fstab条目中包括pquota选项</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo cat &#x2F;etc&#x2F;fstab | grep &#x2F;dev&#x2F;sda1</span><br><span class="line">&#x2F;dev&#x2F;sda1       &#x2F;mnt&#x2F;sda1       ext4     noauto,users,exec    0 0 # Added by TC</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo vi &#x2F;etc&#x2F;fstab</span><br><span class="line"># 追加 pquota 选项</span><br><span class="line">&#x2F;dev&#x2F;sda1       &#x2F;mnt&#x2F;sda1       xfs     noauto,users,exec,pquota    0 0 # Added by TC</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/weixin_42273374/article/details/82144484" target="_blank">windows下docker的重启</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">打开Oracle VM VirtualBox管理器启动docker</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 统计共有多少容器</span><br><span class="line">docker ps -a | awk &#39;&#123; print $1&#125;&#39; | wc -l</span><br><span class="line"></span><br><span class="line"># 删除倒数num个容器</span><br><span class="line">docker rm $(docker ps -a | awk &#39;&#123; print $1&#125;&#39; | tail -n -num)</span><br><span class="line"></span><br><span class="line"># 启动所有docker容器</span><br><span class="line">docker start $(docker ps -a | awk &#39;&#123; print $1&#125;&#39; | tail -n +2)</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fuser &#x2F;mnt&#x2F;sda1</span><br><span class="line"></span><br><span class="line"># 查看已经被挂载的目录和参数</span><br><span class="line">cat &#x2F;proc&#x2F;mounts |grep &#x2F;mnt&#x2F;sda1</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--storage-driver devicemapper --storage-opt dm.loopdatasize&#x3D;2000G --storage-opt dm.loopmetadatasize&#x3D;10G --storage-opt dm.fs&#x3D;ext4 --storage-opt dm.basesize&#x3D;20G</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker run --privileged --storage-opt dm.basesize&#x3D;30G --name qemu2 -itd -p 180:180 ubuntu</span><br><span class="line"></span><br><span class="line">docker run --privileged --storage-opt dm.loopdatasize&#x3D;30G --storage-opt dm.loopmetadatasize&#x3D;10G --storage-opt dm.fs&#x3D;xfs --storage-opt dm.basesize&#x3D;20G --name qemu2 -itd -p 180:180 ubuntu</span><br><span class="line"></span><br><span class="line">docker run --privileged --storage-opt dm.basesize&#x3D;30G --name qemu -itd -p 80:80 ubuntu</span><br><span class="line">docker run --privileged --storage-opt size&#x3D;30G --name qemu -itd -p 80:80 ubuntu</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker update --help</span><br><span class="line"></span><br><span class="line">docker update qemu --storage-opt size&#x3D;30G</span><br><span class="line"></span><br><span class="line">docker update --restart&#x3D;always qemu</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/supertor/article/details/83143816" target="_blank">windows下修改docker私库的地址</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;var&#x2F;lib&#x2F;boot2docker&#x2F;profile</span><br><span class="line"></span><br><span class="line">docker-machine ssh default</span><br><span class="line">sudo sed -i &quot;s|EXTRA_ARGS&#x3D;&#39;|EXTRA_ARGS&#x3D;&#39;--insecure-registry&#x3D;ip:port |g&quot; &#x2F;var&#x2F;lib&#x2F;boot2docker&#x2F;profile</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在linux系统上用到dmsetup命令</span><br></pre></td></tr></table></figure><p><a href="https://www.cnblogs.com/Honeycomb/p/10022200.html" target="_blank">docker 存储扩容和存放路径修改</a></p><p><a href="https://blog.csdn.net/Max_Cong/article/details/94594827" target="_blank">限制docker container 最大磁盘</a></p><p><a href="https://www.jianshu.com/p/ccae16d60107" target="_blank">docker容器磁盘扩容</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 新版本dm字段有了改变</span><br><span class="line">DOCKER_STORAGE_OPTIONS&#x3D;&quot;--storage-driver devicemapper --storage-opt dm.loopdatasize&#x3D;2000G --storage-opt dm.loopmetadatasize&#x3D;10G --storage-opt dm.fs&#x3D;ext4 --storage-opt dm.basesize&#x3D;20G&quot;</span><br></pre></td></tr></table></figure></details>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;问题&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre
-      
-    
-    </summary>
-    
-    
-    
-      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[系统] 爱好者</title>
-    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588678274000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588678274000.html/</id>
-    <published>2020-05-05T11:31:14.000Z</published>
-    <updated>2020-05-05T11:31:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://msdn.itellyou.cn/" target="_blank">正版镜像</a><br><a href="https://www.sysfans.com/" target="_blank">系统爱好者</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://msdn.itellyou.cn/&quot; target=&quot;_blank&quot;&gt;正版镜像&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.sysfans.com/&quot; target=&quot;_blank&quot;&gt;系统爱好者&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="系统" scheme="http://brightereyer.xyz/tags/%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[全栈] 扫码登录</title>
-    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588672122000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588672122000.html/</id>
-    <published>2020-05-05T09:48:42.000Z</published>
-    <updated>2020-05-05T09:48:42.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://github.com/HeyJC/QRCodeLogin" target="_blank">QRCodeLogin</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">基于SpringBoot+Vue+Android的二维码扫码登录；服务器端、网页前端和安卓端源码</span><br></pre></td></tr></table></figure><p>聊天IM springboot+android<br><a href="https://github.com/yetel/EasyChatServer" target="_blank">EasyChatServer</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EasyChatServer是一个简单的聊天IM软件后端程序，采用SpringBoot + Netty框架。</span><br><span class="line">提供了单聊 群聊 发送消息 发送图片等简单功能</span><br></pre></td></tr></table></figure><p><a href="https://github.com/yetel/EasyChatAndroidClient" target="_blank">EasyChatAndroidClient</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EasyChat是一个开源的社交类的App。</span><br><span class="line">主要包含消息、好友、群组等相关的IM核心功能。</span><br><span class="line">部分界面参照了QQ、微信等相关社交APP。</span><br><span class="line">EasyChat APP整体采用MVVM模式，基于JetPack(Lifecycle，LiveData，ViewModel，Room)构建</span><br></pre></td></tr></table></figure><p>web+vue+springboot<br><a href="https://github.com/xiaojinlai/vue-login-java" target="_blank">vue-login-java</a><br><a href="https://github.com/xiaojinlai/vue-spring-login-summed" target="_blank">vue-spring-login-summed</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.js 高仿饿了么外卖 + 微信授权登录</span><br></pre></td></tr></table></figure><p><a href="https://github.com/sqmax/springboot-project" target="_blank">springboot-project</a><br><a href="https://github.com/sqmax/springboot-project/blob/master/sqmax.sql" target="_blank">sql文件</a><br><a href="https://github.com/sqmax/vuejs-project" target="_blank">vuejs-project</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://github.com/HeyJC/QRCodeLogin&quot; target=&quot;_blank&quot;&gt;QRCodeLogin&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="全栈" scheme="http://brightereyer.xyz/tags/%E5%85%A8%E6%A0%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[vue] 滑动验证码</title>
-    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664417000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664417000.html/</id>
-    <published>2020-05-05T07:40:17.000Z</published>
-    <updated>2020-05-05T07:40:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/monoplasty/article/details/85016089" target="_blank" rel="noopener">Vue插件之滑动验证码</a><br><a href="https://gitee.com/monoplasty/vue-monoplasty-slide-verify" target="_blank">vue-monoplasty-slide-verify</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/monoplasty/article/details/85016089&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Vue插件之滑动验证码&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://gi
-      
-    
-    </summary>
-    
-    
-    
-      <category term="vue" scheme="http://brightereyer.xyz/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[android] 小程序点餐</title>
-    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664415000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664415000.html/</id>
-    <published>2020-05-05T07:40:15.000Z</published>
-    <updated>2020-05-05T07:40:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://github.com/qiushi123/sell" target="_blank">小程序sell</a><br><a href="https://github.com/qiushi123/weixin_sell" target="_blank">weixin_sell</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://github.com/qiushi123/sell&quot; target=&quot;_blank&quot;&gt;小程序sell&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/qiushi123/weixin_sell&quot; target=&quot;_bl
-      
-    
-    </summary>
-    
-    
-    
-      <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[springboot] Snowy小程序短视频</title>
-    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664414000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664414000.html/</id>
-    <published>2020-05-05T07:40:14.000Z</published>
-    <updated>2020-05-05T07:40:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Snowy短视频——基于uni-app 与 Springboot开发（后端部分）<br><a href="https://github.com/LIsemd/Snowy-video-server" target="_blank">Snowy-video-server</a></p><p>Snowy短视频——基于uni-app 与 Springboot开发（前端部分）<br><a href="https://github.com/LIsemd/Snowy-video-web" target="_blank">Snowy-video-web</a></p><p>秀视频–小程序社交软件<br><a href="https://github.com/RAOE/show-videos" target="_blank">show-videos</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Snowy短视频——基于uni-app 与 Springboot开发（后端部分）&lt;br&gt;&lt;a href=&quot;https://github.com/LIsemd/Snowy-video-server&quot; target=&quot;_blank&quot;&gt;Snowy-video-server&lt;/a&gt;
+        &lt;p&gt;hibernate.cfg.xml&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;
       
     
     </summary>
@@ -293,113 +68,38 @@
   </entry>
   
   <entry>
-    <title>[linux] sed换行转换</title>
-    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664413000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664413000.html/</id>
-    <published>2020-05-05T07:40:13.000Z</published>
-    <updated>2020-05-05T07:40:13.000Z</updated>
+    <title>[springboot] log4j</title>
+    <link href="http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556716000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556716000.html/</id>
+    <published>2020-05-15T15:31:56.000Z</published>
+    <updated>2020-05-15T15:31:56.000Z</updated>
     
-    <content type="html"><![CDATA[<p>LF 转 CRLF</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># sed -i &#39;s&#x2F;$&#x2F;\n\n&#x2F;g&#39; file</span><br><span class="line">sed -i &#39;s&#x2F;$&#x2F;\r&#x2F;g&#39; file</span><br></pre></td></tr></table></figure><p>CRLF转LF</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 将每行中\r变成空</span><br><span class="line">sed -i &#39;s&#x2F;\r&#x2F;&#x2F;g&#39; file</span><br></pre></td></tr></table></figure><p>递归替换</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -print0 | xargs -0 sed -i &#39;s&#x2F;\r&#x2F;&#x2F;g&#39;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/mengxinrenyu/p/7636400.html" target="_blank">Log4j rootLogger根配置以及4种日志级别</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Log4j 根配置语法</span><br><span class="line">log4j.rootLogger &#x3D; [ level ] , appenderName, appenderName, …</span><br></pre></td></tr></table></figure><p>log4j.properties</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">### 设置###</span><br><span class="line">log4j.rootLogger&#x3D;debug,stdout,D,E</span><br><span class="line">### 输出信息到控制抬 ###</span><br><span class="line">log4j.appender.stdout&#x3D;org.apache.log4j.ConsoleAppender</span><br><span class="line">log4j.appender.stdout.Target&#x3D;System.out</span><br><span class="line">log4j.appender.stdout.layout&#x3D;org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.stdout.layout.ConversionPattern&#x3D;[%-5p] %d&#123;yyyy-MM-dd HH:mm:ss,SSS&#125; method:%l%n%m%n</span><br><span class="line">### 输出DEBUG 级别以上的日志到 logs&#x2F;debug.log ###</span><br><span class="line">log4j.appender.D&#x3D;org.apache.log4j.DailyRollingFileAppender</span><br><span class="line">log4j.appender.D.File&#x3D;logs&#x2F;debug.log</span><br><span class="line">log4j.appender.D.Append&#x3D;true</span><br><span class="line">log4j.appender.D.Threshold&#x3D;DEBUG</span><br><span class="line">log4j.appender.D.layout&#x3D;org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.D.layout.ConversionPattern&#x3D;%-d&#123;yyyy-MM-dd HH:mm:ss&#125;  [ %t:%r ] - [ %p ]  %m%n</span><br><span class="line">### 输出ERROR 级别以上的日志到 logs&#x2F;error.log ###</span><br><span class="line">log4j.appender.E&#x3D;org.apache.log4j.DailyRollingFileAppender</span><br><span class="line">log4j.appender.E.File&#x3D;logs&#x2F;error.log</span><br><span class="line">log4j.appender.E.Append&#x3D;true</span><br><span class="line">log4j.appender.E.Threshold&#x3D;ERROR</span><br><span class="line">log4j.appender.E.layout&#x3D;org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.E.layout.ConversionPattern&#x3D;%-d&#123;yyyy-MM-dd HH:mm:ss&#125;  [ %t:%r ] - [ %p ]  %m%n</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;LF 转 CRLF&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/spa
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/mengxinrenyu/p/7636400.html&quot; target=&quot;_blank&quot;&gt;Log4j rootLogger根配置以及4种日志级别&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highligh
       
     
     </summary>
     
     
     
-      <category term="linux" scheme="http://brightereyer.xyz/tags/linux/"/>
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
     
   </entry>
   
   <entry>
-    <title>[android] 自动更新</title>
-    <link href="http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664412000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/05/articles/2020/05/05/1588664412000.html/</id>
-    <published>2020-05-05T07:40:12.000Z</published>
-    <updated>2020-05-05T07:40:12.000Z</updated>
+    <title>[nginx] 配置静态网页</title>
+    <link href="http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556715000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556715000.html/</id>
+    <published>2020-05-15T15:31:55.000Z</published>
+    <updated>2020-05-15T15:31:55.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://github.com/qiushi123/AutomaticUpdate" target="_blank">AutomaticUpdate</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://github.com/qiushi123/AutomaticUpdate&quot; target=&quot;_blank&quot;&gt;AutomaticUpdate&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[工具] tcp+udp+socket</title>
-    <link href="http://brightereyer.xyz/2020/05/03/articles/2020/05/03/1588499913000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/03/articles/2020/05/03/1588499913000.html/</id>
-    <published>2020-05-03T09:58:33.000Z</published>
-    <updated>2020-05-03T09:58:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/weixin_42248496/article/details/87866459" target="_blank">TCP/UDP调试工具</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">百度云盘链接:</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1009jBids3vnt0-DtJDP-hQ</span><br><span class="line">提取码:</span><br><span class="line">yj74</span><br></pre></td></tr></table></figure><p>Socket调试工具推荐</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;3e16e5dab8a6</span><br><span class="line">https:&#x2F;&#x2F;sokit.soft32.com&#x2F;free-download&#x2F;?nc&amp;dm&#x3D;3</span><br><span class="line">http:&#x2F;&#x2F;sokit.googlecode.com&#x2F;files&#x2F;sokit-1.3-win32-enu.zip</span><br><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1tw5QURvH36GHX0NGyVncmQ</span><br><span class="line">提取密码:</span><br><span class="line">c9e4</span><br></pre></td></tr></table></figure><p><a href="http://www.greenxf.com/soft/182615.html" target="_blank">socket调试助手</a></p><p><a href="http://mydown.yesky.com/pcsoft/413547443.html" target="_blank">SocketTool(tcpudp调试工具) 4.0</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/weixin_42248496/article/details/87866459&quot; target=&quot;_blank&quot;&gt;TCP/UDP调试工具&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight pla
-      
-    
-    </summary>
-    
-    
-    
-      <category term="工具" scheme="http://brightereyer.xyz/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[docker] ftp服务器</title>
-    <link href="http://brightereyer.xyz/2020/05/02/articles/2020/05/02/1588428869000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/02/articles/2020/05/02/1588428869000.html/</id>
-    <published>2020-05-02T14:14:29.000Z</published>
-    <updated>2020-05-02T14:14:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.hangge.com/blog/cache/detail_2449.html" target="_blank">Docker - 在容器中搭建运行FTP服务器（vsftpd）</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull fauria&#x2F;vsftpd</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f vsftpd</span><br><span class="line"></span><br><span class="line">docker run -d \</span><br><span class="line">-p 20:20 -p 21:21 -p 21100-21110:21100-21110 \</span><br><span class="line">-e FTP_USER&#x3D;test -e FTP_PASS&#x3D;test \</span><br><span class="line">-e PASV_ADDRESS&#x3D;192.168.99.100 \</span><br><span class="line">-e PASV_MIN_PORT&#x3D;21100 -e PASV_MAX_PORT&#x3D;21110 \</span><br><span class="line">--name vsftpd --restart&#x3D;always fauria&#x2F;vsftpd</span><br></pre></td></tr></table></figure><p>新建用户文件夹<br>（1）首先执行如下命令进入到容器里面：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -i -t vsftpd bash</span><br></pre></td></tr></table></figure><p>（2）由于前面我们启动的时候设置用户名为 test，已经自动创建对应的用户文件夹（所以下面这个文件夹无需我们再次手动创建）：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;home&#x2F;vsftpd&#x2F;test</span><br></pre></td></tr></table></figure><p>（3）为方便演示，在 test 用户文件夹下新建一个 1.txt 文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch &#x2F;home&#x2F;vsftpd&#x2F;test&#x2F;1.txt</span><br></pre></td></tr></table></figure><p>浏览器访问：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ftp:&#x2F;&#x2F;test:test@192.168.99.100:21</span><br></pre></td></tr></table></figure><p>新增一个账号：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">用户</span><br><span class="line">hangge</span><br><span class="line">密码</span><br><span class="line">123456</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker exec -i -t vsftpd bash</span><br><span class="line">mkdir &#x2F;home&#x2F;vsftpd&#x2F;hangge</span><br><span class="line"></span><br><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.txt &lt;&lt;EOF</span><br><span class="line">hangge</span><br><span class="line">123456</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># 把登录的验证信息写入数据库</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;db_load -T -t hash -f &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.txt &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.db</span><br><span class="line"></span><br><span class="line">docker restart vsftpd</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.hangge.com/blog/cache/detail_2449.html&quot; target=&quot;_blank&quot;&gt;Docker - 在容器中搭建运行FTP服务器（vsftpd）&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highl
-      
-    
-    </summary>
-    
-    
-    
-      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[docker] cgroup问题</title>
-    <link href="http://brightereyer.xyz/2020/05/02/articles/2020/05/02/1588428868000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/02/articles/2020/05/02/1588428868000.html/</id>
-    <published>2020-05-02T14:14:28.000Z</published>
-    <updated>2020-05-02T14:14:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker-machine ssh default</span><br><span class="line">sudo mkdir &#x2F;sys&#x2F;fs&#x2F;cgroup&#x2F;systemd</span><br><span class="line">sudo mount -t cgroup -o none,name&#x3D;systemd cgroup &#x2F;sys&#x2F;fs&#x2F;cgroup&#x2F;systemd</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run -ti -d --name nginx -p 10080:80 ubuntu</span><br><span class="line">docker cp * nginx:&#x2F;var&#x2F;www&#x2F;html&#x2F;</span><br><span class="line"></span><br><span class="line">docker attach nginx</span><br><span class="line"></span><br><span class="line">sed -i &quot;s&#x2F;cn.archive.ubuntu.com&#x2F;mirrors.ustc.edu.cn&#x2F;g&quot; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">sed -i &quot;s&#x2F;security.ubuntu.com&#x2F;mirrors.ustc.edu.cn&#x2F;g&quot; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">apt-get update -y</span><br><span class="line">apt-get install -y nginx net-tools vim</span><br></pre></td></tr></table></figure><p>/etc/nginx/nginx.conf</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">worker_processes  1;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application&#x2F;octet-stream;</span><br><span class="line">    sendfile        on;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    gzip on;</span><br><span class="line">    gzip_types text&#x2F;plain application&#x2F;x-javascript text&#x2F;css application&#x2F;xml text&#x2F;javascript application&#x2F;javascript image&#x2F;jpeg image&#x2F;gif image&#x2F;png;</span><br><span class="line">    gzip_vary on;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  192.168.99.100;</span><br><span class="line"></span><br><span class="line">        location &#x2F; &#123;</span><br><span class="line">            root &#x2F;var&#x2F;www&#x2F;html;</span><br><span class="line">            index index.html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nginx -t</span><br><span class="line">nginx</span><br><span class="line"></span><br><span class="line">#nginx -s reload</span><br><span class="line"></span><br><span class="line">service nginx status</span><br><span class="line">netstat -anp|grep nginx</span><br></pre></td></tr></table></figure><p>访问</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;192.168.99.100:10080</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -412,98 +112,149 @@
     
     
     
+      <category term="nginx" scheme="http://brightereyer.xyz/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[layui] 时间范围选择</title>
+    <link href="http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556714000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556714000.html/</id>
+    <published>2020-05-15T15:31:54.000Z</published>
+    <updated>2020-05-15T15:31:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_29072049/article/details/80165811" target="_blank">layui时间控件选择时间范围</a></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"layui-form-item"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"layui-form-label"</span>&gt;</span>时间范围<span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">"red"</span>&gt;</span>*<span class="tag">&lt;/<span class="name">font</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"layui-inline"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"layui-input-inline"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"start_time"</span> <span class="attr">class</span>=<span class="string">"layui-input"</span> <span class="attr">id</span>=<span class="string">"start_time"</span> <span class="attr">placeholder</span>=<span class="string">"开始时间(修改时间)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"layui-inline"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"layui-input-inline"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"end_time"</span> <span class="attr">class</span>=<span class="string">"layui-input"</span> <span class="attr">id</span>=<span class="string">"end_time"</span> <span class="attr">placeholder</span>=<span class="string">"结束时间(修改时间)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">layui.use([<span class="string">'laydate'</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $ = layui.$;</span><br><span class="line">    <span class="keyword">var</span> laydate = layui.laydate;</span><br><span class="line">    <span class="keyword">var</span> nowTime = <span class="keyword">new</span> <span class="built_in">Date</span>().valueOf();</span><br><span class="line">    <span class="keyword">var</span> endMax = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> start = laydate.render(&#123;</span><br><span class="line">        elem: <span class="string">'#start_time'</span>,</span><br><span class="line">        type: <span class="string">'datetime'</span>,</span><br><span class="line">        max: nowTime,</span><br><span class="line">        btns: [<span class="string">'clear'</span>, <span class="string">'confirm'</span>],</span><br><span class="line">        done: <span class="function"><span class="keyword">function</span> (<span class="params">value, date</span>) </span>&#123;</span><br><span class="line">            endMax = end.config.max;</span><br><span class="line">            end.config.min = date;</span><br><span class="line">            end.config.min.month = date.month - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">var</span> end = laydate.render(&#123;</span><br><span class="line">        elem: <span class="string">'#end_time'</span>,</span><br><span class="line">        type: <span class="string">'datetime'</span>,</span><br><span class="line">        max: nowTime,</span><br><span class="line">        done: <span class="function"><span class="keyword">function</span> (<span class="params">value, date</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> ($.trim(value) == <span class="string">''</span>) &#123;</span><br><span class="line">                <span class="keyword">var</span> curDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">                date = &#123;<span class="string">'date'</span>: curDate.getDate(), <span class="string">'month'</span>: curDate.getMonth() + <span class="number">1</span>, <span class="string">'year'</span>: curDate.getFullYear()&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            start.config.max = date;</span><br><span class="line">            start.config.max.month = date.month - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> start = &#123;</span><br><span class="line">    istime: <span class="literal">true</span>,</span><br><span class="line">    format: <span class="string">'YYYY-MM-DD hh:mm:ss'</span>,</span><br><span class="line">    max: <span class="string">'2099-06-16 23:59:59'</span>,</span><br><span class="line">    istoday: <span class="literal">true</span>,</span><br><span class="line">    choose: <span class="function"><span class="keyword">function</span> (<span class="params">datas</span>) </span>&#123;</span><br><span class="line">        end.min = datas; <span class="comment">//开始日选好后，重置结束日的最小日期</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> end = &#123;</span><br><span class="line">    istime: <span class="literal">true</span>,</span><br><span class="line">    format: <span class="string">'YYYY-MM-DD hh:mm:ss'</span>,</span><br><span class="line">    max: <span class="string">'2099-06-16 23:59:59'</span>,</span><br><span class="line">    istoday: <span class="literal">true</span>,</span><br><span class="line">    choose: <span class="function"><span class="keyword">function</span> (<span class="params">datas</span>) </span>&#123;</span><br><span class="line">        start.max = datas; <span class="comment">//结束日选好后，重置开始日的最大日期</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'start_time'</span>).onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    start.elem = <span class="keyword">this</span>;</span><br><span class="line">    laydate(start);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'end_time'</span>).onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    end.elem = <span class="keyword">this</span>;</span><br><span class="line">    laydate(end);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_29072049/article/details/80165811&quot; target=&quot;_blank&quot;&gt;layui时间控件选择时间范围&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight xml
+      
+    
+    </summary>
+    
+    
+    
+      <category term="layui" scheme="http://brightereyer.xyz/tags/layui/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[layui] 二级联动</title>
+    <link href="http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556713000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556713000.html/</id>
+    <published>2020-05-15T15:31:53.000Z</published>
+    <updated>2020-05-15T15:31:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/yuanfeixia/p/9259890.html" target="_blank">layui 二级联动</a></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"layui-form"</span> <span class="attr">lay-filter</span>=<span class="string">"layuiFrom"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"layui-form-item"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"layui-form-label"</span>&gt;</span>学校类型<span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">"red"</span>&gt;</span>*<span class="tag">&lt;/<span class="name">font</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"layui-input-block"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"schoolType"</span> <span class="attr">name</span>=<span class="string">"schoolType"</span> <span class="attr">lay-filter</span>=<span class="string">"schoolType"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>--请选择类型--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span>小学<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"2"</span>&gt;</span>初中<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"3"</span>&gt;</span>高中<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"layui-form-item"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"layui-form-label"</span>&gt;</span>年级<span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">"red"</span>&gt;</span>*<span class="tag">&lt;/<span class="name">font</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"layui-input-block"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"grade"</span> <span class="attr">name</span>=<span class="string">"grade"</span> <span class="attr">lay-filter</span>=<span class="string">"grade"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">layui.use(<span class="string">'form'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> form = layui.form;</span><br><span class="line">    form.on(<span class="string">'select(schoolType)'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> schoolType = data.elem.value;</span><br><span class="line"></span><br><span class="line">        $(<span class="string">"select[id='grade']"</span>).empty();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> html = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">var</span> junior = [&#123;</span><br><span class="line">            id: <span class="string">'1'</span>,</span><br><span class="line">            title: <span class="string">'一年级'</span></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            id: <span class="string">'2'</span>,</span><br><span class="line">            title: <span class="string">'二年级'</span></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            id: <span class="string">'3'</span>,</span><br><span class="line">            title: <span class="string">'三年级'</span></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            id: <span class="string">'4'</span>,</span><br><span class="line">            title: <span class="string">'四年级'</span></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            id: <span class="string">'5'</span>,</span><br><span class="line">            title: <span class="string">'五年级'</span></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            id: <span class="string">'6'</span>,</span><br><span class="line">            title: <span class="string">'六年级'</span></span><br><span class="line">        &#125;];</span><br><span class="line">        <span class="keyword">var</span> juniorHigh = [&#123;</span><br><span class="line">            id: <span class="string">'1'</span>,</span><br><span class="line">            title: <span class="string">'初一'</span></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            id: <span class="string">'2'</span>,</span><br><span class="line">            title: <span class="string">'初二'</span></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            id: <span class="string">'3'</span>,</span><br><span class="line">            title: <span class="string">'初三'</span></span><br><span class="line">        &#125;];</span><br><span class="line">        <span class="keyword">var</span> seniorHigh = [&#123;</span><br><span class="line">            id: <span class="string">'1'</span>,</span><br><span class="line">            title: <span class="string">'高一'</span></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            id: <span class="string">'2'</span>,</span><br><span class="line">            title: <span class="string">'高二'</span></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            id: <span class="string">'3'</span>,</span><br><span class="line">            title: <span class="string">'高三'</span></span><br><span class="line">        &#125;];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (schoolType == <span class="number">1</span>) &#123;</span><br><span class="line">            $(junior).each(<span class="function"><span class="keyword">function</span> (<span class="params">v, k</span>) </span>&#123;</span><br><span class="line">                html += <span class="string">"&lt;option value='"</span> + k.id + <span class="string">"'&gt;"</span> + k.title + <span class="string">"&lt;/option&gt;"</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (schoolType == <span class="number">2</span>) &#123;</span><br><span class="line">            $(juniorHigh).each(<span class="function"><span class="keyword">function</span> (<span class="params">v, k</span>) </span>&#123;</span><br><span class="line">                html += <span class="string">"&lt;option value='"</span> + k.id + <span class="string">"'&gt;"</span> + k.title + <span class="string">"&lt;/option&gt;"</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (schoolType == <span class="number">3</span>) &#123;</span><br><span class="line">            $(seniorHigh).each(<span class="function"><span class="keyword">function</span> (<span class="params">v, k</span>) </span>&#123;</span><br><span class="line">                html += <span class="string">"&lt;option value='"</span> + k.id + <span class="string">"'&gt;"</span> + k.title + <span class="string">"&lt;/option&gt;"</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//把遍历的数据放到select表里面</span></span><br><span class="line">        $(<span class="string">"select[id='grade']"</span>).append(html);</span><br><span class="line">        <span class="comment">//重新渲染</span></span><br><span class="line">        form.render(<span class="string">'select'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/yuanfeixia/p/9259890.html&quot; target=&quot;_blank&quot;&gt;layui 二级联动&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="layui" scheme="http://brightereyer.xyz/tags/layui/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[docker] 在windows上的使用</title>
+    <link href="http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556712000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556712000.html/</id>
+    <published>2020-05-15T15:31:52.000Z</published>
+    <updated>2020-05-15T15:31:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>创建默认的虚拟主机:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker-machine rm default</span><br><span class="line">docker-machine create -d virtualbox default</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># windows下Docker虚拟主机 &#x2F;var&#x2F;lib&#x2F;boot2docker&#x2F;profile 相当于 linux下Docker虚拟主机的&#x2F;etc&#x2F;docker&#x2F;daemon.json</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/supertor/article/details/83143816" target="_blank">修改docker私库的地址</a></p><p>方法1：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># docker-machine ssh [Docker虚拟主机名称]</span><br><span class="line">docker-machine ssh default</span><br><span class="line"></span><br><span class="line"># 编辑 &#x2F;var&#x2F;lib&#x2F;boot2docker&#x2F;profile 文件中的 EXTRA_ARGS 信息</span><br><span class="line">sudo vi &#x2F;var&#x2F;lib&#x2F;boot2docker&#x2F;profile</span><br><span class="line"># 在 --label provider&#x3D;virtualbox 的下一行添加此代码：</span><br><span class="line"># --insecure-registry xxx.xxx.xxx.xxx:yyy</span><br><span class="line"></span><br><span class="line"># 退出重启</span><br><span class="line"># docker-machine restart [Docker虚拟主机名称]</span><br><span class="line">docker-machine restart default</span><br></pre></td></tr></table></figure><p>方法2：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker-machine ssh default</span><br><span class="line">sudo sed -i &quot;s|EXTRA_ARGS&#x3D;&#39;|EXTRA_ARGS&#x3D;&#39;--insecure-registry&#x3D;ip:port |g&quot; &#x2F;var&#x2F;lib&#x2F;boot2docker&#x2F;profile</span><br><span class="line">docker-machine restart default</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;创建默认的虚拟主机:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/sp
+      
+    
+    </summary>
+    
+    
+    
       <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
     
   </entry>
   
   <entry>
-    <title>[centos] ftp服务器</title>
-    <link href="http://brightereyer.xyz/2020/05/02/articles/2020/05/02/1588428867000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/02/articles/2020/05/02/1588428867000.html/</id>
-    <published>2020-05-02T14:14:27.000Z</published>
-    <updated>2020-05-02T14:14:27.000Z</updated>
+    <title>[docker] 给运行中的docker容器添加新的端口</title>
+    <link href="http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556711000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556711000.html/</id>
+    <published>2020-05-15T15:31:51.000Z</published>
+    <updated>2020-05-15T15:31:51.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/haiyabtx/p/10762745.html" target="_blank">CentOS7 FTP安装与配置</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f ftp</span><br><span class="line"></span><br><span class="line">docker run -d \</span><br><span class="line">--name ftp \</span><br><span class="line">-p 21:21 \</span><br><span class="line">-p 21100-21110:21100-21110 \</span><br><span class="line">--restart&#x3D;always \</span><br><span class="line">--privileged \</span><br><span class="line">--restart&#x3D;always \</span><br><span class="line">-i -t centos &#x2F;usr&#x2F;sbin&#x2F;init</span><br><span class="line"></span><br><span class="line">docker exec -it ftp &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure><p>解决办法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker-machine ssh default</span><br><span class="line">sudo mkdir &#x2F;sys&#x2F;fs&#x2F;cgroup&#x2F;systemd</span><br><span class="line">sudo mount -t cgroup -o none,name&#x3D;systemd cgroup &#x2F;sys&#x2F;fs&#x2F;cgroup&#x2F;systemd</span><br></pre></td></tr></table></figure><p><a href="https://developer.aliyun.com/mirror/centos" target="_blank">aliyun更新了centos8的说明：</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">curl -o &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;repo&#x2F;Centos-8.repo</span><br><span class="line"></span><br><span class="line">cd &#x2F;etc&#x2F;yum.repos.d</span><br><span class="line">#备份</span><br><span class="line">cp CentOS-Base.repo CentOS-Base.repo.bak</span><br><span class="line">cp CentOS-AppStream.repo CentOS-AppStream.repo.bak</span><br><span class="line">cp CentOS-Extras.repo CentOS-Extras.repo.bak</span><br><span class="line"></span><br><span class="line">sed -i &#39;s|mirrorlist&#x3D;|#mirrorlist&#x3D;|g&#39; CentOS-Base.repo CentOS-AppStream.repo CentOS-Extras.repo</span><br><span class="line">sed -i &#39;s|#baseurl&#x3D;|baseurl&#x3D;|g&#39; CentOS-Base.repo CentOS-AppStream.repo CentOS-Extras.repo</span><br><span class="line">sed -i &#39;s|http:&#x2F;&#x2F;mirror.centos.org|https:&#x2F;&#x2F;mirrors.aliyun.com|g&#39; CentOS-Base.repo CentOS-AppStream.repo CentOS-Extras.repo</span><br><span class="line"></span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure><p>安装基本命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install -y vsftpd vim net-tools</span><br><span class="line">yum list | grep initscripts</span><br><span class="line">yum install -y initscripts</span><br></pre></td></tr></table></figure><details><summary>修改配置文件/etc/vsftpd/vsftpd.conf</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#修改配置 12 行</span><br><span class="line">#anonymous_enable&#x3D;NO</span><br><span class="line">sed -i &quot;s&#x2F;#anonymous_enable&#x2F;anonymous_enable&#x2F;g&quot; &#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf</span><br><span class="line"></span><br><span class="line">#修改配置 33 行</span><br><span class="line">#anon_mkdir_write_enable&#x3D;YES</span><br><span class="line">sed -i &quot;s&#x2F;#anon_mkdir_write_enable&#x2F;anon_mkdir_write_enable&#x2F;g&quot; &#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf</span><br><span class="line"></span><br><span class="line">#修改配置48行</span><br><span class="line">#chown_uploads&#x3D;YES</span><br><span class="line">sed -i &quot;s&#x2F;#chown_uploads&#x2F;chown_uploads&#x2F;g&quot; &#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf</span><br><span class="line"></span><br><span class="line">#修改配置72行</span><br><span class="line">#async_abor_enable&#x3D;YES</span><br><span class="line">sed -i &quot;s&#x2F;#async_abor_enable&#x2F;async_abor_enable&#x2F;g&quot; &#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf</span><br><span class="line"></span><br><span class="line">#修改配置82行</span><br><span class="line">#ascii_upload_enable&#x3D;YES</span><br><span class="line">sed -i &quot;s&#x2F;#ascii_upload_enable&#x2F;ascii_upload_enable&#x2F;g&quot; &#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf</span><br><span class="line"></span><br><span class="line">#修改配置83行</span><br><span class="line">#ascii_download_enable&#x3D;YES</span><br><span class="line">sed -i &quot;s&#x2F;#ascii_download_enable&#x2F;ascii_download_enable&#x2F;g&quot; &#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf</span><br><span class="line"></span><br><span class="line">#修改配置86行</span><br><span class="line">#ftpd_banner&#x3D;Welcome to blah FTP service.</span><br><span class="line">sed -i &quot;s&#x2F;#ftpd_banner&#x2F;ftpd_banner&#x2F;g&quot; &#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf</span><br><span class="line"></span><br><span class="line">#修改配置100行</span><br><span class="line">#chroot_local_user&#x3D;YES</span><br><span class="line">sed -i &quot;s&#x2F;#chroot_local_user&#x2F;chroot_local_user&#x2F;g&quot; &#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf</span><br></pre></td></tr></table></figure></details><details><summary>添加下列内容到/etc/vsftpd/vsftpd.conf末尾</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf &lt;&lt;EOF</span><br><span class="line"></span><br><span class="line">use_localtime&#x3D;YES</span><br><span class="line">listen_port&#x3D;21</span><br><span class="line">idle_session_timeout&#x3D;300</span><br><span class="line">guest_enable&#x3D;YES</span><br><span class="line">guest_username&#x3D;vsftpd</span><br><span class="line">user_config_dir&#x3D;&#x2F;etc&#x2F;vsftpd&#x2F;vconf</span><br><span class="line">data_connection_timeout&#x3D;1</span><br><span class="line">virtual_use_local_privs&#x3D;YES</span><br><span class="line">pasv_min_port&#x3D;40000</span><br><span class="line">pasv_max_port&#x3D;40010</span><br><span class="line">accept_timeout&#x3D;5</span><br><span class="line">connect_timeout&#x3D;1</span><br><span class="line">allow_writeable_chroot&#x3D;YES</span><br><span class="line"></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></details><details><summary>创建编辑用户文件</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;vsftpd&#x2F;virtusers &lt;&lt;EOF</span><br><span class="line">leo</span><br><span class="line">test</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></details><details><summary>生成用户数据文件</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db_load -T -t hash -f &#x2F;etc&#x2F;vsftpd&#x2F;virtusers &#x2F;etc&#x2F;vsftpd&#x2F;virtusers.db</span><br><span class="line"></span><br><span class="line"># 设定PAM验证文件，并指定对虚拟用户数据库文件进行读取</span><br><span class="line">chmod 600 &#x2F;etc&#x2F;vsftpd&#x2F;virtusers.db</span><br></pre></td></tr></table></figure></details><details><summary>修改 /etc/pam.d/vsftpd 文件</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cp &#x2F;etc&#x2F;pam.d&#x2F;vsftpd &#x2F;etc&#x2F;pam.d&#x2F;vsftpd.bak</span><br><span class="line"></span><br><span class="line">sed -i &quot;s&#x2F;auth&#x2F;#auth&#x2F;g&quot; &#x2F;etc&#x2F;pam.d&#x2F;vsftpd</span><br><span class="line">sed -i &quot;s&#x2F;account&#x2F;#account&#x2F;g&quot; &#x2F;etc&#x2F;pam.d&#x2F;vsftpd</span><br><span class="line">sed -i &quot;s&#x2F;session&#x2F;#session&#x2F;g&quot; &#x2F;etc&#x2F;pam.d&#x2F;vsftpd</span><br><span class="line"></span><br><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;pam.d&#x2F;vsftpd &lt;&lt;EOF</span><br><span class="line">auth sufficient &#x2F;lib64&#x2F;security&#x2F;pam_userdb.so db&#x3D;&#x2F;etc&#x2F;vsftpd&#x2F;virtusers</span><br><span class="line">account sufficient &#x2F;lib64&#x2F;security&#x2F;pam_userdb.so db&#x3D;&#x2F;etc&#x2F;vsftpd&#x2F;virtusers</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></details><details><summary>新建系统用户vsftpd，用户目录为/home/vsftpd</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd vsftpd -d &#x2F;home&#x2F;vsftpd -s &#x2F;bin&#x2F;false</span><br><span class="line">chown -R vsftpd:vsftpd &#x2F;home&#x2F;vsftpd</span><br></pre></td></tr></table></figure></details><details><summary>建立虚拟用户个人配置文件</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;etc&#x2F;vsftpd&#x2F;vconf</span><br><span class="line">cd &#x2F;etc&#x2F;vsftpd&#x2F;vconf</span><br><span class="line"></span><br><span class="line">cat &gt;&gt; leo &lt;&lt;EOF</span><br><span class="line"></span><br><span class="line">local_root&#x3D;&#x2F;home&#x2F;vsftpd&#x2F;leo&#x2F;</span><br><span class="line"></span><br><span class="line">write_enable&#x3D;YES</span><br><span class="line">anon_world_readable_only&#x3D;NO</span><br><span class="line">anon_upload_enable&#x3D;YES</span><br><span class="line">anon_mkdir_write_enable&#x3D;YES</span><br><span class="line">anon_other_write_enable&#x3D;YES</span><br><span class="line"></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">#建立leo用户根目录</span><br><span class="line">mkdir -p &#x2F;home&#x2F;vsftpd&#x2F;leo&#x2F;</span><br></pre></td></tr></table></figure></details><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">service vsftpd restart</span><br><span class="line">service vsftpd status</span><br><span class="line"></span><br><span class="line">netstat -anp | grep vsftpd</span><br><span class="line">yum install -y iptables</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it ftp &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure><p>访问</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ftp:&#x2F;&#x2F;192.168.99.100&#x2F;</span><br><span class="line"></span><br><span class="line">用户名：</span><br><span class="line">leo</span><br><span class="line">密码：</span><br><span class="line">test</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>方法1：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 1、获得容器IP</span><br><span class="line">docker inspect ubuntu-nginx | grep IPAddress</span><br><span class="line"></span><br><span class="line"># 2、windows上进入虚拟 docker bash</span><br><span class="line">docker-machine ssh default</span><br><span class="line"></span><br><span class="line"># 3、iptable转发端口，将容器的 8080、3306 端口映射到docker主机的 18080、13306 端口</span><br><span class="line">sudo iptables -t nat -A DOCKER -p tcp --dport 18080 -j DNAT --to-destination 172.17.0.5:8080</span><br><span class="line">sudo iptables -t nat -A DOCKER -p tcp --dport 13306 -j DNAT --to-destination 172.17.0.5:3306</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo iptables -t nat -A !docker0 -p tcp --dport 13306 -j DNAT --to-destination 172.17.0.5:3306</span><br><span class="line"></span><br><span class="line"># 显示行号查看</span><br><span class="line">sudo iptables -t nat -vnL DOCKER --line-number</span><br><span class="line"># 删除规则3</span><br><span class="line">sudo iptables -t nat -D DOCKER 3</span><br></pre></td></tr></table></figure><p>docker 添加 docker0</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -t nat -L -n</span><br><span class="line">sudo brctl addbr docker0</span><br><span class="line">sudo ip addr add 192.168.42.1&#x2F;24 dev docker0</span><br><span class="line">sudo ip link set dev docker0 up </span><br><span class="line">ip addr show docker0 </span><br><span class="line">sudo systemctl restart docker </span><br><span class="line">sudo iptables -t nat -L -n</span><br></pre></td></tr></table></figure><p>方法2：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 1、提交一个运行中的容器为镜像</span><br><span class="line">docker commit ubuntu ubuntu&#x2F;nginx</span><br><span class="line"></span><br><span class="line"># 2、运行指定端口</span><br><span class="line">docker run -ti -d --name ubuntu-nginx -p 10080:80 ubuntu&#x2F;nginx</span><br></pre></td></tr></table></figure><p>容器重命名、进入bash</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 10080:80 ubuntu&#x2F;nginx &#x2F;bin&#x2F;sh</span><br><span class="line">docker rename youthful_williamson ubuntu-nginx</span><br><span class="line">docker exec -it ubuntu-nginx &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/haiyabtx/p/10762745.html&quot; target=&quot;_blank&quot;&gt;CentOS7 FTP安装与配置&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;tabl
+        &lt;p&gt;方法1：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br
       
     
     </summary>
     
     
     
-      <category term="centos" scheme="http://brightereyer.xyz/tags/centos/"/>
+      <category term="docker" scheme="http://brightereyer.xyz/tags/docker/"/>
     
   </entry>
   
   <entry>
-    <title>[stm32] 模拟器</title>
-    <link href="http://brightereyer.xyz/2020/04/27/articles/2020/04/27/1587985342000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/27/articles/2020/04/27/1587985342000.html/</id>
-    <published>2020-04-27T11:02:22.000Z</published>
-    <updated>2020-04-27T11:02:22.000Z</updated>
+    <title>[debian] 清华镜像源</title>
+    <link href="http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556710000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556710000.html/</id>
+    <published>2020-05-15T15:31:50.000Z</published>
+    <updated>2020-05-15T15:31:50.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/songdawww/article/details/46509957" target="_blank">1、Stm32+STemWin+LCD</a><br><a href="https://blog.csdn.net/tichimi3375/article/details/80721709" target="_blank">2、STemWin学习笔记——在PC上仿真STemWin</a><br><a href="https://blog.csdn.net/xingkonghxiaoyi/article/details/53979695" target="_blank">3、uC/GUI 和 STemWin的区别</a><br><a href="https://blog.csdn.net/so_cracy/article/details/80228595" target="_blank">4、STemwin 系列（一）STM32 HAL库 裸机移植STemwin</a></p>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker run --name nginx-test -p 8080:80 -d nginx</span><br><span class="line"></span><br><span class="line">cat &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list &lt;&lt;EOF</span><br><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;debian&#x2F; buster main contrib non-free</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;debian&#x2F; buster main contrib non-free</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;debian&#x2F; buster-updates main contrib non-free</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;debian&#x2F; buster-updates main contrib non-free</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;debian&#x2F; buster-backports main contrib non-free</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;debian&#x2F; buster-backports main contrib non-free</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;debian-security buster&#x2F;updates main contrib non-free</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;debian-security buster&#x2F;updates main contrib non-free</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/songdawww/article/details/46509957&quot; target=&quot;_blank&quot;&gt;1、Stm32+STemWin+LCD&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://blog.csdn.
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
       
     
     </summary>
     
     
     
-      <category term="stm32" scheme="http://brightereyer.xyz/tags/stm32/"/>
+      <category term="debian" scheme="http://brightereyer.xyz/tags/debian/"/>
     
   </entry>
   
   <entry>
-    <title>[arm] 移植nodejs</title>
-    <link href="http://brightereyer.xyz/2020/04/27/articles/2020/04/27/1587985341000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/27/articles/2020/04/27/1587985341000.html/</id>
-    <published>2020-04-27T11:02:21.000Z</published>
-    <updated>2020-04-27T11:02:21.000Z</updated>
+    <title>[android] 根据手机号获取区号</title>
+    <link href="http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556709000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/15/articles/2020/05/15/1589556709000.html/</id>
+    <published>2020-05-15T15:31:49.000Z</published>
+    <updated>2020-05-15T15:31:49.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://www.veryarm.com/115715.html" target="_blank">将node.js移植到arm开发板</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name arm-nodejs -i -t ubuntu &#x2F;bin&#x2F;bash</span><br><span class="line">docker attach arm-nodejs</span><br><span class="line"></span><br><span class="line">sed -i &quot;s&#x2F;archive.ubuntu.com&#x2F;mirrors.ustc.edu.cn&#x2F;g&quot; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">sed -i &quot;s&#x2F;cn.archive.ubuntu.com&#x2F;mirrors.ustc.edu.cn&#x2F;g&quot; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">sed -i &quot;s&#x2F;security.ubuntu.com&#x2F;mirrors.ustc.edu.cn&#x2F;g&quot; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br></pre></td></tr></table></figure><details><summary>安装arm-linux-gnueabihf</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y lib32z1 lib32ncurses5apt</span><br><span class="line">apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf</span><br></pre></td></tr></table></figure><p>或源码安装</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y wget tar xz-utils bzip2</span><br><span class="line"></span><br><span class="line">wget -c https:&#x2F;&#x2F;releases.linaro.org&#x2F;components&#x2F;toolchain&#x2F;binaries&#x2F;latest-7&#x2F;arm-linux-gnueabihf&#x2F;gcc-linaro-7.5.0-2019.12-i686_arm-linux-gnueabihf.tar.xz</span><br><span class="line"></span><br><span class="line">tar -xvf gcc-linaro-7.5.0-2019.12-i686_arm-linux-gnueabihf.tar.xz -C &#x2F;usr&#x2F;local&#x2F;</span><br><span class="line"></span><br><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;profile &lt;&lt;EOF</span><br><span class="line">export PATH&#x3D;\$PATH:&#x2F;usr&#x2F;local&#x2F;gcc-linaro-7.5.0-2019.12-i686_arm-linux-gnueabihf&#x2F;bin</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></details><details><summary>apt命令:</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"># 搜索包</span><br><span class="line">apt-cache search package</span><br><span class="line"></span><br><span class="line"># 获取包的相关信息，如说明、大小、版本等</span><br><span class="line">apt-cache show package</span><br><span class="line"></span><br><span class="line"># 安装包</span><br><span class="line">sudo apt-get install package</span><br><span class="line"></span><br><span class="line"># 重新安装包</span><br><span class="line">sudo apt-get install package - - reinstall</span><br><span class="line"></span><br><span class="line"># 强制安装</span><br><span class="line">sudo apt-get -f install</span><br><span class="line"></span><br><span class="line"># 删除包</span><br><span class="line">sudo apt-get remove package</span><br><span class="line"></span><br><span class="line"># 删除包，包括删除配置文件等</span><br><span class="line">sudo apt-get remove package - - purge</span><br><span class="line"></span><br><span class="line"># 自动删除不需要的包</span><br><span class="line">sudo apt-get autoremove</span><br><span class="line"></span><br><span class="line"># 更新源</span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"># 更新已安装的包</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line"></span><br><span class="line"># 升级系统</span><br><span class="line">sudo apt-get dist-upgrade</span><br><span class="line"></span><br><span class="line"># 使用 dselect 升级</span><br><span class="line">sudo apt-get dselect-upgrade</span><br><span class="line"></span><br><span class="line"># 了解使用依赖</span><br><span class="line">apt-cache depends package</span><br><span class="line"></span><br><span class="line"># 了解某个具体的依赖</span><br><span class="line">apt-cache rdepends package</span><br><span class="line"></span><br><span class="line"># 安装相关的编译环境</span><br><span class="line">sudo apt-get build-dep package</span><br><span class="line"></span><br><span class="line"># 下载该包的源代码</span><br><span class="line">apt-get source package</span><br><span class="line"></span><br><span class="line"># 清理下载文件的存档</span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean</span><br><span class="line"></span><br><span class="line"># 检查是否有损坏的依赖</span><br><span class="line">sudo apt-get check</span><br></pre></td></tr></table></figure></details><details><summary>先配置交叉工具链：</summary><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-cache search update-alternatives</span><br><span class="line">apt-get remove -y python</span><br><span class="line">apt-get install -y python3 make libtool lzop vim locate</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y update-alternatives</span><br><span class="line">update-alternatives --list python</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">wget -c https:&#x2F;&#x2F;nodejs.org&#x2F;dist&#x2F;v12.16.3&#x2F;node-v12.16.3.tar.gz</span><br><span class="line">tar xvf node-v12.16.3.tar.gz;cd node-v12.16.3</span><br><span class="line"></span><br><span class="line">.&#x2F;configure --help</span><br><span class="line"></span><br><span class="line">export CC&#x3D;arm-linux-gnueabihf-gcc</span><br><span class="line">export CXX&#x3D;arm-linux-gnueabihf-g++</span><br><span class="line">export LD&#x3D;arm-linux-gnueabihf-ld</span><br><span class="line">export RANLIB&#x3D;arm-linux-gnueabihf-ranlib</span><br><span class="line">export AR&#x3D;arm-linux-gnueabihf-ar</span><br><span class="line">export CFLAGS&#x3D;-static</span><br><span class="line">export CXXFLAGS&#x3D;-static</span><br><span class="line">export LDFLAGS&#x3D;-static</span><br><span class="line"></span><br><span class="line">.&#x2F;configure \</span><br><span class="line">--prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nodejs \</span><br><span class="line">--dest-cpu&#x3D;arm --dest-os&#x3D;linux \</span><br><span class="line">--cross-compiling \</span><br><span class="line">--fully-static \</span><br><span class="line">--with-arm-float-abi&#x3D;hard \</span><br><span class="line">--without-snapshot</span><br></pre></td></tr></table></figure></details><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">updatedb</span><br><span class="line">locate deps&#x2F;v8&#x2F;tools&#x2F;run.py</span><br><span class="line"></span><br><span class="line">vim deps&#x2F;v8&#x2F;tools&#x2F;run.py</span><br><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python3</span><br></pre></td></tr></table></figure><p>配置安装</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j 8;make install</span><br></pre></td></tr></table></figure><details><summary>test.js</summary><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//这是需要提交的数据</span></span><br><span class="line"><span class="keyword">var</span> data = &#123;</span><br><span class="line">    a: <span class="number">123</span>,</span><br><span class="line">    time: <span class="keyword">new</span> <span class="built_in">Date</span>().getTime()</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> content = querystring.stringify(data);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">    hostname: <span class="string">'192.168.51.28'</span>,</span><br><span class="line">    port: <span class="number">3000</span>,  </span><br><span class="line">    path: <span class="string">'/pay/pay_callback?'</span> + content,</span><br><span class="line">    method: <span class="string">'GET'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> req = http.request(options, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'STATUS: '</span> + res.statusCode);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'HEADERS: '</span> + <span class="built_in">JSON</span>.stringify(res.headers));</span><br><span class="line">    res.setEncoding(<span class="string">'utf8'</span>);</span><br><span class="line">    res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'BODY: '</span> + chunk);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">req.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'problem with request: '</span> + e.message);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">req.end();</span><br></pre></td></tr></table></figure></details><p>放到开发板上试下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line"></span><br><span class="line">node test.js</span><br><span class="line"></span><br><span class="line">node</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/jizha/p/java_regex_mobile_phone.html" target="_blank">JAVA号码工具类：实现手机固话号码判断与区号截取</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;https://www.veryarm.com/115715.html&quot; target=&quot;_blank&quot;&gt;将node.js移植到arm开发板&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
-      
-    
-    </summary>
-    
-    
-    
-      <category term="arm" scheme="http://brightereyer.xyz/tags/arm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[android] 微信授权登录</title>
-    <link href="http://brightereyer.xyz/2020/04/27/articles/2020/04/27/1587985340000.html/"/>
-    <id>http://brightereyer.xyz/2020/04/27/articles/2020/04/27/1587985340000.html/</id>
-    <published>2020-04-27T11:02:20.000Z</published>
-    <updated>2020-04-27T11:02:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/3d19b6622ff2" target="_blank">Android微信授权登录分享—封装类</a><br><a href="https://github.com/flora-gjf/WeChatHelper" target="_blank">微信授权分享工具类 WeChatHelper</a><br><a href="https://blog.csdn.net/qq_34190023/article/details/82017427" target="_blank">微信开放平台开发第三方授权登陆（三）：Android客户端</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/3d19b6622ff2&quot; target=&quot;_blank&quot;&gt;Android微信授权登录分享—封装类&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/flora-gjf/WeChatH
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/jizha/p/java_regex_mobile_phone.html&quot; target=&quot;_blank&quot;&gt;JAVA号码工具类：实现手机固话号码判断与区号截取&lt;/a&gt;&lt;/p&gt;
+
       
     
     </summary>
@@ -511,6 +262,253 @@
     
     
       <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] MockMvc</title>
+    <link href="http://brightereyer.xyz/2020/05/10/articles/2020/05/10/1589114276000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/10/articles/2020/05/10/1589114276000.html/</id>
+    <published>2020-05-10T12:37:56.000Z</published>
+    <updated>2020-05-10T12:37:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/u010002184/article/details/81174153" target="_blank">MockMvc</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/u010002184/article/details/81174153&quot; target=&quot;_blank&quot;&gt;MockMvc&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[全栈] starrtc-IM即时通讯</title>
+    <link href="http://brightereyer.xyz/2020/05/10/articles/2020/05/10/1589111779000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/10/articles/2020/05/10/1589111779000.html/</id>
+    <published>2020-05-10T11:56:19.000Z</published>
+    <updated>2020-05-10T11:56:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>免费IM系统，IM即时通信消息系统<br><a href="https://gitee.com/starRTC/starrtc-android" target="_blank">starrtc-android</a><br><a href="https://gitee.com/starRTC/starrtc-server" target="_blank">starrtc-server</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;免费IM系统，IM即时通信消息系统&lt;br&gt;&lt;a href=&quot;https://gitee.com/starRTC/starrtc-android&quot; target=&quot;_blank&quot;&gt;starrtc-android&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://gitee.co
+      
+    
+    </summary>
+    
+    
+    
+      <category term="全栈" scheme="http://brightereyer.xyz/tags/%E5%85%A8%E6%A0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[android] gradle配置</title>
+    <link href="http://brightereyer.xyz/2020/05/10/articles/2020/05/10/1589110245000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/10/articles/2020/05/10/1589110245000.html/</id>
+    <published>2020-05-10T11:30:45.000Z</published>
+    <updated>2020-05-10T11:30:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">distributionUrl&#x3D;https\:&#x2F;&#x2F;services.gradle.org&#x2F;distributions&#x2F;gradle-4.6-all.zip</span><br></pre></td></tr></table></figure><p>{project}/gradle.properties</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemProp.https.proxyHost&#x3D;mirrors.neusoft.edu.cn</span><br><span class="line">systemProp.http.proxyPort&#x3D;80</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line"></span><br><span class="line">    repositories &#123;</span><br><span class="line">        maven &#123; url &#39;https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;public&#x2F;&#39; &#125;</span><br><span class="line">        maven &#123; url &#39;https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;google&#x2F;&#39; &#125;</span><br><span class="line">        maven &#123; url &#39;https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;jcenter&#39; &#125;</span><br><span class="line">        jcenter()</span><br><span class="line">        google()</span><br><span class="line">        maven &#123; url &#39;https:&#x2F;&#x2F;jitpack.io&#39; &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        maven &#123; url &#39;https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;public&#x2F;&#39; &#125;</span><br><span class="line">        maven &#123; url &#39;https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;google&#x2F;&#39; &#125;</span><br><span class="line">        maven &#123; url &#39;https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;jcenter&#39; &#125;</span><br><span class="line">        jcenter()</span><br><span class="line">        google()</span><br><span class="line">        maven &#123; url &#39;https:&#x2F;&#x2F;jitpack.io&#39; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla
+      
+    
+    </summary>
+    
+    
+    
+      <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[android] 局域网通讯</title>
+    <link href="http://brightereyer.xyz/2020/05/10/articles/2020/05/10/1589105930000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/10/articles/2020/05/10/1589105930000.html/</id>
+    <published>2020-05-10T10:18:50.000Z</published>
+    <updated>2020-05-10T10:18:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>基于局域网的 Android P2P 聊天系统<br><a href="https://github.com/LinYaoTian/P2PChat" target="_blank">P2PChat</a></p><p>Android局域网发现和建立一对多通信<br><a href="https://github.com/szuwest/Recorder" target="_blank">手机局域网内（包括热点）组网通讯实现</a></p><p>Android局域网内的语音对讲<br><a href="https://github.com/yhthu/intercom" target="_blank">intercom</a></p><p>基于socket的android局域网voip电话实现<br><a href="https://github.com/LostStarTvT/PhoneCall" target="_blank">PhoneCall</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;基于局域网的 Android P2P 聊天系统&lt;br&gt;&lt;a href=&quot;https://github.com/LinYaoTian/P2PChat&quot; target=&quot;_blank&quot;&gt;P2PChat&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Android局域网发现和建立一对多通信&lt;br&gt;&lt;a 
+      
+    
+    </summary>
+    
+    
+    
+      <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[mysql] 时区</title>
+    <link href="http://brightereyer.xyz/2020/05/10/articles/2020/05/10/1589100366000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/10/articles/2020/05/10/1589100366000.html/</id>
+    <published>2020-05-10T08:46:06.000Z</published>
+    <updated>2020-05-10T08:46:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?serverTimezone&#x3D;UTC&amp;characterEncoding&#x3D;utf8&amp;useUnicode&#x3D;true&amp;useSSL&#x3D;false</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla
+      
+    
+    </summary>
+    
+    
+    
+      <category term="mysql" scheme="http://brightereyer.xyz/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[vim] 快捷键退出</title>
+    <link href="http://brightereyer.xyz/2020/05/09/articles/2020/05/09/1589036217000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/09/articles/2020/05/09/1589036217000.html/</id>
+    <published>2020-05-09T14:56:57.000Z</published>
+    <updated>2020-05-09T14:56:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_16525279/article/details/79784294" target="_blank">vim快捷键 退出</a></p><p>不需要进入命令编辑模式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">按住shift，</span><br><span class="line">zz 保存退出</span><br><span class="line">zq 不保存退出</span><br></pre></td></tr></table></figure><p>在命令编辑模式下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:q 不保存退出</span><br><span class="line">:q! 不保存强制退出</span><br><span class="line">:wq 保存退出，w表示写入，不论是否修改，都会更改时间戳</span><br><span class="line">:x 保存退出，如果内容未改，不会更改时间戳</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_16525279/article/details/79784294&quot; target=&quot;_blank&quot;&gt;vim快捷键 退出&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;不需要进入命令编辑模式&lt;/p&gt;
+&lt;figure class=&quot;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="vim" scheme="http://brightereyer.xyz/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] 启动后自动打开浏览器</title>
+    <link href="http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588807711000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588807711000.html/</id>
+    <published>2020-05-06T23:28:31.000Z</published>
+    <updated>2020-05-06T23:28:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>方式一：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@EventListener(&#123;ApplicationReadyEvent.class&#125;)</span><br><span class="line">void applicationReadyEvent() &#123;</span><br><span class="line">    System.out.println(&quot;应用已经准备就绪 ... 启动浏览器&quot;);</span><br><span class="line">    String url &#x3D; &quot;http:&#x2F;&#x2F;localhost:8080&quot;;</span><br><span class="line">    Runtime runtime &#x3D; Runtime.getRuntime();</span><br><span class="line">    try &#123;</span><br><span class="line">        runtime.exec(&quot;rundll32 url.dll,FileProtocolHandler &quot; + url);</span><br><span class="line">    &#125; catch (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>方式二：<br><a href="https://blog.csdn.net/wohaqiyi/article/details/80580165" target="_blank">springboot配置启动后自动打开浏览器访问项目</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;方式一：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[路由] mercuryD126</title>
+    <link href="http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588802645000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588802645000.html/</id>
+    <published>2020-05-06T22:04:05.000Z</published>
+    <updated>2020-05-06T22:04:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>1200M 11AC双频无线路由器<br><a href="https://www.mercurycom.com.cn/product-331-0.html" target="_blank">幻影路由 D126</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">支持虚拟服务器、特殊应用程序和DMZ主机等多种端口转发，可用于建设内网网站</span><br></pre></td></tr></table></figure><p>虚拟服务器</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">本路由器自身集成了防火墙，这样在默认设置下广域网中的计算机将无法通过本路由器访问局域网中的某些服务器， 虚拟服务器功能可以解决该问题。通过虚拟服务器定义一个服务端口， 所有对此端口的服务请求将被重新定位给通过IP地址指定的局域网中的服务器。</span><br><span class="line">常用服务器</span><br><span class="line">常用服务器下拉列表中列举了一些常用的服务，您可以从中选择所需要的服务。</span><br><span class="line">外部端口</span><br><span class="line">路由器提供给广域网的服务端口。您可以输入一个端口号，也可以输入一个端口段，如：6001-6008。</span><br><span class="line">内部端口</span><br><span class="line">路由器提供给局域网的服务端口。如果内部端口与服务端口相同，您可以留空（或者填0），或者输入一个具体端口号，如：80。</span><br><span class="line">IP地址</span><br><span class="line">局域网中作为服务器的计算机的IP地址。</span><br><span class="line">协议</span><br><span class="line">服务器所使用的协议。</span><br><span class="line">举例说明</span><br><span class="line">如果您的FTP服务器（端口号为21）IP地址为192.168.1.2，这时您可以指定如下的虚拟服务器规则：</span><br><span class="line">常用服务器外部端口内部端口IP地址协议</span><br><span class="line">FTP2121192.168.1.2ALL</span><br><span class="line">注意：虚拟服务器的外部端口不能与“局域网WEB管理端口”或者“远程WEB管理端口”相同，否则会发生冲突，导致虚拟服务器不起作用。</span><br></pre></td></tr></table></figure><p>DMZ主机功能</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过DMZ主机功能，广域网中的设备可直接访问局域网中的DMZ主机。</span><br><span class="line">举例说明：</span><br><span class="line">如果要让局域网中IP地址为192.168.1.100的主机能够被广域网中的设备直接访问，则可以开启DMZ主机功能，在“DMZ主机IP地址”处填入192.168.1.100保存即可。</span><br></pre></td></tr></table></figure><details><summary>通用即插即用 (UPnP) 功能设置</summary><p><a href="https://service.tp-link.com.cn/detail_article_2936.html" target="_blank">设置无线路由器的UPNP功能</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当路由器打开UPNP功能后，如果用户电脑中的软件也支持UPNP协议，路由器会根据用户软件的需求打开相应的虚拟服务器端口。举例：如Windows7电脑开启迅雷下载后，如果开启路由器的UPNP功能，则路由器会自动开启虚拟服务端口。</span><br></pre></td></tr></table></figure></details><details><summary>github 路由</summary><p><a href="https://github.com/search?q=%E8%B7%AF%E7%94%B1&type=Repositories" target="_blank">github 路由</a><br><a href="https://github.com/getlantern/lantern" target="_blank">蓝灯</a></p></details><p><a href="https://product.pconline.com.cn/itbk/wlbg/wireless/1402/4259137.html" target="_blank">TP-Link无线路由器设置</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1200M 11AC双频无线路由器&lt;br&gt;&lt;a href=&quot;https://www.mercurycom.com.cn/product-331-0.html&quot; target=&quot;_blank&quot;&gt;幻影路由 D126&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highligh
+      
+    
+    </summary>
+    
+    
+    
+      <category term="路由" scheme="http://brightereyer.xyz/tags/%E8%B7%AF%E7%94%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[ngrok] +路由</title>
+    <link href="http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588802643000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588802643000.html/</id>
+    <published>2020-05-06T22:04:03.000Z</published>
+    <updated>2020-05-06T22:04:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://koolshare.cn/thread-28205-1-1.html" target="_blank" rel="noopener">ngrok内网穿透教程</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://koolshare.cn/thread-28205-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ngrok内网穿透教程&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ngrok" scheme="http://brightereyer.xyz/tags/ngrok/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[PCB] stm32最小系统</title>
+    <link href="http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588802642000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588802642000.html/</id>
+    <published>2020-05-06T22:04:02.000Z</published>
+    <updated>2020-05-06T22:04:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/ima_xu/article/details/82528762" target="_blank">stm32最小系统PCB设计步骤</a><br><a href="https://www.bilibili.com/video/av49043499/" target="_blank">B站 教程视频</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/ima_xu/article/details/82528762&quot; target=&quot;_blank&quot;&gt;stm32最小系统PCB设计步骤&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.bilibili.com
+      
+    
+    </summary>
+    
+    
+    
+      <category term="PCB" scheme="http://brightereyer.xyz/tags/PCB/"/>
     
   </entry>
   
