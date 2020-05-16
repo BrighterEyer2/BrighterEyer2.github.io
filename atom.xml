@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://brightereyer.xyz/"/>
-  <updated>2020-05-15T15:31:58.000Z</updated>
+  <updated>2020-05-16T00:40:20.000Z</updated>
   <id>http://brightereyer.xyz/</id>
   
   <author>
@@ -15,6 +15,188 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[java] 设计模式</title>
+    <link href="http://brightereyer.xyz/2020/05/16/articles/2020/05/16/1589589620000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/16/articles/2020/05/16/1589589620000.html/</id>
+    <published>2020-05-16T00:40:20.000Z</published>
+    <updated>2020-05-16T00:40:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/youlookwhat/DesignPattern" target="_blank">DesignPattern</a></p><p><a href="https://blog.csdn.net/cqb18257344546/category_6465576.html" target="_blank">java设计模式</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://github.com/youlookwhat/DesignPattern&quot; target=&quot;_blank&quot;&gt;DesignPattern&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/cqb1825734
+      
+    
+    </summary>
+    
+    
+    
+      <category term="java" scheme="http://brightereyer.xyz/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] 代码生成</title>
+    <link href="http://brightereyer.xyz/2020/05/16/articles/2020/05/16/1589588196000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/16/articles/2020/05/16/1589588196000.html/</id>
+    <published>2020-05-16T00:16:36.000Z</published>
+    <updated>2020-05-16T00:16:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<details><summary>代码生成</summary><p>基于SpringBoot2+Freemarker的代码生成器<br><a href="https://github.com/moshowgame/SpringBootCodeGenerator" target="_blank">SpringBootCodeGenerator</a></p><p>JieLin快速开发平台,基于SpringBoot + Mybatis + Vue + 代码生成器<br><a href="https://github.com/jack-hoo/JieLin-Fast" target="_blank">JieLin-Fast</a></p></details>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;details&gt;
+&lt;summary&gt;代码生成&lt;/summary&gt;
+
+&lt;p&gt;基于SpringBoot2+Freemarker的代码生成器&lt;br&gt;&lt;a href=&quot;https://github.com/moshowgame/SpringBootCodeGenerator&quot; targ
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] face++人脸识别</title>
+    <link href="http://brightereyer.xyz/2020/05/16/articles/2020/05/16/1589588195000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/16/articles/2020/05/16/1589588195000.html/</id>
+    <published>2020-05-16T00:16:35.000Z</published>
+    <updated>2020-05-16T00:16:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<details><summary>face++人脸识别</summary><p>H5人脸识别服务端<br><a href="https://github.com/jack-hoo/face_reco_server" target="_blank">face_reco_server</a><br>基于H5的人脸识别demo(client)<br><a href="https://github.com/jack-hoo/face-reco" target="_blank">face-reco</a></p></details>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;details&gt;
+&lt;summary&gt;face++人脸识别&lt;/summary&gt;
+
+&lt;p&gt;H5人脸识别服务端&lt;br&gt;&lt;a href=&quot;https://github.com/jack-hoo/face_reco_server&quot; target=&quot;_blank&quot;&gt;face_reco_se
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] socket</title>
+    <link href="http://brightereyer.xyz/2020/05/16/articles/2020/05/16/1589586751000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/16/articles/2020/05/16/1589586751000.html/</id>
+    <published>2020-05-15T23:52:31.000Z</published>
+    <updated>2020-05-15T23:52:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<details><summary>socket</summary><p><a href="https://www.cnblogs.com/threadj/p/10553048.html" target="_blank">SpringBoot之集成Socket</a><br><a href="https://github.com/DavidDingXu/springboot-socket-demo" target="_blank">springboot-socket-demo</a><br><a href="https://blog.csdn.net/yhflyl/article/details/89455892" target="_blank">Socket连接与硬件通信</a></p></details>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;details&gt;
+&lt;summary&gt;socket&lt;/summary&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/threadj/p/10553048.html&quot; target=&quot;_blank&quot;&gt;SpringBoot之集成Socket&lt;/a&gt;&lt;br
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[springboot] 直播</title>
+    <link href="http://brightereyer.xyz/2020/05/16/articles/2020/05/16/1589586750000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/16/articles/2020/05/16/1589586750000.html/</id>
+    <published>2020-05-15T23:52:30.000Z</published>
+    <updated>2020-05-15T23:52:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<details><summary>流媒体协议介绍</summary><p><a href="https://blog.csdn.net/tttyd/article/details/12032357/" target="_blank">流媒体协议介绍（rtp/rtcp/rtsp/rtmp/mms/hls）</a></p><p>自己动手打造一个属于自己的直播间（视频直播、聊天室、弹幕、多端适配）<br><a href="https://github.com/jack-hoo/LiveRoomDemo_Client" target="_blank">LiveRoomDemo_Client</a><br><a href="https://github.com/jack-hoo/LiveRoomDemo_Server" target="_blank">LiveRoomDemo_Server</a></p></details>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;details&gt;
+&lt;summary&gt;流媒体协议介绍&lt;/summary&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/tttyd/article/details/12032357/&quot; target=&quot;_blank&quot;&gt;流媒体协议介绍（rtp/rtcp/rt
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[PCB] AltiumDesigner20</title>
+    <link href="http://brightereyer.xyz/2020/05/16/articles/2020/05/16/1589586749000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/16/articles/2020/05/16/1589586749000.html/</id>
+    <published>2020-05-15T23:52:29.000Z</published>
+    <updated>2020-05-15T23:52:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.ddooo.com/softdown/148950.htm" target="_blank">altium designer 20破解版 v20.0.1中文版</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://www.ddooo.com/softdown/148950.htm&quot; target=&quot;_blank&quot;&gt;altium designer 20破解版 v20.0.1中文版&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="PCB" scheme="http://brightereyer.xyz/tags/PCB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[PCB] stm32最小系统</title>
+    <link href="http://brightereyer.xyz/2020/05/16/articles/2020/05/16/1589585982000.html/"/>
+    <id>http://brightereyer.xyz/2020/05/16/articles/2020/05/16/1589585982000.html/</id>
+    <published>2020-05-15T23:39:42.000Z</published>
+    <updated>2020-05-15T23:39:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/ima_xu/article/details/82528762" target="_blank">stm32最小系统PCB设计步骤</a><br><a href="https://www.bilibili.com/video/av49043499/" target="_blank">B站 教程视频</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/ima_xu/article/details/82528762&quot; target=&quot;_blank&quot;&gt;stm32最小系统PCB设计步骤&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.bilibili.com
+      
+    
+    </summary>
+    
+    
+    
+      <category term="PCB" scheme="http://brightereyer.xyz/tags/PCB/"/>
+    
+  </entry>
   
   <entry>
     <title>[小程序] 二维码组件</title>
@@ -335,180 +517,6 @@
     
     
       <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[android] 局域网通讯</title>
-    <link href="http://brightereyer.xyz/2020/05/10/articles/2020/05/10/1589105930000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/10/articles/2020/05/10/1589105930000.html/</id>
-    <published>2020-05-10T10:18:50.000Z</published>
-    <updated>2020-05-10T10:18:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>基于局域网的 Android P2P 聊天系统<br><a href="https://github.com/LinYaoTian/P2PChat" target="_blank">P2PChat</a></p><p>Android局域网发现和建立一对多通信<br><a href="https://github.com/szuwest/Recorder" target="_blank">手机局域网内（包括热点）组网通讯实现</a></p><p>Android局域网内的语音对讲<br><a href="https://github.com/yhthu/intercom" target="_blank">intercom</a></p><p>基于socket的android局域网voip电话实现<br><a href="https://github.com/LostStarTvT/PhoneCall" target="_blank">PhoneCall</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;基于局域网的 Android P2P 聊天系统&lt;br&gt;&lt;a href=&quot;https://github.com/LinYaoTian/P2PChat&quot; target=&quot;_blank&quot;&gt;P2PChat&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Android局域网发现和建立一对多通信&lt;br&gt;&lt;a 
-      
-    
-    </summary>
-    
-    
-    
-      <category term="android" scheme="http://brightereyer.xyz/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[mysql] 时区</title>
-    <link href="http://brightereyer.xyz/2020/05/10/articles/2020/05/10/1589100366000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/10/articles/2020/05/10/1589100366000.html/</id>
-    <published>2020-05-10T08:46:06.000Z</published>
-    <updated>2020-05-10T08:46:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?serverTimezone&#x3D;UTC&amp;characterEncoding&#x3D;utf8&amp;useUnicode&#x3D;true&amp;useSSL&#x3D;false</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla
-      
-    
-    </summary>
-    
-    
-    
-      <category term="mysql" scheme="http://brightereyer.xyz/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[vim] 快捷键退出</title>
-    <link href="http://brightereyer.xyz/2020/05/09/articles/2020/05/09/1589036217000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/09/articles/2020/05/09/1589036217000.html/</id>
-    <published>2020-05-09T14:56:57.000Z</published>
-    <updated>2020-05-09T14:56:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_16525279/article/details/79784294" target="_blank">vim快捷键 退出</a></p><p>不需要进入命令编辑模式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">按住shift，</span><br><span class="line">zz 保存退出</span><br><span class="line">zq 不保存退出</span><br></pre></td></tr></table></figure><p>在命令编辑模式下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:q 不保存退出</span><br><span class="line">:q! 不保存强制退出</span><br><span class="line">:wq 保存退出，w表示写入，不论是否修改，都会更改时间戳</span><br><span class="line">:x 保存退出，如果内容未改，不会更改时间戳</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_16525279/article/details/79784294&quot; target=&quot;_blank&quot;&gt;vim快捷键 退出&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;不需要进入命令编辑模式&lt;/p&gt;
-&lt;figure class=&quot;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="vim" scheme="http://brightereyer.xyz/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[springboot] 启动后自动打开浏览器</title>
-    <link href="http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588807711000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588807711000.html/</id>
-    <published>2020-05-06T23:28:31.000Z</published>
-    <updated>2020-05-06T23:28:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>方式一：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@EventListener(&#123;ApplicationReadyEvent.class&#125;)</span><br><span class="line">void applicationReadyEvent() &#123;</span><br><span class="line">    System.out.println(&quot;应用已经准备就绪 ... 启动浏览器&quot;);</span><br><span class="line">    String url &#x3D; &quot;http:&#x2F;&#x2F;localhost:8080&quot;;</span><br><span class="line">    Runtime runtime &#x3D; Runtime.getRuntime();</span><br><span class="line">    try &#123;</span><br><span class="line">        runtime.exec(&quot;rundll32 url.dll,FileProtocolHandler &quot; + url);</span><br><span class="line">    &#125; catch (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>方式二：<br><a href="https://blog.csdn.net/wohaqiyi/article/details/80580165" target="_blank">springboot配置启动后自动打开浏览器访问项目</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;方式一：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br
-      
-    
-    </summary>
-    
-    
-    
-      <category term="springboot" scheme="http://brightereyer.xyz/tags/springboot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[路由] mercuryD126</title>
-    <link href="http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588802645000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588802645000.html/</id>
-    <published>2020-05-06T22:04:05.000Z</published>
-    <updated>2020-05-06T22:04:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>1200M 11AC双频无线路由器<br><a href="https://www.mercurycom.com.cn/product-331-0.html" target="_blank">幻影路由 D126</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">支持虚拟服务器、特殊应用程序和DMZ主机等多种端口转发，可用于建设内网网站</span><br></pre></td></tr></table></figure><p>虚拟服务器</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">本路由器自身集成了防火墙，这样在默认设置下广域网中的计算机将无法通过本路由器访问局域网中的某些服务器， 虚拟服务器功能可以解决该问题。通过虚拟服务器定义一个服务端口， 所有对此端口的服务请求将被重新定位给通过IP地址指定的局域网中的服务器。</span><br><span class="line">常用服务器</span><br><span class="line">常用服务器下拉列表中列举了一些常用的服务，您可以从中选择所需要的服务。</span><br><span class="line">外部端口</span><br><span class="line">路由器提供给广域网的服务端口。您可以输入一个端口号，也可以输入一个端口段，如：6001-6008。</span><br><span class="line">内部端口</span><br><span class="line">路由器提供给局域网的服务端口。如果内部端口与服务端口相同，您可以留空（或者填0），或者输入一个具体端口号，如：80。</span><br><span class="line">IP地址</span><br><span class="line">局域网中作为服务器的计算机的IP地址。</span><br><span class="line">协议</span><br><span class="line">服务器所使用的协议。</span><br><span class="line">举例说明</span><br><span class="line">如果您的FTP服务器（端口号为21）IP地址为192.168.1.2，这时您可以指定如下的虚拟服务器规则：</span><br><span class="line">常用服务器外部端口内部端口IP地址协议</span><br><span class="line">FTP2121192.168.1.2ALL</span><br><span class="line">注意：虚拟服务器的外部端口不能与“局域网WEB管理端口”或者“远程WEB管理端口”相同，否则会发生冲突，导致虚拟服务器不起作用。</span><br></pre></td></tr></table></figure><p>DMZ主机功能</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过DMZ主机功能，广域网中的设备可直接访问局域网中的DMZ主机。</span><br><span class="line">举例说明：</span><br><span class="line">如果要让局域网中IP地址为192.168.1.100的主机能够被广域网中的设备直接访问，则可以开启DMZ主机功能，在“DMZ主机IP地址”处填入192.168.1.100保存即可。</span><br></pre></td></tr></table></figure><details><summary>通用即插即用 (UPnP) 功能设置</summary><p><a href="https://service.tp-link.com.cn/detail_article_2936.html" target="_blank">设置无线路由器的UPNP功能</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当路由器打开UPNP功能后，如果用户电脑中的软件也支持UPNP协议，路由器会根据用户软件的需求打开相应的虚拟服务器端口。举例：如Windows7电脑开启迅雷下载后，如果开启路由器的UPNP功能，则路由器会自动开启虚拟服务端口。</span><br></pre></td></tr></table></figure></details><details><summary>github 路由</summary><p><a href="https://github.com/search?q=%E8%B7%AF%E7%94%B1&type=Repositories" target="_blank">github 路由</a><br><a href="https://github.com/getlantern/lantern" target="_blank">蓝灯</a></p></details><p><a href="https://product.pconline.com.cn/itbk/wlbg/wireless/1402/4259137.html" target="_blank">TP-Link无线路由器设置</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;1200M 11AC双频无线路由器&lt;br&gt;&lt;a href=&quot;https://www.mercurycom.com.cn/product-331-0.html&quot; target=&quot;_blank&quot;&gt;幻影路由 D126&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highligh
-      
-    
-    </summary>
-    
-    
-    
-      <category term="路由" scheme="http://brightereyer.xyz/tags/%E8%B7%AF%E7%94%B1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[ngrok] +路由</title>
-    <link href="http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588802643000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588802643000.html/</id>
-    <published>2020-05-06T22:04:03.000Z</published>
-    <updated>2020-05-06T22:04:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://koolshare.cn/thread-28205-1-1.html" target="_blank" rel="noopener">ngrok内网穿透教程</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://koolshare.cn/thread-28205-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ngrok内网穿透教程&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="ngrok" scheme="http://brightereyer.xyz/tags/ngrok/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[PCB] stm32最小系统</title>
-    <link href="http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588802642000.html/"/>
-    <id>http://brightereyer.xyz/2020/05/07/articles/2020/05/07/1588802642000.html/</id>
-    <published>2020-05-06T22:04:02.000Z</published>
-    <updated>2020-05-06T22:04:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/ima_xu/article/details/82528762" target="_blank">stm32最小系统PCB设计步骤</a><br><a href="https://www.bilibili.com/video/av49043499/" target="_blank">B站 教程视频</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/ima_xu/article/details/82528762&quot; target=&quot;_blank&quot;&gt;stm32最小系统PCB设计步骤&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.bilibili.com
-      
-    
-    </summary>
-    
-    
-    
-      <category term="PCB" scheme="http://brightereyer.xyz/tags/PCB/"/>
     
   </entry>
   
